@@ -1,0 +1,1173 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	setUp [label="setUp
+test_stats.py:9" fillcolor=white shape=box style=filled]
+	get_crawler [label="get_crawler
+Return an unconfigured Crawler object. If settings_dict…
+test.py:23" fillcolor=white shape=box style=filled]
+	ERROR__KeyError [label="KeyError
+'scrapy.crawler'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	lock [label="lock
+(2 writes, 2 distinct)
+None
+_ModuleLock('scrapy.crawler') at 138939797562112" shape=ellipse]
+	cb [label="cb
+<function _get_module_lock.<locals>.cb at 0x7e5d71485da0>" shape=ellipse]
+	tid [label="tid
+(3 writes)
+138939851845760" shape=ellipse]
+	o [label="o
+(3 writes, 3 distinct)
+None
+<scrapy.extensions.corestats.CoreStats object at 0x7e5d704cd670>
+<scrapy.extensions.logstats.LogStats object at 0x7e5d703ffb00>" shape=ellipse]
+	parent [label="parent
+(9 writes, 5 distinct)
+'scrapy'
+'/path/to/BugsInPy/workspace/scrapy/scrapy/__pycache__'
+'zope.interface'
+'scrapy.core'
+'scrapy.utils'" shape=ellipse]
+	parent_module [label="parent_module
+(8 writes, 4 distinct)
+<module 'scrapy' from '/path/to/BugsInPy/workspace/scrapy/scrapy/__init__.py'>
+<module 'zope.interface' from '/path/to/.venv/lib/python3.12/site-packages/zope/interface/__init__.py'>
+<module 'scrapy.core' from '/path/to/BugsInPy/workspace/scrapy/scrapy/core/__init__.py'>
+<module 'scrapy.utils' from '/path/to/BugsInPy/workspace/scrapy/scrapy/utils/__init__.py'>" shape=ellipse]
+	child [label="child
+(8 writes, 8 distinct)
+'crawler'
+'verify'
+'engine'
+'resolver'
+'interfaces'
+'extension'
+  …+2 more values" shape=ellipse]
+	meta_path [label="meta_path
+[<_distutils_hack.DistutilsMetaFinder object at 0x7e5d73d704a0>, <class '_frozen_importlib.BuiltinImporter'>, <class '_f…" shape=ellipse]
+	is_reload [label="is_reload
+False" shape=ellipse]
+	finder [label="finder
+(10 writes, 6 distinct)
+<_distutils_hack.DistutilsMetaFinder object at 0x7e5d73d704a0>
+<class '_frozen_importlib.BuiltinImporter'>
+<class '_frozen_importlib.FrozenImporter'>
+<class '_frozen_importlib_external.PathFinder'>
+FileFinder('/path/to/BugsInPy/workspace/scrapy/scrapy')
+FileFinder('/usr/lib/python3.12/encodings')" shape=ellipse]
+	find_spec [label="find_spec
+(7 writes, 4 distinct)
+<bound method DistutilsMetaFinder.find_spec of <_distutils_hack.DistutilsMetaFinder object at 0x7e5d73d704a0>>
+<bound method BuiltinImporter.find_spec of <class '_frozen_importlib.BuiltinImporter'>>
+<bound method FrozenImporter.find_spec of <class '_frozen_importlib.FrozenImporter'>>
+<bound method PathFinder.find_spec of <class '_frozen_importlib_external.PathFinder'>>" shape=ellipse]
+	info [label="info
+(2 writes)
+None" shape=ellipse]
+	namespace_path [label="namespace_path
+(2 writes)
+[]" shape=ellipse]
+	entry [label="entry
+(2 writes, 2 distinct)
+'/path/to/BugsInPy/workspace/scrapy/scrapy'
+'/usr/lib/python3.12/encodings'" shape=ellipse]
+	is_namespace [label="is_namespace
+False" shape=ellipse]
+	tail_module [label="tail_module
+'crawler'" shape=ellipse]
+	mtime [label="mtime
+1780556959.6750202" shape=ellipse]
+	cache [label="cache
+set(len=55)" shape=ellipse]
+	cache_module [label="cache_module
+'crawler'" shape=ellipse]
+	suffix [label="suffix
+(2 writes, 2 distinct)
+'.cpython-312-x86_64-linux-gnu.so'
+'.py'" shape=ellipse]
+	loader_class [label="loader_class
+(2 writes, 2 distinct)
+<class '_frozen_importlib_external.ExtensionFileLoader'>
+<class '_frozen_importlib_external.SourceFileLoader'>" shape=ellipse]
+	part [label="part
+(6 writes, 4 distinct)
+'/path/to/BugsInPy/workspace/scrapy/scrapy'
+'crawler.cpython-312-x86_64-linux-gnu.so'
+'crawler.py'
+'crawler.cpython-312.pyc'" shape=ellipse]
+	full_path [label="full_path
+(2 writes, 2 distinct)
+'/path/to/BugsInPy/workspace/scrapy/scrapy/crawler.cpython-312-x86_64-linux-gnu.so'
+'/path/to/BugsInPy/workspace/scrapy/scrapy/crawler.py'" shape=ellipse]
+	stat_info [label="stat_info
+os.stat_result(st_mode=33204, st_ino=3555188, st_dev=66309, st_nlink=1, st_uid=1000, st_gid=1000, st_size=11182, st_atim…" shape=ellipse]
+	loader [label="loader
+(3 writes, 2 distinct)
+<_frozen_importlib_external.SourceFileLoader object at 0x7e5d7158ef90>
+<_frozen_importlib_external.SourceFileLoader object at 0x7e5d704c8920>" shape=ellipse]
+	head [label="head
+(2 writes)
+'/path/to/BugsInPy/workspace/scrapy/scrapy'" shape=ellipse]
+	tail [label="tail
+(2 writes)
+'crawler.py'" shape=ellipse]
+	base [label="base
+(3 writes, 2 distinct)
+'crawler'
+<InterfaceClass zope.interface.Interface>" shape=ellipse]
+	sep [label="sep
+(2 writes)
+'.'" shape=ellipse]
+	rest [label="rest
+(2 writes)
+'py'" shape=ellipse]
+	tag [label="tag
+(2 writes)
+'cpython-312'" shape=ellipse]
+	almost_filename [label="almost_filename
+(2 writes)
+'crawler.cpython-312'" shape=ellipse]
+	optimization [label="optimization
+(2 writes)
+''" shape=ellipse]
+	filename [label="filename
+(3 writes)
+'crawler.cpython-312.pyc'" shape=ellipse]
+	source_path [label="source_path
+(2 writes, 2 distinct)
+'/path/to/BugsInPy/workspace/scrapy/scrapy/crawler.py'
+'/usr/lib/python3.12/encodings/idna.py'" shape=ellipse]
+	source_mtime [label="source_mtime
+(4 writes, 3 distinct)
+None
+1780556959
+1772540118" shape=ellipse]
+	source_bytes [label="source_bytes
+(3 writes, 2 distinct)
+None
+bytes(len=11182)" shape=ellipse]
+	source_hash [label="source_hash
+(2 writes)
+None" shape=ellipse]
+	hash_based [label="hash_based
+(2 writes)
+False" shape=ellipse]
+	check_source [label="check_source
+(2 writes)
+True" shape=ellipse]
+	p [label="p
+'/'" shape=ellipse]
+	i [label="i
+(2 writes, 2 distinct)
+51
+63" shape=ellipse]
+	bytecode_path [label="bytecode_path
+(2 writes, 2 distinct)
+'/path/to/BugsInPy/workspace/scrapy/scrapy/__pycache__/crawler.cpython-312.pyc'
+'/usr/lib/python3.12/encodings/__pycache__/idna.cpython-312.pyc'" shape=ellipse]
+	st [label="st
+(3 writes, 3 distinct)
+os.stat_result(st_mode=33204, st_ino=3555188, st_dev=66309, st_nlink=1, st_uid=1000, st_gid=1000, st_size=11182, st_atim…
+{'mtime': 1780556959.6730201, 'size': 11182}
+{'mtime': 1772540118.0, 'size': 9710}" shape=ellipse]
+	file [label="file
+(4 writes, 4 distinct)
+<_io.BufferedReader name='/path/to/BugsInPy/workspace/scrapy/scrapy/__pycache__/crawler.cpython-312.pyc'>
+<_io.BufferedReader name='/path/to/BugsInPy/workspace/scrapy/scrapy/crawler.py'>
+<_io.FileIO name=3 mode='wb' closefd=True>
+<_io.FileIO [closed]>" shape=ellipse]
+	data [label="data
+(8 writes, 7 distinct)
+bytes(len=17750)
+bytearray(b'\xcb\r\r\n')
+bytearray(b'\xcb\r\r\n\x00\x00\x00\x00')
+bytearray(b'\xcb\r\r\n\x00\x00\x00\x00\x9f$!j')
+bytearray(b'\xcb\r\r\n\x00\x00\x00\x00\x9f$!j\xae+\x00\x00')
+bytearray(b'\xcb\r\r\n\x00\x00\x00\x00\x9f$!j\xae+\x00\x00\xe3\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x05\x00\x…
+  …+1 more values" shape=ellipse]
+	exc_details [label="exc_details
+(2 writes, 2 distinct)
+{'name': 'scrapy.crawler', 'path': '/path/to/BugsInPy/workspace/scrapy/scrapy/__pycache__/crawler.cpython-312.…
+{'name': 'encodings.idna', 'path': '/usr/lib/python3.12/encodings/__pycache__/idna.cpython-312.pyc'}" shape=ellipse]
+	magic [label="magic
+b'\xcb\r\r\n'" shape=ellipse]
+	flags [label="flags
+(3 writes)
+0" shape=ellipse]
+	bytes_data [label="bytes_data
+(2 writes, 2 distinct)
+<memory at 0x7e5d71582440>
+<memory at 0x7e5d705934c0>" shape=ellipse]
+	message [label="message
+\"bytecode is stale for 'scrapy.crawler'\"" shape=ellipse]
+	ERROR__ImportError [label="ImportError
+bytecode is stale for 'scrapy.crawler'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	code_object [label="code_object
+<code object <module> at 0x7e5d7154b630, file \"/path/to/BugsInPy/workspace/scrapy/scrapy/crawler.py\", line 1>" shape=ellipse]
+	mode [label="mode
+(2 writes)
+33204" shape=ellipse]
+	path_parts [label="path_parts
+[]" shape=ellipse]
+	path_tmp [label="path_tmp
+'/path/to/BugsInPy/workspace/scrapy/scrapy/__pycache__/crawler.cpython-312.pyc.138939797658416'" shape=ellipse]
+	fd [label="fd
+3" shape=ellipse]
+	code [label="code
+(6 writes, 6 distinct)
+<code object <module> at 0x7e5d7154b630, file \"/path/to/BugsInPy/workspace/scrapy/scrapy/crawler.py\", line 1>
+<code object from_settings at 0x7e5d71442a30, file \"/path/to/BugsInPy/workspace/scrapy/scrapy/spiderloader.py\"…
+<code object load at 0x7e5d715eb340, file \"/path/to/BugsInPy/workspace/scrapy/scrapy/spiderloader.py\", line 32…
+<code object list at 0x7e5d70650be0, file \"/path/to/BugsInPy/workspace/scrapy/scrapy/spiderloader.py\", line 49…
+<code object find_by_request at 0x7e5d706ae790, file \"/path/to/BugsInPy/workspace/scrapy/scrapy/spiderloader.p…
+<code object <module> at 0x27a93c40, file \"/usr/lib/python3.12/encodings/idna.py\", line 1>" shape=ellipse]
+	six [label="six
+<module 'six' from '/path/to/.venv/lib/python3.12/site-packages/six.py'>" shape=ellipse]
+	signal [label="signal
+<module 'signal' from '/usr/lib/python3.12/signal.py'>" shape=ellipse]
+	logging [label="logging
+<module 'logging' from '/usr/lib/python3.12/logging/__init__.py'>" shape=ellipse]
+	warnings [label="warnings
+<module 'warnings' from '/usr/lib/python3.12/warnings.py'>" shape=ellipse]
+	from_name [label="from_name
+'twisted.internet.reactor'" shape=ellipse]
+	reactor [label="reactor
+<twisted.internet.epollreactor.EPollReactor object at 0x7e5d7213f7d0>" shape=ellipse]
+	defer [label="defer
+<module 'twisted.internet.defer' from '/path/to/.venv/lib/python3.12/site-packages/twisted/internet/defer.py'>" shape=ellipse]
+	verifyClass [label="verifyClass
+<function verifyClass at 0x7e5d7057e8e0>" shape=ellipse]
+	DoesNotImplement [label="DoesNotImplement
+<class 'zope.interface.exceptions.DoesNotImplement'>" shape=ellipse]
+	ExecutionEngine [label="ExecutionEngine
+<class 'scrapy.core.engine.ExecutionEngine'>" shape=ellipse]
+	CachingThreadedResolver [label="CachingThreadedResolver
+<class 'scrapy.resolver.CachingThreadedResolver'>" shape=ellipse]
+	ISpiderLoader [label="ISpiderLoader
+<InterfaceClass scrapy.interfaces.ISpiderLoader>" shape=ellipse]
+	ExtensionManager [label="ExtensionManager
+<class 'scrapy.extension.ExtensionManager'>" shape=ellipse]
+	Settings [label="Settings
+(2 writes)
+<class 'scrapy.settings.Settings'>" shape=ellipse]
+	SignalManager [label="SignalManager
+<class 'scrapy.signalmanager.SignalManager'>" shape=ellipse]
+	ScrapyDeprecationWarning [label="ScrapyDeprecationWarning
+<class 'scrapy.exceptions.ScrapyDeprecationWarning'>" shape=ellipse]
+	install_shutdown_handlers [label="install_shutdown_handlers
+<function install_shutdown_handlers at 0x7e5d704693a0>" shape=ellipse]
+	signal_names [label="signal_names
+dict(len=34)" shape=ellipse]
+	load_object [label="load_object
+<function load_object at 0x7e5d715537e0>" shape=ellipse]
+	LogCounterHandler [label="LogCounterHandler
+<class 'scrapy.utils.log.LogCounterHandler'>" shape=ellipse]
+	configure_logging [label="configure_logging
+<function configure_logging at 0x7e5d7057eb60>" shape=ellipse]
+	log_scrapy_info [label="log_scrapy_info
+<function log_scrapy_info at 0x7e5d705f7ba0>" shape=ellipse]
+	logger [label="logger
+<Logger scrapy.crawler (WARNING)>" shape=ellipse]
+	__module__ [label="__module__
+(3 writes)
+'scrapy.crawler'" shape=ellipse]
+	__qualname__ [label="__qualname__
+(3 writes, 3 distinct)
+'Crawler'
+'CrawlerRunner'
+'CrawlerProcess'" shape=ellipse]
+	__init__ [label="__init__
+(3 writes, 3 distinct)
+<function Crawler.__init__ at 0x7e5d704694e0>
+<function CrawlerRunner.__init__ at 0x7e5d70469b20>
+<function CrawlerProcess.__init__ at 0x7e5d7046a020>" shape=ellipse]
+	spiders [label="spiders
+(2 writes, 2 distinct)
+<property object at 0x7e5d70572930>
+<property object at 0x7e5d70490e50>" shape=ellipse]
+	inlineCallbacks [label=inlineCallbacks fillcolor=white shape=box style=filled]
+	unwindGenerator [label="unwindGenerator
+(3 writes, 3 distinct)
+<function Crawler.crawl at 0x7e5d70469800>
+<function Crawler.stop at 0x7e5d70469a80>
+<function CrawlerRunner.join at 0x7e5d70469f80>" shape=ellipse]
+	crawl [label="crawl
+(2 writes, 2 distinct)
+<function Crawler.crawl at 0x7e5d70469800>
+<function CrawlerRunner.crawl at 0x7e5d70469c60>" shape=ellipse]
+	_create_spider [label="_create_spider
+<function Crawler._create_spider at 0x7e5d704698a0>" shape=ellipse]
+	_create_engine [label="_create_engine
+<function Crawler._create_engine at 0x7e5d70469940>" shape=ellipse]
+	stop [label="stop
+(2 writes, 2 distinct)
+<function Crawler.stop at 0x7e5d70469a80>
+<function CrawlerRunner.stop at 0x7e5d70469e40>" shape=ellipse]
+	Crawler [label="Crawler
+<class 'scrapy.crawler.Crawler'>" shape=ellipse]
+	__doc__ [label="__doc__
+(2 writes, 2 distinct)
+\"\n    This is a convenient helper class that keeps track of, manages and runs\n    crawlers inside an already setup Twi…
+\"\n    A class to run multiple scrapy crawlers in a process simultaneously.\n\n    This class extends :class:`~scrapy.cr…" shape=ellipse]
+	crawlers [label="crawlers
+<property object at 0x7e5d70490b80>" shape=ellipse]
+	_crawl [label="_crawl
+<function CrawlerRunner._crawl at 0x7e5d70469d00>" shape=ellipse]
+	_create_crawler [label="_create_crawler
+<function CrawlerRunner._create_crawler at 0x7e5d70469da0>" shape=ellipse]
+	join [label="join
+<function CrawlerRunner.join at 0x7e5d70469f80>" shape=ellipse]
+	CrawlerRunner [label="CrawlerRunner
+(2 writes)
+<class 'scrapy.crawler.CrawlerRunner'>" shape=ellipse]
+	_signal_shutdown [label="_signal_shutdown
+<function CrawlerProcess._signal_shutdown at 0x7e5d7046a0c0>" shape=ellipse]
+	_signal_kill [label="_signal_kill
+<function CrawlerProcess._signal_kill at 0x7e5d7046a160>" shape=ellipse]
+	start [label="start
+<function CrawlerProcess.start at 0x7e5d7046a200>" shape=ellipse]
+	_get_dns_resolver [label="_get_dns_resolver
+<function CrawlerProcess._get_dns_resolver at 0x7e5d7046a2a0>" shape=ellipse]
+	_graceful_stop_reactor [label="_graceful_stop_reactor
+<function CrawlerProcess._graceful_stop_reactor at 0x7e5d7046a340>" shape=ellipse]
+	_stop_reactor [label="_stop_reactor
+<function CrawlerProcess._stop_reactor at 0x7e5d7046a3e0>" shape=ellipse]
+	__classcell__ [label="__classcell__
+<cell at 0x7e5d705ab310: empty>" shape=ellipse]
+	CrawlerProcess [label="CrawlerProcess
+<class 'scrapy.crawler.CrawlerProcess'>" shape=ellipse]
+	_get_spider_loader [label="_get_spider_loader
+<function _get_spider_loader at 0x7e5d70469440>" shape=ellipse]
+	args [label="args
+(2 writes, 2 distinct)
+(<code object <module> at 0x7e5d7154b630, file \"/path/to/BugsInPy/workspace/scrapy/scrapy/crawler.py\", line 1>…
+(<code object <module> at 0x27a93c40, file \"/usr/lib/python3.12/encodings/idna.py\", line 1>, {'__name__': 'encodings.idn…" shape=ellipse]
+	Spider [label="Spider
+<class 'scrapy.spiders.Spider'>" shape=ellipse]
+	setmodule [label="setmodule
+__init__.py:105" fillcolor=white shape=box style=filled]
+	_assert_mutability [label="_assert_mutability
+__init__.py:113" fillcolor=white shape=box style=filled]
+	key [label="key
+(4 writes, 4 distinct)
+'AJAXCRAWL_ENABLED'
+'USER_AGENT'
+'__builtins__'
+'sys'" shape=ellipse]
+	set [label="set
+Sets value if priority is higher or equal than current …
+__init__.py:35" fillcolor=white shape=box style=filled]
+	priority [label="priority
+(2 writes)
+0" shape=ellipse]
+	get [label="get
+headers.py:44" fillcolor=white shape=box style=filled]
+	__getitem__ [label="__getitem__
+headers.py:38" fillcolor=white shape=box style=filled]
+	cls_path [label="cls_path
+'scrapy.spiderloader.SpiderLoader'" shape=ellipse]
+	dot [label="dot
+(12 writes, 7 distinct)
+19
+22
+27
+13
+26
+29
+  …+1 more values" shape=ellipse]
+	mod [label="mod
+(12 writes, 12 distinct)
+<module 'scrapy.spiderloader' from '/path/to/BugsInPy/workspace/scrapy/scrapy/spiderloader.py'>
+<module 'scrapy.statscollectors' from '/path/to/BugsInPy/workspace/scrapy/scrapy/statscollectors.py'>
+<module 'scrapy.logformatter' from '/path/to/BugsInPy/workspace/scrapy/scrapy/logformatter.py'>
+<module 'scrapy.extensions.corestats' from '/path/to/BugsInPy/workspace/scrapy/scrapy/extensions/corestats.py'…
+<module 'scrapy.telnet' from '/path/to/BugsInPy/workspace/scrapy/scrapy/telnet.py'>
+<module 'scrapy.extensions.memusage' from '/path/to/BugsInPy/workspace/scrapy/scrapy/extensions/memusage.py'>
+  …+6 more values" shape=ellipse]
+	loader_cls [label="loader_cls
+<class 'scrapy.spiderloader.SpiderLoader'>" shape=ellipse]
+	_verify [label=_verify fillcolor=white shape=box style=filled]
+	tester [label="tester
+<built-in method implementedBy of InterfaceClass object at 0x7e5d705795d0>" shape=ellipse]
+	excs [label="excs
+[]" shape=ellipse]
+	namesAndDescriptions [label=namesAndDescriptions fillcolor=white shape=box style=filled]
+	r [label="r
+(3 writes, 2 distinct)
+{}
+{'from_settings': <zope.interface.interface.Method object at 0x7e5d7058dd90 scrapy.interfaces.ISpiderLoader.from_setting…" shape=ellipse]
+	desc [label="desc
+(4 writes, 4 distinct)
+<zope.interface.interface.Method object at 0x7e5d7058dd90 scrapy.interfaces.ISpiderLoader.from_settings(settings)>
+<zope.interface.interface.Method object at 0x7e5d7058dcd0 scrapy.interfaces.ISpiderLoader.load(spider_name)>
+<zope.interface.interface.Method object at 0x7e5d7058dd60 scrapy.interfaces.ISpiderLoader.list()>
+<zope.interface.interface.Method object at 0x7e5d7058dca0 scrapy.interfaces.ISpiderLoader.find_by_request(request)>" shape=ellipse]
+	_verify_element [label=_verify_element fillcolor=white shape=box style=filled]
+	attr [label="attr
+(4 writes, 4 distinct)
+<bound method SpiderLoader.from_settings of <class 'scrapy.spiderloader.SpiderLoader'>>
+<function SpiderLoader.load at 0x7e5d7054d3a0>
+<function SpiderLoader.list at 0x7e5d7046a5c0>
+<function SpiderLoader.find_by_request at 0x7e5d71486480>" shape=ellipse]
+	fromMethod [label=fromMethod fillcolor=white shape=box style=filled]
+	func [label="func
+<function SpiderLoader.from_settings at 0x7e5d7054d760>" shape=ellipse]
+	fromFunction [label=fromFunction fillcolor=white shape=box style=filled]
+	method [label="method
+(11 writes, 11 distinct)
+<zope.interface.interface.Method object at 0x7e5d705ced50 from_settings()>
+<zope.interface.interface.Method object at 0x7e5d705ced50 from_settings(settings)>
+<zope.interface.interface.Method object at 0x7e5d705ced50 scrapy.interfaces.ISpiderLoader.from_settings(settings)>
+<zope.interface.interface.Method object at 0x7e5d705abb00 load()>
+<zope.interface.interface.Method object at 0x7e5d705abb00 load(spider_name)>
+<zope.interface.interface.Method object at 0x7e5d705abb00 scrapy.interfaces.ISpiderLoader.load(spider_name)>
+  …+5 more values" shape=ellipse]
+	defaults [label="defaults
+(4 writes)
+()" shape=ellipse]
+	na [label="na
+(4 writes, 2 distinct)
+1
+0" shape=ellipse]
+	names [label="names
+(4 writes, 4 distinct)
+('settings',)
+('spider_name',)
+()
+('request', 'name', 'cls')" shape=ellipse]
+	opt [label="opt
+(4 writes)
+{}" shape=ellipse]
+	defaults_count [label="defaults_count
+(4 writes)
+0" shape=ellipse]
+	nr [label="nr
+(4 writes, 2 distinct)
+1
+0" shape=ellipse]
+	_set_optional [label=_set_optional fillcolor=white shape=box style=filled]
+	argno [label="argno
+(4 writes, 2 distinct)
+1
+0" shape=ellipse]
+	meth [label="meth
+(4 writes, 4 distinct)
+<zope.interface.interface.Method object at 0x7e5d705ced50 scrapy.interfaces.ISpiderLoader.from_settings(settings)>
+<zope.interface.interface.Method object at 0x7e5d705abb00 scrapy.interfaces.ISpiderLoader.load(spider_name)>
+<zope.interface.interface.Method object at 0x7e5d705ceea0 scrapy.interfaces.ISpiderLoader.list()>
+<zope.interface.interface.Method object at 0x7e5d705abb00 scrapy.interfaces.ISpiderLoader.find_by_request(request)>" shape=ellipse]
+	getSignatureInfo [label=getSignatureInfo fillcolor=white shape=box style=filled]
+	_get_optional [label=_get_optional fillcolor=white shape=box style=filled]
+	_incompat [label=_incompat fillcolor=white shape=box style=filled]
+	mess [label="mess
+(4 writes)
+None" shape=ellipse]
+	frozencopy [label="frozencopy
+__init__.py:123" fillcolor=white shape=box style=filled]
+	copy [label="copy
+Return a copy of this Response
+__init__.py:67" fillcolor=white shape=box style=filled]
+	freeze [label="freeze
+__init__.py:120" fillcolor=white shape=box style=filled]
+	from_settings [label="from_settings
+Return an instance of the class for the given settings
+interfaces.py:5" fillcolor=white shape=box style=filled]
+	getlist [label="getlist
+headers.py:50" fillcolor=white shape=box style=filled]
+	runner [label="runner
+<scrapy.crawler.CrawlerRunner object at 0x7e5d704ca180>" shape=ellipse]
+	update_settings [label="update_settings
+__init__.py:79" fillcolor=white shape=box style=filled]
+	setdict [label="setdict
+__init__.py:100" fillcolor=white shape=box style=filled]
+	iteritems [label="iteritems
+headers.py:72" fillcolor=white shape=box style=filled]
+	getbool [label="getbool
+True is: 1, '1', True
+__init__.py:66" fillcolor=white shape=box style=filled]
+	handler [label="handler
+<LogCounterHandler (DEBUG)>" shape=ellipse]
+	connect [label="connect
+Connect a receiver function to a signal.
+signalmanager.py:11" fillcolor=white shape=box style=filled]
+	kwargs [label="kwargs
+(14 writes)
+{'sender': <scrapy.crawler.Crawler object at 0x7e5d705cff80>}" shape=ellipse]
+	safeRef [label=safeRef fillcolor=white shape=box style=filled]
+	receiver [label="receiver
+(14 writes, 14 distinct)
+<weakref at 0x7e5d7038ff60; to 'function' at 0x7e5d721a1da0 (<lambda>)>
+BoundMethodWeakref( CoreStats.spider_opened )
+BoundMethodWeakref( CoreStats.spider_closed )
+BoundMethodWeakref( CoreStats.item_scraped )
+BoundMethodWeakref( CoreStats.item_dropped )
+BoundMethodWeakref( CoreStats.response_received )
+  …+8 more values" shape=ellipse]
+	senderkey [label="senderkey
+(14 writes)
+138939782201216" shape=ellipse]
+	remove [label="remove
+(14 writes, 6 distinct)
+<function connect.<locals>.remove at 0x7e5d721a13a0>
+<function connect.<locals>.remove at 0x7e5d7046bd80>
+<function connect.<locals>.remove at 0x7e5d7046b740>
+<function connect.<locals>.remove at 0x7e5d7021e660>
+<function connect.<locals>.remove at 0x7e5d702605e0>
+<function connect.<locals>.remove at 0x7e5d70260cc0>" shape=ellipse]
+	weakSender [label="weakSender
+(14 writes, 14 distinct)
+<weakref at 0x7e5d7038ff10; to 'Crawler' at 0x7e5d705cff80>
+<weakref at 0x7e5d7039f330; to 'Crawler' at 0x7e5d705cff80>
+<weakref at 0x7e5d7039f150; to 'Crawler' at 0x7e5d705cff80>
+<weakref at 0x7e5d7039ef70; to 'Crawler' at 0x7e5d705cff80>
+<weakref at 0x7e5d7039f290; to 'Crawler' at 0x7e5d705cff80>
+<weakref at 0x7e5d7039f6a0; to 'Crawler' at 0x7e5d705cff80>
+  …+8 more values" shape=ellipse]
+	receiverID [label="receiverID
+(14 writes, 14 distinct)
+138939779841888
+138939782201072
+138939782049392
+138939781130544
+138939781135776
+138939781131120
+  …+8 more values" shape=ellipse]
+	lf_cls [label="lf_cls
+<class 'scrapy.logformatter.LogFormatter'>" shape=ellipse]
+	from_crawler [label="from_crawler
+extensions.py:9" fillcolor=white shape=box style=filled]
+	_get_mwlist_from_settings [label="_get_mwlist_from_settings
+extension.py:14" fillcolor=white shape=box style=filled]
+	build_component_list [label="build_component_list
+Compose a component list based on a custom and base dic…
+conf.py:13" fillcolor=white shape=box style=filled]
+	_check_components [label="_check_components
+<function build_component_list.<locals>._check_components at 0x7e5d7046b920>" shape=ellipse]
+	_map_keys [label="_map_keys
+<function build_component_list.<locals>._map_keys at 0x7e5d7046b740>" shape=ellipse]
+	c [label="c
+(3 writes, 3 distinct)
+'scrapy.extensions.corestats.CoreStats'
+'scrapy.telnet.TelnetConsole'
+'scrapy.extensions.throttle.AutoThrottle'" shape=ellipse]
+	update_classpath [label="update_classpath
+Update a deprecated path from an object with its new lo…
+deprecate.py:149" fillcolor=white shape=box style=filled]
+	k [label="k
+(3 writes, 3 distinct)
+'scrapy.extensions.corestats.CoreStats'
+'scrapy.extensions.throttle.AutoThrottle'
+'Location'" shape=ellipse]
+	v [label="v
+(2 writes, 2 distinct)
+0
+'http://www.example.com/redirected'" shape=ellipse]
+	compdict [label="compdict
+{'scrapy.extensions.corestats.CoreStats': 0, 'scrapy.telnet.TelnetConsole': 0, 'scrapy.extensions.memusage.MemoryUsage':…" shape=ellipse]
+	items [label="items
+<generator object build_component_list.<locals>.<genexpr> at 0x7e5d73c335e0>" shape=ellipse]
+	mwlist [label="mwlist
+['scrapy.extensions.corestats.CoreStats', 'scrapy.telnet.TelnetConsole', 'scrapy.extensions.memusage.MemoryUsage', 'scra…" shape=ellipse]
+	middlewares [label="middlewares
+(6 writes, 6 distinct)
+[]
+[<scrapy.extensions.corestats.CoreStats object at 0x7e5d704cd670>]
+[<scrapy.extensions.corestats.CoreStats object at 0x7e5d704cd670>, <scrapy.telnet.TelnetConsole object at 0x7e5d704c8e30…
+[<scrapy.extensions.corestats.CoreStats object at 0x7e5d704cd670>, <scrapy.telnet.TelnetConsole object at 0x7e5d704c8e30…
+[<scrapy.extensions.corestats.CoreStats object at 0x7e5d704cd670>, <scrapy.telnet.TelnetConsole object at 0x7e5d704c8e30…
+[<scrapy.extensions.corestats.CoreStats object at 0x7e5d704cd670>, <scrapy.telnet.TelnetConsole object at 0x7e5d704c8e30…" shape=ellipse]
+	clspath [label="clspath
+(9 writes, 9 distinct)
+'scrapy.extensions.corestats.CoreStats'
+'scrapy.telnet.TelnetConsole'
+'scrapy.extensions.memusage.MemoryUsage'
+'scrapy.extensions.memdebug.MemoryDebugger'
+'scrapy.extensions.closespider.CloseSpider'
+'scrapy.extensions.feedexport.FeedExporter'
+  …+3 more values" shape=ellipse]
+	mwcls [label="mwcls
+(9 writes, 9 distinct)
+<class 'scrapy.extensions.corestats.CoreStats'>
+<class 'scrapy.telnet.TelnetConsole'>
+<class 'scrapy.extensions.memusage.MemoryUsage'>
+<class 'scrapy.extensions.memdebug.MemoryDebugger'>
+<class 'scrapy.extensions.closespider.CloseSpider'>
+<class 'scrapy.extensions.feedexport.FeedExporter'>
+  …+3 more values" shape=ellipse]
+	reference [label="reference
+(9 writes, 9 distinct)
+BoundMethodWeakref( CoreStats.spider_opened )
+BoundMethodWeakref( CoreStats.spider_closed )
+BoundMethodWeakref( CoreStats.item_scraped )
+BoundMethodWeakref( CoreStats.item_dropped )
+BoundMethodWeakref( CoreStats.response_received )
+BoundMethodWeakref( LogStats.spider_opened )
+  …+3 more values" shape=ellipse]
+	mw [label="mw
+(7 writes, 5 distinct)
+<scrapy.extensions.corestats.CoreStats object at 0x7e5d704cd670>
+<scrapy.telnet.TelnetConsole object at 0x7e5d704c8e30>
+<scrapy.extensions.closespider.CloseSpider object at 0x7e5d7034d670>
+<scrapy.extensions.logstats.LogStats object at 0x7e5d703ffb00>
+<scrapy.extensions.spiderstate.SpiderState object at 0x7e5d70338a70>" shape=ellipse]
+	"ERROR__scrapy.exceptions.NotConfigured" [label="scrapy.exceptions.NotConfigured" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	e [label="e
+(4 writes)
+NotConfigured()" shape=ellipse]
+	getfloat [label="getfloat
+__init__.py:76" fillcolor=white shape=box style=filled]
+	getint [label="getint
+__init__.py:73" fillcolor=white shape=box style=filled]
+	interval [label="interval
+60.0" shape=ellipse]
+	_removeOldBackRefs [label=_removeOldBackRefs fillcolor=white shape=box style=filled]
+	ERROR__ValueError [label="ValueError
+BoundMethodWeakref( LogStats.spider_opened ) is not in list" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	job_dir [label="job_dir
+job.py:3" fillcolor=white shape=box style=filled]
+	enabled [label="enabled
+['CoreStats', 'TelnetConsole', 'CloseSpider', 'LogStats', 'SpiderState']" shape=ellipse]
+	_add_middleware [label="_add_middleware
+middleware.py:21" fillcolor=white shape=box style=filled]
+	__new__ [label="__new__
+item.py:27" fillcolor=white shape=box style=filled]
+	spider [label="spider
+<Spider 'foo' at 0x7e5d714c5a90>" shape=ellipse]
+	_set_crawler [label="_set_crawler
+__init__.py:63" fillcolor=white shape=box style=filled]
+	test_request_meta_handling [label="test_request_meta_handling
+test_downloadermiddleware_redirect.py:146" fillcolor=white shape=box style=filled]
+	url [label="url
+'http://www.example.com/301'" shape=ellipse]
+	url2 [label="url2
+'http://www.example.com/redirected'" shape=ellipse]
+	_test_passthrough [label="_test_passthrough
+<function RedirectMiddlewareTest.test_request_meta_handling.<locals>._test_passthrough at 0x7e5d702613a0>" shape=ellipse]
+	_set_url [label="_set_url
+text.py:30" fillcolor=white shape=box style=filled]
+	encoding [label="encoding
+text.py:54" fillcolor=white shape=box style=filled]
+	to_native_str [label="to_native_str
+Return str representation of `text`
+python.py:125" fillcolor=white shape=box style=filled]
+	to_unicode [label="to_unicode
+Return the unicode representation of a bytes object `te…
+python.py:99" fillcolor=white shape=box style=filled]
+	safe_url_string [label=safe_url_string fillcolor=white shape=box style=filled]
+	decoded [label="decoded
+'http://www.example.com/301'" shape=ellipse]
+	_strip [label=_strip fillcolor=white shape=box style=filled]
+	parts [label="parts
+SplitResult(scheme='http', netloc='www.example.com', path='/301', query='', fragment='')" shape=ellipse]
+	username [label="username
+None" shape=ellipse]
+	password [label="password
+None" shape=ellipse]
+	hostname [label="hostname
+'www.example.com'" shape=ellipse]
+	port [label="port
+None" shape=ellipse]
+	netloc_bytes [label="netloc_bytes
+(2 writes, 2 distinct)
+b''
+b'www.example.com'" shape=ellipse]
+	netloc [label="netloc
+'www.example.com'" shape=ellipse]
+	query [label="query
+''" shape=ellipse]
+	escape_ajax [label="escape_ajax
+Return the crawleable url according to:
+url.py:87" fillcolor=white shape=box style=filled]
+	defrag [label="defrag
+'http://www.example.com/301'" shape=ellipse]
+	frag [label="frag
+''" shape=ellipse]
+	_set_body [label="_set_body
+text.py:39" fillcolor=white shape=box style=filled]
+	update [label="update
+memusage.py:75" fillcolor=white shape=box style=filled]
+	seq [label="seq
+dict_items([('Location', 'http://www.example.com/redirected')])" shape=ellipse]
+	iseq [label="iseq
+<generator object CaselessDict.update.<locals>.<genexpr> at 0x7e5d703cf3d0>" shape=ellipse]
+	normkey [label="normkey
+Normalize key to bytes
+headers.py:13" fillcolor=white shape=box style=filled]
+	_tobytes [label="_tobytes
+headers.py:28" fillcolor=white shape=box style=filled]
+	normvalue [label="normvalue
+Normalize values to bytes
+headers.py:17" fillcolor=white shape=box style=filled]
+	rsp [label="rsp
+<301 http://www.example.com/301>" shape=ellipse]
+	process_response [label="process_response
+chunked.py:9" fillcolor=white shape=box style=filled]
+	meta [label="meta
+__init__.py:25" fillcolor=white shape=box style=filled]
+	__contains__ [label="__contains__
+datatypes.py:181" fillcolor=white shape=box style=filled]
+	_get_url [label="_get_url
+__init__.py:34" fillcolor=white shape=box style=filled]
+	ERROR__TypeError [label="TypeError
+Cannot mix str and non-str arguments" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		setUp
+		test_request_meta_handling
+	}
+	{
+		rank=same
+		get_crawler
+		from_crawler
+		__new__
+	}
+	{
+		rank=same
+		inlineCallbacks
+		set
+		freeze
+		iteritems
+		update_classpath
+		_add_middleware
+		_set_url
+		_set_body
+		process_response
+	}
+	{
+		rank=same
+		setmodule
+		_assert_mutability
+		__getitem__
+		getbool
+		connect
+		getfloat
+		getint
+		job_dir
+		_set_crawler
+		encoding
+		to_native_str
+		safe_url_string
+		escape_ajax
+		meta
+		__contains__
+		_get_url
+	}
+	{
+		rank=same
+		get
+		frozencopy
+		copy
+		from_settings
+		getlist
+		update_settings
+		to_unicode
+		_strip
+		normkey
+	}
+	{
+		rank=same
+		_verify
+		setdict
+		safeRef
+		_removeOldBackRefs
+		update
+		_tobytes
+	}
+	{
+		rank=same
+		namesAndDescriptions
+		_verify_element
+		_get_mwlist_from_settings
+		normvalue
+	}
+	{
+		rank=same
+		fromMethod
+		fromFunction
+		getSignatureInfo
+		_incompat
+		build_component_list
+	}
+	{
+		rank=same
+		_set_optional
+		_get_optional
+	}
+	setUp -> get_crawler [label="calls [#1]" color=blue penwidth=1.1]
+	setUp -> _create_spider [label="calls [#211]" color=blue penwidth=1.1]
+	setUp -> from_crawler [label="calls [#220]" color=blue penwidth=1.1]
+	get_crawler -> ERROR__KeyError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	get_crawler -> lock [label="writes×2" color=black]
+	get_crawler -> cb [label=writes color=black]
+	get_crawler -> tid [label="writes×2" color=black]
+	get_crawler -> o [label=writes color=black]
+	get_crawler -> parent [label="writes×9" color=black]
+	get_crawler -> parent_module [label="writes×8" color=black]
+	get_crawler -> child [label="writes×8" color=black]
+	get_crawler -> meta_path [label=writes color=black]
+	get_crawler -> is_reload [label=writes color=black]
+	get_crawler -> finder [label="writes×6" color=black]
+	get_crawler -> find_spec [label="writes×4" color=black]
+	get_crawler -> info [label=writes color=black]
+	get_crawler -> namespace_path [label=writes color=black]
+	get_crawler -> entry [label=writes color=black]
+	get_crawler -> is_namespace [label=writes color=black]
+	get_crawler -> tail_module [label=writes color=black]
+	get_crawler -> mtime [label=writes color=black]
+	get_crawler -> cache [label=writes color=black]
+	get_crawler -> cache_module [label=writes color=black]
+	get_crawler -> suffix [label="writes×2" color=black]
+	get_crawler -> loader_class [label="writes×2" color=black]
+	get_crawler -> part [label="writes×6" color=black]
+	get_crawler -> full_path [label="writes×2" color=black]
+	get_crawler -> get_crawler [label="loops(×173)" color=purple style=dashed]
+	get_crawler -> stat_info [label=writes color=black]
+	get_crawler -> loader [label="writes×2" color=black]
+	get_crawler -> head [label="writes×2" color=black]
+	get_crawler -> tail [label="writes×2" color=black]
+	get_crawler -> base [label="writes×2" color=black]
+	get_crawler -> sep [label="writes×2" color=black]
+	get_crawler -> rest [label="writes×2" color=black]
+	get_crawler -> tag [label="writes×2" color=black]
+	get_crawler -> almost_filename [label="writes×2" color=black]
+	get_crawler -> optimization [label="writes×2" color=black]
+	get_crawler -> filename [label="writes×3" color=black]
+	get_crawler -> source_path [label=writes color=black]
+	get_crawler -> source_mtime [label="writes×2" color=black]
+	get_crawler -> source_bytes [label="writes×2" color=black]
+	get_crawler -> source_hash [label=writes color=black]
+	get_crawler -> hash_based [label=writes color=black]
+	get_crawler -> check_source [label=writes color=black]
+	get_crawler -> p [label=writes color=black]
+	get_crawler -> i [label="writes×2" color=black]
+	get_crawler -> bytecode_path [label=writes color=black]
+	get_crawler -> st [label="writes×2" color=black]
+	get_crawler -> file [label="writes×4" color=black]
+	get_crawler -> data [label="writes×7" color=black]
+	get_crawler -> exc_details [label=writes color=black]
+	get_crawler -> magic [label=writes color=black]
+	get_crawler -> flags [label="writes×2" color=black]
+	get_crawler -> bytes_data [label=writes color=black]
+	get_crawler -> message [label=writes color=black]
+	get_crawler -> ERROR__ImportError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	get_crawler -> code_object [label=writes color=black]
+	get_crawler -> mode [label="writes×2" color=black]
+	get_crawler -> path_parts [label=writes color=black]
+	get_crawler -> path_tmp [label=writes color=black]
+	get_crawler -> fd [label=writes color=black]
+	get_crawler -> code [label=writes color=black]
+	get_crawler -> six [label=writes color=black]
+	get_crawler -> signal [label=writes color=black]
+	get_crawler -> logging [label=writes color=black]
+	get_crawler -> warnings [label=writes color=black]
+	get_crawler -> from_name [label=writes color=black]
+	get_crawler -> reactor [label=writes color=black]
+	get_crawler -> defer [label=writes color=black]
+	get_crawler -> verifyClass [label=writes color=black]
+	get_crawler -> DoesNotImplement [label=writes color=black]
+	get_crawler -> ExecutionEngine [label=writes color=black]
+	get_crawler -> CachingThreadedResolver [label=writes color=black]
+	get_crawler -> ISpiderLoader [label=writes color=black]
+	get_crawler -> ExtensionManager [label=writes color=black]
+	get_crawler -> Settings [label="writes×2" color=black]
+	get_crawler -> SignalManager [label=writes color=black]
+	get_crawler -> ScrapyDeprecationWarning [label=writes color=black]
+	get_crawler -> install_shutdown_handlers [label=writes color=black]
+	get_crawler -> signal_names [label=writes color=black]
+	get_crawler -> load_object [label=writes color=black]
+	get_crawler -> LogCounterHandler [label=writes color=black]
+	get_crawler -> configure_logging [label=writes color=black]
+	get_crawler -> log_scrapy_info [label=writes color=black]
+	get_crawler -> logger [label=writes color=black]
+	get_crawler -> __module__ [label="writes×3" color=black]
+	get_crawler -> __qualname__ [label="writes×3" color=black]
+	get_crawler -> __init__ [label="writes×3" color=black]
+	get_crawler -> spiders [label="writes×2" color=black]
+	get_crawler -> inlineCallbacks [label="calls×3 [#3]" color=blue penwidth=1.3]
+	get_crawler -> crawl [label="writes×2" color=black]
+	get_crawler -> _create_spider [label=writes color=black]
+	get_crawler -> _create_engine [label=writes color=black]
+	get_crawler -> stop [label="writes×2" color=black]
+	get_crawler -> Crawler [label=writes color=black]
+	get_crawler -> __doc__ [label="writes×2" color=black]
+	get_crawler -> crawlers [label=writes color=black]
+	get_crawler -> _crawl [label=writes color=black]
+	get_crawler -> _create_crawler [label=writes color=black]
+	get_crawler -> join [label=writes color=black]
+	get_crawler -> CrawlerRunner [label="writes×2" color=black]
+	get_crawler -> _signal_shutdown [label=writes color=black]
+	get_crawler -> _signal_kill [label=writes color=black]
+	get_crawler -> start [label=writes color=black]
+	get_crawler -> _get_dns_resolver [label=writes color=black]
+	get_crawler -> _graceful_stop_reactor [label=writes color=black]
+	get_crawler -> _stop_reactor [label=writes color=black]
+	get_crawler -> __classcell__ [label=writes color=black]
+	get_crawler -> CrawlerProcess [label=writes color=black]
+	get_crawler -> _get_spider_loader [label=writes color=black]
+	get_crawler -> args [label=writes color=black]
+	get_crawler -> Spider [label=writes color=black]
+	get_crawler -> key [label="writes×3" color=black]
+	get_crawler -> set [label="calls [#12]" color=blue penwidth=1.1]
+	get_crawler -> runner [label=writes color=black]
+	get_crawler -> c [label=writes color=black]
+	get_crawler -> iteritems [label="calls×2 [#109]" color=blue penwidth=1.2]
+	get_crawler -> update_classpath [label="calls×2 [#110]" color=blue penwidth=1.2]
+	get_crawler -> k [label="writes×2" color=black]
+	get_crawler -> v [label=writes color=black]
+	get_crawler -> compdict [label=writes color=black]
+	get_crawler -> _map_keys [label="calls [#112]" color=blue penwidth=1.1]
+	get_crawler -> items [label=writes color=black]
+	get_crawler -> mwlist [label=writes color=black]
+	get_crawler -> middlewares [label="writes×6" color=black]
+	get_crawler -> clspath [label="writes×9" color=black]
+	get_crawler -> mwcls [label="writes×9" color=black]
+	get_crawler -> from_crawler [label="calls×9 [#117]" color=blue penwidth=1.9]
+	get_crawler -> mw [label="writes×6" color=black]
+	get_crawler -> "ERROR__scrapy.exceptions.NotConfigured" [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	get_crawler -> e [label="writes×4" color=black]
+	get_crawler -> enabled [label=writes color=black]
+	get_crawler -> _add_middleware [label="calls [#209]" color=blue penwidth=1.1]
+	get_crawler -> freeze [label="calls [#210]" color=blue penwidth=1.1]
+	lock -> find_spec [label="passed to" color=green style=dashed]
+	mtime -> inlineCallbacks [label="passed to" color=green style=dashed]
+	loader_class -> inlineCallbacks [label="passed to" color=green style=dashed]
+	loader -> inlineCallbacks [label="passed to" color=green style=dashed]
+	base -> build_component_list [label="passed to" color=green style=dashed]
+	optimization -> inlineCallbacks [label="passed to" color=green style=dashed]
+	filename -> inlineCallbacks [label="passed to" color=green style=dashed]
+	source_path -> inlineCallbacks [label="passed to" color=green style=dashed]
+	source_mtime -> inlineCallbacks [label="passed to" color=green style=dashed]
+	p -> inlineCallbacks [label="passed to" color=green style=dashed]
+	bytecode_path -> inlineCallbacks [label="passed to" color=green style=dashed]
+	data -> inlineCallbacks [label="passed to" color=green style=dashed]
+	exc_details -> inlineCallbacks [label="passed to" color=green style=dashed]
+	flags -> __init__ [label="passed to" color=green style=dashed]
+	message -> inlineCallbacks [label="passed to" color=green style=dashed]
+	message -> __init__ [label="passed to" color=green style=dashed]
+	message -> escape_ajax [label="passed to" color=green style=dashed]
+	mode -> inlineCallbacks [label="passed to" color=green style=dashed]
+	path_parts -> inlineCallbacks [label="passed to" color=green style=dashed]
+	code -> inlineCallbacks [label="passed to" color=green style=dashed]
+	signal -> connect [label="passed to" color=green style=dashed]
+	signal -> _removeOldBackRefs [label="passed to" color=green style=dashed]
+	verifyClass -> _verify [label="calls [#26]" color=blue penwidth=1.1]
+	load_object -> dot [label="writes×12" color=black]
+	load_object -> mod [label="writes×12" color=black]
+	__init__ -> setmodule [label="calls [#7]" color=blue penwidth=1.1]
+	__init__ -> _get_spider_loader [label="calls [#16]" color=blue penwidth=1.1]
+	__init__ -> getlist [label="calls×2 [#71]" color=blue penwidth=1.2]
+	__init__ -> copy [label="calls [#77]" color=blue penwidth=1.1]
+	__init__ -> update_settings [label="calls [#78]" color=blue penwidth=1.1]
+	__init__ -> __init__ [label="calls×8 [#82]" color=blue penwidth=1.8]
+	__init__ -> __getitem__ [label="calls×4 [#83]" color=blue penwidth=1.4]
+	__init__ -> load_object [label="calls×2 [#84]" color=blue penwidth=1.2]
+	__init__ -> getbool [label="calls×5 [#87]" color=blue penwidth=1.5]
+	__init__ -> get [label="calls [#91]" color=blue penwidth=1.1]
+	__init__ -> handler [label=writes color=black]
+	__init__ -> connect [label="calls×4 [#95]" color=blue penwidth=1.4]
+	__init__ -> lf_cls [label=writes color=black]
+	__init__ -> from_crawler [label="calls×2 [#100]" color=blue penwidth=1.2]
+	__init__ -> "ERROR__scrapy.exceptions.NotConfigured" [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	__init__ -> getfloat [label="calls [#160]" color=blue penwidth=1.1]
+	__init__ -> getint [label="calls×5 [#162]" color=blue penwidth=1.5]
+	__init__ -> mw [label=writes color=black]
+	__init__ -> _add_middleware [label="calls [#208]" color=blue penwidth=1.1]
+	__init__ -> _set_url [label="calls×2 [#236]" color=blue penwidth=1.2]
+	__init__ -> _set_body [label="calls×2 [#245]" color=blue penwidth=1.2]
+	__init__ -> update [label="calls [#253]" color=blue penwidth=1.1]
+	inlineCallbacks -> unwindGenerator [label="writes×3" color=black]
+	_create_spider -> from_crawler [label="calls [#212]" color=blue penwidth=1.1]
+	__doc__ -> __init__ [label="passed to" color=green style=dashed]
+	_create_crawler -> __init__ [label="calls [#76]" color=blue penwidth=1.1]
+	_get_spider_loader -> get [label="calls×3 [#17]" color=blue penwidth=1.3]
+	_get_spider_loader -> cls_path [label=writes color=black]
+	_get_spider_loader -> load_object [label="calls [#24]" color=blue penwidth=1.1]
+	_get_spider_loader -> loader_cls [label=writes color=black]
+	_get_spider_loader -> verifyClass [label="calls [#25]" color=blue penwidth=1.1]
+	_get_spider_loader -> frozencopy [label="calls [#66]" color=blue penwidth=1.1]
+	_get_spider_loader -> from_settings [label="calls [#69]" color=blue penwidth=1.1]
+	args -> __init__ [label="passed to" color=green style=dashed]
+	args -> _create_spider [label="passed to" color=green style=dashed]
+	args -> from_crawler [label="passed to" color=green style=dashed]
+	args -> __new__ [label="passed to" color=green style=dashed]
+	args -> escape_ajax [label="passed to" color=green style=dashed]
+	setmodule -> _assert_mutability [label="calls [#8]" color=blue penwidth=1.1]
+	setmodule -> key [label=writes color=black]
+	setmodule -> set [label="calls [#9]" color=blue penwidth=1.1]
+	key -> normkey [label="passed to" color=green style=dashed]
+	key -> __contains__ [label="passed to" color=green style=dashed]
+	key -> __getitem__ [label="passed to" color=green style=dashed]
+	set -> _assert_mutability [label="calls×2 [#10]" color=blue penwidth=1.2]
+	set -> priority [label="writes×2" color=black]
+	set -> __init__ [label="calls×2 [#11]" color=blue penwidth=1.2]
+	priority -> __init__ [label="passed to" color=green style=dashed]
+	priority -> set [label="passed to" color=green style=dashed]
+	priority -> setdict [label="passed to" color=green style=dashed]
+	get -> __getitem__ [label="calls×20 [#18]" color=blue penwidth=3.0]
+	__getitem__ -> __getitem__ [label="calls [#267]" color=blue penwidth=1.1]
+	__getitem__ -> normkey [label="calls [#268]" color=blue penwidth=1.1]
+	_verify -> tester [label=writes color=black]
+	_verify -> excs [label=writes color=black]
+	_verify -> namesAndDescriptions [label="calls [#27]" color=blue penwidth=1.1]
+	_verify -> desc [label="writes×4" color=black]
+	_verify -> _verify_element [label="calls×4 [#29]" color=blue penwidth=1.4]
+	namesAndDescriptions -> r [label="writes×3" color=black]
+	namesAndDescriptions -> base [label=writes color=black]
+	namesAndDescriptions -> namesAndDescriptions [label="calls [#28]" color=blue penwidth=1.1]
+	desc -> _verify_element [label="passed to" color=green style=dashed]
+	_verify_element -> attr [label="writes×4" color=black]
+	_verify_element -> fromMethod [label="calls [#30]" color=blue penwidth=1.1]
+	_verify_element -> meth [label="writes×4" color=black]
+	_verify_element -> getSignatureInfo [label="calls×8 [#34]" color=blue penwidth=1.8]
+	_verify_element -> _incompat [label="calls×4 [#38]" color=blue penwidth=1.4]
+	_verify_element -> mess [label="writes×4" color=black]
+	_verify_element -> fromFunction [label="calls×3 [#40]" color=blue penwidth=1.3]
+	fromMethod -> func [label=writes color=black]
+	fromMethod -> fromFunction [label="calls [#31]" color=blue penwidth=1.1]
+	func -> fromFunction [label="passed to" color=green style=dashed]
+	fromFunction -> __init__ [label="calls×4 [#32]" color=blue penwidth=1.4]
+	fromFunction -> method [label="writes×11" color=black]
+	fromFunction -> defaults [label="writes×4" color=black]
+	fromFunction -> code [label="writes×4" color=black]
+	fromFunction -> na [label="writes×4" color=black]
+	fromFunction -> names [label="writes×4" color=black]
+	fromFunction -> opt [label="writes×4" color=black]
+	fromFunction -> defaults_count [label="writes×4" color=black]
+	fromFunction -> nr [label="writes×4" color=black]
+	fromFunction -> _set_optional [label="calls×4 [#33]" color=blue penwidth=1.4]
+	fromFunction -> argno [label="writes×4" color=black]
+	method -> __init__ [label="passed to" color=green style=dashed]
+	opt -> _set_optional [label="passed to" color=green style=dashed]
+	getSignatureInfo -> _get_optional [label="calls×8 [#35]" color=blue penwidth=1.8]
+	frozencopy -> copy [label="calls [#67]" color=blue penwidth=1.1]
+	frozencopy -> freeze [label="calls [#68]" color=blue penwidth=1.1]
+	from_settings -> __init__ [label="calls [#70]" color=blue penwidth=1.1]
+	from_settings -> _get_mwlist_from_settings [label="calls [#103]" color=blue penwidth=1.1]
+	getlist -> get [label="calls×2 [#72]" color=blue penwidth=1.2]
+	update_settings -> setdict [label="calls [#79]" color=blue penwidth=1.1]
+	setdict -> _assert_mutability [label="calls [#80]" color=blue penwidth=1.1]
+	setdict -> iteritems [label="calls [#81]" color=blue penwidth=1.1]
+	getbool -> get [label="calls×6 [#88]" color=blue penwidth=1.6]
+	connect -> kwargs [label="writes×14" color=black]
+	connect -> connect [label="calls×14 [#96]" color=blue penwidth=2.4]
+	connect -> safeRef [label="calls×11 [#97]" color=blue penwidth=2.1]
+	connect -> receiver [label="writes×14" color=black]
+	connect -> senderkey [label="writes×14" color=black]
+	connect -> remove [label="writes×14" color=black]
+	connect -> weakSender [label="writes×14" color=black]
+	connect -> receiverID [label="writes×14" color=black]
+	connect -> _removeOldBackRefs [label="calls×5 [#184]" color=blue penwidth=1.5]
+	kwargs -> connect [label="passed to" color=green style=dashed]
+	kwargs -> _create_spider [label="passed to" color=green style=dashed]
+	kwargs -> from_crawler [label="passed to" color=green style=dashed]
+	kwargs -> __new__ [label="passed to" color=green style=dashed]
+	kwargs -> __init__ [label="passed to" color=green style=dashed]
+	kwargs -> escape_ajax [label="passed to" color=green style=dashed]
+	safeRef -> reference [label="writes×9" color=black]
+	receiver -> connect [label="passed to" color=green style=dashed]
+	receiver -> _removeOldBackRefs [label="passed to" color=green style=dashed]
+	senderkey -> _removeOldBackRefs [label="passed to" color=green style=dashed]
+	from_crawler -> from_settings [label="calls [#102]" color=blue penwidth=1.1]
+	from_crawler -> __init__ [label="calls×10 [#118]" color=blue penwidth=2.0]
+	from_crawler -> o [label="writes×2" color=black]
+	from_crawler -> connect [label="calls×9 [#119]" color=blue penwidth=1.9]
+	from_crawler -> "ERROR__scrapy.exceptions.NotConfigured" [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	from_crawler -> getbool [label="calls [#153]" color=blue penwidth=1.1]
+	from_crawler -> getfloat [label="calls [#176]" color=blue penwidth=1.1]
+	from_crawler -> interval [label=writes color=black]
+	from_crawler -> job_dir [label="calls [#191]" color=blue penwidth=1.1]
+	from_crawler -> __new__ [label="calls [#213]" color=blue penwidth=1.1]
+	from_crawler -> spider [label=writes color=black]
+	from_crawler -> _set_crawler [label="calls [#215]" color=blue penwidth=1.1]
+	_get_mwlist_from_settings -> __getitem__ [label="calls×2 [#104]" color=blue penwidth=1.2]
+	_get_mwlist_from_settings -> build_component_list [label="calls [#106]" color=blue penwidth=1.1]
+	build_component_list -> _check_components [label=writes color=black]
+	build_component_list -> _map_keys [label=writes color=black]
+	_check_components -> _map_keys [label="passed to" color=green style=dashed]
+	_check_components -> c [label="writes×2" color=black]
+	_map_keys -> _check_components [label="calls×2 [#108]" color=blue penwidth=1.2]
+	_map_keys -> iteritems [label="calls [#114]" color=blue penwidth=1.1]
+	k -> _set_body [label="passed to" color=green style=dashed]
+	v -> _set_body [label="passed to" color=green style=dashed]
+	compdict -> _map_keys [label="passed to" color=green style=dashed]
+	middlewares -> __init__ [label="passed to" color=green style=dashed]
+	mw -> _add_middleware [label="passed to" color=green style=dashed]
+	getfloat -> get [label="calls×2 [#161]" color=blue penwidth=1.2]
+	getint -> get [label="calls×5 [#163]" color=blue penwidth=1.5]
+	interval -> __init__ [label="passed to" color=green style=dashed]
+	_removeOldBackRefs -> ERROR__ValueError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	job_dir -> __getitem__ [label="calls [#192]" color=blue penwidth=1.1]
+	spider -> process_response [label="passed to" color=green style=dashed]
+	_set_crawler -> connect [label="calls [#216]" color=blue penwidth=1.1]
+	test_request_meta_handling -> url [label=writes color=black]
+	test_request_meta_handling -> url2 [label=writes color=black]
+	test_request_meta_handling -> _test_passthrough [label=writes color=black]
+	test_request_meta_handling -> __new__ [label="calls [#234]" color=blue penwidth=1.1]
+	test_request_meta_handling -> __init__ [label="calls [#235]" color=blue penwidth=1.1]
+	test_request_meta_handling -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	url -> __init__ [label="passed to" color=green style=dashed]
+	url -> _set_url [label="passed to" color=green style=dashed]
+	url -> safe_url_string [label="passed to" color=green style=dashed]
+	url -> _strip [label="passed to" color=green style=dashed]
+	url -> escape_ajax [label="passed to" color=green style=dashed]
+	url -> _test_passthrough [label="passed to" color=green style=dashed]
+	url2 -> _test_passthrough [label="passed to" color=green style=dashed]
+	_test_passthrough -> __new__ [label="calls [#249]" color=blue penwidth=1.1]
+	_test_passthrough -> __init__ [label="calls [#250]" color=blue penwidth=1.1]
+	_test_passthrough -> rsp [label=writes color=black]
+	_test_passthrough -> process_response [label="calls [#260]" color=blue penwidth=1.1]
+	_test_passthrough -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	_set_url -> encoding [label="calls [#237]" color=blue penwidth=1.1]
+	_set_url -> to_native_str [label="calls [#238]" color=blue penwidth=1.1]
+	_set_url -> safe_url_string [label="calls [#240]" color=blue penwidth=1.1]
+	_set_url -> escape_ajax [label="calls [#244]" color=blue penwidth=1.1]
+	to_native_str -> to_unicode [label="calls [#239]" color=blue penwidth=1.1]
+	safe_url_string -> to_unicode [label="calls [#241]" color=blue penwidth=1.1]
+	safe_url_string -> decoded [label=writes color=black]
+	safe_url_string -> _strip [label="calls [#242]" color=blue penwidth=1.1]
+	safe_url_string -> parts [label=writes color=black]
+	safe_url_string -> username [label=writes color=black]
+	safe_url_string -> password [label=writes color=black]
+	safe_url_string -> hostname [label=writes color=black]
+	safe_url_string -> port [label=writes color=black]
+	safe_url_string -> netloc_bytes [label="writes×2" color=black]
+	safe_url_string -> find_spec [label="calls [#243]" color=blue penwidth=1.1]
+	safe_url_string -> finder [label="writes×4" color=black]
+	safe_url_string -> info [label=writes color=black]
+	safe_url_string -> namespace_path [label=writes color=black]
+	safe_url_string -> entry [label=writes color=black]
+	safe_url_string -> loader [label=writes color=black]
+	safe_url_string -> source_path [label=writes color=black]
+	safe_url_string -> source_mtime [label="writes×2" color=black]
+	safe_url_string -> source_bytes [label=writes color=black]
+	safe_url_string -> source_hash [label=writes color=black]
+	safe_url_string -> hash_based [label=writes color=black]
+	safe_url_string -> check_source [label=writes color=black]
+	safe_url_string -> bytecode_path [label=writes color=black]
+	safe_url_string -> st [label=writes color=black]
+	safe_url_string -> data [label=writes color=black]
+	safe_url_string -> exc_details [label=writes color=black]
+	safe_url_string -> flags [label=writes color=black]
+	safe_url_string -> bytes_data [label=writes color=black]
+	safe_url_string -> code [label=writes color=black]
+	safe_url_string -> args [label=writes color=black]
+	safe_url_string -> tid [label=writes color=black]
+	safe_url_string -> netloc [label=writes color=black]
+	safe_url_string -> query [label=writes color=black]
+	escape_ajax -> defrag [label=writes color=black]
+	escape_ajax -> frag [label=writes color=black]
+	update -> seq [label=writes color=black]
+	update -> iseq [label=writes color=black]
+	update -> normkey [label="calls [#254]" color=blue penwidth=1.1]
+	update -> normvalue [label="calls [#256]" color=blue penwidth=1.1]
+	update -> k [label=writes color=black]
+	update -> v [label=writes color=black]
+	normkey -> _tobytes [label="calls×3 [#255]" color=blue penwidth=1.3]
+	normvalue -> _tobytes [label="calls [#257]" color=blue penwidth=1.1]
+	process_response -> meta [label="calls [#261]" color=blue penwidth=1.1]
+	process_response -> __contains__ [label="calls [#262]" color=blue penwidth=1.1]
+	process_response -> _get_url [label="calls [#265]" color=blue penwidth=1.1]
+	process_response -> __getitem__ [label="calls [#266]" color=blue penwidth=1.1]
+	process_response -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	__contains__ -> normkey [label="calls [#263]" color=blue penwidth=1.1]
+}

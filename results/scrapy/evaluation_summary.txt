@@ -1,0 +1,39 @@
+SCRAPY EVALUATION SUMMARY
+Total: 37  Passed: 17  (45.9%)
+bug 1: PASS  
+bug 2: PASS  
+bug 3: FAIL  
+bug 4: PASS  
+bug 5: PASS  
+bug 6: FAIL  KG empty (trace produced no data)
+bug 7: PASS  
+bug 8: FAIL  
+bug 9: PASS  
+bug10: FAIL  
+bug11: FAIL  
+bug12: FAIL  failed to apply diff to tests/test_selector.py
+bug13: FAIL  KG empty (trace produced no data)
+bug14: PASS  
+bug15: PASS  
+bug16: PASS  
+bug17: PASS  
+bug18: PASS  
+bug19: PASS  
+bug20: FAIL  KG empty (trace produced no data)
+bug21: FAIL  
+bug22: FAIL  
+bug23: FAIL  
+bug24: FAIL  KG empty (trace produced no data)
+bug25: FAIL  
+bug26: PASS  
+bug27: FAIL  
+bug28: FAIL  KG empty (trace produced no data)
+bug29: PASS  
+bug30: FAIL  KG empty (trace produced no data)
+bug31: FAIL  KG empty (trace produced no data)
+bug32: FAIL  KG empty (trace produced no data)
+bug33: FAIL  KG empty (trace produced no data)
+bug34: PASS  
+bug35: FAIL  KG empty (trace produced no data)
+bug36: PASS  
+bug37: PASS  

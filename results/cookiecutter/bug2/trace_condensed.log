@@ -1,0 +1,1427 @@
+Cleared: /path/to/results/cookiecutter/bug2
+  Rewriting test cmd: 'tox tests/test_hooks.py::TestFindHooks::test_find_hook' -> 'python -m pytest -o addopts= tests/test_hooks.py::TestFindHooks::test_find_hook'
+Running: python -m pytest -o addopts= tests/test_hooks.py::TestFindHooks::test_find_hook
+Workdir: /path/to/BugsInPy/workspace/cookiecutter
+PYTHONPATH: /path/to/BugsInPy/workspace/cookiecutter/build/lib:/path/to/BugsInPy/workspace/cookiecutter::
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.0.2, pluggy-1.6.0
+rootdir: /path/to/BugsInPy/workspace/cookiecutter
+configfile: setup.cfg
+plugins: cov-7.1.0, anyio-4.12.1
+collected 1 item
+
+tests/test_hooks.py F                                                    [100%]
+
+=================================== FAILURES ===================================
+_________________________ TestFindHooks.test_find_hook _________________________
+
+self = <tests.test_hooks.TestFindHooks object at 0x7306d95fc200>
+
+    @pysnooper.snoop(prefix='IE_TRACE: ', depth=10, color=False, max_variable_length=500, custom_repr=((object, _btp_repr),))
+    def test_find_hook(self):
+        """Finds the specified hook."""
+        with utils.work_in(self.repo_path):
+            expected_pre = os.path.abspath('hooks/pre_gen_project.py')
+            actual_hook_path = hooks.find_hook('pre_gen_project')
+>           assert expected_pre == actual_hook_path[0]
+E           AssertionError: assert '/home/shashw...en_project.py' == '/'
+E             
+E             - /
+E             + /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py
+
+tests/test_hooks.py:94: AssertionError
+----------------------------- Captured stderr call -----------------------------
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/cookiecutter/tests/test_hooks.py
+IE_TRACE: Starting var:.. self = <tests.test_hooks.TestFindHooks object at 0x7306d95fc200>
+IE_TRACE: 12:44:19.399299 call        89     def test_find_hook(self):
+IE_TRACE: 12:44:19.399770 line        91         with utils.work_in(self.repo_path):
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/cookiecutter/cookiecutter/utils.py
+IE_TRACE:         Starting var:.. dirname = 'tests/test-hooks'
+IE_TRACE:         12:44:19.400145 call        49 def work_in(dirname=None):
+IE_TRACE:         12:44:19.400190 line        54     curdir = os.getcwd()
+IE_TRACE:         New var:....... curdir = '/path/to/BugsInPy/workspace/cookiecutter'
+IE_TRACE:         12:44:19.400218 line        55     try:
+IE_TRACE:         12:44:19.400233 line        56         if dirname is not None:
+IE_TRACE:         12:44:19.400243 line        57             os.chdir(dirname)
+IE_TRACE:         12:44:19.400257 line        58         yield
+IE_TRACE:         12:44:19.400266 return      58         yield
+IE_TRACE:         Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/cookiecutter/tests/test_hooks.py
+IE_TRACE: 12:44:19.400299 line        92             expected_pre = os.path.abspath('hooks/pre_gen_project.py')
+IE_TRACE:     Source path:... <frozen posixpath>
+IE_TRACE:     Starting var:.. path = 'hooks/pre_gen_project.py'
+IE_TRACE:     12:44:19.400317 call       416 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:44:19.400361 line       418 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:44:19.400373 line       419 SOURCE IS UNAVAILABLE
+IE_TRACE:         Starting var:.. s = 'hooks/pre_gen_project.py'
+IE_TRACE:         12:44:19.400384 call        60 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.400397 line        62 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.400410 line        63 SOURCE IS UNAVAILABLE
+IE_TRACE:             Starting var:.. path = 'hooks/pre_gen_project.py'
+IE_TRACE:             12:44:19.400420 call        41 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.400432 line        42 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.400440 line        45 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.400448 return      45 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. '/'
+IE_TRACE:         New var:....... sep = '/'
+IE_TRACE:         12:44:19.400461 line        64 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.400474 return      64 SOURCE IS UNAVAILABLE
+IE_TRACE:         Return value:.. False
+IE_TRACE:     12:44:19.400489 line       420 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:44:19.400497 line       423 SOURCE IS UNAVAILABLE
+IE_TRACE:     New var:....... cwd = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks'
+IE_TRACE:     12:44:19.400507 line       424 SOURCE IS UNAVAILABLE
+IE_TRACE:         Starting var:.. a = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks'
+IE_TRACE:         Starting var:.. p = ('hooks/pre_gen_project.py',)
+IE_TRACE:         12:44:19.400523 call        71 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.400542 line        76 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.400552 line        77 SOURCE IS UNAVAILABLE
+IE_TRACE:             Starting var:.. path = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks'
+IE_TRACE:             12:44:19.400562 call        41 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.400574 line        42 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.400582 line        45 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.400591 return      45 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. '/'
+IE_TRACE:         New var:....... sep = '/'
+IE_TRACE:         12:44:19.400603 line        78 SOURCE IS UNAVAILABLE
+IE_TRACE:         New var:....... path = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks'
+IE_TRACE:         12:44:19.400617 line        79 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.400631 line        80 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.400642 line        82 SOURCE IS UNAVAILABLE
+IE_TRACE:         New var:....... b = 'hooks/pre_gen_project.py'
+IE_TRACE:         12:44:19.400654 line        83 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.400669 line        85 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.400681 line        88 SOURCE IS UNAVAILABLE
+IE_TRACE:         Modified var:.. path = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:         12:44:19.400694 line        82 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.400709 line        92 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.400722 return      92 SOURCE IS UNAVAILABLE
+IE_TRACE:         Return value:.. '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:     Modified var:.. path = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:     12:44:19.400739 line       425 SOURCE IS UNAVAILABLE
+IE_TRACE:         Starting var:.. path = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:         12:44:19.400755 call       408 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.400768 line       410 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.400776 line       411 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.400785 line       413 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.400794 return     413 SOURCE IS UNAVAILABLE
+IE_TRACE:         Return value:.. '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:     12:44:19.400807 return     425 SOURCE IS UNAVAILABLE
+IE_TRACE:     Return value:.. '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/cookiecutter/tests/test_hooks.py
+IE_TRACE: New var:....... expected_pre = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE: 12:44:19.400821 line        93             actual_hook_path = hooks.find_hook('pre_gen_project')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/cookiecutter/cookiecutter/hooks.py
+IE_TRACE:     Starting var:.. hook_name = 'pre_gen_project'
+IE_TRACE:     Starting var:.. hooks_dir = 'hooks'
+IE_TRACE:     12:44:19.400844 call        39 def find_hook(hook_name, hooks_dir='hooks'):
+IE_TRACE:     12:44:19.400892 line        51     logger.debug('hooks_dir is %s', os.path.abspath(hooks_dir))
+IE_TRACE:         Source path:... <frozen posixpath>
+IE_TRACE:         Starting var:.. path = 'hooks'
+IE_TRACE:         12:44:19.400904 call       416 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.400919 line       418 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.400928 line       419 SOURCE IS UNAVAILABLE
+IE_TRACE:             Starting var:.. s = 'hooks'
+IE_TRACE:             12:44:19.400937 call        60 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.400948 line        62 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.400957 line        63 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Starting var:.. path = 'hooks'
+IE_TRACE:                 12:44:19.400966 call        41 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.400978 line        42 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.400987 line        45 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.400995 return      45 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Return value:.. '/'
+IE_TRACE:             New var:....... sep = '/'
+IE_TRACE:             12:44:19.401007 line        64 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.401020 return      64 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. False
+IE_TRACE:         12:44:19.401033 line       420 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.401042 line       423 SOURCE IS UNAVAILABLE
+IE_TRACE:         New var:....... cwd = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks'
+IE_TRACE:         12:44:19.401051 line       424 SOURCE IS UNAVAILABLE
+IE_TRACE:             Starting var:.. a = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks'
+IE_TRACE:             Starting var:.. p = ('hooks',)
+IE_TRACE:             12:44:19.401065 call        71 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.401080 line        76 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.401091 line        77 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Starting var:.. path = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks'
+IE_TRACE:                 12:44:19.401101 call        41 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.401113 line        42 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.401122 line        45 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.401130 return      45 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Return value:.. '/'
+IE_TRACE:             New var:....... sep = '/'
+IE_TRACE:             12:44:19.401142 line        78 SOURCE IS UNAVAILABLE
+IE_TRACE:             New var:....... path = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks'
+IE_TRACE:             12:44:19.401156 line        79 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.401171 line        80 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.401182 line        82 SOURCE IS UNAVAILABLE
+IE_TRACE:             New var:....... b = 'hooks'
+IE_TRACE:             12:44:19.401198 line        83 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.401221 line        85 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.401233 line        88 SOURCE IS UNAVAILABLE
+IE_TRACE:             Modified var:.. path = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks'
+IE_TRACE:             12:44:19.401245 line        82 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.401262 line        92 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.401274 return      92 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks'
+IE_TRACE:         Modified var:.. path = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks'
+IE_TRACE:         12:44:19.401290 line       425 SOURCE IS UNAVAILABLE
+IE_TRACE:             Starting var:.. path = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks'
+IE_TRACE:             12:44:19.401302 call       408 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.401314 line       410 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.401322 line       411 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.401331 line       413 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.401340 return     413 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks'
+IE_TRACE:         12:44:19.401352 return     425 SOURCE IS UNAVAILABLE
+IE_TRACE:         Return value:.. '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks'
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/cookiecutter/cookiecutter/hooks.py
+IE_TRACE:     12:44:19.402064 line        53     if not os.path.isdir(hooks_dir):
+IE_TRACE:         Source path:... <frozen genericpath>
+IE_TRACE:         Starting var:.. s = 'hooks'
+IE_TRACE:         12:44:19.402081 call        39 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.402115 line        41 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.402124 line        42 SOURCE IS UNAVAILABLE
+IE_TRACE:         New var:....... st = os.stat_result(st_mode=16893, st_ino=4196184, st_dev=66309, st_nlink=2, st_uid=1000, st_gid=1000, st_size=4096, st_atime=1780557259, st_mtime=1780557259, st_ctime=1780557259)
+IE_TRACE:         12:44:19.402137 line        45 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.402155 return      45 SOURCE IS UNAVAILABLE
+IE_TRACE:         Return value:.. True
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/cookiecutter/cookiecutter/hooks.py
+IE_TRACE:     12:44:19.402170 line        57     for hook_file in os.listdir(hooks_dir):
+IE_TRACE:     New var:....... hook_file = 'post_gen_project.sh'
+IE_TRACE:     12:44:19.402200 line        58         if valid_hook(hook_file, hook_name):
+IE_TRACE:         Starting var:.. hook_file = 'post_gen_project.sh'
+IE_TRACE:         Starting var:.. hook_name = 'pre_gen_project'
+IE_TRACE:         12:44:19.402224 call        22 def valid_hook(hook_file, hook_name):
+IE_TRACE:         12:44:19.402240 line        29     filename = os.path.basename(hook_file)
+IE_TRACE:             Source path:... <frozen posixpath>
+IE_TRACE:             Starting var:.. p = 'post_gen_project.sh'
+IE_TRACE:             12:44:19.402253 call       169 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.402269 line       171 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.402278 line       172 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Starting var:.. path = 'post_gen_project.sh'
+IE_TRACE:                 12:44:19.402288 call        41 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.402299 line        42 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.402308 line        45 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.402318 return      45 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Return value:.. '/'
+IE_TRACE:             New var:....... sep = '/'
+IE_TRACE:             12:44:19.402364 line       173 SOURCE IS UNAVAILABLE
+IE_TRACE:             New var:....... i = 0
+IE_TRACE:             12:44:19.402395 line       174 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.402419 return     174 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. 'post_gen_project.sh'
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/cookiecutter/cookiecutter/hooks.py
+IE_TRACE:         New var:....... filename = 'post_gen_project.sh'
+IE_TRACE:         12:44:19.402437 line        30     basename = os.path.splitext(filename)[0]
+IE_TRACE:             Source path:... <frozen posixpath>
+IE_TRACE:             Starting var:.. p = 'post_gen_project.sh'
+IE_TRACE:             12:44:19.402462 call       117 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.402480 line       118 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.402489 line       119 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.402498 line       123 SOURCE IS UNAVAILABLE
+IE_TRACE:             New var:....... sep = '/'
+IE_TRACE:             12:44:19.402507 line       124 SOURCE IS UNAVAILABLE
+IE_TRACE:             New var:....... extsep = '.'
+IE_TRACE:             12:44:19.402520 line       125 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Source path:... <frozen genericpath>
+IE_TRACE:                 Starting var:.. p = 'post_gen_project.sh'
+IE_TRACE:                 Starting var:.. sep = '/'
+IE_TRACE:                 Starting var:.. altsep = None
+IE_TRACE:                 Starting var:.. extsep = '.'
+IE_TRACE:                 12:44:19.402538 call       133 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.402565 line       140 SOURCE IS UNAVAILABLE
+IE_TRACE:                 New var:....... sepIndex = -1
+IE_TRACE:                 12:44:19.402577 line       141 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.402594 line       145 SOURCE IS UNAVAILABLE
+IE_TRACE:                 New var:....... dotIndex = 16
+IE_TRACE:                 12:44:19.402606 line       146 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.402623 line       148 SOURCE IS UNAVAILABLE
+IE_TRACE:                 New var:....... filenameIndex = 0
+IE_TRACE:                 12:44:19.402637 line       149 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.402653 line       150 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.402667 line       151 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.402681 return     151 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Return value:.. ('post_gen_project', '.sh')
+IE_TRACE:             Source path:... <frozen posixpath>
+IE_TRACE:             12:44:19.402700 return     125 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. ('post_gen_project', '.sh')
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/cookiecutter/cookiecutter/hooks.py
+IE_TRACE:         New var:....... basename = 'post_gen_project'
+IE_TRACE:         12:44:19.402719 line        32     matching_hook = basename == hook_name
+IE_TRACE:         New var:....... matching_hook = False
+IE_TRACE:         12:44:19.402737 line        33     supported_hook = basename in _HOOKS
+IE_TRACE:         New var:....... supported_hook = True
+IE_TRACE:         12:44:19.402754 line        34     backup_file = filename.endswith('~')
+IE_TRACE:         New var:....... backup_file = False
+IE_TRACE:         12:44:19.402770 line        36     return matching_hook and supported_hook and not backup_file
+IE_TRACE:         12:44:19.402787 return      36     return matching_hook and supported_hook and not backup_file
+IE_TRACE:         Return value:.. False
+IE_TRACE:     12:44:19.402805 line        57     for hook_file in os.listdir(hooks_dir):
+IE_TRACE:     Modified var:.. hook_file = 'pre_gen_project.py'
+IE_TRACE:     12:44:19.402816 line        58         if valid_hook(hook_file, hook_name):
+IE_TRACE:         Starting var:.. hook_file = 'pre_gen_project.py'
+IE_TRACE:         Starting var:.. hook_name = 'pre_gen_project'
+IE_TRACE:         12:44:19.402829 call        22 def valid_hook(hook_file, hook_name):
+IE_TRACE:         12:44:19.402845 line        29     filename = os.path.basename(hook_file)
+IE_TRACE:             Source path:... <frozen posixpath>
+IE_TRACE:             Starting var:.. p = 'pre_gen_project.py'
+IE_TRACE:             12:44:19.402856 call       169 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.402873 line       171 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.402882 line       172 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Starting var:.. path = 'pre_gen_project.py'
+IE_TRACE:                 12:44:19.402892 call        41 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.402903 line        42 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.402912 line        45 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.402920 return      45 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Return value:.. '/'
+IE_TRACE:             New var:....... sep = '/'
+IE_TRACE:             12:44:19.402932 line       173 SOURCE IS UNAVAILABLE
+IE_TRACE:             New var:....... i = 0
+IE_TRACE:             12:44:19.402945 line       174 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.402958 return     174 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. 'pre_gen_project.py'
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/cookiecutter/cookiecutter/hooks.py
+IE_TRACE:         New var:....... filename = 'pre_gen_project.py'
+IE_TRACE:         12:44:19.402972 line        30     basename = os.path.splitext(filename)[0]
+IE_TRACE:             Source path:... <frozen posixpath>
+IE_TRACE:             Starting var:.. p = 'pre_gen_project.py'
+IE_TRACE:             12:44:19.402989 call       117 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.403004 line       118 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.403013 line       119 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.403022 line       123 SOURCE IS UNAVAILABLE
+IE_TRACE:             New var:....... sep = '/'
+IE_TRACE:             12:44:19.403031 line       124 SOURCE IS UNAVAILABLE
+IE_TRACE:             New var:....... extsep = '.'
+IE_TRACE:             12:44:19.403043 line       125 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Source path:... <frozen genericpath>
+IE_TRACE:                 Starting var:.. p = 'pre_gen_project.py'
+IE_TRACE:                 Starting var:.. sep = '/'
+IE_TRACE:                 Starting var:.. altsep = None
+IE_TRACE:                 Starting var:.. extsep = '.'
+IE_TRACE:                 12:44:19.403056 call       133 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.403082 line       140 SOURCE IS UNAVAILABLE
+IE_TRACE:                 New var:....... sepIndex = -1
+IE_TRACE:                 12:44:19.403094 line       141 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.403109 line       145 SOURCE IS UNAVAILABLE
+IE_TRACE:                 New var:....... dotIndex = 15
+IE_TRACE:                 12:44:19.403122 line       146 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.403138 line       148 SOURCE IS UNAVAILABLE
+IE_TRACE:                 New var:....... filenameIndex = 0
+IE_TRACE:                 12:44:19.403151 line       149 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.403167 line       150 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.403181 line       151 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.403199 return     151 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Return value:.. ('pre_gen_project', '.py')
+IE_TRACE:             Source path:... <frozen posixpath>
+IE_TRACE:             12:44:19.403219 return     125 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. ('pre_gen_project', '.py')
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/cookiecutter/cookiecutter/hooks.py
+IE_TRACE:         New var:....... basename = 'pre_gen_project'
+IE_TRACE:         12:44:19.403236 line        32     matching_hook = basename == hook_name
+IE_TRACE:         New var:....... matching_hook = True
+IE_TRACE:         12:44:19.403254 line        33     supported_hook = basename in _HOOKS
+IE_TRACE:         New var:....... supported_hook = True
+IE_TRACE:         12:44:19.403270 line        34     backup_file = filename.endswith('~')
+IE_TRACE:         New var:....... backup_file = False
+IE_TRACE:         12:44:19.403287 line        36     return matching_hook and supported_hook and not backup_file
+IE_TRACE:         12:44:19.403303 return      36     return matching_hook and supported_hook and not backup_file
+IE_TRACE:         Return value:.. True
+IE_TRACE:     12:44:19.403320 line        59             return os.path.abspath(os.path.join(hooks_dir, hook_file))
+IE_TRACE:         Source path:... <frozen posixpath>
+IE_TRACE:         Starting var:.. a = 'hooks'
+IE_TRACE:         Starting var:.. p = ('pre_gen_project.py',)
+IE_TRACE:         12:44:19.403332 call        71 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.403351 line        76 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.403361 line        77 SOURCE IS UNAVAILABLE
+IE_TRACE:             Starting var:.. path = 'hooks'
+IE_TRACE:             12:44:19.403371 call        41 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.403382 line        42 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.403391 line        45 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.403399 return      45 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. '/'
+IE_TRACE:         New var:....... sep = '/'
+IE_TRACE:         12:44:19.403411 line        78 SOURCE IS UNAVAILABLE
+IE_TRACE:         New var:....... path = 'hooks'
+IE_TRACE:         12:44:19.403425 line        79 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.403439 line        80 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.403450 line        82 SOURCE IS UNAVAILABLE
+IE_TRACE:         New var:....... b = 'pre_gen_project.py'
+IE_TRACE:         12:44:19.403461 line        83 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.403476 line        85 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.403488 line        88 SOURCE IS UNAVAILABLE
+IE_TRACE:         Modified var:.. path = 'hooks/pre_gen_project.py'
+IE_TRACE:         12:44:19.403499 line        82 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.403514 line        92 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.403526 return      92 SOURCE IS UNAVAILABLE
+IE_TRACE:         Return value:.. 'hooks/pre_gen_project.py'
+IE_TRACE:         Starting var:.. path = 'hooks/pre_gen_project.py'
+IE_TRACE:         12:44:19.403543 call       416 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.403554 line       418 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.403563 line       419 SOURCE IS UNAVAILABLE
+IE_TRACE:             Starting var:.. s = 'hooks/pre_gen_project.py'
+IE_TRACE:             12:44:19.403572 call        60 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.403583 line        62 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.403592 line        63 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Starting var:.. path = 'hooks/pre_gen_project.py'
+IE_TRACE:                 12:44:19.403601 call        41 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.403614 line        42 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.403622 line        45 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.403631 return      45 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Return value:.. '/'
+IE_TRACE:             New var:....... sep = '/'
+IE_TRACE:             12:44:19.403643 line        64 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.403656 return      64 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. False
+IE_TRACE:         12:44:19.403669 line       420 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:44:19.403677 line       423 SOURCE IS UNAVAILABLE
+IE_TRACE:         New var:....... cwd = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks'
+IE_TRACE:         12:44:19.403688 line       424 SOURCE IS UNAVAILABLE
+IE_TRACE:             Starting var:.. a = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks'
+IE_TRACE:             Starting var:.. p = ('hooks/pre_gen_project.py',)
+IE_TRACE:             12:44:19.403700 call        71 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.403716 line        76 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.403732 line        77 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Starting var:.. path = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks'
+IE_TRACE:                 12:44:19.403743 call        41 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.403754 line        42 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.403763 line        45 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:44:19.403772 return      45 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Return value:.. '/'
+IE_TRACE:             New var:....... sep = '/'
+IE_TRACE:             12:44:19.403784 line        78 SOURCE IS UNAVAILABLE
+IE_TRACE:             New var:....... path = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks'
+IE_TRACE:             12:44:19.403797 line        79 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.403811 line        80 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.403822 line        82 SOURCE IS UNAVAILABLE
+IE_TRACE:             New var:....... b = 'hooks/pre_gen_project.py'
+IE_TRACE:             12:44:19.403833 line        83 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.403848 line        85 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.403860 line        88 SOURCE IS UNAVAILABLE
+IE_TRACE:             Modified var:.. path = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:             12:44:19.403872 line        82 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.403887 line        92 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.403899 return      92 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:         Modified var:.. path = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:         12:44:19.403915 line       425 SOURCE IS UNAVAILABLE
+IE_TRACE:             Starting var:.. path = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:             12:44:19.403928 call       408 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.403939 line       410 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.403948 line       411 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.403956 line       413 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:44:19.403965 return     413 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:         12:44:19.403977 return     425 SOURCE IS UNAVAILABLE
+IE_TRACE:         Return value:.. '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/cookiecutter/cookiecutter/hooks.py
+IE_TRACE:     12:44:19.403991 return      59             return os.path.abspath(os.path.join(hooks_dir, hook_file))
+IE_TRACE:     Return value:.. '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/cookiecutter/tests/test_hooks.py
+IE_TRACE: New var:....... actual_hook_path = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE: 12:44:19.404009 line        94             assert expected_pre == actual_hook_path[0]
+IE_TRACE:     Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py
+IE_TRACE:     Starting var:.. ops = ('==',)
+IE_TRACE:     Starting var:.. results = (False,)
+IE_TRACE:     Starting var:.. expls = ('%(py0)s == %(py3)s',)
+IE_TRACE:     Starting var:.. each_obj = ('/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py', '/')
+IE_TRACE:     12:44:19.404037 call       493 def _call_reprcompare(
+IE_TRACE:     12:44:19.404164 line       499     for i, res, expl in zip(range(len(ops)), results, expls, strict=True):
+IE_TRACE:     New var:....... i = 0
+IE_TRACE:     New var:....... res = False
+IE_TRACE:     New var:....... expl = '%(py0)s == %(py3)s'
+IE_TRACE:     12:44:19.404182 line       500         try:
+IE_TRACE:     12:44:19.404215 line       501             done = not res
+IE_TRACE:     New var:....... done = True
+IE_TRACE:     12:44:19.404230 line       504         if done:
+IE_TRACE:     12:44:19.404248 line       505             break
+IE_TRACE:     12:44:19.404264 line       506     if util._reprcompare is not None:
+IE_TRACE:     12:44:19.404280 line       507         custom = util._reprcompare(ops[i], each_obj[i], each_obj[i + 1])
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/__init__.py
+IE_TRACE:         Starting var:.. op = '=='
+IE_TRACE:         Starting var:.. left = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:         Starting var:.. right = '/'
+IE_TRACE:         Starting var:.. ihook = <_pytest.config.compat.PathAwareHookProxy object at 0x7306da944170>
+IE_TRACE:         Starting var:.. item = <Function test_find_hook>
+IE_TRACE:         12:44:19.404301 call       152     def callbinrepr(op, left: object, right: object) -> str | None:
+IE_TRACE:         12:44:19.404377 line       167         hook_result = ihook.pytest_assertrepr_compare(
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/config/compat.py
+IE_TRACE:             Starting var:.. self = <_pytest.config.compat.PathAwareHookProxy object at 0x7306da944170>
+IE_TRACE:             Starting var:.. key = 'pytest_assertrepr_compare'
+IE_TRACE:             12:44:19.404405 call        49     def __getattr__(self, key: str) -> pluggy.HookCaller:
+IE_TRACE:             12:44:19.404446 line        50         hook: pluggy.HookCaller = getattr(self._hook_relay, key)
+IE_TRACE:             New var:....... hook = <HookCaller 'pytest_assertrepr_compare'>
+IE_TRACE:             12:44:19.404460 line        51         if key not in imply_paths_hooks:
+IE_TRACE:             12:44:19.404480 line        52             self.__dict__[key] = hook
+IE_TRACE:             12:44:19.404493 line        53             return hook
+IE_TRACE:             12:44:19.404505 return      53             return hook
+IE_TRACE:             Return value:.. <HookCaller 'pytest_assertrepr_compare'>
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/__init__.py
+IE_TRACE:         12:44:19.404521 line       168             config=item.config, op=op, left=left, right=right
+IE_TRACE:         12:44:19.404540 line       167         hook_result = ihook.pytest_assertrepr_compare(
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/pluggy/_hooks.py
+IE_TRACE:             Starting var:.. self = <HookCaller 'pytest_assertrepr_compare'>
+IE_TRACE:             Starting var:.. kwargs = {'config': <_pytest.config.Config object at 0x7306daa971a0>, 'op': '==', 'left': '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py', 'right': '/'}
+IE_TRACE:             12:44:19.404558 call       497     def __call__(self, **kwargs: object) -> Any:
+IE_TRACE:             12:44:19.404629 line       506         assert not self.is_historic(), (
+IE_TRACE:                 Starting var:.. self = <HookCaller 'pytest_assertrepr_compare'>
+IE_TRACE:                 12:44:19.404643 call       436     def is_historic(self) -> bool:
+IE_TRACE:                 12:44:19.404656 line       438         return self._call_history is not None
+IE_TRACE:                 12:44:19.404666 return     438         return self._call_history is not None
+IE_TRACE:                 Return value:.. False
+IE_TRACE:             12:44:19.404680 line       509         self._verify_all_args_are_provided(kwargs)
+IE_TRACE:                 Starting var:.. self = <HookCaller 'pytest_assertrepr_compare'>
+IE_TRACE:                 Starting var:.. kwargs = {'config': <_pytest.config.Config object at 0x7306daa971a0>, 'op': '==', 'left': '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py', 'right': '/'}
+IE_TRACE:                 12:44:19.404695 call       478     def _verify_all_args_are_provided(self, kwargs: Mapping[str, object]) -> None:
+IE_TRACE:                 12:44:19.404715 line       480         if self.spec:
+IE_TRACE:                 12:44:19.404728 line       481             for argname in self.spec.argnames:
+IE_TRACE:                 New var:....... argname = 'config'
+IE_TRACE:                 12:44:19.404740 line       482                 if argname not in kwargs:
+IE_TRACE:     [CONDENSED] 2 identical loop iterations skipped (4 total iterations, showing first and last)
+IE_TRACE:                 12:44:19.404809 line       481             for argname in self.spec.argnames:
+IE_TRACE:                 Modified var:.. argname = 'right'
+IE_TRACE:                 12:44:19.404820 line       482                 if argname not in kwargs:
+IE_TRACE:                 12:44:19.404834 line       481             for argname in self.spec.argnames:
+IE_TRACE:                 12:44:19.404846 return     481             for argname in self.spec.argnames:
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             12:44:19.404863 line       510         firstresult = self.spec.opts.get("firstresult", False) if self.spec else False
+IE_TRACE:             New var:....... firstresult = False
+IE_TRACE:             12:44:19.404875 line       512         return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+IE_TRACE:                 Source path:... /path/to/.venv/lib/python3.12/site-packages/pluggy/_manager.py
+IE_TRACE:                 Starting var:.. self = <_pytest.config.PytestPluginManager object at 0x7306dab5b8f0>
+IE_TRACE:                 Starting var:.. hook_name = 'pytest_assertrepr_compare'
+IE_TRACE:                 Starting var:.. methods = [<HookImpl plugin_name='assertion', plugin=<module '_pytest.assertion' from '/path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/__init__.py'>>]
+IE_TRACE:                 Starting var:.. kwargs = {'config': <_pytest.config.Config object at 0x7306daa971a0>, 'op': '==', 'left': '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py', 'right': '/'}
+IE_TRACE:                 Starting var:.. firstresult = False
+IE_TRACE:                 12:44:19.404892 call       111     def _hookexec(
+IE_TRACE:                 12:44:19.404982 line       120         return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/pluggy/_callers.py
+IE_TRACE:                     Starting var:.. hook_name = 'pytest_assertrepr_compare'
+IE_TRACE:                     Starting var:.. hook_impls = [<HookImpl plugin_name='assertion', plugin=<module '_pytest.assertion' from '/path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/__init__.py'>>]
+IE_TRACE:                     Starting var:.. caller_kwargs = {'config': <_pytest.config.Config object at 0x7306daa971a0>, 'op': '==', 'left': '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py', 'right': '/'}
+IE_TRACE:                     Starting var:.. firstresult = False
+IE_TRACE:                     12:44:19.405006 call        76 def _multicall(
+IE_TRACE:                     12:44:19.405067 line        87     __tracebackhide__ = True
+IE_TRACE:                     New var:....... __tracebackhide__ = True
+IE_TRACE:                     12:44:19.405087 line        88     results: list[object] = []
+IE_TRACE:                     New var:....... results = []
+IE_TRACE:                     12:44:19.405112 line        89     exception = None
+IE_TRACE:                     New var:....... exception = None
+IE_TRACE:                     12:44:19.405136 line        90     try:  # run impl and wrapper setup functions in a loop
+IE_TRACE:                     12:44:19.405159 line        91         teardowns: list[Teardown] = []
+IE_TRACE:                     New var:....... teardowns = []
+IE_TRACE:                     12:44:19.405178 line        92         try:
+IE_TRACE:                     12:44:19.405238 line        93             for hook_impl in reversed(hook_impls):
+IE_TRACE:                     New var:....... hook_impl = <HookImpl plugin_name='assertion', plugin=<module '_pytest.assertion' from '/path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/__init__.py'>>
+IE_TRACE:                     12:44:19.405259 line        94                 try:
+IE_TRACE:                     12:44:19.405285 line        95                     args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+IE_TRACE:                     New var:....... argname = 'config'
+IE_TRACE:                     12:44:19.405308 line        95                     args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+IE_TRACE:                     Modified var:.. argname = 'op'
+IE_TRACE:                     12:44:19.405334 line        95                     args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+IE_TRACE:                     Modified var:.. argname = 'left'
+IE_TRACE:                     12:44:19.405360 line        95                     args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+IE_TRACE:                     Modified var:.. argname = 'right'
+IE_TRACE:                     12:44:19.405385 line        95                     args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+IE_TRACE:                     New var:....... args = [<_pytest.config.Config object at 0x7306daa971a0>, '==', '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py', '/']
+IE_TRACE:                     12:44:19.405411 line       104                 if hook_impl.hookwrapper:
+IE_TRACE:                     12:44:19.405439 line       110                 elif hook_impl.wrapper:
+IE_TRACE:                     12:44:19.405462 line       121                     res = hook_impl.function(*args)
+IE_TRACE:                         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/__init__.py
+IE_TRACE:                         Starting var:.. config = <_pytest.config.Config object at 0x7306daa971a0>
+IE_TRACE:                         Starting var:.. op = '=='
+IE_TRACE:                         Starting var:.. left = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:                         Starting var:.. right = '/'
+IE_TRACE:                         12:44:19.405487 call       205 def pytest_assertrepr_compare(
+IE_TRACE:                         12:44:19.405517 line       208     return util.assertrepr_compare(config=config, op=op, left=left, right=right)
+IE_TRACE:                             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/util.py
+IE_TRACE:                             Starting var:.. config = <_pytest.config.Config object at 0x7306daa971a0>
+IE_TRACE:                             Starting var:.. op = '=='
+IE_TRACE:                             Starting var:.. left = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:                             Starting var:.. right = '/'
+IE_TRACE:                             Starting var:.. use_ascii = False
+IE_TRACE:                             12:44:19.405545 call       178 def assertrepr_compare(
+IE_TRACE:                             12:44:19.405639 line       182     verbose = config.get_verbosity(Config.VERBOSITY_ASSERTIONS)
+IE_TRACE:                                 Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/config/__init__.py
+IE_TRACE:                                 Starting var:.. self = <_pytest.config.Config object at 0x7306daa971a0>
+IE_TRACE:                                 Starting var:.. verbosity_type = 'assertions'
+IE_TRACE:                                 12:44:19.405665 call      1916     def get_verbosity(self, verbosity_type: str | None = None) -> int:
+IE_TRACE:                                 12:44:19.405805 line      1955         global_level = self.getoption("verbose", default=0)
+IE_TRACE:                                     Starting var:.. self = <_pytest.config.Config object at 0x7306daa971a0>
+IE_TRACE:                                     Starting var:.. name = 'verbose'
+IE_TRACE:                                     Starting var:.. default = 0
+IE_TRACE:                                     Starting var:.. skip = False
+IE_TRACE:                                     12:44:19.405826 call      1874     def getoption(self, name: str, default: Any = notset, skip: bool = False):
+IE_TRACE:                                     12:44:19.405856 line      1884         name = self._opt2dest.get(name, name)
+IE_TRACE:                                     12:44:19.405874 line      1885         try:
+IE_TRACE:                                     12:44:19.405889 line      1886             val = getattr(self.option, name)
+IE_TRACE:                                     New var:....... val = 0
+IE_TRACE:                                     12:44:19.405906 line      1887             if val is None and skip:
+IE_TRACE:                                     12:44:19.405926 line      1889             return val
+IE_TRACE:                                     12:44:19.405942 return    1889             return val
+IE_TRACE:                                     Return value:.. 0
+IE_TRACE:                                 New var:....... global_level = 0
+IE_TRACE:                                 12:44:19.405963 line      1956         assert isinstance(global_level, int)
+IE_TRACE:                                 12:44:19.405981 line      1957         if verbosity_type is None:
+IE_TRACE:                                 12:44:19.405995 line      1960         ini_name = Config._verbosity_ini_name(verbosity_type)
+IE_TRACE:                                     Starting var:.. verbosity_type = 'assertions'
+IE_TRACE:                                     12:44:19.406011 call      1971     def _verbosity_ini_name(verbosity_type: str) -> str:
+IE_TRACE:                                     12:44:19.406029 line      1972         return f"verbosity_{verbosity_type}"
+IE_TRACE:                                     12:44:19.406042 return    1972         return f"verbosity_{verbosity_type}"
+IE_TRACE:                                     Return value:.. 'verbosity_assertions'
+IE_TRACE:                                 New var:....... ini_name = 'verbosity_assertions'
+IE_TRACE:                                 12:44:19.406060 line      1961         if ini_name not in self._parser._inidict:
+IE_TRACE:                                 12:44:19.406079 line      1964         level = self.getini(ini_name)
+IE_TRACE:                                     Starting var:.. self = <_pytest.config.Config object at 0x7306daa971a0>
+IE_TRACE:                                     Starting var:.. name = 'verbosity_assertions'
+IE_TRACE:                                     12:44:19.406098 call      1627     def getini(self, name: str) -> Any:
+IE_TRACE:                                     12:44:19.406118 line      1657         canonical_name = self._parser._ini_aliases.get(name, name)
+IE_TRACE:                                     New var:....... canonical_name = 'verbosity_assertions'
+IE_TRACE:                                     12:44:19.406133 line      1658         try:
+IE_TRACE:                                     12:44:19.406150 line      1659             return self._inicache[canonical_name]
+IE_TRACE:                                     12:44:19.406175 exception 1659             return self._inicache[canonical_name]
+IE_TRACE:                                     Exception:..... KeyError: 'verbosity_assertions'
+IE_TRACE:                                     12:44:19.406233 line      1660         except KeyError:
+IE_TRACE:                                     12:44:19.406250 line      1661             pass
+IE_TRACE:                                     12:44:19.406265 line      1662         self._inicache[canonical_name] = val = self._getini(canonical_name)
+IE_TRACE:                                     New var:....... val = 'auto'
+IE_TRACE:                                     12:44:19.406297 line      1663         return val
+IE_TRACE:                                     12:44:19.406316 return    1663         return val
+IE_TRACE:                                     Return value:.. 'auto'
+IE_TRACE:                                 New var:....... level = 'auto'
+IE_TRACE:                                 12:44:19.406336 line      1965         if level == Config._VERBOSITY_INI_DEFAULT:
+IE_TRACE:                                 12:44:19.406355 line      1966             return global_level
+IE_TRACE:                                 12:44:19.406371 return    1966             return global_level
+IE_TRACE:                                 Return value:.. 0
+IE_TRACE:                             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/util.py
+IE_TRACE:                             New var:....... verbose = 0
+IE_TRACE:                             12:44:19.406392 line       187         isinstance(left, str)
+IE_TRACE:                             12:44:19.406419 line       188         and isinstance(right, str)
+IE_TRACE:                             12:44:19.406439 line       187         isinstance(left, str)
+IE_TRACE:                             12:44:19.406457 line       189         and normalize("NFD", left) == normalize("NFD", right)
+IE_TRACE:                             12:44:19.406476 line       186     use_ascii = (
+IE_TRACE:                             12:44:19.406493 line       192     if verbose > 1:
+IE_TRACE:                             12:44:19.406511 line       199             80 - 15 - len(op) - 2
+IE_TRACE:                             12:44:19.406528 line       200         ) // 2  # 15 chars indentation, 1 space around op
+IE_TRACE:                             12:44:19.406545 line       198         maxsize = (
+IE_TRACE:                             New var:....... maxsize = 30
+IE_TRACE:                             12:44:19.406563 line       202         left_repr = saferepr(left, maxsize=maxsize, use_ascii=use_ascii)
+IE_TRACE:                                 Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:                                 Starting var:.. obj = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:                                 Starting var:.. maxsize = 30
+IE_TRACE:                                 Starting var:.. use_ascii = False
+IE_TRACE:                                 12:44:19.406586 call        99 def saferepr(
+IE_TRACE:                                 12:44:19.406640 line       111     return SafeRepr(maxsize, use_ascii).repr(obj)
+IE_TRACE:                                     Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x7306d9375370>
+IE_TRACE:                                     Starting var:.. maxsize = 30
+IE_TRACE:                                     Starting var:.. use_ascii = False
+IE_TRACE:                                     Starting var:.. __class__ = <class '_pytest._io.saferepr.SafeRepr'>
+IE_TRACE:                                     12:44:19.406659 call        42     def __init__(self, maxsize: int | None, use_ascii: bool = False) -> None:
+IE_TRACE:                                     12:44:19.406690 line        49         super().__init__()
+IE_TRACE:                                     12:44:19.406720 line        53         self.maxstring = maxsize if maxsize is not None else 1_000_000_000
+IE_TRACE:                                     12:44:19.406737 line        54         self.maxsize = maxsize
+IE_TRACE:                                     12:44:19.406753 line        55         self.use_ascii = use_ascii
+IE_TRACE:                                     12:44:19.406768 return      55         self.use_ascii = use_ascii
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                     Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x7306d9375370>
+IE_TRACE:                                     Starting var:.. x = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:                                     Starting var:.. __class__ = <class '_pytest._io.saferepr.SafeRepr'>
+IE_TRACE:                                     12:44:19.406793 call        57     def repr(self, x: object) -> str:
+IE_TRACE:                                     12:44:19.406821 line        58         try:
+IE_TRACE:                                     12:44:19.406837 line        59             if self.use_ascii:
+IE_TRACE:                                     12:44:19.406853 line        62                 s = super().repr(x)
+IE_TRACE:                                     New var:....... s = "'/home/shashw...en_project.py'"
+IE_TRACE:                                     12:44:19.406898 line        67         if self.maxsize is not None:
+IE_TRACE:                                     12:44:19.406919 line        68             s = _ellipsize(s, self.maxsize)
+IE_TRACE:                                     12:44:19.406943 line        69         return s
+IE_TRACE:                                     12:44:19.406960 return      69         return s
+IE_TRACE:                                     Return value:.. "'/home/shashw...en_project.py'"
+IE_TRACE:                                 12:44:19.406980 return     111     return SafeRepr(maxsize, use_ascii).repr(obj)
+IE_TRACE:                                 Return value:.. "'/home/shashw...en_project.py'"
+IE_TRACE:                             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/util.py
+IE_TRACE:                             New var:....... left_repr = "'/home/shashw...en_project.py'"
+IE_TRACE:                             12:44:19.406999 line       203         right_repr = saferepr(right, maxsize=maxsize, use_ascii=use_ascii)
+IE_TRACE:                                 Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:                                 Starting var:.. obj = '/'
+IE_TRACE:                                 Starting var:.. maxsize = 30
+IE_TRACE:                                 Starting var:.. use_ascii = False
+IE_TRACE:                                 12:44:19.407027 call        99 def saferepr(
+IE_TRACE:                                 12:44:19.407054 line       111     return SafeRepr(maxsize, use_ascii).repr(obj)
+IE_TRACE:                                     Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x7306d9375280>
+IE_TRACE:                                     Starting var:.. maxsize = 30
+IE_TRACE:                                     Starting var:.. use_ascii = False
+IE_TRACE:                                     Starting var:.. __class__ = <class '_pytest._io.saferepr.SafeRepr'>
+IE_TRACE:                                     12:44:19.407069 call        42     def __init__(self, maxsize: int | None, use_ascii: bool = False) -> None:
+IE_TRACE:                                     12:44:19.407096 line        49         super().__init__()
+IE_TRACE:                                     12:44:19.407118 line        53         self.maxstring = maxsize if maxsize is not None else 1_000_000_000
+IE_TRACE:                                     12:44:19.407134 line        54         self.maxsize = maxsize
+IE_TRACE:                                     12:44:19.407149 line        55         self.use_ascii = use_ascii
+IE_TRACE:                                     12:44:19.407164 return      55         self.use_ascii = use_ascii
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                     Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x7306d9375280>
+IE_TRACE:                                     Starting var:.. x = '/'
+IE_TRACE:                                     Starting var:.. __class__ = <class '_pytest._io.saferepr.SafeRepr'>
+IE_TRACE:                                     12:44:19.407184 call        57     def repr(self, x: object) -> str:
+IE_TRACE:                                     12:44:19.407212 line        58         try:
+IE_TRACE:                                     12:44:19.407227 line        59             if self.use_ascii:
+IE_TRACE:                                     12:44:19.407242 line        62                 s = super().repr(x)
+IE_TRACE:                                     New var:....... s = "'/'"
+IE_TRACE:                                     12:44:19.407276 line        67         if self.maxsize is not None:
+IE_TRACE:                                     12:44:19.407294 line        68             s = _ellipsize(s, self.maxsize)
+IE_TRACE:                                     12:44:19.407316 line        69         return s
+IE_TRACE:                                     12:44:19.407331 return      69         return s
+IE_TRACE:                                     Return value:.. "'/'"
+IE_TRACE:                                 12:44:19.407351 return     111     return SafeRepr(maxsize, use_ascii).repr(obj)
+IE_TRACE:                                 Return value:.. "'/'"
+IE_TRACE:                             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/util.py
+IE_TRACE:                             New var:....... right_repr = "'/'"
+IE_TRACE:                             12:44:19.407369 line       205     summary = f"{left_repr} {op} {right_repr}"
+IE_TRACE:                             New var:....... summary = "'/home/shashw...en_project.py' == '/'"
+IE_TRACE:                             12:44:19.407397 line       206     highlighter = config.get_terminal_writer()._highlight
+IE_TRACE:                                 Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/config/__init__.py
+IE_TRACE:                                 Starting var:.. self = <_pytest.config.Config object at 0x7306daa971a0>
+IE_TRACE:                                 12:44:19.407424 call      1175     def get_terminal_writer(self) -> TerminalWriter:
+IE_TRACE:                                 12:44:19.407444 line      1176         terminalreporter: TerminalReporter | None = self.pluginmanager.get_plugin(
+IE_TRACE:                                 12:44:19.407458 line      1177             "terminalreporter"
+IE_TRACE:                                 12:44:19.407471 line      1176         terminalreporter: TerminalReporter | None = self.pluginmanager.get_plugin(
+IE_TRACE:                                     Source path:... /path/to/.venv/lib/python3.12/site-packages/pluggy/_manager.py
+IE_TRACE:                                     Starting var:.. self = <_pytest.config.PytestPluginManager object at 0x7306dab5b8f0>
+IE_TRACE:                                     Starting var:.. name = 'terminalreporter'
+IE_TRACE:                                     12:44:19.407485 call       312     def get_plugin(self, name: str) -> Any | None:
+IE_TRACE:                                     12:44:19.407509 line       314         return self._name2plugin.get(name)
+IE_TRACE:                                     12:44:19.407524 return     314         return self._name2plugin.get(name)
+IE_TRACE:                                     Return value:.. <_pytest.terminal.TerminalReporter object at 0x7306d9588230>
+IE_TRACE:                                 Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/config/__init__.py
+IE_TRACE:                                 New var:....... terminalreporter = <_pytest.terminal.TerminalReporter object at 0x7306d9588230>
+IE_TRACE:                                 12:44:19.407544 line      1179         assert terminalreporter is not None
+IE_TRACE:                                 12:44:19.407566 line      1180         return terminalreporter._tw
+IE_TRACE:                                 12:44:19.407580 return    1180         return terminalreporter._tw
+IE_TRACE:                                 Return value:.. <_pytest._io.terminalwriter.TerminalWriter object at 0x7306da176810>
+IE_TRACE:                             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/util.py
+IE_TRACE:                             New var:....... highlighter = <bound method TerminalWriter._highlight of <_pytest._io.terminalwriter.TerminalWriter object at 0x7306da176810>>
+IE_TRACE:                             12:44:19.407599 line       208     explanation = None
+IE_TRACE:                             New var:....... explanation = None
+IE_TRACE:                             12:44:19.407631 line       209     try:
+IE_TRACE:                             12:44:19.407657 line       210         if op == "==":
+IE_TRACE:                             12:44:19.407680 line       211             explanation = _compare_eq_any(left, right, highlighter, verbose)
+IE_TRACE:                                 Starting var:.. left = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:                                 Starting var:.. right = '/'
+IE_TRACE:                                 Starting var:.. highlighter = <bound method TerminalWriter._highlight of <_pytest._io.terminalwriter.TerminalWriter object at 0x7306da176810>>
+IE_TRACE:                                 Starting var:.. verbose = 0
+IE_TRACE:                                 12:44:19.407709 call       248 def _compare_eq_any(
+IE_TRACE:                                 12:44:19.407739 line       251     explanation = []
+IE_TRACE:                                 New var:....... explanation = []
+IE_TRACE:                                 12:44:19.407756 line       252     if istext(left) and istext(right):
+IE_TRACE:                                     Starting var:.. x = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:                                     12:44:19.407778 call       125 def istext(x: Any) -> bool:
+IE_TRACE:                                     12:44:19.407794 line       126     return isinstance(x, str)
+IE_TRACE:                                     12:44:19.407808 return     126     return isinstance(x, str)
+IE_TRACE:                                     Return value:.. True
+IE_TRACE:                                     Starting var:.. x = '/'
+IE_TRACE:                                     12:44:19.407826 call       125 def istext(x: Any) -> bool:
+IE_TRACE:                                     12:44:19.407841 line       126     return isinstance(x, str)
+IE_TRACE:                                     12:44:19.407854 return     126     return isinstance(x, str)
+IE_TRACE:                                     Return value:.. True
+IE_TRACE:                                 12:44:19.407871 line       253         explanation = _diff_text(left, right, highlighter, verbose)
+IE_TRACE:                                     Starting var:.. left = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:                                     Starting var:.. right = '/'
+IE_TRACE:                                     Starting var:.. highlighter = <bound method TerminalWriter._highlight of <_pytest._io.terminalwriter.TerminalWriter object at 0x7306da176810>>
+IE_TRACE:                                     Starting var:.. verbose = 0
+IE_TRACE:                                     12:44:19.407898 call       285 def _diff_text(
+IE_TRACE:                                     12:44:19.407929 line       293     from difflib import ndiff
+IE_TRACE:                                     New var:....... ndiff = <function ndiff at 0x7306da37f560>
+IE_TRACE:                                     12:44:19.407948 line       295     explanation: list[str] = []
+IE_TRACE:                                     New var:....... explanation = []
+IE_TRACE:                                     12:44:19.407972 line       297     if verbose < 1:
+IE_TRACE:                                     12:44:19.407994 line       298         i = 0  # just in case left or right has zero length
+IE_TRACE:                                     New var:....... i = 0
+IE_TRACE:                                     12:44:19.408013 line       299         for i in range(min(len(left), len(right))):
+IE_TRACE:                                     12:44:19.408036 line       300             if left[i] != right[i]:
+IE_TRACE:                                     12:44:19.408056 line       299         for i in range(min(len(left), len(right))):
+IE_TRACE:                                     12:44:19.408075 line       302         if i > 42:
+IE_TRACE:                                     12:44:19.408094 line       309         if len(left) == len(right):
+IE_TRACE:                                     12:44:19.408113 line       321     keepends = True
+IE_TRACE:                                     New var:....... keepends = True
+IE_TRACE:                                     12:44:19.408133 line       322     if left.isspace() or right.isspace():
+IE_TRACE:                                     12:44:19.408157 line       328     explanation.extend(
+IE_TRACE:                                     12:44:19.408177 line       329         highlighter(
+IE_TRACE:                                     12:44:19.408198 line       330             "\n".join(
+IE_TRACE:                                     12:44:19.408221 line       332                 for line in ndiff(right.splitlines(keepends), left.splitlines(keepends))
+IE_TRACE:                                     12:44:19.408261 line       330             "\n".join(
+IE_TRACE:                                     12:44:19.408828 line       334             lexer="diff",
+IE_TRACE:                                     12:44:19.408855 line       329         highlighter(
+IE_TRACE:                                     12:44:19.408887 line       335         ).splitlines()
+IE_TRACE:                                     12:44:19.408908 line       328     explanation.extend(
+IE_TRACE:                                     Modified var:.. explanation = ['- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']
+IE_TRACE:                                     12:44:19.408929 line       337     return explanation
+IE_TRACE:                                     12:44:19.408953 return     337     return explanation
+IE_TRACE:                                     Return value:.. ['- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']
+IE_TRACE:                                 Modified var:.. explanation = ['- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']
+IE_TRACE:                                 12:44:19.408979 line       282     return explanation
+IE_TRACE:                                 12:44:19.409000 return     282     return explanation
+IE_TRACE:                                 Return value:.. ['- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']
+IE_TRACE:                             Modified var:.. explanation = ['- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']
+IE_TRACE:                             12:44:19.409022 line       240     if not explanation:
+IE_TRACE:                             12:44:19.409051 line       243     if explanation[0] != "":
+IE_TRACE:                             12:44:19.409074 line       244         explanation = ["", *explanation]
+IE_TRACE:                             Modified var:.. explanation = ['', '- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']
+IE_TRACE:                             12:44:19.409097 line       245     return [summary, *explanation]
+IE_TRACE:                             12:44:19.409125 return     245     return [summary, *explanation]
+IE_TRACE:                             Return value:.. ["'/home/shashw...en_project.py' == '/'", '', '- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']
+IE_TRACE:                         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/__init__.py
+IE_TRACE:                         12:44:19.409152 return     208     return util.assertrepr_compare(config=config, op=op, left=left, right=right)
+IE_TRACE:                         Return value:.. ["'/home/shashw...en_project.py' == '/'", '', '- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/pluggy/_callers.py
+IE_TRACE:                     New var:....... res = ["'/home/shashw...en_project.py' == '/'", '', '- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']
+IE_TRACE:                     12:44:19.409178 line       122                     if res is not None:
+IE_TRACE:                     12:44:19.409231 line       123                         results.append(res)
+IE_TRACE:                     Modified var:.. results = [["'/home/shashw...en_project.py' == '/'", '', '- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']]
+IE_TRACE:                     12:44:19.409258 line       124                         if firstresult:  # halt further impl calls
+IE_TRACE:                     12:44:19.409288 line        93             for hook_impl in reversed(hook_impls):
+IE_TRACE:                     12:44:19.409315 line       129         if firstresult:  # first result hooks return a single value
+IE_TRACE:                     12:44:19.409340 line       132             result = results
+IE_TRACE:                     New var:....... result = [["'/home/shashw...en_project.py' == '/'", '', '- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']]
+IE_TRACE:                     12:44:19.409365 line       135         for teardown in reversed(teardowns):
+IE_TRACE:                     12:44:19.409395 line       166     if exception is not None:
+IE_TRACE:                     12:44:19.409421 line       169         return result
+IE_TRACE:                     12:44:19.409446 return     169         return result
+IE_TRACE:                     Return value:.. [["'/home/shashw...en_project.py' == '/'", '', '- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']]
+IE_TRACE:                 Source path:... /path/to/.venv/lib/python3.12/site-packages/pluggy/_manager.py
+IE_TRACE:                 12:44:19.409476 return     120         return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+IE_TRACE:                 Return value:.. [["'/home/shashw...en_project.py' == '/'", '', '- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']]
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/pluggy/_hooks.py
+IE_TRACE:             12:44:19.409503 return     512         return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+IE_TRACE:             Return value:.. [["'/home/shashw...en_project.py' == '/'", '', '- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']]
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/__init__.py
+IE_TRACE:         New var:....... hook_result = [["'/home/shashw...en_project.py' == '/'", '', '- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']]
+IE_TRACE:         12:44:19.409528 line       170         for new_expl in hook_result:
+IE_TRACE:         New var:....... new_expl = ["'/home/shashw...en_project.py' == '/'", '', '- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']
+IE_TRACE:         12:44:19.409559 line       171             if new_expl:
+IE_TRACE:         12:44:19.409580 line       172                 new_expl = truncate.truncate_if_required(new_expl, item)
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/truncate.py
+IE_TRACE:             Starting var:.. explanation = ["'/home/shashw...en_project.py' == '/'", '', '- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']
+IE_TRACE:             Starting var:.. item = <Function test_find_hook>
+IE_TRACE:             12:44:19.409600 call        19 def truncate_if_required(explanation: list[str], item: Item) -> list[str]:
+IE_TRACE:             12:44:19.410065 line        21     should_truncate, max_lines, max_chars = _get_truncation_parameters(item)
+IE_TRACE:                 Starting var:.. item = <Function test_find_hook>
+IE_TRACE:                 12:44:19.410097 call        31 def _get_truncation_parameters(item: Item) -> tuple[bool, int, int]:
+IE_TRACE:                 12:44:19.410115 line        38     max_lines = item.config.getini("truncation_limit_lines")
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/config/__init__.py
+IE_TRACE:                     Starting var:.. self = <_pytest.config.Config object at 0x7306daa971a0>
+IE_TRACE:                     Starting var:.. name = 'truncation_limit_lines'
+IE_TRACE:                     12:44:19.410130 call      1627     def getini(self, name: str) -> Any:
+IE_TRACE:                     12:44:19.410155 line      1657         canonical_name = self._parser._ini_aliases.get(name, name)
+IE_TRACE:                     New var:....... canonical_name = 'truncation_limit_lines'
+IE_TRACE:                     12:44:19.410170 line      1658         try:
+IE_TRACE:                     12:44:19.410189 line      1659             return self._inicache[canonical_name]
+IE_TRACE:                     12:44:19.410209 exception 1659             return self._inicache[canonical_name]
+IE_TRACE:                     Exception:..... KeyError: 'truncation_limit_lines'
+IE_TRACE:                     12:44:19.410260 line      1660         except KeyError:
+IE_TRACE:                     12:44:19.410275 line      1661             pass
+IE_TRACE:                     12:44:19.410288 line      1662         self._inicache[canonical_name] = val = self._getini(canonical_name)
+IE_TRACE:                         Starting var:.. self = <_pytest.config.Config object at 0x7306daa971a0>
+IE_TRACE:                         Starting var:.. name = 'truncation_limit_lines'
+IE_TRACE:                         12:44:19.410305 call      1673     def _getini(self, name: str):
+IE_TRACE:                         12:44:19.410329 line      1675         canonical_name = self._parser._ini_aliases.get(name, name)
+IE_TRACE:                         New var:....... canonical_name = 'truncation_limit_lines'
+IE_TRACE:                         12:44:19.410344 line      1677         try:
+IE_TRACE:                         12:44:19.410361 line      1678             _description, type, default = self._parser._inidict[canonical_name]
+IE_TRACE:                         New var:....... _description = 'Set threshold of LINES after which truncation will take effect'
+IE_TRACE:                         New var:....... type = 'string'
+IE_TRACE:                         New var:....... default = None
+IE_TRACE:                         12:44:19.410376 line      1684         candidates = []
+IE_TRACE:                         New var:....... candidates = []
+IE_TRACE:                         12:44:19.410403 line      1685         if canonical_name in self._inicfg:
+IE_TRACE:                         12:44:19.410424 line      1687         for alias, target in self._parser._ini_aliases.items():
+IE_TRACE:                         New var:....... alias = 'xfail_strict'
+IE_TRACE:                         New var:....... target = 'strict_xfail'
+IE_TRACE:                         12:44:19.410446 line      1688             if target == canonical_name and alias in self._inicfg:
+IE_TRACE:                         12:44:19.410471 line      1687         for alias, target in self._parser._ini_aliases.items():
+IE_TRACE:                         12:44:19.410490 line      1691         if not candidates:
+IE_TRACE:                         12:44:19.410508 line      1692             return default
+IE_TRACE:                         12:44:19.410525 return    1692             return default
+IE_TRACE:                         Return value:.. None
+IE_TRACE:                     New var:....... val = None
+IE_TRACE:                     12:44:19.410550 line      1663         return val
+IE_TRACE:                     12:44:19.410566 return    1663         return val
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/truncate.py
+IE_TRACE:                 New var:....... max_lines = None
+IE_TRACE:                 12:44:19.410583 line        39     max_lines = int(max_lines if max_lines is not None else DEFAULT_MAX_LINES)
+IE_TRACE:                 Modified var:.. max_lines = 8
+IE_TRACE:                 12:44:19.410604 line        41     max_chars = item.config.getini("truncation_limit_chars")
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/config/__init__.py
+IE_TRACE:                     Starting var:.. self = <_pytest.config.Config object at 0x7306daa971a0>
+IE_TRACE:                     Starting var:.. name = 'truncation_limit_chars'
+IE_TRACE:                     12:44:19.410619 call      1627     def getini(self, name: str) -> Any:
+IE_TRACE:                     12:44:19.410639 line      1657         canonical_name = self._parser._ini_aliases.get(name, name)
+IE_TRACE:                     New var:....... canonical_name = 'truncation_limit_chars'
+IE_TRACE:                     12:44:19.410651 line      1658         try:
+IE_TRACE:                     12:44:19.410665 line      1659             return self._inicache[canonical_name]
+IE_TRACE:                     12:44:19.410677 exception 1659             return self._inicache[canonical_name]
+IE_TRACE:                     Exception:..... KeyError: 'truncation_limit_chars'
+IE_TRACE:                     12:44:19.410705 line      1660         except KeyError:
+IE_TRACE:                     12:44:19.410717 line      1661             pass
+IE_TRACE:                     12:44:19.410729 line      1662         self._inicache[canonical_name] = val = self._getini(canonical_name)
+IE_TRACE:                         Starting var:.. self = <_pytest.config.Config object at 0x7306daa971a0>
+IE_TRACE:                         Starting var:.. name = 'truncation_limit_chars'
+IE_TRACE:                         12:44:19.410742 call      1673     def _getini(self, name: str):
+IE_TRACE:                         12:44:19.410761 line      1675         canonical_name = self._parser._ini_aliases.get(name, name)
+IE_TRACE:                         New var:....... canonical_name = 'truncation_limit_chars'
+IE_TRACE:                         12:44:19.410774 line      1677         try:
+IE_TRACE:                         12:44:19.410790 line      1678             _description, type, default = self._parser._inidict[canonical_name]
+IE_TRACE:                         New var:....... _description = 'Set threshold of CHARS after which truncation will take effect'
+IE_TRACE:                         New var:....... type = 'string'
+IE_TRACE:                         New var:....... default = None
+IE_TRACE:                         12:44:19.410804 line      1684         candidates = []
+IE_TRACE:                         New var:....... candidates = []
+IE_TRACE:                         12:44:19.410828 line      1685         if canonical_name in self._inicfg:
+IE_TRACE:                         12:44:19.410848 line      1687         for alias, target in self._parser._ini_aliases.items():
+IE_TRACE:                         New var:....... alias = 'xfail_strict'
+IE_TRACE:                         New var:....... target = 'strict_xfail'
+IE_TRACE:                         12:44:19.410866 line      1688             if target == canonical_name and alias in self._inicfg:
+IE_TRACE:                         12:44:19.410890 line      1687         for alias, target in self._parser._ini_aliases.items():
+IE_TRACE:                         12:44:19.410908 line      1691         if not candidates:
+IE_TRACE:                         12:44:19.410925 line      1692             return default
+IE_TRACE:                         12:44:19.410943 return    1692             return default
+IE_TRACE:                         Return value:.. None
+IE_TRACE:                     New var:....... val = None
+IE_TRACE:                     12:44:19.410964 line      1663         return val
+IE_TRACE:                     12:44:19.410980 return    1663         return val
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/truncate.py
+IE_TRACE:                 New var:....... max_chars = None
+IE_TRACE:                 12:44:19.410996 line        42     max_chars = int(max_chars if max_chars is not None else DEFAULT_MAX_CHARS)
+IE_TRACE:                 Modified var:.. max_chars = 640
+IE_TRACE:                 12:44:19.411015 line        44     verbose = item.config.get_verbosity(Config.VERBOSITY_ASSERTIONS)
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/config/__init__.py
+IE_TRACE:                     Starting var:.. self = <_pytest.config.Config object at 0x7306daa971a0>
+IE_TRACE:                     Starting var:.. verbosity_type = 'assertions'
+IE_TRACE:                     12:44:19.411032 call      1916     def get_verbosity(self, verbosity_type: str | None = None) -> int:
+IE_TRACE:                     12:44:19.411052 line      1955         global_level = self.getoption("verbose", default=0)
+IE_TRACE:                         Starting var:.. self = <_pytest.config.Config object at 0x7306daa971a0>
+IE_TRACE:                         Starting var:.. name = 'verbose'
+IE_TRACE:                         Starting var:.. default = 0
+IE_TRACE:                         Starting var:.. skip = False
+IE_TRACE:                         12:44:19.411066 call      1874     def getoption(self, name: str, default: Any = notset, skip: bool = False):
+IE_TRACE:                         12:44:19.411092 line      1884         name = self._opt2dest.get(name, name)
+IE_TRACE:                         12:44:19.411107 line      1885         try:
+IE_TRACE:                         12:44:19.411121 line      1886             val = getattr(self.option, name)
+IE_TRACE:                         New var:....... val = 0
+IE_TRACE:                         12:44:19.411135 line      1887             if val is None and skip:
+IE_TRACE:                         12:44:19.411152 line      1889             return val
+IE_TRACE:                         12:44:19.411166 return    1889             return val
+IE_TRACE:                         Return value:.. 0
+IE_TRACE:                     New var:....... global_level = 0
+IE_TRACE:                     12:44:19.411184 line      1956         assert isinstance(global_level, int)
+IE_TRACE:                     12:44:19.411203 line      1957         if verbosity_type is None:
+IE_TRACE:                     12:44:19.411215 line      1960         ini_name = Config._verbosity_ini_name(verbosity_type)
+IE_TRACE:                         Starting var:.. verbosity_type = 'assertions'
+IE_TRACE:                         12:44:19.411228 call      1971     def _verbosity_ini_name(verbosity_type: str) -> str:
+IE_TRACE:                         12:44:19.411244 line      1972         return f"verbosity_{verbosity_type}"
+IE_TRACE:                         12:44:19.411255 return    1972         return f"verbosity_{verbosity_type}"
+IE_TRACE:                         Return value:.. 'verbosity_assertions'
+IE_TRACE:                     New var:....... ini_name = 'verbosity_assertions'
+IE_TRACE:                     12:44:19.411270 line      1961         if ini_name not in self._parser._inidict:
+IE_TRACE:                     12:44:19.411286 line      1964         level = self.getini(ini_name)
+IE_TRACE:                         Starting var:.. self = <_pytest.config.Config object at 0x7306daa971a0>
+IE_TRACE:                         Starting var:.. name = 'verbosity_assertions'
+IE_TRACE:                         12:44:19.411299 call      1627     def getini(self, name: str) -> Any:
+IE_TRACE:                         12:44:19.411317 line      1657         canonical_name = self._parser._ini_aliases.get(name, name)
+IE_TRACE:                         New var:....... canonical_name = 'verbosity_assertions'
+IE_TRACE:                         12:44:19.411328 line      1658         try:
+IE_TRACE:                         12:44:19.411343 line      1659             return self._inicache[canonical_name]
+IE_TRACE:                         12:44:19.411355 return    1659             return self._inicache[canonical_name]
+IE_TRACE:                         Return value:.. 'auto'
+IE_TRACE:                     New var:....... level = 'auto'
+IE_TRACE:                     12:44:19.411370 line      1965         if level == Config._VERBOSITY_INI_DEFAULT:
+IE_TRACE:                     12:44:19.411386 line      1966             return global_level
+IE_TRACE:                     12:44:19.411400 return    1966             return global_level
+IE_TRACE:                     Return value:.. 0
+IE_TRACE:                 Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/truncate.py
+IE_TRACE:                 New var:....... verbose = 0
+IE_TRACE:                 12:44:19.411417 line        46     should_truncate = verbose < 2 and not running_on_ci()
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/compat.py
+IE_TRACE:                     12:44:19.411439 call       309 def running_on_ci() -> bool:
+IE_TRACE:                     12:44:19.411760 line       313     env_vars = ["CI", "BUILD_NUMBER"]
+IE_TRACE:                     New var:....... env_vars = ['CI', 'BUILD_NUMBER']
+IE_TRACE:                     12:44:19.411771 line       314     return any(os.environ.get(var) for var in env_vars)
+IE_TRACE:                         Starting var:.. .0 = <list_iterator object at 0x7306d9375990>
+IE_TRACE:                         12:44:19.411789 call       314     return any(os.environ.get(var) for var in env_vars)
+IE_TRACE:                         12:44:19.411806 line       314     return any(os.environ.get(var) for var in env_vars)
+IE_TRACE:                             Source path:... <frozen _collections_abc>
+IE_TRACE:                             Starting var:.. self = environ({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '<redacted>', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'AI_AGENT': 'claude-code_2-1-152_agent', 'USER': 'anonymous'...orkspace/cookiecutter::', 'CLAUDE_CODE_ENABLE_TASKS': '0', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VSCODE_PID': '3337', 'PYTEST_VERSION': '9.0.2', 'PYTEST_CURRENT_TEST': 'tests/test_hooks.py::TestFindHooks::test_find_hook (call)'})
+IE_TRACE:                             Starting var:.. key = 'CI'
+IE_TRACE:                             Starting var:.. default = None
+IE_TRACE:                             12:44:19.411823 call       804 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:44:19.411939 line       806 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:44:19.411982 line       807 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Source path:... <frozen os>
+IE_TRACE:                                 Starting var:.. self = environ({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '<redacted>', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'AI_AGENT': 'claude-code_2-1-152_agent', 'USER': 'anonymous'...orkspace/cookiecutter::', 'CLAUDE_CODE_ENABLE_TASKS': '0', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VSCODE_PID': '3337', 'PYTEST_VERSION': '9.0.2', 'PYTEST_CURRENT_TEST': 'tests/test_hooks.py::TestFindHooks::test_find_hook (call)'})
+IE_TRACE:                                 Starting var:.. key = 'CI'
+IE_TRACE:                                 12:44:19.412022 call       680 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:44:19.412082 line       681 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:44:19.412119 line       682 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. value = 'CI'
+IE_TRACE:                                     Starting var:.. encoding = 'utf-8'
+IE_TRACE:                                     12:44:19.412156 call       762 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:44:19.412176 line       763 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:44:19.412189 line       765 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:44:19.412206 return     765 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. b'CI'
+IE_TRACE:                                 12:44:19.412225 exception  682 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Exception:..... KeyError: b'CI'
+IE_TRACE:                                 12:44:19.412291 line       683 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:44:19.412328 line       685 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:44:19.412363 exception  685 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Exception:..... KeyError: 'CI'
+IE_TRACE:                                 Call ended by exception
+IE_TRACE:                             Source path:... <frozen _collections_abc>
+IE_TRACE:                             12:44:19.412446 exception  807 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Exception:..... KeyError: 'CI'
+IE_TRACE:                             12:44:19.412493 line       808 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:44:19.412530 line       809 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:44:19.412566 return     809 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/compat.py
+IE_TRACE:                         New var:....... var = 'CI'
+IE_TRACE:                         12:44:19.412607 return     314     return any(os.environ.get(var) for var in env_vars)
+IE_TRACE:                         Return value:.. None
+IE_TRACE:                         Starting var:.. .0 = <list_iterator object at 0x7306d9375990>
+IE_TRACE:                         Starting var:.. var = 'CI'
+IE_TRACE:                         12:44:19.412631 call       314     return any(os.environ.get(var) for var in env_vars)
+IE_TRACE:                         12:44:19.412649 line       314     return any(os.environ.get(var) for var in env_vars)
+IE_TRACE:                             Source path:... <frozen _collections_abc>
+IE_TRACE:                             Starting var:.. self = environ({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '<redacted>', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'AI_AGENT': 'claude-code_2-1-152_agent', 'USER': 'anonymous'...orkspace/cookiecutter::', 'CLAUDE_CODE_ENABLE_TASKS': '0', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VSCODE_PID': '3337', 'PYTEST_VERSION': '9.0.2', 'PYTEST_CURRENT_TEST': 'tests/test_hooks.py::TestFindHooks::test_find_hook (call)'})
+IE_TRACE:                             Starting var:.. key = 'BUILD_NUMBER'
+IE_TRACE:                             Starting var:.. default = None
+IE_TRACE:                             12:44:19.412662 call       804 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:44:19.412717 line       806 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:44:19.412752 line       807 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Source path:... <frozen os>
+IE_TRACE:                                 Starting var:.. self = environ({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '<redacted>', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'AI_AGENT': 'claude-code_2-1-152_agent', 'USER': 'anonymous'...orkspace/cookiecutter::', 'CLAUDE_CODE_ENABLE_TASKS': '0', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VSCODE_PID': '3337', 'PYTEST_VERSION': '9.0.2', 'PYTEST_CURRENT_TEST': 'tests/test_hooks.py::TestFindHooks::test_find_hook (call)'})
+IE_TRACE:                                 Starting var:.. key = 'BUILD_NUMBER'
+IE_TRACE:                                 12:44:19.412788 call       680 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:44:19.412832 line       681 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:44:19.412867 line       682 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. value = 'BUILD_NUMBER'
+IE_TRACE:                                     Starting var:.. encoding = 'utf-8'
+IE_TRACE:                                     12:44:19.412901 call       762 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:44:19.412919 line       763 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:44:19.412931 line       765 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:44:19.412942 return     765 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. b'BUILD_NUMBER'
+IE_TRACE:                                 12:44:19.412958 exception  682 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Exception:..... KeyError: b'BUILD_NUMBER'
+IE_TRACE:                                 12:44:19.413003 line       683 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:44:19.413039 line       685 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:44:19.413074 exception  685 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Exception:..... KeyError: 'BUILD_NUMBER'
+IE_TRACE:                                 Call ended by exception
+IE_TRACE:                             Source path:... <frozen _collections_abc>
+IE_TRACE:                             12:44:19.413152 exception  807 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Exception:..... KeyError: 'BUILD_NUMBER'
+IE_TRACE:                             12:44:19.413205 line       808 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:44:19.413243 line       809 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:44:19.413280 return     809 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/compat.py
+IE_TRACE:                         Modified var:.. var = 'BUILD_NUMBER'
+IE_TRACE:                         12:44:19.413320 return     314     return any(os.environ.get(var) for var in env_vars)
+IE_TRACE:                         Return value:.. None
+IE_TRACE:                         Starting var:.. .0 = <list_iterator object at 0x7306d9375990>
+IE_TRACE:                         Starting var:.. var = 'BUILD_NUMBER'
+IE_TRACE:                         12:44:19.413342 call       314     return any(os.environ.get(var) for var in env_vars)
+IE_TRACE:                         12:44:19.413360 line       314     return any(os.environ.get(var) for var in env_vars)
+IE_TRACE:                         12:44:19.413371 return     314     return any(os.environ.get(var) for var in env_vars)
+IE_TRACE:                         Return value:.. None
+IE_TRACE:                     12:44:19.413387 return     314     return any(os.environ.get(var) for var in env_vars)
+IE_TRACE:                     Return value:.. False
+IE_TRACE:                 Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/truncate.py
+IE_TRACE:                 New var:....... should_truncate = True
+IE_TRACE:                 12:44:19.413405 line        47     should_truncate = should_truncate and (max_lines > 0 or max_chars > 0)
+IE_TRACE:                 12:44:19.413430 line        49     return should_truncate, max_lines, max_chars
+IE_TRACE:                 12:44:19.413446 return      49     return should_truncate, max_lines, max_chars
+IE_TRACE:                 Return value:.. (True, 8, 640)
+IE_TRACE:             New var:....... should_truncate = True
+IE_TRACE:             New var:....... max_lines = 8
+IE_TRACE:             New var:....... max_chars = 640
+IE_TRACE:             12:44:19.413466 line        22     if should_truncate:
+IE_TRACE:             12:44:19.413490 line        23         return _truncate_explanation(
+IE_TRACE:             12:44:19.413504 line        24             explanation,
+IE_TRACE:             12:44:19.413518 line        25             max_lines=max_lines,
+IE_TRACE:             12:44:19.413530 line        26             max_chars=max_chars,
+IE_TRACE:             12:44:19.413543 line        23         return _truncate_explanation(
+IE_TRACE:                 Starting var:.. input_lines = ["'/home/shashw...en_project.py' == '/'", '', '- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']
+IE_TRACE:                 Starting var:.. max_lines = 8
+IE_TRACE:                 Starting var:.. max_chars = 640
+IE_TRACE:                 12:44:19.413563 call        52 def _truncate_explanation(
+IE_TRACE:                 12:44:19.413586 line        64     input_char_count = len("".join(input_lines))
+IE_TRACE:                 New var:....... input_char_count = 134
+IE_TRACE:                 12:44:19.413601 line        77         max_chars + 70  # 64 + 1 (for plural) + 2 (for '99') + 3 for '...'
+IE_TRACE:                 12:44:19.413618 line        76     tolerable_max_chars = (
+IE_TRACE:                 New var:....... tolerable_max_chars = 710
+IE_TRACE:                 12:44:19.413631 line        80     tolerable_max_lines = max_lines + 2
+IE_TRACE:                 New var:....... tolerable_max_lines = 10
+IE_TRACE:                 12:44:19.413648 line        82         len(input_lines) <= tolerable_max_lines
+IE_TRACE:                 12:44:19.413666 line        83         and input_char_count <= tolerable_max_chars
+IE_TRACE:                 12:44:19.413680 line        85         return input_lines
+IE_TRACE:                 12:44:19.413695 return      85         return input_lines
+IE_TRACE:                 Return value:.. ["'/home/shashw...en_project.py' == '/'", '', '- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']
+IE_TRACE:             12:44:19.413714 return      23         return _truncate_explanation(
+IE_TRACE:             Return value:.. ["'/home/shashw...en_project.py' == '/'", '', '- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/__init__.py
+IE_TRACE:         12:44:19.413732 line       173                 new_expl = [line.replace("\n", "\\n") for line in new_expl]
+IE_TRACE:         New var:....... line = "'/home/shashw...en_project.py' == '/'"
+IE_TRACE:         12:44:19.413761 line       173                 new_expl = [line.replace("\n", "\\n") for line in new_expl]
+IE_TRACE:         Modified var:.. line = ''
+IE_TRACE:         12:44:19.413782 line       173                 new_expl = [line.replace("\n", "\\n") for line in new_expl]
+IE_TRACE:         Modified var:.. line = '- /'
+IE_TRACE:         12:44:19.413803 line       173                 new_expl = [line.replace("\n", "\\n") for line in new_expl]
+IE_TRACE:         Modified var:.. line = '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:         12:44:19.413823 line       173                 new_expl = [line.replace("\n", "\\n") for line in new_expl]
+IE_TRACE:         12:44:19.413844 line       174                 res = "\n~".join(new_expl)
+IE_TRACE:         New var:....... res = "'/home/shashw...en_project.py' == '/'\n~\n~- /\n~+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py"
+IE_TRACE:         12:44:19.413860 line       175                 if item.config.getvalue("assertmode") == "rewrite":
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/config/__init__.py
+IE_TRACE:             Starting var:.. self = <_pytest.config.Config object at 0x7306daa971a0>
+IE_TRACE:             Starting var:.. name = 'assertmode'
+IE_TRACE:             Starting var:.. path = None
+IE_TRACE:             12:44:19.413884 call      1899     def getvalue(self, name: str, path=None):
+IE_TRACE:             12:44:19.413913 line      1901         return self.getoption(name)
+IE_TRACE:                 Starting var:.. self = <_pytest.config.Config object at 0x7306daa971a0>
+IE_TRACE:                 Starting var:.. name = 'assertmode'
+IE_TRACE:                 Starting var:.. default = <NOTSET>
+IE_TRACE:                 Starting var:.. skip = False
+IE_TRACE:                 12:44:19.413927 call      1874     def getoption(self, name: str, default: Any = notset, skip: bool = False):
+IE_TRACE:                 12:44:19.413955 line      1884         name = self._opt2dest.get(name, name)
+IE_TRACE:                 12:44:19.413969 line      1885         try:
+IE_TRACE:                 12:44:19.413982 line      1886             val = getattr(self.option, name)
+IE_TRACE:                 New var:....... val = 'rewrite'
+IE_TRACE:                 12:44:19.413997 line      1887             if val is None and skip:
+IE_TRACE:                 12:44:19.414013 line      1889             return val
+IE_TRACE:                 12:44:19.414027 return    1889             return val
+IE_TRACE:                 Return value:.. 'rewrite'
+IE_TRACE:             12:44:19.414044 return    1901         return self.getoption(name)
+IE_TRACE:             Return value:.. 'rewrite'
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/__init__.py
+IE_TRACE:         12:44:19.414060 line       176                     res = res.replace("%", "%%")
+IE_TRACE:         12:44:19.414082 line       177                 return res
+IE_TRACE:         12:44:19.414099 return     177                 return res
+IE_TRACE:         Return value:.. "'/home/shashw...en_project.py' == '/'\n~\n~- /\n~+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py"
+IE_TRACE:     Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py
+IE_TRACE:     New var:....... custom = "'/home/shashw...en_project.py' == '/'\n~\n~- /\n~+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py"
+IE_TRACE:     12:44:19.414121 line       508         if custom is not None:
+IE_TRACE:     12:44:19.414149 line       509             return custom
+IE_TRACE:     12:44:19.414167 return     509             return custom
+IE_TRACE:     Return value:.. "'/home/shashw...en_project.py' == '/'\n~\n~- /\n~+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py"
+IE_TRACE:     Starting var:.. obj = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:     12:44:19.414198 call       422 def _saferepr(obj: object) -> str:
+IE_TRACE:     12:44:19.414212 line       432     if isinstance(obj, types.MethodType):
+IE_TRACE:     12:44:19.414222 line       436     maxsize = _get_maxsize_for_saferepr(util._config)
+IE_TRACE:         Starting var:.. config = <_pytest.config.Config object at 0x7306daa971a0>
+IE_TRACE:         12:44:19.414235 call       442 def _get_maxsize_for_saferepr(config: Config | None) -> int | None:
+IE_TRACE:         12:44:19.414249 line       444     if config is None:
+IE_TRACE:         12:44:19.414259 line       447         verbosity = config.get_verbosity(Config.VERBOSITY_ASSERTIONS)
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/config/__init__.py
+IE_TRACE:             Starting var:.. self = <_pytest.config.Config object at 0x7306daa971a0>
+IE_TRACE:             Starting var:.. verbosity_type = 'assertions'
+IE_TRACE:             12:44:19.414271 call      1916     def get_verbosity(self, verbosity_type: str | None = None) -> int:
+IE_TRACE:             12:44:19.414290 line      1955         global_level = self.getoption("verbose", default=0)
+IE_TRACE:                 Starting var:.. self = <_pytest.config.Config object at 0x7306daa971a0>
+IE_TRACE:                 Starting var:.. name = 'verbose'
+IE_TRACE:                 Starting var:.. default = 0
+IE_TRACE:                 Starting var:.. skip = False
+IE_TRACE:                 12:44:19.414302 call      1874     def getoption(self, name: str, default: Any = notset, skip: bool = False):
+IE_TRACE:                 12:44:19.414326 line      1884         name = self._opt2dest.get(name, name)
+IE_TRACE:                 12:44:19.414339 line      1885         try:
+IE_TRACE:                 12:44:19.414352 line      1886             val = getattr(self.option, name)
+IE_TRACE:                 New var:....... val = 0
+IE_TRACE:                 12:44:19.414365 line      1887             if val is None and skip:
+IE_TRACE:                 12:44:19.414381 line      1889             return val
+IE_TRACE:                 12:44:19.414394 return    1889             return val
+IE_TRACE:                 Return value:.. 0
+IE_TRACE:             New var:....... global_level = 0
+IE_TRACE:             12:44:19.414410 line      1956         assert isinstance(global_level, int)
+IE_TRACE:             12:44:19.414424 line      1957         if verbosity_type is None:
+IE_TRACE:             12:44:19.414435 line      1960         ini_name = Config._verbosity_ini_name(verbosity_type)
+IE_TRACE:                 Starting var:.. verbosity_type = 'assertions'
+IE_TRACE:                 12:44:19.414447 call      1971     def _verbosity_ini_name(verbosity_type: str) -> str:
+IE_TRACE:                 12:44:19.414463 line      1972         return f"verbosity_{verbosity_type}"
+IE_TRACE:                 12:44:19.414472 return    1972         return f"verbosity_{verbosity_type}"
+IE_TRACE:                 Return value:.. 'verbosity_assertions'
+IE_TRACE:             New var:....... ini_name = 'verbosity_assertions'
+IE_TRACE:             12:44:19.414486 line      1961         if ini_name not in self._parser._inidict:
+IE_TRACE:             12:44:19.414502 line      1964         level = self.getini(ini_name)
+IE_TRACE:                 Starting var:.. self = <_pytest.config.Config object at 0x7306daa971a0>
+IE_TRACE:                 Starting var:.. name = 'verbosity_assertions'
+IE_TRACE:                 12:44:19.414516 call      1627     def getini(self, name: str) -> Any:
+IE_TRACE:                 12:44:19.414532 line      1657         canonical_name = self._parser._ini_aliases.get(name, name)
+IE_TRACE:                 New var:....... canonical_name = 'verbosity_assertions'
+IE_TRACE:                 12:44:19.414543 line      1658         try:
+IE_TRACE:                 12:44:19.414557 line      1659             return self._inicache[canonical_name]
+IE_TRACE:                 12:44:19.414569 return    1659             return self._inicache[canonical_name]
+IE_TRACE:                 Return value:.. 'auto'
+IE_TRACE:             New var:....... level = 'auto'
+IE_TRACE:             12:44:19.414584 line      1965         if level == Config._VERBOSITY_INI_DEFAULT:
+IE_TRACE:             12:44:19.414599 line      1966             return global_level
+IE_TRACE:             12:44:19.414612 return    1966             return global_level
+IE_TRACE:             Return value:.. 0
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py
+IE_TRACE:         New var:....... verbosity = 0
+IE_TRACE:         12:44:19.414628 line       448     if verbosity >= 2:
+IE_TRACE:         12:44:19.414645 line       450     if verbosity >= 1:
+IE_TRACE:         12:44:19.414655 line       452     return DEFAULT_REPR_MAX_SIZE
+IE_TRACE:         12:44:19.414664 return     452     return DEFAULT_REPR_MAX_SIZE
+IE_TRACE:         Return value:.. 240
+IE_TRACE:     New var:....... maxsize = 240
+IE_TRACE:     12:44:19.414677 line       437     if not maxsize:
+IE_TRACE:     12:44:19.414689 line       439     return saferepr(obj, maxsize=maxsize).replace("\n", "\\n")
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:         Starting var:.. obj = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:         Starting var:.. maxsize = 240
+IE_TRACE:         Starting var:.. use_ascii = False
+IE_TRACE:         12:44:19.414700 call        99 def saferepr(
+IE_TRACE:         12:44:19.414723 line       111     return SafeRepr(maxsize, use_ascii).repr(obj)
+IE_TRACE:             Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x7306d95fc860>
+IE_TRACE:             Starting var:.. maxsize = 240
+IE_TRACE:             Starting var:.. use_ascii = False
+IE_TRACE:             Starting var:.. __class__ = <class '_pytest._io.saferepr.SafeRepr'>
+IE_TRACE:             12:44:19.414737 call        42     def __init__(self, maxsize: int | None, use_ascii: bool = False) -> None:
+IE_TRACE:             12:44:19.414761 line        49         super().__init__()
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:             12:44:19.415205 line        53         self.maxstring = maxsize if maxsize is not None else 1_000_000_000
+IE_TRACE:             12:44:19.415224 line        54         self.maxsize = maxsize
+IE_TRACE:             12:44:19.415236 line        55         self.use_ascii = use_ascii
+IE_TRACE:             12:44:19.415247 return      55         self.use_ascii = use_ascii
+IE_TRACE:             Return value:.. None
+IE_TRACE:             Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x7306d95fc860>
+IE_TRACE:             Starting var:.. x = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:             Starting var:.. __class__ = <class '_pytest._io.saferepr.SafeRepr'>
+IE_TRACE:             12:44:19.415265 call        57     def repr(self, x: object) -> str:
+IE_TRACE:             12:44:19.415286 line        58         try:
+IE_TRACE:             12:44:19.415297 line        59             if self.use_ascii:
+IE_TRACE:             12:44:19.415309 line        62                 s = super().repr(x)
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:             New var:....... s = "'/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'"
+IE_TRACE:             12:44:19.415544 line        67         if self.maxsize is not None:
+IE_TRACE:             12:44:19.415564 line        68             s = _ellipsize(s, self.maxsize)
+IE_TRACE:                 Starting var:.. s = "'/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'"
+IE_TRACE:                 Starting var:.. maxsize = 240
+IE_TRACE:                 12:44:19.415577 call        28 def _ellipsize(s: str, maxsize: int) -> str:
+IE_TRACE:                 12:44:19.415594 line        29     if len(s) > maxsize:
+IE_TRACE:                 12:44:19.415605 line        33     return s
+IE_TRACE:                 12:44:19.415615 return      33     return s
+IE_TRACE:                 Return value:.. "'/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'"
+IE_TRACE:             12:44:19.415629 line        69         return s
+IE_TRACE:             12:44:19.415641 return      69         return s
+IE_TRACE:             Return value:.. "'/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'"
+IE_TRACE:         12:44:19.415657 return     111     return SafeRepr(maxsize, use_ascii).repr(obj)
+IE_TRACE:         Return value:.. "'/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'"
+IE_TRACE:     Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py
+IE_TRACE:     12:44:19.415673 return     439     return saferepr(obj, maxsize=maxsize).replace("\n", "\\n")
+IE_TRACE:     Return value:.. "'/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'"
+IE_TRACE:     Starting var:.. obj = '/'
+IE_TRACE:     12:44:19.415692 call       422 def _saferepr(obj: object) -> str:
+IE_TRACE:     12:44:19.415704 line       432     if isinstance(obj, types.MethodType):
+IE_TRACE:     12:44:19.415714 line       436     maxsize = _get_maxsize_for_saferepr(util._config)
+IE_TRACE:         Starting var:.. config = <_pytest.config.Config object at 0x7306daa971a0>
+IE_TRACE:         12:44:19.415723 call       442 def _get_maxsize_for_saferepr(config: Config | None) -> int | None:
+IE_TRACE:         12:44:19.415735 line       444     if config is None:
+IE_TRACE:         12:44:19.415744 line       447         verbosity = config.get_verbosity(Config.VERBOSITY_ASSERTIONS)
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/config/__init__.py
+IE_TRACE:             Starting var:.. self = <_pytest.config.Config object at 0x7306daa971a0>
+IE_TRACE:             Starting var:.. verbosity_type = 'assertions'
+IE_TRACE:             12:44:19.415756 call      1916     def get_verbosity(self, verbosity_type: str | None = None) -> int:
+IE_TRACE:             12:44:19.415776 line      1955         global_level = self.getoption("verbose", default=0)
+IE_TRACE:                 Starting var:.. self = <_pytest.config.Config object at 0x7306daa971a0>
+IE_TRACE:                 Starting var:.. name = 'verbose'
+IE_TRACE:                 Starting var:.. default = 0
+IE_TRACE:                 Starting var:.. skip = False
+IE_TRACE:                 12:44:19.415788 call      1874     def getoption(self, name: str, default: Any = notset, skip: bool = False):
+IE_TRACE:                 12:44:19.415813 line      1884         name = self._opt2dest.get(name, name)
+IE_TRACE:                 12:44:19.415827 line      1885         try:
+IE_TRACE:                 12:44:19.415839 line      1886             val = getattr(self.option, name)
+IE_TRACE:                 New var:....... val = 0
+IE_TRACE:                 12:44:19.415852 line      1887             if val is None and skip:
+IE_TRACE:                 12:44:19.415869 line      1889             return val
+IE_TRACE:                 12:44:19.415882 return    1889             return val
+IE_TRACE:                 Return value:.. 0
+IE_TRACE:             New var:....... global_level = 0
+IE_TRACE:             12:44:19.415899 line      1956         assert isinstance(global_level, int)
+IE_TRACE:             12:44:19.415913 line      1957         if verbosity_type is None:
+IE_TRACE:             12:44:19.415924 line      1960         ini_name = Config._verbosity_ini_name(verbosity_type)
+IE_TRACE:                 Starting var:.. verbosity_type = 'assertions'
+IE_TRACE:                 12:44:19.415936 call      1971     def _verbosity_ini_name(verbosity_type: str) -> str:
+IE_TRACE:                 12:44:19.415950 line      1972         return f"verbosity_{verbosity_type}"
+IE_TRACE:                 12:44:19.415960 return    1972         return f"verbosity_{verbosity_type}"
+IE_TRACE:                 Return value:.. 'verbosity_assertions'
+IE_TRACE:             New var:....... ini_name = 'verbosity_assertions'
+IE_TRACE:             12:44:19.415973 line      1961         if ini_name not in self._parser._inidict:
+IE_TRACE:             12:44:19.415988 line      1964         level = self.getini(ini_name)
+IE_TRACE:                 Starting var:.. self = <_pytest.config.Config object at 0x7306daa971a0>
+IE_TRACE:                 Starting var:.. name = 'verbosity_assertions'
+IE_TRACE:                 12:44:19.416001 call      1627     def getini(self, name: str) -> Any:
+IE_TRACE:                 12:44:19.416017 line      1657         canonical_name = self._parser._ini_aliases.get(name, name)
+IE_TRACE:                 New var:....... canonical_name = 'verbosity_assertions'
+IE_TRACE:                 12:44:19.416029 line      1658         try:
+IE_TRACE:                 12:44:19.416042 line      1659             return self._inicache[canonical_name]
+IE_TRACE:                 12:44:19.416054 return    1659             return self._inicache[canonical_name]
+IE_TRACE:                 Return value:.. 'auto'
+IE_TRACE:             New var:....... level = 'auto'
+IE_TRACE:             12:44:19.416069 line      1965         if level == Config._VERBOSITY_INI_DEFAULT:
+IE_TRACE:             12:44:19.416084 line      1966             return global_level
+IE_TRACE:             12:44:19.416096 return    1966             return global_level
+IE_TRACE:             Return value:.. 0
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py
+IE_TRACE:         New var:....... verbosity = 0
+IE_TRACE:         12:44:19.416112 line       448     if verbosity >= 2:
+IE_TRACE:         12:44:19.416128 line       450     if verbosity >= 1:
+IE_TRACE:         12:44:19.416137 line       452     return DEFAULT_REPR_MAX_SIZE
+IE_TRACE:         12:44:19.416147 return     452     return DEFAULT_REPR_MAX_SIZE
+IE_TRACE:         Return value:.. 240
+IE_TRACE:     New var:....... maxsize = 240
+IE_TRACE:     12:44:19.416160 line       437     if not maxsize:
+IE_TRACE:     12:44:19.416172 line       439     return saferepr(obj, maxsize=maxsize).replace("\n", "\\n")
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:         Starting var:.. obj = '/'
+IE_TRACE:         Starting var:.. maxsize = 240
+IE_TRACE:         Starting var:.. use_ascii = False
+IE_TRACE:         12:44:19.416182 call        99 def saferepr(
+IE_TRACE:         12:44:19.416206 line       111     return SafeRepr(maxsize, use_ascii).repr(obj)
+IE_TRACE:             Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x7306d95fc860>
+IE_TRACE:             Starting var:.. maxsize = 240
+IE_TRACE:             Starting var:.. use_ascii = False
+IE_TRACE:             Starting var:.. __class__ = <class '_pytest._io.saferepr.SafeRepr'>
+IE_TRACE:             12:44:19.416218 call        42     def __init__(self, maxsize: int | None, use_ascii: bool = False) -> None:
+IE_TRACE:             12:44:19.416241 line        49         super().__init__()
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:             12:44:19.416592 line        53         self.maxstring = maxsize if maxsize is not None else 1_000_000_000
+IE_TRACE:             12:44:19.416607 line        54         self.maxsize = maxsize
+IE_TRACE:             12:44:19.416618 line        55         self.use_ascii = use_ascii
+IE_TRACE:             12:44:19.416630 return      55         self.use_ascii = use_ascii
+IE_TRACE:             Return value:.. None
+IE_TRACE:             Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x7306d95fc860>
+IE_TRACE:             Starting var:.. x = '/'
+IE_TRACE:             Starting var:.. __class__ = <class '_pytest._io.saferepr.SafeRepr'>
+IE_TRACE:             12:44:19.416645 call        57     def repr(self, x: object) -> str:
+IE_TRACE:             12:44:19.416665 line        58         try:
+IE_TRACE:             12:44:19.416676 line        59             if self.use_ascii:
+IE_TRACE:             12:44:19.416687 line        62                 s = super().repr(x)
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:             New var:....... s = "'/'"
+IE_TRACE:             12:44:19.416908 line        67         if self.maxsize is not None:
+IE_TRACE:             12:44:19.416926 line        68             s = _ellipsize(s, self.maxsize)
+IE_TRACE:                 Starting var:.. s = "'/'"
+IE_TRACE:                 Starting var:.. maxsize = 240
+IE_TRACE:                 12:44:19.416938 call        28 def _ellipsize(s: str, maxsize: int) -> str:
+IE_TRACE:                 12:44:19.416953 line        29     if len(s) > maxsize:
+IE_TRACE:                 12:44:19.416963 line        33     return s
+IE_TRACE:                 12:44:19.416973 return      33     return s
+IE_TRACE:                 Return value:.. "'/'"
+IE_TRACE:             12:44:19.416987 line        69         return s
+IE_TRACE:             12:44:19.416999 return      69         return s
+IE_TRACE:             Return value:.. "'/'"
+IE_TRACE:         12:44:19.417014 return     111     return SafeRepr(maxsize, use_ascii).repr(obj)
+IE_TRACE:         Return value:.. "'/'"
+IE_TRACE:     Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py
+IE_TRACE:     12:44:19.417029 return     439     return saferepr(obj, maxsize=maxsize).replace("\n", "\\n")
+IE_TRACE:     Return value:.. "'/'"
+IE_TRACE:     Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/util.py
+IE_TRACE:     Starting var:.. explanation = "assert '/home/shashw...en_project.py' == '/'\n~\n~- /\n~+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py"
+IE_TRACE:     12:44:19.417050 call        54 def format_explanation(explanation: str) -> str:
+IE_TRACE:     12:44:19.417067 line        64     lines = _split_explanation(explanation)
+IE_TRACE:         Starting var:.. explanation = "assert '/home/shashw...en_project.py' == '/'\n~\n~- /\n~+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py"
+IE_TRACE:         12:44:19.417081 call        69 def _split_explanation(explanation: str) -> list[str]:
+IE_TRACE:         12:44:19.417095 line        76     raw_lines = (explanation or "").split("\n")
+IE_TRACE:         New var:....... raw_lines = ["assert '/home/shashw...en_project.py' == '/'", '~', '~- /', '~+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']
+IE_TRACE:         12:44:19.417106 line        77     lines = [raw_lines[0]]
+IE_TRACE:         New var:....... lines = ["assert '/home/shashw...en_project.py' == '/'"]
+IE_TRACE:         12:44:19.417122 line        78     for values in raw_lines[1:]:
+IE_TRACE:         New var:....... values = '~'
+IE_TRACE:         12:44:19.417137 line        79         if values and values[0] in ["{", "}", "~", ">"]:
+IE_TRACE:         12:44:19.417153 line        80             lines.append(values)
+IE_TRACE:         Modified var:.. lines = ["assert '/home/shashw...en_project.py' == '/'", '~']
+IE_TRACE:     [CONDENSED] 1 identical loop iterations skipped (3 total iterations, showing first and last)
+IE_TRACE:         12:44:19.417210 line        78     for values in raw_lines[1:]:
+IE_TRACE:         Modified var:.. values = '~+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:         12:44:19.417224 line        79         if values and values[0] in ["{", "}", "~", ">"]:
+IE_TRACE:         12:44:19.417238 line        80             lines.append(values)
+IE_TRACE:         Modified var:.. lines = ["assert '/home/shashw...en_project.py' == '/'", '~', '~- /', '~+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']
+IE_TRACE:         12:44:19.417250 line        78     for values in raw_lines[1:]:
+IE_TRACE:         12:44:19.417265 line        83     return lines
+IE_TRACE:         12:44:19.417277 return      83     return lines
+IE_TRACE:         Return value:.. ["assert '/home/shashw...en_project.py' == '/'", '~', '~- /', '~+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']
+IE_TRACE:     New var:....... lines = ["assert '/home/shashw...en_project.py' == '/'", '~', '~- /', '~+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']
+IE_TRACE:     12:44:19.417293 line        65     result = _format_lines(lines)
+IE_TRACE:         Starting var:.. lines = ["assert '/home/shashw...en_project.py' == '/'", '~', '~- /', '~+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']
+IE_TRACE:         12:44:19.417315 call        86 def _format_lines(lines: Sequence[str]) -> list[str]:
+IE_TRACE:         12:44:19.417330 line        95     result = list(lines[:1])
+IE_TRACE:         New var:....... result = ["assert '/home/shashw...en_project.py' == '/'"]
+IE_TRACE:         12:44:19.417341 line        96     stack = [0]
+IE_TRACE:         New var:....... stack = [0]
+IE_TRACE:         12:44:19.417355 line        97     stackcnt = [0]
+IE_TRACE:         New var:....... stackcnt = [0]
+IE_TRACE:         12:44:19.417369 line        98     for line in lines[1:]:
+IE_TRACE:         New var:....... line = '~'
+IE_TRACE:         12:44:19.417384 line        99         if line.startswith("{"):
+IE_TRACE:         12:44:19.417401 line       108         elif line.startswith("}"):
+IE_TRACE:         12:44:19.417415 line       113             assert line[0] in ["~", ">"]
+IE_TRACE:         12:44:19.417428 line       114             stack[-1] += 1
+IE_TRACE:         Modified var:.. stack = [1]
+IE_TRACE:         12:44:19.417441 line       115             indent = len(stack) if line.startswith("~") else len(stack) - 1
+IE_TRACE:         New var:....... indent = 1
+IE_TRACE:         12:44:19.417457 line       116             result.append("  " * indent + line[1:])
+IE_TRACE:         Modified var:.. result = ["assert '/home/shashw...en_project.py' == '/'", '  ']
+IE_TRACE:     [CONDENSED] 1 identical loop iterations skipped (3 total iterations, showing first and last)
+IE_TRACE:         12:44:19.417584 line        98     for line in lines[1:]:
+IE_TRACE:         Modified var:.. line = '~+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:         12:44:19.417601 line        99         if line.startswith("{"):
+IE_TRACE:         12:44:19.417617 line       108         elif line.startswith("}"):
+IE_TRACE:         12:44:19.417631 line       113             assert line[0] in ["~", ">"]
+IE_TRACE:         12:44:19.417645 line       114             stack[-1] += 1
+IE_TRACE:         Modified var:.. stack = [3]
+IE_TRACE:         12:44:19.417658 line       115             indent = len(stack) if line.startswith("~") else len(stack) - 1
+IE_TRACE:         12:44:19.417675 line       116             result.append("  " * indent + line[1:])
+IE_TRACE:         Modified var:.. result = ["assert '/home/shashw...en_project.py' == '/'", '  ', '  - /', '  + /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']
+IE_TRACE:         12:44:19.417688 line        98     for line in lines[1:]:
+IE_TRACE:         12:44:19.417705 line       117     assert len(stack) == 1
+IE_TRACE:         12:44:19.417720 line       118     return result
+IE_TRACE:         12:44:19.417734 return     118     return result
+IE_TRACE:         Return value:.. ["assert '/home/shashw...en_project.py' == '/'", '  ', '  - /', '  + /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']
+IE_TRACE:     New var:....... result = ["assert '/home/shashw...en_project.py' == '/'", '  ', '  - /', '  + /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']
+IE_TRACE:     12:44:19.417753 line        66     return "\n".join(result)
+IE_TRACE:     12:44:19.417767 return      66     return "\n".join(result)
+IE_TRACE:     Return value:.. "assert '/home/shashw...en_project.py' == '/'\n  \n  - /\n  + /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py"
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/cookiecutter/tests/test_hooks.py
+IE_TRACE: New var:....... @py_assert2 = '/'
+IE_TRACE: New var:....... @py_assert1 = False
+IE_TRACE: New var:....... @py_format4 = "'/home/shashw...en_project.py' == '/'\n~\n~- /\n~+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py"
+IE_TRACE: New var:....... @py_format6 = "assert '/home/shashw...en_project.py' == '/'\n~\n~- /\n~+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py"
+IE_TRACE: 12:44:19.417784 exception   94             assert expected_pre == actual_hook_path[0]
+IE_TRACE: Exception:..... AssertionError: assert '/home/shashw...en_project.py' == '/'
+  
+  - /
+  + /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py
+IE_TRACE: 12:44:19.417846 line        91         with utils.work_in(self.repo_path):
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/cookiecutter/cookiecutter/utils.py
+IE_TRACE:         Starting var:.. dirname = 'tests/test-hooks'
+IE_TRACE:         Starting var:.. curdir = '/path/to/BugsInPy/workspace/cookiecutter'
+IE_TRACE:         12:44:19.417965 call        58         yield
+IE_TRACE:         12:44:19.417987 exception   58         yield
+IE_TRACE:         Exception:..... AssertionError: assert '/home/shashw...en_project.py' == '/'
+  
+  - /
+  + /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py
+IE_TRACE:         12:44:19.418008 line        60         os.chdir(curdir)
+IE_TRACE:         Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/cookiecutter/tests/test_hooks.py
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.019080
+=========================== short test summary info ============================
+FAILED tests/test_hooks.py::TestFindHooks::test_find_hook - AssertionError: a...
+============================== 1 failed in 0.05s ===============================
+
+
+Exit code: 1

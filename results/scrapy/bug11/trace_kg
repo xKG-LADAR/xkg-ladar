@@ -1,0 +1,23 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_gunzip_illegal_eof [label="test_gunzip_illegal_eof
+test_utils_gz.py:75" fillcolor=white shape=box style=filled]
+	sep [label="sep
+'/'" shape=ellipse]
+	path [label="path
+(2 writes, 2 distinct)
+'/path/to/BugsInPy/workspace/scrapy/tests/sample_data/compressed'
+'/path/to/BugsInPy/workspace/scrapy/tests/sample_data/compressed/unexpected-eof.gz'" shape=ellipse]
+	b [label="b
+'unexpected-eof.gz'" shape=ellipse]
+	ERROR__FileNotFoundError [label="FileNotFoundError
+[Errno 2] No such file or directory: '/path/to/BugsInPy/workspace/scrapy/tests/sample_data/compressed/unexpected-eof.gz'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_gunzip_illegal_eof
+	}
+	test_gunzip_illegal_eof -> sep [label=writes color=black]
+	test_gunzip_illegal_eof -> path [label="writes×2" color=black]
+	test_gunzip_illegal_eof -> b [label=writes color=black]
+	test_gunzip_illegal_eof -> ERROR__FileNotFoundError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+}

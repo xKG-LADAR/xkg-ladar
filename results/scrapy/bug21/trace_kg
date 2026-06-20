@@ -1,0 +1,511 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	setUp [label="setUp
+test_spidermiddleware_referer.py:10" fillcolor=white shape=box style=filled]
+	__init__ [label="__init__
+extensions.py:5" fillcolor=white shape=box style=filled]
+	update [label="update
+memusage.py:75" fillcolor=white shape=box style=filled]
+	_assert_mutability [label="_assert_mutability
+__init__.py:330" fillcolor=white shape=box style=filled]
+	setmodule [label="setmodule
+Store settings from a module with a given priority.
+__init__.py:265" fillcolor=white shape=box style=filled]
+	set [label="set
+Sets value if priority is higher or equal than current …
+__init__.py:51" fillcolor=white shape=box style=filled]
+	get_settings_priority [label="get_settings_priority
+Small helper function that looks up a given string prio…
+__init__.py:24" fillcolor=white shape=box style=filled]
+	__contains__ [label="__contains__
+__init__.py:98" fillcolor=white shape=box style=filled]
+	__subclasscheck__ [label="__subclasscheck__
+[closure inside create_deprecated_class]
+deprecate.py:81" fillcolor=white shape=box style=filled]
+	mro [label="mro
+(7 writes, 7 distinct)
+(<class 'bool'>, <class 'int'>, <class 'object'>)
+(<class 'float'>, <class 'object'>)
+(<class 'str'>, <class 'object'>)
+(<class 'int'>, <class 'object'>)
+(<class 'dict'>, <class 'object'>)
+(<class 'NoneType'>, <class 'object'>)
+  …+1 more values" shape=ellipse]
+	iteritems [label="iteritems
+headers.py:72" fillcolor=white shape=box style=filled]
+	__iter__ [label="__iter__
+sitemap.py:20" fillcolor=white shape=box style=filled]
+	__getitem__ [label="__getitem__
+headers.py:38" fillcolor=white shape=box style=filled]
+	value [label="value
+(15 writes, 15 distinct)
+'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+'en'
+100
+300
+'scrapy.core.downloader.handlers.file.FileDownloadHandler'
+'scrapy.core.downloader.handlers.http.HTTPDownloadHandler'
+  …+9 more values" shape=ellipse]
+	test_robotstxt_immediate_error [label="test_robotstxt_immediate_error
+test_downloadermiddleware_robotstxt.py:131" fillcolor=white shape=box style=filled]
+	__getattribute__ [label=__getattribute__ fillcolor=white shape=box style=filled]
+	state [label="state
+<twisted.python.deprecate._InternalState object at 0x7beff19efc20>" shape=ellipse]
+	deprecatedAttribute [label="deprecatedAttribute
+None" shape=ellipse]
+	__setattr__ [label="__setattr__
+item.py:73" fillcolor=white shape=box style=filled]
+	err [label="err
+DNSLookupError('Robotstxt address not found')" shape=ellipse]
+	immediate_failure [label="immediate_failure
+<function RobotsTxtMiddlewareTest.test_robotstxt_immediate_error.<locals>.immediate_failure at 0x7beff199a0c0>" shape=ellipse]
+	getbool [label="getbool
+Get a setting value as a boolean.
+__init__.py:113" fillcolor=white shape=box style=filled]
+	get [label="get
+headers.py:44" fillcolor=white shape=box style=filled]
+	middleware [label="middleware
+<scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware object at 0x7beff1937c20>" shape=ellipse]
+	__new__ [label="__new__
+item.py:27" fillcolor=white shape=box style=filled]
+	obj [label="obj
+(2 writes)
+REPR FAILED" shape=ellipse]
+	_set_url [label="_set_url
+text.py:30" fillcolor=white shape=box style=filled]
+	encoding [label="encoding
+text.py:54" fillcolor=white shape=box style=filled]
+	to_native_str [label="to_native_str
+Return str representation of `text`
+python.py:125" fillcolor=white shape=box style=filled]
+	to_unicode [label="to_unicode
+Return the unicode representation of a bytes object `te…
+python.py:99" fillcolor=white shape=box style=filled]
+	safe_url_string [label=safe_url_string fillcolor=white shape=box style=filled]
+	decoded [label="decoded
+(2 writes, 2 distinct)
+'http://site.local'
+'http://site.local/robots.txt'" shape=ellipse]
+	_strip [label=_strip fillcolor=white shape=box style=filled]
+	parts [label="parts
+(2 writes, 2 distinct)
+SplitResult(scheme='http', netloc='site.local', path='', query='', fragment='')
+SplitResult(scheme='http', netloc='site.local', path='/robots.txt', query='', fragment='')" shape=ellipse]
+	username [label="username
+(2 writes)
+None" shape=ellipse]
+	password [label="password
+(2 writes)
+None" shape=ellipse]
+	hostname [label="hostname
+(2 writes)
+'site.local'" shape=ellipse]
+	port [label="port
+(2 writes)
+None" shape=ellipse]
+	netloc_bytes [label="netloc_bytes
+(4 writes, 2 distinct)
+b''
+b'site.local'" shape=ellipse]
+	find_spec [label=find_spec fillcolor=white shape=box style=filled]
+	spec [label="spec
+(5 writes, 2 distinct)
+None
+ModuleSpec(name='encodings.idna', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7beff183d400>, origin=…" shape=ellipse]
+	finder [label="finder
+(4 writes, 4 distinct)
+<class '_frozen_importlib.BuiltinImporter'>
+<class '_frozen_importlib.FrozenImporter'>
+<class '_frozen_importlib_external.PathFinder'>
+FileFinder('/usr/lib/python3.12/encodings')" shape=ellipse]
+	info [label="info
+None" shape=ellipse]
+	namespace_path [label="namespace_path
+[]" shape=ellipse]
+	entry [label="entry
+'/usr/lib/python3.12/encodings'" shape=ellipse]
+	module [label="module
+(7 writes, 4 distinct)
+None
+<module 'encodings.idna'>
+<module 'encodings.idna' (<_frozen_importlib_external.SourceFileLoader object at 0x7beff183d400>)>
+<module 'encodings.idna' from '/usr/lib/python3.12/encodings/idna.py'>" shape=ellipse]
+	loader [label="loader
+<_frozen_importlib_external.SourceFileLoader object at 0x7beff183d400>" shape=ellipse]
+	source_path [label="source_path
+'/usr/lib/python3.12/encodings/idna.py'" shape=ellipse]
+	source_mtime [label="source_mtime
+(2 writes, 2 distinct)
+None
+1772540118" shape=ellipse]
+	source_bytes [label="source_bytes
+None" shape=ellipse]
+	source_hash [label="source_hash
+None" shape=ellipse]
+	hash_based [label="hash_based
+False" shape=ellipse]
+	check_source [label="check_source
+True" shape=ellipse]
+	bytecode_path [label="bytecode_path
+'/usr/lib/python3.12/encodings/__pycache__/idna.cpython-312.pyc'" shape=ellipse]
+	st [label="st
+{'mtime': 1772540118.0, 'size': 9710}" shape=ellipse]
+	data [label="data
+bytes(len=9916)" shape=ellipse]
+	exc_details [label="exc_details
+{'name': 'encodings.idna', 'path': '/usr/lib/python3.12/encodings/__pycache__/idna.cpython-312.pyc'}" shape=ellipse]
+	flags [label="flags
+0" shape=ellipse]
+	bytes_data [label="bytes_data
+<memory at 0x7beff1a03b80>" shape=ellipse]
+	code [label="code
+<code object <module> at 0x34e3fce0, file \"/usr/lib/python3.12/encodings/idna.py\", line 1>" shape=ellipse]
+	args [label="args
+(6 writes, 4 distinct)
+(<code object <module> at 0x34e3fce0, file \"/usr/lib/python3.12/encodings/idna.py\", line 1>, {'__name__': 'encodings.idn…
+()
+(<GET http://site.local/robots.txt>, None)
+('site.local',)" shape=ellipse]
+	tid [label="tid
+136270551158912" shape=ellipse]
+	netloc [label="netloc
+(3 writes)
+'site.local'" shape=ellipse]
+	path [label="path
+(2 writes, 2 distinct)
+''
+'/robots.txt'" shape=ellipse]
+	query [label="query
+(2 writes)
+''" shape=ellipse]
+	escape_ajax [label="escape_ajax
+Return the crawleable url according to:
+url.py:88" fillcolor=white shape=box style=filled]
+	defrag [label="defrag
+(2 writes, 2 distinct)
+'http://site.local'
+'http://site.local/robots.txt'" shape=ellipse]
+	frag [label="frag
+(2 writes)
+''" shape=ellipse]
+	_set_body [label="_set_body
+text.py:39" fillcolor=white shape=box style=filled]
+	assertNotIgnored [label="assertNotIgnored
+test_downloadermiddleware_robotstxt.py:158" fillcolor=white shape=box style=filled]
+	spider [label="spider
+None" shape=ellipse]
+	maybeDeferred [label=maybeDeferred fillcolor=white shape=box style=filled]
+	process_request [label="process_request
+stats.py:16" fillcolor=white shape=box style=filled]
+	meta [label="meta
+__init__.py:25" fillcolor=white shape=box style=filled]
+	robot_parser [label="robot_parser
+robotstxt.py:49" fillcolor=white shape=box style=filled]
+	urlparse_cached [label="urlparse_cached
+Return urlparse.urlparse caching the result, where the …
+httpobj.py:9" fillcolor=white shape=box style=filled]
+	_get_url [label="_get_url
+__init__.py:34" fillcolor=white shape=box style=filled]
+	url [label="url
+ParseResult(scheme='http', netloc='site.local', path='', params='', query='', fragment='')" shape=ellipse]
+	robotsurl [label="robotsurl
+'http://site.local/robots.txt'" shape=ellipse]
+	robotsreq [label="robotsreq
+<GET http://site.local/robots.txt>" shape=ellipse]
+	deferred [label="deferred
+(2 writes, 2 distinct)
+<Deferred at 0x7beff1987320>
+<Deferred at 0x7beff1987320 current result: <twisted.python.failure.Failure twisted.internet.error.DNSLookupError: DNS l…" shape=ellipse]
+	dfd [label="dfd
+(3 writes, 3 distinct)
+<Deferred at 0x7beff1987320 current result: <twisted.python.failure.Failure twisted.internet.error.DNSLookupError: DNS l…
+<Deferred at 0x7beff1987320 current result: None>
+<Deferred at 0x7beff18e4cb0 current result: <twisted.python.failure.Failure builtins.KeyError: 'site.local'>>" shape=ellipse]
+	addCallback [label=addCallback fillcolor=white shape=box style=filled]
+	_runCallbacks [label=_runCallbacks fillcolor=white shape=box style=filled]
+	chain [label="chain
+(13 writes, 4 distinct)
+[<Deferred at 0x7beff1987320 current result: <twisted.python.failure.Failure twisted.internet.error.DNSLookupError: DNS …
+[]
+[<Deferred at 0x7beff1987320 current result: None>]
+[<Deferred at 0x7beff18e4cb0 current result: <twisted.python.failure.Failure builtins.KeyError: 'site.local'>>]" shape=ellipse]
+	current [label="current
+(7 writes, 3 distinct)
+<Deferred at 0x7beff1987320 current result: <twisted.python.failure.Failure twisted.internet.error.DNSLookupError: DNS l…
+<Deferred at 0x7beff1987320 current result: None>
+<Deferred at 0x7beff18e4cb0 current result: <twisted.python.failure.Failure builtins.KeyError: 'site.local'>>" shape=ellipse]
+	finished [label="finished
+(6 writes)
+True" shape=ellipse]
+	item [label="item
+(5 writes, 5 distinct)
+((<bound method RobotsTxtMiddleware._parse_robots of <scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware object …
+((<function passthru at 0x7beff41b3100>, (), {}), (<bound method RobotsTxtMiddleware._logerror of <scrapy.downloadermidd…
+((<function passthru at 0x7beff41b3100>, (), {}), (<bound method RobotsTxtMiddleware._robots_error of <scrapy.downloader…
+((<bound method RobotsTxtMiddleware.process_request_2 of <scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware obj…
+((<bound method TestCase.assertIsNone of <tests.test_downloadermiddleware_robotstxt.RobotsTxtMiddlewareTest testMethod=t…" shape=ellipse]
+	callback [label="callback
+(5 writes, 3 distinct)
+<function _failthru at 0x7beff41b32e0>
+<bound method RobotsTxtMiddleware._logerror of <scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware object at 0x7…
+<bound method RobotsTxtMiddleware._robots_error of <scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware object at…" shape=ellipse]
+	kwargs [label="kwargs
+(5 writes)
+{}" shape=ellipse]
+	_failthru [label=_failthru fillcolor=white shape=box style=filled]
+	addErrback [label=addErrback fillcolor=white shape=box style=filled]
+	_logerror [label="_logerror
+robotstxt.py:76" fillcolor=white shape=box style=filled]
+	failure_to_exc_info [label="failure_to_exc_info
+Extract exc_info from Failure instances
+log.py:18" fillcolor=white shape=box style=filled]
+	_robots_error [label="_robots_error
+robotstxt.py:104" fillcolor=white shape=box style=filled]
+	ERROR__KeyError [label="KeyError
+'site.local'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	tb [label="tb
+(2 writes, 2 distinct)
+None
+<traceback object at 0x7beff1905180>" shape=ellipse]
+	fail [label=fail fillcolor=white shape=box style=filled]
+	d [label="d
+(3 writes, 2 distinct)
+<Deferred at 0x7beff18e4cb0>
+<Deferred at 0x7beff18e4cb0 current result: <twisted.python.failure.Failure builtins.KeyError: 'site.local'>>" shape=ellipse]
+	errback [label="errback
+spiders.py:65" fillcolor=white shape=box style=filled]
+	_startRunCallbacks [label=_startRunCallbacks fillcolor=white shape=box style=filled]
+	result [label="result
+<Deferred at 0x7beff18e4cb0 current result: <twisted.python.failure.Failure builtins.KeyError: 'site.local'>>" shape=ellipse]
+	tearDown [label="tearDown
+test_closespider.py:14" fillcolor=white shape=box style=filled]
+	{
+		rank=same
+		setUp
+		test_robotstxt_immediate_error
+		tearDown
+	}
+	{
+		rank=same
+		__init__
+		set
+		__getattribute__
+		__new__
+		assertNotIgnored
+	}
+	{
+		rank=same
+		update
+		_assert_mutability
+		setmodule
+		get_settings_priority
+		__contains__
+		__subclasscheck__
+		iteritems
+		__iter__
+		__getitem__
+		__setattr__
+		getbool
+		get
+		_set_url
+		_set_body
+		maybeDeferred
+		addCallback
+		_failthru
+		addErrback
+		_logerror
+		_robots_error
+		fail
+	}
+	{
+		rank=same
+		encoding
+		to_native_str
+		safe_url_string
+		escape_ajax
+		process_request
+		_runCallbacks
+		failure_to_exc_info
+		errback
+	}
+	{
+		rank=same
+		to_unicode
+		_strip
+		find_spec
+		meta
+		_startRunCallbacks
+	}
+	{
+		rank=same
+		robot_parser
+	}
+	{
+		rank=same
+		urlparse_cached
+	}
+	{
+		rank=same
+		_get_url
+	}
+	setUp -> __init__ [label="calls [#1]" color=blue penwidth=1.1]
+	__init__ -> __init__ [label="calls×22 [#2]" color=blue penwidth=3.2]
+	__init__ -> update [label="calls×19 [#3]" color=blue penwidth=2.9]
+	__init__ -> setmodule [label="calls [#5]" color=blue penwidth=1.1]
+	__init__ -> __subclasscheck__ [label="calls×7 [#12]" color=blue penwidth=1.7]
+	__init__ -> set [label="calls×37 [#13]" color=blue penwidth=4.7]
+	__init__ -> iteritems [label="calls [#84]" color=blue penwidth=1.1]
+	__init__ -> __iter__ [label="calls [#85]" color=blue penwidth=1.1]
+	__init__ -> __getitem__ [label="calls×28 [#86]" color=blue penwidth=3.8]
+	__init__ -> getbool [label="calls [#389]" color=blue penwidth=1.1]
+	__init__ -> get [label="calls [#395]" color=blue penwidth=1.1]
+	__init__ -> _set_url [label="calls×2 [#402]" color=blue penwidth=1.2]
+	__init__ -> _set_body [label="calls×2 [#411]" color=blue penwidth=1.2]
+	__init__ -> tb [label="writes×2" color=black]
+	update -> _assert_mutability [label="calls×19 [#4]" color=blue penwidth=2.9]
+	update -> iteritems [label="calls×17 [#95]" color=blue penwidth=2.7]
+	update -> value [label="writes×14" color=black]
+	update -> set [label="calls×9 [#96]" color=blue penwidth=1.9]
+	setmodule -> _assert_mutability [label="calls [#6]" color=blue penwidth=1.1]
+	setmodule -> set [label="calls [#7]" color=blue penwidth=1.1]
+	set -> _assert_mutability [label="calls×48 [#8]" color=blue penwidth=5.0]
+	set -> get_settings_priority [label="calls×48 [#9]" color=blue penwidth=5.0]
+	set -> __contains__ [label="calls×48 [#10]" color=blue penwidth=5.0]
+	set -> __init__ [label="calls×30 [#11]" color=blue penwidth=4.0]
+	set -> set [label="calls×18 [#110]" color=blue penwidth=2.8]
+	__subclasscheck__ -> mro [label="writes×7" color=black]
+	__getitem__ -> __contains__ [label="calls×32 [#87]" color=blue penwidth=4.2]
+	value -> set [label="passed to" color=green style=dashed]
+	value -> __init__ [label="passed to" color=green style=dashed]
+	value -> __setattr__ [label="passed to" color=green style=dashed]
+	test_robotstxt_immediate_error -> set [label="calls [#377]" color=blue penwidth=1.1]
+	test_robotstxt_immediate_error -> __getattribute__ [label="calls [#382]" color=blue penwidth=1.1]
+	test_robotstxt_immediate_error -> err [label=writes color=black]
+	test_robotstxt_immediate_error -> immediate_failure [label=writes color=black]
+	test_robotstxt_immediate_error -> __init__ [label="calls×2 [#388]" color=blue penwidth=1.2]
+	test_robotstxt_immediate_error -> middleware [label=writes color=black]
+	test_robotstxt_immediate_error -> __new__ [label="calls [#400]" color=blue penwidth=1.1]
+	test_robotstxt_immediate_error -> assertNotIgnored [label="calls [#414]" color=blue penwidth=1.1]
+	__getattribute__ -> __init__ [label="calls [#383]" color=blue penwidth=1.1]
+	__getattribute__ -> state [label=writes color=black]
+	__getattribute__ -> __getattribute__ [label="calls×3 [#384]" color=blue penwidth=1.3]
+	__getattribute__ -> deprecatedAttribute [label=writes color=black]
+	__getattribute__ -> value [label=writes color=black]
+	__getattribute__ -> __setattr__ [label="calls [#387]" color=blue penwidth=1.1]
+	err -> immediate_failure [label="passed to" color=green style=dashed]
+	immediate_failure -> deferred [label="writes×2" color=black]
+	getbool -> get [label="calls [#390]" color=blue penwidth=1.1]
+	get -> __getitem__ [label="calls×4 [#391]" color=blue penwidth=1.4]
+	middleware -> assertNotIgnored [label="passed to" color=green style=dashed]
+	__new__ -> obj [label="writes×2" color=black]
+	_set_url -> encoding [label="calls×2 [#403]" color=blue penwidth=1.2]
+	_set_url -> to_native_str [label="calls×2 [#404]" color=blue penwidth=1.2]
+	_set_url -> safe_url_string [label="calls×2 [#406]" color=blue penwidth=1.2]
+	_set_url -> escape_ajax [label="calls×2 [#410]" color=blue penwidth=1.2]
+	to_native_str -> to_unicode [label="calls×2 [#405]" color=blue penwidth=1.2]
+	safe_url_string -> to_unicode [label="calls×2 [#407]" color=blue penwidth=1.2]
+	safe_url_string -> decoded [label="writes×2" color=black]
+	safe_url_string -> _strip [label="calls×2 [#408]" color=blue penwidth=1.2]
+	safe_url_string -> parts [label="writes×2" color=black]
+	safe_url_string -> username [label="writes×2" color=black]
+	safe_url_string -> password [label="writes×2" color=black]
+	safe_url_string -> hostname [label="writes×2" color=black]
+	safe_url_string -> port [label="writes×2" color=black]
+	safe_url_string -> netloc_bytes [label="writes×4" color=black]
+	safe_url_string -> find_spec [label="calls [#409]" color=blue penwidth=1.1]
+	safe_url_string -> spec [label="writes×5" color=black]
+	safe_url_string -> finder [label="writes×4" color=black]
+	safe_url_string -> info [label=writes color=black]
+	safe_url_string -> namespace_path [label=writes color=black]
+	safe_url_string -> entry [label=writes color=black]
+	safe_url_string -> module [label="writes×7" color=black]
+	safe_url_string -> loader [label=writes color=black]
+	safe_url_string -> source_path [label=writes color=black]
+	safe_url_string -> source_mtime [label="writes×2" color=black]
+	safe_url_string -> source_bytes [label=writes color=black]
+	safe_url_string -> source_hash [label=writes color=black]
+	safe_url_string -> hash_based [label=writes color=black]
+	safe_url_string -> check_source [label=writes color=black]
+	safe_url_string -> bytecode_path [label=writes color=black]
+	safe_url_string -> st [label=writes color=black]
+	safe_url_string -> data [label=writes color=black]
+	safe_url_string -> exc_details [label=writes color=black]
+	safe_url_string -> flags [label=writes color=black]
+	safe_url_string -> bytes_data [label=writes color=black]
+	safe_url_string -> code [label=writes color=black]
+	safe_url_string -> args [label=writes color=black]
+	safe_url_string -> tid [label=writes color=black]
+	safe_url_string -> netloc [label="writes×2" color=black]
+	safe_url_string -> path [label="writes×2" color=black]
+	safe_url_string -> query [label="writes×2" color=black]
+	spec -> escape_ajax [label="passed to" color=green style=dashed]
+	module -> escape_ajax [label="passed to" color=green style=dashed]
+	args -> escape_ajax [label="passed to" color=green style=dashed]
+	args -> maybeDeferred [label="passed to" color=green style=dashed]
+	args -> __new__ [label="passed to" color=green style=dashed]
+	args -> addCallback [label="passed to" color=green style=dashed]
+	args -> addErrback [label="passed to" color=green style=dashed]
+	netloc -> _robots_error [label="passed to" color=green style=dashed]
+	path -> escape_ajax [label="passed to" color=green style=dashed]
+	escape_ajax -> defrag [label="writes×2" color=black]
+	escape_ajax -> frag [label="writes×2" color=black]
+	assertNotIgnored -> spider [label=writes color=black]
+	assertNotIgnored -> maybeDeferred [label="calls [#415]" color=blue penwidth=1.1]
+	assertNotIgnored -> assertNotIgnored [label="loops(×15)" color=purple style=dashed]
+	assertNotIgnored -> _failthru [label="calls×3 [#439]" color=blue penwidth=1.3]
+	assertNotIgnored -> chain [label="writes×6" color=black]
+	assertNotIgnored -> addErrback [label="calls×2 [#440]" color=blue penwidth=1.2]
+	assertNotIgnored -> _logerror [label="calls [#442]" color=blue penwidth=1.1]
+	assertNotIgnored -> _robots_error [label="calls [#446]" color=blue penwidth=1.1]
+	assertNotIgnored -> current [label=writes color=black]
+	assertNotIgnored -> dfd [label="writes×2" color=black]
+	assertNotIgnored -> ERROR__KeyError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	assertNotIgnored -> __init__ [label="calls [#448]" color=blue penwidth=1.1]
+	assertNotIgnored -> fail [label="calls [#449]" color=blue penwidth=1.1]
+	assertNotIgnored -> d [label=writes color=black]
+	assertNotIgnored -> addCallback [label="calls×2 [#454]" color=blue penwidth=1.2]
+	assertNotIgnored -> result [label=writes color=black]
+	spider -> process_request [label="passed to" color=green style=dashed]
+	spider -> robot_parser [label="passed to" color=green style=dashed]
+	spider -> immediate_failure [label="passed to" color=green style=dashed]
+	spider -> _logerror [label="passed to" color=green style=dashed]
+	maybeDeferred -> process_request [label="calls [#416]" color=blue penwidth=1.1]
+	maybeDeferred -> robot_parser [label="calls [#419]" color=blue penwidth=1.1]
+	process_request -> meta [label="calls [#417]" color=blue penwidth=1.1]
+	process_request -> maybeDeferred [label="calls [#418]" color=blue penwidth=1.1]
+	robot_parser -> urlparse_cached [label="calls [#420]" color=blue penwidth=1.1]
+	robot_parser -> url [label=writes color=black]
+	robot_parser -> netloc [label=writes color=black]
+	robot_parser -> __init__ [label="calls×2 [#422]" color=blue penwidth=1.2]
+	robot_parser -> robotsurl [label=writes color=black]
+	robot_parser -> __new__ [label="calls [#423]" color=blue penwidth=1.1]
+	robot_parser -> robotsreq [label=writes color=black]
+	robot_parser -> immediate_failure [label="calls [#436]" color=blue penwidth=1.1]
+	robot_parser -> dfd [label=writes color=black]
+	robot_parser -> addCallback [label="calls [#437]" color=blue penwidth=1.1]
+	urlparse_cached -> _get_url [label="calls [#421]" color=blue penwidth=1.1]
+	url -> __init__ [label="passed to" color=green style=dashed]
+	url -> _set_url [label="passed to" color=green style=dashed]
+	url -> safe_url_string [label="passed to" color=green style=dashed]
+	url -> _strip [label="passed to" color=green style=dashed]
+	url -> escape_ajax [label="passed to" color=green style=dashed]
+	addCallback -> _runCallbacks [label="calls×3 [#438]" color=blue penwidth=1.3]
+	_runCallbacks -> chain [label="writes×7" color=black]
+	_runCallbacks -> current [label="writes×6" color=black]
+	_runCallbacks -> finished [label="writes×6" color=black]
+	_runCallbacks -> item [label="writes×5" color=black]
+	_runCallbacks -> callback [label="writes×5" color=black]
+	_runCallbacks -> args [label="writes×5" color=black]
+	_runCallbacks -> kwargs [label="writes×5" color=black]
+	callback -> addCallback [label="passed to" color=green style=dashed]
+	kwargs -> addErrback [label="passed to" color=green style=dashed]
+	kwargs -> addCallback [label="passed to" color=green style=dashed]
+	addErrback -> _runCallbacks [label="calls×2 [#441]" color=blue penwidth=1.2]
+	_logerror -> failure_to_exc_info [label="calls [#443]" color=blue penwidth=1.1]
+	_robots_error -> callback [label="calls [#447]" color=blue penwidth=1.1]
+	fail -> __init__ [label="calls [#450]" color=blue penwidth=1.1]
+	fail -> d [label="writes×2" color=black]
+	fail -> errback [label="calls [#451]" color=blue penwidth=1.1]
+	errback -> _startRunCallbacks [label="calls [#452]" color=blue penwidth=1.1]
+	_startRunCallbacks -> _runCallbacks [label="calls [#453]" color=blue penwidth=1.1]
+}

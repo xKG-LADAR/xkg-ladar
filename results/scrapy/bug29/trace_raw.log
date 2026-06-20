@@ -1,0 +1,1154 @@
+Cleared: /path/to/results/scrapy/bug29
+Running: python -m unittest -q tests.test_utils_request.UtilsRequestTest.test_request_httprepr_for_non_http_request
+Workdir: /path/to/BugsInPy/workspace/scrapy
+PYTHONPATH: /path/to/BugsInPy/workspace/scrapy::
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_request.py
+IE_TRACE: Starting var:.. self = <tests.test_utils_request.UtilsRequestTest testMethod=test_request_httprepr_for_non_http_request>
+IE_TRACE: 12:40:11.364873 call        77     def test_request_httprepr_for_non_http_request(self):
+IE_TRACE: 12:40:11.365043 line        79         request_httprepr(Request("file:///tmp/foo.txt"))
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/trackref.py
+IE_TRACE:     Starting var:.. cls = <class 'scrapy.http.request.Request'>
+IE_TRACE:     Starting var:.. args = ('file:///tmp/foo.txt',)
+IE_TRACE:     Starting var:.. kwargs = {}
+IE_TRACE:     12:40:11.365075 call        28     def __new__(cls, *args, **kwargs):
+IE_TRACE:     12:40:11.365144 line        29         obj = object.__new__(cls)
+IE_TRACE:     New var:....... obj = REPR FAILED
+IE_TRACE:     12:40:11.365164 line        30         live_refs[cls][obj] = time()
+IE_TRACE:         Source path:... /usr/lib/python3.12/weakref.py
+IE_TRACE:         Starting var:.. self = <WeakKeyDictionary at 0x7625a7e1e930>
+IE_TRACE:         Starting var:.. dict = None
+IE_TRACE:         12:40:11.365205 call       367     def __init__(self, dict=None):
+IE_TRACE:         12:40:11.365292 line       368         self.data = {}
+IE_TRACE:         12:40:11.365309 line       369         def remove(k, selfref=ref(self)):
+IE_TRACE:         New var:....... remove = <function WeakKeyDictionary.__init__.<locals>.remove at 0x7625a7e3f7e0>
+IE_TRACE:         12:40:11.365323 line       379         self._remove = remove
+IE_TRACE:         12:40:11.365343 line       381         self._pending_removals = []
+IE_TRACE:         12:40:11.365357 line       382         self._iterating = set()
+IE_TRACE:         12:40:11.365371 line       383         self._dirty_len = False
+IE_TRACE:         12:40:11.365385 line       384         if dict is not None:
+IE_TRACE:         12:40:11.365399 return     384         if dict is not None:
+IE_TRACE:         Return value:.. None
+IE_TRACE:         Starting var:.. self = <WeakKeyDictionary at 0x7625a7e1e930>
+IE_TRACE:         Starting var:.. key = REPR FAILED
+IE_TRACE:         Starting var:.. value = 1780557011.3651905
+IE_TRACE:         12:40:11.365422 call       427     def __setitem__(self, key, value):
+IE_TRACE:         12:40:11.365459 line       428         self.data[ref(key, self._remove)] = value
+IE_TRACE:         12:40:11.365475 return     428         self.data[ref(key, self._remove)] = value
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/trackref.py
+IE_TRACE:     12:40:11.365497 line        31         return obj
+IE_TRACE:     12:40:11.365519 return      31         return obj
+IE_TRACE:     Return value:.. REPR FAILED
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/request/__init__.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. url = 'file:///tmp/foo.txt'
+IE_TRACE:     Starting var:.. callback = None
+IE_TRACE:     Starting var:.. method = 'GET'
+IE_TRACE:     Starting var:.. headers = None
+IE_TRACE:     Starting var:.. body = None
+IE_TRACE:     Starting var:.. cookies = None
+IE_TRACE:     Starting var:.. meta = None
+IE_TRACE:     Starting var:.. encoding = 'utf-8'
+IE_TRACE:     Starting var:.. priority = 0
+IE_TRACE:     Starting var:.. dont_filter = False
+IE_TRACE:     Starting var:.. errback = None
+IE_TRACE:     12:40:11.365548 call        19     def __init__(self, url, callback=None, method='GET', headers=None, body=None,
+IE_TRACE:     12:40:11.365644 line        23         self._encoding = encoding  # this one has to be set first
+IE_TRACE:     12:40:11.365670 line        24         self.method = str(method).upper()
+IE_TRACE:     12:40:11.365693 line        25         self._set_url(url)
+IE_TRACE:         Starting var:.. self = REPR FAILED
+IE_TRACE:         Starting var:.. url = 'file:///tmp/foo.txt'
+IE_TRACE:         12:40:11.365722 call        49     def _set_url(self, url):
+IE_TRACE:         12:40:11.365744 line        50         if not isinstance(url, six.string_types):
+IE_TRACE:         12:40:11.365757 line        53         url = to_native_str(url, self.encoding)
+IE_TRACE:             Starting var:.. self = REPR FAILED
+IE_TRACE:             12:40:11.365771 call        73     def encoding(self):
+IE_TRACE:             12:40:11.365790 line        74         return self._encoding
+IE_TRACE:             12:40:11.365802 return      74         return self._encoding
+IE_TRACE:             Return value:.. 'utf-8'
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/python.py
+IE_TRACE:             Starting var:.. text = 'file:///tmp/foo.txt'
+IE_TRACE:             Starting var:.. encoding = 'utf-8'
+IE_TRACE:             Starting var:.. errors = 'strict'
+IE_TRACE:             12:40:11.365821 call       125 def to_native_str(text, encoding=None, errors='strict'):
+IE_TRACE:             12:40:11.365883 line       128     if six.PY2:
+IE_TRACE:             12:40:11.365897 line       131         return to_unicode(text, encoding, errors)
+IE_TRACE:                 Starting var:.. text = 'file:///tmp/foo.txt'
+IE_TRACE:                 Starting var:.. encoding = 'utf-8'
+IE_TRACE:                 Starting var:.. errors = 'strict'
+IE_TRACE:                 12:40:11.365914 call        99 def to_unicode(text, encoding=None, errors='strict'):
+IE_TRACE:                 12:40:11.365939 line       102     if isinstance(text, six.text_type):
+IE_TRACE:                 12:40:11.365952 line       103         return text
+IE_TRACE:                 12:40:11.365965 return     103         return text
+IE_TRACE:                 Return value:.. 'file:///tmp/foo.txt'
+IE_TRACE:             12:40:11.365984 return     131         return to_unicode(text, encoding, errors)
+IE_TRACE:             Return value:.. 'file:///tmp/foo.txt'
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/request/__init__.py
+IE_TRACE:         12:40:11.366001 line        54         self._url = escape_ajax(safe_url_string(url))
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:             Starting var:.. url = 'file:///tmp/foo.txt'
+IE_TRACE:             Starting var:.. encoding = 'utf8'
+IE_TRACE:             Starting var:.. path_encoding = 'utf8'
+IE_TRACE:             Starting var:.. quote_path = True
+IE_TRACE:             12:40:11.366031 call        90 def safe_url_string(  # pylint: disable=too-many-locals
+IE_TRACE:             12:40:11.366152 line       139     decoded = to_unicode(url, encoding=encoding, errors="percentencode")
+IE_TRACE:                 Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/util.py
+IE_TRACE:                 Starting var:.. text = 'file:///tmp/foo.txt'
+IE_TRACE:                 Starting var:.. encoding = 'utf8'
+IE_TRACE:                 Starting var:.. errors = 'percentencode'
+IE_TRACE:                 12:40:11.366176 call         4 def to_unicode(
+IE_TRACE:                 12:40:11.366227 line         9     if isinstance(text, str):
+IE_TRACE:                 12:40:11.366243 line        10         return text
+IE_TRACE:                 12:40:11.366257 return      10         return text
+IE_TRACE:                 Return value:.. 'file:///tmp/foo.txt'
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:             New var:....... decoded = 'file:///tmp/foo.txt'
+IE_TRACE:             12:40:11.366276 line       140     parts = urlsplit(_strip(decoded))
+IE_TRACE:                 Starting var:.. url = 'file:///tmp/foo.txt'
+IE_TRACE:                 12:40:11.366306 call        84 def _strip(url: str) -> str:
+IE_TRACE:                 12:40:11.366322 line        85     return url.strip(_C0_CONTROL_OR_SPACE).translate(
+IE_TRACE:                 12:40:11.366334 line        86         _ASCII_TAB_OR_NEWLINE_TRANSLATION_TABLE
+IE_TRACE:                 12:40:11.366346 line        85     return url.strip(_C0_CONTROL_OR_SPACE).translate(
+IE_TRACE:                 12:40:11.366359 return      85     return url.strip(_C0_CONTROL_OR_SPACE).translate(
+IE_TRACE:                 Return value:.. 'file:///tmp/foo.txt'
+IE_TRACE:                 Source path:... /usr/lib/python3.12/urllib/parse.py
+IE_TRACE:                 Starting var:.. url = 'file:///tmp/foo.txt'
+IE_TRACE:                 Starting var:.. scheme = ''
+IE_TRACE:                 Starting var:.. allow_fragments = True
+IE_TRACE:                 12:40:11.366388 call       470 def urlsplit(url, scheme='', allow_fragments=True):
+IE_TRACE:                 12:40:11.366566 line       491     url, scheme, _coerce_result = _coerce_args(url, scheme)
+IE_TRACE:                     Starting var:.. args = ('file:///tmp/foo.txt', '')
+IE_TRACE:                     12:40:11.366591 call       119 def _coerce_args(*args):
+IE_TRACE:                     12:40:11.366612 line       125     str_input = isinstance(args[0], str)
+IE_TRACE:                     New var:....... str_input = True
+IE_TRACE:                     12:40:11.366627 line       126     for arg in args[1:]:
+IE_TRACE:                     New var:....... arg = ''
+IE_TRACE:                     12:40:11.366646 line       129         if arg and isinstance(arg, str) != str_input:
+IE_TRACE:                     12:40:11.366666 line       126     for arg in args[1:]:
+IE_TRACE:                     12:40:11.366683 line       131     if str_input:
+IE_TRACE:                     12:40:11.366700 line       132         return args + (_noop,)
+IE_TRACE:                     12:40:11.366715 return     132         return args + (_noop,)
+IE_TRACE:                     Return value:.. ('file:///tmp/foo.txt', '', <function _noop at 0x7625aa60a700>)
+IE_TRACE:                 New var:....... _coerce_result = <function _noop at 0x7625aa60a700>
+IE_TRACE:                 12:40:11.366738 line       494     url = url.lstrip(_WHATWG_C0_CONTROL_OR_SPACE)
+IE_TRACE:                 12:40:11.366761 line       495     scheme = scheme.strip(_WHATWG_C0_CONTROL_OR_SPACE)
+IE_TRACE:                 12:40:11.366779 line       497     for b in _UNSAFE_URL_BYTES_TO_REMOVE:
+IE_TRACE:                 New var:....... b = '\t'
+IE_TRACE:                 12:40:11.366796 line       498         url = url.replace(b, "")
+IE_TRACE:                 12:40:11.366820 line       499         scheme = scheme.replace(b, "")
+IE_TRACE:                 12:40:11.366839 line       497     for b in _UNSAFE_URL_BYTES_TO_REMOVE:
+IE_TRACE:                 Modified var:.. b = '\r'
+IE_TRACE:                 12:40:11.366858 line       498         url = url.replace(b, "")
+IE_TRACE:                 12:40:11.366880 line       499         scheme = scheme.replace(b, "")
+IE_TRACE:                 12:40:11.366898 line       497     for b in _UNSAFE_URL_BYTES_TO_REMOVE:
+IE_TRACE:                 Modified var:.. b = '\n'
+IE_TRACE:                 12:40:11.366916 line       498         url = url.replace(b, "")
+IE_TRACE:                 12:40:11.366937 line       499         scheme = scheme.replace(b, "")
+IE_TRACE:                 12:40:11.366955 line       497     for b in _UNSAFE_URL_BYTES_TO_REMOVE:
+IE_TRACE:                 12:40:11.366973 line       501     allow_fragments = bool(allow_fragments)
+IE_TRACE:                 12:40:11.366991 line       502     netloc = query = fragment = ''
+IE_TRACE:                 New var:....... netloc = ''
+IE_TRACE:                 New var:....... query = ''
+IE_TRACE:                 New var:....... fragment = ''
+IE_TRACE:                 12:40:11.367009 line       503     i = url.find(':')
+IE_TRACE:                 New var:....... i = 4
+IE_TRACE:                 12:40:11.367042 line       504     if i > 0 and url[0].isascii() and url[0].isalpha():
+IE_TRACE:                 12:40:11.367073 line       505         for c in url[:i]:
+IE_TRACE:                 New var:....... c = 'f'
+IE_TRACE:                 12:40:11.367097 line       506             if c not in scheme_chars:
+IE_TRACE:                 12:40:11.367125 line       505         for c in url[:i]:
+IE_TRACE:                 Modified var:.. c = 'i'
+IE_TRACE:                 12:40:11.367149 line       506             if c not in scheme_chars:
+IE_TRACE:                 12:40:11.367177 line       505         for c in url[:i]:
+IE_TRACE:                 Modified var:.. c = 'l'
+IE_TRACE:                 12:40:11.367229 line       506             if c not in scheme_chars:
+IE_TRACE:                 12:40:11.367256 line       505         for c in url[:i]:
+IE_TRACE:                 Modified var:.. c = 'e'
+IE_TRACE:                 12:40:11.367278 line       506             if c not in scheme_chars:
+IE_TRACE:                 12:40:11.367304 line       505         for c in url[:i]:
+IE_TRACE:                 12:40:11.367326 line       509             scheme, url = url[:i].lower(), url[i+1:]
+IE_TRACE:                 Modified var:.. url = '///tmp/foo.txt'
+IE_TRACE:                 Modified var:.. scheme = 'file'
+IE_TRACE:                 12:40:11.367350 line       510     if url[:2] == '//':
+IE_TRACE:                 12:40:11.367381 line       511         netloc, url = _splitnetloc(url, 2)
+IE_TRACE:                     Starting var:.. url = '///tmp/foo.txt'
+IE_TRACE:                     Starting var:.. start = 2
+IE_TRACE:                     12:40:11.367408 call       413 def _splitnetloc(url, start=0):
+IE_TRACE:                     12:40:11.367433 line       414     delim = len(url)   # position of end of domain part of url, default is end
+IE_TRACE:                     New var:....... delim = 14
+IE_TRACE:                     12:40:11.367449 line       415     for c in '/?#':    # look for delimiters; the order is NOT important
+IE_TRACE:                     New var:....... c = '/'
+IE_TRACE:                     12:40:11.367469 line       416         wdelim = url.find(c, start)        # find first of this delim
+IE_TRACE:                     New var:....... wdelim = 2
+IE_TRACE:                     12:40:11.367489 line       417         if wdelim >= 0:                    # if found
+IE_TRACE:                     12:40:11.367510 line       418             delim = min(delim, wdelim)     # use earliest delim position
+IE_TRACE:                     Modified var:.. delim = 2
+IE_TRACE:                     12:40:11.367529 line       415     for c in '/?#':    # look for delimiters; the order is NOT important
+IE_TRACE:                     Modified var:.. c = '?'
+IE_TRACE:                     12:40:11.367550 line       416         wdelim = url.find(c, start)        # find first of this delim
+IE_TRACE:                     Modified var:.. wdelim = -1
+IE_TRACE:                     12:40:11.367570 line       417         if wdelim >= 0:                    # if found
+IE_TRACE:                     12:40:11.367590 line       415     for c in '/?#':    # look for delimiters; the order is NOT important
+IE_TRACE:                     Modified var:.. c = '#'
+IE_TRACE:                     12:40:11.367607 line       416         wdelim = url.find(c, start)        # find first of this delim
+IE_TRACE:                     12:40:11.367627 line       417         if wdelim >= 0:                    # if found
+IE_TRACE:                     12:40:11.367644 line       415     for c in '/?#':    # look for delimiters; the order is NOT important
+IE_TRACE:                     12:40:11.367661 line       419     return url[start:delim], url[delim:]   # return (domain, rest)
+IE_TRACE:                     12:40:11.367679 return     419     return url[start:delim], url[delim:]   # return (domain, rest)
+IE_TRACE:                     Return value:.. ('', '/tmp/foo.txt')
+IE_TRACE:                 Modified var:.. url = '/tmp/foo.txt'
+IE_TRACE:                 12:40:11.367702 line       512         if (('[' in netloc and ']' not in netloc) or
+IE_TRACE:                 12:40:11.367730 line       513                 (']' in netloc and '[' not in netloc)):
+IE_TRACE:                 12:40:11.367754 line       515         if '[' in netloc and ']' in netloc:
+IE_TRACE:                 12:40:11.367776 line       517     if allow_fragments and '#' in url:
+IE_TRACE:                 12:40:11.367799 line       519     if '?' in url:
+IE_TRACE:                 12:40:11.367822 line       521     _checknetloc(netloc)
+IE_TRACE:                     Starting var:.. netloc = ''
+IE_TRACE:                     12:40:11.367849 call       421 def _checknetloc(netloc):
+IE_TRACE:                     12:40:11.367870 line       422     if not netloc or netloc.isascii():
+IE_TRACE:                     12:40:11.367885 line       423         return
+IE_TRACE:                     12:40:11.367899 return     423         return
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 12:40:11.367919 line       522     v = SplitResult(scheme, netloc, url, query, fragment)
+IE_TRACE:                     Source path:... <string>
+IE_TRACE:                     Starting var:.. _cls = <class 'urllib.parse.SplitResult'>
+IE_TRACE:                     Starting var:.. scheme = 'file'
+IE_TRACE:                     Starting var:.. netloc = ''
+IE_TRACE:                     Starting var:.. path = '/tmp/foo.txt'
+IE_TRACE:                     Starting var:.. query = ''
+IE_TRACE:                     Starting var:.. fragment = ''
+IE_TRACE:                     12:40:11.367946 call         1 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:40:11.368006 line         1 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:40:11.368027 return       1 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. SplitResult(scheme='file', netloc='', path='/tmp/foo.txt', query='', fragment='')
+IE_TRACE:                 Source path:... /usr/lib/python3.12/urllib/parse.py
+IE_TRACE:                 New var:....... v = SplitResult(scheme='file', netloc='', path='/tmp/foo.txt', query='', fragment='')
+IE_TRACE:                 12:40:11.368057 line       523     return _coerce_result(v)
+IE_TRACE:                     Starting var:.. obj = SplitResult(scheme='file', netloc='', path='/tmp/foo.txt', query='', fragment='')
+IE_TRACE:                     12:40:11.368093 call       108 def _noop(obj):
+IE_TRACE:                     12:40:11.368113 line       109     return obj
+IE_TRACE:                     12:40:11.368127 return     109     return obj
+IE_TRACE:                     Return value:.. SplitResult(scheme='file', netloc='', path='/tmp/foo.txt', query='', fragment='')
+IE_TRACE:                 12:40:11.368147 return     523     return _coerce_result(v)
+IE_TRACE:                 Return value:.. SplitResult(scheme='file', netloc='', path='/tmp/foo.txt', query='', fragment='')
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:             New var:....... parts = SplitResult(scheme='file', netloc='', path='/tmp/foo.txt', query='', fragment='')
+IE_TRACE:             12:40:11.368180 line       143         parts.username,
+IE_TRACE:                 Source path:... /usr/lib/python3.12/urllib/parse.py
+IE_TRACE:                 Starting var:.. self = SplitResult(scheme='file', netloc='', path='/tmp/foo.txt', query='', fragment='')
+IE_TRACE:                 12:40:11.368216 call       157     def username(self):
+IE_TRACE:                 12:40:11.368238 line       158         return self._userinfo[0]
+IE_TRACE:                     Starting var:.. self = SplitResult(scheme='file', netloc='', path='/tmp/foo.txt', query='', fragment='')
+IE_TRACE:                     12:40:11.368254 call       194     def _userinfo(self):
+IE_TRACE:                     12:40:11.368274 line       195         netloc = self.netloc
+IE_TRACE:                     New var:....... netloc = ''
+IE_TRACE:                     12:40:11.368288 line       196         userinfo, have_info, hostinfo = netloc.rpartition('@')
+IE_TRACE:                     New var:....... userinfo = ''
+IE_TRACE:                     New var:....... have_info = ''
+IE_TRACE:                     New var:....... hostinfo = ''
+IE_TRACE:                     12:40:11.368307 line       197         if have_info:
+IE_TRACE:                     12:40:11.368335 line       202             username = password = None
+IE_TRACE:                     New var:....... username = None
+IE_TRACE:                     New var:....... password = None
+IE_TRACE:                     12:40:11.368353 line       203         return username, password
+IE_TRACE:                     12:40:11.368380 return     203         return username, password
+IE_TRACE:                     Return value:.. (None, None)
+IE_TRACE:                 12:40:11.368405 return     158         return self._userinfo[0]
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:             12:40:11.368422 line       144         parts.password,
+IE_TRACE:                 Source path:... /usr/lib/python3.12/urllib/parse.py
+IE_TRACE:                 Starting var:.. self = SplitResult(scheme='file', netloc='', path='/tmp/foo.txt', query='', fragment='')
+IE_TRACE:                 12:40:11.368448 call       161     def password(self):
+IE_TRACE:                 12:40:11.368470 line       162         return self._userinfo[1]
+IE_TRACE:                     Starting var:.. self = SplitResult(scheme='file', netloc='', path='/tmp/foo.txt', query='', fragment='')
+IE_TRACE:                     12:40:11.368483 call       194     def _userinfo(self):
+IE_TRACE:                     12:40:11.368501 line       195         netloc = self.netloc
+IE_TRACE:                     New var:....... netloc = ''
+IE_TRACE:                     12:40:11.368515 line       196         userinfo, have_info, hostinfo = netloc.rpartition('@')
+IE_TRACE:                     New var:....... userinfo = ''
+IE_TRACE:                     New var:....... have_info = ''
+IE_TRACE:                     New var:....... hostinfo = ''
+IE_TRACE:                     12:40:11.368534 line       197         if have_info:
+IE_TRACE:                     12:40:11.368561 line       202             username = password = None
+IE_TRACE:                     New var:....... username = None
+IE_TRACE:                     New var:....... password = None
+IE_TRACE:                     12:40:11.368579 line       203         return username, password
+IE_TRACE:                     12:40:11.368606 return     203         return username, password
+IE_TRACE:                     Return value:.. (None, None)
+IE_TRACE:                 12:40:11.368631 return     162         return self._userinfo[1]
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:             12:40:11.368649 line       145         parts.hostname,
+IE_TRACE:                 Source path:... /usr/lib/python3.12/urllib/parse.py
+IE_TRACE:                 Starting var:.. self = SplitResult(scheme='file', netloc='', path='/tmp/foo.txt', query='', fragment='')
+IE_TRACE:                 12:40:11.368678 call       165     def hostname(self):
+IE_TRACE:                 12:40:11.368701 line       166         hostname = self._hostinfo[0]
+IE_TRACE:                     Starting var:.. self = SplitResult(scheme='file', netloc='', path='/tmp/foo.txt', query='', fragment='')
+IE_TRACE:                     12:40:11.368718 call       206     def _hostinfo(self):
+IE_TRACE:                     12:40:11.368737 line       207         netloc = self.netloc
+IE_TRACE:                     New var:....... netloc = ''
+IE_TRACE:                     12:40:11.368753 line       208         _, _, hostinfo = netloc.rpartition('@')
+IE_TRACE:                     New var:....... _ = ''
+IE_TRACE:                     New var:....... hostinfo = ''
+IE_TRACE:                     12:40:11.368772 line       209         _, have_open_br, bracketed = hostinfo.partition('[')
+IE_TRACE:                     New var:....... have_open_br = ''
+IE_TRACE:                     New var:....... bracketed = ''
+IE_TRACE:                     12:40:11.368797 line       210         if have_open_br:
+IE_TRACE:                     12:40:11.368823 line       214             hostname, _, port = hostinfo.partition(':')
+IE_TRACE:                     New var:....... hostname = ''
+IE_TRACE:                     New var:....... port = ''
+IE_TRACE:                     12:40:11.368842 line       215         if not port:
+IE_TRACE:                     12:40:11.368869 line       216             port = None
+IE_TRACE:                     Modified var:.. port = None
+IE_TRACE:                     12:40:11.368889 line       217         return hostname, port
+IE_TRACE:                     12:40:11.368912 return     217         return hostname, port
+IE_TRACE:                     Return value:.. ('', None)
+IE_TRACE:                 New var:....... hostname = ''
+IE_TRACE:                 12:40:11.368938 line       167         if not hostname:
+IE_TRACE:                 12:40:11.368956 line       168             return None
+IE_TRACE:                 12:40:11.368970 return     168             return None
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:             12:40:11.368990 line       146         parts.port,
+IE_TRACE:                 Source path:... /usr/lib/python3.12/urllib/parse.py
+IE_TRACE:                 Starting var:.. self = SplitResult(scheme='file', netloc='', path='/tmp/foo.txt', query='', fragment='')
+IE_TRACE:                 12:40:11.369019 call       176     def port(self):
+IE_TRACE:                 12:40:11.369041 line       177         port = self._hostinfo[1]
+IE_TRACE:                     Starting var:.. self = SplitResult(scheme='file', netloc='', path='/tmp/foo.txt', query='', fragment='')
+IE_TRACE:                     12:40:11.369055 call       206     def _hostinfo(self):
+IE_TRACE:                     12:40:11.369074 line       207         netloc = self.netloc
+IE_TRACE:                     New var:....... netloc = ''
+IE_TRACE:                     12:40:11.369088 line       208         _, _, hostinfo = netloc.rpartition('@')
+IE_TRACE:                     New var:....... _ = ''
+IE_TRACE:                     New var:....... hostinfo = ''
+IE_TRACE:                     12:40:11.369107 line       209         _, have_open_br, bracketed = hostinfo.partition('[')
+IE_TRACE:                     New var:....... have_open_br = ''
+IE_TRACE:                     New var:....... bracketed = ''
+IE_TRACE:                     12:40:11.369132 line       210         if have_open_br:
+IE_TRACE:                     12:40:11.369158 line       214             hostname, _, port = hostinfo.partition(':')
+IE_TRACE:                     New var:....... hostname = ''
+IE_TRACE:                     New var:....... port = ''
+IE_TRACE:                     12:40:11.369177 line       215         if not port:
+IE_TRACE:                     12:40:11.369207 line       216             port = None
+IE_TRACE:                     Modified var:.. port = None
+IE_TRACE:                     12:40:11.369227 line       217         return hostname, port
+IE_TRACE:                     12:40:11.369252 return     217         return hostname, port
+IE_TRACE:                     Return value:.. ('', None)
+IE_TRACE:                 New var:....... port = None
+IE_TRACE:                 12:40:11.369277 line       178         if port is not None:
+IE_TRACE:                 12:40:11.369294 line       185         return port
+IE_TRACE:                 12:40:11.369308 return     185         return port
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:             12:40:11.369327 line       142     username, password, hostname, port = (
+IE_TRACE:             New var:....... username = None
+IE_TRACE:             New var:....... password = None
+IE_TRACE:             New var:....... hostname = None
+IE_TRACE:             New var:....... port = None
+IE_TRACE:             12:40:11.369352 line       148     netloc_bytes = b""
+IE_TRACE:             New var:....... netloc_bytes = b''
+IE_TRACE:             12:40:11.369390 line       149     if username is not None or password is not None:
+IE_TRACE:             12:40:11.369420 line       158     if hostname is not None:
+IE_TRACE:             12:40:11.369445 line       170     if port is not None:
+IE_TRACE:             12:40:11.369469 line       174     netloc = netloc_bytes.decode()
+IE_TRACE:             New var:....... netloc = ''
+IE_TRACE:             12:40:11.369494 line       177     if quote_path:
+IE_TRACE:             12:40:11.369522 line       178         path = quote(parts.path.encode(path_encoding), _PATH_SAFEST_CHARS)
+IE_TRACE:                 Source path:... /usr/lib/python3.12/urllib/parse.py
+IE_TRACE:                 Starting var:.. string = b'/tmp/foo.txt'
+IE_TRACE:                 Starting var:.. safe = bytes(len=82)
+IE_TRACE:                 Starting var:.. encoding = None
+IE_TRACE:                 Starting var:.. errors = None
+IE_TRACE:                 12:40:11.369553 call       871 def quote(string, safe='/', encoding=None, errors=None):
+IE_TRACE:                 12:40:11.369590 line       910     if isinstance(string, str):
+IE_TRACE:                 12:40:11.369608 line       919         if encoding is not None:
+IE_TRACE:                 12:40:11.369625 line       921         if errors is not None:
+IE_TRACE:                 12:40:11.369642 line       923     return quote_from_bytes(string, safe)
+IE_TRACE:                     Starting var:.. bs = b'/tmp/foo.txt'
+IE_TRACE:                     Starting var:.. safe = bytes(len=82)
+IE_TRACE:                     12:40:11.369667 call       947 def quote_from_bytes(bs, safe='/'):
+IE_TRACE:                     12:40:11.369692 line       952     if not isinstance(bs, (bytes, bytearray)):
+IE_TRACE:                     12:40:11.369710 line       954     if not bs:
+IE_TRACE:                     12:40:11.369725 line       956     if isinstance(safe, str):
+IE_TRACE:                     12:40:11.369741 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     New var:....... c = 58
+IE_TRACE:                     12:40:11.369757 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 47
+IE_TRACE:                     12:40:11.369777 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 63
+IE_TRACE:                     12:40:11.369797 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 64
+IE_TRACE:                     12:40:11.369817 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 33
+IE_TRACE:                     12:40:11.369836 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 36
+IE_TRACE:                     12:40:11.369856 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 38
+IE_TRACE:                     12:40:11.369875 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 39
+IE_TRACE:                     12:40:11.369894 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 40
+IE_TRACE:                     12:40:11.369913 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 41
+IE_TRACE:                     12:40:11.369932 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 42
+IE_TRACE:                     12:40:11.369950 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 43
+IE_TRACE:                     12:40:11.369969 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 44
+IE_TRACE:                     12:40:11.369987 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 59
+IE_TRACE:                     12:40:11.370006 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 61
+IE_TRACE:                     12:40:11.370024 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 97
+IE_TRACE:                     12:40:11.370043 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 98
+IE_TRACE:                     12:40:11.370061 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 99
+IE_TRACE:                     12:40:11.370080 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 100
+IE_TRACE:                     12:40:11.370098 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 101
+IE_TRACE:                     12:40:11.370117 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 102
+IE_TRACE:                     12:40:11.370136 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 103
+IE_TRACE:                     12:40:11.370154 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 104
+IE_TRACE:                     12:40:11.370172 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 105
+IE_TRACE:                     12:40:11.370191 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 106
+IE_TRACE:                     12:40:11.370215 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 107
+IE_TRACE:                     12:40:11.370233 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 108
+IE_TRACE:                     12:40:11.370252 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 109
+IE_TRACE:                     12:40:11.370271 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 110
+IE_TRACE:                     12:40:11.370289 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 111
+IE_TRACE:                     12:40:11.370308 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 112
+IE_TRACE:                     12:40:11.370326 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 113
+IE_TRACE:                     12:40:11.370344 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 114
+IE_TRACE:                     12:40:11.370363 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 115
+IE_TRACE:                     12:40:11.370381 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 116
+IE_TRACE:                     12:40:11.370400 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 117
+IE_TRACE:                     12:40:11.370418 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 118
+IE_TRACE:                     12:40:11.370436 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 119
+IE_TRACE:                     12:40:11.370455 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 120
+IE_TRACE:                     12:40:11.370473 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 121
+IE_TRACE:                     12:40:11.370492 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 122
+IE_TRACE:                     12:40:11.370510 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 65
+IE_TRACE:                     12:40:11.370529 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 66
+IE_TRACE:                     12:40:11.370547 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 67
+IE_TRACE:                     12:40:11.370565 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 68
+IE_TRACE:                     12:40:11.370584 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 69
+IE_TRACE:                     12:40:11.370602 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 70
+IE_TRACE:                     12:40:11.370620 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 71
+IE_TRACE:                     12:40:11.370639 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 72
+IE_TRACE:                     12:40:11.370657 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 73
+IE_TRACE:                     12:40:11.370676 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 74
+IE_TRACE:                     12:40:11.370694 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 75
+IE_TRACE:                     12:40:11.370713 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 76
+IE_TRACE:                     12:40:11.370731 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 77
+IE_TRACE:                     12:40:11.370750 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 78
+IE_TRACE:                     12:40:11.370770 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 79
+IE_TRACE:                     12:40:11.370789 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 80
+IE_TRACE:                     12:40:11.370808 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 81
+IE_TRACE:                     12:40:11.370826 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 82
+IE_TRACE:                     12:40:11.370845 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 83
+IE_TRACE:                     12:40:11.370863 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 84
+IE_TRACE:                     12:40:11.370882 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 85
+IE_TRACE:                     12:40:11.370900 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 86
+IE_TRACE:                     12:40:11.370918 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 87
+IE_TRACE:                     12:40:11.370937 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 88
+IE_TRACE:                     12:40:11.370955 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 89
+IE_TRACE:                     12:40:11.370974 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 90
+IE_TRACE:                     12:40:11.370992 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 48
+IE_TRACE:                     12:40:11.371011 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 49
+IE_TRACE:                     12:40:11.371029 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 50
+IE_TRACE:                     12:40:11.371048 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 51
+IE_TRACE:                     12:40:11.371066 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 52
+IE_TRACE:                     12:40:11.371084 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 53
+IE_TRACE:                     12:40:11.371103 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 54
+IE_TRACE:                     12:40:11.371121 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 55
+IE_TRACE:                     12:40:11.371140 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 56
+IE_TRACE:                     12:40:11.371158 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 57
+IE_TRACE:                     12:40:11.371177 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 45
+IE_TRACE:                     12:40:11.371196 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 46
+IE_TRACE:                     12:40:11.371217 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 95
+IE_TRACE:                     12:40:11.371235 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 126
+IE_TRACE:                     12:40:11.371254 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     Modified var:.. c = 37
+IE_TRACE:                     12:40:11.371272 line       961         safe = bytes([c for c in safe if c < 128])
+IE_TRACE:                     12:40:11.371292 line       962     if not bs.rstrip(_ALWAYS_SAFE_BYTES + safe):
+IE_TRACE:                     12:40:11.371310 line       963         return bs.decode()
+IE_TRACE:                     12:40:11.371326 return     963         return bs.decode()
+IE_TRACE:                     Return value:.. '/tmp/foo.txt'
+IE_TRACE:                 12:40:11.371347 return     923     return quote_from_bytes(string, safe)
+IE_TRACE:                 Return value:.. '/tmp/foo.txt'
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:             New var:....... path = '/tmp/foo.txt'
+IE_TRACE:             12:40:11.371369 line       182     if parts.scheme in _SPECIAL_SCHEMES:
+IE_TRACE:             12:40:11.371407 line       183         query = quote(parts.query.encode(encoding), _SPECIAL_QUERY_SAFEST_CHARS)
+IE_TRACE:                 Source path:... /usr/lib/python3.12/urllib/parse.py
+IE_TRACE:                 Starting var:.. string = b''
+IE_TRACE:                 Starting var:.. safe = bytes(len=81)
+IE_TRACE:                 Starting var:.. encoding = None
+IE_TRACE:                 Starting var:.. errors = None
+IE_TRACE:                 12:40:11.371435 call       871 def quote(string, safe='/', encoding=None, errors=None):
+IE_TRACE:                 12:40:11.371470 line       910     if isinstance(string, str):
+IE_TRACE:                 12:40:11.371486 line       919         if encoding is not None:
+IE_TRACE:                 12:40:11.371502 line       921         if errors is not None:
+IE_TRACE:                 12:40:11.371517 line       923     return quote_from_bytes(string, safe)
+IE_TRACE:                     Starting var:.. bs = b''
+IE_TRACE:                     Starting var:.. safe = bytes(len=81)
+IE_TRACE:                     12:40:11.371534 call       947 def quote_from_bytes(bs, safe='/'):
+IE_TRACE:                     12:40:11.371556 line       952     if not isinstance(bs, (bytes, bytearray)):
+IE_TRACE:                     12:40:11.371572 line       954     if not bs:
+IE_TRACE:                     12:40:11.371588 line       955         return ''
+IE_TRACE:                     12:40:11.371603 return     955         return ''
+IE_TRACE:                     Return value:.. ''
+IE_TRACE:                 12:40:11.371622 return     923     return quote_from_bytes(string, safe)
+IE_TRACE:                 Return value:.. ''
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:             New var:....... query = ''
+IE_TRACE:             12:40:11.371642 line       187     return urlunsplit(
+IE_TRACE:             12:40:11.371678 line       189             parts.scheme,
+IE_TRACE:             12:40:11.371707 line       190             netloc,
+IE_TRACE:             12:40:11.371734 line       191             path,
+IE_TRACE:             12:40:11.371761 line       192             query,
+IE_TRACE:             12:40:11.371787 line       193             quote(parts.fragment.encode(encoding), _FRAGMENT_SAFEST_CHARS),
+IE_TRACE:                 Source path:... /usr/lib/python3.12/urllib/parse.py
+IE_TRACE:                 Starting var:.. string = b''
+IE_TRACE:                 Starting var:.. safe = bytes(len=82)
+IE_TRACE:                 Starting var:.. encoding = None
+IE_TRACE:                 Starting var:.. errors = None
+IE_TRACE:                 12:40:11.371815 call       871 def quote(string, safe='/', encoding=None, errors=None):
+IE_TRACE:                 12:40:11.371848 line       910     if isinstance(string, str):
+IE_TRACE:                 12:40:11.371864 line       919         if encoding is not None:
+IE_TRACE:                 12:40:11.371879 line       921         if errors is not None:
+IE_TRACE:                 12:40:11.371894 line       923     return quote_from_bytes(string, safe)
+IE_TRACE:                     Starting var:.. bs = b''
+IE_TRACE:                     Starting var:.. safe = bytes(len=82)
+IE_TRACE:                     12:40:11.371910 call       947 def quote_from_bytes(bs, safe='/'):
+IE_TRACE:                     12:40:11.371933 line       952     if not isinstance(bs, (bytes, bytearray)):
+IE_TRACE:                     12:40:11.371948 line       954     if not bs:
+IE_TRACE:                     12:40:11.371963 line       955         return ''
+IE_TRACE:                     12:40:11.371978 return     955         return ''
+IE_TRACE:                     Return value:.. ''
+IE_TRACE:                 12:40:11.371998 return     923     return quote_from_bytes(string, safe)
+IE_TRACE:                 Return value:.. ''
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:             12:40:11.372019 line       188         (
+IE_TRACE:             12:40:11.372050 line       187     return urlunsplit(
+IE_TRACE:                 Source path:... /usr/lib/python3.12/urllib/parse.py
+IE_TRACE:                 Starting var:.. components = ('file', '', '/tmp/foo.txt', '', '')
+IE_TRACE:                 12:40:11.372082 call       536 def urlunsplit(components):
+IE_TRACE:                 12:40:11.372105 line       543                                           _coerce_args(*components))
+IE_TRACE:                     Starting var:.. args = ('file', '', '/tmp/foo.txt', '', '')
+IE_TRACE:                     12:40:11.372121 call       119 def _coerce_args(*args):
+IE_TRACE:                     12:40:11.372139 line       125     str_input = isinstance(args[0], str)
+IE_TRACE:                     New var:....... str_input = True
+IE_TRACE:                     12:40:11.372152 line       126     for arg in args[1:]:
+IE_TRACE:                     New var:....... arg = ''
+IE_TRACE:                     12:40:11.372172 line       129         if arg and isinstance(arg, str) != str_input:
+IE_TRACE:                     12:40:11.372193 line       126     for arg in args[1:]:
+IE_TRACE:                     Modified var:.. arg = '/tmp/foo.txt'
+IE_TRACE:                     12:40:11.372211 line       129         if arg and isinstance(arg, str) != str_input:
+IE_TRACE:                     12:40:11.372230 line       126     for arg in args[1:]:
+IE_TRACE:                     Modified var:.. arg = ''
+IE_TRACE:                     12:40:11.372246 line       129         if arg and isinstance(arg, str) != str_input:
+IE_TRACE:                     12:40:11.372264 line       126     for arg in args[1:]:
+IE_TRACE:                     12:40:11.372279 line       129         if arg and isinstance(arg, str) != str_input:
+IE_TRACE:                     12:40:11.372294 line       126     for arg in args[1:]:
+IE_TRACE:                     12:40:11.372309 line       131     if str_input:
+IE_TRACE:                     12:40:11.372325 line       132         return args + (_noop,)
+IE_TRACE:                     12:40:11.372340 return     132         return args + (_noop,)
+IE_TRACE:                     Return value:.. ('file', '', '/tmp/foo.txt', '', '', <function _noop at 0x7625aa60a700>)
+IE_TRACE:                 12:40:11.372362 line       542     scheme, netloc, url, query, fragment, _coerce_result = (
+IE_TRACE:                 New var:....... scheme = 'file'
+IE_TRACE:                 New var:....... netloc = ''
+IE_TRACE:                 New var:....... url = '/tmp/foo.txt'
+IE_TRACE:                 New var:....... query = ''
+IE_TRACE:                 New var:....... fragment = ''
+IE_TRACE:                 New var:....... _coerce_result = <function _noop at 0x7625aa60a700>
+IE_TRACE:                 12:40:11.372377 line       544     if netloc or (scheme and scheme in uses_netloc and url[:2] != '//'):
+IE_TRACE:                 12:40:11.372418 line       545         if url and url[:1] != '/': url = '/' + url
+IE_TRACE:                 12:40:11.372439 line       546         url = '//' + (netloc or '') + url
+IE_TRACE:                 Modified var:.. url = '///tmp/foo.txt'
+IE_TRACE:                 12:40:11.372460 line       547     if scheme:
+IE_TRACE:                 12:40:11.372483 line       548         url = scheme + ':' + url
+IE_TRACE:                 Modified var:.. url = 'file:///tmp/foo.txt'
+IE_TRACE:                 12:40:11.372502 line       549     if query:
+IE_TRACE:                 12:40:11.372524 line       551     if fragment:
+IE_TRACE:                 12:40:11.372543 line       553     return _coerce_result(url)
+IE_TRACE:                     Starting var:.. obj = 'file:///tmp/foo.txt'
+IE_TRACE:                     12:40:11.372562 call       108 def _noop(obj):
+IE_TRACE:                     12:40:11.372579 line       109     return obj
+IE_TRACE:                     12:40:11.372591 return     109     return obj
+IE_TRACE:                     Return value:.. 'file:///tmp/foo.txt'
+IE_TRACE:                 12:40:11.372609 return     553     return _coerce_result(url)
+IE_TRACE:                 Return value:.. 'file:///tmp/foo.txt'
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:             12:40:11.372633 return     187     return urlunsplit(
+IE_TRACE:             Return value:.. 'file:///tmp/foo.txt'
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:             Starting var:.. url = 'file:///tmp/foo.txt'
+IE_TRACE:             12:40:11.372674 call        87 def escape_ajax(url):
+IE_TRACE:             12:40:11.372729 line       110     defrag, frag = urldefrag(url)
+IE_TRACE:                 Source path:... /usr/lib/python3.12/urllib/parse.py
+IE_TRACE:                 Starting var:.. url = 'file:///tmp/foo.txt'
+IE_TRACE:                 12:40:11.372745 call       624 def urldefrag(url):
+IE_TRACE:                 12:40:11.372768 line       631     url, _coerce_result = _coerce_args(url)
+IE_TRACE:                     Starting var:.. args = ('file:///tmp/foo.txt',)
+IE_TRACE:                     12:40:11.372783 call       119 def _coerce_args(*args):
+IE_TRACE:                     12:40:11.372799 line       125     str_input = isinstance(args[0], str)
+IE_TRACE:                     New var:....... str_input = True
+IE_TRACE:                     12:40:11.372812 line       126     for arg in args[1:]:
+IE_TRACE:                     12:40:11.372830 line       131     if str_input:
+IE_TRACE:                     12:40:11.372844 line       132         return args + (_noop,)
+IE_TRACE:                     12:40:11.372857 return     132         return args + (_noop,)
+IE_TRACE:                     Return value:.. ('file:///tmp/foo.txt', <function _noop at 0x7625aa60a700>)
+IE_TRACE:                 New var:....... _coerce_result = <function _noop at 0x7625aa60a700>
+IE_TRACE:                 12:40:11.372876 line       632     if '#' in url:
+IE_TRACE:                 12:40:11.372894 line       636         frag = ''
+IE_TRACE:                 New var:....... frag = ''
+IE_TRACE:                 12:40:11.372908 line       637         defrag = url
+IE_TRACE:                 New var:....... defrag = 'file:///tmp/foo.txt'
+IE_TRACE:                 12:40:11.372927 line       638     return _coerce_result(DefragResult(defrag, frag))
+IE_TRACE:                     Source path:... <string>
+IE_TRACE:                     Starting var:.. _cls = <class 'urllib.parse.DefragResult'>
+IE_TRACE:                     Starting var:.. url = 'file:///tmp/foo.txt'
+IE_TRACE:                     Starting var:.. fragment = ''
+IE_TRACE:                     12:40:11.372951 call         1 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:40:11.372990 line         1 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:40:11.373006 return       1 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. DefragResult(url='file:///tmp/foo.txt', fragment='')
+IE_TRACE:                     Source path:... /usr/lib/python3.12/urllib/parse.py
+IE_TRACE:                     Starting var:.. obj = DefragResult(url='file:///tmp/foo.txt', fragment='')
+IE_TRACE:                     12:40:11.373028 call       108 def _noop(obj):
+IE_TRACE:                     12:40:11.373055 line       109     return obj
+IE_TRACE:                     12:40:11.373067 return     109     return obj
+IE_TRACE:                     Return value:.. DefragResult(url='file:///tmp/foo.txt', fragment='')
+IE_TRACE:                 12:40:11.373084 return     638     return _coerce_result(DefragResult(defrag, frag))
+IE_TRACE:                 Return value:.. DefragResult(url='file:///tmp/foo.txt', fragment='')
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:             New var:....... defrag = 'file:///tmp/foo.txt'
+IE_TRACE:             New var:....... frag = ''
+IE_TRACE:             12:40:11.373106 line       111     if not frag.startswith('!'):
+IE_TRACE:             12:40:11.373131 line       112         return url
+IE_TRACE:             12:40:11.373144 return     112         return url
+IE_TRACE:             Return value:.. 'file:///tmp/foo.txt'
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/request/__init__.py
+IE_TRACE:         Modified var:.. self = <GET file:///tmp/foo.txt>
+IE_TRACE:         12:40:11.373161 line        56         if ':' not in self._url:
+IE_TRACE:         12:40:11.373182 return      56         if ':' not in self._url:
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Modified var:.. self = <GET file:///tmp/foo.txt>
+IE_TRACE:     12:40:11.373201 line        26         self._set_body(body)
+IE_TRACE:         Starting var:.. self = <GET file:///tmp/foo.txt>
+IE_TRACE:         Starting var:.. body = None
+IE_TRACE:         12:40:11.373235 call        64     def _set_body(self, body):
+IE_TRACE:         12:40:11.373255 line        65         if body is None:
+IE_TRACE:         12:40:11.373267 line        66             self._body = b''
+IE_TRACE:         12:40:11.373279 return      66             self._body = b''
+IE_TRACE:         Return value:.. None
+IE_TRACE:     12:40:11.373295 line        27         assert isinstance(priority, int), "Request priority not an integer: %r" % priority
+IE_TRACE:     12:40:11.373319 line        28         self.priority = priority
+IE_TRACE:     12:40:11.373342 line        30         assert callback or not errback, "Cannot use errback without a callback"
+IE_TRACE:     12:40:11.373365 line        31         self.callback = callback
+IE_TRACE:     12:40:11.373388 line        32         self.errback = errback
+IE_TRACE:     12:40:11.373410 line        34         self.cookies = cookies or {}
+IE_TRACE:     12:40:11.373432 line        35         self.headers = Headers(headers or {}, encoding=encoding)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/headers.py
+IE_TRACE:         Starting var:.. self = {}
+IE_TRACE:         Starting var:.. seq = {}
+IE_TRACE:         Starting var:.. encoding = 'utf-8'
+IE_TRACE:         Starting var:.. __class__ = <class 'scrapy.http.headers.Headers'>
+IE_TRACE:         12:40:11.373458 call         9     def __init__(self, seq=None, encoding='utf-8'):
+IE_TRACE:         12:40:11.373518 line        10         self.encoding = encoding
+IE_TRACE:         12:40:11.373533 line        11         super(Headers, self).__init__(seq)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/datatypes.py
+IE_TRACE:             Starting var:.. self = {}
+IE_TRACE:             Starting var:.. seq = {}
+IE_TRACE:             Starting var:.. __class__ = <class 'scrapy.utils.datatypes.CaselessDict'>
+IE_TRACE:             12:40:11.373550 call       167     def __init__(self, seq=None):
+IE_TRACE:             12:40:11.373611 line       168         super(CaselessDict, self).__init__()
+IE_TRACE:             12:40:11.373625 line       169         if seq:
+IE_TRACE:             12:40:11.373638 return     169         if seq:
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/headers.py
+IE_TRACE:         12:40:11.373656 return      11         super(Headers, self).__init__(seq)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/request/__init__.py
+IE_TRACE:     12:40:11.373679 line        36         self.dont_filter = dont_filter
+IE_TRACE:     12:40:11.373706 line        38         self._meta = dict(meta) if meta else None
+IE_TRACE:     12:40:11.373730 return      38         self._meta = dict(meta) if meta else None
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/request.py
+IE_TRACE:     Starting var:.. request = <GET file:///tmp/foo.txt>
+IE_TRACE:     12:40:11.373761 call        74 def request_httprepr(request):
+IE_TRACE:     12:40:11.373799 line        80     parsed = urlparse_cached(request)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/httpobj.py
+IE_TRACE:         Starting var:.. request_or_response = <GET file:///tmp/foo.txt>
+IE_TRACE:         12:40:11.373812 call         9 def urlparse_cached(request_or_response):
+IE_TRACE:         12:40:11.373843 line        13     if request_or_response not in _urlparse_cache:
+IE_TRACE:             Source path:... /usr/lib/python3.12/weakref.py
+IE_TRACE:             Starting var:.. self = <WeakKeyDictionary at 0x7625aa449520>
+IE_TRACE:             Starting var:.. key = <GET file:///tmp/foo.txt>
+IE_TRACE:             12:40:11.373857 call       454     def __contains__(self, key):
+IE_TRACE:             12:40:11.373883 line       455         try:
+IE_TRACE:             12:40:11.373896 line       456             wr = ref(key)
+IE_TRACE:             New var:....... wr = <weakref at 0x7625a7e93e20; to 'Request' at 0x7625a7e1e870>
+IE_TRACE:             12:40:11.373909 line       459         return wr in self.data
+IE_TRACE:             12:40:11.373928 return     459         return wr in self.data
+IE_TRACE:             Return value:.. False
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/httpobj.py
+IE_TRACE:         12:40:11.373947 line        14         _urlparse_cache[request_or_response] = urlparse(request_or_response.url)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/request/__init__.py
+IE_TRACE:             Starting var:.. self = <GET file:///tmp/foo.txt>
+IE_TRACE:             12:40:11.373962 call        46     def _get_url(self):
+IE_TRACE:             12:40:11.373980 line        47         return self._url
+IE_TRACE:             12:40:11.373990 return      47         return self._url
+IE_TRACE:             Return value:.. 'file:///tmp/foo.txt'
+IE_TRACE:             Source path:... /usr/lib/python3.12/urllib/parse.py
+IE_TRACE:             Starting var:.. url = 'file:///tmp/foo.txt'
+IE_TRACE:             Starting var:.. scheme = ''
+IE_TRACE:             Starting var:.. allow_fragments = True
+IE_TRACE:             12:40:11.374010 call       374 def urlparse(url, scheme='', allow_fragments=True):
+IE_TRACE:             12:40:11.374040 line       394     url, scheme, _coerce_result = _coerce_args(url, scheme)
+IE_TRACE:                 Starting var:.. args = ('file:///tmp/foo.txt', '')
+IE_TRACE:                 12:40:11.374058 call       119 def _coerce_args(*args):
+IE_TRACE:                 12:40:11.374074 line       125     str_input = isinstance(args[0], str)
+IE_TRACE:                 New var:....... str_input = True
+IE_TRACE:                 12:40:11.374086 line       126     for arg in args[1:]:
+IE_TRACE:                 New var:....... arg = ''
+IE_TRACE:                 12:40:11.374103 line       129         if arg and isinstance(arg, str) != str_input:
+IE_TRACE:                 12:40:11.374120 line       126     for arg in args[1:]:
+IE_TRACE:                 12:40:11.374134 line       131     if str_input:
+IE_TRACE:                 12:40:11.374147 line       132         return args + (_noop,)
+IE_TRACE:                 12:40:11.374160 return     132         return args + (_noop,)
+IE_TRACE:                 Return value:.. ('file:///tmp/foo.txt', '', <function _noop at 0x7625aa60a700>)
+IE_TRACE:             New var:....... _coerce_result = <function _noop at 0x7625aa60a700>
+IE_TRACE:             12:40:11.374180 line       395     splitresult = urlsplit(url, scheme, allow_fragments)
+IE_TRACE:                 Starting var:.. url = 'file:///tmp/foo.txt'
+IE_TRACE:                 Starting var:.. scheme = ''
+IE_TRACE:                 Starting var:.. allow_fragments = True
+IE_TRACE:                 12:40:11.374206 call       470 def urlsplit(url, scheme='', allow_fragments=True):
+IE_TRACE:                 12:40:11.374234 line       491     url, scheme, _coerce_result = _coerce_args(url, scheme)
+IE_TRACE:                     Starting var:.. args = ('file:///tmp/foo.txt', '')
+IE_TRACE:                     12:40:11.374252 call       119 def _coerce_args(*args):
+IE_TRACE:                     12:40:11.374269 line       125     str_input = isinstance(args[0], str)
+IE_TRACE:                     New var:....... str_input = True
+IE_TRACE:                     12:40:11.374282 line       126     for arg in args[1:]:
+IE_TRACE:                     New var:....... arg = ''
+IE_TRACE:                     12:40:11.374299 line       129         if arg and isinstance(arg, str) != str_input:
+IE_TRACE:                     12:40:11.374317 line       126     for arg in args[1:]:
+IE_TRACE:                     12:40:11.374331 line       131     if str_input:
+IE_TRACE:                     12:40:11.374345 line       132         return args + (_noop,)
+IE_TRACE:                     12:40:11.374359 return     132         return args + (_noop,)
+IE_TRACE:                     Return value:.. ('file:///tmp/foo.txt', '', <function _noop at 0x7625aa60a700>)
+IE_TRACE:                 New var:....... _coerce_result = <function _noop at 0x7625aa60a700>
+IE_TRACE:                 12:40:11.374378 line       494     url = url.lstrip(_WHATWG_C0_CONTROL_OR_SPACE)
+IE_TRACE:                 12:40:11.374398 line       495     scheme = scheme.strip(_WHATWG_C0_CONTROL_OR_SPACE)
+IE_TRACE:                 12:40:11.374415 line       497     for b in _UNSAFE_URL_BYTES_TO_REMOVE:
+IE_TRACE:                 New var:....... b = '\t'
+IE_TRACE:                 12:40:11.374432 line       498         url = url.replace(b, "")
+IE_TRACE:                 12:40:11.374453 line       499         scheme = scheme.replace(b, "")
+IE_TRACE:                 12:40:11.374471 line       497     for b in _UNSAFE_URL_BYTES_TO_REMOVE:
+IE_TRACE:                 Modified var:.. b = '\r'
+IE_TRACE:                 12:40:11.374488 line       498         url = url.replace(b, "")
+IE_TRACE:                 12:40:11.374509 line       499         scheme = scheme.replace(b, "")
+IE_TRACE:                 12:40:11.374526 line       497     for b in _UNSAFE_URL_BYTES_TO_REMOVE:
+IE_TRACE:                 Modified var:.. b = '\n'
+IE_TRACE:                 12:40:11.374543 line       498         url = url.replace(b, "")
+IE_TRACE:                 12:40:11.374563 line       499         scheme = scheme.replace(b, "")
+IE_TRACE:                 12:40:11.374580 line       497     for b in _UNSAFE_URL_BYTES_TO_REMOVE:
+IE_TRACE:                 12:40:11.374597 line       501     allow_fragments = bool(allow_fragments)
+IE_TRACE:                 12:40:11.374614 line       502     netloc = query = fragment = ''
+IE_TRACE:                 New var:....... netloc = ''
+IE_TRACE:                 New var:....... query = ''
+IE_TRACE:                 New var:....... fragment = ''
+IE_TRACE:                 12:40:11.374631 line       503     i = url.find(':')
+IE_TRACE:                 New var:....... i = 4
+IE_TRACE:                 12:40:11.374661 line       504     if i > 0 and url[0].isascii() and url[0].isalpha():
+IE_TRACE:                 12:40:11.374687 line       505         for c in url[:i]:
+IE_TRACE:                 New var:....... c = 'f'
+IE_TRACE:                 12:40:11.374708 line       506             if c not in scheme_chars:
+IE_TRACE:                 12:40:11.374736 line       505         for c in url[:i]:
+IE_TRACE:                 Modified var:.. c = 'i'
+IE_TRACE:                 12:40:11.374758 line       506             if c not in scheme_chars:
+IE_TRACE:                 12:40:11.374783 line       505         for c in url[:i]:
+IE_TRACE:                 Modified var:.. c = 'l'
+IE_TRACE:                 12:40:11.374805 line       506             if c not in scheme_chars:
+IE_TRACE:                 12:40:11.374829 line       505         for c in url[:i]:
+IE_TRACE:                 Modified var:.. c = 'e'
+IE_TRACE:                 12:40:11.374850 line       506             if c not in scheme_chars:
+IE_TRACE:                 12:40:11.374875 line       505         for c in url[:i]:
+IE_TRACE:                 12:40:11.374896 line       509             scheme, url = url[:i].lower(), url[i+1:]
+IE_TRACE:                 Modified var:.. url = '///tmp/foo.txt'
+IE_TRACE:                 Modified var:.. scheme = 'file'
+IE_TRACE:                 12:40:11.374918 line       510     if url[:2] == '//':
+IE_TRACE:                 12:40:11.374948 line       511         netloc, url = _splitnetloc(url, 2)
+IE_TRACE:                     Starting var:.. url = '///tmp/foo.txt'
+IE_TRACE:                     Starting var:.. start = 2
+IE_TRACE:                     12:40:11.374971 call       413 def _splitnetloc(url, start=0):
+IE_TRACE:                     12:40:11.374993 line       414     delim = len(url)   # position of end of domain part of url, default is end
+IE_TRACE:                     New var:....... delim = 14
+IE_TRACE:                     12:40:11.375008 line       415     for c in '/?#':    # look for delimiters; the order is NOT important
+IE_TRACE:                     New var:....... c = '/'
+IE_TRACE:                     12:40:11.375027 line       416         wdelim = url.find(c, start)        # find first of this delim
+IE_TRACE:                     New var:....... wdelim = 2
+IE_TRACE:                     12:40:11.375047 line       417         if wdelim >= 0:                    # if found
+IE_TRACE:                     12:40:11.375067 line       418             delim = min(delim, wdelim)     # use earliest delim position
+IE_TRACE:                     Modified var:.. delim = 2
+IE_TRACE:                     12:40:11.375084 line       415     for c in '/?#':    # look for delimiters; the order is NOT important
+IE_TRACE:                     Modified var:.. c = '?'
+IE_TRACE:                     12:40:11.375104 line       416         wdelim = url.find(c, start)        # find first of this delim
+IE_TRACE:                     Modified var:.. wdelim = -1
+IE_TRACE:                     12:40:11.375124 line       417         if wdelim >= 0:                    # if found
+IE_TRACE:                     12:40:11.375143 line       415     for c in '/?#':    # look for delimiters; the order is NOT important
+IE_TRACE:                     Modified var:.. c = '#'
+IE_TRACE:                     12:40:11.375159 line       416         wdelim = url.find(c, start)        # find first of this delim
+IE_TRACE:                     12:40:11.375178 line       417         if wdelim >= 0:                    # if found
+IE_TRACE:                     12:40:11.375200 line       415     for c in '/?#':    # look for delimiters; the order is NOT important
+IE_TRACE:                     12:40:11.375216 line       419     return url[start:delim], url[delim:]   # return (domain, rest)
+IE_TRACE:                     12:40:11.375232 return     419     return url[start:delim], url[delim:]   # return (domain, rest)
+IE_TRACE:                     Return value:.. ('', '/tmp/foo.txt')
+IE_TRACE:                 Modified var:.. url = '/tmp/foo.txt'
+IE_TRACE:                 12:40:11.375255 line       512         if (('[' in netloc and ']' not in netloc) or
+IE_TRACE:                 12:40:11.375281 line       513                 (']' in netloc and '[' not in netloc)):
+IE_TRACE:                 12:40:11.375303 line       515         if '[' in netloc and ']' in netloc:
+IE_TRACE:                 12:40:11.375325 line       517     if allow_fragments and '#' in url:
+IE_TRACE:                 12:40:11.375347 line       519     if '?' in url:
+IE_TRACE:                 12:40:11.375368 line       521     _checknetloc(netloc)
+IE_TRACE:                     Starting var:.. netloc = ''
+IE_TRACE:                     12:40:11.375391 call       421 def _checknetloc(netloc):
+IE_TRACE:                     12:40:11.375408 line       422     if not netloc or netloc.isascii():
+IE_TRACE:                     12:40:11.375421 line       423         return
+IE_TRACE:                     12:40:11.375434 return     423         return
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 12:40:11.375452 line       522     v = SplitResult(scheme, netloc, url, query, fragment)
+IE_TRACE:                     Source path:... <string>
+IE_TRACE:                     Starting var:.. _cls = <class 'urllib.parse.SplitResult'>
+IE_TRACE:                     Starting var:.. scheme = 'file'
+IE_TRACE:                     Starting var:.. netloc = ''
+IE_TRACE:                     Starting var:.. path = '/tmp/foo.txt'
+IE_TRACE:                     Starting var:.. query = ''
+IE_TRACE:                     Starting var:.. fragment = ''
+IE_TRACE:                     12:40:11.375476 call         1 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:40:11.375519 line         1 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:40:11.375538 return       1 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. SplitResult(scheme='file', netloc='', path='/tmp/foo.txt', query='', fragment='')
+IE_TRACE:                 Source path:... /usr/lib/python3.12/urllib/parse.py
+IE_TRACE:                 New var:....... v = SplitResult(scheme='file', netloc='', path='/tmp/foo.txt', query='', fragment='')
+IE_TRACE:                 12:40:11.375563 line       523     return _coerce_result(v)
+IE_TRACE:                     Starting var:.. obj = SplitResult(scheme='file', netloc='', path='/tmp/foo.txt', query='', fragment='')
+IE_TRACE:                     12:40:11.375595 call       108 def _noop(obj):
+IE_TRACE:                     12:40:11.375612 line       109     return obj
+IE_TRACE:                     12:40:11.375625 return     109     return obj
+IE_TRACE:                     Return value:.. SplitResult(scheme='file', netloc='', path='/tmp/foo.txt', query='', fragment='')
+IE_TRACE:                 12:40:11.375643 return     523     return _coerce_result(v)
+IE_TRACE:                 Return value:.. SplitResult(scheme='file', netloc='', path='/tmp/foo.txt', query='', fragment='')
+IE_TRACE:             New var:....... splitresult = SplitResult(scheme='file', netloc='', path='/tmp/foo.txt', query='', fragment='')
+IE_TRACE:             12:40:11.375673 line       396     scheme, netloc, url, query, fragment = splitresult
+IE_TRACE:             Modified var:.. url = '/tmp/foo.txt'
+IE_TRACE:             Modified var:.. scheme = 'file'
+IE_TRACE:             New var:....... netloc = ''
+IE_TRACE:             New var:....... query = ''
+IE_TRACE:             New var:....... fragment = ''
+IE_TRACE:             12:40:11.375694 line       397     if scheme in uses_params and ';' in url:
+IE_TRACE:             12:40:11.375732 line       400         params = ''
+IE_TRACE:             New var:....... params = ''
+IE_TRACE:             12:40:11.375752 line       401     result = ParseResult(scheme, netloc, url, params, query, fragment)
+IE_TRACE:                 Source path:... <string>
+IE_TRACE:                 Starting var:.. _cls = <class 'urllib.parse.ParseResult'>
+IE_TRACE:                 Starting var:.. scheme = 'file'
+IE_TRACE:                 Starting var:.. netloc = ''
+IE_TRACE:                 Starting var:.. path = '/tmp/foo.txt'
+IE_TRACE:                 Starting var:.. params = ''
+IE_TRACE:                 Starting var:.. query = ''
+IE_TRACE:                 Starting var:.. fragment = ''
+IE_TRACE:                 12:40:11.375779 call         1 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:40:11.375832 line         1 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:40:11.375851 return       1 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Return value:.. ParseResult(scheme='file', netloc='', path='/tmp/foo.txt', params='', query='', fragment='')
+IE_TRACE:             Source path:... /usr/lib/python3.12/urllib/parse.py
+IE_TRACE:             New var:....... result = ParseResult(scheme='file', netloc='', path='/tmp/foo.txt', params='', query='', fragment='')
+IE_TRACE:             12:40:11.375875 line       402     return _coerce_result(result)
+IE_TRACE:                 Starting var:.. obj = ParseResult(scheme='file', netloc='', path='/tmp/foo.txt', params='', query='', fragment='')
+IE_TRACE:                 12:40:11.375906 call       108 def _noop(obj):
+IE_TRACE:                 12:40:11.375921 line       109     return obj
+IE_TRACE:                 12:40:11.375932 return     109     return obj
+IE_TRACE:                 Return value:.. ParseResult(scheme='file', netloc='', path='/tmp/foo.txt', params='', query='', fragment='')
+IE_TRACE:             12:40:11.375948 return     402     return _coerce_result(result)
+IE_TRACE:             Return value:.. ParseResult(scheme='file', netloc='', path='/tmp/foo.txt', params='', query='', fragment='')
+IE_TRACE:             Source path:... /usr/lib/python3.12/weakref.py
+IE_TRACE:             Starting var:.. self = <WeakKeyDictionary at 0x7625aa449520>
+IE_TRACE:             Starting var:.. key = <GET file:///tmp/foo.txt>
+IE_TRACE:             Starting var:.. value = ParseResult(scheme='file', netloc='', path='/tmp/foo.txt', params='', query='', fragment='')
+IE_TRACE:             12:40:11.375978 call       427     def __setitem__(self, key, value):
+IE_TRACE:             12:40:11.376007 line       428         self.data[ref(key, self._remove)] = value
+IE_TRACE:             12:40:11.376022 return     428         self.data[ref(key, self._remove)] = value
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/httpobj.py
+IE_TRACE:         12:40:11.376042 line        15     return _urlparse_cache[request_or_response]
+IE_TRACE:             Source path:... /usr/lib/python3.12/weakref.py
+IE_TRACE:             Starting var:.. self = <WeakKeyDictionary at 0x7625aa449520>
+IE_TRACE:             Starting var:.. key = <GET file:///tmp/foo.txt>
+IE_TRACE:             12:40:11.376059 call       414     def __getitem__(self, key):
+IE_TRACE:             12:40:11.376082 line       415         return self.data[ref(key)]
+IE_TRACE:             12:40:11.376096 return     415         return self.data[ref(key)]
+IE_TRACE:             Return value:.. ParseResult(scheme='file', netloc='', path='/tmp/foo.txt', params='', query='', fragment='')
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/httpobj.py
+IE_TRACE:         12:40:11.376113 return      15     return _urlparse_cache[request_or_response]
+IE_TRACE:         Return value:.. ParseResult(scheme='file', netloc='', path='/tmp/foo.txt', params='', query='', fragment='')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/request.py
+IE_TRACE:     New var:....... parsed = ParseResult(scheme='file', netloc='', path='/tmp/foo.txt', params='', query='', fragment='')
+IE_TRACE:     12:40:11.376133 line        81     path = urlunparse(('', '', parsed.path or '/', parsed.params, parsed.query, ''))
+IE_TRACE:         Source path:... /usr/lib/python3.12/urllib/parse.py
+IE_TRACE:         Starting var:.. components = ('', '', '/tmp/foo.txt', '', '', '')
+IE_TRACE:         12:40:11.376156 call       525 def urlunparse(components):
+IE_TRACE:         12:40:11.376175 line       531                                                   _coerce_args(*components))
+IE_TRACE:             Starting var:.. args = ('', '', '/tmp/foo.txt', '', '', '')
+IE_TRACE:             12:40:11.376188 call       119 def _coerce_args(*args):
+IE_TRACE:             12:40:11.376205 line       125     str_input = isinstance(args[0], str)
+IE_TRACE:             New var:....... str_input = True
+IE_TRACE:             12:40:11.376216 line       126     for arg in args[1:]:
+IE_TRACE:             New var:....... arg = ''
+IE_TRACE:             12:40:11.376233 line       129         if arg and isinstance(arg, str) != str_input:
+IE_TRACE:             12:40:11.376250 line       126     for arg in args[1:]:
+IE_TRACE:             Modified var:.. arg = '/tmp/foo.txt'
+IE_TRACE:             12:40:11.376264 line       129         if arg and isinstance(arg, str) != str_input:
+IE_TRACE:             12:40:11.376281 line       126     for arg in args[1:]:
+IE_TRACE:             Modified var:.. arg = ''
+IE_TRACE:             12:40:11.376294 line       129         if arg and isinstance(arg, str) != str_input:
+IE_TRACE:             12:40:11.376310 line       126     for arg in args[1:]:
+IE_TRACE:             12:40:11.376323 line       129         if arg and isinstance(arg, str) != str_input:
+IE_TRACE:             12:40:11.376336 line       126     for arg in args[1:]:
+IE_TRACE:             12:40:11.376348 line       129         if arg and isinstance(arg, str) != str_input:
+IE_TRACE:             12:40:11.376360 line       126     for arg in args[1:]:
+IE_TRACE:             12:40:11.376372 line       131     if str_input:
+IE_TRACE:             12:40:11.376385 line       132         return args + (_noop,)
+IE_TRACE:             12:40:11.376397 return     132         return args + (_noop,)
+IE_TRACE:             Return value:.. ('', '', '/tmp/foo.txt', '', '', '', <function _noop at 0x7625aa60a700>)
+IE_TRACE:         12:40:11.376416 line       530     scheme, netloc, url, params, query, fragment, _coerce_result = (
+IE_TRACE:         New var:....... scheme = ''
+IE_TRACE:         New var:....... netloc = ''
+IE_TRACE:         New var:....... url = '/tmp/foo.txt'
+IE_TRACE:         New var:....... params = ''
+IE_TRACE:         New var:....... query = ''
+IE_TRACE:         New var:....... fragment = ''
+IE_TRACE:         New var:....... _coerce_result = <function _noop at 0x7625aa60a700>
+IE_TRACE:         12:40:11.376429 line       532     if params:
+IE_TRACE:         12:40:11.376470 line       534     return _coerce_result(urlunsplit((scheme, netloc, url, query, fragment)))
+IE_TRACE:             Starting var:.. components = ('', '', '/tmp/foo.txt', '', '')
+IE_TRACE:             12:40:11.376490 call       536 def urlunsplit(components):
+IE_TRACE:             12:40:11.376506 line       543                                           _coerce_args(*components))
+IE_TRACE:                 Starting var:.. args = ('', '', '/tmp/foo.txt', '', '')
+IE_TRACE:                 12:40:11.376519 call       119 def _coerce_args(*args):
+IE_TRACE:                 12:40:11.376538 line       125     str_input = isinstance(args[0], str)
+IE_TRACE:                 New var:....... str_input = True
+IE_TRACE:                 12:40:11.376550 line       126     for arg in args[1:]:
+IE_TRACE:                 New var:....... arg = ''
+IE_TRACE:                 12:40:11.376567 line       129         if arg and isinstance(arg, str) != str_input:
+IE_TRACE:                 12:40:11.376585 line       126     for arg in args[1:]:
+IE_TRACE:                 Modified var:.. arg = '/tmp/foo.txt'
+IE_TRACE:                 12:40:11.376599 line       129         if arg and isinstance(arg, str) != str_input:
+IE_TRACE:                 12:40:11.376616 line       126     for arg in args[1:]:
+IE_TRACE:                 Modified var:.. arg = ''
+IE_TRACE:                 12:40:11.376629 line       129         if arg and isinstance(arg, str) != str_input:
+IE_TRACE:                 12:40:11.376646 line       126     for arg in args[1:]:
+IE_TRACE:                 12:40:11.376659 line       129         if arg and isinstance(arg, str) != str_input:
+IE_TRACE:                 12:40:11.376672 line       126     for arg in args[1:]:
+IE_TRACE:                 12:40:11.376685 line       131     if str_input:
+IE_TRACE:                 12:40:11.376699 line       132         return args + (_noop,)
+IE_TRACE:                 12:40:11.376713 return     132         return args + (_noop,)
+IE_TRACE:                 Return value:.. ('', '', '/tmp/foo.txt', '', '', <function _noop at 0x7625aa60a700>)
+IE_TRACE:             12:40:11.376732 line       542     scheme, netloc, url, query, fragment, _coerce_result = (
+IE_TRACE:             New var:....... scheme = ''
+IE_TRACE:             New var:....... netloc = ''
+IE_TRACE:             New var:....... url = '/tmp/foo.txt'
+IE_TRACE:             New var:....... query = ''
+IE_TRACE:             New var:....... fragment = ''
+IE_TRACE:             New var:....... _coerce_result = <function _noop at 0x7625aa60a700>
+IE_TRACE:             12:40:11.376745 line       544     if netloc or (scheme and scheme in uses_netloc and url[:2] != '//'):
+IE_TRACE:             12:40:11.376782 line       547     if scheme:
+IE_TRACE:             12:40:11.376801 line       549     if query:
+IE_TRACE:             12:40:11.376818 line       551     if fragment:
+IE_TRACE:             12:40:11.376836 line       553     return _coerce_result(url)
+IE_TRACE:                 Starting var:.. obj = '/tmp/foo.txt'
+IE_TRACE:                 12:40:11.376853 call       108 def _noop(obj):
+IE_TRACE:                 12:40:11.376868 line       109     return obj
+IE_TRACE:                 12:40:11.376879 return     109     return obj
+IE_TRACE:                 Return value:.. '/tmp/foo.txt'
+IE_TRACE:             12:40:11.376894 return     553     return _coerce_result(url)
+IE_TRACE:             Return value:.. '/tmp/foo.txt'
+IE_TRACE:             Starting var:.. obj = '/tmp/foo.txt'
+IE_TRACE:             12:40:11.376917 call       108 def _noop(obj):
+IE_TRACE:             12:40:11.376931 line       109     return obj
+IE_TRACE:             12:40:11.376942 return     109     return obj
+IE_TRACE:             Return value:.. '/tmp/foo.txt'
+IE_TRACE:         12:40:11.376956 return     534     return _coerce_result(urlunsplit((scheme, netloc, url, query, fragment)))
+IE_TRACE:         Return value:.. '/tmp/foo.txt'
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/request.py
+IE_TRACE:     New var:....... path = '/tmp/foo.txt'
+IE_TRACE:     12:40:11.376980 line        82     s = to_bytes(request.method) + b" " + to_bytes(path) + b" HTTP/1.1\r\n"
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/python.py
+IE_TRACE:         Starting var:.. text = 'GET'
+IE_TRACE:         Starting var:.. encoding = None
+IE_TRACE:         Starting var:.. errors = 'strict'
+IE_TRACE:         12:40:11.377005 call       112 def to_bytes(text, encoding=None, errors='strict'):
+IE_TRACE:         12:40:11.377032 line       115     if isinstance(text, bytes):
+IE_TRACE:         12:40:11.377045 line       117     if not isinstance(text, six.string_types):
+IE_TRACE:         12:40:11.377058 line       120     if encoding is None:
+IE_TRACE:         12:40:11.377070 line       121         encoding = 'utf-8'
+IE_TRACE:         Modified var:.. encoding = 'utf-8'
+IE_TRACE:         12:40:11.377082 line       122     return text.encode(encoding, errors)
+IE_TRACE:         12:40:11.377098 return     122     return text.encode(encoding, errors)
+IE_TRACE:         Return value:.. b'GET'
+IE_TRACE:         Starting var:.. text = '/tmp/foo.txt'
+IE_TRACE:         Starting var:.. encoding = None
+IE_TRACE:         Starting var:.. errors = 'strict'
+IE_TRACE:         12:40:11.377116 call       112 def to_bytes(text, encoding=None, errors='strict'):
+IE_TRACE:         12:40:11.377138 line       115     if isinstance(text, bytes):
+IE_TRACE:         12:40:11.377150 line       117     if not isinstance(text, six.string_types):
+IE_TRACE:         12:40:11.377162 line       120     if encoding is None:
+IE_TRACE:         12:40:11.377174 line       121         encoding = 'utf-8'
+IE_TRACE:         Modified var:.. encoding = 'utf-8'
+IE_TRACE:         12:40:11.377186 line       122     return text.encode(encoding, errors)
+IE_TRACE:         12:40:11.377204 return     122     return text.encode(encoding, errors)
+IE_TRACE:         Return value:.. b'/tmp/foo.txt'
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/request.py
+IE_TRACE:     New var:....... s = bytes(len=27)
+IE_TRACE:     12:40:11.377220 line        83     s += b"Host: " + to_bytes(parsed.hostname) + b"\r\n"
+IE_TRACE:         Source path:... /usr/lib/python3.12/urllib/parse.py
+IE_TRACE:         Starting var:.. self = ParseResult(scheme='file', netloc='', path='/tmp/foo.txt', params='', query='', fragment='')
+IE_TRACE:         12:40:11.377245 call       165     def hostname(self):
+IE_TRACE:         12:40:11.377266 line       166         hostname = self._hostinfo[0]
+IE_TRACE:             Starting var:.. self = ParseResult(scheme='file', netloc='', path='/tmp/foo.txt', params='', query='', fragment='')
+IE_TRACE:             12:40:11.377279 call       206     def _hostinfo(self):
+IE_TRACE:             12:40:11.377297 line       207         netloc = self.netloc
+IE_TRACE:             New var:....... netloc = ''
+IE_TRACE:             12:40:11.377310 line       208         _, _, hostinfo = netloc.rpartition('@')
+IE_TRACE:             New var:....... _ = ''
+IE_TRACE:             New var:....... hostinfo = ''
+IE_TRACE:             12:40:11.377328 line       209         _, have_open_br, bracketed = hostinfo.partition('[')
+IE_TRACE:             New var:....... have_open_br = ''
+IE_TRACE:             New var:....... bracketed = ''
+IE_TRACE:             12:40:11.377350 line       210         if have_open_br:
+IE_TRACE:             12:40:11.377375 line       214             hostname, _, port = hostinfo.partition(':')
+IE_TRACE:             New var:....... hostname = ''
+IE_TRACE:             New var:....... port = ''
+IE_TRACE:             12:40:11.377392 line       215         if not port:
+IE_TRACE:             12:40:11.377418 line       216             port = None
+IE_TRACE:             Modified var:.. port = None
+IE_TRACE:             12:40:11.377436 line       217         return hostname, port
+IE_TRACE:             12:40:11.377458 return     217         return hostname, port
+IE_TRACE:             Return value:.. ('', None)
+IE_TRACE:         New var:....... hostname = ''
+IE_TRACE:         12:40:11.377482 line       167         if not hostname:
+IE_TRACE:         12:40:11.377498 line       168             return None
+IE_TRACE:         12:40:11.377510 return     168             return None
+IE_TRACE:         Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/python.py
+IE_TRACE:         Starting var:.. text = None
+IE_TRACE:         Starting var:.. encoding = None
+IE_TRACE:         Starting var:.. errors = 'strict'
+IE_TRACE:         12:40:11.377528 call       112 def to_bytes(text, encoding=None, errors='strict'):
+IE_TRACE:         12:40:11.377554 line       115     if isinstance(text, bytes):
+IE_TRACE:         12:40:11.377567 line       117     if not isinstance(text, six.string_types):
+IE_TRACE:         12:40:11.377579 line       118         raise TypeError('to_bytes must receive a unicode, str or bytes '
+IE_TRACE:         12:40:11.377592 line       119                         'object, got %s' % type(text).__name__)
+IE_TRACE:         12:40:11.377604 line       118         raise TypeError('to_bytes must receive a unicode, str or bytes '
+IE_TRACE:         12:40:11.377617 exception  118         raise TypeError('to_bytes must receive a unicode, str or bytes '
+IE_TRACE:         Exception:..... TypeError: to_bytes must receive a unicode, str or bytes object, got NoneType
+IE_TRACE:         Call ended by exception
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/request.py
+IE_TRACE:     12:40:11.377709 exception   83     s += b"Host: " + to_bytes(parsed.hostname) + b"\r\n"
+IE_TRACE:     Exception:..... TypeError: to_bytes must receive a unicode, str or bytes object, got NoneType
+IE_TRACE:     Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_request.py
+IE_TRACE: 12:40:11.377761 exception   79         request_httprepr(Request("file:///tmp/foo.txt"))
+IE_TRACE: Exception:..... TypeError: to_bytes must receive a unicode, str or bytes object, got NoneType
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.013068
+======================================================================
+ERROR: test_request_httprepr_for_non_http_request (tests.test_utils_request.UtilsRequestTest.test_request_httprepr_for_non_http_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/tests/test_utils_request.py", line 79, in test_request_httprepr_for_non_http_request
+    request_httprepr(Request("file:///tmp/foo.txt"))
+  File "/path/to/BugsInPy/workspace/scrapy/scrapy/utils/request.py", line 83, in request_httprepr
+    s += b"Host: " + to_bytes(parsed.hostname) + b"\r\n"
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/scrapy/utils/python.py", line 118, in to_bytes
+    raise TypeError('to_bytes must receive a unicode, str or bytes '
+TypeError: to_bytes must receive a unicode, str or bytes object, got NoneType
+
+----------------------------------------------------------------------
+Ran 1 test in 0.013s
+
+FAILED (errors=1)
+
+
+Exit code: 1

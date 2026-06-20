@@ -1,0 +1,748 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_match_filter [label="test_match_filter
+test_YoutubeDL.py:590" fillcolor=white shape=box style=filled]
+	process_info [label="process_info
+<function TestYoutubeDL.test_match_filter.<locals>.FilterYDL.process_info at 0x762771423380>" shape=ellipse]
+	_match_entry [label="_match_entry
+<function TestYoutubeDL.test_match_filter.<locals>.FilterYDL._match_entry at 0x7627714232e0>" shape=ellipse]
+	__classcell__ [label="__classcell__
+<cell at 0x762771b53520: empty>" shape=ellipse]
+	FilterYDL [label="FilterYDL
+<class 'test.test_YoutubeDL.TestYoutubeDL.test_match_filter.<locals>.FilterYDL'>" shape=ellipse]
+	first [label="first
+(2 writes, 2 distinct)
+{'id': '1', 'url': 'http://localhost/sample.mp4', 'title': 'one', 'extractor': 'TEST', 'duration': 30, 'filesize': 10240…
+{'id': '1', 'url': 'http://localhost/sample.mp4', 'title': 'one', 'extractor': 'TEST', 'duration': 30, 'filesize': 10240…" shape=ellipse]
+	second [label="second
+(2 writes, 2 distinct)
+{'id': '2', 'url': 'http://localhost/sample.mp4', 'title': 'two', 'extractor': 'TEST', 'duration': 10, 'description': 'f…
+{'id': '2', 'url': 'http://localhost/sample.mp4', 'title': 'two', 'extractor': 'TEST', 'duration': 10, 'description': 'f…" shape=ellipse]
+	videos [label="videos
+(4 writes, 3 distinct)
+[{'id': '1', 'url': 'http://localhost/sample.mp4', 'title': 'one', 'extractor': 'TEST', 'duration': 30, 'filesize': 1024…
+[{'id': '1', 'url': 'http://localhost/sample.mp4', 'title': 'one', 'extractor': 'TEST', 'duration': 30, 'filesize': 1024…
+[{'id': '1', 'url': 'http://localhost/sample.mp4', 'title': 'one', 'extractor': 'TEST', 'duration': 30, 'filesize': 1024…" shape=ellipse]
+	get_videos [label="get_videos
+<function TestYoutubeDL.test_match_filter.<locals>.get_videos at 0x7627714231a0>" shape=ellipse]
+	get_params [label="get_params
+helper.py:24" fillcolor=white shape=box style=filled]
+	PARAMETERS_FILE [label="PARAMETERS_FILE
+(8 writes)
+'/path/to/BugsInPy/workspace/youtube-dl/test/parameters.json'" shape=ellipse]
+	LOCAL_PARAMETERS_FILE [label="LOCAL_PARAMETERS_FILE
+(8 writes)
+'/path/to/BugsInPy/workspace/youtube-dl/test/local_parameters.json'" shape=ellipse]
+	pf [label="pf
+(8 writes)
+<_io.TextIOWrapper name='/path/to/BugsInPy/workspace/youtube-dl/test/parameters.json' mode='r' encoding='utf-8…" shape=ellipse]
+	ERROR__FileNotFoundError [label="FileNotFoundError
+[Errno 2] No such file or directory: '/path/to/BugsInPy/workspace/youtube-dl/test/local_parameters.json'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	params [label="params
+(8 writes)
+dict(len=42)" shape=ellipse]
+	_setup_opener [label="_setup_opener
+YoutubeDL.py:2075" fillcolor=white shape=box style=filled]
+	timeout_val [label="timeout_val
+(8 writes)
+20" shape=ellipse]
+	opts_cookiefile [label="opts_cookiefile
+(8 writes)
+None" shape=ellipse]
+	opts_proxy [label="opts_proxy
+(8 writes)
+None" shape=ellipse]
+	cookie_processor [label="cookie_processor
+(8 writes, 8 distinct)
+<youtube_dl.utils.YoutubeDLCookieProcessor object at 0x7627713a5310>
+<youtube_dl.utils.YoutubeDLCookieProcessor object at 0x7627713e09e0>
+<youtube_dl.utils.YoutubeDLCookieProcessor object at 0x7627713e1dc0>
+<youtube_dl.utils.YoutubeDLCookieProcessor object at 0x7627713bad20>
+<youtube_dl.utils.YoutubeDLCookieProcessor object at 0x7627713e2540>
+<youtube_dl.utils.YoutubeDLCookieProcessor object at 0x7627713b85c0>
+  …+2 more values" shape=ellipse]
+	proxies [label="proxies
+(8 writes)
+{}" shape=ellipse]
+	proxy_handler [label="proxy_handler
+(8 writes, 8 distinct)
+<youtube_dl.utils.PerRequestProxyHandler object at 0x762771b516a0>
+<youtube_dl.utils.PerRequestProxyHandler object at 0x7627713b8980>
+<youtube_dl.utils.PerRequestProxyHandler object at 0x762771501580>
+<youtube_dl.utils.PerRequestProxyHandler object at 0x762772751fd0>
+<youtube_dl.utils.PerRequestProxyHandler object at 0x7627713a61e0>
+<youtube_dl.utils.PerRequestProxyHandler object at 0x7627713bbbf0>
+  …+2 more values" shape=ellipse]
+	debuglevel [label="debuglevel
+(8 writes)
+0" shape=ellipse]
+	make_HTTPS_handler [label="make_HTTPS_handler
+utils.py:668" fillcolor=white shape=box style=filled]
+	opts_no_check_certificate [label="opts_no_check_certificate
+(8 writes)
+False" shape=ellipse]
+	context [label="context
+(8 writes, 8 distinct)
+<ssl.SSLContext object at 0x7627713446d0>
+<ssl.SSLContext object at 0x76277120e350>
+<ssl.SSLContext object at 0x76277120e1d0>
+<ssl.SSLContext object at 0x76277120dcd0>
+<ssl.SSLContext object at 0x76277120dd50>
+<ssl.SSLContext object at 0x76277120eb50>
+  …+2 more values" shape=ellipse]
+	https_handler [label="https_handler
+(8 writes, 7 distinct)
+<youtube_dl.utils.YoutubeDLHTTPSHandler object at 0x7627714d0290>
+<youtube_dl.utils.YoutubeDLHTTPSHandler object at 0x7627726e1a60>
+<youtube_dl.utils.YoutubeDLHTTPSHandler object at 0x76277195f7d0>
+<youtube_dl.utils.YoutubeDLHTTPSHandler object at 0x7627713a4920>
+<youtube_dl.utils.YoutubeDLHTTPSHandler object at 0x7627713e19d0>
+<youtube_dl.utils.YoutubeDLHTTPSHandler object at 0x7627715017f0>
+  …+1 more values" shape=ellipse]
+	ydlh [label="ydlh
+(8 writes, 8 distinct)
+<youtube_dl.utils.YoutubeDLHandler object at 0x7627713a7b30>
+<youtube_dl.utils.YoutubeDLHandler object at 0x7627713b8110>
+<youtube_dl.utils.YoutubeDLHandler object at 0x762771d26720>
+<youtube_dl.utils.YoutubeDLHandler object at 0x7627713b93d0>
+<youtube_dl.utils.YoutubeDLHandler object at 0x7627713e11c0>
+<youtube_dl.utils.YoutubeDLHandler object at 0x7627715c01a0>
+  …+2 more values" shape=ellipse]
+	data_handler [label="data_handler
+(8 writes, 8 distinct)
+<urllib.request.DataHandler object at 0x7627713a4cb0>
+<urllib.request.DataHandler object at 0x7627713b8770>
+<urllib.request.DataHandler object at 0x7627713b97c0>
+<urllib.request.DataHandler object at 0x7627713e2570>
+<urllib.request.DataHandler object at 0x7627713e07d0>
+<urllib.request.DataHandler object at 0x7627713e38c0>
+  …+2 more values" shape=ellipse]
+	file_handler [label="file_handler
+(8 writes, 8 distinct)
+<urllib.request.FileHandler object at 0x762771958140>
+<urllib.request.FileHandler object at 0x7627713ba720>
+<urllib.request.FileHandler object at 0x7627713a40e0>
+<urllib.request.FileHandler object at 0x7627713e1310>
+<urllib.request.FileHandler object at 0x7627713b8b00>
+<urllib.request.FileHandler object at 0x7627713e3770>
+  …+2 more values" shape=ellipse]
+	file_open [label="file_open
+(8 writes, 8 distinct)
+<function YoutubeDL._setup_opener.<locals>.file_open at 0x7627713c5760>
+<function YoutubeDL._setup_opener.<locals>.file_open at 0x7627713c67a0>
+<function YoutubeDL._setup_opener.<locals>.file_open at 0x76277121c180>
+<function YoutubeDL._setup_opener.<locals>.file_open at 0x7627713c5da0>
+<function YoutubeDL._setup_opener.<locals>.file_open at 0x76277121cfe0>
+<function YoutubeDL._setup_opener.<locals>.file_open at 0x762771423420>
+  …+2 more values" shape=ellipse]
+	opener [label="opener
+(8 writes, 8 distinct)
+<urllib.request.OpenerDirector object at 0x762771a982c0>
+<urllib.request.OpenerDirector object at 0x7627715024e0>
+<urllib.request.OpenerDirector object at 0x7627713b9a00>
+<urllib.request.OpenerDirector object at 0x7627713b9910>
+<urllib.request.OpenerDirector object at 0x7627713e1070>
+<urllib.request.OpenerDirector object at 0x7627713e3ec0>
+  …+2 more values" shape=ellipse]
+	register_socks_protocols [label="register_socks_protocols
+utils.py:68" fillcolor=white shape=box style=filled]
+	ydl [label="ydl
+(8 writes, 8 distinct)
+<test.test_YoutubeDL.TestYoutubeDL.test_match_filter.<locals>.FilterYDL object at 0x7627715014c0>
+<test.test_YoutubeDL.TestYoutubeDL.test_match_filter.<locals>.FilterYDL object at 0x762771503200>
+<test.test_YoutubeDL.TestYoutubeDL.test_match_filter.<locals>.FilterYDL object at 0x762772742e10>
+<test.test_YoutubeDL.TestYoutubeDL.test_match_filter.<locals>.FilterYDL object at 0x7627713a4e60>
+<test.test_YoutubeDL.TestYoutubeDL.test_match_filter.<locals>.FilterYDL object at 0x7627713b9760>
+<test.test_YoutubeDL.TestYoutubeDL.test_match_filter.<locals>.FilterYDL object at 0x7627713e3ce0>
+  …+2 more values" shape=ellipse]
+	process_ie_result [label="process_ie_result
+Take the result of the ie(may be modified) and resolve …
+YoutubeDL.py:732" fillcolor=white shape=box style=filled]
+	result_type [label="result_type
+(15 writes)
+'video'" shape=ellipse]
+	add_extra_info [label="add_extra_info
+Set the keys from extra_info in info dict if they are m…
+YoutubeDL.py:665" fillcolor=white shape=box style=filled]
+	process_video_result [label="process_video_result
+YoutubeDL.py:1243" fillcolor=white shape=box style=filled]
+	thumbnails [label="thumbnails
+(15 writes)
+None" shape=ellipse]
+	thumbnail [label="thumbnail
+(15 writes)
+None" shape=ellipse]
+	subtitles [label="subtitles
+(15 writes)
+None" shape=ellipse]
+	process_subtitles [label="process_subtitles
+Select the requested subtitles and their format
+YoutubeDL.py:1445" fillcolor=white shape=box style=filled]
+	available_subs [label="available_subs
+(15 writes)
+{}" shape=ellipse]
+	sanitize_url [label="sanitize_url
+utils.py:532" fillcolor=white shape=box style=filled]
+	format_id [label="format_id
+(15 writes)
+'0'" shape=ellipse]
+	format_resolution [label="format_resolution
+YoutubeDL.py:1893" fillcolor=white shape=box style=filled]
+	determine_ext [label="determine_ext
+utils.py:1179" fillcolor=white shape=box style=filled]
+	guess [label="guess
+(4 writes)
+'mp4'" shape=ellipse]
+	determine_protocol [label="determine_protocol
+utils.py:2342" fillcolor=white shape=box style=filled]
+	protocol [label="protocol
+(2 writes)
+None" shape=ellipse]
+	url [label="url
+(2 writes)
+'http://localhost/sample.mp4'" shape=ellipse]
+	ext [label="ext
+(2 writes)
+'mp4'" shape=ellipse]
+	full_format_info [label="full_format_info
+(15 writes, 4 distinct)
+{'id': '1', 'url': 'http://localhost/sample.mp4', 'title': 'one', 'extractor': 'TEST', 'duration': 30, 'filesize': 10240…
+{'id': '2', 'url': 'http://localhost/sample.mp4', 'title': 'two', 'extractor': 'TEST', 'duration': 10, 'description': 'f…
+{'id': '1', 'url': 'http://localhost/sample.mp4', 'title': 'one', 'extractor': 'TEST', 'duration': 30, 'filesize': 10240…
+{'id': '2', 'url': 'http://localhost/sample.mp4', 'title': 'two', 'extractor': 'TEST', 'duration': 10, 'description': 'f…" shape=ellipse]
+	_calc_headers [label="_calc_headers
+YoutubeDL.py:1225" fillcolor=white shape=box style=filled]
+	add_headers [label="add_headers
+(15 writes, 2 distinct)
+None
+{'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:10.0) Gecko/20150101 Firefox/47.0 (Chrome)', 'Accept-Charset': 'ISO-8…" shape=ellipse]
+	_calc_cookies [label="_calc_cookies
+YoutubeDL.py:1238" fillcolor=white shape=box style=filled]
+	sanitized_Request [label="sanitized_Request
+utils.py:536" fillcolor=white shape=box style=filled]
+	pr [label="pr
+(15 writes, 15 distinct)
+<urllib.request.Request object at 0x7627715017f0>
+<urllib.request.Request object at 0x7627715031a0>
+<urllib.request.Request object at 0x7627713e0200>
+<urllib.request.Request object at 0x7627713b92e0>
+<urllib.request.Request object at 0x7627713e2540>
+<urllib.request.Request object at 0x7627713bb950>
+  …+9 more values" shape=ellipse]
+	cookies [label="cookies
+(15 writes)
+None" shape=ellipse]
+	req_format [label="req_format
+(15 writes)
+'best'" shape=ellipse]
+	build_format_selector [label="build_format_selector
+YoutubeDL.py:960" fillcolor=white shape=box style=filled]
+	syntax_error [label="syntax_error
+(15 writes, 14 distinct)
+<function YoutubeDL.build_format_selector.<locals>.syntax_error at 0x7627713c5d00>
+<function YoutubeDL.build_format_selector.<locals>.syntax_error at 0x7627713c6520>
+<function YoutubeDL.build_format_selector.<locals>.syntax_error at 0x762771423420>
+<function YoutubeDL.build_format_selector.<locals>.syntax_error at 0x7627713c72e0>
+<function YoutubeDL.build_format_selector.<locals>.syntax_error at 0x7627713c7b00>
+<function YoutubeDL.build_format_selector.<locals>.syntax_error at 0x7627713c7100>
+  …+8 more values" shape=ellipse]
+	PICKFIRST [label="PICKFIRST
+(15 writes)
+'PICKFIRST'" shape=ellipse]
+	MERGE [label="MERGE
+(15 writes)
+'MERGE'" shape=ellipse]
+	SINGLE [label="SINGLE
+(15 writes)
+'SINGLE'" shape=ellipse]
+	GROUP [label="GROUP
+(15 writes)
+'GROUP'" shape=ellipse]
+	FormatSelector [label="FormatSelector
+(15 writes)
+<class 'youtube_dl.YoutubeDL.FormatSelector'>" shape=ellipse]
+	_parse_filter [label="_parse_filter
+(15 writes, 13 distinct)
+<function YoutubeDL.build_format_selector.<locals>._parse_filter at 0x7627713c5da0>
+<function YoutubeDL.build_format_selector.<locals>._parse_filter at 0x7627713c6ac0>
+<function YoutubeDL.build_format_selector.<locals>._parse_filter at 0x7627713c6980>
+<function YoutubeDL.build_format_selector.<locals>._parse_filter at 0x7627713c7880>
+<function YoutubeDL.build_format_selector.<locals>._parse_filter at 0x7627713c7420>
+<function YoutubeDL.build_format_selector.<locals>._parse_filter at 0x7627713c65c0>
+  …+7 more values" shape=ellipse]
+	_remove_unused_ops [label="_remove_unused_ops
+(15 writes, 15 distinct)
+<function YoutubeDL.build_format_selector.<locals>._remove_unused_ops at 0x7627713c6200>
+<function YoutubeDL.build_format_selector.<locals>._remove_unused_ops at 0x7627713c6c00>
+<function YoutubeDL.build_format_selector.<locals>._remove_unused_ops at 0x7627713c6020>
+<function YoutubeDL.build_format_selector.<locals>._remove_unused_ops at 0x7627713c77e0>
+<function YoutubeDL.build_format_selector.<locals>._remove_unused_ops at 0x76277121c4a0>
+<function YoutubeDL.build_format_selector.<locals>._remove_unused_ops at 0x7627713c7e20>
+  …+9 more values" shape=ellipse]
+	_parse_format_selection [label="_parse_format_selection
+(15 writes, 14 distinct)
+<function YoutubeDL.build_format_selector.<locals>._parse_format_selection at 0x7627713c62a0>
+<function YoutubeDL.build_format_selector.<locals>._parse_format_selection at 0x7627713c6840>
+<function YoutubeDL.build_format_selector.<locals>._parse_format_selection at 0x7627713c6340>
+<function YoutubeDL.build_format_selector.<locals>._parse_format_selection at 0x7627713c7a60>
+<function YoutubeDL.build_format_selector.<locals>._parse_format_selection at 0x76277121c400>
+<function YoutubeDL.build_format_selector.<locals>._parse_format_selection at 0x7627713c7f60>
+  …+8 more values" shape=ellipse]
+	_build_selector_function [label="_build_selector_function
+(15 writes, 14 distinct)
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function at 0x7627713c63e0>
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function at 0x7627713c68e0>
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function at 0x7627713c71a0>
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function at 0x7627713c7380>
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function at 0x76277121c220>
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function at 0x7627713c7920>
+  …+8 more values" shape=ellipse]
+	stream [label="stream
+(15 writes, 13 distinct)
+<_io.BytesIO object at 0x7627711e0b30>
+<_io.BytesIO object at 0x7627711eb6a0>
+<_io.BytesIO object at 0x76277120a840>
+<_io.BytesIO object at 0x76277120a340>
+<_io.BytesIO object at 0x76277120b3d0>
+<_io.BytesIO object at 0x76277120b560>
+  …+7 more values" shape=ellipse]
+	ALLOWED_OPS [label="ALLOWED_OPS
+(15 writes)
+('/', '+', ',', '(', ')')" shape=ellipse]
+	last_line [label="last_line
+(15 writes)
+None" shape=ellipse]
+	tokens [label="tokens
+(15 writes)
+[(1, 'best', (1, 0), (1, 4), None)]" shape=ellipse]
+	__iter__ [label="__iter__
+(15 writes, 15 distinct)
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__iter__ at 0x7627713c67a0>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__iter__ at 0x7627713c5ee0>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__iter__ at 0x7627713c7560>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__iter__ at 0x7627713c7e20>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__iter__ at 0x76277121c9a0>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__iter__ at 0x7627713c72e0>
+  …+9 more values" shape=ellipse]
+	__next__ [label="__next__
+(15 writes, 15 distinct)
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x7627713c6840>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x7627713c62a0>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x7627713c7600>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x7627713c7ec0>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x76277121ca40>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x7627713c7880>
+  …+9 more values" shape=ellipse]
+	next [label="next
+(15 writes, 15 distinct)
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x7627713c6840>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x7627713c62a0>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x7627713c7600>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x7627713c7ec0>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x76277121ca40>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x7627713c7880>
+  …+9 more values" shape=ellipse]
+	restore_last_token [label="restore_last_token
+(15 writes, 15 distinct)
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.restore_last_token at 0x7627713c6c00>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.restore_last_token at 0x7627713c6700>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.restore_last_token at 0x7627713c79c0>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.restore_last_token at 0x76277121c2c0>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.restore_last_token at 0x76277121ce00>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.restore_last_token at 0x7627713c6160>
+  …+9 more values" shape=ellipse]
+	TokenIterator [label="TokenIterator
+(15 writes)
+<class 'youtube_dl.YoutubeDL.YoutubeDL.build_format_selector.<locals>.TokenIterator'>" shape=ellipse]
+	value [label="value
+(15 writes)
+(1, 'best', (1, 0), (1, 4), None)" shape=ellipse]
+	_ [label="_
+(15 writes)
+None" shape=ellipse]
+	ERROR__StopIteration [label=StopIteration fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	parsed_selector [label="parsed_selector
+(15 writes)
+[FormatSelector(type='SINGLE', selector='best', filters=[])]" shape=ellipse]
+	format_spec [label="format_spec
+(15 writes)
+'best'" shape=ellipse]
+	filters [label="filters
+(15 writes)
+[]" shape=ellipse]
+	final_selector [label="final_selector
+(15 writes, 15 distinct)
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x7627713c6ac0>
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x7627713c65c0>
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x7627713c7880>
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x76277121c4a0>
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x76277121ccc0>
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x7627713c7560>
+  …+9 more values" shape=ellipse]
+	s [label="s
+(15 writes)
+FormatSelector(type='SINGLE', selector='best', filters=[])" shape=ellipse]
+	fs [label="fs
+(15 writes, 15 distinct)
+[<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x7627713c6ac0>]
+[<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x7627713c65c0>]
+[<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x7627713c7880>]
+[<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x76277121c4a0>]
+[<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x76277121ccc0>]
+[<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x7627713c7560>]
+  …+9 more values" shape=ellipse]
+	format_selector [label="format_selector
+(15 writes, 14 distinct)
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.selector_function at 0x7627713c6520…
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.selector_function at 0x7627713c60c0…
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.selector_function at 0x7627713c72e0…
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.selector_function at 0x7627713c74c0…
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.selector_function at 0x76277121c720…
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.selector_function at 0x7627713c6020…
+  …+8 more values" shape=ellipse]
+	ERROR__GeneratorExit [label=GeneratorExit fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	incomplete_formats [label="incomplete_formats
+(15 writes)
+False" shape=ellipse]
+	ctx [label="ctx
+(15 writes, 2 distinct)
+{'formats': [{'id': '1', 'url': 'http://localhost/sample.mp4', 'title': 'one', 'extractor': 'TEST', 'duration': 30, 'fil…
+{'formats': [{'id': '2', 'url': 'http://localhost/sample.mp4', 'title': 'two', 'extractor': 'TEST', 'duration': 10, 'des…" shape=ellipse]
+	ctx_copy [label="ctx_copy
+(15 writes, 2 distinct)
+{'formats': [{'id': '1', 'url': 'http://localhost/sample.mp4', 'title': 'one', 'extractor': 'TEST', 'duration': 30, 'fil…
+{'formats': [{'id': '2', 'url': 'http://localhost/sample.mp4', 'title': 'two', 'extractor': 'TEST', 'duration': 10, 'des…" shape=ellipse]
+	format_idx [label="format_idx
+(15 writes)
+-1" shape=ellipse]
+	audiovideo_formats [label="audiovideo_formats
+(15 writes, 2 distinct)
+[{'id': '1', 'url': 'http://localhost/sample.mp4', 'title': 'one', 'extractor': 'TEST', 'duration': 30, 'filesize': 1024…
+[{'id': '2', 'url': 'http://localhost/sample.mp4', 'title': 'two', 'extractor': 'TEST', 'duration': 10, 'description': '…" shape=ellipse]
+	formats_to_download [label="formats_to_download
+(15 writes, 2 distinct)
+[{'id': '1', 'url': 'http://localhost/sample.mp4', 'title': 'one', 'extractor': 'TEST', 'duration': 30, 'filesize': 1024…
+[{'id': '2', 'url': 'http://localhost/sample.mp4', 'title': 'two', 'extractor': 'TEST', 'duration': 10, 'description': '…" shape=ellipse]
+	max_downloads [label="max_downloads
+(15 writes)
+None" shape=ellipse]
+	title [label="title
+(15 writes, 2 distinct)
+'one'
+'two'" shape=ellipse]
+	matchtitle [label="matchtitle
+(15 writes)
+None" shape=ellipse]
+	rejecttitle [label="rejecttitle
+(15 writes)
+None" shape=ellipse]
+	date [label="date
+(15 writes)
+None" shape=ellipse]
+	view_count [label="view_count
+(15 writes)
+None" shape=ellipse]
+	age_restricted [label="age_restricted
+Returns True iff the content should be blocked
+utils.py:2312" fillcolor=white shape=box style=filled]
+	in_download_archive [label="in_download_archive
+YoutubeDL.py:1864" fillcolor=white shape=box style=filled]
+	fn [label="fn
+(15 writes)
+None" shape=ellipse]
+	match_filter [label="match_filter
+(15 writes, 8 distinct)
+None
+<function TestYoutubeDL.test_match_filter.<locals>.f at 0x762771423740>
+<function match_filter_func.<locals>._match_func at 0x7627714234c0>
+<function match_filter_func.<locals>._match_func at 0x762771423740>
+<function match_filter_func.<locals>._match_func at 0x7627713c5f80>
+<function match_filter_func.<locals>._match_func at 0x7627713c7560>
+  …+2 more values" shape=ellipse]
+	reason [label="reason
+(14 writes, 6 distinct)
+None
+'Video id is not 1'
+'one does not pass filter duration < 30, skipping ..'
+'one does not pass filter description = foo, skipping ..'
+'two does not pass filter filesize > 5KiB, skipping ..'
+'two does not pass filter playlist_id = 42, skipping ..'" shape=ellipse]
+	prepare_filename [label="prepare_filename
+Generate the output filename.
+YoutubeDL.py:579" fillcolor=white shape=box style=filled]
+	autonumber_templ [label="autonumber_templ
+(9 writes)
+'%05d'" shape=ellipse]
+	sanitize [label="sanitize
+(9 writes, 8 distinct)
+<function YoutubeDL.prepare_filename.<locals>.<lambda> at 0x7627713c6a20>
+<function YoutubeDL.prepare_filename.<locals>.<lambda> at 0x7627713c7060>
+<function YoutubeDL.prepare_filename.<locals>.<lambda> at 0x7627713c7c40>
+<function YoutubeDL.prepare_filename.<locals>.<lambda> at 0x7627713c6fc0>
+<function YoutubeDL.prepare_filename.<locals>.<lambda> at 0x76277121d300>
+<function YoutubeDL.prepare_filename.<locals>.<lambda> at 0x76277121dbc0>
+  …+2 more values" shape=ellipse]
+	sanitize_filename [label="sanitize_filename
+Sanitizes a string so it could be used as part of a fil…
+utils.py:472" fillcolor=white shape=box style=filled]
+	outtmpl [label="outtmpl
+(9 writes)
+'%(id)s.%(ext)s'" shape=ellipse]
+	tilde [label="tilde
+(9 writes)
+'~'" shape=ellipse]
+	tmpl [label="tmpl
+(9 writes)
+'%(id)s.%(ext)s'" shape=ellipse]
+	sanitize_path [label="sanitize_path
+Sanitizes and normalizes path on Windows
+utils.py:512" fillcolor=white shape=box style=filled]
+	ie_result [label="ie_result
+(2 writes, 2 distinct)
+{'id': '1', 'url': 'http://localhost/sample.mp4', 'title': 'one', 'extractor': 'TEST', 'duration': 30, 'filesize': 10240…
+{'id': '2', 'url': 'http://localhost/sample.mp4', 'title': 'two', 'extractor': 'TEST', 'duration': 10, 'description': 'f…" shape=ellipse]
+	ret [label="ret
+(12 writes, 6 distinct)
+None
+'Video id is not 1'
+'one does not pass filter duration < 30, skipping ..'
+'one does not pass filter description = foo, skipping ..'
+'two does not pass filter filesize > 5KiB, skipping ..'
+'two does not pass filter playlist_id = 42, skipping ..'" shape=ellipse]
+	to_screen [label="to_screen
+fragment.py:17" fillcolor=white shape=box style=filled]
+	match_filter_func [label="match_filter_func
+utils.py:2444" fillcolor=white shape=box style=filled]
+	_match_func [label="_match_func
+(6 writes, 6 distinct)
+<function match_filter_func.<locals>._match_func at 0x7627714234c0>
+<function match_filter_func.<locals>._match_func at 0x762771423740>
+<function match_filter_func.<locals>._match_func at 0x7627713c5f80>
+<function match_filter_func.<locals>._match_func at 0x7627713c7560>
+<function match_filter_func.<locals>._match_func at 0x7627713c5d00>
+<function match_filter_func.<locals>._match_func at 0x7627713c7b00>" shape=ellipse]
+	match_str [label="match_str
+Filter a dictionary with a simple string syntax. Return…
+utils.py:2437" fillcolor=white shape=box style=filled]
+	ERROR__ValueError [label="ValueError
+Invalid filter part 'uploader = \"變態妍字幕版 太妍 тест\"'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_match_filter
+	}
+	{
+		rank=same
+		match_filter_func
+	}
+	{
+		rank=same
+		process_ie_result
+		process_subtitles
+		sanitize_url
+		format_resolution
+		determine_ext
+		determine_protocol
+		_calc_headers
+		build_format_selector
+		sanitize_filename
+		sanitize_path
+	}
+	{
+		rank=same
+		add_extra_info
+		process_video_result
+		_calc_cookies
+	}
+	{
+		rank=same
+		sanitized_Request
+		prepare_filename
+		to_screen
+	}
+	{
+		rank=same
+		get_params
+	}
+	{
+		rank=same
+		_setup_opener
+		register_socks_protocols
+		age_restricted
+		in_download_archive
+	}
+	{
+		rank=same
+		make_HTTPS_handler
+		match_str
+	}
+	test_match_filter -> process_info [label=writes color=black]
+	test_match_filter -> _match_entry [label=writes color=black]
+	test_match_filter -> __classcell__ [label=writes color=black]
+	test_match_filter -> FilterYDL [label=writes color=black]
+	test_match_filter -> first [label="writes×2" color=black]
+	test_match_filter -> second [label="writes×2" color=black]
+	test_match_filter -> videos [label="writes×2" color=black]
+	test_match_filter -> get_videos [label=writes color=black]
+	test_match_filter -> match_filter_func [label="calls×6 [#185]" color=blue penwidth=1.6]
+	test_match_filter -> ERROR__ValueError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	process_info -> process_info [label="calls×15 [#42]" color=blue penwidth=2.5]
+	process_info -> max_downloads [label="writes×15" color=black]
+	process_info -> _match_entry [label="calls×15 [#43]" color=blue penwidth=2.5]
+	process_info -> reason [label="writes×14" color=black]
+	process_info -> prepare_filename [label="calls×9 [#47]" color=blue penwidth=1.9]
+	process_info -> to_screen [label="calls×5 [#184]" color=blue penwidth=1.5]
+	process_info -> ERROR__ValueError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	_match_entry -> _match_entry [label="calls×15 [#44]" color=blue penwidth=2.5]
+	_match_entry -> title [label="writes×15" color=black]
+	_match_entry -> matchtitle [label="writes×15" color=black]
+	_match_entry -> rejecttitle [label="writes×15" color=black]
+	_match_entry -> date [label="writes×15" color=black]
+	_match_entry -> view_count [label="writes×15" color=black]
+	_match_entry -> age_restricted [label="calls×15 [#45]" color=blue penwidth=2.5]
+	_match_entry -> in_download_archive [label="calls×15 [#46]" color=blue penwidth=2.5]
+	_match_entry -> match_filter [label="writes×15" color=black]
+	_match_entry -> ret [label="writes×12" color=black]
+	_match_entry -> _match_func [label="calls×11 [#228]" color=blue penwidth=2.1]
+	_match_entry -> ERROR__ValueError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	FilterYDL -> get_videos [label="passed to" color=green style=dashed]
+	FilterYDL -> _match_entry [label="passed to" color=green style=dashed]
+	videos -> get_videos [label="passed to" color=green style=dashed]
+	get_videos -> get_videos [label="loops(×230)" color=purple style=dashed]
+	get_videos -> ydl [label="writes×8" color=black]
+	get_videos -> process_ie_result [label="calls×15 [#15]" color=blue penwidth=2.5]
+	get_videos -> subtitles [label="writes×15" color=black]
+	get_videos -> process_subtitles [label="calls×15 [#18]" color=blue penwidth=2.5]
+	get_videos -> sanitize_url [label="calls×15 [#19]" color=blue penwidth=2.5]
+	get_videos -> format_id [label="writes×15" color=black]
+	get_videos -> format_resolution [label="calls×2 [#20]" color=blue penwidth=1.2]
+	get_videos -> determine_ext [label="calls×2 [#21]" color=blue penwidth=1.2]
+	get_videos -> determine_protocol [label="calls×2 [#22]" color=blue penwidth=1.2]
+	get_videos -> full_format_info [label="writes×15" color=black]
+	get_videos -> _calc_headers [label="calls×15 [#24]" color=blue penwidth=2.5]
+	get_videos -> req_format [label="writes×15" color=black]
+	get_videos -> build_format_selector [label="calls×15 [#28]" color=blue penwidth=2.5]
+	get_videos -> format_selector [label="writes×15" color=black]
+	get_videos -> ERROR__GeneratorExit [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	get_videos -> incomplete_formats [label="writes×15" color=black]
+	get_videos -> ctx [label="writes×15" color=black]
+	get_videos -> formats_to_download [label="writes×15" color=black]
+	get_videos -> process_info [label="calls×15 [#41]" color=blue penwidth=2.5]
+	get_videos -> sanitize_filename [label="calls×54 [#51]" color=blue penwidth=5.0]
+	get_videos -> outtmpl [label="writes×9" color=black]
+	get_videos -> tilde [label="writes×9" color=black]
+	get_videos -> tmpl [label="writes×9" color=black]
+	get_videos -> sanitize_path [label="calls×9 [#57]" color=blue penwidth=1.9]
+	get_videos -> ie_result [label="writes×2" color=black]
+	get_videos -> videos [label="writes×2" color=black]
+	get_videos -> ERROR__ValueError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	get_params -> PARAMETERS_FILE [label="writes×8" color=black]
+	get_params -> LOCAL_PARAMETERS_FILE [label="writes×8" color=black]
+	get_params -> pf [label="writes×8" color=black]
+	get_params -> ERROR__FileNotFoundError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	params -> make_HTTPS_handler [label="passed to" color=green style=dashed]
+	_setup_opener -> timeout_val [label="writes×8" color=black]
+	_setup_opener -> opts_cookiefile [label="writes×8" color=black]
+	_setup_opener -> opts_proxy [label="writes×8" color=black]
+	_setup_opener -> cookie_processor [label="writes×8" color=black]
+	_setup_opener -> proxies [label="writes×8" color=black]
+	_setup_opener -> proxy_handler [label="writes×8" color=black]
+	_setup_opener -> debuglevel [label="writes×8" color=black]
+	_setup_opener -> make_HTTPS_handler [label="calls×8 [#11]" color=blue penwidth=1.8]
+	_setup_opener -> https_handler [label="writes×8" color=black]
+	_setup_opener -> ydlh [label="writes×8" color=black]
+	_setup_opener -> data_handler [label="writes×8" color=black]
+	_setup_opener -> file_handler [label="writes×8" color=black]
+	_setup_opener -> file_open [label="writes×8" color=black]
+	_setup_opener -> opener [label="writes×8" color=black]
+	make_HTTPS_handler -> opts_no_check_certificate [label="writes×8" color=black]
+	make_HTTPS_handler -> context [label="writes×8" color=black]
+	process_ie_result -> result_type [label="writes×15" color=black]
+	process_ie_result -> add_extra_info [label="calls×15 [#16]" color=blue penwidth=2.5]
+	process_ie_result -> process_video_result [label="calls×15 [#17]" color=blue penwidth=2.5]
+	process_video_result -> thumbnails [label="writes×15" color=black]
+	process_video_result -> thumbnail [label="writes×15" color=black]
+	process_subtitles -> available_subs [label="writes×15" color=black]
+	determine_ext -> guess [label="writes×4" color=black]
+	determine_protocol -> protocol [label="writes×2" color=black]
+	determine_protocol -> url [label="writes×2" color=black]
+	determine_protocol -> determine_ext [label="calls×2 [#23]" color=blue penwidth=1.2]
+	determine_protocol -> ext [label="writes×2" color=black]
+	url -> determine_ext [label="passed to" color=green style=dashed]
+	url -> sanitized_Request [label="passed to" color=green style=dashed]
+	url -> sanitize_url [label="passed to" color=green style=dashed]
+	_calc_headers -> add_headers [label="writes×15" color=black]
+	_calc_headers -> _calc_cookies [label="calls×15 [#25]" color=blue penwidth=2.5]
+	_calc_headers -> cookies [label="writes×15" color=black]
+	_calc_cookies -> sanitized_Request [label="calls×15 [#26]" color=blue penwidth=2.5]
+	_calc_cookies -> pr [label="writes×15" color=black]
+	sanitized_Request -> sanitize_url [label="calls×15 [#27]" color=blue penwidth=2.5]
+	build_format_selector -> syntax_error [label="writes×15" color=black]
+	build_format_selector -> PICKFIRST [label="writes×15" color=black]
+	build_format_selector -> MERGE [label="writes×15" color=black]
+	build_format_selector -> SINGLE [label="writes×15" color=black]
+	build_format_selector -> GROUP [label="writes×15" color=black]
+	build_format_selector -> FormatSelector [label="writes×15" color=black]
+	build_format_selector -> _parse_filter [label="writes×15" color=black]
+	build_format_selector -> _remove_unused_ops [label="writes×15" color=black]
+	build_format_selector -> _parse_format_selection [label="writes×15" color=black]
+	build_format_selector -> _build_selector_function [label="writes×15" color=black]
+	build_format_selector -> stream [label="writes×15" color=black]
+	build_format_selector -> tokens [label="writes×15" color=black]
+	build_format_selector -> __iter__ [label="writes×15" color=black]
+	build_format_selector -> __next__ [label="writes×15" color=black]
+	build_format_selector -> next [label="writes×15" color=black]
+	build_format_selector -> restore_last_token [label="writes×15" color=black]
+	build_format_selector -> TokenIterator [label="writes×15" color=black]
+	build_format_selector -> parsed_selector [label="writes×15" color=black]
+	syntax_error -> _parse_format_selection [label="passed to" color=green style=dashed]
+	PICKFIRST -> _parse_format_selection [label="passed to" color=green style=dashed]
+	PICKFIRST -> _build_selector_function [label="passed to" color=green style=dashed]
+	MERGE -> _parse_format_selection [label="passed to" color=green style=dashed]
+	MERGE -> _build_selector_function [label="passed to" color=green style=dashed]
+	SINGLE -> _parse_format_selection [label="passed to" color=green style=dashed]
+	SINGLE -> _build_selector_function [label="passed to" color=green style=dashed]
+	GROUP -> _parse_format_selection [label="passed to" color=green style=dashed]
+	GROUP -> _build_selector_function [label="passed to" color=green style=dashed]
+	FormatSelector -> _parse_format_selection [label="passed to" color=green style=dashed]
+	_parse_filter -> _parse_format_selection [label="passed to" color=green style=dashed]
+	_remove_unused_ops -> ALLOWED_OPS [label="writes×15" color=black]
+	_remove_unused_ops -> last_line [label="writes×15" color=black]
+	_parse_format_selection -> _parse_format_selection [label="passed to" color=green style=dashed]
+	_parse_format_selection -> __iter__ [label="calls×15 [#33]" color=blue penwidth=2.5]
+	_parse_format_selection -> __next__ [label="calls×30 [#34]" color=blue penwidth=4.0]
+	_parse_format_selection -> _ [label="writes×15" color=black]
+	_parse_format_selection -> ERROR__StopIteration [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	_build_selector_function -> _build_selector_function [label="passed to" color=green style=dashed]
+	_build_selector_function -> format_spec [label="writes×15" color=black]
+	_build_selector_function -> filters [label="writes×15" color=black]
+	_build_selector_function -> final_selector [label="writes×15" color=black]
+	_build_selector_function -> s [label="writes×15" color=black]
+	_build_selector_function -> fs [label="writes×15" color=black]
+	tokens -> _parse_format_selection [label="passed to" color=green style=dashed]
+	tokens -> _remove_unused_ops [label="passed to" color=green style=dashed]
+	__next__ -> value [label="writes×15" color=black]
+	__next__ -> ERROR__StopIteration [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	format_spec -> process_info [label="passed to" color=green style=dashed]
+	format_spec -> build_format_selector [label="passed to" color=green style=dashed]
+	filters -> final_selector [label="passed to" color=green style=dashed]
+	filters -> __next__ [label="passed to" color=green style=dashed]
+	final_selector -> ctx_copy [label="writes×15" color=black]
+	s -> sanitize_filename [label="passed to" color=green style=dashed]
+	s -> sanitize_path [label="passed to" color=green style=dashed]
+	fs -> process_info [label="passed to" color=green style=dashed]
+	ctx -> final_selector [label="passed to" color=green style=dashed]
+	ctx -> process_info [label="passed to" color=green style=dashed]
+	format_idx -> process_info [label="passed to" color=green style=dashed]
+	audiovideo_formats -> process_info [label="passed to" color=green style=dashed]
+	in_download_archive -> fn [label="writes×15" color=black]
+	prepare_filename -> autonumber_templ [label="writes×9" color=black]
+	prepare_filename -> sanitize [label="writes×9" color=black]
+	prepare_filename -> sanitize_filename [label="calls×27 [#48]" color=blue penwidth=3.7]
+	sanitize -> sanitize_filename [label="passed to" color=green style=dashed]
+	sanitize -> sanitize_path [label="passed to" color=green style=dashed]
+	ie_result -> process_ie_result [label="passed to" color=green style=dashed]
+	match_filter_func -> _match_func [label="writes×6" color=black]
+	_match_func -> match_str [label="calls×11 [#229]" color=blue penwidth=2.1]
+	_match_func -> ERROR__ValueError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	match_str -> ERROR__ValueError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+}

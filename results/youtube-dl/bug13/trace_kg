@@ -1,0 +1,29 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_urljoin [label="test_urljoin
+test_utils.py:494" fillcolor=white shape=box style=filled]
+	urljoin [label="urljoin
+utils.py:1866" fillcolor=white shape=box style=filled]
+	base [label="base
+(2 writes)
+'http://foo.de/'" shape=ellipse]
+	path [label="path
+(2 writes)
+'/a/b/c.txt'" shape=ellipse]
+	ERROR__AssertionError [label="AssertionError
+None != 'rtmp://foo.de'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_urljoin
+	}
+	{
+		rank=same
+		urljoin
+	}
+	test_urljoin -> urljoin [label="calls×20 [#1]" color=blue penwidth=3.0]
+	test_urljoin -> ERROR__AssertionError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	urljoin -> base [label="writes×2" color=black]
+	urljoin -> path [label="writes×2" color=black]
+	base -> urljoin [label="passed to" color=green style=dashed]
+	path -> urljoin [label="passed to" color=green style=dashed]
+}

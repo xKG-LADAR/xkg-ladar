@@ -1,0 +1,481 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_parse_mpd_formats [label="test_parse_mpd_formats
+test_InfoExtractor.py:495" fillcolor=white shape=box style=filled]
+	_TEST_CASES [label="_TEST_CASES
+[('float_duration', 'http://unknown/manifest.mpd', [{'manifest_url': 'http://unknown/manifest.mpd', 'ext': 'm4a', 'forma…" shape=ellipse]
+	mpd_file [label="mpd_file
+'float_duration'" shape=ellipse]
+	mpd_url [label="mpd_url
+'http://unknown/manifest.mpd'" shape=ellipse]
+	expected_formats [label="expected_formats
+[{'manifest_url': 'http://unknown/manifest.mpd', 'ext': 'm4a', 'format_id': '318597', 'format_note': 'DASH audio', 'prot…" shape=ellipse]
+	data [label="data
+bytes(len=1715)" shape=ellipse]
+	result [label="result
+'<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<MPD xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"urn:mpeg:dash…" shape=ellipse]
+	consumed [label="consumed
+1715" shape=ellipse]
+	compat_etree_fromstring [label="compat_etree_fromstring
+compat.py:2509" fillcolor=white shape=box style=filled]
+	_parse_mpd_formats [label="_parse_mpd_formats
+Parse formats from MPD manifest.
+common.py:1753" fillcolor=white shape=box style=filled]
+	_search_regex [label="_search_regex
+Perform a regex search on the given string, using a sin…
+common.py:765" fillcolor=white shape=box style=filled]
+	mobj [label="mobj
+<re.Match object; span=(0, 34), match='{urn:mpeg:dash:schema:mpd:2011}MPD'>" shape=ellipse]
+	_name [label="_name
+'namespace'" shape=ellipse]
+	g [label="g
+'urn:mpeg:dash:schema:mpd:2011'" shape=ellipse]
+	namespace [label="namespace
+'urn:mpeg:dash:schema:mpd:2011'" shape=ellipse]
+	_add_ns [label="_add_ns
+<function InfoExtractor._parse_mpd_formats.<locals>._add_ns at 0x7a93f4c402c0>" shape=ellipse]
+	is_drm_protected [label="is_drm_protected
+<function InfoExtractor._parse_mpd_formats.<locals>.is_drm_protected at 0x7a93f4c40220>" shape=ellipse]
+	extract_multisegment_info [label="extract_multisegment_info
+<function InfoExtractor._parse_mpd_formats.<locals>.extract_multisegment_info at 0x7a93f4c40360>" shape=ellipse]
+	parse_duration [label="parse_duration
+utils.py:1828" fillcolor=white shape=box style=filled]
+	days [label="days
+None" shape=ellipse]
+	hours [label="hours
+None" shape=ellipse]
+	mins [label="mins
+None" shape=ellipse]
+	secs [label="secs
+(2 writes, 2 distinct)
+None
+'6014'" shape=ellipse]
+	ms [label="ms
+None" shape=ellipse]
+	m [label="m
+(2 writes, 2 distinct)
+None
+<re.Match object; span=(0, 7), match='PT6014S'>" shape=ellipse]
+	duration [label="duration
+(2 writes, 2 distinct)
+0
+6014.0" shape=ellipse]
+	mpd_duration [label="mpd_duration
+6014.0" shape=ellipse]
+	formats [label="formats
+(9 writes, 8 distinct)
+[]
+[{'format_id': '318597', 'url': 'ai_318597.mp4d', 'manifest_url': 'http://unknown/manifest.mpd', 'ext': 'm4a', 'width': …
+[{'format_id': '318597', 'url': 'vi_318597.mp4d', 'manifest_url': 'http://unknown/manifest.mpd', 'ext': 'mp4', 'width': …
+[{'format_id': '318597', 'url': 'vi_318597.mp4d', 'manifest_url': 'http://unknown/manifest.mpd', 'ext': 'mp4', 'width': …
+[{'format_id': '318597', 'url': 'vi_318597.mp4d', 'manifest_url': 'http://unknown/manifest.mpd', 'ext': 'mp4', 'width': …
+[{'format_id': '318597', 'url': 'vi_318597.mp4d', 'manifest_url': 'http://unknown/manifest.mpd', 'ext': 'mp4', 'width': …
+  …+2 more values" shape=ellipse]
+	_xpath_ns [label="_xpath_ns
+common.py:1507" fillcolor=white shape=box style=filled]
+	period [label="period
+<Element '{urn:mpeg:dash:schema:mpd:2011}Period' at 0x7a93f4d5fdd0>" shape=ellipse]
+	period_duration [label="period_duration
+6014.0" shape=ellipse]
+	extract_common [label="extract_common
+(10 writes, 8 distinct)
+<function InfoExtractor._parse_mpd_formats.<locals>.extract_multisegment_info.<locals>.extract_common at 0x7a93f4c40400>
+<function InfoExtractor._parse_mpd_formats.<locals>.extract_multisegment_info.<locals>.extract_common at 0x7a93f4c40d60>
+<function InfoExtractor._parse_mpd_formats.<locals>.extract_multisegment_info.<locals>.extract_common at 0x7a93f4c404a0>
+<function InfoExtractor._parse_mpd_formats.<locals>.extract_multisegment_info.<locals>.extract_common at 0x7a93f4c411c0>
+<function InfoExtractor._parse_mpd_formats.<locals>.extract_multisegment_info.<locals>.extract_common at 0x7a93f4c41260>
+<function InfoExtractor._parse_mpd_formats.<locals>.extract_multisegment_info.<locals>.extract_common at 0x7a93f4c40cc0>
+  …+2 more values" shape=ellipse]
+	extract_Initialization [label="extract_Initialization
+(10 writes, 8 distinct)
+<function InfoExtractor._parse_mpd_formats.<locals>.extract_multisegment_info.<locals>.extract_Initialization at 0x7a93f…
+<function InfoExtractor._parse_mpd_formats.<locals>.extract_multisegment_info.<locals>.extract_Initialization at 0x7a93f…
+<function InfoExtractor._parse_mpd_formats.<locals>.extract_multisegment_info.<locals>.extract_Initialization at 0x7a93f…
+<function InfoExtractor._parse_mpd_formats.<locals>.extract_multisegment_info.<locals>.extract_Initialization at 0x7a93f…
+<function InfoExtractor._parse_mpd_formats.<locals>.extract_multisegment_info.<locals>.extract_Initialization at 0x7a93f…
+<function InfoExtractor._parse_mpd_formats.<locals>.extract_multisegment_info.<locals>.extract_Initialization at 0x7a93f…
+  …+2 more values" shape=ellipse]
+	segment_list [label="segment_list
+(10 writes)
+None" shape=ellipse]
+	segment_template [label="segment_template
+(10 writes, 3 distinct)
+None
+<Element '{urn:mpeg:dash:schema:mpd:2011}SegmentTemplate' at 0x7a93f4d54040>
+<Element '{urn:mpeg:dash:schema:mpd:2011}SegmentTemplate' at 0x7a93f4d54220>" shape=ellipse]
+	period_ms_info [label="period_ms_info
+{'start_number': 1, 'timescale': 1}" shape=ellipse]
+	adaptation_set [label="adaptation_set
+(2 writes, 2 distinct)
+<Element '{urn:mpeg:dash:schema:mpd:2011}AdaptationSet' at 0x7a93f4d5fec0>
+<Element '{urn:mpeg:dash:schema:mpd:2011}AdaptationSet' at 0x7a93f4d54130>" shape=ellipse]
+	segment_timeline [label="segment_timeline
+(2 writes)
+None" shape=ellipse]
+	start_number [label="start_number
+(2 writes)
+'0'" shape=ellipse]
+	timescale [label="timescale
+(2 writes)
+'1000000'" shape=ellipse]
+	media [label="media
+(2 writes, 2 distinct)
+'a_$RepresentationID$_$Number$.mp4d'
+'v_$RepresentationID$_$Number$.mp4d'" shape=ellipse]
+	initialization [label="initialization
+(2 writes, 2 distinct)
+'ai_$RepresentationID$.mp4d'
+'vi_$RepresentationID$.mp4d'" shape=ellipse]
+	adaption_set_ms_info [label="adaption_set_ms_info
+(2 writes, 2 distinct)
+{'start_number': 0, 'timescale': 1000000, 'segment_duration': 2000000.0, 'media': 'a_$RepresentationID$_$Number$.mp4d', …
+{'start_number': 0, 'timescale': 1000000, 'segment_duration': 2000000.0, 'media': 'v_$RepresentationID$_$Number$.mp4d', …" shape=ellipse]
+	representation [label="representation
+(7 writes, 7 distinct)
+<Element '{urn:mpeg:dash:schema:mpd:2011}Representation' at 0x7a93f4d540e0>
+<Element '{urn:mpeg:dash:schema:mpd:2011}Representation' at 0x7a93f4d54270>
+<Element '{urn:mpeg:dash:schema:mpd:2011}Representation' at 0x7a93f4d542c0>
+<Element '{urn:mpeg:dash:schema:mpd:2011}Representation' at 0x7a93f4d54310>
+<Element '{urn:mpeg:dash:schema:mpd:2011}Representation' at 0x7a93f4d54360>
+<Element '{urn:mpeg:dash:schema:mpd:2011}Representation' at 0x7a93f4d543b0>
+  …+1 more values" shape=ellipse]
+	representation_attrib [label="representation_attrib
+(14 writes, 9 distinct)
+{'mimeType': 'audio/mp4', 'codecs': 'mp4a.40.2', 'startWithSAP': '1', 'segmentAlignment': 'true'}
+{'mimeType': 'audio/mp4', 'codecs': 'mp4a.40.2', 'startWithSAP': '1', 'segmentAlignment': 'true', 'id': '318597', 'bandw…
+{'mimeType': 'video/mp4', 'startWithSAP': '1', 'segmentAlignment': 'true'}
+{'mimeType': 'video/mp4', 'startWithSAP': '1', 'segmentAlignment': 'true', 'id': '318597', 'codecs': 'avc1.42001f', 'wid…
+{'mimeType': 'video/mp4', 'startWithSAP': '1', 'segmentAlignment': 'true', 'id': '638590', 'codecs': 'avc1.42001f', 'wid…
+{'mimeType': 'video/mp4', 'startWithSAP': '1', 'segmentAlignment': 'true', 'id': '1022565', 'codecs': 'avc1.4d001f', 'wi…
+  …+3 more values" shape=ellipse]
+	mime_type [label="mime_type
+(2 writes, 2 distinct)
+'audio/mp4'
+'video/mp4'" shape=ellipse]
+	content_type [label="content_type
+(2 writes, 2 distinct)
+'audio'
+'video'" shape=ellipse]
+	base_url [label="base_url
+''" shape=ellipse]
+	element [label="element
+(14 writes, 8 distinct)
+<Element '{urn:mpeg:dash:schema:mpd:2011}Representation' at 0x7a93f4d540e0>
+<Element '{urn:mpeg:dash:schema:mpd:2011}MPD' at 0x7a93f4d5fd30>
+<Element '{urn:mpeg:dash:schema:mpd:2011}Representation' at 0x7a93f4d54270>
+<Element '{urn:mpeg:dash:schema:mpd:2011}Representation' at 0x7a93f4d542c0>
+<Element '{urn:mpeg:dash:schema:mpd:2011}Representation' at 0x7a93f4d54310>
+<Element '{urn:mpeg:dash:schema:mpd:2011}Representation' at 0x7a93f4d54360>
+  …+2 more values" shape=ellipse]
+	base_url_e [label="base_url_e
+None" shape=ellipse]
+	representation_id [label="representation_id
+(6 writes, 6 distinct)
+'318597'
+'638590'
+'1022565'
+'2046506'
+'3998017'
+'5997485'" shape=ellipse]
+	lang [label="lang
+None" shape=ellipse]
+	url_el [label="url_el
+None" shape=ellipse]
+	int_or_none [label="int_or_none
+utils.py:1785" fillcolor=white shape=box style=filled]
+	filesize [label="filesize
+None" shape=ellipse]
+	bandwidth [label="bandwidth
+(7 writes, 7 distinct)
+61587
+318597
+638590
+1022565
+2046506
+3998017
+  …+1 more values" shape=ellipse]
+	mimetype2ext [label="mimetype2ext
+utils.py:2332" fillcolor=white shape=box style=filled]
+	ext [label="ext
+(7 writes, 2 distinct)
+'m4a'
+None" shape=ellipse]
+	float_or_none [label="float_or_none
+utils.py:1811" fillcolor=white shape=box style=filled]
+	parse_codecs [label="parse_codecs
+utils.py:2369" fillcolor=white shape=box style=filled]
+	splited_codecs [label="splited_codecs
+(7 writes, 5 distinct)
+['mp4a.40.2']
+['avc1.42001f']
+['avc1.4d001f']
+['avc1.640029']
+['avc1.640032']" shape=ellipse]
+	vcodec [label="vcodec
+(13 writes, 5 distinct)
+None
+'avc1.42001f'
+'avc1.4d001f'
+'avc1.640029'
+'avc1.640032'" shape=ellipse]
+	acodec [label="acodec
+(8 writes, 2 distinct)
+None
+'mp4a.40.2'" shape=ellipse]
+	full_codec [label="full_codec
+(7 writes, 5 distinct)
+'mp4a.40.2'
+'avc1.42001f'
+'avc1.4d001f'
+'avc1.640029'
+'avc1.640032'" shape=ellipse]
+	codec [label="codec
+(7 writes, 2 distinct)
+'mp4a'
+'avc1'" shape=ellipse]
+	prepare_template [label="prepare_template
+(7 writes, 6 distinct)
+<function InfoExtractor._parse_mpd_formats.<locals>.prepare_template at 0x7a93f4c40cc0>
+<function InfoExtractor._parse_mpd_formats.<locals>.prepare_template at 0x7a93f4c41120>
+<function InfoExtractor._parse_mpd_formats.<locals>.prepare_template at 0x7a93f4c41300>
+<function InfoExtractor._parse_mpd_formats.<locals>.prepare_template at 0x7a93f4c40d60>
+<function InfoExtractor._parse_mpd_formats.<locals>.prepare_template at 0x7a93f4c411c0>
+<function InfoExtractor._parse_mpd_formats.<locals>.prepare_template at 0x7a93f4c41260>" shape=ellipse]
+	initialization_template [label="initialization_template
+(7 writes, 7 distinct)
+'ai_318597.mp4d'
+'vi_318597.mp4d'
+'vi_638590.mp4d'
+'vi_1022565.mp4d'
+'vi_2046506.mp4d'
+'vi_3998017.mp4d'
+  …+1 more values" shape=ellipse]
+	location_key [label="location_key
+(7 writes, 5 distinct)
+<function InfoExtractor._parse_mpd_formats.<locals>.location_key at 0x7a93f4c40e00>
+<function InfoExtractor._parse_mpd_formats.<locals>.location_key at 0x7a93f4c40400>
+<function InfoExtractor._parse_mpd_formats.<locals>.location_key at 0x7a93f4c41080>
+<function InfoExtractor._parse_mpd_formats.<locals>.location_key at 0x7a93f4c40fe0>
+<function InfoExtractor._parse_mpd_formats.<locals>.location_key at 0x7a93f4c404a0>" shape=ellipse]
+	media_template [label="media_template
+(7 writes, 7 distinct)
+'a_318597_%(Number)d.mp4d'
+'v_318597_%(Number)d.mp4d'
+'v_638590_%(Number)d.mp4d'
+'v_1022565_%(Number)d.mp4d'
+'v_2046506_%(Number)d.mp4d'
+'v_3998017_%(Number)d.mp4d'
+  …+1 more values" shape=ellipse]
+	media_location_key [label="media_location_key
+'path'" shape=ellipse]
+	segment_number [label="segment_number
+(14 writes, 2 distinct)
+0
+3006" shape=ellipse]
+	initialization_url [label="initialization_url
+(7 writes, 7 distinct)
+'ai_318597.mp4d'
+'vi_318597.mp4d'
+'vi_638590.mp4d'
+'vi_1022565.mp4d'
+'vi_2046506.mp4d'
+'vi_3998017.mp4d'
+  …+1 more values" shape=ellipse]
+	ERROR__StopIteration [label=StopIteration fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	full_info [label="full_info
+(13 writes, 8 distinct)
+{}
+{'format_id': '318597', 'url': 'ai_318597.mp4d', 'manifest_url': 'http://unknown/manifest.mpd', 'ext': 'm4a', 'width': N…
+{'format_id': '318597', 'url': 'vi_318597.mp4d', 'manifest_url': 'http://unknown/manifest.mpd', 'ext': 'mp4', 'width': 3…
+{'format_id': '638590', 'url': 'vi_638590.mp4d', 'manifest_url': 'http://unknown/manifest.mpd', 'ext': 'mp4', 'width': 5…
+{'format_id': '1022565', 'url': 'vi_1022565.mp4d', 'manifest_url': 'http://unknown/manifest.mpd', 'ext': 'mp4', 'width':…
+{'format_id': '2046506', 'url': 'vi_2046506.mp4d', 'manifest_url': 'http://unknown/manifest.mpd', 'ext': 'mp4', 'width':…
+  …+2 more values" shape=ellipse]
+	_ [label="_
+(6 writes)
+'/'" shape=ellipse]
+	res [label="res
+(6 writes)
+'mp4'" shape=ellipse]
+	fo [label="fo
+(10 writes, 6 distinct)
+{'format_id': '318597', 'url': 'ai_318597.mp4d', 'manifest_url': 'http://unknown/manifest.mpd', 'ext': 'm4a', 'width': N…
+{'format_id': '318597', 'url': 'vi_318597.mp4d', 'manifest_url': 'http://unknown/manifest.mpd', 'ext': 'mp4', 'width': 3…
+{'format_id': '638590', 'url': 'vi_638590.mp4d', 'manifest_url': 'http://unknown/manifest.mpd', 'ext': 'mp4', 'width': 5…
+{'format_id': '1022565', 'url': 'vi_1022565.mp4d', 'manifest_url': 'http://unknown/manifest.mpd', 'ext': 'mp4', 'width':…
+{'format_id': '2046506', 'url': 'vi_2046506.mp4d', 'manifest_url': 'http://unknown/manifest.mpd', 'ext': 'mp4', 'width':…
+{'format_id': '3998017', 'url': 'vi_3998017.mp4d', 'manifest_url': 'http://unknown/manifest.mpd', 'ext': 'mp4', 'width':…" shape=ellipse]
+	existing_format [label="existing_format
+(2 writes, 2 distinct)
+{'format_id': '318597', 'url': 'ai_318597.mp4d', 'manifest_url': 'http://unknown/manifest.mpd', 'ext': 'm4a', 'width': N…
+{'format_id': '318597', 'url': 'vi_318597.mp4d', 'manifest_url': 'http://unknown/manifest.mpd', 'ext': 'mp4', 'width': 3…" shape=ellipse]
+	_sort_formats [label="_sort_formats
+common.py:1067" fillcolor=white shape=box style=filled]
+	_formats_key [label="_formats_key
+<function InfoExtractor._sort_formats.<locals>._formats_key at 0x7a93f4dba660>" shape=ellipse]
+	determine_ext [label="determine_ext
+(2 writes)
+<function determine_ext at 0x7a93f568cc20>" shape=ellipse]
+	preference [label="preference
+(6 writes, 3 distinct)
+None
+0
+-40" shape=ellipse]
+	protocol [label="protocol
+(2 writes)
+'http_dash_segments'" shape=ellipse]
+	proto_preference [label="proto_preference
+(2 writes)
+-0.1" shape=ellipse]
+	ORDER [label="ORDER
+(2 writes)
+['webm', 'flv', 'mp4']" shape=ellipse]
+	ext_preference [label="ext_preference
+(2 writes)
+2" shape=ellipse]
+	audio_ext_preference [label="audio_ext_preference
+(2 writes)
+0" shape=ellipse]
+	expect_value [label="expect_value
+helper.py:100" fillcolor=white shape=box style=filled]
+	ERROR__AssertionError [label="AssertionError
+7 != 6 : Expect a list of length 7, but got a list of length 6 for field None" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_parse_mpd_formats
+	}
+	{
+		rank=same
+		compat_etree_fromstring
+		_parse_mpd_formats
+		_sort_formats
+		expect_value
+	}
+	{
+		rank=same
+		_search_regex
+		parse_duration
+		int_or_none
+		mimetype2ext
+		float_or_none
+		parse_codecs
+	}
+	{
+		rank=same
+		_xpath_ns
+	}
+	test_parse_mpd_formats -> _TEST_CASES [label=writes color=black]
+	test_parse_mpd_formats -> mpd_file [label=writes color=black]
+	test_parse_mpd_formats -> mpd_url [label=writes color=black]
+	test_parse_mpd_formats -> expected_formats [label=writes color=black]
+	test_parse_mpd_formats -> data [label=writes color=black]
+	test_parse_mpd_formats -> result [label=writes color=black]
+	test_parse_mpd_formats -> consumed [label=writes color=black]
+	test_parse_mpd_formats -> compat_etree_fromstring [label="calls [#1]" color=blue penwidth=1.1]
+	test_parse_mpd_formats -> _parse_mpd_formats [label="calls [#2]" color=blue penwidth=1.1]
+	test_parse_mpd_formats -> formats [label=writes color=black]
+	test_parse_mpd_formats -> _sort_formats [label="calls [#237]" color=blue penwidth=1.1]
+	test_parse_mpd_formats -> expect_value [label="calls [#240]" color=blue penwidth=1.1]
+	test_parse_mpd_formats -> ERROR__AssertionError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	mpd_url -> _parse_mpd_formats [label="passed to" color=green style=dashed]
+	_parse_mpd_formats -> _search_regex [label="calls [#3]" color=blue penwidth=1.1]
+	_parse_mpd_formats -> namespace [label=writes color=black]
+	_parse_mpd_formats -> _add_ns [label=writes color=black]
+	_parse_mpd_formats -> is_drm_protected [label=writes color=black]
+	_parse_mpd_formats -> extract_multisegment_info [label=writes color=black]
+	_parse_mpd_formats -> parse_duration [label="calls×2 [#4]" color=blue penwidth=1.2]
+	_parse_mpd_formats -> mpd_duration [label=writes color=black]
+	_parse_mpd_formats -> formats [label="writes×8" color=black]
+	_parse_mpd_formats -> period [label=writes color=black]
+	_parse_mpd_formats -> period_duration [label=writes color=black]
+	_parse_mpd_formats -> period_ms_info [label=writes color=black]
+	_parse_mpd_formats -> adaptation_set [label="writes×2" color=black]
+	_parse_mpd_formats -> adaption_set_ms_info [label="writes×2" color=black]
+	_parse_mpd_formats -> representation [label="writes×7" color=black]
+	_parse_mpd_formats -> representation_attrib [label="writes×14" color=black]
+	_parse_mpd_formats -> mime_type [label="writes×2" color=black]
+	_parse_mpd_formats -> content_type [label="writes×2" color=black]
+	_parse_mpd_formats -> base_url [label=writes color=black]
+	_parse_mpd_formats -> element [label="writes×14" color=black]
+	_parse_mpd_formats -> base_url_e [label=writes color=black]
+	_parse_mpd_formats -> _parse_mpd_formats [label="loops(×21089)" color=purple style=dashed]
+	_parse_mpd_formats -> representation_id [label="writes×6" color=black]
+	_parse_mpd_formats -> lang [label=writes color=black]
+	_parse_mpd_formats -> url_el [label=writes color=black]
+	_parse_mpd_formats -> int_or_none [label="calls×42 [#37]" color=blue penwidth=5.0]
+	_parse_mpd_formats -> filesize [label=writes color=black]
+	_parse_mpd_formats -> bandwidth [label="writes×7" color=black]
+	_parse_mpd_formats -> mimetype2ext [label="calls×7 [#39]" color=blue penwidth=1.7]
+	_parse_mpd_formats -> float_or_none [label="calls×14 [#42]" color=blue penwidth=2.4]
+	_parse_mpd_formats -> parse_codecs [label="calls×7 [#45]" color=blue penwidth=1.7]
+	_parse_mpd_formats -> prepare_template [label="writes×7" color=black]
+	_parse_mpd_formats -> initialization_template [label="writes×7" color=black]
+	_parse_mpd_formats -> location_key [label="writes×7" color=black]
+	_parse_mpd_formats -> media_template [label="writes×7" color=black]
+	_parse_mpd_formats -> media_location_key [label=writes color=black]
+	_parse_mpd_formats -> segment_number [label="writes×14" color=black]
+	_parse_mpd_formats -> initialization_url [label="writes×7" color=black]
+	_parse_mpd_formats -> ERROR__StopIteration [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	_parse_mpd_formats -> full_info [label="writes×13" color=black]
+	_parse_mpd_formats -> fo [label="writes×10" color=black]
+	_parse_mpd_formats -> existing_format [label="writes×2" color=black]
+	_search_regex -> mobj [label=writes color=black]
+	_search_regex -> _name [label=writes color=black]
+	_search_regex -> g [label=writes color=black]
+	namespace -> _add_ns [label="passed to" color=green style=dashed]
+	namespace -> _xpath_ns [label="passed to" color=green style=dashed]
+	_add_ns -> _xpath_ns [label="calls×56 [#6]" color=blue penwidth=5.0]
+	_add_ns -> extract_multisegment_info [label="passed to" color=green style=dashed]
+	_add_ns -> is_drm_protected [label="passed to" color=green style=dashed]
+	_add_ns -> extract_common [label="passed to" color=green style=dashed]
+	is_drm_protected -> _add_ns [label="calls×9 [#16]" color=blue penwidth=1.9]
+	extract_multisegment_info -> extract_common [label="writes×10" color=black]
+	extract_multisegment_info -> extract_Initialization [label="writes×10" color=black]
+	extract_multisegment_info -> _add_ns [label="calls×20 [#9]" color=blue penwidth=3.0]
+	extract_multisegment_info -> segment_list [label="writes×10" color=black]
+	extract_multisegment_info -> segment_template [label="writes×10" color=black]
+	extract_multisegment_info -> media [label="writes×2" color=black]
+	extract_multisegment_info -> initialization [label="writes×2" color=black]
+	parse_duration -> days [label=writes color=black]
+	parse_duration -> hours [label=writes color=black]
+	parse_duration -> mins [label=writes color=black]
+	parse_duration -> secs [label="writes×2" color=black]
+	parse_duration -> ms [label=writes color=black]
+	parse_duration -> m [label="writes×2" color=black]
+	parse_duration -> duration [label="writes×2" color=black]
+	formats -> _sort_formats [label="passed to" color=green style=dashed]
+	extract_common -> _add_ns [label="calls×2 [#24]" color=blue penwidth=1.2]
+	extract_common -> segment_timeline [label="writes×2" color=black]
+	extract_common -> start_number [label="writes×2" color=black]
+	extract_common -> timescale [label="writes×2" color=black]
+	element -> extract_multisegment_info [label="passed to" color=green style=dashed]
+	element -> is_drm_protected [label="passed to" color=green style=dashed]
+	representation_id -> prepare_template [label="passed to" color=green style=dashed]
+	representation_id -> is_drm_protected [label="passed to" color=green style=dashed]
+	representation_id -> _sort_formats [label="passed to" color=green style=dashed]
+	mimetype2ext -> ext [label="writes×7" color=black]
+	mimetype2ext -> _ [label="writes×6" color=black]
+	mimetype2ext -> res [label="writes×6" color=black]
+	parse_codecs -> splited_codecs [label="writes×7" color=black]
+	parse_codecs -> vcodec [label="writes×13" color=black]
+	parse_codecs -> acodec [label="writes×8" color=black]
+	parse_codecs -> full_codec [label="writes×7" color=black]
+	parse_codecs -> codec [label="writes×7" color=black]
+	_sort_formats -> _sort_formats [label="loops(×12)" color=purple style=dashed]
+	_sort_formats -> _formats_key [label=writes color=black]
+	_sort_formats -> determine_ext [label=writes color=black]
+	_sort_formats -> preference [label="writes×3" color=black]
+	_sort_formats -> protocol [label=writes color=black]
+	_sort_formats -> proto_preference [label=writes color=black]
+	_sort_formats -> ORDER [label=writes color=black]
+	_sort_formats -> ext_preference [label=writes color=black]
+	_sort_formats -> audio_ext_preference [label=writes color=black]
+	_formats_key -> determine_ext [label=writes color=black]
+	_formats_key -> preference [label="writes×3" color=black]
+	_formats_key -> protocol [label=writes color=black]
+	_formats_key -> proto_preference [label=writes color=black]
+	_formats_key -> ORDER [label=writes color=black]
+	_formats_key -> ext_preference [label=writes color=black]
+	_formats_key -> audio_ext_preference [label=writes color=black]
+	expect_value -> ERROR__AssertionError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+}

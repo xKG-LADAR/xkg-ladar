@@ -1,0 +1,6 @@
+COOKIECUTTER EVALUATION SUMMARY
+Total: 4  Passed: 1  (25.0%)
+bug 1: FAIL  failed to apply diff to tests/test-generate-context/non_ascii.json
+bug 2: PASS  
+bug 3: FAIL  KG empty (trace produced no data)
+bug 4: FAIL  

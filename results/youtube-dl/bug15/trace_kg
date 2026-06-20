@@ -1,0 +1,27 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_js_to_json_edgecases [label="test_js_to_json_edgecases
+test_utils.py:823" fillcolor=white shape=box style=filled]
+	js_to_json [label="js_to_json
+utils.py:2235" fillcolor=white shape=box style=filled]
+	d [label="d
+{'x': 1, 'y': 'a', 'z': 'some.code'}" shape=ellipse]
+	i [label="i
+(8 writes, 2 distinct)
+255
+63" shape=ellipse]
+	"ERROR__json.decoder.JSONDecodeError" [label="json.decoder.JSONDecodeError
+Expecting ',' delimiter: line 1 column 10 (char 9)" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_js_to_json_edgecases
+	}
+	{
+		rank=same
+		js_to_json
+	}
+	test_js_to_json_edgecases -> js_to_json [label="calls×22 [#1]" color=blue penwidth=3.2]
+	test_js_to_json_edgecases -> d [label=writes color=black]
+	test_js_to_json_edgecases -> "ERROR__json.decoder.JSONDecodeError" [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	js_to_json -> js_to_json [label="loops(×11)" color=purple style=dashed]
+}

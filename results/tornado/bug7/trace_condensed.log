@@ -1,0 +1,125 @@
+Cleared: /path/to/results/tornado/bug7
+Running: python -m unittest -q tornado.test.ioloop_test.TestIOLoopFutures.test_run_in_executor_native
+Workdir: /path/to/BugsInPy/workspace/tornado
+PYTHONPATH: /path/to/BugsInPy/workspace/tornado::
+/path/to/BugsInPy/workspace/tornado/tornado/util.py:255: SyntaxWarning: invalid escape sequence '\d'
+  """Unescape a string escaped by `re.escape`.
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/ioloop_test.py
+IE_TRACE: Starting var:.. self = <tornado.test.ioloop_test.TestIOLoopFutures testMethod=test_run_in_executor_native>
+IE_TRACE: 19:13:22.911454 call       631     def test_run_in_executor_native(self):
+IE_TRACE: 19:13:22.911778 line       632         event1 = threading.Event()
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/ioloop_test.py
+IE_TRACE: New var:....... event1 = <threading.Event at 0x7f74d8196f00: unset>
+IE_TRACE: 19:13:22.912703 line       633         event2 = threading.Event()
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/ioloop_test.py
+IE_TRACE: New var:....... event2 = <threading.Event at 0x7f74d8197ec0: unset>
+IE_TRACE: 19:13:22.913004 line       635         def sync_func(self_event, other_event):
+IE_TRACE: New var:....... sync_func = <function TestIOLoopFutures.test_run_in_executor_native.<locals>.sync_func at 0x7f74d802e200>
+IE_TRACE: 19:13:22.913034 line       643         namespace = exec_test(globals(), locals(), """
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/util.py
+IE_TRACE:     Starting var:.. caller_globals = dict(len=57)
+IE_TRACE:     Starting var:.. caller_locals = {'self': <tornado.test.ioloop_test.TestIOLoopFutures testMethod=test_run_in_executor_native>, 'event1': <threading.Event at 0x7f74d8196f00: unset>, 'event2': <threading.Event at 0x7f74d8197ec0: unset>, 'sync_func': <function TestIOLoopFutures.test_run_in_executor_native.<locals>.sync_func at 0x7f74d802e200>}
+IE_TRACE:     Starting var:.. s = '\n            async def async_wrapper(self_event, other_event):\n                return await IOLoop.current().run_in_executor(\n                    None, sync_func, self_event, other_event)\n        '
+IE_TRACE:     19:13:22.913066 call        75 def exec_test(caller_globals, caller_locals, s):
+IE_TRACE:     19:13:22.913225 line        84     global_namespace = dict(caller_globals, **caller_locals)  # type: ignore
+IE_TRACE:     New var:....... global_namespace = dict(len=61)
+IE_TRACE:     19:13:22.913253 line        85     local_namespace = {}
+IE_TRACE:     New var:....... local_namespace = {}
+IE_TRACE:     19:13:22.913280 line        86     exec(textwrap.dedent(s), global_namespace, local_namespace)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/util.py
+IE_TRACE:     Modified var:.. local_namespace = {'async_wrapper': <function async_wrapper at 0x7f74d802e7a0>}
+IE_TRACE:     19:13:22.952601 line        87     return local_namespace
+IE_TRACE:     19:13:22.952655 return      87     return local_namespace
+IE_TRACE:     Return value:.. {'async_wrapper': <function async_wrapper at 0x7f74d802e7a0>}
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/ioloop_test.py
+IE_TRACE: New var:....... namespace = {'async_wrapper': <function async_wrapper at 0x7f74d802e7a0>}
+IE_TRACE: 19:13:22.952687 line       650             namespace["async_wrapper"](event1, event2),
+IE_TRACE: 19:13:22.952727 line       651             namespace["async_wrapper"](event2, event1)
+IE_TRACE: 19:13:22.952748 line       649         res = yield [
+IE_TRACE: 19:13:22.952769 return     649         res = yield [
+IE_TRACE: Return value:.. [<coroutine object async_wrapper at 0x7f74d8001d20>, <coroutine object async_wrapper at 0x7f74d8001ee0>]
+IE_TRACE: Elapsed time: 00:00:00.041689
+ERROR:tornado.application:Multiple exceptions in yield list
+Traceback (most recent call last):
+  File "/path/to/BugsInPy/workspace/tornado/tornado/gen.py", line 823, in callback
+    result_list.append(f.result())
+                       ^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "<string>", line 4, in raise_exc_info
+  File "/path/to/BugsInPy/workspace/tornado/tornado/gen.py", line 303, in wrapper
+    yielded = next(result)
+              ^^^^^^^^^^^^
+  File "<string>", line 6, in _wrap_awaitable
+  File "<string>", line 3, in async_wrapper
+TypeError: object Future can't be used in 'await' expression
+/usr/lib/python3.12/types.py:248: DeprecationWarning: the (type, exc, tb) signature of throw() is deprecated, use the single-arg signature instead.
+  return self.__wrapped.throw(tp, *rest)
+IE_TRACE: Starting var:.. self = <tornado.test.ioloop_test.TestIOLoopFutures testMethod=test_run_in_executor_native>
+IE_TRACE: Starting var:.. event1 = <threading.Event at 0x7f74d8196f00: set>
+IE_TRACE: Starting var:.. event2 = <threading.Event at 0x7f74d8197ec0: set>
+IE_TRACE: Starting var:.. sync_func = <function TestIOLoopFutures.test_run_in_executor_native.<locals>.sync_func at 0x7f74d802e200>
+IE_TRACE: Starting var:.. namespace = {'async_wrapper': <function async_wrapper at 0x7f74d802e7a0>}
+IE_TRACE: 19:13:22.955240 call       649         res = yield [
+IE_TRACE: 19:13:22.955338 exception  649         res = yield [
+IE_TRACE: Exception:..... TypeError: object Future can't be used in 'await' expression
+IE_TRACE: 19:13:22.955423 return     649         res = yield [
+IE_TRACE: Return value:.. None
+IE_TRACE: Elapsed time: 00:00:00.000425
+======================================================================
+ERROR: test_run_in_executor_native (tornado.test.ioloop_test.TestIOLoopFutures.test_run_in_executor_native)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/BugsInPy/workspace/tornado/tornado/testing.py", line 118, in __call__
+    result = self.orig_method(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/testing.py", line 514, in post_coroutine
+    return self.io_loop.run_sync(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/ioloop.py", line 501, in run_sync
+    return future_cell[0].result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "<string>", line 4, in raise_exc_info
+  File "/path/to/BugsInPy/workspace/tornado/tornado/gen.py", line 1057, in run
+    yielded = self.gen.throw(*exc_info)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/types.py", line 248, in throw
+    return self.__wrapped.throw(tp, *rest)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 329, in generator_wrapper
+    outgoing = method(incoming)
+               ^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/test/ioloop_test.py", line 649, in test_run_in_executor_native
+    res = yield [
+          ^^^^^^^
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 333, in generator_wrapper
+    method, incoming = gen.send, (yield outgoing)
+                                  ^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/gen.py", line 1049, in run
+    value = future.result()
+            ^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "<string>", line 4, in raise_exc_info
+  File "/path/to/BugsInPy/workspace/tornado/tornado/gen.py", line 823, in callback
+    result_list.append(f.result())
+                       ^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "<string>", line 4, in raise_exc_info
+  File "/path/to/BugsInPy/workspace/tornado/tornado/gen.py", line 303, in wrapper
+    yielded = next(result)
+              ^^^^^^^^^^^^
+  File "<string>", line 6, in _wrap_awaitable
+  File "<string>", line 3, in async_wrapper
+TypeError: object Future can't be used in 'await' expression
+
+----------------------------------------------------------------------
+Ran 1 test in 0.047s
+
+FAILED (errors=1)
+
+
+Exit code: 1

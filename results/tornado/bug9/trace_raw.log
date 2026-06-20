@@ -1,0 +1,236 @@
+Cleared: /path/to/results/tornado/bug9
+Running: python -m unittest -q tornado.test.httputil_test.TestUrlConcat.test_url_concat_none_params
+Workdir: /path/to/BugsInPy/workspace/tornado
+PYTHONPATH: /path/to/BugsInPy/workspace/tornado::
+/path/to/BugsInPy/workspace/tornado/tornado/util.py:245: SyntaxWarning: invalid escape sequence '\d'
+  """Unescape a string escaped by `re.escape`.
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/httputil_test.py
+IE_TRACE: Starting var:.. self = <tornado.test.httputil_test.TestUrlConcat testMethod=test_url_concat_none_params>
+IE_TRACE: 19:14:24.497869 call        72     def test_url_concat_none_params(self):
+IE_TRACE: 19:14:24.498184 line        73         url = url_concat(
+IE_TRACE: 19:14:24.498227 line        74             "https://localhost/path?r=1&t=2",
+IE_TRACE: 19:14:24.498254 line        75             None,
+IE_TRACE: 19:14:24.498273 line        73         url = url_concat(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/httputil.py
+IE_TRACE:     Starting var:.. url = 'https://localhost/path?r=1&t=2'
+IE_TRACE:     Starting var:.. args = None
+IE_TRACE:     19:14:24.498310 call       592 def url_concat(url, args):
+IE_TRACE:     19:14:24.498475 line       606     parsed_url = urlparse(url)
+IE_TRACE:         Source path:... /usr/lib/python3.12/urllib/parse.py
+IE_TRACE:         Starting var:.. url = 'https://localhost/path?r=1&t=2'
+IE_TRACE:         Starting var:.. scheme = ''
+IE_TRACE:         Starting var:.. allow_fragments = True
+IE_TRACE:         19:14:24.498509 call       374 def urlparse(url, scheme='', allow_fragments=True):
+IE_TRACE:         19:14:24.498758 line       394     url, scheme, _coerce_result = _coerce_args(url, scheme)
+IE_TRACE:             Starting var:.. args = ('https://localhost/path?r=1&t=2', '')
+IE_TRACE:             19:14:24.498801 call       119 def _coerce_args(*args):
+IE_TRACE:             19:14:24.498854 line       125     str_input = isinstance(args[0], str)
+IE_TRACE:             New var:....... str_input = True
+IE_TRACE:             19:14:24.498879 line       126     for arg in args[1:]:
+IE_TRACE:             New var:....... arg = ''
+IE_TRACE:             19:14:24.498911 line       129         if arg and isinstance(arg, str) != str_input:
+IE_TRACE:             19:14:24.498939 line       126     for arg in args[1:]:
+IE_TRACE:             19:14:24.498959 line       131     if str_input:
+IE_TRACE:             19:14:24.498979 line       132         return args + (_noop,)
+IE_TRACE:             19:14:24.498998 return     132         return args + (_noop,)
+IE_TRACE:             Return value:.. ('https://localhost/path?r=1&t=2', '', <function _noop at 0x7d5ffdb06700>)
+IE_TRACE:         New var:....... _coerce_result = <function _noop at 0x7d5ffdb06700>
+IE_TRACE:         19:14:24.499031 line       395     splitresult = urlsplit(url, scheme, allow_fragments)
+IE_TRACE:             Starting var:.. url = 'https://localhost/path?r=1&t=2'
+IE_TRACE:             Starting var:.. scheme = ''
+IE_TRACE:             Starting var:.. allow_fragments = True
+IE_TRACE:             19:14:24.499079 call       470 def urlsplit(url, scheme='', allow_fragments=True):
+IE_TRACE:             19:14:24.499135 line       491     url, scheme, _coerce_result = _coerce_args(url, scheme)
+IE_TRACE:                 Starting var:.. args = ('https://localhost/path?r=1&t=2', '')
+IE_TRACE:                 19:14:24.499161 call       119 def _coerce_args(*args):
+IE_TRACE:                 19:14:24.499187 line       125     str_input = isinstance(args[0], str)
+IE_TRACE:                 New var:....... str_input = True
+IE_TRACE:                 19:14:24.499206 line       126     for arg in args[1:]:
+IE_TRACE:                 New var:....... arg = ''
+IE_TRACE:                 19:14:24.499232 line       129         if arg and isinstance(arg, str) != str_input:
+IE_TRACE:                 19:14:24.499260 line       126     for arg in args[1:]:
+IE_TRACE:                 19:14:24.499280 line       131     if str_input:
+IE_TRACE:                 19:14:24.499299 line       132         return args + (_noop,)
+IE_TRACE:                 19:14:24.499320 return     132         return args + (_noop,)
+IE_TRACE:                 Return value:.. ('https://localhost/path?r=1&t=2', '', <function _noop at 0x7d5ffdb06700>)
+IE_TRACE:             New var:....... _coerce_result = <function _noop at 0x7d5ffdb06700>
+IE_TRACE:             19:14:24.499351 line       494     url = url.lstrip(_WHATWG_C0_CONTROL_OR_SPACE)
+IE_TRACE:             19:14:24.499383 line       495     scheme = scheme.strip(_WHATWG_C0_CONTROL_OR_SPACE)
+IE_TRACE:             19:14:24.499407 line       497     for b in _UNSAFE_URL_BYTES_TO_REMOVE:
+IE_TRACE:             New var:....... b = '\t'
+IE_TRACE:             19:14:24.499430 line       498         url = url.replace(b, "")
+IE_TRACE:             19:14:24.499462 line       499         scheme = scheme.replace(b, "")
+IE_TRACE:             19:14:24.499486 line       497     for b in _UNSAFE_URL_BYTES_TO_REMOVE:
+IE_TRACE:             Modified var:.. b = '\r'
+IE_TRACE:             19:14:24.499509 line       498         url = url.replace(b, "")
+IE_TRACE:             19:14:24.499539 line       499         scheme = scheme.replace(b, "")
+IE_TRACE:             19:14:24.499562 line       497     for b in _UNSAFE_URL_BYTES_TO_REMOVE:
+IE_TRACE:             Modified var:.. b = '\n'
+IE_TRACE:             19:14:24.499584 line       498         url = url.replace(b, "")
+IE_TRACE:             19:14:24.499614 line       499         scheme = scheme.replace(b, "")
+IE_TRACE:             19:14:24.499636 line       497     for b in _UNSAFE_URL_BYTES_TO_REMOVE:
+IE_TRACE:             19:14:24.499659 line       501     allow_fragments = bool(allow_fragments)
+IE_TRACE:             19:14:24.499683 line       502     netloc = query = fragment = ''
+IE_TRACE:             New var:....... netloc = ''
+IE_TRACE:             New var:....... query = ''
+IE_TRACE:             New var:....... fragment = ''
+IE_TRACE:             19:14:24.499706 line       503     i = url.find(':')
+IE_TRACE:             New var:....... i = 5
+IE_TRACE:             19:14:24.499753 line       504     if i > 0 and url[0].isascii() and url[0].isalpha():
+IE_TRACE:             19:14:24.499791 line       505         for c in url[:i]:
+IE_TRACE:             New var:....... c = 'h'
+IE_TRACE:             19:14:24.499820 line       506             if c not in scheme_chars:
+IE_TRACE:             19:14:24.499857 line       505         for c in url[:i]:
+IE_TRACE:             Modified var:.. c = 't'
+IE_TRACE:             19:14:24.499886 line       506             if c not in scheme_chars:
+IE_TRACE:             19:14:24.499921 line       505         for c in url[:i]:
+IE_TRACE:             19:14:24.499950 line       506             if c not in scheme_chars:
+IE_TRACE:             19:14:24.499979 line       505         for c in url[:i]:
+IE_TRACE:             Modified var:.. c = 'p'
+IE_TRACE:             19:14:24.500007 line       506             if c not in scheme_chars:
+IE_TRACE:             19:14:24.500041 line       505         for c in url[:i]:
+IE_TRACE:             Modified var:.. c = 's'
+IE_TRACE:             19:14:24.500069 line       506             if c not in scheme_chars:
+IE_TRACE:             19:14:24.500104 line       505         for c in url[:i]:
+IE_TRACE:             19:14:24.500135 line       509             scheme, url = url[:i].lower(), url[i+1:]
+IE_TRACE:             Modified var:.. url = '//localhost/path?r=1&t=2'
+IE_TRACE:             Modified var:.. scheme = 'https'
+IE_TRACE:             19:14:24.500164 line       510     if url[:2] == '//':
+IE_TRACE:             19:14:24.500207 line       511         netloc, url = _splitnetloc(url, 2)
+IE_TRACE:                 Starting var:.. url = '//localhost/path?r=1&t=2'
+IE_TRACE:                 Starting var:.. start = 2
+IE_TRACE:                 19:14:24.500241 call       413 def _splitnetloc(url, start=0):
+IE_TRACE:                 19:14:24.500275 line       414     delim = len(url)   # position of end of domain part of url, default is end
+IE_TRACE:                 New var:....... delim = 24
+IE_TRACE:                 19:14:24.500297 line       415     for c in '/?#':    # look for delimiters; the order is NOT important
+IE_TRACE:                 New var:....... c = '/'
+IE_TRACE:                 19:14:24.500324 line       416         wdelim = url.find(c, start)        # find first of this delim
+IE_TRACE:                 New var:....... wdelim = 11
+IE_TRACE:                 19:14:24.500353 line       417         if wdelim >= 0:                    # if found
+IE_TRACE:                 19:14:24.500382 line       418             delim = min(delim, wdelim)     # use earliest delim position
+IE_TRACE:                 Modified var:.. delim = 11
+IE_TRACE:                 19:14:24.500405 line       415     for c in '/?#':    # look for delimiters; the order is NOT important
+IE_TRACE:                 Modified var:.. c = '?'
+IE_TRACE:                 19:14:24.500434 line       416         wdelim = url.find(c, start)        # find first of this delim
+IE_TRACE:                 Modified var:.. wdelim = 16
+IE_TRACE:                 19:14:24.500461 line       417         if wdelim >= 0:                    # if found
+IE_TRACE:                 19:14:24.500489 line       418             delim = min(delim, wdelim)     # use earliest delim position
+IE_TRACE:                 19:14:24.500510 line       415     for c in '/?#':    # look for delimiters; the order is NOT important
+IE_TRACE:                 Modified var:.. c = '#'
+IE_TRACE:                 19:14:24.500531 line       416         wdelim = url.find(c, start)        # find first of this delim
+IE_TRACE:                 Modified var:.. wdelim = -1
+IE_TRACE:                 19:14:24.500559 line       417         if wdelim >= 0:                    # if found
+IE_TRACE:                 19:14:24.500586 line       415     for c in '/?#':    # look for delimiters; the order is NOT important
+IE_TRACE:                 19:14:24.500608 line       419     return url[start:delim], url[delim:]   # return (domain, rest)
+IE_TRACE:                 19:14:24.500630 return     419     return url[start:delim], url[delim:]   # return (domain, rest)
+IE_TRACE:                 Return value:.. ('localhost', '/path?r=1&t=2')
+IE_TRACE:             Modified var:.. url = '/path?r=1&t=2'
+IE_TRACE:             Modified var:.. netloc = 'localhost'
+IE_TRACE:             19:14:24.500663 line       512         if (('[' in netloc and ']' not in netloc) or
+IE_TRACE:             19:14:24.500706 line       513                 (']' in netloc and '[' not in netloc)):
+IE_TRACE:             19:14:24.500736 line       515         if '[' in netloc and ']' in netloc:
+IE_TRACE:             19:14:24.500764 line       517     if allow_fragments and '#' in url:
+IE_TRACE:             19:14:24.500800 line       519     if '?' in url:
+IE_TRACE:             19:14:24.500828 line       520         url, query = url.split('?', 1)
+IE_TRACE:             Modified var:.. url = '/path'
+IE_TRACE:             Modified var:.. query = 'r=1&t=2'
+IE_TRACE:             19:14:24.500857 line       521     _checknetloc(netloc)
+IE_TRACE:                 Starting var:.. netloc = 'localhost'
+IE_TRACE:                 19:14:24.500909 call       421 def _checknetloc(netloc):
+IE_TRACE:                 19:14:24.500936 line       422     if not netloc or netloc.isascii():
+IE_TRACE:                 19:14:24.500954 line       423         return
+IE_TRACE:                 19:14:24.500972 return     423         return
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             19:14:24.501000 line       522     v = SplitResult(scheme, netloc, url, query, fragment)
+IE_TRACE:                 Source path:... <string>
+IE_TRACE:                 Starting var:.. _cls = <class 'urllib.parse.SplitResult'>
+IE_TRACE:                 Starting var:.. scheme = 'https'
+IE_TRACE:                 Starting var:.. netloc = 'localhost'
+IE_TRACE:                 Starting var:.. path = '/path'
+IE_TRACE:                 Starting var:.. query = 'r=1&t=2'
+IE_TRACE:                 Starting var:.. fragment = ''
+IE_TRACE:                 19:14:24.501036 call         1 SOURCE IS UNAVAILABLE
+IE_TRACE:                 19:14:24.501133 line         1 SOURCE IS UNAVAILABLE
+IE_TRACE:                 19:14:24.501161 return       1 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Return value:.. SplitResult(scheme='https', netloc='localhost', path='/path', query='r=1&t=2', fragment='')
+IE_TRACE:             Source path:... /usr/lib/python3.12/urllib/parse.py
+IE_TRACE:             New var:....... v = SplitResult(scheme='https', netloc='localhost', path='/path', query='r=1&t=2', fragment='')
+IE_TRACE:             19:14:24.501205 line       523     return _coerce_result(v)
+IE_TRACE:                 Starting var:.. obj = SplitResult(scheme='https', netloc='localhost', path='/path', query='r=1&t=2', fragment='')
+IE_TRACE:                 19:14:24.501255 call       108 def _noop(obj):
+IE_TRACE:                 19:14:24.501281 line       109     return obj
+IE_TRACE:                 19:14:24.501299 return     109     return obj
+IE_TRACE:                 Return value:.. SplitResult(scheme='https', netloc='localhost', path='/path', query='r=1&t=2', fragment='')
+IE_TRACE:             19:14:24.501325 return     523     return _coerce_result(v)
+IE_TRACE:             Return value:.. SplitResult(scheme='https', netloc='localhost', path='/path', query='r=1&t=2', fragment='')
+IE_TRACE:         New var:....... splitresult = SplitResult(scheme='https', netloc='localhost', path='/path', query='r=1&t=2', fragment='')
+IE_TRACE:         19:14:24.501368 line       396     scheme, netloc, url, query, fragment = splitresult
+IE_TRACE:         Modified var:.. url = '/path'
+IE_TRACE:         Modified var:.. scheme = 'https'
+IE_TRACE:         New var:....... netloc = 'localhost'
+IE_TRACE:         New var:....... query = 'r=1&t=2'
+IE_TRACE:         New var:....... fragment = ''
+IE_TRACE:         19:14:24.501400 line       397     if scheme in uses_params and ';' in url:
+IE_TRACE:         19:14:24.501460 line       400         params = ''
+IE_TRACE:         New var:....... params = ''
+IE_TRACE:         19:14:24.501486 line       401     result = ParseResult(scheme, netloc, url, params, query, fragment)
+IE_TRACE:             Source path:... <string>
+IE_TRACE:             Starting var:.. _cls = <class 'urllib.parse.ParseResult'>
+IE_TRACE:             Starting var:.. scheme = 'https'
+IE_TRACE:             Starting var:.. netloc = 'localhost'
+IE_TRACE:             Starting var:.. path = '/path'
+IE_TRACE:             Starting var:.. params = ''
+IE_TRACE:             Starting var:.. query = 'r=1&t=2'
+IE_TRACE:             Starting var:.. fragment = ''
+IE_TRACE:             19:14:24.501524 call         1 SOURCE IS UNAVAILABLE
+IE_TRACE:             19:14:24.501609 line         1 SOURCE IS UNAVAILABLE
+IE_TRACE:             19:14:24.501635 return       1 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. ParseResult(scheme='https', netloc='localhost', path='/path', params='', query='r=1&t=2', fragment='')
+IE_TRACE:         Source path:... /usr/lib/python3.12/urllib/parse.py
+IE_TRACE:         New var:....... result = ParseResult(scheme='https', netloc='localhost', path='/path', params='', query='r=1&t=2', fragment='')
+IE_TRACE:         19:14:24.501671 line       402     return _coerce_result(result)
+IE_TRACE:             Starting var:.. obj = ParseResult(scheme='https', netloc='localhost', path='/path', params='', query='r=1&t=2', fragment='')
+IE_TRACE:             19:14:24.501716 call       108 def _noop(obj):
+IE_TRACE:             19:14:24.501740 line       109     return obj
+IE_TRACE:             19:14:24.501755 return     109     return obj
+IE_TRACE:             Return value:.. ParseResult(scheme='https', netloc='localhost', path='/path', params='', query='r=1&t=2', fragment='')
+IE_TRACE:         19:14:24.501780 return     402     return _coerce_result(result)
+IE_TRACE:         Return value:.. ParseResult(scheme='https', netloc='localhost', path='/path', params='', query='r=1&t=2', fragment='')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/httputil.py
+IE_TRACE:     New var:....... parsed_url = ParseResult(scheme='https', netloc='localhost', path='/path', params='', query='r=1&t=2', fragment='')
+IE_TRACE:     19:14:24.501818 line       607     if isinstance(args, dict):
+IE_TRACE:     19:14:24.501851 line       610     elif isinstance(args, list) or isinstance(args, tuple):
+IE_TRACE:     19:14:24.501873 line       614         err = "'args' parameter should be dict, list or tuple. Not {0}".format(
+IE_TRACE:     19:14:24.501892 line       615             type(args))
+IE_TRACE:     19:14:24.501911 line       614         err = "'args' parameter should be dict, list or tuple. Not {0}".format(
+IE_TRACE:     New var:....... err = "'args' parameter should be dict, list or tuple. Not <class 'NoneType'>"
+IE_TRACE:     19:14:24.501937 line       616         raise TypeError(err)
+IE_TRACE:     19:14:24.501965 exception  616         raise TypeError(err)
+IE_TRACE:     Exception:..... TypeError: 'args' parameter should be dict, list or tuple. Not <class 'NoneType'>
+IE_TRACE:     Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/httputil_test.py
+IE_TRACE: 19:14:24.502099 exception   73         url = url_concat(
+IE_TRACE: Exception:..... TypeError: 'args' parameter should be dict, list or tuple. Not <class 'NoneType'>
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.004491
+======================================================================
+ERROR: test_url_concat_none_params (tornado.test.httputil_test.TestUrlConcat.test_url_concat_none_params)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/test/httputil_test.py", line 73, in test_url_concat_none_params
+    url = url_concat(
+          ^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/httputil.py", line 616, in url_concat
+    raise TypeError(err)
+TypeError: 'args' parameter should be dict, list or tuple. Not <class 'NoneType'>
+
+----------------------------------------------------------------------
+Ran 1 test in 0.005s
+
+FAILED (errors=1)
+
+
+Exit code: 1

@@ -1,0 +1,319 @@
+Cleared: /path/to/results/scrapy/bug16
+Running: python -m unittest -q tests.test_utils_url.CanonicalizeUrlTest.test_canonicalize_url_unicode_query_string
+Workdir: /path/to/BugsInPy/workspace/scrapy
+PYTHONPATH: /path/to/BugsInPy/workspace/scrapy::
+/path/to/BugsInPy/workspace/scrapy/tests/test_utils_url.py:422: SyntaxWarning: invalid escape sequence '\p'
+  ('C:\absolute\path\to\a\file.html',     'file://',
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_url.py
+IE_TRACE: Starting var:.. self = <tests.test_utils_url.CanonicalizeUrlTest testMethod=test_canonicalize_url_unicode_query_string>
+IE_TRACE: 12:34:43.342457 call       136     def test_canonicalize_url_unicode_query_string(self):
+IE_TRACE: 12:34:43.342698 line       138         self.assertEqual(canonicalize_url(u"http://www.example.com/résumé?q=résumé"),
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:     Starting var:.. url = 'http://www.example.com/résumé?q=résumé'
+IE_TRACE:     Starting var:.. keep_blank_values = True
+IE_TRACE:     Starting var:.. keep_fragments = False
+IE_TRACE:     Starting var:.. encoding = None
+IE_TRACE:     12:34:43.342734 call        41 def canonicalize_url(url, keep_blank_values=True, keep_fragments=False,
+IE_TRACE:     12:34:43.342830 line        59     scheme, netloc, path, params, query, fragment = parse_url(url)
+IE_TRACE:         Starting var:.. url = 'http://www.example.com/résumé?q=résumé'
+IE_TRACE:         Starting var:.. encoding = None
+IE_TRACE:         12:34:43.342857 call        79 def parse_url(url, encoding=None):
+IE_TRACE:         12:34:43.342883 line        83     if isinstance(url, ParseResult):
+IE_TRACE:         12:34:43.342897 line        85     return urlparse(to_native_str(url, encoding))
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/python.py
+IE_TRACE:             Starting var:.. text = 'http://www.example.com/résumé?q=résumé'
+IE_TRACE:             Starting var:.. encoding = None
+IE_TRACE:             Starting var:.. errors = 'strict'
+IE_TRACE:             12:34:43.342913 call       125 def to_native_str(text, encoding=None, errors='strict'):
+IE_TRACE:             12:34:43.342982 line       128     if six.PY2:
+IE_TRACE:             12:34:43.342998 line       131         return to_unicode(text, encoding, errors)
+IE_TRACE:                 Starting var:.. text = 'http://www.example.com/résumé?q=résumé'
+IE_TRACE:                 Starting var:.. encoding = None
+IE_TRACE:                 Starting var:.. errors = 'strict'
+IE_TRACE:                 12:34:43.343016 call        99 def to_unicode(text, encoding=None, errors='strict'):
+IE_TRACE:                 12:34:43.343042 line       102     if isinstance(text, six.text_type):
+IE_TRACE:                 12:34:43.343058 line       103         return text
+IE_TRACE:                 12:34:43.343071 return     103         return text
+IE_TRACE:                 Return value:.. 'http://www.example.com/résumé?q=résumé'
+IE_TRACE:             12:34:43.343093 return     131         return to_unicode(text, encoding, errors)
+IE_TRACE:             Return value:.. 'http://www.example.com/résumé?q=résumé'
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:         12:34:43.345449 return      85     return urlparse(to_native_str(url, encoding))
+IE_TRACE:         Return value:.. ParseResult(scheme='http', netloc='www.example.com', path='/résumé', params='', query='q=résumé', fragment='')
+IE_TRACE:     New var:....... scheme = 'http'
+IE_TRACE:     New var:....... netloc = 'www.example.com'
+IE_TRACE:     New var:....... path = '/résumé'
+IE_TRACE:     New var:....... params = ''
+IE_TRACE:     New var:....... query = 'q=résumé'
+IE_TRACE:     New var:....... fragment = ''
+IE_TRACE:     12:34:43.345472 line        60     keyvals = parse_qsl(query, keep_blank_values)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:     New var:....... keyvals = [('q', 'résumé')]
+IE_TRACE:     12:34:43.346532 line        61     keyvals.sort()
+IE_TRACE:     12:34:43.346564 line        62     query = urlencode(keyvals)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:     Modified var:.. query = 'q=r%C3%A9sum%C3%A9'
+IE_TRACE:     12:34:43.348571 line        68     path = safe_url_string(_unquotepath(path)) or '/'
+IE_TRACE:         Starting var:.. path = '/résumé'
+IE_TRACE:         12:34:43.348606 call        73 def _unquotepath(path):
+IE_TRACE:         12:34:43.348623 line        74     for reserved in ('2f', '2F', '3f', '3F'):
+IE_TRACE:         New var:....... reserved = '2f'
+IE_TRACE:         12:34:43.348634 line        75         path = path.replace('%' + reserved, '%25' + reserved.upper())
+IE_TRACE:     [CONDENSED] 2 identical loop iterations skipped (4 total iterations, showing first and last)
+IE_TRACE:         12:34:43.348705 line        74     for reserved in ('2f', '2F', '3f', '3F'):
+IE_TRACE:         Modified var:.. reserved = '3F'
+IE_TRACE:         12:34:43.348715 line        75         path = path.replace('%' + reserved, '%25' + reserved.upper())
+IE_TRACE:         12:34:43.348730 line        74     for reserved in ('2f', '2F', '3f', '3F'):
+IE_TRACE:         12:34:43.348740 line        76     return unquote(path)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:         12:34:43.348851 return      76     return unquote(path)
+IE_TRACE:         Return value:.. '/résumé'
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:         Starting var:.. url = '/résumé'
+IE_TRACE:         Starting var:.. encoding = 'utf8'
+IE_TRACE:         Starting var:.. path_encoding = 'utf8'
+IE_TRACE:         Starting var:.. quote_path = True
+IE_TRACE:         12:34:43.348885 call        90 def safe_url_string(  # pylint: disable=too-many-locals
+IE_TRACE:         12:34:43.349031 line       139     decoded = to_unicode(url, encoding=encoding, errors="percentencode")
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/util.py
+IE_TRACE:             Starting var:.. text = '/résumé'
+IE_TRACE:             Starting var:.. encoding = 'utf8'
+IE_TRACE:             Starting var:.. errors = 'percentencode'
+IE_TRACE:             12:34:43.349055 call         4 def to_unicode(
+IE_TRACE:             12:34:43.349110 line         9     if isinstance(text, str):
+IE_TRACE:             12:34:43.349126 line        10         return text
+IE_TRACE:             12:34:43.349141 return      10         return text
+IE_TRACE:             Return value:.. '/résumé'
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:         New var:....... decoded = '/résumé'
+IE_TRACE:         12:34:43.349160 line       140     parts = urlsplit(_strip(decoded))
+IE_TRACE:             Starting var:.. url = '/résumé'
+IE_TRACE:             12:34:43.349189 call        84 def _strip(url: str) -> str:
+IE_TRACE:             12:34:43.349269 line        85     return url.strip(_C0_CONTROL_OR_SPACE).translate(
+IE_TRACE:             12:34:43.349305 line        86         _ASCII_TAB_OR_NEWLINE_TRANSLATION_TABLE
+IE_TRACE:             12:34:43.349323 line        85     return url.strip(_C0_CONTROL_OR_SPACE).translate(
+IE_TRACE:             12:34:43.349337 return      85     return url.strip(_C0_CONTROL_OR_SPACE).translate(
+IE_TRACE:             Return value:.. '/résumé'
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:         New var:....... parts = SplitResult(scheme='', netloc='', path='/résumé', query='', fragment='')
+IE_TRACE:         12:34:43.350280 line       143         parts.username,
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:         12:34:43.350517 line       144         parts.password,
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:         12:34:43.350732 line       145         parts.hostname,
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:         12:34:43.351063 line       146         parts.port,
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:         12:34:43.351378 line       142     username, password, hostname, port = (
+IE_TRACE:         New var:....... username = None
+IE_TRACE:         New var:....... password = None
+IE_TRACE:         New var:....... hostname = None
+IE_TRACE:         New var:....... port = None
+IE_TRACE:         12:34:43.351402 line       148     netloc_bytes = b""
+IE_TRACE:         New var:....... netloc_bytes = b''
+IE_TRACE:         12:34:43.351438 line       149     if username is not None or password is not None:
+IE_TRACE:         12:34:43.351465 line       158     if hostname is not None:
+IE_TRACE:         12:34:43.351489 line       170     if port is not None:
+IE_TRACE:         12:34:43.351511 line       174     netloc = netloc_bytes.decode()
+IE_TRACE:         New var:....... netloc = ''
+IE_TRACE:         12:34:43.351534 line       177     if quote_path:
+IE_TRACE:         12:34:43.351561 line       178         path = quote(parts.path.encode(path_encoding), _PATH_SAFEST_CHARS)
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:         New var:....... path = '/r%C3%A9sum%C3%A9'
+IE_TRACE:         12:34:43.354188 line       182     if parts.scheme in _SPECIAL_SCHEMES:
+IE_TRACE:         12:34:43.354230 line       185         query = quote(parts.query.encode(encoding), _QUERY_SAFEST_CHARS)
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:         New var:....... query = ''
+IE_TRACE:         12:34:43.354453 line       187     return urlunsplit(
+IE_TRACE:         12:34:43.354488 line       189             parts.scheme,
+IE_TRACE:         12:34:43.354514 line       190             netloc,
+IE_TRACE:         12:34:43.354539 line       191             path,
+IE_TRACE:         12:34:43.354564 line       192             query,
+IE_TRACE:         12:34:43.354590 line       193             quote(parts.fragment.encode(encoding), _FRAGMENT_SAFEST_CHARS),
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:         12:34:43.354805 line       188         (
+IE_TRACE:         12:34:43.354835 line       187     return urlunsplit(
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:         12:34:43.355317 return     187     return urlunsplit(
+IE_TRACE:         Return value:.. '/r%C3%A9sum%C3%A9'
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:     Modified var:.. path = '/r%C3%A9sum%C3%A9'
+IE_TRACE:     12:34:43.355353 line        69     fragment = '' if not keep_fragments else fragment
+IE_TRACE:     12:34:43.355386 line        70     return urlunparse((scheme, netloc.lower(), path, params, query, fragment))
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:     12:34:43.356309 return      70     return urlunparse((scheme, netloc.lower(), path, params, query, fragment))
+IE_TRACE:     Return value:.. 'http://www.example.com/r%C3%A9sum%C3%A9?q=r%C3%A9sum%C3%A9'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_url.py
+IE_TRACE: 12:34:43.356341 line       139                                           "http://www.example.com/r%C3%A9sum%C3%A9?q=r%C3%A9sum%C3%A9")
+IE_TRACE: 12:34:43.356360 line       138         self.assertEqual(canonicalize_url(u"http://www.example.com/résumé?q=résumé"),
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_url.py
+IE_TRACE: 12:34:43.356991 line       142         self.assertEqual(canonicalize_url(u"http://www.example.com/résumé?q=résumé", encoding='latin1'),
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:     Starting var:.. url = 'http://www.example.com/résumé?q=résumé'
+IE_TRACE:     Starting var:.. keep_blank_values = True
+IE_TRACE:     Starting var:.. keep_fragments = False
+IE_TRACE:     Starting var:.. encoding = 'latin1'
+IE_TRACE:     12:34:43.357009 call        41 def canonicalize_url(url, keep_blank_values=True, keep_fragments=False,
+IE_TRACE:     12:34:43.357045 line        59     scheme, netloc, path, params, query, fragment = parse_url(url)
+IE_TRACE:         Starting var:.. url = 'http://www.example.com/résumé?q=résumé'
+IE_TRACE:         Starting var:.. encoding = None
+IE_TRACE:         12:34:43.357062 call        79 def parse_url(url, encoding=None):
+IE_TRACE:         12:34:43.357081 line        83     if isinstance(url, ParseResult):
+IE_TRACE:         12:34:43.357093 line        85     return urlparse(to_native_str(url, encoding))
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/python.py
+IE_TRACE:             Starting var:.. text = 'http://www.example.com/résumé?q=résumé'
+IE_TRACE:             Starting var:.. encoding = None
+IE_TRACE:             Starting var:.. errors = 'strict'
+IE_TRACE:             12:34:43.357105 call       125 def to_native_str(text, encoding=None, errors='strict'):
+IE_TRACE:             12:34:43.357133 line       128     if six.PY2:
+IE_TRACE:             12:34:43.357146 line       131         return to_unicode(text, encoding, errors)
+IE_TRACE:                 Starting var:.. text = 'http://www.example.com/résumé?q=résumé'
+IE_TRACE:                 Starting var:.. encoding = None
+IE_TRACE:                 Starting var:.. errors = 'strict'
+IE_TRACE:                 12:34:43.357159 call        99 def to_unicode(text, encoding=None, errors='strict'):
+IE_TRACE:                 12:34:43.357182 line       102     if isinstance(text, six.text_type):
+IE_TRACE:                 12:34:43.357199 line       103         return text
+IE_TRACE:                 12:34:43.357212 return     103         return text
+IE_TRACE:                 Return value:.. 'http://www.example.com/résumé?q=résumé'
+IE_TRACE:             12:34:43.357230 return     131         return to_unicode(text, encoding, errors)
+IE_TRACE:             Return value:.. 'http://www.example.com/résumé?q=résumé'
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:         12:34:43.357750 return      85     return urlparse(to_native_str(url, encoding))
+IE_TRACE:         Return value:.. ParseResult(scheme='http', netloc='www.example.com', path='/résumé', params='', query='q=résumé', fragment='')
+IE_TRACE:     New var:....... scheme = 'http'
+IE_TRACE:     New var:....... netloc = 'www.example.com'
+IE_TRACE:     New var:....... path = '/résumé'
+IE_TRACE:     New var:....... params = ''
+IE_TRACE:     New var:....... query = 'q=résumé'
+IE_TRACE:     New var:....... fragment = ''
+IE_TRACE:     12:34:43.357772 line        60     keyvals = parse_qsl(query, keep_blank_values)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:     New var:....... keyvals = [('q', 'résumé')]
+IE_TRACE:     12:34:43.358795 line        61     keyvals.sort()
+IE_TRACE:     12:34:43.358827 line        62     query = urlencode(keyvals)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:     Modified var:.. query = 'q=r%C3%A9sum%C3%A9'
+IE_TRACE:     12:34:43.360036 line        68     path = safe_url_string(_unquotepath(path)) or '/'
+IE_TRACE:         Starting var:.. path = '/résumé'
+IE_TRACE:         12:34:43.360066 call        73 def _unquotepath(path):
+IE_TRACE:         12:34:43.360082 line        74     for reserved in ('2f', '2F', '3f', '3F'):
+IE_TRACE:         New var:....... reserved = '2f'
+IE_TRACE:         12:34:43.360093 line        75         path = path.replace('%' + reserved, '%25' + reserved.upper())
+IE_TRACE:     [CONDENSED] 2 identical loop iterations skipped (4 total iterations, showing first and last)
+IE_TRACE:         12:34:43.360161 line        74     for reserved in ('2f', '2F', '3f', '3F'):
+IE_TRACE:         Modified var:.. reserved = '3F'
+IE_TRACE:         12:34:43.360172 line        75         path = path.replace('%' + reserved, '%25' + reserved.upper())
+IE_TRACE:         12:34:43.360186 line        74     for reserved in ('2f', '2F', '3f', '3F'):
+IE_TRACE:         12:34:43.360199 line        76     return unquote(path)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:         12:34:43.360307 return      76     return unquote(path)
+IE_TRACE:         Return value:.. '/résumé'
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:         Starting var:.. url = '/résumé'
+IE_TRACE:         Starting var:.. encoding = 'utf8'
+IE_TRACE:         Starting var:.. path_encoding = 'utf8'
+IE_TRACE:         Starting var:.. quote_path = True
+IE_TRACE:         12:34:43.360329 call        90 def safe_url_string(  # pylint: disable=too-many-locals
+IE_TRACE:         12:34:43.360364 line       139     decoded = to_unicode(url, encoding=encoding, errors="percentencode")
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/util.py
+IE_TRACE:             Starting var:.. text = '/résumé'
+IE_TRACE:             Starting var:.. encoding = 'utf8'
+IE_TRACE:             Starting var:.. errors = 'percentencode'
+IE_TRACE:             12:34:43.360382 call         4 def to_unicode(
+IE_TRACE:             12:34:43.360410 line         9     if isinstance(text, str):
+IE_TRACE:             12:34:43.360424 line        10         return text
+IE_TRACE:             12:34:43.360438 return      10         return text
+IE_TRACE:             Return value:.. '/résumé'
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:         New var:....... decoded = '/résumé'
+IE_TRACE:         12:34:43.360456 line       140     parts = urlsplit(_strip(decoded))
+IE_TRACE:             Starting var:.. url = '/résumé'
+IE_TRACE:             12:34:43.360483 call        84 def _strip(url: str) -> str:
+IE_TRACE:             12:34:43.360498 line        85     return url.strip(_C0_CONTROL_OR_SPACE).translate(
+IE_TRACE:             12:34:43.360511 line        86         _ASCII_TAB_OR_NEWLINE_TRANSLATION_TABLE
+IE_TRACE:             12:34:43.360522 line        85     return url.strip(_C0_CONTROL_OR_SPACE).translate(
+IE_TRACE:             12:34:43.360535 return      85     return url.strip(_C0_CONTROL_OR_SPACE).translate(
+IE_TRACE:             Return value:.. '/résumé'
+IE_TRACE:         New var:....... parts = SplitResult(scheme='', netloc='', path='/résumé', query='', fragment='')
+IE_TRACE:         12:34:43.360551 line       143         parts.username,
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:         12:34:43.360776 line       144         parts.password,
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:         12:34:43.360994 line       145         parts.hostname,
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:         12:34:43.361318 line       146         parts.port,
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:         12:34:43.361631 line       142     username, password, hostname, port = (
+IE_TRACE:         New var:....... username = None
+IE_TRACE:         New var:....... password = None
+IE_TRACE:         New var:....... hostname = None
+IE_TRACE:         New var:....... port = None
+IE_TRACE:         12:34:43.361654 line       148     netloc_bytes = b""
+IE_TRACE:         New var:....... netloc_bytes = b''
+IE_TRACE:         12:34:43.361691 line       149     if username is not None or password is not None:
+IE_TRACE:         12:34:43.361719 line       158     if hostname is not None:
+IE_TRACE:         12:34:43.361743 line       170     if port is not None:
+IE_TRACE:         12:34:43.361766 line       174     netloc = netloc_bytes.decode()
+IE_TRACE:         New var:....... netloc = ''
+IE_TRACE:         12:34:43.361789 line       177     if quote_path:
+IE_TRACE:         12:34:43.361818 line       178         path = quote(parts.path.encode(path_encoding), _PATH_SAFEST_CHARS)
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:         New var:....... path = '/r%C3%A9sum%C3%A9'
+IE_TRACE:         12:34:43.363639 line       182     if parts.scheme in _SPECIAL_SCHEMES:
+IE_TRACE:         12:34:43.363675 line       185         query = quote(parts.query.encode(encoding), _QUERY_SAFEST_CHARS)
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:         New var:....... query = ''
+IE_TRACE:         12:34:43.363899 line       187     return urlunsplit(
+IE_TRACE:         12:34:43.363933 line       189             parts.scheme,
+IE_TRACE:         12:34:43.363960 line       190             netloc,
+IE_TRACE:         12:34:43.363986 line       191             path,
+IE_TRACE:         12:34:43.364012 line       192             query,
+IE_TRACE:         12:34:43.364038 line       193             quote(parts.fragment.encode(encoding), _FRAGMENT_SAFEST_CHARS),
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:         12:34:43.364258 line       188         (
+IE_TRACE:         12:34:43.364288 line       187     return urlunsplit(
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:         12:34:43.364764 return     187     return urlunsplit(
+IE_TRACE:         Return value:.. '/r%C3%A9sum%C3%A9'
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:     Modified var:.. path = '/r%C3%A9sum%C3%A9'
+IE_TRACE:     12:34:43.364800 line        69     fragment = '' if not keep_fragments else fragment
+IE_TRACE:     12:34:43.364831 line        70     return urlunparse((scheme, netloc.lower(), path, params, query, fragment))
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:     12:34:43.365776 return      70     return urlunparse((scheme, netloc.lower(), path, params, query, fragment))
+IE_TRACE:     Return value:.. 'http://www.example.com/r%C3%A9sum%C3%A9?q=r%C3%A9sum%C3%A9'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_url.py
+IE_TRACE: 12:34:43.365808 line       143                                           "http://www.example.com/r%C3%A9sum%C3%A9?q=r%E9sum%E9")
+IE_TRACE: 12:34:43.365825 line       142         self.assertEqual(canonicalize_url(u"http://www.example.com/résumé?q=résumé", encoding='latin1'),
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_url.py
+IE_TRACE: 12:34:43.465733 exception  142         self.assertEqual(canonicalize_url(u"http://www.example.com/résumé?q=résumé", encoding='latin1'),
+IE_TRACE: Exception:..... AssertionError: 'http://www.example.com/r%C3%A9sum%C3%A9?q=r%C3%A9sum%C3%A9' != 'http://www.example.com/r%C3%A9sum%C3%A9?q=r%E9sum%E9'
+- http://www.example.com/r%C3%A9sum%C3%A9?q=r%C3%A9sum%C3%A9
+?                                             ^^^^     ^^^^
++ http://www.example.com/r%C3%A9sum%C3%A9?q=r%E9sum%E9
+?                                             ^     ^
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.123451
+======================================================================
+FAIL: test_canonicalize_url_unicode_query_string (tests.test_utils_url.CanonicalizeUrlTest.test_canonicalize_url_unicode_query_string)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/tests/test_utils_url.py", line 142, in test_canonicalize_url_unicode_query_string
+    self.assertEqual(canonicalize_url(u"http://www.example.com/résumé?q=résumé", encoding='latin1'),
+AssertionError: 'http://www.example.com/r%C3%A9sum%C3%A9?q=r%C3%A9sum%C3%A9' != 'http://www.example.com/r%C3%A9sum%C3%A9?q=r%E9sum%E9'
+- http://www.example.com/r%C3%A9sum%C3%A9?q=r%C3%A9sum%C3%A9
+?                                             ^^^^     ^^^^
++ http://www.example.com/r%C3%A9sum%C3%A9?q=r%E9sum%E9
+?                                             ^     ^
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.124s
+
+FAILED (failures=1)
+
+
+Exit code: 1

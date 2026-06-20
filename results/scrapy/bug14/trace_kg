@@ -1,0 +1,170 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_is_gzipped_case_insensitive [label="test_is_gzipped_case_insensitive
+test_utils_gz.py:50" fillcolor=white shape=box style=filled]
+	__init__ [label="__init__
+extensions.py:5" fillcolor=white shape=box style=filled]
+	update [label="update
+memusage.py:75" fillcolor=white shape=box style=filled]
+	seq [label="seq
+(2 writes, 2 distinct)
+dict_items([('Content-Type', 'Application/X-Gzip')])
+[(b'Content-Type', [b'Application/X-Gzip'])]" shape=ellipse]
+	iseq [label="iseq
+(2 writes)
+<generator object CaselessDict.update.<locals>.<genexpr> at 0x74c178aff970>" shape=ellipse]
+	normkey [label="normkey
+Normalize key to bytes
+headers.py:14" fillcolor=white shape=box style=filled]
+	_tobytes [label="_tobytes
+headers.py:29" fillcolor=white shape=box style=filled]
+	normvalue [label="normvalue
+Normalize values to bytes
+headers.py:18" fillcolor=white shape=box style=filled]
+	value [label="value
+(2 writes, 2 distinct)
+['Application/X-Gzip']
+[b'']" shape=ellipse]
+	x [label="x
+(3 writes, 3 distinct)
+'Application/X-Gzip'
+b'Application/X-Gzip'
+b''" shape=ellipse]
+	k [label="k
+(3 writes, 2 distinct)
+'Content-Type'
+b'Content-Type'" shape=ellipse]
+	v [label="v
+(2 writes, 2 distinct)
+'Application/X-Gzip'
+[b'Application/X-Gzip']" shape=ellipse]
+	self [label="self
+(8 writes, 2 distinct)
+{b'Content-Type': [b'Application/X-Gzip']}
+<200 http://www.example.com>" shape=ellipse]
+	hdrs [label="hdrs
+{b'Content-Type': [b'Application/X-Gzip']}" shape=ellipse]
+	__new__ [label="__new__
+item.py:27" fillcolor=white shape=box style=filled]
+	obj [label="obj
+REPR FAILED" shape=ellipse]
+	items [label="items
+headers.py:70" fillcolor=white shape=box style=filled]
+	iteritems [label="iteritems
+headers.py:73" fillcolor=white shape=box style=filled]
+	getlist [label="getlist
+headers.py:51" fillcolor=white shape=box style=filled]
+	__getitem__ [label="__getitem__
+headers.py:39" fillcolor=white shape=box style=filled]
+	_set_body [label="_set_body
+text.py:39" fillcolor=white shape=box style=filled]
+	_set_url [label="_set_url
+text.py:30" fillcolor=white shape=box style=filled]
+	r1 [label="r1
+<200 http://www.example.com>" shape=ellipse]
+	is_gzipped [label="is_gzipped
+Return True if the response is gzipped, or False otherw…
+gz.py:54" fillcolor=white shape=box style=filled]
+	get [label="get
+headers.py:45" fillcolor=white shape=box style=filled]
+	ctype [label="ctype
+b'Application/X-Gzip'" shape=ellipse]
+	ERROR__AssertionError [label="AssertionError
+False is not true" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_is_gzipped_case_insensitive
+	}
+	{
+		rank=same
+		__init__
+		__new__
+		is_gzipped
+	}
+	{
+		rank=same
+		_set_body
+		_set_url
+		get
+	}
+	{
+		rank=same
+		update
+	}
+	{
+		rank=same
+		normkey
+		normvalue
+	}
+	{
+		rank=same
+		_tobytes
+		items
+	}
+	{
+		rank=same
+		iteritems
+		getlist
+	}
+	{
+		rank=same
+		__getitem__
+	}
+	test_is_gzipped_case_insensitive -> __init__ [label="calls×2 [#1]" color=blue penwidth=1.2]
+	test_is_gzipped_case_insensitive -> hdrs [label=writes color=black]
+	test_is_gzipped_case_insensitive -> __new__ [label="calls [#8]" color=blue penwidth=1.1]
+	test_is_gzipped_case_insensitive -> r1 [label=writes color=black]
+	test_is_gzipped_case_insensitive -> is_gzipped [label="calls [#24]" color=blue penwidth=1.1]
+	test_is_gzipped_case_insensitive -> ERROR__AssertionError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	__init__ -> __init__ [label="calls×3 [#2]" color=blue penwidth=1.3]
+	__init__ -> update [label="calls×2 [#3]" color=blue penwidth=1.2]
+	__init__ -> self [label="writes×5" color=black]
+	__init__ -> _set_body [label="calls [#22]" color=blue penwidth=1.1]
+	__init__ -> _set_url [label="calls [#23]" color=blue penwidth=1.1]
+	update -> seq [label="writes×2" color=black]
+	update -> iseq [label="writes×2" color=black]
+	update -> normkey [label="calls×2 [#4]" color=blue penwidth=1.2]
+	update -> normvalue [label="calls×2 [#6]" color=blue penwidth=1.2]
+	update -> k [label="writes×2" color=black]
+	update -> v [label="writes×2" color=black]
+	update -> self [label="writes×2" color=black]
+	update -> items [label="calls [#13]" color=blue penwidth=1.1]
+	seq -> __init__ [label="passed to" color=green style=dashed]
+	seq -> update [label="passed to" color=green style=dashed]
+	normkey -> _tobytes [label="calls×3 [#5]" color=blue penwidth=1.3]
+	normvalue -> value [label="writes×2" color=black]
+	normvalue -> _tobytes [label="calls×3 [#7]" color=blue penwidth=1.3]
+	normvalue -> x [label="writes×3" color=black]
+	value -> normvalue [label="passed to" color=green style=dashed]
+	x -> _tobytes [label="passed to" color=green style=dashed]
+	k -> __new__ [label="passed to" color=green style=dashed]
+	k -> normkey [label="passed to" color=green style=dashed]
+	k -> _set_body [label="passed to" color=green style=dashed]
+	v -> __new__ [label="passed to" color=green style=dashed]
+	v -> _set_body [label="passed to" color=green style=dashed]
+	self -> __new__ [label="passed to" color=green style=dashed]
+	self -> __init__ [label="passed to" color=green style=dashed]
+	self -> update [label="passed to" color=green style=dashed]
+	self -> items [label="passed to" color=green style=dashed]
+	self -> iteritems [label="passed to" color=green style=dashed]
+	self -> getlist [label="passed to" color=green style=dashed]
+	self -> __getitem__ [label="passed to" color=green style=dashed]
+	self -> normkey [label="passed to" color=green style=dashed]
+	self -> _tobytes [label="passed to" color=green style=dashed]
+	self -> normvalue [label="passed to" color=green style=dashed]
+	self -> _set_body [label="passed to" color=green style=dashed]
+	self -> _set_url [label="passed to" color=green style=dashed]
+	self -> get [label="passed to" color=green style=dashed]
+	__new__ -> obj [label=writes color=black]
+	items -> iteritems [label="calls [#14]" color=blue penwidth=1.1]
+	items -> getlist [label="calls [#15]" color=blue penwidth=1.1]
+	items -> k [label=writes color=black]
+	getlist -> __getitem__ [label="calls [#16]" color=blue penwidth=1.1]
+	__getitem__ -> normkey [label="calls [#17]" color=blue penwidth=1.1]
+	_set_url -> self [label=writes color=black]
+	is_gzipped -> get [label="calls [#25]" color=blue penwidth=1.1]
+	is_gzipped -> ctype [label=writes color=black]
+	get -> get [label="calls [#26]" color=blue penwidth=1.1]
+	get -> normkey [label="calls [#27]" color=blue penwidth=1.1]
+	get -> normvalue [label="calls [#29]" color=blue penwidth=1.1]
+}

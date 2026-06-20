@@ -1,0 +1,51 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_js_to_json_realworld [label="test_js_to_json_realworld
+test_utils.py:360" fillcolor=white shape=box style=filled]
+	inp [label="inp
+(3 writes, 3 distinct)
+\"{\n            'clip':{'provider':'pseudo'}\n        }\"
+\"{\n            'playlist':[{'controls':{'all':null}}]\n        }\"
+'\"SAND Number: SAND 2013-7800P\\nPresenter: Tom Russo\\nHabanero Software Training - Xyce Software\\nXyce, Sandia\\u0027…" shape=ellipse]
+	js_to_json [label="js_to_json
+utils.py:1546" fillcolor=white shape=box style=filled]
+	fix_kv [label="fix_kv
+(4 writes, 2 distinct)
+<function js_to_json.<locals>.fix_kv at 0x798a4a0d1440>
+<function js_to_json.<locals>.fix_kv at 0x798a4a0d11c0>" shape=ellipse]
+	v [label="v
+(15 writes, 11 distinct)
+\"'clip'\"
+'clip'
+\"'pseudo'\"
+'pseudo'
+\"'playlist'\"
+'playlist'
+  …+5 more values" shape=ellipse]
+	res [label="res
+(4 writes, 3 distinct)
+'{\n            \"clip\":{\"provider\":\"pseudo\"}\n        }'
+'{\n            \"playlist\":[{\"controls\":{\"all\":null}}]\n        }'
+'\"\"SAND\" \"Number\": \"SAND\" 2013-7800\"P\"\\\"nPresenter\": \"Tom\" \"Russo\"\\\"nHabanero\" \"Software\" \"Training\" - \"Xyce\" \"Softwar…" shape=ellipse]
+	json_code [label="json_code
+'\"\"SAND\" \"Number\": \"SAND\" 2013-7800\"P\"\\\"nPresenter\": \"Tom\" \"Russo\"\\\"nHabanero\" \"Software\" \"Training\" - \"Xyce\" \"Softwar…" shape=ellipse]
+	"ERROR__json.decoder.JSONDecodeError" [label="json.decoder.JSONDecodeError
+Extra data: line 1 column 3 (char 2)" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_js_to_json_realworld
+	}
+	{
+		rank=same
+		js_to_json
+	}
+	test_js_to_json_realworld -> inp [label="writes×3" color=black]
+	test_js_to_json_realworld -> js_to_json [label="calls×4 [#1]" color=blue penwidth=1.4]
+	test_js_to_json_realworld -> json_code [label=writes color=black]
+	test_js_to_json_realworld -> "ERROR__json.decoder.JSONDecodeError" [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	js_to_json -> fix_kv [label="writes×4" color=black]
+	js_to_json -> js_to_json [label="loops(×24)" color=purple style=dashed]
+	js_to_json -> v [label="writes×7" color=black]
+	js_to_json -> res [label="writes×4" color=black]
+	fix_kv -> v [label="writes×8" color=black]
+}

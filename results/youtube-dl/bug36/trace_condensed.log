@@ -1,0 +1,123 @@
+Cleared: /path/to/results/youtube-dl/bug36
+Running: python -m unittest -q test.test_all_urls.TestAllURLsMatching.test_facebook_matching
+Workdir: /path/to/BugsInPy/workspace/youtube-dl
+PYTHONPATH: /path/to/BugsInPy/workspace/youtube-dl
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py:873: SyntaxWarning: invalid escape sequence '\d'
+  match = re.match('(now|today)(?P<sign>[+-])(?P<time>\d+)(?P<unit>day|week|month|year)(s)?', date_str)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/divxstage.py:10: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = NovaMovIE._VALID_URL_TEMPLATE % {'host': 'divxstage\.(?:eu|net|ch|co|at|ag)'}
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/francetv.py:193: SyntaxWarning: invalid escape sequence '\.'
+  '\.fr/\?id-video=([^"/&]+)'),
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/funnyordie.py:20: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http:.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/funnyordie.py:30: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http:.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/youtube.py:1373: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = u'https?://www\.youtube\.com/feed/history|:ythistory'
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/smotri.py:353: SyntaxWarning: invalid escape sequence '\.'
+  'window\.broadcast_control\.addFlashVar\\(\'file\', \'([^\']+)\'\\);',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/godtube.py:26: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/ign.py:78: SyntaxWarning: invalid escape sequence '\.'
+  '<param name="flashvars" value="[^"]*?url=(https?://www\.ign\.com/videos/.*?)["&]',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/ivi.py:60: SyntaxWarning: invalid escape sequence '\s'
+  m = re.search('(?s)<a href="#" id="view-comments" class="action-button dim gradient">\s*Комментарии:\s*(?P<commentcount>\d+)\s*</a>', html)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/izlesene.py:27: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/jukebox.py:42: SyntaxWarning: invalid escape sequence '\/'
+  video_url = unescapeHTML(video_url).replace('\/', '/')
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/jukebox.py:47: SyntaxWarning: invalid escape sequence '\/'
+  youtube_url = unescapeHTML(youtube_url).replace('\/', '/')
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/livestream.py:32: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http://.*\.jpg$'
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/metacafe.py:115: SyntaxWarning: invalid escape sequence '\w'
+  m_external = re.match('^(\w{2})-(.*)$', video_id)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/mixcloud.py:29: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/mlb.py:27: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/mlb.py:41: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/mlb.py:55: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/mlb.py:69: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/sockshare.py:25: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/swrmediathek.py:21: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http:.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/swrmediathek.py:35: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/swrmediathek.py:49: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/swrmediathek.py:63: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/teachertube.py:27: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/teachertube.py:37: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/ted.py:49: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.+\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/tumblr.py:22: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/tumblr.py:32: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vimeo.py:245: SyntaxWarning: invalid escape sequence '\w'
+  m_variable_name = re.search('(\w)\.video\.id', webpage)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vodlocker.py:22: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vube.py:26: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http://frame\.thestaticvube\.com/snap/[0-9x]+/102e7e63057-5ebc-4f5c-4065-6ce4ebde131f\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vube.py:45: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http://frame\.thestaticvube\.com/snap/[0-9x]+/102265d5a9f-0f17-4f6b-5753-adf08484ee1e\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vube.py:63: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http://frame\.thestaticvube\.com/snap/[0-9x]+/10283ab622a-86c9-4681-51f2-30d1f65774af\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/youku.py:37: SyntaxWarning: invalid escape sequence '\:'
+  source = list("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ/\:._-1234567890")
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_all_urls.py
+IE_TRACE: Starting var:.. self = <test.test_all_urls.TestAllURLsMatching testMethod=test_facebook_matching>
+IE_TRACE: 15:22:59.630617 call       103     def test_facebook_matching(self):
+IE_TRACE: 15:22:59.630854 line       104         self.assertTrue(FacebookIE.suitable('https://www.facebook.com/Shiniknoh#!/photo.php?v=10153317450565268'))
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/common.py
+IE_TRACE:     Starting var:.. cls = <class 'youtube_dl.extractor.facebook.FacebookIE'>
+IE_TRACE:     Starting var:.. url = 'https://www.facebook.com/Shiniknoh#!/photo.php?v=10153317450565268'
+IE_TRACE:     15:22:59.630898 call       146     def suitable(cls, url):
+IE_TRACE:     15:22:59.631018 line       152         if '_VALID_URL_RE' not in cls.__dict__:
+IE_TRACE:     15:22:59.631042 line       153             cls._VALID_URL_RE = re.compile(cls._VALID_URL)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/common.py
+IE_TRACE:     15:22:59.979327 line       154         return cls._VALID_URL_RE.match(url) is not None
+IE_TRACE:     15:22:59.979355 return     154         return cls._VALID_URL_RE.match(url) is not None
+IE_TRACE:     Return value:.. True
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_all_urls.py
+IE_TRACE: 15:22:59.979650 line       105         self.assertTrue(FacebookIE.suitable('https://www.facebook.com/cindyweather?fref=ts#!/photo.php?v=10152183998945793'))
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/common.py
+IE_TRACE:     Starting var:.. cls = <class 'youtube_dl.extractor.facebook.FacebookIE'>
+IE_TRACE:     Starting var:.. url = 'https://www.facebook.com/cindyweather?fref=ts#!/photo.php?v=10152183998945793'
+IE_TRACE:     15:22:59.979669 call       146     def suitable(cls, url):
+IE_TRACE:     15:22:59.979689 line       152         if '_VALID_URL_RE' not in cls.__dict__:
+IE_TRACE:     15:22:59.979699 line       154         return cls._VALID_URL_RE.match(url) is not None
+IE_TRACE:     15:22:59.979709 return     154         return cls._VALID_URL_RE.match(url) is not None
+IE_TRACE:     Return value:.. False
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_all_urls.py
+IE_TRACE: 15:22:59.979990 exception  105         self.assertTrue(FacebookIE.suitable('https://www.facebook.com/cindyweather?fref=ts#!/photo.php?v=10152183998945793'))
+IE_TRACE: Exception:..... AssertionError: False is not true
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.349601
+======================================================================
+FAIL: test_facebook_matching (test.test_all_urls.TestAllURLsMatching.test_facebook_matching)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/youtube-dl/test/test_all_urls.py", line 105, in test_facebook_matching
+    self.assertTrue(FacebookIE.suitable('https://www.facebook.com/cindyweather?fref=ts#!/photo.php?v=10152183998945793'))
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 1 test in 0.351s
+
+FAILED (failures=1)
+
+
+Exit code: 1

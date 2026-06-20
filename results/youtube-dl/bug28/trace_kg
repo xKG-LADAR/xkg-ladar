@@ -1,0 +1,47 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_unescape_html [label="test_unescape_html
+test_utils.py:212" fillcolor=white shape=box style=filled]
+	unescapeHTML [label="unescapeHTML
+utils.py:405" fillcolor=white shape=box style=filled]
+	_htmlentity_transform [label="_htmlentity_transform
+Transforms an HTML entity to a character.
+utils.py:385" fillcolor=white shape=box style=filled]
+	mobj [label="mobj
+(3 writes, 3 distinct)
+<re.Match object; span=(0, 4), match='#x2F'>
+<re.Match object; span=(0, 3), match='#47'>
+<re.Match object; span=(0, 11), match='#2013266066'>" shape=ellipse]
+	numstr [label="numstr
+(4 writes, 4 distinct)
+'x2F'
+'0x2F'
+'47'
+'2013266066'" shape=ellipse]
+	base [label="base
+(3 writes, 2 distinct)
+16
+10" shape=ellipse]
+	ERROR__ValueError [label="ValueError
+chr() arg not in range(0x110000)" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_unescape_html
+	}
+	{
+		rank=same
+		unescapeHTML
+	}
+	{
+		rank=same
+		_htmlentity_transform
+	}
+	test_unescape_html -> unescapeHTML [label="calls×5 [#1]" color=blue penwidth=1.5]
+	test_unescape_html -> ERROR__ValueError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	unescapeHTML -> _htmlentity_transform [label="calls×4 [#3]" color=blue penwidth=1.4]
+	unescapeHTML -> ERROR__ValueError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	_htmlentity_transform -> mobj [label="writes×3" color=black]
+	_htmlentity_transform -> numstr [label="writes×4" color=black]
+	_htmlentity_transform -> base [label="writes×3" color=black]
+	_htmlentity_transform -> ERROR__ValueError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+}

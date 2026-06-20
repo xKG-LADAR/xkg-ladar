@@ -1,0 +1,529 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_find_hook [label="test_find_hook
+Finds the specified hook.
+test_hooks.py:66" fillcolor=white shape=box style=filled]
+	work_in [label="work_in
+Context manager version of os.chdir.
+utils.py:49" fillcolor=white shape=box style=filled]
+	curdir [label="curdir
+'/path/to/BugsInPy/workspace/cookiecutter'" shape=ellipse]
+	sep [label="sep
+(11 writes)
+'/'" shape=ellipse]
+	cwd [label="cwd
+(3 writes)
+'/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks'" shape=ellipse]
+	path [label="path
+(11 writes, 5 distinct)
+'/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks'
+'/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+'/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks'
+'hooks'
+'hooks/pre_gen_project.py'" shape=ellipse]
+	b [label="b
+(4 writes, 3 distinct)
+'hooks/pre_gen_project.py'
+'hooks'
+'pre_gen_project.py'" shape=ellipse]
+	expected_pre [label="expected_pre
+'/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'" shape=ellipse]
+	find_hook [label="find_hook
+Return a dict of all hook scripts provided.
+hooks.py:39" fillcolor=white shape=box style=filled]
+	st [label="st
+os.stat_result(st_mode=16893, st_ino=4196184, st_dev=66309, st_nlink=2, st_uid=1000, st_gid=1000, st_size=4096, st_atime…" shape=ellipse]
+	hook_file [label="hook_file
+(2 writes, 2 distinct)
+'post_gen_project.sh'
+'pre_gen_project.py'" shape=ellipse]
+	valid_hook [label="valid_hook
+Determine if a hook file is valid.
+hooks.py:22" fillcolor=white shape=box style=filled]
+	i [label="i
+(4 writes)
+0" shape=ellipse]
+	filename [label="filename
+(2 writes, 2 distinct)
+'post_gen_project.sh'
+'pre_gen_project.py'" shape=ellipse]
+	extsep [label="extsep
+(2 writes)
+'.'" shape=ellipse]
+	sepIndex [label="sepIndex
+(2 writes)
+-1" shape=ellipse]
+	dotIndex [label="dotIndex
+(2 writes, 2 distinct)
+16
+15" shape=ellipse]
+	filenameIndex [label="filenameIndex
+(2 writes)
+0" shape=ellipse]
+	basename [label="basename
+(2 writes, 2 distinct)
+'post_gen_project'
+'pre_gen_project'" shape=ellipse]
+	matching_hook [label="matching_hook
+(2 writes, 2 distinct)
+False
+True" shape=ellipse]
+	supported_hook [label="supported_hook
+(2 writes)
+True" shape=ellipse]
+	backup_file [label="backup_file
+(2 writes)
+False" shape=ellipse]
+	actual_hook_path [label="actual_hook_path
+'/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'" shape=ellipse]
+	_call_reprcompare [label=_call_reprcompare fillcolor=white shape=box style=filled]
+	res [label="res
+(3 writes, 3 distinct)
+False
+[\"'/home/shashw...en_project.py' == '/'\", '', '- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-ho…
+\"'/home/shashw...en_project.py' == '/'\n~\n~- /\n~+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/…" shape=ellipse]
+	expl [label="expl
+'%(py0)s == %(py3)s'" shape=ellipse]
+	done [label="done
+True" shape=ellipse]
+	callbinrepr [label=callbinrepr fillcolor=white shape=box style=filled]
+	__getattr__ [label="__getattr__
+dep_util.py:6" fillcolor=white shape=box style=filled]
+	hook [label="hook
+<HookCaller 'pytest_assertrepr_compare'>" shape=ellipse]
+	__call__ [label="__call__
+_common.py:13" fillcolor=white shape=box style=filled]
+	is_historic [label=is_historic fillcolor=white shape=box style=filled]
+	_verify_all_args_are_provided [label=_verify_all_args_are_provided fillcolor=white shape=box style=filled]
+	argname [label="argname
+(6 writes, 4 distinct)
+'config'
+'right'
+'op'
+'left'" shape=ellipse]
+	firstresult [label="firstresult
+False" shape=ellipse]
+	_hookexec [label=_hookexec fillcolor=white shape=box style=filled]
+	_multicall [label=_multicall fillcolor=white shape=box style=filled]
+	__tracebackhide__ [label="__tracebackhide__
+True" shape=ellipse]
+	results [label="results
+(2 writes, 2 distinct)
+[]
+[[\"'/home/shashw...en_project.py' == '/'\", '', '- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-h…" shape=ellipse]
+	exception [label="exception
+None" shape=ellipse]
+	teardowns [label="teardowns
+[]" shape=ellipse]
+	hook_impl [label="hook_impl
+<HookImpl plugin_name='assertion', plugin=<module '_pytest.assertion' from '/path/to/.venv/lib/python3.12/site…" shape=ellipse]
+	args [label="args
+[<_pytest.config.Config object at 0x7306daa971a0>, '==', '/path/to/BugsInPy/workspace/cookiecutter/tests/test-…" shape=ellipse]
+	pytest_assertrepr_compare [label=pytest_assertrepr_compare fillcolor=white shape=box style=filled]
+	assertrepr_compare [label=assertrepr_compare fillcolor=white shape=box style=filled]
+	get_verbosity [label=get_verbosity fillcolor=white shape=box style=filled]
+	getoption [label=getoption fillcolor=white shape=box style=filled]
+	val [label="val
+(8 writes, 4 distinct)
+0
+'auto'
+None
+'rewrite'" shape=ellipse]
+	global_level [label="global_level
+(4 writes)
+0" shape=ellipse]
+	_verbosity_ini_name [label=_verbosity_ini_name fillcolor=white shape=box style=filled]
+	ini_name [label="ini_name
+(4 writes)
+'verbosity_assertions'" shape=ellipse]
+	getini [label=getini fillcolor=white shape=box style=filled]
+	canonical_name [label="canonical_name
+(8 writes, 3 distinct)
+'verbosity_assertions'
+'truncation_limit_lines'
+'truncation_limit_chars'" shape=ellipse]
+	ERROR__KeyError [label="KeyError
+'verbosity_assertions'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	level [label="level
+(4 writes)
+'auto'" shape=ellipse]
+	verbose [label="verbose
+(2 writes)
+0" shape=ellipse]
+	maxsize [label="maxsize
+(3 writes, 2 distinct)
+30
+240" shape=ellipse]
+	saferepr [label=saferepr fillcolor=white shape=box style=filled]
+	__init__ [label="__init__
+_compat.py:6" fillcolor=white shape=box style=filled]
+	repr [label=repr fillcolor=white shape=box style=filled]
+	s [label="s
+(4 writes, 3 distinct)
+\"'/home/shashw...en_project.py'\"
+\"'/'\"
+\"'/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'\"" shape=ellipse]
+	left_repr [label="left_repr
+\"'/home/shashw...en_project.py'\"" shape=ellipse]
+	right_repr [label="right_repr
+\"'/'\"" shape=ellipse]
+	summary [label="summary
+\"'/home/shashw...en_project.py' == '/'\"" shape=ellipse]
+	get_terminal_writer [label=get_terminal_writer fillcolor=white shape=box style=filled]
+	get_plugin [label=get_plugin fillcolor=white shape=box style=filled]
+	terminalreporter [label="terminalreporter
+<_pytest.terminal.TerminalReporter object at 0x7306d9588230>" shape=ellipse]
+	highlighter [label="highlighter
+<bound method TerminalWriter._highlight of <_pytest._io.terminalwriter.TerminalWriter object at 0x7306da176810>>" shape=ellipse]
+	explanation [label="explanation
+(7 writes, 4 distinct)
+None
+[]
+['- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']
+['', '- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py']" shape=ellipse]
+	_compare_eq_any [label=_compare_eq_any fillcolor=white shape=box style=filled]
+	istext [label=istext fillcolor=white shape=box style=filled]
+	_diff_text [label=_diff_text fillcolor=white shape=box style=filled]
+	ndiff [label="ndiff
+<function ndiff at 0x7306da37f560>" shape=ellipse]
+	keepends [label="keepends
+True" shape=ellipse]
+	result [label="result
+(5 writes, 4 distinct)
+[[\"'/home/shashw...en_project.py' == '/'\", '', '- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-h…
+[\"assert '/home/shashw...en_project.py' == '/'\"]
+[\"assert '/home/shashw...en_project.py' == '/'\", '  ']
+[\"assert '/home/shashw...en_project.py' == '/'\", '  ', '  - /', '  + /path/to/BugsInPy/workspace/cookiecutter/…" shape=ellipse]
+	hook_result [label="hook_result
+[[\"'/home/shashw...en_project.py' == '/'\", '', '- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-h…" shape=ellipse]
+	new_expl [label="new_expl
+[\"'/home/shashw...en_project.py' == '/'\", '', '- /', '+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-ho…" shape=ellipse]
+	truncate_if_required [label=truncate_if_required fillcolor=white shape=box style=filled]
+	_get_truncation_parameters [label=_get_truncation_parameters fillcolor=white shape=box style=filled]
+	_getini [label=_getini fillcolor=white shape=box style=filled]
+	_description [label="_description
+(2 writes, 2 distinct)
+'Set threshold of LINES after which truncation will take effect'
+'Set threshold of CHARS after which truncation will take effect'" shape=ellipse]
+	type [label="type
+(2 writes)
+'string'" shape=ellipse]
+	default [label="default
+(2 writes)
+None" shape=ellipse]
+	candidates [label="candidates
+(2 writes)
+[]" shape=ellipse]
+	alias [label="alias
+(2 writes)
+'xfail_strict'" shape=ellipse]
+	target [label="target
+(2 writes)
+'strict_xfail'" shape=ellipse]
+	max_lines [label="max_lines
+(3 writes, 2 distinct)
+None
+8" shape=ellipse]
+	max_chars [label="max_chars
+(3 writes, 2 distinct)
+None
+640" shape=ellipse]
+	running_on_ci [label=running_on_ci fillcolor=white shape=box style=filled]
+	env_vars [label="env_vars
+['CI', 'BUILD_NUMBER']" shape=ellipse]
+	var [label="var
+(2 writes, 2 distinct)
+'CI'
+'BUILD_NUMBER'" shape=ellipse]
+	should_truncate [label="should_truncate
+(2 writes)
+True" shape=ellipse]
+	_truncate_explanation [label=_truncate_explanation fillcolor=white shape=box style=filled]
+	input_char_count [label="input_char_count
+134" shape=ellipse]
+	tolerable_max_chars [label="tolerable_max_chars
+710" shape=ellipse]
+	tolerable_max_lines [label="tolerable_max_lines
+10" shape=ellipse]
+	line [label="line
+(6 writes, 6 distinct)
+\"'/home/shashw...en_project.py' == '/'\"
+''
+'- /'
+'+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+'~'
+'~+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'" shape=ellipse]
+	getvalue [label="getvalue
+fallback.py:66" fillcolor=white shape=box style=filled]
+	custom [label="custom
+\"'/home/shashw...en_project.py' == '/'\n~\n~- /\n~+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/…" shape=ellipse]
+	_saferepr [label=_saferepr fillcolor=white shape=box style=filled]
+	_get_maxsize_for_saferepr [label=_get_maxsize_for_saferepr fillcolor=white shape=box style=filled]
+	verbosity [label="verbosity
+(2 writes)
+0" shape=ellipse]
+	_ellipsize [label=_ellipsize fillcolor=white shape=box style=filled]
+	format_explanation [label=format_explanation fillcolor=white shape=box style=filled]
+	_split_explanation [label=_split_explanation fillcolor=white shape=box style=filled]
+	raw_lines [label="raw_lines
+[\"assert '/home/shashw...en_project.py' == '/'\", '~', '~- /', '~+ /path/to/BugsInPy/workspace/cookiecutter/tes…" shape=ellipse]
+	lines [label="lines
+(4 writes, 3 distinct)
+[\"assert '/home/shashw...en_project.py' == '/'\"]
+[\"assert '/home/shashw...en_project.py' == '/'\", '~']
+[\"assert '/home/shashw...en_project.py' == '/'\", '~', '~- /', '~+ /path/to/BugsInPy/workspace/cookiecutter/tes…" shape=ellipse]
+	values [label="values
+(2 writes, 2 distinct)
+'~'
+'~+ /path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'" shape=ellipse]
+	_format_lines [label="_format_lines
+Just format the tokens, without any wrapping tags.
+html.py:830" fillcolor=white shape=box style=filled]
+	stack [label="stack
+(3 writes, 3 distinct)
+[0]
+[1]
+[3]" shape=ellipse]
+	stackcnt [label="stackcnt
+[0]" shape=ellipse]
+	indent [label="indent
+1" shape=ellipse]
+	ERROR__AssertionError [label="AssertionError
+assert '/home/shashw...en_project.py' == '/'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_find_hook
+	}
+	{
+		rank=same
+		work_in
+		find_hook
+		_call_reprcompare
+		_saferepr
+		format_explanation
+	}
+	{
+		rank=same
+		valid_hook
+		callbinrepr
+		_hookexec
+		saferepr
+		truncate_if_required
+		getvalue
+		_get_maxsize_for_saferepr
+		_split_explanation
+		_format_lines
+	}
+	{
+		rank=same
+		__getattr__
+		__call__
+		_multicall
+		get_verbosity
+		getoption
+		__init__
+		repr
+		_get_truncation_parameters
+		_truncate_explanation
+	}
+	{
+		rank=same
+		is_historic
+		_verify_all_args_are_provided
+		pytest_assertrepr_compare
+		_verbosity_ini_name
+		getini
+		running_on_ci
+		_ellipsize
+	}
+	{
+		rank=same
+		assertrepr_compare
+		_getini
+	}
+	{
+		rank=same
+		get_terminal_writer
+		_compare_eq_any
+	}
+	{
+		rank=same
+		get_plugin
+		istext
+		_diff_text
+	}
+	test_find_hook -> work_in [label="calls [#1]" color=blue penwidth=1.1]
+	test_find_hook -> sep [label="writes×2" color=black]
+	test_find_hook -> cwd [label=writes color=black]
+	test_find_hook -> path [label="writes×3" color=black]
+	test_find_hook -> b [label=writes color=black]
+	test_find_hook -> expected_pre [label=writes color=black]
+	test_find_hook -> find_hook [label="calls [#2]" color=blue penwidth=1.1]
+	test_find_hook -> actual_hook_path [label=writes color=black]
+	test_find_hook -> _call_reprcompare [label="calls [#5]" color=blue penwidth=1.1]
+	test_find_hook -> _saferepr [label="calls×2 [#45]" color=blue penwidth=1.2]
+	test_find_hook -> format_explanation [label="calls [#65]" color=blue penwidth=1.1]
+	test_find_hook -> ERROR__AssertionError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	work_in -> curdir [label=writes color=black]
+	sep -> valid_hook [label="passed to" color=green style=dashed]
+	sep -> _call_reprcompare [label="passed to" color=green style=dashed]
+	path -> find_hook [label="passed to" color=green style=dashed]
+	path -> valid_hook [label="passed to" color=green style=dashed]
+	path -> _call_reprcompare [label="passed to" color=green style=dashed]
+	path -> getvalue [label="passed to" color=green style=dashed]
+	find_hook -> sep [label="writes×5" color=black]
+	find_hook -> cwd [label="writes×2" color=black]
+	find_hook -> path [label="writes×8" color=black]
+	find_hook -> b [label="writes×3" color=black]
+	find_hook -> st [label=writes color=black]
+	find_hook -> hook_file [label="writes×2" color=black]
+	find_hook -> valid_hook [label="calls×2 [#3]" color=blue penwidth=1.2]
+	hook_file -> valid_hook [label="passed to" color=green style=dashed]
+	valid_hook -> sep [label="writes×4" color=black]
+	valid_hook -> i [label="writes×2" color=black]
+	valid_hook -> filename [label="writes×2" color=black]
+	valid_hook -> extsep [label="writes×2" color=black]
+	valid_hook -> sepIndex [label="writes×2" color=black]
+	valid_hook -> dotIndex [label="writes×2" color=black]
+	valid_hook -> filenameIndex [label="writes×2" color=black]
+	valid_hook -> basename [label="writes×2" color=black]
+	valid_hook -> matching_hook [label="writes×2" color=black]
+	valid_hook -> supported_hook [label="writes×2" color=black]
+	valid_hook -> backup_file [label="writes×2" color=black]
+	extsep -> valid_hook [label="passed to" color=green style=dashed]
+	extsep -> _call_reprcompare [label="passed to" color=green style=dashed]
+	_call_reprcompare -> i [label=writes color=black]
+	_call_reprcompare -> res [label="writes×2" color=black]
+	_call_reprcompare -> expl [label=writes color=black]
+	_call_reprcompare -> done [label=writes color=black]
+	_call_reprcompare -> callbinrepr [label="calls [#6]" color=blue penwidth=1.1]
+	_call_reprcompare -> _call_reprcompare [label="loops(×4)" color=purple style=dashed]
+	_call_reprcompare -> argname [label=writes color=black]
+	_call_reprcompare -> firstresult [label=writes color=black]
+	_call_reprcompare -> _hookexec [label="calls [#11]" color=blue penwidth=1.1]
+	_call_reprcompare -> hook_result [label=writes color=black]
+	_call_reprcompare -> new_expl [label=writes color=black]
+	_call_reprcompare -> truncate_if_required [label="calls [#31]" color=blue penwidth=1.1]
+	_call_reprcompare -> line [label="writes×4" color=black]
+	_call_reprcompare -> getvalue [label="calls [#43]" color=blue penwidth=1.1]
+	_call_reprcompare -> custom [label=writes color=black]
+	callbinrepr -> __getattr__ [label="calls [#7]" color=blue penwidth=1.1]
+	callbinrepr -> __call__ [label="calls [#8]" color=blue penwidth=1.1]
+	__getattr__ -> hook [label=writes color=black]
+	__call__ -> is_historic [label="calls [#9]" color=blue penwidth=1.1]
+	__call__ -> _verify_all_args_are_provided [label="calls [#10]" color=blue penwidth=1.1]
+	_verify_all_args_are_provided -> argname [label=writes color=black]
+	firstresult -> _hookexec [label="passed to" color=green style=dashed]
+	firstresult -> _multicall [label="passed to" color=green style=dashed]
+	_hookexec -> _multicall [label="calls [#12]" color=blue penwidth=1.1]
+	_multicall -> __tracebackhide__ [label=writes color=black]
+	_multicall -> results [label="writes×2" color=black]
+	_multicall -> exception [label=writes color=black]
+	_multicall -> teardowns [label=writes color=black]
+	_multicall -> hook_impl [label=writes color=black]
+	_multicall -> argname [label="writes×4" color=black]
+	_multicall -> args [label=writes color=black]
+	_multicall -> pytest_assertrepr_compare [label="calls [#13]" color=blue penwidth=1.1]
+	_multicall -> res [label=writes color=black]
+	_multicall -> result [label=writes color=black]
+	pytest_assertrepr_compare -> assertrepr_compare [label="calls [#14]" color=blue penwidth=1.1]
+	assertrepr_compare -> get_verbosity [label="calls [#15]" color=blue penwidth=1.1]
+	assertrepr_compare -> verbose [label=writes color=black]
+	assertrepr_compare -> maxsize [label=writes color=black]
+	assertrepr_compare -> saferepr [label="calls×2 [#19]" color=blue penwidth=1.2]
+	assertrepr_compare -> left_repr [label=writes color=black]
+	assertrepr_compare -> right_repr [label=writes color=black]
+	assertrepr_compare -> summary [label=writes color=black]
+	assertrepr_compare -> get_terminal_writer [label="calls [#25]" color=blue penwidth=1.1]
+	assertrepr_compare -> highlighter [label=writes color=black]
+	assertrepr_compare -> explanation [label="writes×3" color=black]
+	assertrepr_compare -> _compare_eq_any [label="calls [#27]" color=blue penwidth=1.1]
+	get_verbosity -> getoption [label="calls×4 [#16]" color=blue penwidth=1.4]
+	get_verbosity -> global_level [label="writes×4" color=black]
+	get_verbosity -> _verbosity_ini_name [label="calls×4 [#17]" color=blue penwidth=1.4]
+	get_verbosity -> ini_name [label="writes×4" color=black]
+	get_verbosity -> getini [label="calls×4 [#18]" color=blue penwidth=1.4]
+	get_verbosity -> level [label="writes×4" color=black]
+	getoption -> val [label="writes×5" color=black]
+	getini -> canonical_name [label="writes×6" color=black]
+	getini -> ERROR__KeyError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	getini -> val [label="writes×3" color=black]
+	getini -> _getini [label="calls×2 [#34]" color=blue penwidth=1.2]
+	verbose -> _compare_eq_any [label="passed to" color=green style=dashed]
+	verbose -> _diff_text [label="passed to" color=green style=dashed]
+	maxsize -> saferepr [label="passed to" color=green style=dashed]
+	maxsize -> __init__ [label="passed to" color=green style=dashed]
+	maxsize -> _ellipsize [label="passed to" color=green style=dashed]
+	saferepr -> __init__ [label="calls×4 [#20]" color=blue penwidth=1.4]
+	saferepr -> repr [label="calls×4 [#21]" color=blue penwidth=1.4]
+	repr -> s [label="writes×4" color=black]
+	repr -> _ellipsize [label="calls×2 [#54]" color=blue penwidth=1.2]
+	s -> _ellipsize [label="passed to" color=green style=dashed]
+	get_terminal_writer -> get_plugin [label="calls [#26]" color=blue penwidth=1.1]
+	get_terminal_writer -> terminalreporter [label=writes color=black]
+	highlighter -> _compare_eq_any [label="passed to" color=green style=dashed]
+	highlighter -> _diff_text [label="passed to" color=green style=dashed]
+	explanation -> truncate_if_required [label="passed to" color=green style=dashed]
+	explanation -> format_explanation [label="passed to" color=green style=dashed]
+	explanation -> _split_explanation [label="passed to" color=green style=dashed]
+	_compare_eq_any -> explanation [label="writes×2" color=black]
+	_compare_eq_any -> istext [label="calls×2 [#28]" color=blue penwidth=1.2]
+	_compare_eq_any -> _diff_text [label="calls [#30]" color=blue penwidth=1.1]
+	_diff_text -> ndiff [label=writes color=black]
+	_diff_text -> explanation [label="writes×2" color=black]
+	_diff_text -> i [label=writes color=black]
+	_diff_text -> keepends [label=writes color=black]
+	truncate_if_required -> _get_truncation_parameters [label="calls [#32]" color=blue penwidth=1.1]
+	truncate_if_required -> should_truncate [label=writes color=black]
+	truncate_if_required -> max_lines [label=writes color=black]
+	truncate_if_required -> max_chars [label=writes color=black]
+	truncate_if_required -> _truncate_explanation [label="calls [#42]" color=blue penwidth=1.1]
+	_get_truncation_parameters -> getini [label="calls×2 [#33]" color=blue penwidth=1.2]
+	_get_truncation_parameters -> max_lines [label="writes×2" color=black]
+	_get_truncation_parameters -> max_chars [label="writes×2" color=black]
+	_get_truncation_parameters -> get_verbosity [label="calls [#37]" color=blue penwidth=1.1]
+	_get_truncation_parameters -> verbose [label=writes color=black]
+	_get_truncation_parameters -> running_on_ci [label="calls [#41]" color=blue penwidth=1.1]
+	_get_truncation_parameters -> should_truncate [label=writes color=black]
+	_getini -> canonical_name [label="writes×2" color=black]
+	_getini -> _description [label="writes×2" color=black]
+	_getini -> type [label="writes×2" color=black]
+	_getini -> default [label="writes×2" color=black]
+	_getini -> candidates [label="writes×2" color=black]
+	_getini -> alias [label="writes×2" color=black]
+	_getini -> target [label="writes×2" color=black]
+	default -> getoption [label="passed to" color=green style=dashed]
+	default -> _truncate_explanation [label="passed to" color=green style=dashed]
+	max_lines -> _truncate_explanation [label="passed to" color=green style=dashed]
+	max_chars -> _truncate_explanation [label="passed to" color=green style=dashed]
+	running_on_ci -> env_vars [label=writes color=black]
+	running_on_ci -> ERROR__KeyError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	running_on_ci -> var [label="writes×2" color=black]
+	var -> _truncate_explanation [label="passed to" color=green style=dashed]
+	_truncate_explanation -> input_char_count [label=writes color=black]
+	_truncate_explanation -> tolerable_max_chars [label=writes color=black]
+	_truncate_explanation -> tolerable_max_lines [label=writes color=black]
+	getvalue -> getoption [label="calls [#44]" color=blue penwidth=1.1]
+	_saferepr -> _get_maxsize_for_saferepr [label="calls×2 [#46]" color=blue penwidth=1.2]
+	_saferepr -> maxsize [label="writes×2" color=black]
+	_saferepr -> saferepr [label="calls×2 [#51]" color=blue penwidth=1.2]
+	_get_maxsize_for_saferepr -> get_verbosity [label="calls×2 [#47]" color=blue penwidth=1.2]
+	_get_maxsize_for_saferepr -> verbosity [label="writes×2" color=black]
+	format_explanation -> _split_explanation [label="calls [#66]" color=blue penwidth=1.1]
+	format_explanation -> format_explanation [label="loops(×6)" color=purple style=dashed]
+	format_explanation -> values [label=writes color=black]
+	format_explanation -> lines [label="writes×2" color=black]
+	format_explanation -> _format_lines [label="calls [#67]" color=blue penwidth=1.1]
+	format_explanation -> line [label=writes color=black]
+	format_explanation -> stack [label=writes color=black]
+	format_explanation -> result [label="writes×2" color=black]
+	_split_explanation -> raw_lines [label=writes color=black]
+	_split_explanation -> lines [label="writes×2" color=black]
+	_split_explanation -> values [label=writes color=black]
+	lines -> _format_lines [label="passed to" color=green style=dashed]
+	_format_lines -> result [label="writes×2" color=black]
+	_format_lines -> stack [label="writes×2" color=black]
+	_format_lines -> stackcnt [label=writes color=black]
+	_format_lines -> line [label=writes color=black]
+	_format_lines -> indent [label=writes color=black]
+}

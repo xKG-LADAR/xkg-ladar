@@ -1,0 +1,193 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_canonicalize_url_idna_exceptions [label="test_canonicalize_url_idna_exceptions
+test_utils_url.py:272" fillcolor=white shape=box style=filled]
+	canonicalize_url [label="canonicalize_url
+Canonicalize the given url by applying the following pr…
+url.py:60" fillcolor=white shape=box style=filled]
+	parse_url [label="parse_url
+Return urlparsed url from the given argument (which cou…
+url.py:152" fillcolor=white shape=box style=filled]
+	to_unicode [label="to_unicode
+Return the unicode representation of a bytes object `te…
+python.py:99" fillcolor=white shape=box style=filled]
+	_safe_ParseResult [label="_safe_ParseResult
+url.py:44" fillcolor=white shape=box style=filled]
+	to_native_str [label="to_native_str
+Return str representation of `text`
+python.py:125" fillcolor=white shape=box style=filled]
+	find_spec [label=find_spec fillcolor=white shape=box style=filled]
+	spec [label="spec
+(5 writes, 2 distinct)
+None
+ModuleSpec(name='encodings.idna', loader=<_frozen_importlib_external.SourceFileLoader object at 0x70dcf7bd1040>, origin=…" shape=ellipse]
+	finder [label="finder
+(5 writes, 4 distinct)
+<class '_frozen_importlib.BuiltinImporter'>
+<class '_frozen_importlib.FrozenImporter'>
+<class '_frozen_importlib_external.PathFinder'>
+FileFinder('/usr/lib/python3.12/encodings')" shape=ellipse]
+	info [label="info
+None" shape=ellipse]
+	namespace_path [label="namespace_path
+[]" shape=ellipse]
+	entry [label="entry
+'/usr/lib/python3.12/encodings'" shape=ellipse]
+	is_namespace [label="is_namespace
+False" shape=ellipse]
+	tail_module [label="tail_module
+'idna'" shape=ellipse]
+	mtime [label="mtime
+1775119204.8187785" shape=ellipse]
+	cache [label="cache
+set(len=123)" shape=ellipse]
+	cache_module [label="cache_module
+'idna'" shape=ellipse]
+	suffix [label="suffix
+(2 writes, 2 distinct)
+'.cpython-312-x86_64-linux-gnu.so'
+'.py'" shape=ellipse]
+	loader_class [label="loader_class
+(2 writes, 2 distinct)
+<class '_frozen_importlib_external.ExtensionFileLoader'>
+<class '_frozen_importlib_external.SourceFileLoader'>" shape=ellipse]
+	full_path [label="full_path
+(2 writes, 2 distinct)
+'/usr/lib/python3.12/encodings/idna.cpython-312-x86_64-linux-gnu.so'
+'/usr/lib/python3.12/encodings/idna.py'" shape=ellipse]
+	module [label="module
+(6 writes, 4 distinct)
+None
+<module 'encodings.idna'>
+<module 'encodings.idna' (<_frozen_importlib_external.SourceFileLoader object at 0x70dcf7bd1040>)>
+<module 'encodings.idna' from '/usr/lib/python3.12/encodings/idna.py'>" shape=ellipse]
+	loader [label="loader
+<_frozen_importlib_external.SourceFileLoader object at 0x70dcf7bd1040>" shape=ellipse]
+	source_path [label="source_path
+'/usr/lib/python3.12/encodings/idna.py'" shape=ellipse]
+	source_mtime [label="source_mtime
+(2 writes, 2 distinct)
+None
+1772540118" shape=ellipse]
+	source_bytes [label="source_bytes
+None" shape=ellipse]
+	source_hash [label="source_hash
+None" shape=ellipse]
+	hash_based [label="hash_based
+False" shape=ellipse]
+	check_source [label="check_source
+True" shape=ellipse]
+	head [label="head
+'/usr/lib/python3.12/encodings'" shape=ellipse]
+	tail [label="tail
+'idna.py'" shape=ellipse]
+	base [label="base
+'idna'" shape=ellipse]
+	sep [label="sep
+'.'" shape=ellipse]
+	rest [label="rest
+'py'" shape=ellipse]
+	tag [label="tag
+'cpython-312'" shape=ellipse]
+	almost_filename [label="almost_filename
+'idna.cpython-312'" shape=ellipse]
+	optimization [label="optimization
+''" shape=ellipse]
+	filename [label="filename
+'idna.cpython-312.pyc'" shape=ellipse]
+	bytecode_path [label="bytecode_path
+'/usr/lib/python3.12/encodings/__pycache__/idna.cpython-312.pyc'" shape=ellipse]
+	st [label="st
+(2 writes, 2 distinct)
+os.stat_result(st_mode=33188, st_ino=527619, st_dev=66309, st_nlink=1, st_uid=0, st_gid=0, st_size=9710, st_atime=178055…
+{'mtime': 1772540118.0, 'size': 9710}" shape=ellipse]
+	file [label="file
+<_io.BufferedReader name='/usr/lib/python3.12/encodings/__pycache__/idna.cpython-312.pyc'>" shape=ellipse]
+	data [label="data
+bytes(len=9916)" shape=ellipse]
+	exc_details [label="exc_details
+{'name': 'encodings.idna', 'path': '/usr/lib/python3.12/encodings/__pycache__/idna.cpython-312.pyc'}" shape=ellipse]
+	magic [label="magic
+b'\xcb\r\r\n'" shape=ellipse]
+	flags [label="flags
+(2 writes)
+0" shape=ellipse]
+	bytes_data [label="bytes_data
+<memory at 0x70dcf7b44a00>" shape=ellipse]
+	code [label="code
+(2 writes)
+<code object <module> at 0x28c032a0, file \"/usr/lib/python3.12/encodings/idna.py\", line 1>" shape=ellipse]
+	ERROR__UnicodeError [label="UnicodeError
+label empty or too long" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_canonicalize_url_idna_exceptions
+	}
+	{
+		rank=same
+		canonicalize_url
+	}
+	{
+		rank=same
+		parse_url
+		_safe_ParseResult
+	}
+	{
+		rank=same
+		to_unicode
+		to_native_str
+		find_spec
+	}
+	test_canonicalize_url_idna_exceptions -> canonicalize_url [label="calls [#1]" color=blue penwidth=1.1]
+	canonicalize_url -> parse_url [label="calls [#2]" color=blue penwidth=1.1]
+	canonicalize_url -> _safe_ParseResult [label="calls [#4]" color=blue penwidth=1.1]
+	canonicalize_url -> canonicalize_url [label="loops(×4)" color=purple style=dashed]
+	canonicalize_url -> suffix [label=writes color=black]
+	canonicalize_url -> loader_class [label=writes color=black]
+	canonicalize_url -> full_path [label=writes color=black]
+	canonicalize_url -> spec [label="writes×4" color=black]
+	canonicalize_url -> module [label="writes×6" color=black]
+	canonicalize_url -> loader [label=writes color=black]
+	canonicalize_url -> source_path [label=writes color=black]
+	canonicalize_url -> source_mtime [label="writes×2" color=black]
+	canonicalize_url -> source_bytes [label=writes color=black]
+	canonicalize_url -> source_hash [label=writes color=black]
+	canonicalize_url -> hash_based [label=writes color=black]
+	canonicalize_url -> check_source [label=writes color=black]
+	canonicalize_url -> head [label=writes color=black]
+	canonicalize_url -> tail [label=writes color=black]
+	canonicalize_url -> base [label=writes color=black]
+	canonicalize_url -> sep [label=writes color=black]
+	canonicalize_url -> rest [label=writes color=black]
+	canonicalize_url -> tag [label=writes color=black]
+	canonicalize_url -> almost_filename [label=writes color=black]
+	canonicalize_url -> optimization [label=writes color=black]
+	canonicalize_url -> filename [label=writes color=black]
+	canonicalize_url -> bytecode_path [label=writes color=black]
+	canonicalize_url -> st [label="writes×2" color=black]
+	canonicalize_url -> file [label=writes color=black]
+	canonicalize_url -> data [label=writes color=black]
+	canonicalize_url -> exc_details [label=writes color=black]
+	canonicalize_url -> magic [label=writes color=black]
+	canonicalize_url -> flags [label="writes×2" color=black]
+	canonicalize_url -> bytes_data [label=writes color=black]
+	canonicalize_url -> code [label="writes×2" color=black]
+	canonicalize_url -> ERROR__UnicodeError [label=raises color=orange penwidth=2 style=dashed]
+	parse_url -> to_unicode [label="calls [#3]" color=blue penwidth=1.1]
+	_safe_ParseResult -> to_native_str [label="calls [#5]" color=blue penwidth=1.1]
+	_safe_ParseResult -> find_spec [label="calls [#7]" color=blue penwidth=1.1]
+	_safe_ParseResult -> spec [label=writes color=black]
+	_safe_ParseResult -> finder [label="writes×5" color=black]
+	_safe_ParseResult -> info [label=writes color=black]
+	_safe_ParseResult -> namespace_path [label=writes color=black]
+	_safe_ParseResult -> entry [label=writes color=black]
+	_safe_ParseResult -> is_namespace [label=writes color=black]
+	_safe_ParseResult -> tail_module [label=writes color=black]
+	_safe_ParseResult -> mtime [label=writes color=black]
+	_safe_ParseResult -> cache [label=writes color=black]
+	_safe_ParseResult -> cache_module [label=writes color=black]
+	_safe_ParseResult -> suffix [label=writes color=black]
+	_safe_ParseResult -> loader_class [label=writes color=black]
+	_safe_ParseResult -> full_path [label=writes color=black]
+	to_native_str -> to_unicode [label="calls [#6]" color=blue penwidth=1.1]
+}

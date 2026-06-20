@@ -1,0 +1,97 @@
+digraph {
+	graph [nodesep=0.3 rankdir=TB ranksep=0.7 splines=spline fontsize=20]
+	node [fontsize=20]
+	edge [fontsize=16]
+	test_create_instance [label="test_create_instance
+__init__.py:83" fillcolor=white shape=box style=filled]
+	settings [label="settings
+(2 writes, 2 distinct)
+<MagicMock: settings>
+<MagicMock: mock.settings>" shape=ellipse]
+	crawler [label="crawler
+<MagicMock: crawler>" shape=ellipse]
+	args [label="args
+(True, 100.0)" shape=ellipse]
+	kwargs [label="kwargs
+{'key': 'val'}" shape=ellipse]
+	_test_with_settings [label="_test_with_settings
+<function _test_with_settings>" shape=ellipse]
+	_test_with_crawler [label="_test_with_crawler
+<function _test_with_crawler>" shape=ellipse]
+	spec_sets [label="spec_sets
+(list of 4 spec lists)" shape=ellipse]
+	specs [label="specs
+(4 writes, 4 distinct)
+['__qualname__']
+['__qualname__', 'from_settings']
+['__qualname__', 'from_crawler']
+['__qualname__', 'from_settings', 'from_crawler']" shape=ellipse]
+	m [label="m
+(5 writes, 5 distinct)
+<MagicMock #1>
+<MagicMock #2>
+<MagicMock #3>
+<MagicMock #4>
+<MagicMock #5>" shape=ellipse]
+	create_instance [label="create_instance
+Construct a class instance using its ``from_crawler`` o…
+misc.py:128" fillcolor=white shape=box style=filled]
+	ERROR__ValueError [label="ValueError
+Specify at least one of settings and crawler." fillcolor="#E57373" fontcolor=white shape=doubleoctagon style=filled]
+	ERROR__AssertionError [label="AssertionError
+TypeError not raised" fillcolor="#E57373" fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_create_instance
+	}
+	{
+		rank=same
+		settings
+		crawler
+		args
+		kwargs
+	}
+	{
+		rank=same
+		_test_with_settings
+		_test_with_crawler
+		spec_sets
+		specs
+		m
+	}
+	{
+		rank=same
+		create_instance
+	}
+	{
+		rank=same
+		ERROR__ValueError; ERROR__AssertionError
+	}
+	test_create_instance -> settings [label=writes color=black]
+	test_create_instance -> crawler [label=writes color=black]
+	test_create_instance -> args [label=writes color=black]
+	test_create_instance -> kwargs [label=writes color=black]
+	test_create_instance -> _test_with_settings [label=writes color=black]
+	test_create_instance -> _test_with_crawler [label=writes color=black]
+	test_create_instance -> spec_sets [label=writes color=black]
+	test_create_instance -> specs [label="writes×4" color=black]
+	test_create_instance -> m [label="writes×5" color=black]
+	test_create_instance -> create_instance [label="calls×3 [#17]" color=blue penwidth=1.3]
+	test_create_instance -> ERROR__ValueError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	test_create_instance -> ERROR__AssertionError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	settings -> _test_with_settings [label="passed to" color="#1A6B1A" style=dashed]
+	settings -> create_instance [label="passed to" color="#1A6B1A" style=dashed]
+	settings -> _test_with_crawler [label="passed to" color="#1A6B1A" style=dashed]
+	crawler -> create_instance [label="passed to" color="#1A6B1A" style=dashed]
+	crawler -> _test_with_crawler [label="passed to" color="#1A6B1A" style=dashed]
+	args -> _test_with_settings [label="passed to" color="#1A6B1A" style=dashed]
+	args -> create_instance [label="passed to" color="#1A6B1A" style=dashed]
+	args -> _test_with_crawler [label="passed to" color="#1A6B1A" style=dashed]
+	kwargs -> _test_with_settings [label="passed to" color="#1A6B1A" style=dashed]
+	kwargs -> create_instance [label="passed to" color="#1A6B1A" style=dashed]
+	kwargs -> _test_with_crawler [label="passed to" color="#1A6B1A" style=dashed]
+	_test_with_settings -> create_instance [label="calls×4 [#2]" color=blue penwidth=1.4]
+	_test_with_crawler -> create_instance [label="calls×4 [#4]" color=blue penwidth=1.4]
+	create_instance -> settings [label=writes color=black]
+	create_instance -> ERROR__ValueError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+}

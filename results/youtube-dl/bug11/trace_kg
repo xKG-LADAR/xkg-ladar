@@ -1,0 +1,26 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_str_to_int [label="test_str_to_int
+test_utils.py:502" fillcolor=white shape=box style=filled]
+	str_to_int [label="str_to_int
+A more relaxed version of int_or_none
+utils.py:3520" fillcolor=white shape=box style=filled]
+	int_str [label="int_str
+(2 writes)
+'123456'" shape=ellipse]
+	ERROR__TypeError [label="TypeError
+expected string or bytes-like object, got 'int'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_str_to_int
+	}
+	{
+		rank=same
+		str_to_int
+	}
+	test_str_to_int -> str_to_int [label="calls×3 [#1]" color=blue penwidth=1.3]
+	test_str_to_int -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	str_to_int -> int_str [label="writes×2" color=black]
+	str_to_int -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	int_str -> str_to_int [label="passed to" color=green style=dashed]
+}

@@ -1,0 +1,354 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	setUp [label="setUp
+test_closespider.py:10" fillcolor=white shape=box style=filled]
+	__init__ [label="__init__
+extensions.py:5" fillcolor=white shape=box style=filled]
+	contract [label="contract
+(6 writes, 4 distinct)
+<class 'scrapy.contracts.default.UrlContract'>
+<class 'scrapy.contracts.default.ScrapesContract'>
+<scrapy.contracts.default.UrlContract object at 0x75a8fb373cb0>
+<scrapy.contracts.default.ReturnsContract object at 0x75a8fb373830>" shape=ellipse]
+	test_errback [label="test_errback
+test_contracts.py:195" fillcolor=white shape=box style=filled]
+	__new__ [label="__new__
+item.py:27" fillcolor=white shape=box style=filled]
+	obj [label="obj
+(2 writes, 2 distinct)
+<TestSpider 'demo_spider' at 0x75a8fb370680>
+REPR FAILED" shape=ellipse]
+	spider [label="spider
+(6 writes, 2 distinct)
+<TestSpider 'demo_spider' at 0x75a8fb370680>
+'demo_spider'" shape=ellipse]
+	response [label="response
+<tests.test_contracts.ResponseMock object at 0x75a8fb371130>" shape=ellipse]
+	self [label="self
+(4 writes, 3 distinct)
+HttpError('Ignoring non-200 response')
+<twisted.python.failure.Failure scrapy.spidermiddlewares.httperror.HttpError: Ignoring non-200 response>
+<GET http://scrapy.org>" shape=ellipse]
+	"ERROR__scrapy.spidermiddlewares.httperror.HttpError" [label="scrapy.spidermiddlewares.httperror.HttpError
+Ignoring non-200 response" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	tb [label="tb
+(2 writes, 2 distinct)
+None
+<traceback object at 0x75a8fb365180>" shape=ellipse]
+	failure_mock [label="failure_mock
+<twisted.python.failure.Failure scrapy.spidermiddlewares.httperror.HttpError: Ignoring non-200 response>" shape=ellipse]
+	from_method [label="from_method
+__init__.py:48" fillcolor=white shape=box style=filled]
+	extract_contracts [label="extract_contracts
+__init__.py:27" fillcolor=white shape=box style=filled]
+	contracts [label="contracts
+(4 writes, 3 distinct)
+[]
+[<scrapy.contracts.default.UrlContract object at 0x75a8fb373cb0>]
+[<scrapy.contracts.default.UrlContract object at 0x75a8fb373cb0>, <scrapy.contracts.default.ReturnsContract object at 0x…" shape=ellipse]
+	line [label="line
+(8 writes, 8 distinct)
+' method which returns request'
+'method which returns request'
+'        @url http://scrapy.org'
+'@url http://scrapy.org'
+'        @returns requests 1'
+'@returns requests 1'
+  …+2 more values" shape=ellipse]
+	name [label="name
+(7 writes, 3 distinct)
+'url'
+'demo_spider_returns_request'
+'returns'" shape=ellipse]
+	args [label="args
+(8 writes, 7 distinct)
+'http://scrapy.org'
+['http://scrapy.org']
+'requests 1'
+['requests', '1']
+['self', 'url']
+{'callback': <bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>, 'method': 'GET',…
+  …+1 more values" shape=ellipse]
+	_create_testcase [label="_create_testcase
+__init__.py:153" fillcolor=white shape=box style=filled]
+	__module__ [label="__module__
+(5 writes)
+'scrapy.contracts'" shape=ellipse]
+	__qualname__ [label="__qualname__
+(5 writes)
+'_create_testcase.<locals>.ContractTestCase'" shape=ellipse]
+	__str__ [label="__str__
+(5 writes, 5 distinct)
+<function _create_testcase.<locals>.ContractTestCase.__str__ at 0x75a8fb352e80>
+<function _create_testcase.<locals>.ContractTestCase.__str__ at 0x75a8fb352f20>
+<function _create_testcase.<locals>.ContractTestCase.__str__ at 0x75a8fb353100>
+<function _create_testcase.<locals>.ContractTestCase.__str__ at 0x75a8fb353240>
+<function _create_testcase.<locals>.ContractTestCase.__str__ at 0x75a8fb2a91c0>" shape=ellipse]
+	ContractTestCase [label="ContractTestCase
+(5 writes)
+<class 'scrapy.contracts._create_testcase.<locals>.ContractTestCase'>" shape=ellipse]
+	ERROR__IndexError [label="IndexError
+tuple index out of range" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	get_spec [label="get_spec
+Returns (args, kwargs) tuple for a function
+python.py:249" fillcolor=white shape=box style=filled]
+	_getargspec_py23 [label="_getargspec_py23
+_getargspec_py23(function) -> named tuple ArgSpec(args,…
+python.py:202" fillcolor=white shape=box style=filled]
+	spec [label="spec
+(5 writes, 3 distinct)
+ArgSpec(args=['self', 'url', 'callback', 'method', 'headers', 'body', 'cookies', 'meta', 'encoding', 'priority', 'dont_f…
+None
+ModuleSpec(name='encodings.idna', loader=<_frozen_importlib_external.SourceFileLoader object at 0x75a8fb216690>, origin=…" shape=ellipse]
+	defaults [label="defaults
+(None, 'GET', None, None, None, None, 'utf-8', 0, False, None, None)" shape=ellipse]
+	firstdefault [label="firstdefault
+2" shape=ellipse]
+	kwargs [label="kwargs
+(4 writes, 3 distinct)
+{'callback': None, 'method': 'GET', 'headers': None, 'body': None, 'cookies': None, 'meta': None, 'encoding': 'utf-8', '…
+{'callback': <bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>, 'method': 'GET',…
+{'callback': <bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>, 'method': 'GET',…" shape=ellipse]
+	adjust_request_args [label="adjust_request_args
+default.py:16" fillcolor=white shape=box style=filled]
+	_set_url [label="_set_url
+text.py:34" fillcolor=white shape=box style=filled]
+	encoding [label="encoding
+text.py:58" fillcolor=white shape=box style=filled]
+	safe_url_string [label=safe_url_string fillcolor=white shape=box style=filled]
+	to_unicode [label="to_unicode
+Return the unicode representation of a bytes object `te…
+python.py:101" fillcolor=white shape=box style=filled]
+	decoded [label="decoded
+'http://scrapy.org'" shape=ellipse]
+	_strip [label=_strip fillcolor=white shape=box style=filled]
+	parts [label="parts
+SplitResult(scheme='http', netloc='scrapy.org', path='', query='', fragment='')" shape=ellipse]
+	username [label="username
+None" shape=ellipse]
+	password [label="password
+None" shape=ellipse]
+	hostname [label="hostname
+'scrapy.org'" shape=ellipse]
+	port [label="port
+None" shape=ellipse]
+	netloc_bytes [label="netloc_bytes
+(2 writes, 2 distinct)
+b''
+b'scrapy.org'" shape=ellipse]
+	find_spec [label=find_spec fillcolor=white shape=box style=filled]
+	finder [label="finder
+(3 writes, 3 distinct)
+<class '_frozen_importlib.BuiltinImporter'>
+<class '_frozen_importlib.FrozenImporter'>
+<class '_frozen_importlib_external.PathFinder'>" shape=ellipse]
+	info [label="info
+None" shape=ellipse]
+	module [label="module
+(5 writes, 3 distinct)
+None
+<module 'encodings.idna'>
+<module 'encodings.idna' from '/usr/lib/python3.12/encodings/idna.py'>" shape=ellipse]
+	code [label="code
+<code object <module> at 0x3188f170, file \"/usr/lib/python3.12/encodings/idna.py\", line 1>" shape=ellipse]
+	tid [label="tid
+129368700076160" shape=ellipse]
+	netloc [label="netloc
+'scrapy.org'" shape=ellipse]
+	path [label="path
+''" shape=ellipse]
+	query [label="query
+''" shape=ellipse]
+	s [label="s
+'http://scrapy.org'" shape=ellipse]
+	escape_ajax [label="escape_ajax
+Return the crawleable url according to:
+url.py:48" fillcolor=white shape=box style=filled]
+	defrag [label="defrag
+'http://scrapy.org'" shape=ellipse]
+	frag [label="frag
+''" shape=ellipse]
+	_set_body [label="_set_body
+text.py:43" fillcolor=white shape=box style=filled]
+	request [label="request
+(2 writes)
+<GET http://scrapy.org>" shape=ellipse]
+	add_pre_hook [label="add_pre_hook
+__init__.py:102" fillcolor=white shape=box style=filled]
+	add_post_hook [label="add_post_hook
+__init__.py:125" fillcolor=white shape=box style=filled]
+	cb [label="cb
+(2 writes, 2 distinct)
+<bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>
+<function TestSpider.returns_request at 0x75a8fb2a8f40>" shape=ellipse]
+	wrapper [label="wrapper
+<function TestSpider.returns_request at 0x75a8fb2a8f40>" shape=ellipse]
+	_clean_req [label="_clean_req
+stop the request from returning objects and records any…
+__init__.py:71" fillcolor=white shape=box style=filled]
+	cb_wrapper [label="cb_wrapper
+<function TestSpider.returns_request at 0x75a8fb2a8fe0>" shape=ellipse]
+	eb_wrapper [label="eb_wrapper
+<function ContractsManager._clean_req.<locals>.eb_wrapper at 0x75a8fb2a9120>" shape=ellipse]
+	case [label="case
+<scrapy.contracts._create_testcase.<locals>.ContractTestCase testMethod=demo_spider_returns_request>" shape=ellipse]
+	getTracebackObject [label=getTracebackObject fillcolor=white shape=box style=filled]
+	exc_info [label="exc_info
+(HttpError('Ignoring non-200 response'), <class 'scrapy.spidermiddlewares.httperror.HttpError'>, <traceback object at 0x…" shape=ellipse]
+	ERROR__AttributeError [label="AttributeError
+'getset_descriptor' object has no attribute '__traceback__'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		setUp
+		test_errback
+	}
+	{
+		rank=same
+		__init__
+		__new__
+		from_method
+	}
+	{
+		rank=same
+		extract_contracts
+		_create_testcase
+		get_spec
+		adjust_request_args
+		add_pre_hook
+		add_post_hook
+		_clean_req
+		getTracebackObject
+	}
+	{
+		rank=same
+		_getargspec_py23
+		_set_url
+		_set_body
+	}
+	{
+		rank=same
+		encoding
+		safe_url_string
+		escape_ajax
+	}
+	{
+		rank=same
+		to_unicode
+		_strip
+		find_spec
+	}
+	setUp -> __init__ [label="calls [#1]" color=blue penwidth=1.1]
+	__init__ -> contract [label="writes×2" color=black]
+	__init__ -> __init__ [label="loops(×3)" color=purple style=dashed]
+	__init__ -> self [label="writes×3" color=black]
+	__init__ -> tb [label="writes×2" color=black]
+	__init__ -> _create_testcase [label="calls×4 [#9]" color=blue penwidth=1.4]
+	__init__ -> ERROR__IndexError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	__init__ -> _set_url [label="calls [#21]" color=blue penwidth=1.1]
+	__init__ -> _set_body [label="calls [#28]" color=blue penwidth=1.1]
+	test_errback -> __new__ [label="calls [#2]" color=blue penwidth=1.1]
+	test_errback -> __init__ [label="calls×3 [#3]" color=blue penwidth=1.3]
+	test_errback -> spider [label=writes color=black]
+	test_errback -> response [label=writes color=black]
+	test_errback -> "ERROR__scrapy.spidermiddlewares.httperror.HttpError" [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	test_errback -> failure_mock [label=writes color=black]
+	test_errback -> from_method [label="calls [#6]" color=blue penwidth=1.1]
+	test_errback -> request [label=writes color=black]
+	test_errback -> eb_wrapper [label="calls [#36]" color=blue penwidth=1.1]
+	test_errback -> ERROR__AttributeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	__new__ -> obj [label="writes×2" color=black]
+	response -> __init__ [label="passed to" color=green style=dashed]
+	self -> __init__ [label="passed to" color=green style=dashed]
+	self -> from_method [label="passed to" color=green style=dashed]
+	self -> extract_contracts [label="passed to" color=green style=dashed]
+	self -> adjust_request_args [label="passed to" color=green style=dashed]
+	self -> _set_url [label="passed to" color=green style=dashed]
+	self -> encoding [label="passed to" color=green style=dashed]
+	self -> find_spec [label="passed to" color=green style=dashed]
+	self -> escape_ajax [label="passed to" color=green style=dashed]
+	self -> _set_body [label="passed to" color=green style=dashed]
+	self -> add_pre_hook [label="passed to" color=green style=dashed]
+	self -> add_post_hook [label="passed to" color=green style=dashed]
+	self -> _clean_req [label="passed to" color=green style=dashed]
+	self -> getTracebackObject [label="passed to" color=green style=dashed]
+	from_method -> extract_contracts [label="calls [#7]" color=blue penwidth=1.1]
+	from_method -> contracts [label=writes color=black]
+	from_method -> get_spec [label="calls [#15]" color=blue penwidth=1.1]
+	from_method -> args [label="writes×2" color=black]
+	from_method -> kwargs [label="writes×3" color=black]
+	from_method -> contract [label="writes×4" color=black]
+	from_method -> adjust_request_args [label="calls×2 [#17]" color=blue penwidth=1.2]
+	from_method -> __new__ [label="calls [#19]" color=blue penwidth=1.1]
+	from_method -> __init__ [label="calls [#20]" color=blue penwidth=1.1]
+	from_method -> request [label=writes color=black]
+	from_method -> add_pre_hook [label="calls×2 [#31]" color=blue penwidth=1.2]
+	from_method -> add_post_hook [label="calls×2 [#33]" color=blue penwidth=1.2]
+	from_method -> _clean_req [label="calls [#35]" color=blue penwidth=1.1]
+	extract_contracts -> contracts [label="writes×3" color=black]
+	extract_contracts -> line [label="writes×8" color=black]
+	extract_contracts -> name [label="writes×2" color=black]
+	extract_contracts -> args [label="writes×4" color=black]
+	extract_contracts -> __init__ [label="calls×2 [#8]" color=blue penwidth=1.2]
+	name -> escape_ajax [label="passed to" color=green style=dashed]
+	args -> __init__ [label="passed to" color=green style=dashed]
+	args -> adjust_request_args [label="passed to" color=green style=dashed]
+	args -> __new__ [label="passed to" color=green style=dashed]
+	args -> escape_ajax [label="passed to" color=green style=dashed]
+	_create_testcase -> spider [label="writes×5" color=black]
+	_create_testcase -> __module__ [label="writes×5" color=black]
+	_create_testcase -> __qualname__ [label="writes×5" color=black]
+	_create_testcase -> __str__ [label="writes×5" color=black]
+	_create_testcase -> ContractTestCase [label="writes×5" color=black]
+	_create_testcase -> name [label="writes×5" color=black]
+	get_spec -> _getargspec_py23 [label="calls [#16]" color=blue penwidth=1.1]
+	get_spec -> spec [label=writes color=black]
+	get_spec -> defaults [label=writes color=black]
+	get_spec -> firstdefault [label=writes color=black]
+	get_spec -> args [label=writes color=black]
+	get_spec -> kwargs [label=writes color=black]
+	spec -> escape_ajax [label="passed to" color=green style=dashed]
+	kwargs -> __new__ [label="passed to" color=green style=dashed]
+	kwargs -> escape_ajax [label="passed to" color=green style=dashed]
+	adjust_request_args -> args [label=writes color=black]
+	_set_url -> encoding [label="calls [#22]" color=blue penwidth=1.1]
+	_set_url -> safe_url_string [label="calls [#23]" color=blue penwidth=1.1]
+	_set_url -> s [label=writes color=black]
+	_set_url -> escape_ajax [label="calls [#27]" color=blue penwidth=1.1]
+	_set_url -> self [label=writes color=black]
+	safe_url_string -> to_unicode [label="calls [#24]" color=blue penwidth=1.1]
+	safe_url_string -> decoded [label=writes color=black]
+	safe_url_string -> _strip [label="calls [#25]" color=blue penwidth=1.1]
+	safe_url_string -> parts [label=writes color=black]
+	safe_url_string -> username [label=writes color=black]
+	safe_url_string -> password [label=writes color=black]
+	safe_url_string -> hostname [label=writes color=black]
+	safe_url_string -> port [label=writes color=black]
+	safe_url_string -> netloc_bytes [label="writes×2" color=black]
+	safe_url_string -> find_spec [label="calls [#26]" color=blue penwidth=1.1]
+	safe_url_string -> spec [label="writes×4" color=black]
+	safe_url_string -> finder [label="writes×3" color=black]
+	safe_url_string -> info [label=writes color=black]
+	safe_url_string -> module [label="writes×5" color=black]
+	safe_url_string -> code [label=writes color=black]
+	safe_url_string -> tid [label=writes color=black]
+	safe_url_string -> netloc [label=writes color=black]
+	safe_url_string -> path [label=writes color=black]
+	safe_url_string -> query [label=writes color=black]
+	module -> escape_ajax [label="passed to" color=green style=dashed]
+	path -> escape_ajax [label="passed to" color=green style=dashed]
+	escape_ajax -> defrag [label=writes color=black]
+	escape_ajax -> frag [label=writes color=black]
+	request -> add_pre_hook [label="passed to" color=green style=dashed]
+	request -> add_post_hook [label="passed to" color=green style=dashed]
+	request -> _clean_req [label="passed to" color=green style=dashed]
+	add_post_hook -> cb [label=writes color=black]
+	add_post_hook -> wrapper [label=writes color=black]
+	_clean_req -> cb [label=writes color=black]
+	_clean_req -> cb_wrapper [label=writes color=black]
+	_clean_req -> eb_wrapper [label=writes color=black]
+	eb_wrapper -> _create_testcase [label="calls [#37]" color=blue penwidth=1.1]
+	eb_wrapper -> case [label=writes color=black]
+	eb_wrapper -> getTracebackObject [label="calls [#38]" color=blue penwidth=1.1]
+	eb_wrapper -> exc_info [label=writes color=black]
+	eb_wrapper -> ERROR__AttributeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+}

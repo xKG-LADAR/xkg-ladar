@@ -1,0 +1,118 @@
+Cleared: /path/to/results/scrapy/bug8
+Running: python -m unittest -q tests.test_item.ItemMetaTest.test_new_method_propagates_classcell
+Workdir: /path/to/BugsInPy/workspace/scrapy
+PYTHONPATH: /path/to/BugsInPy/workspace/scrapy::
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_item.py
+IE_TRACE: Starting var:.. self = <tests.test_item.ItemMetaTest testMethod=test_new_method_propagates_classcell>
+IE_TRACE: 12:31:39.017531 call       258     def test_new_method_propagates_classcell(self):
+IE_TRACE: 12:31:39.017716 line       259         new_mock = mock.Mock(side_effect=ABCMeta.__new__)
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_item.py
+IE_TRACE: New var:....... new_mock = <Mock id='131495796998064'>
+IE_TRACE: 12:31:39.021530 line       260         base = ItemMeta.__bases__[0]
+IE_TRACE: New var:....... base = <class 'abc.ABCMeta'>
+IE_TRACE: 12:31:39.021557 line       262         with mock.patch.object(base, '__new__', new_mock):
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_item.py
+IE_TRACE: 12:31:39.023875 line       264             class MyItem(Item):
+IE_TRACE:     12:31:39.023901 call       264             class MyItem(Item):
+IE_TRACE:     12:31:39.023913 line       264             class MyItem(Item):
+IE_TRACE:     New var:....... __module__ = 'tests.test_item'
+IE_TRACE:     New var:....... __qualname__ = 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'
+IE_TRACE:     12:31:39.023923 line       265                 if not PY36_PLUS:
+IE_TRACE:     12:31:39.023943 line       273                 def f(self):
+IE_TRACE:     New var:....... f = <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>
+IE_TRACE:     New var:....... __classcell__ = <cell at 0x7798404ad840: empty>
+IE_TRACE:     12:31:39.023956 return     273                 def f(self):
+IE_TRACE:     Return value:.. <cell at 0x7798404ad840: empty>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/item.py
+IE_TRACE:     Starting var:.. mcs = <class 'scrapy.item.ItemMeta'>
+IE_TRACE:     Starting var:.. class_name = 'MyItem'
+IE_TRACE:     Starting var:.. bases = (<class 'scrapy.item.Item'>,)
+IE_TRACE:     Starting var:.. attrs = {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: empty>}
+IE_TRACE:     Starting var:.. __class__ = <class 'scrapy.item.ItemMeta'>
+IE_TRACE:     12:31:39.023990 call        27     def __new__(mcs, class_name, bases, attrs):
+IE_TRACE:     12:31:39.024062 line        28         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         Starting var:.. .0 = <tuple_iterator object at 0x7798404ae7a0>
+IE_TRACE:         12:31:39.024086 call        28         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         12:31:39.024104 line        28         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         New var:....... base = <class 'scrapy.item.Item'>
+IE_TRACE:         12:31:39.024119 return      28         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         Return value:.. <class 'scrapy.item.Item'>
+IE_TRACE:         Starting var:.. .0 = <tuple_iterator object at 0x7798404ae7a0>
+IE_TRACE:         Starting var:.. base = <class 'scrapy.item.Item'>
+IE_TRACE:         12:31:39.024142 call        28         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         12:31:39.024162 line        28         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         12:31:39.024174 return      28         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         Return value:.. None
+IE_TRACE:     New var:....... new_bases = (<class 'scrapy.item.Item'>,)
+IE_TRACE:     12:31:39.024199 line        29         _class = super(ItemMeta, mcs).__new__(mcs, 'x_' + class_name, new_bases, attrs)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/item.py
+IE_TRACE:     Modified var:.. attrs = {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: ItemMeta object at 0xe914e70>}
+IE_TRACE:     New var:....... _class = <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>
+IE_TRACE:     12:31:39.032933 line        31         fields = getattr(_class, 'fields', {})
+IE_TRACE:     New var:....... fields = {}
+IE_TRACE:     12:31:39.032968 line        32         new_attrs = {}
+IE_TRACE:     New var:....... new_attrs = {}
+IE_TRACE:     12:31:39.032994 line        33         for n in dir(_class):
+IE_TRACE:     New var:....... n = '__abstractmethods__'
+IE_TRACE:     12:31:39.033029 line        34             v = getattr(_class, n)
+IE_TRACE:     New var:....... v = frozenset()
+IE_TRACE:     12:31:39.033057 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.033085 line        37             elif n in attrs:
+IE_TRACE:     [CONDENSED] 16 identical loop iterations skipped (18 total iterations, showing first and last)
+IE_TRACE:     12:31:39.034707 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__module__'
+IE_TRACE:     12:31:39.034729 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = 'tests.test_item'
+IE_TRACE:     12:31:39.034756 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.034782 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.034804 line        38                 new_attrs[n] = attrs[n]
+IE_TRACE:     Modified var:.. new_attrs = {'__module__': 'tests.test_item'}
+IE_TRACE:     12:31:39.034828 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__ne__'
+IE_TRACE:     12:31:39.034854 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__ne__' of 'object' objects>
+IE_TRACE:     12:31:39.034880 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.034906 line        37             elif n in attrs:
+IE_TRACE:     [CONDENSED] 10 identical loop iterations skipped (12 total iterations, showing first and last)
+IE_TRACE:     12:31:39.035935 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = 'f'
+IE_TRACE:     12:31:39.035958 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>
+IE_TRACE:     12:31:39.035985 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.036011 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.036035 line        38                 new_attrs[n] = attrs[n]
+IE_TRACE:     Modified var:.. new_attrs = {'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>}
+IE_TRACE:     12:31:39.036058 line        33         for n in dir(_class):
+IE_TRACE:     12:31:39.036085 line        40         new_attrs['fields'] = fields
+IE_TRACE:     Modified var:.. new_attrs = {'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, 'fields': {}}
+IE_TRACE:     12:31:39.036109 line        41         new_attrs['_class'] = _class
+IE_TRACE:     Modified var:.. new_attrs = {'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, 'fields': {}, '_class': <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>}
+IE_TRACE:     12:31:39.036136 line        42         return super(ItemMeta, mcs).__new__(mcs, class_name, bases, new_attrs)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/item.py
+IE_TRACE:     12:31:39.043971 return      42         return super(ItemMeta, mcs).__new__(mcs, class_name, bases, new_attrs)
+IE_TRACE:     Return value:.. <class 'tests.test_item.MyItem'>
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_item.py
+IE_TRACE: 12:31:39.044012 exception  264             class MyItem(Item):
+IE_TRACE: Exception:..... TypeError: __class__ set to <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'> defining 'MyItem' as <class 'tests.test_item.MyItem'>
+IE_TRACE: 12:31:39.044106 line       262         with mock.patch.object(base, '__new__', new_mock):
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_item.py
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.027188
+======================================================================
+ERROR: test_new_method_propagates_classcell (tests.test_item.ItemMetaTest.test_new_method_propagates_classcell)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/tests/test_item.py", line 264, in test_new_method_propagates_classcell
+    class MyItem(Item):
+TypeError: __class__ set to <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'> defining 'MyItem' as <class 'tests.test_item.MyItem'>
+
+----------------------------------------------------------------------
+Ran 1 test in 0.028s
+
+FAILED (errors=1)
+
+
+Exit code: 1

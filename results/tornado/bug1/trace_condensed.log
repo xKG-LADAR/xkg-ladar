@@ -1,0 +1,1372 @@
+Cleared: /path/to/results/tornado/bug1
+Running: python -m unittest -q tornado.test.websocket_test.WebSocketTest.test_nodelay
+Workdir: /path/to/BugsInPy/workspace/tornado
+PYTHONPATH: /path/to/BugsInPy/workspace/tornado::
+/path/to/BugsInPy/workspace/tornado/tornado/ioloop.py:265: DeprecationWarning: There is no current event loop
+  loop = asyncio.get_event_loop()
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/websocket_test.py
+IE_TRACE: Starting var:.. self = <tornado.test.websocket_test.WebSocketTest testMethod=test_nodelay>
+IE_TRACE: 19:09:37.489923 call       577     def test_nodelay(self):
+IE_TRACE: 19:09:37.490232 line       578         ws = yield self.ws_connect("/nodelay")
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/gen.py
+IE_TRACE:     Starting var:.. args = (<tornado.test.websocket_test.WebSocketTest testMethod=test_nodelay>, '/nodelay')
+IE_TRACE:     Starting var:.. kwargs = {}
+IE_TRACE:     Starting var:.. func = <function WebSocketBaseTestCase.ws_connect at 0x7c7411cc85e0>
+IE_TRACE:     19:09:37.490278 call       185     def wrapper(*args, **kwargs):
+IE_TRACE:     19:09:37.490451 line       189         future = _create_future()
+IE_TRACE:         19:09:37.490484 call       141 def _create_future() -> Future:
+IE_TRACE:         19:09:37.490502 line       142     future = Future()  # type: Future
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/gen.py
+IE_TRACE:         New var:....... future = <Future pending>
+IE_TRACE:         19:09:37.490794 line       144     source_traceback = getattr(future, "_source_traceback", ())
+IE_TRACE:         New var:....... source_traceback = None
+IE_TRACE:         19:09:37.490848 line       145     while source_traceback:
+IE_TRACE:         19:09:37.490877 line       153     return future
+IE_TRACE:         19:09:37.490898 return     153     return future
+IE_TRACE:         Return value:.. <Future pending>
+IE_TRACE:     New var:....... future = <Future pending>
+IE_TRACE:     19:09:37.490927 line       190         try:
+IE_TRACE:     19:09:37.490959 line       191             result = func(*args, **kwargs)
+IE_TRACE:     New var:....... result = <generator object WebSocketBaseTestCase.ws_connect at 0x7c7411cdb4c0>
+IE_TRACE:     19:09:37.490981 line       202             if isinstance(result, Generator):
+IE_TRACE:         Source path:... <frozen abc>
+IE_TRACE:         Starting var:.. cls = <class 'collections.abc.Generator'>
+IE_TRACE:         Starting var:.. instance = <generator object WebSocketBaseTestCase.ws_connect at 0x7c7411cdb4c0>
+IE_TRACE:         19:09:37.491016 call       117 SOURCE IS UNAVAILABLE
+IE_TRACE:         19:09:37.491086 line       119 SOURCE IS UNAVAILABLE
+IE_TRACE:         19:09:37.491106 return     119 SOURCE IS UNAVAILABLE
+IE_TRACE:         Return value:.. True
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/gen.py
+IE_TRACE:     19:09:37.491168 line       208                 try:
+IE_TRACE:     19:09:37.491201 line       209                     yielded = next(result)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/websocket_test.py
+IE_TRACE:         Starting var:.. self = <tornado.test.websocket_test.WebSocketTest testMethod=test_nodelay>
+IE_TRACE:         Starting var:.. path = '/nodelay'
+IE_TRACE:         Starting var:.. kwargs = {}
+IE_TRACE:         19:09:37.491229 call       211     def ws_connect(self, path, **kwargs):
+IE_TRACE:         19:09:37.491271 line       212         ws = yield websocket_connect(
+IE_TRACE:         19:09:37.491290 line       213             "ws://127.0.0.1:%d%s" % (self.get_http_port(), path), **kwargs
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/testing.py
+IE_TRACE:             Starting var:.. self = <tornado.test.websocket_test.WebSocketTest testMethod=test_nodelay>
+IE_TRACE:             19:09:37.491311 call       450     def get_http_port(self) -> int:
+IE_TRACE:             19:09:37.491424 line       455         return self.__port
+IE_TRACE:             19:09:37.491440 return     455         return self.__port
+IE_TRACE:             Return value:.. 39105
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/websocket_test.py
+IE_TRACE:         19:09:37.491466 line       212         ws = yield websocket_connect(
+IE_TRACE:         19:09:37.491490 line       213             "ws://127.0.0.1:%d%s" % (self.get_http_port(), path), **kwargs
+IE_TRACE:         19:09:37.491508 line       212         ws = yield websocket_connect(
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/websocket.py
+IE_TRACE:             Starting var:.. url = 'ws://127.0.0.1:39105/nodelay'
+IE_TRACE:             Starting var:.. callback = None
+IE_TRACE:             Starting var:.. connect_timeout = None
+IE_TRACE:             Starting var:.. on_message_callback = None
+IE_TRACE:             Starting var:.. compression_options = None
+IE_TRACE:             Starting var:.. ping_interval = None
+IE_TRACE:             Starting var:.. ping_timeout = None
+IE_TRACE:             Starting var:.. max_message_size = 10485760
+IE_TRACE:             Starting var:.. subprotocols = None
+IE_TRACE:             19:09:37.491531 call      1579 def websocket_connect(
+IE_TRACE:             19:09:37.491751 line      1633     if isinstance(url, httpclient.HTTPRequest):
+IE_TRACE:             19:09:37.491783 line      1640         request = httpclient.HTTPRequest(url, connect_timeout=connect_timeout)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/httpclient.py
+IE_TRACE:                 Starting var:.. self = <tornado.httpclient.HTTPRequest object at 0x7c7411e50110>
+IE_TRACE:                 Starting var:.. url = 'ws://127.0.0.1:39105/nodelay'
+IE_TRACE:                 Starting var:.. method = 'GET'
+IE_TRACE:                 Starting var:.. headers = None
+IE_TRACE:                 Starting var:.. body = None
+IE_TRACE:                 Starting var:.. auth_username = None
+IE_TRACE:                 Starting var:.. auth_password = None
+IE_TRACE:                 Starting var:.. auth_mode = None
+IE_TRACE:                 Starting var:.. connect_timeout = None
+IE_TRACE:                 Starting var:.. request_timeout = None
+IE_TRACE:                 Starting var:.. if_modified_since = None
+IE_TRACE:                 Starting var:.. follow_redirects = None
+IE_TRACE:                 Starting var:.. max_redirects = None
+IE_TRACE:                 Starting var:.. user_agent = None
+IE_TRACE:                 Starting var:.. use_gzip = None
+IE_TRACE:                 Starting var:.. network_interface = None
+IE_TRACE:                 Starting var:.. streaming_callback = None
+IE_TRACE:                 Starting var:.. header_callback = None
+IE_TRACE:                 Starting var:.. prepare_curl_callback = None
+IE_TRACE:                 Starting var:.. proxy_host = None
+IE_TRACE:                 Starting var:.. proxy_port = None
+IE_TRACE:                 Starting var:.. proxy_username = None
+IE_TRACE:                 Starting var:.. proxy_password = None
+IE_TRACE:                 Starting var:.. proxy_auth_mode = None
+IE_TRACE:                 Starting var:.. allow_nonstandard_methods = None
+IE_TRACE:                 Starting var:.. validate_cert = None
+IE_TRACE:                 Starting var:.. ca_certs = None
+IE_TRACE:                 Starting var:.. allow_ipv6 = None
+IE_TRACE:                 Starting var:.. client_key = None
+IE_TRACE:                 Starting var:.. client_cert = None
+IE_TRACE:                 Starting var:.. body_producer = None
+IE_TRACE:                 Starting var:.. expect_100_continue = False
+IE_TRACE:                 Starting var:.. decompress_response = None
+IE_TRACE:                 Starting var:.. ssl_options = None
+IE_TRACE:                 19:09:37.491825 call       356     def __init__(
+IE_TRACE:                 19:09:37.492132 line       505         self.headers = headers
+IE_TRACE:                     Starting var:.. self = <tornado.httpclient.HTTPRequest object at 0x7c7411e50110>
+IE_TRACE:                     Starting var:.. value = None
+IE_TRACE:                     19:09:37.492202 call       553     def headers(self, value: Union[Dict[str, str], httputil.HTTPHeaders]) -> None:
+IE_TRACE:                     19:09:37.492234 line       554         if value is None:
+IE_TRACE:                     19:09:37.492252 line       555             self._headers = httputil.HTTPHeaders()
+IE_TRACE:                         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/httputil.py
+IE_TRACE:                         Starting var:.. self = <tornado.httputil.HTTPHeaders object at 0x7c7411e50860>
+IE_TRACE:                         Starting var:.. args = ()
+IE_TRACE:                         Starting var:.. kwargs = {}
+IE_TRACE:                         19:09:37.492279 call       148     def __init__(self, *args: typing.Any, **kwargs: str) -> None:  # noqa: F811
+IE_TRACE:                         19:09:37.492426 line       149         self._dict = {}  # type: typing.Dict[str, str]
+IE_TRACE:                         19:09:37.492450 line       150         self._as_list = {}  # type: typing.Dict[str, typing.List[str]]
+IE_TRACE:                         19:09:37.492471 line       151         self._last_key = None
+IE_TRACE:                         19:09:37.492492 line       152         if len(args) == 1 and len(kwargs) == 0 and isinstance(args[0], HTTPHeaders):
+IE_TRACE:                         19:09:37.492513 line       158             self.update(*args, **kwargs)
+IE_TRACE:                             Source path:... <frozen _collections_abc>
+IE_TRACE:                             Starting var:.. self = <tornado.httputil.HTTPHeaders object at 0x7c7411e50860>
+IE_TRACE:                             Starting var:.. other = ()
+IE_TRACE:                             Starting var:.. kwds = {}
+IE_TRACE:                             19:09:37.492541 call       974 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:09:37.492603 line       980 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Source path:... <frozen abc>
+IE_TRACE:                                 Starting var:.. cls = <class 'collections.abc.Mapping'>
+IE_TRACE:                                 Starting var:.. instance = ()
+IE_TRACE:                                 19:09:37.492629 call       117 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:09:37.492664 line       119 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. cls = <class 'collections.abc.Mapping'>
+IE_TRACE:                                     Starting var:.. subclass = <class 'tuple'>
+IE_TRACE:                                     19:09:37.492688 call       121 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:09:37.492718 line       123 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:09:37.492874 return     123 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. False
+IE_TRACE:                                 19:09:37.492904 return     119 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. False
+IE_TRACE:                             Source path:... <frozen _collections_abc>
+IE_TRACE:                             19:09:37.492932 line       983 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:09:37.492961 line       987 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:09:37.492982 line       989 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:09:37.493003 return     989 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/httputil.py
+IE_TRACE:                         19:09:37.493033 return     158             self.update(*args, **kwargs)
+IE_TRACE:                         Return value:.. None
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/httpclient.py
+IE_TRACE:                     19:09:37.493069 return     555             self._headers = httputil.HTTPHeaders()
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 19:09:37.493102 line       506         if if_modified_since:
+IE_TRACE:                 19:09:37.493177 line       510         self.proxy_host = proxy_host
+IE_TRACE:                 19:09:37.493241 line       511         self.proxy_port = proxy_port
+IE_TRACE:                 19:09:37.493303 line       512         self.proxy_username = proxy_username
+IE_TRACE:                 19:09:37.493364 line       513         self.proxy_password = proxy_password
+IE_TRACE:                 19:09:37.493426 line       514         self.proxy_auth_mode = proxy_auth_mode
+IE_TRACE:                 19:09:37.493489 line       515         self.url = url
+IE_TRACE:                 19:09:37.493549 line       516         self.method = method
+IE_TRACE:                 19:09:37.493611 line       517         self.body = body
+IE_TRACE:                     Starting var:.. self = <tornado.httpclient.HTTPRequest object at 0x7c7411e50110>
+IE_TRACE:                     Starting var:.. value = None
+IE_TRACE:                     19:09:37.493674 call       564     def body(self, value: Union[bytes, str]) -> None:
+IE_TRACE:                     19:09:37.493705 line       565         self._body = utf8(value)
+IE_TRACE:                         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/escape.py
+IE_TRACE:                         Starting var:.. value = None
+IE_TRACE:                         19:09:37.493729 call       186 def utf8(value: Union[None, str, bytes]) -> Optional[bytes]:  # noqa: F811
+IE_TRACE:                         19:09:37.493816 line       192     if isinstance(value, _UTF8_TYPES):
+IE_TRACE:                         19:09:37.493834 line       193         return value
+IE_TRACE:                         19:09:37.493850 return     193         return value
+IE_TRACE:                         Return value:.. None
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/httpclient.py
+IE_TRACE:                     19:09:37.493874 return     565         self._body = utf8(value)
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 19:09:37.493906 line       518         self.body_producer = body_producer
+IE_TRACE:                 19:09:37.493972 line       519         self.auth_username = auth_username
+IE_TRACE:                 19:09:37.494035 line       520         self.auth_password = auth_password
+IE_TRACE:                 19:09:37.494097 line       521         self.auth_mode = auth_mode
+IE_TRACE:                 19:09:37.494167 line       522         self.connect_timeout = connect_timeout
+IE_TRACE:                 19:09:37.494229 line       523         self.request_timeout = request_timeout
+IE_TRACE:                 19:09:37.494291 line       524         self.follow_redirects = follow_redirects
+IE_TRACE:                 19:09:37.494353 line       525         self.max_redirects = max_redirects
+IE_TRACE:                 19:09:37.494414 line       526         self.user_agent = user_agent
+IE_TRACE:                 19:09:37.494476 line       527         if decompress_response is not None:
+IE_TRACE:                 19:09:37.494538 line       530             self.decompress_response = use_gzip
+IE_TRACE:                 19:09:37.494600 line       531         self.network_interface = network_interface
+IE_TRACE:                 19:09:37.494661 line       532         self.streaming_callback = streaming_callback
+IE_TRACE:                 19:09:37.494722 line       533         self.header_callback = header_callback
+IE_TRACE:                 19:09:37.494784 line       534         self.prepare_curl_callback = prepare_curl_callback
+IE_TRACE:                 19:09:37.494845 line       535         self.allow_nonstandard_methods = allow_nonstandard_methods
+IE_TRACE:                 19:09:37.494906 line       536         self.validate_cert = validate_cert
+IE_TRACE:                 19:09:37.494967 line       537         self.ca_certs = ca_certs
+IE_TRACE:                 19:09:37.495029 line       538         self.allow_ipv6 = allow_ipv6
+IE_TRACE:                 19:09:37.495090 line       539         self.client_key = client_key
+IE_TRACE:                 19:09:37.495155 line       540         self.client_cert = client_cert
+IE_TRACE:                 19:09:37.495216 line       541         self.ssl_options = ssl_options
+IE_TRACE:                 19:09:37.495278 line       542         self.expect_100_continue = expect_100_continue
+IE_TRACE:                 19:09:37.495340 line       543         self.start_time = time.time()
+IE_TRACE:                 19:09:37.495401 return     543         self.start_time = time.time()
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/websocket.py
+IE_TRACE:             New var:....... request = <tornado.httpclient.HTTPRequest object at 0x7c7411e50110>
+IE_TRACE:             19:09:37.495470 line      1641     request = cast(
+IE_TRACE:             19:09:37.495511 line      1642         httpclient.HTTPRequest,
+IE_TRACE:             19:09:37.495539 line      1643         httpclient._RequestProxy(request, httpclient.HTTPRequest._DEFAULTS),
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/httpclient.py
+IE_TRACE:                 Starting var:.. self = <tornado.httpclient._RequestProxy object at 0x7c7411e47e60>
+IE_TRACE:                 Starting var:.. request = <tornado.httpclient.HTTPRequest object at 0x7c7411e50110>
+IE_TRACE:                 Starting var:.. defaults = {'connect_timeout': 20.0, 'request_timeout': 20.0, 'follow_redirects': True, 'max_redirects': 5, 'decompress_response': True, 'proxy_password': '', 'allow_nonstandard_methods': False, 'validate_cert': True}
+IE_TRACE:                 19:09:37.495573 call       732     def __init__(
+IE_TRACE:                 19:09:37.495623 line       735         self.request = request
+IE_TRACE:                 19:09:37.495645 line       736         self.defaults = defaults
+IE_TRACE:                 19:09:37.495664 return     736         self.defaults = defaults
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/websocket.py
+IE_TRACE:             19:09:37.495690 line      1641     request = cast(
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/websocket.py
+IE_TRACE:             Modified var:.. request = <tornado.httpclient._RequestProxy object at 0x7c7411e47e60>
+IE_TRACE:             19:09:37.496101 line      1645     conn = WebSocketClientConnection(
+IE_TRACE:             19:09:37.496154 line      1646         request,
+IE_TRACE:             19:09:37.496182 line      1647         on_message_callback=on_message_callback,
+IE_TRACE:             19:09:37.496211 line      1648         compression_options=compression_options,
+IE_TRACE:             19:09:37.496237 line      1649         ping_interval=ping_interval,
+IE_TRACE:             19:09:37.496264 line      1650         ping_timeout=ping_timeout,
+IE_TRACE:             19:09:37.496290 line      1651         max_message_size=max_message_size,
+IE_TRACE:             19:09:37.496317 line      1652         subprotocols=subprotocols,
+IE_TRACE:             19:09:37.496343 line      1645     conn = WebSocketClientConnection(
+IE_TRACE:                 Starting var:.. self = <tornado.websocket.WebSocketClientConnection object at 0x7c7411e53c50>
+IE_TRACE:                 Starting var:.. request = <tornado.httpclient._RequestProxy object at 0x7c7411e47e60>
+IE_TRACE:                 Starting var:.. on_message_callback = None
+IE_TRACE:                 Starting var:.. compression_options = None
+IE_TRACE:                 Starting var:.. ping_interval = None
+IE_TRACE:                 Starting var:.. ping_timeout = None
+IE_TRACE:                 Starting var:.. max_message_size = 10485760
+IE_TRACE:                 Starting var:.. subprotocols = None
+IE_TRACE:                 Starting var:.. __class__ = <class 'tornado.websocket.WebSocketClientConnection'>
+IE_TRACE:                 19:09:37.496385 call      1358     def __init__(
+IE_TRACE:                 19:09:37.496457 line      1368         self.connect_future = Future()  # type: Future[WebSocketClientConnection]
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/websocket.py
+IE_TRACE:                 19:09:37.496566 line      1369         self.read_queue = Queue(1)  # type: Queue[Union[None, str, bytes]]
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/queues.py
+IE_TRACE:                     Starting var:.. self = REPR FAILED
+IE_TRACE:                     Starting var:.. maxsize = 1
+IE_TRACE:                     19:09:37.496608 call       153     def __init__(self, maxsize: int = 0) -> None:
+IE_TRACE:                     19:09:37.496715 line       154         if maxsize is None:
+IE_TRACE:                     19:09:37.496738 line       157         if maxsize < 0:
+IE_TRACE:                     19:09:37.496757 line       160         self._maxsize = maxsize
+IE_TRACE:                     19:09:37.496776 line       161         self._init()
+IE_TRACE:                         Starting var:.. self = REPR FAILED
+IE_TRACE:                         19:09:37.496798 call       302     def _init(self) -> None:
+IE_TRACE:                         19:09:37.496822 line       303         self._queue = collections.deque()
+IE_TRACE:                         19:09:37.496840 return     303         self._queue = collections.deque()
+IE_TRACE:                         Return value:.. None
+IE_TRACE:                     19:09:37.496865 line       162         self._getters = collections.deque([])  # type: Deque[Future[_T]]
+IE_TRACE:                     19:09:37.496886 line       163         self._putters = collections.deque([])  # type: Deque[Tuple[_T, Future[None]]]
+IE_TRACE:                     19:09:37.496905 line       164         self._unfinished_tasks = 0
+IE_TRACE:                     Modified var:.. self = <Queue at 0x7c7411e93c80 maxsize=1>
+IE_TRACE:                     19:09:37.496925 line       165         self._finished = Event()
+IE_TRACE:                         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/locks.py
+IE_TRACE:                         Starting var:.. self = REPR FAILED
+IE_TRACE:                         19:09:37.496952 call       201     def __init__(self) -> None:
+IE_TRACE:                         19:09:37.497054 line       202         self._value = False
+IE_TRACE:                         Modified var:.. self = <Event clear>
+IE_TRACE:                         19:09:37.497072 line       203         self._waiters = set()  # type: Set[Future[None]]
+IE_TRACE:                         19:09:37.497094 return     203         self._waiters = set()  # type: Set[Future[None]]
+IE_TRACE:                         Return value:.. None
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/queues.py
+IE_TRACE:                     19:09:37.497117 line       166         self._finished.set()
+IE_TRACE:                         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/locks.py
+IE_TRACE:                         Starting var:.. self = <Event clear>
+IE_TRACE:                         19:09:37.497152 call       215     def set(self) -> None:
+IE_TRACE:                         19:09:37.497179 line       220         if not self._value:
+IE_TRACE:                         19:09:37.497196 line       221             self._value = True
+IE_TRACE:                         Modified var:.. self = <Event set>
+IE_TRACE:                         19:09:37.497212 line       223             for fut in self._waiters:
+IE_TRACE:                         19:09:37.497233 return     223             for fut in self._waiters:
+IE_TRACE:                         Return value:.. None
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/queues.py
+IE_TRACE:                     19:09:37.497258 return     166         self._finished.set()
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/websocket.py
+IE_TRACE:                 19:09:37.497292 line      1370         self.key = base64.b64encode(os.urandom(16))
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/websocket.py
+IE_TRACE:                 19:09:37.497569 line      1371         self._on_message_callback = on_message_callback
+IE_TRACE:                 19:09:37.497605 line      1372         self.close_code = None  # type: Optional[int]
+IE_TRACE:                 19:09:37.497636 line      1373         self.close_reason = None  # type: Optional[str]
+IE_TRACE:                 19:09:37.497665 line      1374         self.params = _WebSocketParams(
+IE_TRACE:                 19:09:37.497693 line      1375             ping_interval=ping_interval,
+IE_TRACE:                 19:09:37.497722 line      1376             ping_timeout=ping_timeout,
+IE_TRACE:                 19:09:37.497749 line      1377             max_message_size=max_message_size,
+IE_TRACE:                 19:09:37.497778 line      1378             compression_options=compression_options,
+IE_TRACE:                 19:09:37.497805 line      1374         self.params = _WebSocketParams(
+IE_TRACE:                     Starting var:.. self = <tornado.websocket._WebSocketParams object at 0x7c7411e7ffb0>
+IE_TRACE:                     Starting var:.. ping_interval = None
+IE_TRACE:                     Starting var:.. ping_timeout = None
+IE_TRACE:                     Starting var:.. max_message_size = 10485760
+IE_TRACE:                     Starting var:.. compression_options = None
+IE_TRACE:                     19:09:37.497836 call       123     def __init__(
+IE_TRACE:                     19:09:37.497884 line       130         self.ping_interval = ping_interval
+IE_TRACE:                     19:09:37.497908 line       131         self.ping_timeout = ping_timeout
+IE_TRACE:                     19:09:37.497930 line       132         self.max_message_size = max_message_size
+IE_TRACE:                     19:09:37.497952 line       133         self.compression_options = compression_options
+IE_TRACE:                     19:09:37.497974 return     133         self.compression_options = compression_options
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 19:09:37.498003 line      1381         scheme, sep, rest = request.url.partition(":")
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/httpclient.py
+IE_TRACE:                     Starting var:.. self = <tornado.httpclient._RequestProxy object at 0x7c7411e47e60>
+IE_TRACE:                     Starting var:.. name = 'url'
+IE_TRACE:                     19:09:37.498037 call       738     def __getattr__(self, name: str) -> Any:
+IE_TRACE:                     19:09:37.498070 line       739         request_attr = getattr(self.request, name)
+IE_TRACE:                     New var:....... request_attr = 'ws://127.0.0.1:39105/nodelay'
+IE_TRACE:                     19:09:37.498089 line       740         if request_attr is not None:
+IE_TRACE:                     19:09:37.498115 line       741             return request_attr
+IE_TRACE:                     19:09:37.498143 return     741             return request_attr
+IE_TRACE:                     Return value:.. 'ws://127.0.0.1:39105/nodelay'
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/websocket.py
+IE_TRACE:                 New var:....... scheme = 'ws'
+IE_TRACE:                 New var:....... sep = ':'
+IE_TRACE:                 New var:....... rest = '//127.0.0.1:39105/nodelay'
+IE_TRACE:                 19:09:37.498171 line      1382         scheme = {"ws": "http", "wss": "https"}[scheme]
+IE_TRACE:                 Modified var:.. scheme = 'http'
+IE_TRACE:                 19:09:37.498225 line      1383         request.url = scheme + sep + rest
+IE_TRACE:                 19:09:37.498265 line      1384         request.headers.update(
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/httpclient.py
+IE_TRACE:                     Starting var:.. self = <tornado.httpclient._RequestProxy object at 0x7c7411e47e60>
+IE_TRACE:                     Starting var:.. name = 'headers'
+IE_TRACE:                     19:09:37.498298 call       738     def __getattr__(self, name: str) -> Any:
+IE_TRACE:                     19:09:37.498332 line       739         request_attr = getattr(self.request, name)
+IE_TRACE:                         Starting var:.. self = <tornado.httpclient.HTTPRequest object at 0x7c7411e50110>
+IE_TRACE:                         19:09:37.498354 call       546     def headers(self) -> httputil.HTTPHeaders:
+IE_TRACE:                         19:09:37.498377 line       550         return self._headers  # type: ignore
+IE_TRACE:                         19:09:37.498394 return     550         return self._headers  # type: ignore
+IE_TRACE:                         Return value:.. <tornado.httputil.HTTPHeaders object at 0x7c7411e50860>
+IE_TRACE:                     New var:....... request_attr = <tornado.httputil.HTTPHeaders object at 0x7c7411e50860>
+IE_TRACE:                     19:09:37.498419 line       740         if request_attr is not None:
+IE_TRACE:                     19:09:37.498444 line       741             return request_attr
+IE_TRACE:                     19:09:37.498463 return     741             return request_attr
+IE_TRACE:                     Return value:.. <tornado.httputil.HTTPHeaders object at 0x7c7411e50860>
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/websocket.py
+IE_TRACE:                 19:09:37.498488 line      1386                 "Upgrade": "websocket",
+IE_TRACE:                 19:09:37.498527 line      1387                 "Connection": "Upgrade",
+IE_TRACE:                 19:09:37.498559 line      1388                 "Sec-WebSocket-Key": self.key,
+IE_TRACE:                 19:09:37.498590 line      1389                 "Sec-WebSocket-Version": "13",
+IE_TRACE:                 19:09:37.498622 line      1385             {
+IE_TRACE:                 19:09:37.498653 line      1384         request.headers.update(
+IE_TRACE:                     Source path:... <frozen _collections_abc>
+IE_TRACE:                     Starting var:.. self = <tornado.httputil.HTTPHeaders object at 0x7c7411e50860>
+IE_TRACE:                     Starting var:.. other = {'Upgrade': 'websocket', 'Connection': 'Upgrade', 'Sec-WebSocket-Key': b'UM6MM9yV4mrZ2fsBylaxcw==', 'Sec-WebSocket-Version': '13'}
+IE_TRACE:                     Starting var:.. kwds = {}
+IE_TRACE:                     19:09:37.498688 call       974 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:09:37.498732 line       980 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Source path:... <frozen abc>
+IE_TRACE:                         Starting var:.. cls = <class 'collections.abc.Mapping'>
+IE_TRACE:                         Starting var:.. instance = {'Upgrade': 'websocket', 'Connection': 'Upgrade', 'Sec-WebSocket-Key': b'UM6MM9yV4mrZ2fsBylaxcw==', 'Sec-WebSocket-Version': '13'}
+IE_TRACE:                         19:09:37.498758 call       117 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:09:37.498794 line       119 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. cls = <class 'collections.abc.Mapping'>
+IE_TRACE:                             Starting var:.. subclass = <class 'dict'>
+IE_TRACE:                             19:09:37.498817 call       121 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:09:37.498845 line       123 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Source path:... <frozen _collections_abc>
+IE_TRACE:                                 Starting var:.. cls = <class 'collections.abc.Mapping'>
+IE_TRACE:                                 Starting var:.. C = <class 'dict'>
+IE_TRACE:                                 19:09:37.498867 call       435 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:09:37.498905 line       437 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:09:37.498924 line       439 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:09:37.498943 return     439 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. NotImplemented
+IE_TRACE:                                 Source path:... <frozen abc>
+IE_TRACE:                                 Starting var:.. cls = <class 'collections.abc.MutableMapping'>
+IE_TRACE:                                 Starting var:.. subclass = <class 'dict'>
+IE_TRACE:                                 19:09:37.498972 call       121 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:09:37.499005 line       123 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Source path:... <frozen _collections_abc>
+IE_TRACE:                                     Starting var:.. cls = <class 'collections.abc.MutableMapping'>
+IE_TRACE:                                     Starting var:.. C = <class 'dict'>
+IE_TRACE:                                     19:09:37.499024 call       435 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:09:37.499056 line       437 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:09:37.499075 line       439 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:09:37.499092 return     439 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. NotImplemented
+IE_TRACE:                                 Source path:... <frozen abc>
+IE_TRACE:                                 19:09:37.499117 return     123 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. True
+IE_TRACE:                             19:09:37.499151 return     123 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. True
+IE_TRACE:                         19:09:37.499175 return     119 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Return value:.. True
+IE_TRACE:                     Source path:... <frozen _collections_abc>
+IE_TRACE:                     19:09:37.499200 line       981 SOURCE IS UNAVAILABLE
+IE_TRACE:                     New var:....... key = 'Upgrade'
+IE_TRACE:                     19:09:37.499228 line       982 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/httputil.py
+IE_TRACE:                         Starting var:.. self = <tornado.httputil.HTTPHeaders object at 0x7c7411e50860>
+IE_TRACE:                         Starting var:.. name = 'Upgrade'
+IE_TRACE:                         Starting var:.. value = 'websocket'
+IE_TRACE:                         19:09:37.499260 call       233     def __setitem__(self, name: str, value: str) -> None:
+IE_TRACE:                         19:09:37.499302 line       234         norm_name = _normalized_headers[name]
+IE_TRACE:                             Starting var:.. self = {}
+IE_TRACE:                             Starting var:.. key = 'Upgrade'
+IE_TRACE:                             19:09:37.499333 call        87     def __missing__(self, key: str) -> str:
+IE_TRACE:                             19:09:37.499364 line        88         normalized = "-".join([w.capitalize() for w in key.split("-")])
+IE_TRACE:                             New var:....... w = 'Upgrade'
+IE_TRACE:                             19:09:37.499389 line        88         normalized = "-".join([w.capitalize() for w in key.split("-")])
+IE_TRACE:                             New var:....... normalized = 'Upgrade'
+IE_TRACE:                             19:09:37.499414 line        89         self[key] = normalized
+IE_TRACE:                             Modified var:.. self = {'Upgrade': 'Upgrade'}
+IE_TRACE:                             19:09:37.499441 line        90         self.queue.append(key)
+IE_TRACE:                             19:09:37.499467 line        91         if len(self.queue) > self.size:
+IE_TRACE:                             19:09:37.499489 line        97         return normalized
+IE_TRACE:                             19:09:37.499509 return      97         return normalized
+IE_TRACE:                             Return value:.. 'Upgrade'
+IE_TRACE:                         New var:....... norm_name = 'Upgrade'
+IE_TRACE:                         19:09:37.499536 line       235         self._dict[norm_name] = value
+IE_TRACE:                         19:09:37.499562 line       236         self._as_list[norm_name] = [value]
+IE_TRACE:                         19:09:37.499583 return     236         self._as_list[norm_name] = [value]
+IE_TRACE:                         Return value:.. None
+IE_TRACE:                     Source path:... <frozen _collections_abc>
+IE_TRACE:                     19:09:37.499611 line       981 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Modified var:.. key = 'Connection'
+IE_TRACE:                     19:09:37.499639 line       982 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/httputil.py
+IE_TRACE:                         Starting var:.. self = <tornado.httputil.HTTPHeaders object at 0x7c7411e50860>
+IE_TRACE:                         Starting var:.. name = 'Connection'
+IE_TRACE:                         Starting var:.. value = 'Upgrade'
+IE_TRACE:                         19:09:37.499666 call       233     def __setitem__(self, name: str, value: str) -> None:
+IE_TRACE:                         19:09:37.499704 line       234         norm_name = _normalized_headers[name]
+IE_TRACE:                             Starting var:.. self = {'Upgrade': 'Upgrade'}
+IE_TRACE:                             Starting var:.. key = 'Connection'
+IE_TRACE:                             19:09:37.499726 call        87     def __missing__(self, key: str) -> str:
+IE_TRACE:                             19:09:37.499753 line        88         normalized = "-".join([w.capitalize() for w in key.split("-")])
+IE_TRACE:                             New var:....... w = 'Connection'
+IE_TRACE:                             19:09:37.499774 line        88         normalized = "-".join([w.capitalize() for w in key.split("-")])
+IE_TRACE:                             New var:....... normalized = 'Connection'
+IE_TRACE:                             19:09:37.499798 line        89         self[key] = normalized
+IE_TRACE:                             Modified var:.. self = {'Upgrade': 'Upgrade', 'Connection': 'Connection'}
+IE_TRACE:                             19:09:37.499823 line        90         self.queue.append(key)
+IE_TRACE:                             19:09:37.499847 line        91         if len(self.queue) > self.size:
+IE_TRACE:                             19:09:37.499868 line        97         return normalized
+IE_TRACE:                             19:09:37.499888 return      97         return normalized
+IE_TRACE:                             Return value:.. 'Connection'
+IE_TRACE:                         New var:....... norm_name = 'Connection'
+IE_TRACE:                         19:09:37.499913 line       235         self._dict[norm_name] = value
+IE_TRACE:                         19:09:37.499938 line       236         self._as_list[norm_name] = [value]
+IE_TRACE:                         19:09:37.499959 return     236         self._as_list[norm_name] = [value]
+IE_TRACE:                         Return value:.. None
+IE_TRACE:                     Source path:... <frozen _collections_abc>
+IE_TRACE:                     19:09:37.499985 line       981 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Modified var:.. key = 'Sec-WebSocket-Key'
+IE_TRACE:                     19:09:37.500013 line       982 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/httputil.py
+IE_TRACE:                         Starting var:.. self = <tornado.httputil.HTTPHeaders object at 0x7c7411e50860>
+IE_TRACE:                         Starting var:.. name = 'Sec-WebSocket-Key'
+IE_TRACE:                         Starting var:.. value = bytes(len=24)
+IE_TRACE:                         19:09:37.500040 call       233     def __setitem__(self, name: str, value: str) -> None:
+IE_TRACE:                         19:09:37.500078 line       234         norm_name = _normalized_headers[name]
+IE_TRACE:                             Starting var:.. self = {'Upgrade': 'Upgrade', 'Connection': 'Connection'}
+IE_TRACE:                             Starting var:.. key = 'Sec-WebSocket-Key'
+IE_TRACE:                             19:09:37.500100 call        87     def __missing__(self, key: str) -> str:
+IE_TRACE:                             19:09:37.500131 line        88         normalized = "-".join([w.capitalize() for w in key.split("-")])
+IE_TRACE:                             New var:....... w = 'Sec'
+IE_TRACE:                             19:09:37.500151 line        88         normalized = "-".join([w.capitalize() for w in key.split("-")])
+IE_TRACE:                             Modified var:.. w = 'WebSocket'
+IE_TRACE:                             19:09:37.500179 line        88         normalized = "-".join([w.capitalize() for w in key.split("-")])
+IE_TRACE:                             Modified var:.. w = 'Key'
+IE_TRACE:                             19:09:37.500204 line        88         normalized = "-".join([w.capitalize() for w in key.split("-")])
+IE_TRACE:                             New var:....... normalized = 'Sec-Websocket-Key'
+IE_TRACE:                             19:09:37.500228 line        89         self[key] = normalized
+IE_TRACE:                             Modified var:.. self = {'Upgrade': 'Upgrade', 'Connection': 'Connection', 'Sec-WebSocket-Key': 'Sec-Websocket-Key'}
+IE_TRACE:                             19:09:37.500253 line        90         self.queue.append(key)
+IE_TRACE:                             19:09:37.500278 line        91         if len(self.queue) > self.size:
+IE_TRACE:                             19:09:37.500299 line        97         return normalized
+IE_TRACE:                             19:09:37.500319 return      97         return normalized
+IE_TRACE:                             Return value:.. 'Sec-Websocket-Key'
+IE_TRACE:                         New var:....... norm_name = 'Sec-Websocket-Key'
+IE_TRACE:                         19:09:37.500344 line       235         self._dict[norm_name] = value
+IE_TRACE:                         19:09:37.500371 line       236         self._as_list[norm_name] = [value]
+IE_TRACE:                         19:09:37.500392 return     236         self._as_list[norm_name] = [value]
+IE_TRACE:                         Return value:.. None
+IE_TRACE:                     Source path:... <frozen _collections_abc>
+IE_TRACE:                     19:09:37.500418 line       981 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Modified var:.. key = 'Sec-WebSocket-Version'
+IE_TRACE:                     19:09:37.500446 line       982 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/httputil.py
+IE_TRACE:                         Starting var:.. self = <tornado.httputil.HTTPHeaders object at 0x7c7411e50860>
+IE_TRACE:                         Starting var:.. name = 'Sec-WebSocket-Version'
+IE_TRACE:                         Starting var:.. value = '13'
+IE_TRACE:                         19:09:37.500473 call       233     def __setitem__(self, name: str, value: str) -> None:
+IE_TRACE:                         19:09:37.500510 line       234         norm_name = _normalized_headers[name]
+IE_TRACE:                             Starting var:.. self = {'Upgrade': 'Upgrade', 'Connection': 'Connection', 'Sec-WebSocket-Key': 'Sec-Websocket-Key'}
+IE_TRACE:                             Starting var:.. key = 'Sec-WebSocket-Version'
+IE_TRACE:                             19:09:37.500531 call        87     def __missing__(self, key: str) -> str:
+IE_TRACE:                             19:09:37.500558 line        88         normalized = "-".join([w.capitalize() for w in key.split("-")])
+IE_TRACE:                             New var:....... w = 'Sec'
+IE_TRACE:                             19:09:37.500578 line        88         normalized = "-".join([w.capitalize() for w in key.split("-")])
+IE_TRACE:                             Modified var:.. w = 'WebSocket'
+IE_TRACE:                             19:09:37.500603 line        88         normalized = "-".join([w.capitalize() for w in key.split("-")])
+IE_TRACE:                             Modified var:.. w = 'Version'
+IE_TRACE:                             19:09:37.500628 line        88         normalized = "-".join([w.capitalize() for w in key.split("-")])
+IE_TRACE:                             New var:....... normalized = 'Sec-Websocket-Version'
+IE_TRACE:                             19:09:37.500653 line        89         self[key] = normalized
+IE_TRACE:                             Modified var:.. self = {'Upgrade': 'Upgrade', 'Connection': 'Connection', 'Sec-WebSocket-Key': 'Sec-Websocket-Key', 'Sec-WebSocket-Version': 'Sec-Websocket-Version'}
+IE_TRACE:                             19:09:37.500678 line        90         self.queue.append(key)
+IE_TRACE:                             19:09:37.500704 line        91         if len(self.queue) > self.size:
+IE_TRACE:                             19:09:37.500724 line        97         return normalized
+IE_TRACE:                             19:09:37.500744 return      97         return normalized
+IE_TRACE:                             Return value:.. 'Sec-Websocket-Version'
+IE_TRACE:                         New var:....... norm_name = 'Sec-Websocket-Version'
+IE_TRACE:                         19:09:37.500770 line       235         self._dict[norm_name] = value
+IE_TRACE:                         19:09:37.500795 line       236         self._as_list[norm_name] = [value]
+IE_TRACE:                         19:09:37.500815 return     236         self._as_list[norm_name] = [value]
+IE_TRACE:                         Return value:.. None
+IE_TRACE:                     Source path:... <frozen _collections_abc>
+IE_TRACE:                     19:09:37.500841 line       981 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:09:37.500868 line       989 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:09:37.500891 return     989 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/websocket.py
+IE_TRACE:                 19:09:37.500918 line      1392         if subprotocols is not None:
+IE_TRACE:                 19:09:37.500958 line      1394         if compression_options is not None:
+IE_TRACE:                 19:09:37.500992 line      1404         self.tcp_client = TCPClient()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/tcpclient.py
+IE_TRACE:                     Starting var:.. self = <tornado.tcpclient.TCPClient object at 0x7c7411e508c0>
+IE_TRACE:                     Starting var:.. resolver = None
+IE_TRACE:                     19:09:37.501029 call       210     def __init__(self, resolver: Resolver = None) -> None:
+IE_TRACE:                     19:09:37.501126 line       211         if resolver is not None:
+IE_TRACE:                     19:09:37.501148 line       215             self.resolver = Resolver()
+IE_TRACE:                         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:                         Starting var:.. cls = <class 'tornado.netutil.Resolver'>
+IE_TRACE:                         Starting var:.. args = ()
+IE_TRACE:                         Starting var:.. kwargs = {}
+IE_TRACE:                         Starting var:.. __class__ = <class 'tornado.util.Configurable'>
+IE_TRACE:                         19:09:37.501176 call       269     def __new__(cls, *args: Any, **kwargs: Any) -> Any:
+IE_TRACE:                         19:09:37.501286 line       270         base = cls.configurable_base()
+IE_TRACE:                             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/netutil.py
+IE_TRACE:                             Starting var:.. cls = <class 'tornado.netutil.Resolver'>
+IE_TRACE:                             19:09:37.501313 call       329     def configurable_base(cls) -> Type["Resolver"]:
+IE_TRACE:                             19:09:37.501416 line       330         return Resolver
+IE_TRACE:                             19:09:37.501434 return     330         return Resolver
+IE_TRACE:                             Return value:.. <class 'tornado.netutil.Resolver'>
+IE_TRACE:                         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:                         New var:....... base = <class 'tornado.netutil.Resolver'>
+IE_TRACE:                         19:09:37.501457 line       271         init_kwargs = {}  # type: Dict[str, Any]
+IE_TRACE:                         New var:....... init_kwargs = {}
+IE_TRACE:                         19:09:37.501492 line       272         if cls is base:
+IE_TRACE:                         19:09:37.501522 line       273             impl = cls.configured_class()
+IE_TRACE:                             Starting var:.. cls = <class 'tornado.netutil.Resolver'>
+IE_TRACE:                             19:09:37.501552 call       337     def configured_class(cls):
+IE_TRACE:                             19:09:37.501576 line       340         base = cls.configurable_base()
+IE_TRACE:                                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/netutil.py
+IE_TRACE:                                 Starting var:.. cls = <class 'tornado.netutil.Resolver'>
+IE_TRACE:                                 19:09:37.501594 call       329     def configurable_base(cls) -> Type["Resolver"]:
+IE_TRACE:                                 19:09:37.501621 line       330         return Resolver
+IE_TRACE:                                 19:09:37.501637 return     330         return Resolver
+IE_TRACE:                                 Return value:.. <class 'tornado.netutil.Resolver'>
+IE_TRACE:                             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:                             New var:....... base = <class 'tornado.netutil.Resolver'>
+IE_TRACE:                             19:09:37.501660 line       344         if base.__dict__.get("_Configurable__impl_class") is None:
+IE_TRACE:                             19:09:37.501689 line       346         if base.__impl_class is not None:
+IE_TRACE:                             19:09:37.501708 line       347             return base.__impl_class
+IE_TRACE:                             19:09:37.501726 return     347             return base.__impl_class
+IE_TRACE:                             Return value:.. <class 'tornado.netutil.DefaultExecutorResolver'>
+IE_TRACE:                         New var:....... impl = <class 'tornado.netutil.DefaultExecutorResolver'>
+IE_TRACE:                         19:09:37.501751 line       274             if base.__impl_kwargs:
+IE_TRACE:                         19:09:37.501782 line       278         init_kwargs.update(kwargs)
+IE_TRACE:                         19:09:37.501808 line       279         if impl.configurable_base() is not base:
+IE_TRACE:                             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/netutil.py
+IE_TRACE:                             Starting var:.. cls = <class 'tornado.netutil.DefaultExecutorResolver'>
+IE_TRACE:                             19:09:37.501834 call       329     def configurable_base(cls) -> Type["Resolver"]:
+IE_TRACE:                             19:09:37.501860 line       330         return Resolver
+IE_TRACE:                             19:09:37.501876 return     330         return Resolver
+IE_TRACE:                             Return value:.. <class 'tornado.netutil.Resolver'>
+IE_TRACE:                         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:                         19:09:37.501898 line       282         instance = super(Configurable, cls).__new__(impl)
+IE_TRACE:                         New var:....... instance = <tornado.netutil.DefaultExecutorResolver object at 0x7c7411e51190>
+IE_TRACE:                         19:09:37.501928 line       286         instance.initialize(*args, **init_kwargs)
+IE_TRACE:                             Starting var:.. self = <tornado.netutil.DefaultExecutorResolver object at 0x7c7411e51190>
+IE_TRACE:                             19:09:37.501963 call       307     def _initialize(self) -> None:
+IE_TRACE:                             19:09:37.501985 line       308         pass
+IE_TRACE:                             19:09:37.502003 return     308         pass
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         19:09:37.502026 line       287         return instance
+IE_TRACE:                         19:09:37.502053 return     287         return instance
+IE_TRACE:                         Return value:.. <tornado.netutil.DefaultExecutorResolver object at 0x7c7411e51190>
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/tcpclient.py
+IE_TRACE:                     19:09:37.502087 line       216             self._own_resolver = True
+IE_TRACE:                     19:09:37.502110 return     216             self._own_resolver = True
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/websocket.py
+IE_TRACE:                 19:09:37.502141 line      1405         super(WebSocketClientConnection, self).__init__(
+IE_TRACE:                 19:09:37.502186 line      1406             None,
+IE_TRACE:                 19:09:37.502219 line      1407             request,
+IE_TRACE:                 19:09:37.502251 line      1408             lambda: None,
+IE_TRACE:                 19:09:37.502282 line      1409             self._on_http_response,
+IE_TRACE:                 19:09:37.502314 line      1410             104857600,
+IE_TRACE:                 19:09:37.502345 line      1411             self.tcp_client,
+IE_TRACE:                 19:09:37.502376 line      1412             65536,
+IE_TRACE:                 19:09:37.502407 line      1413             104857600,
+IE_TRACE:                 19:09:37.502438 line      1405         super(WebSocketClientConnection, self).__init__(
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/simple_httpclient.py
+IE_TRACE:                     Starting var:.. self = <tornado.websocket.WebSocketClientConnection object at 0x7c7411e53c50>
+IE_TRACE:                     Starting var:.. client = None
+IE_TRACE:                     Starting var:.. request = <tornado.httpclient._RequestProxy object at 0x7c7411e47e60>
+IE_TRACE:                     Starting var:.. release_callback = <function WebSocketClientConnection.__init__.<locals>.<lambda> at 0x7c7411b284a0>
+IE_TRACE:                     Starting var:.. final_callback = <bound method WebSocketClientConnection._on_http_response of <tornado.websocket.WebSocketClientConnection object at 0x7c7411e53c50>>
+IE_TRACE:                     Starting var:.. max_buffer_size = 104857600
+IE_TRACE:                     Starting var:.. tcp_client = <tornado.tcpclient.TCPClient object at 0x7c7411e508c0>
+IE_TRACE:                     Starting var:.. max_header_size = 65536
+IE_TRACE:                     Starting var:.. max_body_size = 104857600
+IE_TRACE:                     19:09:37.502478 call       256     def __init__(
+IE_TRACE:                     19:09:37.502685 line       267         self.io_loop = IOLoop.current()
+IE_TRACE:                         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                         Starting var:.. instance = True
+IE_TRACE:                         19:09:37.502729 call       244     def current(instance: bool = True) -> Optional["IOLoop"]:
+IE_TRACE:                         19:09:37.502871 line       264         try:
+IE_TRACE:                         19:09:37.502892 line       265             loop = asyncio.get_event_loop()
+IE_TRACE:                         New var:....... loop = <_UnixSelectorEventLoop running=True closed=False debug=False>
+IE_TRACE:                         19:09:37.502912 line       270         try:
+IE_TRACE:                         19:09:37.502941 line       271             return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                         19:09:37.502962 return     271             return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                         Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/simple_httpclient.py
+IE_TRACE:                     19:09:37.502993 line       268         self.start_time = self.io_loop.time()
+IE_TRACE:                         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                         Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:                         19:09:37.503035 call       534     def time(self) -> float:
+IE_TRACE:                         19:09:37.503062 line       546         return time.time()
+IE_TRACE:                         19:09:37.503080 return     546         return time.time()
+IE_TRACE:                         Return value:.. 1779889177.5030751
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/simple_httpclient.py
+IE_TRACE:                     19:09:37.503113 line       269         self.start_wall_time = time.time()
+IE_TRACE:                     19:09:37.503164 line       270         self.client = client
+IE_TRACE:                     19:09:37.503195 line       271         self.request = request
+IE_TRACE:                     19:09:37.503225 line       272         self.release_callback = release_callback
+IE_TRACE:                     19:09:37.503255 line       273         self.final_callback = final_callback
+IE_TRACE:                     19:09:37.503284 line       274         self.max_buffer_size = max_buffer_size
+IE_TRACE:                     19:09:37.503313 line       275         self.tcp_client = tcp_client
+IE_TRACE:                     19:09:37.503342 line       276         self.max_header_size = max_header_size
+IE_TRACE:                     19:09:37.503371 line       277         self.max_body_size = max_body_size
+IE_TRACE:                     19:09:37.503400 line       278         self.code = None  # type: Optional[int]
+IE_TRACE:                     19:09:37.503436 line       279         self.headers = None  # type: Optional[httputil.HTTPHeaders]
+IE_TRACE:                     19:09:37.503477 line       280         self.chunks = []  # type: List[bytes]
+IE_TRACE:                     19:09:37.503518 line       281         self._decompressor = None
+IE_TRACE:                     19:09:37.503560 line       283         self._timeout = None  # type: object
+IE_TRACE:                     19:09:37.503601 line       284         self._sockaddr = None
+IE_TRACE:                     19:09:37.503643 line       285         IOLoop.current().add_future(
+IE_TRACE:                         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                         Starting var:.. instance = True
+IE_TRACE:                         19:09:37.503685 call       244     def current(instance: bool = True) -> Optional["IOLoop"]:
+IE_TRACE:                         19:09:37.503727 line       264         try:
+IE_TRACE:                         19:09:37.503752 line       265             loop = asyncio.get_event_loop()
+IE_TRACE:                         New var:....... loop = <_UnixSelectorEventLoop running=True closed=False debug=False>
+IE_TRACE:                         19:09:37.503778 line       270         try:
+IE_TRACE:                         19:09:37.503812 line       271             return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                         19:09:37.503839 return     271             return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                         Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/simple_httpclient.py
+IE_TRACE:                     19:09:37.503881 line       286             gen.convert_yielded(self.run()), lambda f: f.result()
+IE_TRACE:                             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/gen.py
+IE_TRACE:                             Starting var:.. yielded = <coroutine object _HTTPConnection.run at 0x7c7411b38dc0>
+IE_TRACE:                             19:09:37.507773 call       808 def convert_yielded(yielded: _Yieldable) -> Future:
+IE_TRACE:                             19:09:37.507803 line       825     if yielded is None or yielded is moment:
+IE_TRACE:                             19:09:37.507821 line       827     elif yielded is _null_future:
+IE_TRACE:                             19:09:37.507839 line       829     elif isinstance(yielded, (list, dict)):
+IE_TRACE:                             19:09:37.507856 line       831     elif is_future(yielded):
+IE_TRACE:                                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/concurrent.py
+IE_TRACE:                                 Starting var:.. x = <coroutine object _HTTPConnection.run at 0x7c7411b38dc0>
+IE_TRACE:                                 19:09:37.507877 call        52 def is_future(x: Any) -> bool:
+IE_TRACE:                                 19:09:37.507979 line        53     return isinstance(x, FUTURES)
+IE_TRACE:                                 19:09:37.508000 return      53     return isinstance(x, FUTURES)
+IE_TRACE:                                 Return value:.. False
+IE_TRACE:                             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/gen.py
+IE_TRACE:                             19:09:37.508026 line       833     elif isawaitable(yielded):
+IE_TRACE:                             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/gen.py
+IE_TRACE:                             19:09:37.508444 line       834         return _wrap_awaitable(yielded)  # type: ignore
+IE_TRACE:                             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/gen.py
+IE_TRACE:                             19:09:37.509563 return     834         return _wrap_awaitable(yielded)  # type: ignore
+IE_TRACE:                             Return value:.. <Task pending name='Task-1' coro=<_HTTPConnection.run() running at /path/to/BugsInPy/workspace/tornado/tornado/simple_httpclient.py:289>>
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/simple_httpclient.py
+IE_TRACE:                     19:09:37.509641 line       285         IOLoop.current().add_future(
+IE_TRACE:                         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                         Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:                         Starting var:.. future = <Task pending name='Task-1' coro=<_HTTPConnection.run() running at /path/to/BugsInPy/workspace/tornado/tornado/simple_httpclient.py:289>>
+IE_TRACE:                         Starting var:.. callback = <function _HTTPConnection.__init__.<locals>.<lambda> at 0x7c7411b287c0>
+IE_TRACE:                         19:09:37.509692 call       665     def add_future(
+IE_TRACE:                         19:09:37.509740 line       680         if isinstance(future, Future):
+IE_TRACE:                         19:09:37.509768 line       689             future.add_done_callback(
+IE_TRACE:                         19:09:37.509794 line       690                 lambda f: self._run_callback(functools.partial(callback, future))
+IE_TRACE:                         19:09:37.509819 line       689             future.add_done_callback(
+IE_TRACE:                         Modified var:.. future = <Task pending name='Task-1' coro=<_HTTPConnection.run() running at /path/to/BugsInPy/workspace/tornado/tornado/simple_httpclient.py:289> cb=[IOLoop.add_future.<locals>.<lambda>() at /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py:690]>
+IE_TRACE:                         19:09:37.509845 return     689             future.add_done_callback(
+IE_TRACE:                         Return value:.. None
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/simple_httpclient.py
+IE_TRACE:                     19:09:37.509936 return     285         IOLoop.current().add_future(
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/websocket.py
+IE_TRACE:                 19:09:37.509984 return    1405         super(WebSocketClientConnection, self).__init__(
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             New var:....... conn = <tornado.websocket.WebSocketClientConnection object at 0x7c7411e53c50>
+IE_TRACE:             19:09:37.510036 line      1654     if callback is not None:
+IE_TRACE:             19:09:37.510081 line      1656     return conn.connect_future
+IE_TRACE:             19:09:37.510115 return    1656     return conn.connect_future
+IE_TRACE:             Return value:.. <Future pending>
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/websocket_test.py
+IE_TRACE:         19:09:37.510164 return     212         ws = yield websocket_connect(
+IE_TRACE:         Return value:.. <Future pending>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/gen.py
+IE_TRACE:     New var:....... yielded = <Future pending>
+IE_TRACE:     19:09:37.510210 line       225                     runner = Runner(result, future, yielded)
+IE_TRACE:         Starting var:.. self = <tornado.gen.Runner object at 0x7c7411e466f0>
+IE_TRACE:         Starting var:.. gen = <generator object WebSocketBaseTestCase.ws_connect at 0x7c7411cdb4c0>
+IE_TRACE:         Starting var:.. result_future = <Future pending>
+IE_TRACE:         Starting var:.. first_yielded = <Future pending>
+IE_TRACE:         19:09:37.510265 call       694     def __init__(
+IE_TRACE:         19:09:37.510310 line       700         self.gen = gen
+IE_TRACE:         19:09:37.510335 line       701         self.result_future = result_future
+IE_TRACE:         19:09:37.510358 line       702         self.future = _null_future  # type: Union[None, Future]
+IE_TRACE:         19:09:37.510380 line       703         self.running = False
+IE_TRACE:         19:09:37.510401 line       704         self.finished = False
+IE_TRACE:         19:09:37.510423 line       705         self.io_loop = IOLoop.current()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             Starting var:.. instance = True
+IE_TRACE:             19:09:37.510446 call       244     def current(instance: bool = True) -> Optional["IOLoop"]:
+IE_TRACE:             19:09:37.510478 line       264         try:
+IE_TRACE:             19:09:37.510495 line       265             loop = asyncio.get_event_loop()
+IE_TRACE:             New var:....... loop = <_UnixSelectorEventLoop running=True closed=False debug=False>
+IE_TRACE:             19:09:37.510512 line       270         try:
+IE_TRACE:             19:09:37.510536 line       271             return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:             19:09:37.510554 return     271             return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:             Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/gen.py
+IE_TRACE:         19:09:37.510580 line       706         if self.handle_yield(first_yielded):
+IE_TRACE:             Starting var:.. self = <tornado.gen.Runner object at 0x7c7411e466f0>
+IE_TRACE:             Starting var:.. yielded = <Future pending>
+IE_TRACE:             19:09:37.510616 call       764     def handle_yield(self, yielded: _Yieldable) -> bool:
+IE_TRACE:             19:09:37.510646 line       765         try:
+IE_TRACE:             19:09:37.510665 line       766             self.future = convert_yielded(yielded)
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/gen.py
+IE_TRACE:                     Starting var:.. yielded = <Future pending>
+IE_TRACE:                     19:09:37.515893 call       808 def convert_yielded(yielded: _Yieldable) -> Future:
+IE_TRACE:                     19:09:37.515922 line       825     if yielded is None or yielded is moment:
+IE_TRACE:                     19:09:37.515940 line       827     elif yielded is _null_future:
+IE_TRACE:                     19:09:37.515957 line       829     elif isinstance(yielded, (list, dict)):
+IE_TRACE:                     19:09:37.515973 line       831     elif is_future(yielded):
+IE_TRACE:                         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/concurrent.py
+IE_TRACE:                         Starting var:.. x = <Future pending>
+IE_TRACE:                         19:09:37.515990 call        52 def is_future(x: Any) -> bool:
+IE_TRACE:                         19:09:37.516018 line        53     return isinstance(x, FUTURES)
+IE_TRACE:                         19:09:37.516035 return      53     return isinstance(x, FUTURES)
+IE_TRACE:                         Return value:.. True
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/gen.py
+IE_TRACE:                     19:09:37.516059 line       832         return typing.cast(Future, yielded)
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/gen.py
+IE_TRACE:                     19:09:37.516162 return     832         return typing.cast(Future, yielded)
+IE_TRACE:                     Return value:.. <Future pending>
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/gen.py
+IE_TRACE:             19:09:37.516224 line       771         if self.future is moment:
+IE_TRACE:             19:09:37.516248 line       774         elif self.future is None:
+IE_TRACE:             19:09:37.516268 line       776         elif not self.future.done():
+IE_TRACE:             19:09:37.516288 line       778             def inner(f: Any) -> None:
+IE_TRACE:             New var:....... inner = <function Runner.handle_yield.<locals>.inner at 0x7c7411b28860>
+IE_TRACE:             19:09:37.516306 line       783             self.io_loop.add_future(self.future, inner)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:                 Starting var:.. future = <Future pending>
+IE_TRACE:                 Starting var:.. callback = <function Runner.handle_yield.<locals>.inner at 0x7c7411b28860>
+IE_TRACE:                 19:09:37.516333 call       665     def add_future(
+IE_TRACE:                 19:09:37.516374 line       680         if isinstance(future, Future):
+IE_TRACE:                 19:09:37.516395 line       689             future.add_done_callback(
+IE_TRACE:                 19:09:37.516415 line       690                 lambda f: self._run_callback(functools.partial(callback, future))
+IE_TRACE:                 19:09:37.516435 line       689             future.add_done_callback(
+IE_TRACE:                 Modified var:.. future = <Future pending cb=[IOLoop.add_future.<locals>.<lambda>() at /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py:690]>
+IE_TRACE:                 19:09:37.516454 return     689             future.add_done_callback(
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/gen.py
+IE_TRACE:             Modified var:.. yielded = <Future pending cb=[IOLoop.add_future.<locals>.<lambda>() at /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py:690]>
+IE_TRACE:             19:09:37.516501 line       784             return False
+IE_TRACE:             19:09:37.516538 return     784             return False
+IE_TRACE:             Return value:.. False
+IE_TRACE:         Modified var:.. first_yielded = <Future pending cb=[IOLoop.add_future.<locals>.<lambda>() at /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py:690]>
+IE_TRACE:         19:09:37.516571 return     706         if self.handle_yield(first_yielded):
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Modified var:.. yielded = <Future pending cb=[IOLoop.add_future.<locals>.<lambda>() at /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py:690]>
+IE_TRACE:     New var:....... runner = <tornado.gen.Runner object at 0x7c7411e466f0>
+IE_TRACE:     19:09:37.516610 line       226                     future.add_done_callback(lambda _: runner)
+IE_TRACE:     Modified var:.. future = <Future pending cb=[coroutine.<locals>.wrapper.<locals>.<lambda>() at /path/to/BugsInPy/workspace/tornado/tornado/gen.py:226]>
+IE_TRACE:     19:09:37.516656 line       227                 yielded = None
+IE_TRACE:     Modified var:.. yielded = None
+IE_TRACE:     19:09:37.516697 line       228                 try:
+IE_TRACE:     19:09:37.516732 line       229                     return future
+IE_TRACE:     19:09:37.516761 line       239                     future = None  # type: ignore
+IE_TRACE:     Modified var:.. future = None
+IE_TRACE:     19:09:37.516791 return     239                     future = None  # type: ignore
+IE_TRACE:     Return value:.. <Future pending cb=[coroutine.<locals>.wrapper.<locals>.<lambda>() at /path/to/BugsInPy/workspace/tornado/tornado/gen.py:226]>
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/websocket_test.py
+IE_TRACE: 19:09:37.516831 return     578         ws = yield self.ws_connect("/nodelay")
+IE_TRACE: Return value:.. <Future pending cb=[coroutine.<locals>.wrapper.<locals>.<lambda>() at /path/to/BugsInPy/workspace/tornado/tornado/gen.py:226]>
+IE_TRACE: Elapsed time: 00:00:00.027412
+ERROR:tornado.application:Uncaught exception GET /nodelay (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:39105', method='GET', uri='/nodelay', version='HTTP/1.1', remote_ip='127.0.0.1')
+Traceback (most recent call last):
+  File "/path/to/BugsInPy/workspace/tornado/tornado/websocket.py", line 952, in _accept_connection
+    open_result = handler.open(*handler.open_args, **handler.open_kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/test/websocket_test.py", line 205, in open
+    self.set_nodelay(True)
+  File "/path/to/BugsInPy/workspace/tornado/tornado/websocket.py", line 561, in set_nodelay
+    assert self.stream is not None
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+IE_TRACE: Starting var:.. self = <tornado.test.websocket_test.WebSocketTest testMethod=test_nodelay>
+IE_TRACE: 19:09:37.522196 call       578         ws = yield self.ws_connect("/nodelay")
+IE_TRACE: New var:....... ws = <tornado.websocket.WebSocketClientConnection object at 0x7c7411e53c50>
+IE_TRACE: 19:09:37.522380 line       579         res = yield ws.read_message()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/websocket.py
+IE_TRACE:     Starting var:.. self = <tornado.websocket.WebSocketClientConnection object at 0x7c7411e53c50>
+IE_TRACE:     Starting var:.. callback = None
+IE_TRACE:     19:09:37.522480 call      1501     def read_message(
+IE_TRACE:     19:09:37.522574 line      1515         awaitable = self.read_queue.get()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/queues.py
+IE_TRACE:         Starting var:.. self = <Queue at 0x7c7411e93c80 maxsize=1 queue=deque([None]) tasks=1>
+IE_TRACE:         Starting var:.. timeout = None
+IE_TRACE:         19:09:37.522630 call       225     def get(self, timeout: Union[float, datetime.timedelta] = None) -> Awaitable[_T]:
+IE_TRACE:         19:09:37.522733 line       246         future = Future()  # type: Future[_T]
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/queues.py
+IE_TRACE:         New var:....... future = <Future pending>
+IE_TRACE:         19:09:37.522938 line       247         try:
+IE_TRACE:         19:09:37.522977 line       248             future.set_result(self.get_nowait())
+IE_TRACE:             Starting var:.. self = <Queue at 0x7c7411e93c80 maxsize=1 queue=deque([None]) tasks=1>
+IE_TRACE:             19:09:37.523007 call       254     def get_nowait(self) -> _T:
+IE_TRACE:             19:09:37.523033 line       260         self._consume_expired()
+IE_TRACE:                 Starting var:.. self = <Queue at 0x7c7411e93c80 maxsize=1 queue=deque([None]) tasks=1>
+IE_TRACE:                 19:09:37.523056 call       318     def _consume_expired(self) -> None:
+IE_TRACE:                 19:09:37.523079 line       320         while self._putters and self._putters[0][1].done():
+IE_TRACE:                 19:09:37.523097 line       323         while self._getters and self._getters[0].done():
+IE_TRACE:                 19:09:37.523114 return     323         while self._getters and self._getters[0].done():
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             19:09:37.523145 line       261         if self._putters:
+IE_TRACE:             19:09:37.523162 line       267         elif self.qsize():
+IE_TRACE:                 Starting var:.. self = <Queue at 0x7c7411e93c80 maxsize=1 queue=deque([None]) tasks=1>
+IE_TRACE:                 19:09:37.523179 call       173     def qsize(self) -> int:
+IE_TRACE:                 19:09:37.523213 line       175         return len(self._queue)
+IE_TRACE:                 19:09:37.523229 return     175         return len(self._queue)
+IE_TRACE:                 Return value:.. 1
+IE_TRACE:             19:09:37.523251 line       268             return self._get()
+IE_TRACE:                 Starting var:.. self = <Queue at 0x7c7411e93c80 maxsize=1 queue=deque([None]) tasks=1>
+IE_TRACE:                 19:09:37.523269 call       305     def _get(self) -> _T:
+IE_TRACE:                 19:09:37.523290 line       306         return self._queue.popleft()
+IE_TRACE:                 Modified var:.. self = <Queue at 0x7c7411e93c80 maxsize=1 tasks=1>
+IE_TRACE:                 19:09:37.523305 return     306         return self._queue.popleft()
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Modified var:.. self = <Queue at 0x7c7411e93c80 maxsize=1 tasks=1>
+IE_TRACE:             19:09:37.523331 return     268             return self._get()
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Modified var:.. self = <Queue at 0x7c7411e93c80 maxsize=1 tasks=1>
+IE_TRACE:         Modified var:.. future = <Future finished result=None>
+IE_TRACE:         19:09:37.523357 line       252         return future
+IE_TRACE:         19:09:37.523411 return     252         return future
+IE_TRACE:         Return value:.. <Future finished result=None>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/websocket.py
+IE_TRACE:     New var:....... awaitable = <Future finished result=None>
+IE_TRACE:     19:09:37.523449 line      1516         if callback is not None:
+IE_TRACE:     19:09:37.523479 line      1518         return awaitable
+IE_TRACE:     19:09:37.523498 return    1518         return awaitable
+IE_TRACE:     Return value:.. <Future finished result=None>
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/websocket_test.py
+IE_TRACE: 19:09:37.523524 return     579         res = yield ws.read_message()
+IE_TRACE: Return value:.. <Future finished result=None>
+IE_TRACE: Elapsed time: 00:00:00.001625
+IE_TRACE: Starting var:.. self = <tornado.test.websocket_test.WebSocketTest testMethod=test_nodelay>
+IE_TRACE: Starting var:.. ws = <tornado.websocket.WebSocketClientConnection object at 0x7c7411e53c50>
+IE_TRACE: 19:09:37.523717 call       579         res = yield ws.read_message()
+IE_TRACE: New var:....... res = None
+IE_TRACE: 19:09:37.523751 line       580         self.assertEqual(res, "hello")
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/websocket_test.py
+IE_TRACE: 19:09:37.525012 exception  580         self.assertEqual(res, "hello")
+IE_TRACE: Exception:..... AssertionError: None != 'hello'
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.001485
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/websocket_test.py
+IE_TRACE: Starting var:.. self = <tornado.test.websocket_test.WebSocketTest testMethod=test_nodelay>
+IE_TRACE: Starting var:.. __class__ = <class 'tornado.test.websocket_test.WebSocketTest'>
+IE_TRACE: 19:09:37.525945 call       279     def tearDown(self):
+IE_TRACE: 19:09:37.526010 line       280         super(WebSocketTest, self).tearDown()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/testing.py
+IE_TRACE:     Starting var:.. self = <tornado.test.websocket_test.WebSocketTest testMethod=test_nodelay>
+IE_TRACE:     Starting var:.. __class__ = <class 'tornado.testing.AsyncHTTPTestCase'>
+IE_TRACE:     19:09:37.526039 call       464     def tearDown(self) -> None:
+IE_TRACE:     19:09:37.526076 line       465         self.http_server.stop()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/tcpserver.py
+IE_TRACE:         Starting var:.. self = <tornado.httpserver.HTTPServer object at 0x7c7411e45b20>
+IE_TRACE:         19:09:37.526101 call       246     def stop(self) -> None:
+IE_TRACE:         19:09:37.526243 line       252         if self._stopped:
+IE_TRACE:         19:09:37.526260 line       254         self._stopped = True
+IE_TRACE:         19:09:37.526275 line       255         for fd, sock in self._sockets.items():
+IE_TRACE:         New var:....... fd = 9
+IE_TRACE:         New var:....... sock = <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 39105)>
+IE_TRACE:         19:09:37.526290 line       256             assert sock.fileno() == fd
+IE_TRACE:         19:09:37.526381 line       258             self._handlers.pop(fd)()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/netutil.py
+IE_TRACE:             Starting var:.. io_loop = <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:             Starting var:.. removed = [False]
+IE_TRACE:             Starting var:.. sock = <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 39105)>
+IE_TRACE:             19:09:37.526417 call       275     def remove_handler() -> None:
+IE_TRACE:             19:09:37.526469 line       276         io_loop.remove_handler(sock)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                 Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:                 Starting var:.. fd = <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 39105)>
+IE_TRACE:                 19:09:37.526501 call       124     def remove_handler(self, fd: Union[int, _Selectable]) -> None:
+IE_TRACE:                 19:09:37.526597 line       125         fd, fileobj = self.split_fd(fd)
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:                     Starting var:.. fd = <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 39105)>
+IE_TRACE:                     19:09:37.526622 call       769     def split_fd(
+IE_TRACE:                     19:09:37.526660 line       787         if isinstance(fd, int):
+IE_TRACE:                     19:09:37.526682 line       789         return fd.fileno(), fd
+IE_TRACE:                     19:09:37.526702 return     789         return fd.fileno(), fd
+IE_TRACE:                     Return value:.. (9, <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 39105)>)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                 Modified var:.. fd = 9
+IE_TRACE:                 New var:....... fileobj = <socket.socket fd=9, family=2, type=1, proto=6, laddr=('127.0.0.1', 39105)>
+IE_TRACE:                 19:09:37.526736 line       126         if fd not in self.handlers:
+IE_TRACE:                 19:09:37.526773 line       128         if fd in self.readers:
+IE_TRACE:                 19:09:37.526794 line       129             self.asyncio_loop.remove_reader(fd)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                 19:09:37.529306 line       130             self.readers.remove(fd)
+IE_TRACE:                 19:09:37.529345 line       131         if fd in self.writers:
+IE_TRACE:                 19:09:37.529371 line       134         del self.handlers[fd]
+IE_TRACE:                 19:09:37.529396 return     134         del self.handlers[fd]
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/netutil.py
+IE_TRACE:             19:09:37.529429 line       277         removed[0] = True
+IE_TRACE:             Modified var:.. removed = [True]
+IE_TRACE:             19:09:37.529460 return     277         removed[0] = True
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/tcpserver.py
+IE_TRACE:         19:09:37.529497 line       259             sock.close()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/tcpserver.py
+IE_TRACE:         Modified var:.. sock = <socket.socket [closed] fd=-1, family=2, type=1, proto=6>
+IE_TRACE:         19:09:37.529844 line       255         for fd, sock in self._sockets.items():
+IE_TRACE:         19:09:37.529874 return     255         for fd, sock in self._sockets.items():
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/testing.py
+IE_TRACE:     19:09:37.529901 line       466         self.io_loop.run_sync(
+IE_TRACE:     19:09:37.529925 line       467             self.http_server.close_all_connections, timeout=get_async_test_timeout()
+IE_TRACE:         19:09:37.529947 call        68 def get_async_test_timeout() -> float:
+IE_TRACE:         19:09:37.529962 line        75     env = os.environ.get("ASYNC_TEST_TIMEOUT")
+IE_TRACE:             Source path:... <frozen _collections_abc>
+IE_TRACE:             Starting var:.. self = environ({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '<redacted>', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'AI_AGENT': 'claude-code_2-1-152_agent', 'USER': 'anonymous'...thropic.claude-code-2.1.152-linux-x64/resources/native-binary/claude', 'PYTHONPATH': '/path/to/BugsInPy/workspace/tornado::', 'CLAUDE_CODE_ENABLE_TASKS': '0', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VSCODE_PID': '33701'})
+IE_TRACE:             Starting var:.. key = 'ASYNC_TEST_TIMEOUT'
+IE_TRACE:             Starting var:.. default = None
+IE_TRACE:             19:09:37.529979 call       804 SOURCE IS UNAVAILABLE
+IE_TRACE:             19:09:37.530105 line       806 SOURCE IS UNAVAILABLE
+IE_TRACE:             19:09:37.530176 line       807 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Source path:... <frozen os>
+IE_TRACE:                 Starting var:.. self = environ({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '<redacted>', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'AI_AGENT': 'claude-code_2-1-152_agent', 'USER': 'anonymous'...thropic.claude-code-2.1.152-linux-x64/resources/native-binary/claude', 'PYTHONPATH': '/path/to/BugsInPy/workspace/tornado::', 'CLAUDE_CODE_ENABLE_TASKS': '0', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VSCODE_PID': '33701'})
+IE_TRACE:                 Starting var:.. key = 'ASYNC_TEST_TIMEOUT'
+IE_TRACE:                 19:09:37.530240 call       680 SOURCE IS UNAVAILABLE
+IE_TRACE:                 19:09:37.530343 line       681 SOURCE IS UNAVAILABLE
+IE_TRACE:                 19:09:37.530400 line       682 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Starting var:.. value = 'ASYNC_TEST_TIMEOUT'
+IE_TRACE:                     Starting var:.. encoding = 'utf-8'
+IE_TRACE:                     19:09:37.530457 call       762 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:09:37.530485 line       763 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:09:37.530502 line       765 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:09:37.530518 return     765 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. b'ASYNC_TEST_TIMEOUT'
+IE_TRACE:                 19:09:37.530542 exception  682 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Exception:..... KeyError: b'ASYNC_TEST_TIMEOUT'
+IE_TRACE:                 19:09:37.530621 line       683 SOURCE IS UNAVAILABLE
+IE_TRACE:                 19:09:37.530680 line       685 SOURCE IS UNAVAILABLE
+IE_TRACE:                 19:09:37.530734 exception  685 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Exception:..... KeyError: 'ASYNC_TEST_TIMEOUT'
+IE_TRACE:                 Call ended by exception
+IE_TRACE:             Source path:... <frozen _collections_abc>
+IE_TRACE:             19:09:37.530859 exception  807 SOURCE IS UNAVAILABLE
+IE_TRACE:             Exception:..... KeyError: 'ASYNC_TEST_TIMEOUT'
+IE_TRACE:             19:09:37.530933 line       808 SOURCE IS UNAVAILABLE
+IE_TRACE:             19:09:37.530987 line       809 SOURCE IS UNAVAILABLE
+IE_TRACE:             19:09:37.531042 return     809 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/testing.py
+IE_TRACE:         New var:....... env = None
+IE_TRACE:         19:09:37.531103 line        76     if env is not None:
+IE_TRACE:         19:09:37.531129 line        81     return 5
+IE_TRACE:         19:09:37.531148 return      81     return 5
+IE_TRACE:         Return value:.. 5
+IE_TRACE:     19:09:37.531167 line       466         self.io_loop.run_sync(
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:         Starting var:.. func = <bound method HTTPServer.close_all_connections of <tornado.httpserver.HTTPServer object at 0x7c7411e45b20>>
+IE_TRACE:         Starting var:.. timeout = 5
+IE_TRACE:         19:09:37.531192 call       460     def run_sync(self, func: Callable, timeout: float = None) -> Any:
+IE_TRACE:         19:09:37.531236 line       490         future_cell = [None]  # type: List[Optional[Future]]
+IE_TRACE:         New var:....... future_cell = [None]
+IE_TRACE:         19:09:37.531257 line       492         def run() -> None:
+IE_TRACE:         New var:....... run = <function IOLoop.run_sync.<locals>.run at 0x7c7411b291c0>
+IE_TRACE:         19:09:37.531284 line       513         self.add_callback(run)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:             Starting var:.. callback = <function IOLoop.run_sync.<locals>.run at 0x7c7411b291c0>
+IE_TRACE:             Starting var:.. args = ()
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             19:09:37.531318 call       170     def add_callback(self, callback: Callable, *args: Any, **kwargs: Any) -> None:
+IE_TRACE:             19:09:37.531364 line       171         if get_ident() == self._thread_identity:
+IE_TRACE:             19:09:37.531385 line       172             call_soon = self.asyncio_loop.call_soon
+IE_TRACE:             New var:....... call_soon = <bound method BaseEventLoop.call_soon of <_UnixSelectorEventLoop running=False closed=False debug=False>>
+IE_TRACE:             19:09:37.531406 line       175         try:
+IE_TRACE:             19:09:37.531434 line       176             call_soon(self._run_callback, functools.partial(callback, *args, **kwargs))
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:09:37.532415 return     176             call_soon(self._run_callback, functools.partial(callback, *args, **kwargs))
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         19:09:37.532451 line       514         if timeout is not None:
+IE_TRACE:         19:09:37.532479 line       516             def timeout_callback() -> None:
+IE_TRACE:         New var:....... timeout_callback = <function IOLoop.run_sync.<locals>.timeout_callback at 0x7c7411b29260>
+IE_TRACE:         19:09:37.532502 line       525             timeout_handle = self.add_timeout(self.time() + timeout, timeout_callback)
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:             19:09:37.532534 call       534     def time(self) -> float:
+IE_TRACE:             19:09:37.532556 line       546         return time.time()
+IE_TRACE:             19:09:37.532571 return     546         return time.time()
+IE_TRACE:             Return value:.. 1779889177.5325677
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:             Starting var:.. deadline = 1779889182.5325677
+IE_TRACE:             Starting var:.. callback = <function IOLoop.run_sync.<locals>.timeout_callback at 0x7c7411b29260>
+IE_TRACE:             Starting var:.. args = ()
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             19:09:37.532605 call       548     def add_timeout(
+IE_TRACE:             19:09:37.532651 line       580         if isinstance(deadline, numbers.Real):
+IE_TRACE:                 Source path:... <frozen abc>
+IE_TRACE:                 Starting var:.. cls = <class 'numbers.Real'>
+IE_TRACE:                 Starting var:.. instance = 1779889182.5325677
+IE_TRACE:                 19:09:37.532675 call       117 SOURCE IS UNAVAILABLE
+IE_TRACE:                 19:09:37.532709 line       119 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Starting var:.. cls = <class 'numbers.Real'>
+IE_TRACE:                     Starting var:.. subclass = <class 'float'>
+IE_TRACE:                     19:09:37.532730 call       121 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:09:37.532757 line       123 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:09:37.532775 return     123 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. True
+IE_TRACE:                 19:09:37.532799 return     119 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Return value:.. True
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             19:09:37.532822 line       581             return self.call_at(deadline, callback, *args, **kwargs)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                 Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:                 Starting var:.. when = 1779889182.5325677
+IE_TRACE:                 Starting var:.. callback = <function IOLoop.run_sync.<locals>.timeout_callback at 0x7c7411b29260>
+IE_TRACE:                 Starting var:.. args = ()
+IE_TRACE:                 Starting var:.. kwargs = {}
+IE_TRACE:                 19:09:37.532854 call       155     def call_at(
+IE_TRACE:                 19:09:37.532903 line       161         return self.asyncio_loop.call_later(
+IE_TRACE:                 19:09:37.532924 line       162             max(0, when - self.time()),
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:                     19:09:37.532946 call       534     def time(self) -> float:
+IE_TRACE:                     19:09:37.532970 line       546         return time.time()
+IE_TRACE:                     19:09:37.532985 return     546         return time.time()
+IE_TRACE:                     Return value:.. 1779889177.5329812
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                 19:09:37.533007 line       163             self._run_callback,
+IE_TRACE:                 19:09:37.533033 line       164             functools.partial(callback, *args, **kwargs),
+IE_TRACE:                 19:09:37.533054 line       161         return self.asyncio_loop.call_later(
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                 19:09:37.534781 return     161         return self.asyncio_loop.call_later(
+IE_TRACE:                 Return value:.. <TimerHandle when=8138.620682023184 IOLoop._run_callback(functools.par...7c7411b29260>))>
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             19:09:37.534825 return     581             return self.call_at(deadline, callback, *args, **kwargs)
+IE_TRACE:             Return value:.. <TimerHandle when=8138.620682023184 IOLoop._run_callback(functools.par...7c7411b29260>))>
+IE_TRACE:         New var:....... timeout_handle = <TimerHandle when=8138.620682023184 IOLoop._run_callback(functools.par...7c7411b29260>))>
+IE_TRACE:         19:09:37.534865 line       526         self.start()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:             19:09:37.534908 call       140     def start(self) -> None:
+IE_TRACE:             19:09:37.534935 line       141         try:
+IE_TRACE:             19:09:37.534951 line       142             old_loop = asyncio.get_event_loop()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             New var:....... old_loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:             19:09:37.535157 line       145         try:
+IE_TRACE:             19:09:37.535184 line       146             self._setup_logging()
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:                 19:09:37.535207 call       427     def _setup_logging(self) -> None:
+IE_TRACE:                 19:09:37.535234 line       438         if not any(
+IE_TRACE:                 19:09:37.535249 line       440                 logging.getLogger().handlers,
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 19:09:37.535611 line       441                 logging.getLogger("tornado").handlers,
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 19:09:37.536129 line       442                 logging.getLogger("tornado.application").handlers,
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 19:09:37.536717 line       439             [
+IE_TRACE:                 19:09:37.536748 line       438         if not any(
+IE_TRACE:                 19:09:37.536771 return     438         if not any(
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:09:37.536802 line       147             asyncio.set_event_loop(self.asyncio_loop)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:09:37.537513 line       148             self.asyncio_loop.run_forever()
+IE_TRACE:                             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:                             Starting var:.. callback = functools.partial(<function IOLoop.run_sync.<locals>.run at 0x7c7411b291c0>)
+IE_TRACE:                             19:09:37.539881 call       735     def _run_callback(self, callback: Callable[[], Any]) -> None:
+IE_TRACE:                             19:09:37.539920 line       742         try:
+IE_TRACE:                             19:09:37.539944 line       743             ret = callback()
+IE_TRACE:                                 Starting var:.. func = <bound method HTTPServer.close_all_connections of <tornado.httpserver.HTTPServer object at 0x7c7411e45b20>>
+IE_TRACE:                                 Starting var:.. future_cell = [None]
+IE_TRACE:                                 Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:                                 19:09:37.539970 call       492         def run() -> None:
+IE_TRACE:                                 19:09:37.540015 line       493             try:
+IE_TRACE:                                 19:09:37.540040 line       494                 result = func()
+IE_TRACE:                                 New var:....... result = <coroutine object HTTPServer.close_all_connections at 0x7c7411bbdc40>
+IE_TRACE:                                 19:09:37.540065 line       495                 if result is not None:
+IE_TRACE:                                 19:09:37.540097 line       496                     from tornado.gen import convert_yielded
+IE_TRACE:                                 New var:....... convert_yielded = <function convert_yielded at 0x7c7411e9be20>
+IE_TRACE:                                 19:09:37.540130 line       498                     result = convert_yielded(result)
+IE_TRACE:                                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                                 Modified var:.. result = <Task pending name='Task-5' coro=<HTTPServer.close_all_connections() running at /path/to/BugsInPy/workspace/tornado/tornado/httpserver.py:204>>
+IE_TRACE:                                 19:09:37.540544 line       504                 if is_future(result):
+IE_TRACE:                                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/concurrent.py
+IE_TRACE:                                     Starting var:.. x = <Task pending name='Task-5' coro=<HTTPServer.close_all_connections() running at /path/to/BugsInPy/workspace/tornado/tornado/httpserver.py:204>>
+IE_TRACE:                                     19:09:37.540595 call        52 def is_future(x: Any) -> bool:
+IE_TRACE:                                     19:09:37.540634 line        53     return isinstance(x, FUTURES)
+IE_TRACE:                                     19:09:37.540659 return      53     return isinstance(x, FUTURES)
+IE_TRACE:                                     Return value:.. True
+IE_TRACE:                                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                                 19:09:37.540690 line       505                     future_cell[0] = result
+IE_TRACE:                                 Modified var:.. future_cell = [<Task pending name='Task-5' coro=<HTTPServer.close_all_connections() running at /path/to/BugsInPy/workspace/tornado/tornado/httpserver.py:204>>]
+IE_TRACE:                                 19:09:37.540728 line       510             assert future_cell[0] is not None
+IE_TRACE:                                 19:09:37.540768 line       511             self.add_future(future_cell[0], lambda future: self.stop())
+IE_TRACE:                                     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:                                     Starting var:.. future = <Task pending name='Task-5' coro=<HTTPServer.close_all_connections() running at /path/to/BugsInPy/workspace/tornado/tornado/httpserver.py:204>>
+IE_TRACE:                                     Starting var:.. callback = <function IOLoop.run_sync.<locals>.run.<locals>.<lambda> at 0x7c7411b294e0>
+IE_TRACE:                                     19:09:37.540806 call       665     def add_future(
+IE_TRACE:                                     19:09:37.540850 line       680         if isinstance(future, Future):
+IE_TRACE:                                     19:09:37.540879 line       689             future.add_done_callback(
+IE_TRACE:                                     19:09:37.540906 line       690                 lambda f: self._run_callback(functools.partial(callback, future))
+IE_TRACE:                                     19:09:37.540936 line       689             future.add_done_callback(
+IE_TRACE:                                     Modified var:.. future = <Task pending name='Task-5' coro=<HTTPServer.close_all_connections() running at /path/to/BugsInPy/workspace/tornado/tornado/httpserver.py:204> cb=[IOLoop.add_future.<locals>.<lambda>() at /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py:690]>
+IE_TRACE:                                     19:09:37.540964 return     689             future.add_done_callback(
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 Modified var:.. result = <Task pending name='Task-5' coro=<HTTPServer.close_all_connections() running at /path/to/BugsInPy/workspace/tornado/tornado/httpserver.py:204> cb=[IOLoop.add_future.<locals>.<lambda>() at /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py:690]>
+IE_TRACE:                                 Modified var:.. future_cell = [<Task pending name='Task-5' coro=<HTTPServer.close_all_connections() running at /path/to/BugsInPy/workspace/tornado/tornado/httpserver.py:204> cb=[IOLoop.add_future.<locals>.<lambda>() at /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py:690]>]
+IE_TRACE:                                 19:09:37.541016 return     511             self.add_future(future_cell[0], lambda future: self.stop())
+IE_TRACE:                                 Return value:.. None
+IE_TRACE:                             New var:....... ret = None
+IE_TRACE:                             19:09:37.541078 line       744             if ret is not None:
+IE_TRACE:                             19:09:37.541108 return     744             if ret is not None:
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/httpserver.py
+IE_TRACE:                             Starting var:.. self = <tornado.httpserver.HTTPServer object at 0x7c7411e45b20>
+IE_TRACE:                             19:09:37.542580 call       204     async def close_all_connections(self) -> None:
+IE_TRACE:                             19:09:37.542695 line       218         while self._connections:
+IE_TRACE:                             19:09:37.542717 return     218         while self._connections:
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                             Starting var:.. f = <Task finished name='Task-5' coro=<HTTPServer.close_all_connections() done, defined at /path/to/BugsInPy/workspace/tornado/tornado/httpserver.py:204> result=None>
+IE_TRACE:                             Starting var:.. callback = <function IOLoop.run_sync.<locals>.run.<locals>.<lambda> at 0x7c7411b294e0>
+IE_TRACE:                             Starting var:.. future = <Task finished name='Task-5' coro=<HTTPServer.close_all_connections() done, defined at /path/to/BugsInPy/workspace/tornado/tornado/httpserver.py:204> result=None>
+IE_TRACE:                             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:                             19:09:37.545490 call       690                 lambda f: self._run_callback(functools.partial(callback, future))
+IE_TRACE:                             19:09:37.545551 line       690                 lambda f: self._run_callback(functools.partial(callback, future))
+IE_TRACE:                                 Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:                                 Starting var:.. callback = functools.partial(<function IOLoop.run_sync.<locals>.run.<locals>.<lambda> at 0x7c7411b294e0>, <Task finished name='Task-5' coro=<HTTPServer.close_all_connections() done, defined at /path/to/BugsInPy/workspace/tornado/tornado/httpserver.py:204> result=None>)
+IE_TRACE:                                 19:09:37.545588 call       735     def _run_callback(self, callback: Callable[[], Any]) -> None:
+IE_TRACE:                                 19:09:37.545629 line       742         try:
+IE_TRACE:                                 19:09:37.545657 line       743             ret = callback()
+IE_TRACE:                                     Starting var:.. future = <Task finished name='Task-5' coro=<HTTPServer.close_all_connections() done, defined at /path/to/BugsInPy/workspace/tornado/tornado/httpserver.py:204> result=None>
+IE_TRACE:                                     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:                                     19:09:37.545686 call       511             self.add_future(future_cell[0], lambda future: self.stop())
+IE_TRACE:                                     19:09:37.545724 line       511             self.add_future(future_cell[0], lambda future: self.stop())
+IE_TRACE:                                     19:09:37.545773 return     511             self.add_future(future_cell[0], lambda future: self.stop())
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 New var:....... ret = None
+IE_TRACE:                                 19:09:37.545810 line       744             if ret is not None:
+IE_TRACE:                                 19:09:37.545845 return     744             if ret is not None:
+IE_TRACE:                                 Return value:.. None
+IE_TRACE:                             19:09:37.545881 return     690                 lambda f: self._run_callback(functools.partial(callback, future))
+IE_TRACE:                             Return value:.. None
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:09:37.546394 line       150             asyncio.set_event_loop(old_loop)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:09:37.546784 return     150             asyncio.set_event_loop(old_loop)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Modified var:.. future_cell = [<Task finished name='Task-5' coro=<HTTPServer.close_all_connections() done, defined at /path/to/BugsInPy/workspace/tornado/tornado/httpserver.py:204> result=None>]
+IE_TRACE:         19:09:37.546813 line       527         if timeout is not None:
+IE_TRACE:         19:09:37.546874 line       528             self.remove_timeout(timeout_handle)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:             Starting var:.. timeout = <TimerHandle when=8138.620682023184 IOLoop._run_callback(functools.par...7c7411b29260>))>
+IE_TRACE:             19:09:37.546922 call       167     def remove_timeout(self, timeout: object) -> None:
+IE_TRACE:             19:09:37.546963 line       168         timeout.cancel()  # type: ignore
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             Modified var:.. timeout = <TimerHandle cancelled when=8138.620682023184>
+IE_TRACE:             19:09:37.547509 return     168         timeout.cancel()  # type: ignore
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Modified var:.. timeout_handle = <TimerHandle cancelled when=8138.620682023184>
+IE_TRACE:         19:09:37.547542 line       529         assert future_cell[0] is not None
+IE_TRACE:         19:09:37.547588 line       530         if future_cell[0].cancelled() or not future_cell[0].done():
+IE_TRACE:         19:09:37.547625 line       532         return future_cell[0].result()
+IE_TRACE:         19:09:37.547659 return     532         return future_cell[0].result()
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/testing.py
+IE_TRACE:     19:09:37.547920 line       469         self.http_client.close()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/simple_httpclient.py
+IE_TRACE:         Starting var:.. self = <tornado.simple_httpclient.SimpleAsyncHTTPClient object at 0x7c7412abc6b0>
+IE_TRACE:         Starting var:.. __class__ = <class 'tornado.simple_httpclient.SimpleAsyncHTTPClient'>
+IE_TRACE:         19:09:37.547962 call       159     def close(self) -> None:
+IE_TRACE:         19:09:37.548000 line       160         super(SimpleAsyncHTTPClient, self).close()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/httpclient.py
+IE_TRACE:             Starting var:.. self = <tornado.simple_httpclient.SimpleAsyncHTTPClient object at 0x7c7412abc6b0>
+IE_TRACE:             19:09:37.548026 call       221     def close(self) -> None:
+IE_TRACE:             19:09:37.548056 line       234         if self._closed:
+IE_TRACE:             19:09:37.548071 line       236         self._closed = True
+IE_TRACE:             19:09:37.548086 line       237         if self._instance_cache is not None:
+IE_TRACE:             19:09:37.548101 line       238             cached_val = self._instance_cache.pop(self.io_loop, None)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/httpclient.py
+IE_TRACE:             New var:....... cached_val = <tornado.simple_httpclient.SimpleAsyncHTTPClient object at 0x7c7412abc6b0>
+IE_TRACE:             19:09:37.548244 line       244             if cached_val is not None and cached_val is not self:
+IE_TRACE:             19:09:37.548270 return     244             if cached_val is not None and cached_val is not self:
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/simple_httpclient.py
+IE_TRACE:         19:09:37.548293 line       161         if self.own_resolver:
+IE_TRACE:         19:09:37.548313 line       162             self.resolver.close()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/netutil.py
+IE_TRACE:             Starting var:.. self = <tornado.netutil.DefaultExecutorResolver object at 0x7c74136af7d0>
+IE_TRACE:             19:09:37.548332 call       362     def close(self) -> None:
+IE_TRACE:             19:09:37.548362 line       368         pass
+IE_TRACE:             19:09:37.548376 return     368         pass
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/simple_httpclient.py
+IE_TRACE:         19:09:37.548396 line       163         self.tcp_client.close()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/tcpclient.py
+IE_TRACE:             Starting var:.. self = <tornado.tcpclient.TCPClient object at 0x7c7412abc7d0>
+IE_TRACE:             19:09:37.548419 call       218     def close(self) -> None:
+IE_TRACE:             19:09:37.548447 line       219         if self._own_resolver:
+IE_TRACE:             19:09:37.548460 return     219         if self._own_resolver:
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/simple_httpclient.py
+IE_TRACE:         19:09:37.548480 return     163         self.tcp_client.close()
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/testing.py
+IE_TRACE:     19:09:37.548505 line       470         del self.http_server
+IE_TRACE:     19:09:37.548529 line       471         del self._app
+IE_TRACE:     19:09:37.548546 line       472         super(AsyncHTTPTestCase, self).tearDown()
+IE_TRACE:         Starting var:.. self = <tornado.test.websocket_test.WebSocketTest testMethod=test_nodelay>
+IE_TRACE:         Starting var:.. __class__ = <class 'tornado.testing.AsyncTestCase'>
+IE_TRACE:         19:09:37.548580 call       185     def tearDown(self) -> None:
+IE_TRACE:         19:09:37.548609 line       190         asyncio_loop = self.io_loop.asyncio_loop  # type: ignore
+IE_TRACE:         New var:....... asyncio_loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:         19:09:37.548628 line       191         if hasattr(asyncio, "all_tasks"):  # py37
+IE_TRACE:         19:09:37.548655 line       192             tasks = asyncio.all_tasks(asyncio_loop)  # type: ignore
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/testing.py
+IE_TRACE:         New var:....... tasks = set()
+IE_TRACE:         19:09:37.550373 line       197         tasks = [t for t in tasks if not t.done()]
+IE_TRACE:         Modified var:.. tasks = []
+IE_TRACE:         19:09:37.550409 line       198         for t in tasks:
+IE_TRACE:         19:09:37.550436 line       206         if tasks:
+IE_TRACE:         19:09:37.550458 line       217         Subprocess.uninitialize()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/process.py
+IE_TRACE:             Starting var:.. cls = <class 'tornado.process.Subprocess'>
+IE_TRACE:             19:09:37.550486 call       335     def uninitialize(cls) -> None:
+IE_TRACE:             19:09:37.550577 line       337         if not cls._initialized:
+IE_TRACE:             19:09:37.550594 line       338             return
+IE_TRACE:             19:09:37.550609 return     338             return
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/testing.py
+IE_TRACE:         19:09:37.550629 line       218         self.io_loop.clear_current()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             19:09:37.550662 call       301     def clear_current() -> None:
+IE_TRACE:             19:09:37.550684 line       309         old = IOLoop.current(instance=False)
+IE_TRACE:                 Starting var:.. instance = False
+IE_TRACE:                 19:09:37.550704 call       244     def current(instance: bool = True) -> Optional["IOLoop"]:
+IE_TRACE:                 19:09:37.550731 line       264         try:
+IE_TRACE:                 19:09:37.550748 line       265             loop = asyncio.get_event_loop()
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:                 19:09:37.550934 line       270         try:
+IE_TRACE:                 19:09:37.550961 line       271             return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                 19:09:37.550979 return     271             return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                 Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:             New var:....... old = <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:             19:09:37.551003 line       310         if old is not None:
+IE_TRACE:             19:09:37.551021 line       311             old._clear_current_hook()
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                 Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:                 19:09:37.551039 call       276     def _clear_current_hook(self) -> None:
+IE_TRACE:                 19:09:37.551065 line       277         if self.is_current:
+IE_TRACE:                 19:09:37.551080 line       278             asyncio.set_event_loop(self.old_asyncio)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                 19:09:37.551439 line       279             self.is_current = False
+IE_TRACE:                 19:09:37.551458 return     279             self.is_current = False
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             19:09:37.551478 line       312         if asyncio is None:
+IE_TRACE:             19:09:37.551496 return     312         if asyncio is None:
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/testing.py
+IE_TRACE:         19:09:37.551516 line       219         if not isinstance(self.io_loop, _NON_OWNED_IOLOOPS):
+IE_TRACE:         19:09:37.551544 line       224             self.io_loop.close(all_fds=True)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:             Starting var:.. all_fds = True
+IE_TRACE:             Starting var:.. __class__ = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:             19:09:37.551569 call       262     def close(self, all_fds: bool = False) -> None:
+IE_TRACE:             19:09:37.551608 line       263         if self.is_current:
+IE_TRACE:             19:09:37.551626 line       265         super(AsyncIOLoop, self).close(all_fds=all_fds)
+IE_TRACE:                 Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x7c7412a44ec0>
+IE_TRACE:                 Starting var:.. all_fds = True
+IE_TRACE:                 19:09:37.551651 call        76     def close(self, all_fds: bool = False) -> None:
+IE_TRACE:                 19:09:37.551679 line        77         self.closing = True
+IE_TRACE:                 19:09:37.551697 line        78         for fd in list(self.handlers):
+IE_TRACE:                 19:09:37.551715 line        88         del IOLoop._ioloop_for_asyncio[self.asyncio_loop]
+IE_TRACE:                 19:09:37.551734 line        89         self.asyncio_loop.close()
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                 19:09:37.557090 return      89         self.asyncio_loop.close()
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             19:09:37.557124 return     265         super(AsyncIOLoop, self).close(all_fds=all_fds)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/testing.py
+IE_TRACE:         Modified var:.. asyncio_loop = <_UnixSelectorEventLoop running=False closed=True debug=False>
+IE_TRACE:         19:09:37.557159 line       225         super(AsyncTestCase, self).tearDown()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/testing.py
+IE_TRACE:         19:09:37.557271 line       230         self.__rethrow()
+IE_TRACE:             Starting var:.. self = <tornado.test.websocket_test.WebSocketTest testMethod=test_nodelay>
+IE_TRACE:             19:09:37.557303 call       257     def __rethrow(self) -> None:
+IE_TRACE:             19:09:37.557326 line       258         if self.__failure is not None:
+IE_TRACE:             19:09:37.557344 return     258         if self.__failure is not None:
+IE_TRACE:             Return value:.. None
+IE_TRACE:         19:09:37.557365 return     230         self.__rethrow()
+IE_TRACE:         Return value:.. None
+IE_TRACE:     19:09:37.557394 return     472         super(AsyncHTTPTestCase, self).tearDown()
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/websocket_test.py
+IE_TRACE: 19:09:37.557421 line       281         RequestHandler._template_loaders.clear()
+IE_TRACE: 19:09:37.557451 return     281         RequestHandler._template_loaders.clear()
+IE_TRACE: Return value:.. None
+IE_TRACE: Elapsed time: 00:00:00.031633
+======================================================================
+FAIL: test_nodelay (tornado.test.websocket_test.WebSocketTest.test_nodelay)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/BugsInPy/workspace/tornado/tornado/testing.py", line 98, in __call__
+    result = self.orig_method(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/testing.py", line 594, in post_coroutine
+    return self.io_loop.run_sync(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/ioloop.py", line 532, in run_sync
+    return future_cell[0].result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/gen.py", line 742, in run
+    yielded = self.gen.send(value)
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 329, in generator_wrapper
+    outgoing = method(incoming)
+               ^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/test/websocket_test.py", line 580, in test_nodelay
+    self.assertEqual(res, "hello")
+AssertionError: None != 'hello'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.071s
+
+FAILED (failures=1)
+
+
+Exit code: 1

@@ -1,0 +1,2060 @@
+Cleared: /path/to/results/youtube-dl/bug29
+Running: python -m unittest -q test.test_utils.TestUtil.test_unified_dates
+Workdir: /path/to/BugsInPy/workspace/youtube-dl
+PYTHONPATH: /path/to/BugsInPy/workspace/youtube-dl
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py:369: SyntaxWarning: invalid escape sequence '\s'
+  path_part if path_part in ['.', '..'] else re.sub('(?:[/<>:"\\|\\\\?\\*]|[\s.]$)', '#', path_part)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py:940: SyntaxWarning: invalid escape sequence '\d'
+  match = re.match('(now|today)(?P<sign>[+-])(?P<time>\d+)(?P<unit>day|week|month|year)(s)?', date_str)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/generic.py:213: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/generic.py:228: SyntaxWarning: invalid escape sequence '\.'
+  'description': 're:^Chris Ziegler takes a look at the\.*',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/generic.py:456: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/generic.py:666: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/generic.py:831: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/generic.py:844: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/generic.py:857: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/generic.py:869: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.png$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/generic.py:938: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/generic.py:989: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpe?g$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/generic.py:999: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpe?g$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/youtube.py:1953: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = 'https?://www\.youtube\.com/feed/history|:ythistory'
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vimeo.py:310: SyntaxWarning: invalid escape sequence '\w'
+  m_variable_name = re.search('(\w)\.video\.id', webpage)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vimeo.py:628: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/cbsnews.py:35: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/crunchyroll.py:108: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/dumpert.py:21: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/funnyordie.py:20: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http:.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/funnyordie.py:29: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http:.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/globo.py:21: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = 'https?://.+?\.globo\.com/(?P<id>.+)'
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/gorillavid.py:35: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/gorillavid.py:47: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/gorillavid.py:57: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/gorillavid.py:66: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/gorillavid.py:77: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/instagram.py:62: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/lynda.py:73: SyntaxWarning: invalid escape sequence '\s'
+  if all(not re.search(p, login_page) for p in ('isLoggedIn\s*:\s*true', r'logout\.aspx', r'>Log out<')):
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/movieclips.py:25: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/novamov.py:19: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = _VALID_URL_TEMPLATE % {'host': 'novamov\.com'}
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/ndr.py:302: SyntaxWarning: invalid escape sequence '\d'
+  'title': 're:^NDR Fernsehen Niedersachsen \d{4}-\d{2}-\d{2} \d{2}:\d{2}$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/ndr.py:367: SyntaxWarning: invalid escape sequence '\d'
+  'title': 're:^N-JOY Weltweit \d{4}-\d{2}-\d{2} \d{2}:\d{2}$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nowness.py:59: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nowness.py:70: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nowness.py:82: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nowtv.py:28: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nowtv.py:46: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nowtv.py:64: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nowtv.py:82: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nowtv.py:100: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nowtv.py:118: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nowvideo.py:10: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = NovaMovIE._VALID_URL_TEMPLATE % {'host': 'nowvideo\.(?:ch|ec|sx|eu|at|ag|co|li)'}
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/pbs.py:77: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/pbs.py:93: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/pbs.py:117: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/pbs.py:132: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/pbs.py:151: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/pbs.py:278: SyntaxWarning: invalid escape sequence '\s'
+  info['title'] = alt_title + ' - ' + re.sub(r'^' + alt_title + '[\s\-:]+', '', info['title'])
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/ruutu.py:25: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/ruutu.py:38: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/theplatform.py:137: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/theplatform.py:238: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/tlc.py:56: SyntaxWarning: invalid escape sequence '\.'
+  '<iframe src="(http://www\.tlc\.de/wp-content/.+?)"', webpage,
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/twitter.py:26: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/twitter.py:37: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/twitter.py:130: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/videolecturesnet.py:29: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/videolecturesnet.py:40: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Starting var:.. self = <test.test_utils.TestUtil testMethod=test_unified_dates>
+IE_TRACE: 15:16:42.925362 call       227     def test_unified_dates(self):
+IE_TRACE: 15:16:42.925700 line       228         self.assertEqual(unified_strdate('December 21, 2010'), '20101221')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. date_str = 'December 21, 2010'
+IE_TRACE:     Starting var:.. day_first = True
+IE_TRACE:     15:16:42.925753 call       852 def unified_strdate(date_str, day_first=True):
+IE_TRACE:     15:16:42.926045 line       855     if date_str is None:
+IE_TRACE:     15:16:42.926074 line       857     upload_date = None
+IE_TRACE:     New var:....... upload_date = None
+IE_TRACE:     15:16:42.926096 line       859     date_str = date_str.replace(',', ' ')
+IE_TRACE:     Modified var:.. date_str = 'December 21  2010'
+IE_TRACE:     15:16:42.926124 line       861     if not re.match(r'^[0-9]{1,2}-[0-9]{1,2}-[0-9]{4}$', date_str):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:43.006913 line       862         date_str = re.sub(r' ?(\+|-)[0-9]{2}:?[0-9]{2}$', '', date_str)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:43.079728 line       864     date_str = re.sub(r'(?i)\s*(?:AM|PM)(?:\s+[A-Z]+)?', '', date_str)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:43.202875 line       866     format_expressions = [
+IE_TRACE:     New var:....... format_expressions = list(len=21)
+IE_TRACE:     15:16:43.202893 line       889     if day_first:
+IE_TRACE:     15:16:43.202909 line       890         format_expressions.extend([
+IE_TRACE:     Modified var:.. format_expressions = list(len=26)
+IE_TRACE:     15:16:43.202920 line       905     for expression in format_expressions:
+IE_TRACE:     New var:....... expression = '%d %B %Y'
+IE_TRACE:     15:16:43.202934 line       906         try:
+IE_TRACE:     15:16:43.202950 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:         Source path:... <frozen importlib._bootstrap>
+IE_TRACE:         Starting var:.. name = '_strptime'
+IE_TRACE:         Starting var:.. import_ = <built-in function __import__>
+IE_TRACE:         15:16:43.202980 call      1349 SOURCE IS UNAVAILABLE
+IE_TRACE:         15:16:43.203056 line      1354 SOURCE IS UNAVAILABLE
+IE_TRACE:         New var:....... module = <object object at 0x7b2e08588060>
+IE_TRACE:         15:16:43.203067 line      1355 SOURCE IS UNAVAILABLE
+IE_TRACE:         15:16:43.203083 line      1357 SOURCE IS UNAVAILABLE
+IE_TRACE:             Starting var:.. self = <_frozen_importlib._ModuleLockManager object at 0x7b2e07857aa0>
+IE_TRACE:             Starting var:.. name = '_strptime'
+IE_TRACE:             15:16:43.203099 call       412 SOURCE IS UNAVAILABLE
+IE_TRACE:             15:16:43.203115 line       413 SOURCE IS UNAVAILABLE
+IE_TRACE:             15:16:43.203125 line       414 SOURCE IS UNAVAILABLE
+IE_TRACE:             15:16:43.203135 return     414 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. None
+IE_TRACE:             Starting var:.. self = <_frozen_importlib._ModuleLockManager object at 0x7b2e07857aa0>
+IE_TRACE:             15:16:43.203151 call       416 SOURCE IS UNAVAILABLE
+IE_TRACE:             15:16:43.203163 line       417 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Starting var:.. name = '_strptime'
+IE_TRACE:                 15:16:43.203178 call       426 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.203191 line       432 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.203202 line       433 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.203211 line       434 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.203219 line       435 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.203229 exception  435 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Exception:..... KeyError: '_strptime'
+IE_TRACE:                 15:16:43.203252 line       436 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.203263 line       437 SOURCE IS UNAVAILABLE
+IE_TRACE:                 New var:....... lock = None
+IE_TRACE:                 15:16:43.203272 line       439 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.203285 line       440 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.203295 line       443 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Starting var:.. self = REPR FAILED
+IE_TRACE:                     Starting var:.. name = '_strptime'
+IE_TRACE:                     15:16:43.203310 call       232 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.203331 line       253 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.203345 line       254 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.203357 line       257 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Modified var:.. self = _ModuleLock('_strptime') at 135437613784176
+IE_TRACE:                     15:16:43.203367 line       261 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.203381 line       272 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.203391 line       286 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.203400 return     286 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 Modified var:.. lock = _ModuleLock('_strptime') at 135437613784176
+IE_TRACE:                 15:16:43.203414 line       445 SOURCE IS UNAVAILABLE
+IE_TRACE:                 New var:....... cb = <function _get_module_lock.<locals>.cb at 0x7b2e0671f2e0>
+IE_TRACE:                 15:16:43.203427 line       456 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.203444 line       458 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.203455 line       460 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.203466 return     460 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Return value:.. _ModuleLock('_strptime') at 135437613784176
+IE_TRACE:             15:16:43.203481 line       418 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Starting var:.. self = _ModuleLock('_strptime') at 135437613784176
+IE_TRACE:                 15:16:43.203495 call       304 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.203509 line       310 SOURCE IS UNAVAILABLE
+IE_TRACE:                 New var:....... tid = 135437639282816
+IE_TRACE:                 15:16:43.203520 line       311 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Starting var:.. self = <_frozen_importlib._BlockingOnManager object at 0x7b2e07856c00>
+IE_TRACE:                     Starting var:.. thread_id = 135437639282816
+IE_TRACE:                     Starting var:.. lock = _ModuleLock('_strptime') at 135437613784176
+IE_TRACE:                     15:16:43.203534 call       158 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.203554 line       159 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.203568 line       160 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.203578 return     160 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                     Starting var:.. self = <_frozen_importlib._BlockingOnManager object at 0x7b2e07856c00>
+IE_TRACE:                     15:16:43.203596 call       162 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.203610 line       170 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Starting var:.. self = <_frozen_importlib._WeakValueDictionary object at 0x7b2e085ab2c0>
+IE_TRACE:                         Starting var:.. key = 135437639282816
+IE_TRACE:                         Starting var:.. default = []
+IE_TRACE:                         15:16:43.203623 call       124 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.203646 line       125 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.203657 line       126 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.203669 exception  126 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Exception:..... KeyError: 135437639282816
+IE_TRACE:                         15:16:43.203690 line       127 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.203702 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                         New var:....... o = None
+IE_TRACE:                         15:16:43.203713 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.203728 line       130 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.203740 line       132 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. type = <class '_frozen_importlib._WeakValueDictionary.__init__.<locals>.KeyedRef'>
+IE_TRACE:                             Starting var:.. ob = []
+IE_TRACE:                             Starting var:.. key = 135437639282816
+IE_TRACE:                             Starting var:.. __class__ = <class '_frozen_importlib._WeakValueDictionary.__init__.<locals>.KeyedRef'>
+IE_TRACE:                             15:16:43.203755 call        74 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.203779 line        75 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... self = <weakref at 0x7b2e0659d660; to '_List' at 0x7b2e065a34d0>
+IE_TRACE:                             15:16:43.203795 line        76 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.203812 line        77 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.203825 return      77 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. <weakref at 0x7b2e0659d660; to '_List' at 0x7b2e065a34d0>
+IE_TRACE:                             Starting var:.. self = <weakref at 0x7b2e0659d660; to '_List' at 0x7b2e065a34d0>
+IE_TRACE:                             Starting var:.. ob = []
+IE_TRACE:                             Starting var:.. key = 135437639282816
+IE_TRACE:                             Starting var:.. __class__ = <class '_frozen_importlib._WeakValueDictionary.__init__.<locals>.KeyedRef'>
+IE_TRACE:                             15:16:43.203844 call        79 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.203871 line        80 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.203885 return      80 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         15:16:43.203901 line       133 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.203912 return     133 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Return value:.. []
+IE_TRACE:                     15:16:43.203928 line       171 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.203937 return     171 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 15:16:43.203950 line       312 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.203961 line       316 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.203973 line       317 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.203983 line       324 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.203993 line       325 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.204002 line       326 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.204011 line       316 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.204020 line       311 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Starting var:.. self = <_frozen_importlib._BlockingOnManager object at 0x7b2e07856c00>
+IE_TRACE:                     Starting var:.. args = (None, None, None)
+IE_TRACE:                     Starting var:.. kwargs = {}
+IE_TRACE:                     15:16:43.204031 call       173 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.204050 line       175 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.204062 return     175 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                     Starting var:.. wr = <weakref at 0x7b2e0659d660; dead>
+IE_TRACE:                     Starting var:.. self_weakref = <weakref at 0x7b2e085b8770; to '_WeakValueDictionary' at 0x7b2e085ab2c0>
+IE_TRACE:                     15:16:43.204081 call        82 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.204099 line        86 SOURCE IS UNAVAILABLE
+IE_TRACE:                     New var:....... self = <_frozen_importlib._WeakValueDictionary object at 0x7b2e085ab2c0>
+IE_TRACE:                     15:16:43.204110 line        87 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.204124 line        88 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.204136 line        91 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.204148 return      91 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 15:16:43.204164 return     311 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Return value:.. True
+IE_TRACE:             15:16:43.204178 return     418 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. None
+IE_TRACE:         15:16:43.204191 line      1358 SOURCE IS UNAVAILABLE
+IE_TRACE:         15:16:43.204202 line      1359 SOURCE IS UNAVAILABLE
+IE_TRACE:         15:16:43.204212 line      1360 SOURCE IS UNAVAILABLE
+IE_TRACE:             Starting var:.. name = '_strptime'
+IE_TRACE:             Starting var:.. import_ = <built-in function __import__>
+IE_TRACE:             15:16:43.204231 call      1304 SOURCE IS UNAVAILABLE
+IE_TRACE:             15:16:43.204250 line      1305 SOURCE IS UNAVAILABLE
+IE_TRACE:             New var:....... path = None
+IE_TRACE:             15:16:43.204262 line      1306 SOURCE IS UNAVAILABLE
+IE_TRACE:             New var:....... parent = ''
+IE_TRACE:             15:16:43.204278 line      1307 SOURCE IS UNAVAILABLE
+IE_TRACE:             New var:....... parent_spec = None
+IE_TRACE:             15:16:43.204293 line      1308 SOURCE IS UNAVAILABLE
+IE_TRACE:             15:16:43.204309 line      1322 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Starting var:.. name = '_strptime'
+IE_TRACE:                 Starting var:.. path = None
+IE_TRACE:                 Starting var:.. target = None
+IE_TRACE:                 15:16:43.204329 call      1240 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.204350 line      1242 SOURCE IS UNAVAILABLE
+IE_TRACE:                 New var:....... meta_path = [<class '_frozen_importlib.BuiltinImporter'>, <class '_frozen_importlib.FrozenImporter'>, <class '_frozen_importlib_external.PathFinder'>, <class '__editable___cookiecutter_2_0_0_finder._EditableFinder'>]
+IE_TRACE:                 15:16:43.204362 line      1243 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.204383 line      1248 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.204396 line      1254 SOURCE IS UNAVAILABLE
+IE_TRACE:                 New var:....... is_reload = False
+IE_TRACE:                 15:16:43.204409 line      1255 SOURCE IS UNAVAILABLE
+IE_TRACE:                 New var:....... finder = <class '_frozen_importlib.BuiltinImporter'>
+IE_TRACE:                 15:16:43.204426 line      1256 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Starting var:.. self = <_frozen_importlib._ImportLockContext object at 0x7b2e07b77b00>
+IE_TRACE:                     15:16:43.204449 call      1222 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.204463 line      1224 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.204472 return    1224 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 15:16:43.204486 line      1257 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.204501 line      1258 SOURCE IS UNAVAILABLE
+IE_TRACE:                 New var:....... find_spec = <bound method BuiltinImporter.find_spec of <class '_frozen_importlib.BuiltinImporter'>>
+IE_TRACE:                 15:16:43.204516 line      1262 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Starting var:.. cls = <class '_frozen_importlib.BuiltinImporter'>
+IE_TRACE:                     Starting var:.. fullname = '_strptime'
+IE_TRACE:                     Starting var:.. path = None
+IE_TRACE:                     Starting var:.. target = None
+IE_TRACE:                     15:16:43.204537 call       982 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.204559 line       984 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.204577 line       987 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.204588 return     987 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 New var:....... spec = None
+IE_TRACE:                 15:16:43.204604 line      1256 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Starting var:.. self = <_frozen_importlib._ImportLockContext object at 0x7b2e07b77b00>
+IE_TRACE:                     Starting var:.. exc_type = None
+IE_TRACE:                     Starting var:.. exc_value = None
+IE_TRACE:                     Starting var:.. exc_traceback = None
+IE_TRACE:                     15:16:43.204624 call      1226 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.204645 line      1228 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.204657 return    1228 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 15:16:43.204673 line      1263 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.204689 line      1255 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Modified var:.. finder = <class '_frozen_importlib.FrozenImporter'>
+IE_TRACE:                 15:16:43.204705 line      1256 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Starting var:.. self = <_frozen_importlib._ImportLockContext object at 0x7b2e066c7b00>
+IE_TRACE:                     15:16:43.204725 call      1222 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.204737 line      1224 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.204747 return    1224 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 15:16:43.204760 line      1257 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.204776 line      1258 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Modified var:.. find_spec = <bound method FrozenImporter.find_spec of <class '_frozen_importlib.FrozenImporter'>>
+IE_TRACE:                 15:16:43.204792 line      1262 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Starting var:.. cls = <class '_frozen_importlib.FrozenImporter'>
+IE_TRACE:                     Starting var:.. fullname = '_strptime'
+IE_TRACE:                     Starting var:.. path = None
+IE_TRACE:                     Starting var:.. target = None
+IE_TRACE:                     15:16:43.204816 call      1128 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.204841 line      1130 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Starting var:.. f = <built-in function find_frozen>
+IE_TRACE:                         Starting var:.. args = ('_strptime',)
+IE_TRACE:                         Starting var:.. kwds = {}
+IE_TRACE:                         15:16:43.204855 call       480 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.204876 line       488 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.204888 return     488 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Return value:.. None
+IE_TRACE:                     New var:....... info = None
+IE_TRACE:                     15:16:43.204905 line      1131 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.204921 line      1132 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.204934 return    1132 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 15:16:43.204952 line      1256 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Starting var:.. self = <_frozen_importlib._ImportLockContext object at 0x7b2e066c7b00>
+IE_TRACE:                     Starting var:.. exc_type = None
+IE_TRACE:                     Starting var:.. exc_value = None
+IE_TRACE:                     Starting var:.. exc_traceback = None
+IE_TRACE:                     15:16:43.204967 call      1226 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.204988 line      1228 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.205000 return    1228 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 15:16:43.205015 line      1263 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.205031 line      1255 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Modified var:.. finder = <class '_frozen_importlib_external.PathFinder'>
+IE_TRACE:                 15:16:43.205046 line      1256 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Starting var:.. self = <_frozen_importlib._ImportLockContext object at 0x7b2e066c6720>
+IE_TRACE:                     15:16:43.205066 call      1222 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.205078 line      1224 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.205087 return    1224 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 15:16:43.205101 line      1257 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.205116 line      1258 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Modified var:.. find_spec = <bound method PathFinder.find_spec of <class '_frozen_importlib_external.PathFinder'>>
+IE_TRACE:                 15:16:43.205132 line      1262 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Source path:... <frozen importlib._bootstrap_external>
+IE_TRACE:                     Starting var:.. cls = <class '_frozen_importlib_external.PathFinder'>
+IE_TRACE:                     Starting var:.. fullname = '_strptime'
+IE_TRACE:                     Starting var:.. path = None
+IE_TRACE:                     Starting var:.. target = None
+IE_TRACE:                     15:16:43.205152 call      1520 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.205189 line      1526 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.205202 line      1527 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Modified var:.. path = ['/path/to/BugsInPy/workspace/youtube-dl', '/path/to/BugsInPy/workspace/youtube-dl', '/path/to/BugsInPy/workspace/youtube-dl', '/usr/lib/python312.zip', '/usr/lib/python3.12', '/usr/lib/python3.12/lib-dynload', '/path/to/.venv/lib/python3.12/site-packages']
+IE_TRACE:                     15:16:43.205214 line      1528 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Starting var:.. cls = <class '_frozen_importlib_external.PathFinder'>
+IE_TRACE:                         Starting var:.. fullname = '_strptime'
+IE_TRACE:                         Starting var:.. path = ['/path/to/BugsInPy/workspace/youtube-dl', '/path/to/BugsInPy/workspace/youtube-dl', '/path/to/BugsInPy/workspace/youtube-dl', '/usr/lib/python312.zip', '/usr/lib/python3.12', '/usr/lib/python3.12/lib-dynload', '/path/to/.venv/lib/python3.12/site-packages']
+IE_TRACE:                         Starting var:.. target = None
+IE_TRACE:                         15:16:43.205237 call      1491 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.205262 line      1496 SOURCE IS UNAVAILABLE
+IE_TRACE:                         New var:....... namespace_path = []
+IE_TRACE:                         15:16:43.205277 line      1497 SOURCE IS UNAVAILABLE
+IE_TRACE:                         New var:....... entry = '/path/to/BugsInPy/workspace/youtube-dl'
+IE_TRACE:                         15:16:43.205295 line      1498 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.205313 line      1500 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. cls = <class '_frozen_importlib_external.PathFinder'>
+IE_TRACE:                             Starting var:.. path = '/path/to/BugsInPy/workspace/youtube-dl'
+IE_TRACE:                             15:16:43.205331 call      1469 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.205348 line      1477 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.205360 line      1484 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.205371 line      1485 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... finder = FileFinder('/path/to/BugsInPy/workspace/youtube-dl')
+IE_TRACE:                             15:16:43.205383 line      1489 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.205401 return    1489 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. FileFinder('/path/to/BugsInPy/workspace/youtube-dl')
+IE_TRACE:                         New var:....... finder = FileFinder('/path/to/BugsInPy/workspace/youtube-dl')
+IE_TRACE:                         15:16:43.205418 line      1501 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.205437 line      1502 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. self = FileFinder('/path/to/BugsInPy/workspace/youtube-dl')
+IE_TRACE:                             Starting var:.. fullname = '_strptime'
+IE_TRACE:                             Starting var:.. target = None
+IE_TRACE:                             15:16:43.205463 call      1593 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.205488 line      1598 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... is_namespace = False
+IE_TRACE:                             15:16:43.205502 line      1599 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... tail_module = '_strptime'
+IE_TRACE:                             15:16:43.205521 line      1600 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.205538 line      1601 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. path = '/path/to/BugsInPy/workspace/youtube-dl'
+IE_TRACE:                                 15:16:43.205556 call       140 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.205574 line       147 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.205599 return     147 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. os.stat_result(st_mode=16877, st_ino=3552379, st_dev=66309, st_nlink=9, st_uid=1000, st_gid=1000, st_size=4096, st_atime=1775123202, st_mtime=1775123202, st_ctime=1775123202)
+IE_TRACE:                             New var:....... mtime = 1775123202.6266854
+IE_TRACE:                             15:16:43.205622 line      1604 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.205654 line      1608 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.205673 call        71 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.205685 line        73 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.205696 return      73 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. False
+IE_TRACE:                             15:16:43.205710 line      1612 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... cache = set(len=24)
+IE_TRACE:                             15:16:43.205727 line      1613 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... cache_module = '_strptime'
+IE_TRACE:                             15:16:43.205747 line      1615 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.205768 line      1627 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... suffix = '.cpython-312-x86_64-linux-gnu.so'
+IE_TRACE:                             New var:....... loader_class = <class '_frozen_importlib_external.ExtensionFileLoader'>
+IE_TRACE:                             15:16:43.205787 line      1628 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.205812 line      1629 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. path_parts = ('/path/to/BugsInPy/workspace/youtube-dl', '_strptime.cpython-312-x86_64-linux-gnu.so')
+IE_TRACE:                                 15:16:43.205834 call       126 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.205850 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.205862 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.205873 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.205884 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 New var:....... part = '/path/to/BugsInPy/workspace/youtube-dl'
+IE_TRACE:                                 15:16:43.205895 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.205910 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.205923 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Modified var:.. part = '_strptime.cpython-312-x86_64-linux-gnu.so'
+IE_TRACE:                                 15:16:43.205935 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.205949 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.205961 return     128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. '/path/to/BugsInPy/workspace/youtube-dl/_strptime.cpython-312-x86_64-linux-gnu.so'
+IE_TRACE:                             New var:....... full_path = '/path/to/BugsInPy/workspace/youtube-dl/_strptime.cpython-312-x86_64-linux-gnu.so'
+IE_TRACE:                             15:16:43.205977 line      1632 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Source path:... <frozen importlib._bootstrap>
+IE_TRACE:                                 Starting var:.. message = 'trying {}'
+IE_TRACE:                                 Starting var:.. verbosity = 2
+IE_TRACE:                                 Starting var:.. args = ('/path/to/BugsInPy/workspace/youtube-dl/_strptime.cpython-312-x86_64-linux-gnu.so',)
+IE_TRACE:                                 15:16:43.206005 call       491 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.206030 line       493 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.206044 return     493 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. None
+IE_TRACE:                             Source path:... <frozen importlib._bootstrap_external>
+IE_TRACE:                             15:16:43.206062 line      1633 SOURCE IS UNAVAILABLE
+IE_TRACE:     [CONDENSED] 3 identical loop iterations skipped (5 total iterations, showing first and last)
+IE_TRACE:                             15:16:43.206984 line      1627 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Modified var:.. suffix = '.pyc'
+IE_TRACE:                             Modified var:.. loader_class = <class '_frozen_importlib_external.SourcelessFileLoader'>
+IE_TRACE:                             15:16:43.207004 line      1628 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.207029 line      1629 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. path_parts = ('/path/to/BugsInPy/workspace/youtube-dl', '_strptime.pyc')
+IE_TRACE:                                 15:16:43.207048 call       126 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.207064 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.207075 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.207086 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.207097 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 New var:....... part = '/path/to/BugsInPy/workspace/youtube-dl'
+IE_TRACE:                                 15:16:43.207108 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.207122 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.207134 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Modified var:.. part = '_strptime.pyc'
+IE_TRACE:                                 15:16:43.207145 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.207159 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.207171 return     128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. '/path/to/BugsInPy/workspace/youtube-dl/_strptime.pyc'
+IE_TRACE:                             Modified var:.. full_path = '/path/to/BugsInPy/workspace/youtube-dl/_strptime.pyc'
+IE_TRACE:                             15:16:43.207186 line      1632 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Source path:... <frozen importlib._bootstrap>
+IE_TRACE:                                 Starting var:.. message = 'trying {}'
+IE_TRACE:                                 Starting var:.. verbosity = 2
+IE_TRACE:                                 Starting var:.. args = ('/path/to/BugsInPy/workspace/youtube-dl/_strptime.pyc',)
+IE_TRACE:                                 15:16:43.207209 call       491 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.207233 line       493 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.207245 return     493 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. None
+IE_TRACE:                             Source path:... <frozen importlib._bootstrap_external>
+IE_TRACE:                             15:16:43.207261 line      1633 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.207284 line      1627 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.207304 line      1637 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.207323 line      1642 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.207342 return    1642 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         New var:....... spec = None
+IE_TRACE:                         15:16:43.207366 line      1503 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.207386 line      1504 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.207403 line      1497 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.207419 line      1498 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.207436 line      1500 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. cls = <class '_frozen_importlib_external.PathFinder'>
+IE_TRACE:                             Starting var:.. path = '/path/to/BugsInPy/workspace/youtube-dl'
+IE_TRACE:                             15:16:43.207453 call      1469 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.207469 line      1477 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.207481 line      1484 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.207492 line      1485 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... finder = FileFinder('/path/to/BugsInPy/workspace/youtube-dl')
+IE_TRACE:                             15:16:43.207503 line      1489 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.207519 return    1489 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. FileFinder('/path/to/BugsInPy/workspace/youtube-dl')
+IE_TRACE:                         15:16:43.207535 line      1501 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.207551 line      1502 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. self = FileFinder('/path/to/BugsInPy/workspace/youtube-dl')
+IE_TRACE:                             Starting var:.. fullname = '_strptime'
+IE_TRACE:                             Starting var:.. target = None
+IE_TRACE:                             15:16:43.207571 call      1593 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.207592 line      1598 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... is_namespace = False
+IE_TRACE:                             15:16:43.207605 line      1599 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... tail_module = '_strptime'
+IE_TRACE:                             15:16:43.207624 line      1600 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.207642 line      1601 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. path = '/path/to/BugsInPy/workspace/youtube-dl'
+IE_TRACE:                                 15:16:43.207658 call       140 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.207671 line       147 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.207684 return     147 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. os.stat_result(st_mode=16877, st_ino=3552379, st_dev=66309, st_nlink=9, st_uid=1000, st_gid=1000, st_size=4096, st_atime=1775123202, st_mtime=1775123202, st_ctime=1775123202)
+IE_TRACE:                             New var:....... mtime = 1775123202.6266854
+IE_TRACE:                             15:16:43.207700 line      1604 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.207720 line      1608 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.207737 call        71 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.207747 line        73 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.207756 return      73 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. False
+IE_TRACE:                             15:16:43.207770 line      1612 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... cache = set(len=24)
+IE_TRACE:                             15:16:43.207786 line      1613 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... cache_module = '_strptime'
+IE_TRACE:                             15:16:43.207806 line      1615 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.207825 line      1627 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... suffix = '.cpython-312-x86_64-linux-gnu.so'
+IE_TRACE:                             New var:....... loader_class = <class '_frozen_importlib_external.ExtensionFileLoader'>
+IE_TRACE:                             15:16:43.207843 line      1628 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.207868 line      1629 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. path_parts = ('/path/to/BugsInPy/workspace/youtube-dl', '_strptime.cpython-312-x86_64-linux-gnu.so')
+IE_TRACE:                                 15:16:43.207888 call       126 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.207901 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.207913 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.207924 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.207935 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 New var:....... part = '/path/to/BugsInPy/workspace/youtube-dl'
+IE_TRACE:                                 15:16:43.207946 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.207959 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.207971 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Modified var:.. part = '_strptime.cpython-312-x86_64-linux-gnu.so'
+IE_TRACE:                                 15:16:43.207983 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.207997 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.208009 return     128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. '/path/to/BugsInPy/workspace/youtube-dl/_strptime.cpython-312-x86_64-linux-gnu.so'
+IE_TRACE:                             New var:....... full_path = '/path/to/BugsInPy/workspace/youtube-dl/_strptime.cpython-312-x86_64-linux-gnu.so'
+IE_TRACE:                             15:16:43.208023 line      1632 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Source path:... <frozen importlib._bootstrap>
+IE_TRACE:                                 Starting var:.. message = 'trying {}'
+IE_TRACE:                                 Starting var:.. verbosity = 2
+IE_TRACE:                                 Starting var:.. args = ('/path/to/BugsInPy/workspace/youtube-dl/_strptime.cpython-312-x86_64-linux-gnu.so',)
+IE_TRACE:                                 15:16:43.208046 call       491 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.208070 line       493 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.208083 return     493 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. None
+IE_TRACE:                             Source path:... <frozen importlib._bootstrap_external>
+IE_TRACE:                             15:16:43.208101 line      1633 SOURCE IS UNAVAILABLE
+IE_TRACE:     [CONDENSED] 3 identical loop iterations skipped (5 total iterations, showing first and last)
+IE_TRACE:                             15:16:43.209022 line      1627 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Modified var:.. suffix = '.pyc'
+IE_TRACE:                             Modified var:.. loader_class = <class '_frozen_importlib_external.SourcelessFileLoader'>
+IE_TRACE:                             15:16:43.209041 line      1628 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.209066 line      1629 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. path_parts = ('/path/to/BugsInPy/workspace/youtube-dl', '_strptime.pyc')
+IE_TRACE:                                 15:16:43.209085 call       126 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.209099 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.209110 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.209121 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.209132 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 New var:....... part = '/path/to/BugsInPy/workspace/youtube-dl'
+IE_TRACE:                                 15:16:43.209143 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.209158 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.209170 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Modified var:.. part = '_strptime.pyc'
+IE_TRACE:                                 15:16:43.209181 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.209196 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.209208 return     128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. '/path/to/BugsInPy/workspace/youtube-dl/_strptime.pyc'
+IE_TRACE:                             Modified var:.. full_path = '/path/to/BugsInPy/workspace/youtube-dl/_strptime.pyc'
+IE_TRACE:                             15:16:43.209223 line      1632 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Source path:... <frozen importlib._bootstrap>
+IE_TRACE:                                 Starting var:.. message = 'trying {}'
+IE_TRACE:                                 Starting var:.. verbosity = 2
+IE_TRACE:                                 Starting var:.. args = ('/path/to/BugsInPy/workspace/youtube-dl/_strptime.pyc',)
+IE_TRACE:                                 15:16:43.209245 call       491 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.209268 line       493 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.209280 return     493 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. None
+IE_TRACE:                             Source path:... <frozen importlib._bootstrap_external>
+IE_TRACE:                             15:16:43.209297 line      1633 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.209319 line      1627 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.209338 line      1637 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.209357 line      1642 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.209376 return    1642 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         15:16:43.209400 line      1503 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.209417 line      1504 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.209434 line      1497 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.209450 line      1498 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.209466 line      1500 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. cls = <class '_frozen_importlib_external.PathFinder'>
+IE_TRACE:                             Starting var:.. path = '/path/to/BugsInPy/workspace/youtube-dl'
+IE_TRACE:                             15:16:43.209483 call      1469 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.209500 line      1477 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.209511 line      1484 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.209523 line      1485 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... finder = FileFinder('/path/to/BugsInPy/workspace/youtube-dl')
+IE_TRACE:                             15:16:43.209534 line      1489 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.209549 return    1489 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. FileFinder('/path/to/BugsInPy/workspace/youtube-dl')
+IE_TRACE:                         15:16:43.209564 line      1501 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.209582 line      1502 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. self = FileFinder('/path/to/BugsInPy/workspace/youtube-dl')
+IE_TRACE:                             Starting var:.. fullname = '_strptime'
+IE_TRACE:                             Starting var:.. target = None
+IE_TRACE:                             15:16:43.209599 call      1593 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.209620 line      1598 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... is_namespace = False
+IE_TRACE:                             15:16:43.209634 line      1599 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... tail_module = '_strptime'
+IE_TRACE:                             15:16:43.209651 line      1600 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.209669 line      1601 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. path = '/path/to/BugsInPy/workspace/youtube-dl'
+IE_TRACE:                                 15:16:43.209684 call       140 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.209697 line       147 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.209709 return     147 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. os.stat_result(st_mode=16877, st_ino=3552379, st_dev=66309, st_nlink=9, st_uid=1000, st_gid=1000, st_size=4096, st_atime=1775123202, st_mtime=1775123202, st_ctime=1775123202)
+IE_TRACE:                             New var:....... mtime = 1775123202.6266854
+IE_TRACE:                             15:16:43.209725 line      1604 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.209744 line      1608 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.209760 call        71 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.209770 line        73 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.209780 return      73 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. False
+IE_TRACE:                             15:16:43.209794 line      1612 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... cache = set(len=24)
+IE_TRACE:                             15:16:43.209810 line      1613 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... cache_module = '_strptime'
+IE_TRACE:                             15:16:43.209829 line      1615 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.209849 line      1627 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... suffix = '.cpython-312-x86_64-linux-gnu.so'
+IE_TRACE:                             New var:....... loader_class = <class '_frozen_importlib_external.ExtensionFileLoader'>
+IE_TRACE:                             15:16:43.209866 line      1628 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.209889 line      1629 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. path_parts = ('/path/to/BugsInPy/workspace/youtube-dl', '_strptime.cpython-312-x86_64-linux-gnu.so')
+IE_TRACE:                                 15:16:43.209909 call       126 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.209922 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.209933 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.209944 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.209955 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 New var:....... part = '/path/to/BugsInPy/workspace/youtube-dl'
+IE_TRACE:                                 15:16:43.209966 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.209980 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.209992 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Modified var:.. part = '_strptime.cpython-312-x86_64-linux-gnu.so'
+IE_TRACE:                                 15:16:43.210004 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.210018 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.210029 return     128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. '/path/to/BugsInPy/workspace/youtube-dl/_strptime.cpython-312-x86_64-linux-gnu.so'
+IE_TRACE:                             New var:....... full_path = '/path/to/BugsInPy/workspace/youtube-dl/_strptime.cpython-312-x86_64-linux-gnu.so'
+IE_TRACE:                             15:16:43.210044 line      1632 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Source path:... <frozen importlib._bootstrap>
+IE_TRACE:                                 Starting var:.. message = 'trying {}'
+IE_TRACE:                                 Starting var:.. verbosity = 2
+IE_TRACE:                                 Starting var:.. args = ('/path/to/BugsInPy/workspace/youtube-dl/_strptime.cpython-312-x86_64-linux-gnu.so',)
+IE_TRACE:                                 15:16:43.210068 call       491 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.210091 line       493 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.210104 return     493 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. None
+IE_TRACE:                             Source path:... <frozen importlib._bootstrap_external>
+IE_TRACE:                             15:16:43.210121 line      1633 SOURCE IS UNAVAILABLE
+IE_TRACE:     [CONDENSED] 3 identical loop iterations skipped (5 total iterations, showing first and last)
+IE_TRACE:                             15:16:43.211030 line      1627 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Modified var:.. suffix = '.pyc'
+IE_TRACE:                             Modified var:.. loader_class = <class '_frozen_importlib_external.SourcelessFileLoader'>
+IE_TRACE:                             15:16:43.211049 line      1628 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.211073 line      1629 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. path_parts = ('/path/to/BugsInPy/workspace/youtube-dl', '_strptime.pyc')
+IE_TRACE:                                 15:16:43.211092 call       126 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.211106 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.211117 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.211128 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.211139 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 New var:....... part = '/path/to/BugsInPy/workspace/youtube-dl'
+IE_TRACE:                                 15:16:43.211150 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.211164 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.211175 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Modified var:.. part = '_strptime.pyc'
+IE_TRACE:                                 15:16:43.211187 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.211202 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.211216 return     128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. '/path/to/BugsInPy/workspace/youtube-dl/_strptime.pyc'
+IE_TRACE:                             Modified var:.. full_path = '/path/to/BugsInPy/workspace/youtube-dl/_strptime.pyc'
+IE_TRACE:                             15:16:43.211231 line      1632 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Source path:... <frozen importlib._bootstrap>
+IE_TRACE:                                 Starting var:.. message = 'trying {}'
+IE_TRACE:                                 Starting var:.. verbosity = 2
+IE_TRACE:                                 Starting var:.. args = ('/path/to/BugsInPy/workspace/youtube-dl/_strptime.pyc',)
+IE_TRACE:                                 15:16:43.211254 call       491 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.211276 line       493 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.211289 return     493 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. None
+IE_TRACE:                             Source path:... <frozen importlib._bootstrap_external>
+IE_TRACE:                             15:16:43.211305 line      1633 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.211327 line      1627 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.211347 line      1637 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.211366 line      1642 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.211385 return    1642 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         15:16:43.211408 line      1503 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.211425 line      1504 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.211441 line      1497 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Modified var:.. entry = '/usr/lib/python312.zip'
+IE_TRACE:                         15:16:43.211457 line      1498 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.211476 line      1500 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. cls = <class '_frozen_importlib_external.PathFinder'>
+IE_TRACE:                             Starting var:.. path = '/usr/lib/python312.zip'
+IE_TRACE:                             15:16:43.211492 call      1469 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.211508 line      1477 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.211519 line      1484 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.211530 line      1485 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... finder = None
+IE_TRACE:                             15:16:43.211542 line      1489 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.211556 return    1489 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         Modified var:.. finder = None
+IE_TRACE:                         15:16:43.211571 line      1501 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.211592 line      1497 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Modified var:.. entry = '/usr/lib/python3.12'
+IE_TRACE:                         15:16:43.211608 line      1498 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.211626 line      1500 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. cls = <class '_frozen_importlib_external.PathFinder'>
+IE_TRACE:                             Starting var:.. path = '/usr/lib/python3.12'
+IE_TRACE:                             15:16:43.211642 call      1469 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.211658 line      1477 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.211669 line      1484 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.211680 line      1485 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... finder = FileFinder('/usr/lib/python3.12')
+IE_TRACE:                             15:16:43.211692 line      1489 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.211706 return    1489 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. FileFinder('/usr/lib/python3.12')
+IE_TRACE:                         Modified var:.. finder = FileFinder('/usr/lib/python3.12')
+IE_TRACE:                         15:16:43.211722 line      1501 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.211741 line      1502 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. self = FileFinder('/usr/lib/python3.12')
+IE_TRACE:                             Starting var:.. fullname = '_strptime'
+IE_TRACE:                             Starting var:.. target = None
+IE_TRACE:                             15:16:43.211758 call      1593 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.211779 line      1598 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... is_namespace = False
+IE_TRACE:                             15:16:43.211793 line      1599 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... tail_module = '_strptime'
+IE_TRACE:                             15:16:43.211811 line      1600 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.211829 line      1601 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. path = '/usr/lib/python3.12'
+IE_TRACE:                                 15:16:43.211844 call       140 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.211857 line       147 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.211872 return     147 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. os.stat_result(st_mode=16877, st_ino=524535, st_dev=66309, st_nlink=35, st_uid=0, st_gid=0, st_size=20480, st_atime=1775119204, st_mtime=1775119204, st_ctime=1775119204)
+IE_TRACE:                             New var:....... mtime = 1775119204.8377783
+IE_TRACE:                             15:16:43.211889 line      1604 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.211908 line      1608 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.211924 call        71 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.211934 line        73 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.211944 return      73 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. False
+IE_TRACE:                             15:16:43.211958 line      1612 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... cache = set(len=202)
+IE_TRACE:                             15:16:43.211974 line      1613 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... cache_module = '_strptime'
+IE_TRACE:                             15:16:43.211993 line      1615 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.212013 line      1627 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... suffix = '.cpython-312-x86_64-linux-gnu.so'
+IE_TRACE:                             New var:....... loader_class = <class '_frozen_importlib_external.ExtensionFileLoader'>
+IE_TRACE:                             15:16:43.212031 line      1628 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.212055 line      1629 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. path_parts = ('/usr/lib/python3.12', '_strptime.cpython-312-x86_64-linux-gnu.so')
+IE_TRACE:                                 15:16:43.212074 call       126 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.212088 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.212099 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.212110 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.212121 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 New var:....... part = '/usr/lib/python3.12'
+IE_TRACE:                                 15:16:43.212132 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.212146 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.212158 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Modified var:.. part = '_strptime.cpython-312-x86_64-linux-gnu.so'
+IE_TRACE:                                 15:16:43.212169 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.212183 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.212195 return     128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. '/usr/lib/python3.12/_strptime.cpython-312-x86_64-linux-gnu.so'
+IE_TRACE:                             New var:....... full_path = '/usr/lib/python3.12/_strptime.cpython-312-x86_64-linux-gnu.so'
+IE_TRACE:                             15:16:43.212209 line      1632 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Source path:... <frozen importlib._bootstrap>
+IE_TRACE:                                 Starting var:.. message = 'trying {}'
+IE_TRACE:                                 Starting var:.. verbosity = 2
+IE_TRACE:                                 Starting var:.. args = ('/usr/lib/python3.12/_strptime.cpython-312-x86_64-linux-gnu.so',)
+IE_TRACE:                                 15:16:43.212233 call       491 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.212258 line       493 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.212271 return     493 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. None
+IE_TRACE:                             Source path:... <frozen importlib._bootstrap_external>
+IE_TRACE:                             15:16:43.212287 line      1633 SOURCE IS UNAVAILABLE
+IE_TRACE:     [CONDENSED] 2 identical loop iterations skipped (4 total iterations, showing first and last)
+IE_TRACE:                             15:16:43.212899 line      1627 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Modified var:.. suffix = '.py'
+IE_TRACE:                             Modified var:.. loader_class = <class '_frozen_importlib_external.SourceFileLoader'>
+IE_TRACE:                             15:16:43.212919 line      1628 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.212943 line      1629 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. path_parts = ('/usr/lib/python3.12', '_strptime.py')
+IE_TRACE:                                 15:16:43.212963 call       126 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.212976 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.212987 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.212998 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.213009 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 New var:....... part = '/usr/lib/python3.12'
+IE_TRACE:                                 15:16:43.213020 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.213034 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.213045 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Modified var:.. part = '_strptime.py'
+IE_TRACE:                                 15:16:43.213057 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.213071 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.213083 return     128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. '/usr/lib/python3.12/_strptime.py'
+IE_TRACE:                             Modified var:.. full_path = '/usr/lib/python3.12/_strptime.py'
+IE_TRACE:                             15:16:43.213098 line      1632 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Source path:... <frozen importlib._bootstrap>
+IE_TRACE:                                 Starting var:.. message = 'trying {}'
+IE_TRACE:                                 Starting var:.. verbosity = 2
+IE_TRACE:                                 Starting var:.. args = ('/usr/lib/python3.12/_strptime.py',)
+IE_TRACE:                                 15:16:43.213120 call       491 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.213145 line       493 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.213157 return     493 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. None
+IE_TRACE:                             Source path:... <frozen importlib._bootstrap_external>
+IE_TRACE:                             15:16:43.213174 line      1633 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.213197 line      1634 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. path = '/usr/lib/python3.12/_strptime.py'
+IE_TRACE:                                 15:16:43.213218 call       159 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.213233 line       161 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. path = '/usr/lib/python3.12/_strptime.py'
+IE_TRACE:                                     Starting var:.. mode = 32768
+IE_TRACE:                                     15:16:43.213246 call       150 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.213264 line       152 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.213277 line       153 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... stat_info = os.stat_result(st_mode=33188, st_ino=527086, st_dev=66309, st_nlink=1, st_uid=0, st_gid=0, st_size=24615, st_atime=1775119204, st_mtime=1772540118, st_ctime=1775119204)
+IE_TRACE:                                     15:16:43.213298 line       156 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.213316 return     156 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. True
+IE_TRACE:                                 15:16:43.213334 return     161 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. True
+IE_TRACE:                             15:16:43.213349 line      1635 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.213369 line      1636 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.213388 line      1635 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. self = FileFinder('/usr/lib/python3.12')
+IE_TRACE:                                 Starting var:.. loader_class = <class '_frozen_importlib_external.SourceFileLoader'>
+IE_TRACE:                                 Starting var:.. fullname = '_strptime'
+IE_TRACE:                                 Starting var:.. path = '/usr/lib/python3.12/_strptime.py'
+IE_TRACE:                                 Starting var:.. smsl = None
+IE_TRACE:                                 Starting var:.. target = None
+IE_TRACE:                                 15:16:43.213409 call      1588 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.213440 line      1589 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. self = <_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>
+IE_TRACE:                                     Starting var:.. fullname = '_strptime'
+IE_TRACE:                                     Starting var:.. path = '/usr/lib/python3.12/_strptime.py'
+IE_TRACE:                                     15:16:43.213458 call      1153 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.213482 line      1156 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.213495 line      1157 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.213508 return    1157 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 New var:....... loader = <_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>
+IE_TRACE:                                 15:16:43.213525 line      1590 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.213545 line      1591 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.213561 line      1590 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. name = '_strptime'
+IE_TRACE:                                     Starting var:.. location = '/usr/lib/python3.12/_strptime.py'
+IE_TRACE:                                     Starting var:.. loader = <_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>
+IE_TRACE:                                     Starting var:.. submodule_search_locations = None
+IE_TRACE:                                     15:16:43.213587 call       802 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.213613 line       814 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.213629 line       826 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.213644 line       827 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.213659 line       828 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.213687 line       838 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... spec = ModuleSpec(name='_strptime', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>, origin='/usr/lib/python3.12/_strptime.py')
+IE_TRACE:                                     15:16:43.213711 line       839 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.213737 line       842 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.213754 line       852 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.213771 line       863 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.213787 line       864 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.213803 line       869 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.213818 return     869 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. ModuleSpec(name='_strptime', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>, origin='/usr/lib/python3.12/_strptime.py')
+IE_TRACE:                                 15:16:43.213839 return    1590 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. ModuleSpec(name='_strptime', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>, origin='/usr/lib/python3.12/_strptime.py')
+IE_TRACE:                             15:16:43.213860 return    1635 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. ModuleSpec(name='_strptime', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>, origin='/usr/lib/python3.12/_strptime.py')
+IE_TRACE:                         Modified var:.. spec = ModuleSpec(name='_strptime', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>, origin='/usr/lib/python3.12/_strptime.py')
+IE_TRACE:                         15:16:43.213885 line      1503 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.213908 line      1505 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.213926 line      1506 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.213943 return    1506 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Return value:.. ModuleSpec(name='_strptime', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>, origin='/usr/lib/python3.12/_strptime.py')
+IE_TRACE:                     New var:....... spec = ModuleSpec(name='_strptime', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>, origin='/usr/lib/python3.12/_strptime.py')
+IE_TRACE:                     15:16:43.213965 line      1529 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.213983 line      1531 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.213997 line      1542 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.214011 return    1542 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. ModuleSpec(name='_strptime', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>, origin='/usr/lib/python3.12/_strptime.py')
+IE_TRACE:                 Source path:... <frozen importlib._bootstrap>
+IE_TRACE:                 Modified var:.. spec = ModuleSpec(name='_strptime', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>, origin='/usr/lib/python3.12/_strptime.py')
+IE_TRACE:                 15:16:43.214029 line      1256 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Starting var:.. self = <_frozen_importlib._ImportLockContext object at 0x7b2e066c6720>
+IE_TRACE:                     Starting var:.. exc_type = None
+IE_TRACE:                     Starting var:.. exc_value = None
+IE_TRACE:                     Starting var:.. exc_traceback = None
+IE_TRACE:                     15:16:43.214053 call      1226 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.214075 line      1228 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.214088 return    1228 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 15:16:43.214104 line      1263 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.214121 line      1265 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.214138 line      1280 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.214154 return    1280 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Return value:.. ModuleSpec(name='_strptime', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>, origin='/usr/lib/python3.12/_strptime.py')
+IE_TRACE:             New var:....... spec = ModuleSpec(name='_strptime', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>, origin='/usr/lib/python3.12/_strptime.py')
+IE_TRACE:             15:16:43.214175 line      1323 SOURCE IS UNAVAILABLE
+IE_TRACE:             15:16:43.214195 line      1326 SOURCE IS UNAVAILABLE
+IE_TRACE:             15:16:43.214210 line      1330 SOURCE IS UNAVAILABLE
+IE_TRACE:             15:16:43.214225 line      1331 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Starting var:.. spec = ModuleSpec(name='_strptime', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>, origin='/usr/lib/python3.12/_strptime.py')
+IE_TRACE:                 15:16:43.214245 call       911 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.214261 line       913 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.214271 line       915 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.214283 line       921 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Starting var:.. spec = ModuleSpec(name='_strptime', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>, origin='/usr/lib/python3.12/_strptime.py')
+IE_TRACE:                     15:16:43.214296 call       806 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.214311 line       809 SOURCE IS UNAVAILABLE
+IE_TRACE:                     New var:....... module = None
+IE_TRACE:                     15:16:43.214322 line       810 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.214337 line       813 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Source path:... <frozen importlib._bootstrap_external>
+IE_TRACE:                         Starting var:.. self = <_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>
+IE_TRACE:                         Starting var:.. spec = ModuleSpec(name='_strptime', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>, origin='/usr/lib/python3.12/_strptime.py')
+IE_TRACE:                         15:16:43.214350 call       986 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.214371 line       986 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.214383 return     986 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Return value:.. None
+IE_TRACE:                     Source path:... <frozen importlib._bootstrap>
+IE_TRACE:                     15:16:43.214399 line       817 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.214413 line       818 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Starting var:.. name = '_strptime'
+IE_TRACE:                         15:16:43.214425 call        48 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.214439 line        49 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.214449 return      49 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Return value:.. <module '_strptime'>
+IE_TRACE:                     Modified var:.. module = <module '_strptime'>
+IE_TRACE:                     15:16:43.214472 line       819 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Starting var:.. spec = ModuleSpec(name='_strptime', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>, origin='/usr/lib/python3.12/_strptime.py')
+IE_TRACE:                         Starting var:.. module = <module '_strptime'>
+IE_TRACE:                         Starting var:.. override = False
+IE_TRACE:                         15:16:43.214499 call       733 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.214524 line       737 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.214540 line       743 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.214555 line       744 SOURCE IS UNAVAILABLE
+IE_TRACE:                         New var:....... loader = <_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>
+IE_TRACE:                         15:16:43.214571 line       745 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.214589 line       766 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.214604 line       767 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Modified var:.. module = <module '_strptime' (<_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>)>
+IE_TRACE:                         15:16:43.214619 line       771 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.214639 line       772 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.214654 line       773 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. self = ModuleSpec(name='_strptime', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>, origin='/usr/lib/python3.12/_strptime.py')
+IE_TRACE:                             15:16:43.214672 call       645 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.214685 line       648 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.214697 line       649 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.214708 return     649 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. ''
+IE_TRACE:                         15:16:43.214723 line       777 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.214738 line       778 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Modified var:.. module = <module '_strptime' from '/usr/lib/python3.12/_strptime.py'>
+IE_TRACE:                         15:16:43.214754 line       782 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.214778 line       783 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.214793 line       790 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. self = ModuleSpec(name='_strptime', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>, origin='/usr/lib/python3.12/_strptime.py')
+IE_TRACE:                             15:16:43.214809 call       653 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.214823 line       655 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.214834 return     655 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. True
+IE_TRACE:                         15:16:43.214849 line       791 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.214864 line       792 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.214878 line       793 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.214893 line       797 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.214908 line       798 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. self = ModuleSpec(name='_strptime', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>, origin='/usr/lib/python3.12/_strptime.py')
+IE_TRACE:                             15:16:43.214924 call       632 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.214938 line       634 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.214950 line       635 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.214961 line       636 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.214972 line       638 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Source path:... <frozen importlib._bootstrap_external>
+IE_TRACE:                                 Starting var:.. filename = '/usr/lib/python3.12/_strptime.py'
+IE_TRACE:                                 15:16:43.214986 call       611 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.215003 line       612 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.215015 line       613 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.215026 line       614 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. path = '/usr/lib/python3.12/_strptime.py'
+IE_TRACE:                                     Starting var:.. debug_override = None
+IE_TRACE:                                     Starting var:.. optimization = None
+IE_TRACE:                                     15:16:43.215045 call       482 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.215070 line       500 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.215086 line       507 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.215100 line       508 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... head = '/usr/lib/python3.12'
+IE_TRACE:                                     New var:....... tail = '_strptime.py'
+IE_TRACE:                                     15:16:43.215136 line       509 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... base = '_strptime'
+IE_TRACE:                                     New var:....... sep = '.'
+IE_TRACE:                                     New var:....... rest = 'py'
+IE_TRACE:                                     15:16:43.215158 line       510 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... tag = 'cpython-312'
+IE_TRACE:                                     15:16:43.215187 line       511 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.215209 line       513 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... almost_filename = '_strptime.cpython-312'
+IE_TRACE:                                     15:16:43.215228 line       514 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.215250 line       515 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.215270 line       516 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Modified var:.. optimization = ''
+IE_TRACE:                                     15:16:43.215289 line       519 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.215311 line       520 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.215330 line       524 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... filename = '_strptime.cpython-312.pyc'
+IE_TRACE:                                     15:16:43.215349 line       525 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.215371 line       549 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.215398 return     549 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. '/usr/lib/python3.12/__pycache__/_strptime.cpython-312.pyc'
+IE_TRACE:                                 15:16:43.215423 return     614 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. '/usr/lib/python3.12/__pycache__/_strptime.cpython-312.pyc'
+IE_TRACE:                             Source path:... <frozen importlib._bootstrap>
+IE_TRACE:                             15:16:43.215439 line       639 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.215454 return     639 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. '/usr/lib/python3.12/__pycache__/_strptime.cpython-312.pyc'
+IE_TRACE:                         15:16:43.215469 line       799 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.215485 line       800 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. self = ModuleSpec(name='_strptime', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>, origin='/usr/lib/python3.12/_strptime.py')
+IE_TRACE:                             15:16:43.215500 call       632 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.215514 line       634 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.215526 line       639 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.215537 return     639 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. '/usr/lib/python3.12/__pycache__/_strptime.cpython-312.pyc'
+IE_TRACE:                         15:16:43.215552 line       803 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.215568 return     803 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Return value:.. <module '_strptime' from '/usr/lib/python3.12/_strptime.py'>
+IE_TRACE:                     Modified var:.. module = <module '_strptime' from '/usr/lib/python3.12/_strptime.py'>
+IE_TRACE:                     15:16:43.215588 line       820 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.215603 return     820 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. <module '_strptime' from '/usr/lib/python3.12/_strptime.py'>
+IE_TRACE:                 New var:....... module = <module '_strptime' from '/usr/lib/python3.12/_strptime.py'>
+IE_TRACE:                 15:16:43.215619 line       926 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.215633 line       927 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.215646 line       928 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.215658 line       929 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.215670 line       930 SOURCE IS UNAVAILABLE
+IE_TRACE:                 15:16:43.215683 line       935 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Source path:... <frozen importlib._bootstrap_external>
+IE_TRACE:                     Starting var:.. self = <_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>
+IE_TRACE:                     Starting var:.. module = <module '_strptime' from '/usr/lib/python3.12/_strptime.py'>
+IE_TRACE:                     15:16:43.215697 call       989 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.215718 line       991 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Starting var:.. self = <_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>
+IE_TRACE:                         Starting var:.. fullname = '_strptime'
+IE_TRACE:                         15:16:43.215743 call      1062 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.215764 line      1069 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. self = <_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>
+IE_TRACE:                             Starting var:.. name = '_strptime'
+IE_TRACE:                             Starting var:.. args = ()
+IE_TRACE:                             Starting var:.. kwargs = {}
+IE_TRACE:                             Starting var:.. method = <function FileLoader.get_filename at 0x7b2e085b6ca0>
+IE_TRACE:                             15:16:43.215781 call       643 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.215814 line       644 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.215830 line       646 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.215845 line       649 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. self = <_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>
+IE_TRACE:                                 Starting var:.. fullname = '_strptime'
+IE_TRACE:                                 15:16:43.215861 call      1178 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.215878 line      1181 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.215891 return    1181 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. '/usr/lib/python3.12/_strptime.py'
+IE_TRACE:                             15:16:43.215907 return     649 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. '/usr/lib/python3.12/_strptime.py'
+IE_TRACE:                         New var:....... source_path = '/usr/lib/python3.12/_strptime.py'
+IE_TRACE:                         15:16:43.215925 line      1070 SOURCE IS UNAVAILABLE
+IE_TRACE:                         New var:....... source_mtime = None
+IE_TRACE:                         15:16:43.215943 line      1071 SOURCE IS UNAVAILABLE
+IE_TRACE:                         New var:....... source_bytes = None
+IE_TRACE:                         15:16:43.215960 line      1072 SOURCE IS UNAVAILABLE
+IE_TRACE:                         New var:....... source_hash = None
+IE_TRACE:                         15:16:43.215979 line      1073 SOURCE IS UNAVAILABLE
+IE_TRACE:                         New var:....... hash_based = False
+IE_TRACE:                         15:16:43.215997 line      1074 SOURCE IS UNAVAILABLE
+IE_TRACE:                         New var:....... check_source = True
+IE_TRACE:                         15:16:43.216016 line      1075 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.216036 line      1076 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. path = '/usr/lib/python3.12/_strptime.py'
+IE_TRACE:                             Starting var:.. debug_override = None
+IE_TRACE:                             Starting var:.. optimization = None
+IE_TRACE:                             15:16:43.216055 call       482 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.216077 line       500 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.216091 line       507 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.216105 line       508 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. path = '/usr/lib/python3.12/_strptime.py'
+IE_TRACE:                                 15:16:43.216120 call       132 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.216136 line       134 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. .0 = <str_ascii_iterator object at 0x7b2e069422c0>
+IE_TRACE:                                     Starting var:.. path = '/usr/lib/python3.12/_strptime.py'
+IE_TRACE:                                     15:16:43.216150 call       134 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.216171 line       134 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... p = '/'
+IE_TRACE:                                     15:16:43.216185 return     134 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. 19
+IE_TRACE:                                     Starting var:.. .0 = <str_ascii_iterator object at 0x7b2e069422c0>
+IE_TRACE:                                     Starting var:.. p = '/'
+IE_TRACE:                                     Starting var:.. path = '/usr/lib/python3.12/_strptime.py'
+IE_TRACE:                                     15:16:43.216206 call       134 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.216228 line       134 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     15:16:43.216241 return     134 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 New var:....... i = 19
+IE_TRACE:                                 15:16:43.216259 line       135 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.216275 line       137 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.216288 return     137 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. ('/usr/lib/python3.12', '_strptime.py')
+IE_TRACE:                             New var:....... head = '/usr/lib/python3.12'
+IE_TRACE:                             New var:....... tail = '_strptime.py'
+IE_TRACE:                             15:16:43.216305 line       509 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... base = '_strptime'
+IE_TRACE:                             New var:....... sep = '.'
+IE_TRACE:                             New var:....... rest = 'py'
+IE_TRACE:                             15:16:43.216328 line       510 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... tag = 'cpython-312'
+IE_TRACE:                             15:16:43.216353 line       511 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.216374 line       513 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... almost_filename = '_strptime.cpython-312'
+IE_TRACE:                             15:16:43.216393 line       514 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.216414 line       515 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.216432 line       516 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Modified var:.. optimization = ''
+IE_TRACE:                             15:16:43.216451 line       519 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.216472 line       520 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.216490 line       524 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... filename = '_strptime.cpython-312.pyc'
+IE_TRACE:                             15:16:43.216508 line       525 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.216529 line       549 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. path_parts = ('/usr/lib/python3.12', '__pycache__', '_strptime.cpython-312.pyc')
+IE_TRACE:                                 15:16:43.216549 call       126 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.216568 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.216580 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.216592 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.216604 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 New var:....... part = '/usr/lib/python3.12'
+IE_TRACE:                                 15:16:43.216616 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:     [CONDENSED] 1 identical loop iterations skipped (3 total iterations, showing first and last)
+IE_TRACE:                                 15:16:43.216671 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.216683 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Modified var:.. part = '_strptime.cpython-312.pyc'
+IE_TRACE:                                 15:16:43.216695 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.216710 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.216723 return     128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. '/usr/lib/python3.12/__pycache__/_strptime.cpython-312.pyc'
+IE_TRACE:                             15:16:43.216739 return     549 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. '/usr/lib/python3.12/__pycache__/_strptime.cpython-312.pyc'
+IE_TRACE:                         New var:....... bytecode_path = '/usr/lib/python3.12/__pycache__/_strptime.cpython-312.pyc'
+IE_TRACE:                         15:16:43.216763 line      1080 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.216784 line      1081 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. self = <_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>
+IE_TRACE:                             Starting var:.. path = '/usr/lib/python3.12/_strptime.py'
+IE_TRACE:                             15:16:43.216804 call      1202 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.216821 line      1204 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. path = '/usr/lib/python3.12/_strptime.py'
+IE_TRACE:                                 15:16:43.216834 call       140 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.216848 line       147 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.216861 return     147 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. os.stat_result(st_mode=33188, st_ino=527086, st_dev=66309, st_nlink=1, st_uid=0, st_gid=0, st_size=24615, st_atime=1775119204, st_mtime=1772540118, st_ctime=1775119204)
+IE_TRACE:                             New var:....... st = os.stat_result(st_mode=33188, st_ino=527086, st_dev=66309, st_nlink=1, st_uid=0, st_gid=0, st_size=24615, st_atime=1775119204, st_mtime=1772540118, st_ctime=1775119204)
+IE_TRACE:                             15:16:43.216876 line      1205 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.216894 return    1205 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. {'mtime': 1772540118.0, 'size': 24615}
+IE_TRACE:                         New var:....... st = {'mtime': 1772540118.0, 'size': 24615}
+IE_TRACE:                         15:16:43.216913 line      1085 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Modified var:.. source_mtime = 1772540118
+IE_TRACE:                         15:16:43.216936 line      1086 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.216959 line      1087 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. self = <_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>
+IE_TRACE:                             Starting var:.. path = '/usr/lib/python3.12/__pycache__/_strptime.cpython-312.pyc'
+IE_TRACE:                             15:16:43.216980 call      1183 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.216998 line      1185 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.217010 line      1186 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... file = <_io.BufferedReader name='/usr/lib/python3.12/__pycache__/_strptime.cpython-312.pyc'>
+IE_TRACE:                             15:16:43.217045 line      1187 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.217077 line      1186 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.217097 return    1186 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. bytes(len=24116)
+IE_TRACE:                         New var:....... data = bytes(len=24116)
+IE_TRACE:                         15:16:43.217115 line      1092 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.217139 line      1093 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.217158 line      1091 SOURCE IS UNAVAILABLE
+IE_TRACE:                         New var:....... exc_details = {'name': '_strptime', 'path': '/usr/lib/python3.12/__pycache__/_strptime.cpython-312.pyc'}
+IE_TRACE:                         15:16:43.217178 line      1095 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.217200 line      1096 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. data = bytes(len=24116)
+IE_TRACE:                             Starting var:.. name = '_strptime'
+IE_TRACE:                             Starting var:.. exc_details = {'name': '_strptime', 'path': '/usr/lib/python3.12/__pycache__/_strptime.cpython-312.pyc'}
+IE_TRACE:                             15:16:43.217225 call       666 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.217247 line       682 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... magic = b'\xcb\r\r\n'
+IE_TRACE:                             15:16:43.217261 line       683 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.217277 line       687 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.217291 line       691 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. data = b'\x00\x00\x00\x00'
+IE_TRACE:                                 15:16:43.217307 call        84 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.217323 line        86 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.217334 line        87 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.217347 return      87 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. 0
+IE_TRACE:                             New var:....... flags = 0
+IE_TRACE:                             15:16:43.217361 line       693 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.217379 line       696 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.217394 return     696 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. 0
+IE_TRACE:                         New var:....... flags = 0
+IE_TRACE:                         15:16:43.217412 line      1097 SOURCE IS UNAVAILABLE
+IE_TRACE:                         New var:....... bytes_data = <memory at 0x7b2e06588040>
+IE_TRACE:                         15:16:43.217438 line      1098 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.217463 line      1099 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.217485 line      1112 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.217507 line      1113 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.217529 line      1114 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.217550 line      1115 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.217574 line      1116 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.217595 line      1117 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.217616 line      1112 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. data = bytes(len=24116)
+IE_TRACE:                             Starting var:.. source_mtime = 1772540118
+IE_TRACE:                             Starting var:.. source_size = 24615
+IE_TRACE:                             Starting var:.. name = '_strptime'
+IE_TRACE:                             Starting var:.. exc_details = {'name': '_strptime', 'path': '/usr/lib/python3.12/__pycache__/_strptime.cpython-312.pyc'}
+IE_TRACE:                             15:16:43.217640 call       699 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.217668 line       718 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. data = b'\xd6\xd0\xa6i'
+IE_TRACE:                                 15:16:43.217683 call        84 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.217699 line        86 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.217710 line        87 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.217721 return      87 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. 1772540118
+IE_TRACE:                             15:16:43.217737 line       722 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.217751 line       723 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. data = b"'`\x00\x00"
+IE_TRACE:                                 15:16:43.217766 call        84 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.217780 line        86 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.217790 line        87 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.217801 return      87 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. 24615
+IE_TRACE:                             15:16:43.217816 return     723 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         15:16:43.217835 line      1122 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.217858 line      1123 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.217880 line      1122 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Source path:... <frozen importlib._bootstrap>
+IE_TRACE:                             Starting var:.. message = '{} matches {}'
+IE_TRACE:                             Starting var:.. verbosity = 1
+IE_TRACE:                             Starting var:.. args = ('/usr/lib/python3.12/__pycache__/_strptime.cpython-312.pyc', '/usr/lib/python3.12/_strptime.py')
+IE_TRACE:                             15:16:43.217903 call       491 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.217927 line       493 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.217939 return     493 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         Source path:... <frozen importlib._bootstrap_external>
+IE_TRACE:                         15:16:43.217956 line      1124 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.217981 line      1125 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.218002 line      1126 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.218024 line      1124 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. data = <memory at 0x7b2e06588040>
+IE_TRACE:                             Starting var:.. name = '_strptime'
+IE_TRACE:                             Starting var:.. bytecode_path = '/usr/lib/python3.12/__pycache__/_strptime.cpython-312.pyc'
+IE_TRACE:                             Starting var:.. source_path = '/usr/lib/python3.12/_strptime.py'
+IE_TRACE:                             15:16:43.218048 call       751 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.218071 line       753 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... code = <code object <module> at 0x7b2e06a3ec10, file "/usr/lib/python3.12/_strptime.py", line 1>
+IE_TRACE:                             15:16:43.218272 line       754 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.218295 line       755 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Source path:... <frozen importlib._bootstrap>
+IE_TRACE:                                 Starting var:.. message = 'code object from {!r}'
+IE_TRACE:                                 Starting var:.. verbosity = 1
+IE_TRACE:                                 Starting var:.. args = ('/usr/lib/python3.12/__pycache__/_strptime.cpython-312.pyc',)
+IE_TRACE:                                 15:16:43.218311 call       491 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.218339 line       493 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 15:16:43.218353 return     493 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. None
+IE_TRACE:                             Source path:... <frozen importlib._bootstrap_external>
+IE_TRACE:                             15:16:43.218370 line       756 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.218388 line       757 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.218403 line       758 SOURCE IS UNAVAILABLE
+IE_TRACE:                             15:16:43.218417 return     758 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. <code object <module> at 0x7b2e06a3ec10, file "/usr/lib/python3.12/_strptime.py", line 1>
+IE_TRACE:                         15:16:43.218435 return    1124 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Return value:.. <code object <module> at 0x7b2e06a3ec10, file "/usr/lib/python3.12/_strptime.py", line 1>
+IE_TRACE:                     New var:....... code = <code object <module> at 0x7b2e06a3ec10, file "/usr/lib/python3.12/_strptime.py", line 1>
+IE_TRACE:                     15:16:43.218463 line       992 SOURCE IS UNAVAILABLE
+IE_TRACE:                     15:16:43.218480 line       995 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Source path:... <frozen importlib._bootstrap>
+IE_TRACE:                         Starting var:.. f = <built-in function exec>
+IE_TRACE:                         Starting var:.. args = (<code object <module> at 0x7b2e06a3ec10, file "/usr/lib/python3.12/_strptime.py", line 1>, {'__name__': '_strptime', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>, '__spec_...', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7b2e066c9d60>, origin='/usr/lib/python3.12/_strptime.py'), '__file__': '/usr/lib/python3.12/_strptime.py', '__cached__': '/usr/lib/python3.12/__pycache__/_strptime.cpython-312.pyc'})
+IE_TRACE:                         Starting var:.. kwds = {}
+IE_TRACE:                         15:16:43.218494 call       480 SOURCE IS UNAVAILABLE
+IE_TRACE:                         15:16:43.218526 line       488 SOURCE IS UNAVAILABLE
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:43.260725 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data 'December 21  2010' does not match format '%d %B %Y'
+IE_TRACE:     15:16:43.260751 line       908         except ValueError:
+IE_TRACE:     15:16:43.260766 line       909             pass
+IE_TRACE:     15:16:43.260779 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%d %b %Y'
+IE_TRACE:     15:16:43.260791 line       906         try:
+IE_TRACE:     15:16:43.260806 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:43.283835 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data 'December 21  2010' does not match format '%d %b %Y'
+IE_TRACE:     15:16:43.283860 line       908         except ValueError:
+IE_TRACE:     15:16:43.283874 line       909             pass
+IE_TRACE:     15:16:43.283887 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%B %d %Y'
+IE_TRACE:     15:16:43.283898 line       906         try:
+IE_TRACE:     15:16:43.283913 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Modified var:.. upload_date = '20101221'
+IE_TRACE:     15:16:43.313370 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%b %d %Y'
+IE_TRACE:     15:16:43.313393 line       906         try:
+IE_TRACE:     15:16:43.313408 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:43.336484 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data 'December 21  2010' does not match format '%b %d %Y'
+IE_TRACE:     15:16:43.336511 line       908         except ValueError:
+IE_TRACE:     15:16:43.336525 line       909             pass
+IE_TRACE:     [CONDENSED] 21 identical loop iterations skipped (23 total iterations, showing first and last)
+IE_TRACE:     15:16:43.901183 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%d/%m/%Y %H:%M:%S'
+IE_TRACE:     15:16:43.901195 line       906         try:
+IE_TRACE:     15:16:43.901211 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:43.930271 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data 'December 21  2010' does not match format '%d/%m/%Y %H:%M:%S'
+IE_TRACE:     15:16:43.930299 line       908         except ValueError:
+IE_TRACE:     15:16:43.930313 line       909             pass
+IE_TRACE:     15:16:43.930327 line       905     for expression in format_expressions:
+IE_TRACE:     15:16:43.930339 line       910     if upload_date is None:
+IE_TRACE:     15:16:43.930351 line       914     return compat_str(upload_date)
+IE_TRACE:     15:16:43.930363 return     914     return compat_str(upload_date)
+IE_TRACE:     Return value:.. '20101221'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:16:43.930945 line       229         self.assertEqual(unified_strdate('8/7/2009'), '20090708')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. date_str = '8/7/2009'
+IE_TRACE:     Starting var:.. day_first = True
+IE_TRACE:     15:16:43.930962 call       852 def unified_strdate(date_str, day_first=True):
+IE_TRACE:     15:16:43.930982 line       855     if date_str is None:
+IE_TRACE:     15:16:43.930993 line       857     upload_date = None
+IE_TRACE:     New var:....... upload_date = None
+IE_TRACE:     15:16:43.931002 line       859     date_str = date_str.replace(',', ' ')
+IE_TRACE:     15:16:43.931016 line       861     if not re.match(r'^[0-9]{1,2}-[0-9]{1,2}-[0-9]{4}$', date_str):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:43.931139 line       862         date_str = re.sub(r' ?(\+|-)[0-9]{2}:?[0-9]{2}$', '', date_str)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:43.931273 line       864     date_str = re.sub(r'(?i)\s*(?:AM|PM)(?:\s+[A-Z]+)?', '', date_str)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:43.931402 line       866     format_expressions = [
+IE_TRACE:     New var:....... format_expressions = list(len=21)
+IE_TRACE:     15:16:43.931415 line       889     if day_first:
+IE_TRACE:     15:16:43.931429 line       890         format_expressions.extend([
+IE_TRACE:     Modified var:.. format_expressions = list(len=26)
+IE_TRACE:     15:16:43.931440 line       905     for expression in format_expressions:
+IE_TRACE:     New var:....... expression = '%d %B %Y'
+IE_TRACE:     15:16:43.931455 line       906         try:
+IE_TRACE:     15:16:43.931471 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:43.933891 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data '8/7/2009' does not match format '%d %B %Y'
+IE_TRACE:     15:16:43.933915 line       908         except ValueError:
+IE_TRACE:     15:16:43.933928 line       909             pass
+IE_TRACE:     [CONDENSED] 21 identical loop iterations skipped (23 total iterations, showing first and last)
+IE_TRACE:     15:16:43.989371 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%d.%m.%Y'
+IE_TRACE:     15:16:43.989382 line       906         try:
+IE_TRACE:     15:16:43.989396 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:43.991682 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data '8/7/2009' does not match format '%d.%m.%Y'
+IE_TRACE:     15:16:43.991704 line       908         except ValueError:
+IE_TRACE:     15:16:43.991716 line       909             pass
+IE_TRACE:     15:16:43.991728 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%d/%m/%Y'
+IE_TRACE:     15:16:43.991739 line       906         try:
+IE_TRACE:     15:16:43.991754 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Modified var:.. upload_date = '20090708'
+IE_TRACE:     15:16:43.995868 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%d/%m/%y'
+IE_TRACE:     15:16:43.995888 line       906         try:
+IE_TRACE:     15:16:43.995901 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:43.998240 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: unconverted data remains: 09
+IE_TRACE:     15:16:43.998263 line       908         except ValueError:
+IE_TRACE:     15:16:43.998276 line       909             pass
+IE_TRACE:     15:16:43.998288 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%d/%m/%Y %H:%M:%S'
+IE_TRACE:     15:16:43.998300 line       906         try:
+IE_TRACE:     15:16:43.998315 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.001024 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data '8/7/2009' does not match format '%d/%m/%Y %H:%M:%S'
+IE_TRACE:     15:16:44.001046 line       908         except ValueError:
+IE_TRACE:     15:16:44.001059 line       909             pass
+IE_TRACE:     15:16:44.001071 line       905     for expression in format_expressions:
+IE_TRACE:     15:16:44.001083 line       910     if upload_date is None:
+IE_TRACE:     15:16:44.001094 line       914     return compat_str(upload_date)
+IE_TRACE:     15:16:44.001106 return     914     return compat_str(upload_date)
+IE_TRACE:     Return value:.. '20090708'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:16:44.001478 line       230         self.assertEqual(unified_strdate('Dec 14, 2012'), '20121214')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. date_str = 'Dec 14, 2012'
+IE_TRACE:     Starting var:.. day_first = True
+IE_TRACE:     15:16:44.001494 call       852 def unified_strdate(date_str, day_first=True):
+IE_TRACE:     15:16:44.001514 line       855     if date_str is None:
+IE_TRACE:     15:16:44.001524 line       857     upload_date = None
+IE_TRACE:     New var:....... upload_date = None
+IE_TRACE:     15:16:44.001533 line       859     date_str = date_str.replace(',', ' ')
+IE_TRACE:     Modified var:.. date_str = 'Dec 14  2012'
+IE_TRACE:     15:16:44.001546 line       861     if not re.match(r'^[0-9]{1,2}-[0-9]{1,2}-[0-9]{4}$', date_str):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.001669 line       862         date_str = re.sub(r' ?(\+|-)[0-9]{2}:?[0-9]{2}$', '', date_str)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.001798 line       864     date_str = re.sub(r'(?i)\s*(?:AM|PM)(?:\s+[A-Z]+)?', '', date_str)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.001922 line       866     format_expressions = [
+IE_TRACE:     New var:....... format_expressions = list(len=21)
+IE_TRACE:     15:16:44.001935 line       889     if day_first:
+IE_TRACE:     15:16:44.001948 line       890         format_expressions.extend([
+IE_TRACE:     Modified var:.. format_expressions = list(len=26)
+IE_TRACE:     15:16:44.001960 line       905     for expression in format_expressions:
+IE_TRACE:     New var:....... expression = '%d %B %Y'
+IE_TRACE:     15:16:44.001973 line       906         try:
+IE_TRACE:     15:16:44.001987 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.004331 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data 'Dec 14  2012' does not match format '%d %B %Y'
+IE_TRACE:     15:16:44.004354 line       908         except ValueError:
+IE_TRACE:     15:16:44.004367 line       909             pass
+IE_TRACE:     [CONDENSED] 1 identical loop iterations skipped (3 total iterations, showing first and last)
+IE_TRACE:     15:16:44.006820 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%B %d %Y'
+IE_TRACE:     15:16:44.006831 line       906         try:
+IE_TRACE:     15:16:44.006846 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.009244 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data 'Dec 14  2012' does not match format '%B %d %Y'
+IE_TRACE:     15:16:44.009266 line       908         except ValueError:
+IE_TRACE:     15:16:44.009279 line       909             pass
+IE_TRACE:     15:16:44.009292 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%b %d %Y'
+IE_TRACE:     15:16:44.009303 line       906         try:
+IE_TRACE:     15:16:44.009318 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Modified var:.. upload_date = '20121214'
+IE_TRACE:     15:16:44.013709 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%b %dst %Y %I:%M%p'
+IE_TRACE:     15:16:44.013728 line       906         try:
+IE_TRACE:     15:16:44.013742 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.016515 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data 'Dec 14  2012' does not match format '%b %dst %Y %I:%M%p'
+IE_TRACE:     15:16:44.016538 line       908         except ValueError:
+IE_TRACE:     15:16:44.016552 line       909             pass
+IE_TRACE:     [CONDENSED] 20 identical loop iterations skipped (22 total iterations, showing first and last)
+IE_TRACE:     15:16:44.070402 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%d/%m/%Y %H:%M:%S'
+IE_TRACE:     15:16:44.070414 line       906         try:
+IE_TRACE:     15:16:44.070428 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.073151 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data 'Dec 14  2012' does not match format '%d/%m/%Y %H:%M:%S'
+IE_TRACE:     15:16:44.073174 line       908         except ValueError:
+IE_TRACE:     15:16:44.073187 line       909             pass
+IE_TRACE:     15:16:44.073199 line       905     for expression in format_expressions:
+IE_TRACE:     15:16:44.073211 line       910     if upload_date is None:
+IE_TRACE:     15:16:44.073223 line       914     return compat_str(upload_date)
+IE_TRACE:     15:16:44.073235 return     914     return compat_str(upload_date)
+IE_TRACE:     Return value:.. '20121214'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:16:44.073608 line       231         self.assertEqual(unified_strdate('2012/10/11 01:56:38 +0000'), '20121011')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. date_str = '2012/10/11 01:56:38 +0000'
+IE_TRACE:     Starting var:.. day_first = True
+IE_TRACE:     15:16:44.073625 call       852 def unified_strdate(date_str, day_first=True):
+IE_TRACE:     15:16:44.073645 line       855     if date_str is None:
+IE_TRACE:     15:16:44.073655 line       857     upload_date = None
+IE_TRACE:     New var:....... upload_date = None
+IE_TRACE:     15:16:44.073665 line       859     date_str = date_str.replace(',', ' ')
+IE_TRACE:     15:16:44.073678 line       861     if not re.match(r'^[0-9]{1,2}-[0-9]{1,2}-[0-9]{4}$', date_str):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.073797 line       862         date_str = re.sub(r' ?(\+|-)[0-9]{2}:?[0-9]{2}$', '', date_str)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Modified var:.. date_str = '2012/10/11 01:56:38'
+IE_TRACE:     15:16:44.073930 line       864     date_str = re.sub(r'(?i)\s*(?:AM|PM)(?:\s+[A-Z]+)?', '', date_str)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.074060 line       866     format_expressions = [
+IE_TRACE:     New var:....... format_expressions = list(len=21)
+IE_TRACE:     15:16:44.074073 line       889     if day_first:
+IE_TRACE:     15:16:44.074087 line       890         format_expressions.extend([
+IE_TRACE:     Modified var:.. format_expressions = list(len=26)
+IE_TRACE:     15:16:44.074098 line       905     for expression in format_expressions:
+IE_TRACE:     New var:....... expression = '%d %B %Y'
+IE_TRACE:     15:16:44.074112 line       906         try:
+IE_TRACE:     15:16:44.074126 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.076549 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data '2012/10/11 01:56:38' does not match format '%d %B %Y'
+IE_TRACE:     15:16:44.076573 line       908         except ValueError:
+IE_TRACE:     15:16:44.076588 line       909             pass
+IE_TRACE:     [CONDENSED] 8 identical loop iterations skipped (10 total iterations, showing first and last)
+IE_TRACE:     15:16:44.097547 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%Y/%m/%d'
+IE_TRACE:     15:16:44.097558 line       906         try:
+IE_TRACE:     15:16:44.097573 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.099966 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: unconverted data remains:  01:56:38
+IE_TRACE:     15:16:44.099989 line       908         except ValueError:
+IE_TRACE:     15:16:44.100002 line       909             pass
+IE_TRACE:     15:16:44.100015 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%Y/%m/%d %H:%M:%S'
+IE_TRACE:     15:16:44.100026 line       906         try:
+IE_TRACE:     15:16:44.100041 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Modified var:.. upload_date = '20121011'
+IE_TRACE:     15:16:44.105963 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%Y-%m-%d %H:%M:%S'
+IE_TRACE:     15:16:44.105982 line       906         try:
+IE_TRACE:     15:16:44.105997 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.108711 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data '2012/10/11 01:56:38' does not match format '%Y-%m-%d %H:%M:%S'
+IE_TRACE:     15:16:44.108735 line       908         except ValueError:
+IE_TRACE:     15:16:44.108748 line       909             pass
+IE_TRACE:     [CONDENSED] 13 identical loop iterations skipped (15 total iterations, showing first and last)
+IE_TRACE:     15:16:44.143499 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%d/%m/%Y %H:%M:%S'
+IE_TRACE:     15:16:44.143510 line       906         try:
+IE_TRACE:     15:16:44.143524 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.146157 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data '2012/10/11 01:56:38' does not match format '%d/%m/%Y %H:%M:%S'
+IE_TRACE:     15:16:44.146179 line       908         except ValueError:
+IE_TRACE:     15:16:44.146191 line       909             pass
+IE_TRACE:     15:16:44.146203 line       905     for expression in format_expressions:
+IE_TRACE:     15:16:44.146214 line       910     if upload_date is None:
+IE_TRACE:     15:16:44.146225 line       914     return compat_str(upload_date)
+IE_TRACE:     15:16:44.146236 return     914     return compat_str(upload_date)
+IE_TRACE:     Return value:.. '20121011'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:16:44.146597 line       232         self.assertEqual(unified_strdate('1968 12 10'), '19681210')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. date_str = '1968 12 10'
+IE_TRACE:     Starting var:.. day_first = True
+IE_TRACE:     15:16:44.146612 call       852 def unified_strdate(date_str, day_first=True):
+IE_TRACE:     15:16:44.146631 line       855     if date_str is None:
+IE_TRACE:     15:16:44.146641 line       857     upload_date = None
+IE_TRACE:     New var:....... upload_date = None
+IE_TRACE:     15:16:44.146651 line       859     date_str = date_str.replace(',', ' ')
+IE_TRACE:     15:16:44.146664 line       861     if not re.match(r'^[0-9]{1,2}-[0-9]{1,2}-[0-9]{4}$', date_str):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.146779 line       862         date_str = re.sub(r' ?(\+|-)[0-9]{2}:?[0-9]{2}$', '', date_str)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.146904 line       864     date_str = re.sub(r'(?i)\s*(?:AM|PM)(?:\s+[A-Z]+)?', '', date_str)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.147025 line       866     format_expressions = [
+IE_TRACE:     New var:....... format_expressions = list(len=21)
+IE_TRACE:     15:16:44.147038 line       889     if day_first:
+IE_TRACE:     15:16:44.147051 line       890         format_expressions.extend([
+IE_TRACE:     Modified var:.. format_expressions = list(len=26)
+IE_TRACE:     15:16:44.147062 line       905     for expression in format_expressions:
+IE_TRACE:     New var:....... expression = '%d %B %Y'
+IE_TRACE:     15:16:44.147075 line       906         try:
+IE_TRACE:     15:16:44.147088 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.149329 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data '1968 12 10' does not match format '%d %B %Y'
+IE_TRACE:     15:16:44.149351 line       908         except ValueError:
+IE_TRACE:     15:16:44.149363 line       909             pass
+IE_TRACE:     [CONDENSED] 5 identical loop iterations skipped (7 total iterations, showing first and last)
+IE_TRACE:     15:16:44.161784 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%b %dth %Y %I:%M%p'
+IE_TRACE:     15:16:44.161795 line       906         try:
+IE_TRACE:     15:16:44.161808 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.164458 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data '1968 12 10' does not match format '%b %dth %Y %I:%M%p'
+IE_TRACE:     15:16:44.164480 line       908         except ValueError:
+IE_TRACE:     15:16:44.164492 line       909             pass
+IE_TRACE:     15:16:44.164504 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%Y %m %d'
+IE_TRACE:     15:16:44.164515 line       906         try:
+IE_TRACE:     15:16:44.164529 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Modified var:.. upload_date = '19681210'
+IE_TRACE:     15:16:44.168693 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%Y-%m-%d'
+IE_TRACE:     15:16:44.168712 line       906         try:
+IE_TRACE:     15:16:44.168726 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.171051 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data '1968 12 10' does not match format '%Y-%m-%d'
+IE_TRACE:     15:16:44.171074 line       908         except ValueError:
+IE_TRACE:     15:16:44.171087 line       909             pass
+IE_TRACE:     [CONDENSED] 16 identical loop iterations skipped (18 total iterations, showing first and last)
+IE_TRACE:     15:16:44.213799 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%d/%m/%Y %H:%M:%S'
+IE_TRACE:     15:16:44.213810 line       906         try:
+IE_TRACE:     15:16:44.213823 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.216520 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data '1968 12 10' does not match format '%d/%m/%Y %H:%M:%S'
+IE_TRACE:     15:16:44.216542 line       908         except ValueError:
+IE_TRACE:     15:16:44.216554 line       909             pass
+IE_TRACE:     15:16:44.216568 line       905     for expression in format_expressions:
+IE_TRACE:     15:16:44.216580 line       910     if upload_date is None:
+IE_TRACE:     15:16:44.216591 line       914     return compat_str(upload_date)
+IE_TRACE:     15:16:44.216602 return     914     return compat_str(upload_date)
+IE_TRACE:     Return value:.. '19681210'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:16:44.216997 line       233         self.assertEqual(unified_strdate('1968-12-10'), '19681210')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. date_str = '1968-12-10'
+IE_TRACE:     Starting var:.. day_first = True
+IE_TRACE:     15:16:44.217014 call       852 def unified_strdate(date_str, day_first=True):
+IE_TRACE:     15:16:44.217033 line       855     if date_str is None:
+IE_TRACE:     15:16:44.217044 line       857     upload_date = None
+IE_TRACE:     New var:....... upload_date = None
+IE_TRACE:     15:16:44.217053 line       859     date_str = date_str.replace(',', ' ')
+IE_TRACE:     15:16:44.217067 line       861     if not re.match(r'^[0-9]{1,2}-[0-9]{1,2}-[0-9]{4}$', date_str):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.217187 line       862         date_str = re.sub(r' ?(\+|-)[0-9]{2}:?[0-9]{2}$', '', date_str)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.217317 line       864     date_str = re.sub(r'(?i)\s*(?:AM|PM)(?:\s+[A-Z]+)?', '', date_str)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.217443 line       866     format_expressions = [
+IE_TRACE:     New var:....... format_expressions = list(len=21)
+IE_TRACE:     15:16:44.217456 line       889     if day_first:
+IE_TRACE:     15:16:44.217470 line       890         format_expressions.extend([
+IE_TRACE:     Modified var:.. format_expressions = list(len=26)
+IE_TRACE:     15:16:44.217481 line       905     for expression in format_expressions:
+IE_TRACE:     New var:....... expression = '%d %B %Y'
+IE_TRACE:     15:16:44.217495 line       906         try:
+IE_TRACE:     15:16:44.217511 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.219860 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data '1968-12-10' does not match format '%d %B %Y'
+IE_TRACE:     15:16:44.219883 line       908         except ValueError:
+IE_TRACE:     15:16:44.219895 line       909             pass
+IE_TRACE:     [CONDENSED] 6 identical loop iterations skipped (8 total iterations, showing first and last)
+IE_TRACE:     15:16:44.235410 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%Y %m %d'
+IE_TRACE:     15:16:44.235421 line       906         try:
+IE_TRACE:     15:16:44.235434 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.237901 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data '1968-12-10' does not match format '%Y %m %d'
+IE_TRACE:     15:16:44.237926 line       908         except ValueError:
+IE_TRACE:     15:16:44.237940 line       909             pass
+IE_TRACE:     15:16:44.237953 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%Y-%m-%d'
+IE_TRACE:     15:16:44.237965 line       906         try:
+IE_TRACE:     15:16:44.237980 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Modified var:.. upload_date = '19681210'
+IE_TRACE:     15:16:44.242148 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%Y/%m/%d'
+IE_TRACE:     15:16:44.242168 line       906         try:
+IE_TRACE:     15:16:44.242182 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.244485 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data '1968-12-10' does not match format '%Y/%m/%d'
+IE_TRACE:     15:16:44.244507 line       908         except ValueError:
+IE_TRACE:     15:16:44.244520 line       909             pass
+IE_TRACE:     [CONDENSED] 15 identical loop iterations skipped (17 total iterations, showing first and last)
+IE_TRACE:     15:16:44.284321 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%d/%m/%Y %H:%M:%S'
+IE_TRACE:     15:16:44.284332 line       906         try:
+IE_TRACE:     15:16:44.284346 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.287019 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data '1968-12-10' does not match format '%d/%m/%Y %H:%M:%S'
+IE_TRACE:     15:16:44.287041 line       908         except ValueError:
+IE_TRACE:     15:16:44.287053 line       909             pass
+IE_TRACE:     15:16:44.287065 line       905     for expression in format_expressions:
+IE_TRACE:     15:16:44.287076 line       910     if upload_date is None:
+IE_TRACE:     15:16:44.287088 line       914     return compat_str(upload_date)
+IE_TRACE:     15:16:44.287099 return     914     return compat_str(upload_date)
+IE_TRACE:     Return value:.. '19681210'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:16:44.287468 line       234         self.assertEqual(unified_strdate('28/01/2014 21:00:00 +0100'), '20140128')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. date_str = '28/01/2014 21:00:00 +0100'
+IE_TRACE:     Starting var:.. day_first = True
+IE_TRACE:     15:16:44.287484 call       852 def unified_strdate(date_str, day_first=True):
+IE_TRACE:     15:16:44.287503 line       855     if date_str is None:
+IE_TRACE:     15:16:44.287513 line       857     upload_date = None
+IE_TRACE:     New var:....... upload_date = None
+IE_TRACE:     15:16:44.287522 line       859     date_str = date_str.replace(',', ' ')
+IE_TRACE:     15:16:44.287537 line       861     if not re.match(r'^[0-9]{1,2}-[0-9]{1,2}-[0-9]{4}$', date_str):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.287658 line       862         date_str = re.sub(r' ?(\+|-)[0-9]{2}:?[0-9]{2}$', '', date_str)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Modified var:.. date_str = '28/01/2014 21:00:00'
+IE_TRACE:     15:16:44.287788 line       864     date_str = re.sub(r'(?i)\s*(?:AM|PM)(?:\s+[A-Z]+)?', '', date_str)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.287916 line       866     format_expressions = [
+IE_TRACE:     New var:....... format_expressions = list(len=21)
+IE_TRACE:     15:16:44.287930 line       889     if day_first:
+IE_TRACE:     15:16:44.287943 line       890         format_expressions.extend([
+IE_TRACE:     Modified var:.. format_expressions = list(len=26)
+IE_TRACE:     15:16:44.287954 line       905     for expression in format_expressions:
+IE_TRACE:     New var:....... expression = '%d %B %Y'
+IE_TRACE:     15:16:44.287968 line       906         try:
+IE_TRACE:     15:16:44.287983 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.290336 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data '28/01/2014 21:00:00' does not match format '%d %B %Y'
+IE_TRACE:     15:16:44.290359 line       908         except ValueError:
+IE_TRACE:     15:16:44.290372 line       909             pass
+IE_TRACE:     [CONDENSED] 23 identical loop iterations skipped (25 total iterations, showing first and last)
+IE_TRACE:     15:16:44.350391 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%d/%m/%y'
+IE_TRACE:     15:16:44.350403 line       906         try:
+IE_TRACE:     15:16:44.350416 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.352751 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: unconverted data remains: 14 21:00:00
+IE_TRACE:     15:16:44.352773 line       908         except ValueError:
+IE_TRACE:     15:16:44.352785 line       909             pass
+IE_TRACE:     15:16:44.352797 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%d/%m/%Y %H:%M:%S'
+IE_TRACE:     15:16:44.352808 line       906         try:
+IE_TRACE:     15:16:44.352822 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Modified var:.. upload_date = '20140128'
+IE_TRACE:     15:16:44.358582 line       905     for expression in format_expressions:
+IE_TRACE:     15:16:44.358602 line       910     if upload_date is None:
+IE_TRACE:     15:16:44.358614 line       914     return compat_str(upload_date)
+IE_TRACE:     15:16:44.358627 return     914     return compat_str(upload_date)
+IE_TRACE:     Return value:.. '20140128'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:16:44.358999 line       235         self.assertEqual(
+IE_TRACE: 15:16:44.359014 line       236             unified_strdate('11/26/2014 11:30:00 AM PST', day_first=False),
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. date_str = '11/26/2014 11:30:00 AM PST'
+IE_TRACE:     Starting var:.. day_first = False
+IE_TRACE:     15:16:44.359024 call       852 def unified_strdate(date_str, day_first=True):
+IE_TRACE:     15:16:44.359043 line       855     if date_str is None:
+IE_TRACE:     15:16:44.359053 line       857     upload_date = None
+IE_TRACE:     New var:....... upload_date = None
+IE_TRACE:     15:16:44.359062 line       859     date_str = date_str.replace(',', ' ')
+IE_TRACE:     15:16:44.359077 line       861     if not re.match(r'^[0-9]{1,2}-[0-9]{1,2}-[0-9]{4}$', date_str):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.359196 line       862         date_str = re.sub(r' ?(\+|-)[0-9]{2}:?[0-9]{2}$', '', date_str)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.359326 line       864     date_str = re.sub(r'(?i)\s*(?:AM|PM)(?:\s+[A-Z]+)?', '', date_str)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Modified var:.. date_str = '11/26/2014 11:30:00'
+IE_TRACE:     15:16:44.359452 line       866     format_expressions = [
+IE_TRACE:     New var:....... format_expressions = list(len=21)
+IE_TRACE:     15:16:44.359469 line       889     if day_first:
+IE_TRACE:     15:16:44.359483 line       898         format_expressions.extend([
+IE_TRACE:     Modified var:.. format_expressions = list(len=26)
+IE_TRACE:     15:16:44.359494 line       905     for expression in format_expressions:
+IE_TRACE:     New var:....... expression = '%d %B %Y'
+IE_TRACE:     15:16:44.359507 line       906         try:
+IE_TRACE:     15:16:44.359523 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.361892 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data '11/26/2014 11:30:00' does not match format '%d %B %Y'
+IE_TRACE:     15:16:44.361915 line       908         except ValueError:
+IE_TRACE:     15:16:44.361928 line       909             pass
+IE_TRACE:     [CONDENSED] 23 identical loop iterations skipped (25 total iterations, showing first and last)
+IE_TRACE:     15:16:44.467858 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%m/%d/%y'
+IE_TRACE:     15:16:44.467871 line       906         try:
+IE_TRACE:     15:16:44.467886 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.484800 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: unconverted data remains: 14 11:30:00
+IE_TRACE:     15:16:44.484826 line       908         except ValueError:
+IE_TRACE:     15:16:44.484840 line       909             pass
+IE_TRACE:     15:16:44.484852 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%m/%d/%Y %H:%M:%S'
+IE_TRACE:     15:16:44.484864 line       906         try:
+IE_TRACE:     15:16:44.484877 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Modified var:.. upload_date = '20141126'
+IE_TRACE:     15:16:44.517195 line       905     for expression in format_expressions:
+IE_TRACE:     15:16:44.517218 line       910     if upload_date is None:
+IE_TRACE:     15:16:44.517230 line       914     return compat_str(upload_date)
+IE_TRACE:     15:16:44.517243 return     914     return compat_str(upload_date)
+IE_TRACE:     Return value:.. '20141126'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:16:44.517258 line       237             '20141126')
+IE_TRACE: 15:16:44.517277 line       235         self.assertEqual(
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:16:44.517645 line       238         self.assertEqual(
+IE_TRACE: 15:16:44.517657 line       239             unified_strdate('2/2/2015 6:47:40 PM', day_first=False),
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. date_str = '2/2/2015 6:47:40 PM'
+IE_TRACE:     Starting var:.. day_first = False
+IE_TRACE:     15:16:44.517666 call       852 def unified_strdate(date_str, day_first=True):
+IE_TRACE:     15:16:44.517687 line       855     if date_str is None:
+IE_TRACE:     15:16:44.517697 line       857     upload_date = None
+IE_TRACE:     New var:....... upload_date = None
+IE_TRACE:     15:16:44.517707 line       859     date_str = date_str.replace(',', ' ')
+IE_TRACE:     15:16:44.517720 line       861     if not re.match(r'^[0-9]{1,2}-[0-9]{1,2}-[0-9]{4}$', date_str):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.517841 line       862         date_str = re.sub(r' ?(\+|-)[0-9]{2}:?[0-9]{2}$', '', date_str)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.517972 line       864     date_str = re.sub(r'(?i)\s*(?:AM|PM)(?:\s+[A-Z]+)?', '', date_str)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Modified var:.. date_str = '2/2/2015 6:47:40'
+IE_TRACE:     15:16:44.518096 line       866     format_expressions = [
+IE_TRACE:     New var:....... format_expressions = list(len=21)
+IE_TRACE:     15:16:44.518112 line       889     if day_first:
+IE_TRACE:     15:16:44.518125 line       898         format_expressions.extend([
+IE_TRACE:     Modified var:.. format_expressions = list(len=26)
+IE_TRACE:     15:16:44.518137 line       905     for expression in format_expressions:
+IE_TRACE:     New var:....... expression = '%d %B %Y'
+IE_TRACE:     15:16:44.518150 line       906         try:
+IE_TRACE:     15:16:44.518164 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.520550 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data '2/2/2015 6:47:40' does not match format '%d %B %Y'
+IE_TRACE:     15:16:44.520575 line       908         except ValueError:
+IE_TRACE:     15:16:44.520589 line       909             pass
+IE_TRACE:     [CONDENSED] 23 identical loop iterations skipped (25 total iterations, showing first and last)
+IE_TRACE:     15:16:44.580418 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%m/%d/%y'
+IE_TRACE:     15:16:44.580430 line       906         try:
+IE_TRACE:     15:16:44.580443 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.582767 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: unconverted data remains: 15 6:47:40
+IE_TRACE:     15:16:44.582788 line       908         except ValueError:
+IE_TRACE:     15:16:44.582801 line       909             pass
+IE_TRACE:     15:16:44.582813 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%m/%d/%Y %H:%M:%S'
+IE_TRACE:     15:16:44.582824 line       906         try:
+IE_TRACE:     15:16:44.582838 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Modified var:.. upload_date = '20150202'
+IE_TRACE:     15:16:44.588686 line       905     for expression in format_expressions:
+IE_TRACE:     15:16:44.588704 line       910     if upload_date is None:
+IE_TRACE:     15:16:44.588717 line       914     return compat_str(upload_date)
+IE_TRACE:     15:16:44.588729 return     914     return compat_str(upload_date)
+IE_TRACE:     Return value:.. '20150202'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:16:44.588745 line       240             '20150202')
+IE_TRACE: 15:16:44.588762 line       238         self.assertEqual(
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:16:44.589122 line       241         self.assertEqual(unified_strdate('25-09-2014'), '20140925')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. date_str = '25-09-2014'
+IE_TRACE:     Starting var:.. day_first = True
+IE_TRACE:     15:16:44.589136 call       852 def unified_strdate(date_str, day_first=True):
+IE_TRACE:     15:16:44.589155 line       855     if date_str is None:
+IE_TRACE:     15:16:44.589165 line       857     upload_date = None
+IE_TRACE:     New var:....... upload_date = None
+IE_TRACE:     15:16:44.589175 line       859     date_str = date_str.replace(',', ' ')
+IE_TRACE:     15:16:44.589188 line       861     if not re.match(r'^[0-9]{1,2}-[0-9]{1,2}-[0-9]{4}$', date_str):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.589308 line       864     date_str = re.sub(r'(?i)\s*(?:AM|PM)(?:\s+[A-Z]+)?', '', date_str)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.589439 line       866     format_expressions = [
+IE_TRACE:     New var:....... format_expressions = list(len=21)
+IE_TRACE:     15:16:44.589452 line       889     if day_first:
+IE_TRACE:     15:16:44.589466 line       890         format_expressions.extend([
+IE_TRACE:     Modified var:.. format_expressions = list(len=26)
+IE_TRACE:     15:16:44.589478 line       905     for expression in format_expressions:
+IE_TRACE:     New var:....... expression = '%d %B %Y'
+IE_TRACE:     15:16:44.589491 line       906         try:
+IE_TRACE:     15:16:44.589506 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.591881 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data '25-09-2014' does not match format '%d %B %Y'
+IE_TRACE:     15:16:44.591904 line       908         except ValueError:
+IE_TRACE:     15:16:44.591917 line       909             pass
+IE_TRACE:     [CONDENSED] 19 identical loop iterations skipped (21 total iterations, showing first and last)
+IE_TRACE:     15:16:44.642218 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%Y-%m-%dT%H:%M'
+IE_TRACE:     15:16:44.642230 line       906         try:
+IE_TRACE:     15:16:44.642245 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.644813 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data '25-09-2014' does not match format '%Y-%m-%dT%H:%M'
+IE_TRACE:     15:16:44.644836 line       908         except ValueError:
+IE_TRACE:     15:16:44.644848 line       909             pass
+IE_TRACE:     15:16:44.644860 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%d-%m-%Y'
+IE_TRACE:     15:16:44.644872 line       906         try:
+IE_TRACE:     15:16:44.644886 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Modified var:.. upload_date = '20140925'
+IE_TRACE:     15:16:44.649081 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%d.%m.%Y'
+IE_TRACE:     15:16:44.649099 line       906         try:
+IE_TRACE:     15:16:44.649114 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.651479 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data '25-09-2014' does not match format '%d.%m.%Y'
+IE_TRACE:     15:16:44.651502 line       908         except ValueError:
+IE_TRACE:     15:16:44.651515 line       909             pass
+IE_TRACE:     [CONDENSED] 2 identical loop iterations skipped (4 total iterations, showing first and last)
+IE_TRACE:     15:16:44.656306 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%d/%m/%Y %H:%M:%S'
+IE_TRACE:     15:16:44.656317 line       906         try:
+IE_TRACE:     15:16:44.656331 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.659033 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data '25-09-2014' does not match format '%d/%m/%Y %H:%M:%S'
+IE_TRACE:     15:16:44.659055 line       908         except ValueError:
+IE_TRACE:     15:16:44.659068 line       909             pass
+IE_TRACE:     15:16:44.659080 line       905     for expression in format_expressions:
+IE_TRACE:     15:16:44.659092 line       910     if upload_date is None:
+IE_TRACE:     15:16:44.659105 line       914     return compat_str(upload_date)
+IE_TRACE:     15:16:44.659116 return     914     return compat_str(upload_date)
+IE_TRACE:     Return value:.. '20140925'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:16:44.659492 line       242         self.assertEqual(unified_strdate('UNKNOWN DATE FORMAT'), None)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. date_str = 'UNKNOWN DATE FORMAT'
+IE_TRACE:     Starting var:.. day_first = True
+IE_TRACE:     15:16:44.659508 call       852 def unified_strdate(date_str, day_first=True):
+IE_TRACE:     15:16:44.659528 line       855     if date_str is None:
+IE_TRACE:     15:16:44.659539 line       857     upload_date = None
+IE_TRACE:     New var:....... upload_date = None
+IE_TRACE:     15:16:44.659549 line       859     date_str = date_str.replace(',', ' ')
+IE_TRACE:     15:16:44.659563 line       861     if not re.match(r'^[0-9]{1,2}-[0-9]{1,2}-[0-9]{4}$', date_str):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.659684 line       862         date_str = re.sub(r' ?(\+|-)[0-9]{2}:?[0-9]{2}$', '', date_str)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.659817 line       864     date_str = re.sub(r'(?i)\s*(?:AM|PM)(?:\s+[A-Z]+)?', '', date_str)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.659943 line       866     format_expressions = [
+IE_TRACE:     New var:....... format_expressions = list(len=21)
+IE_TRACE:     15:16:44.659956 line       889     if day_first:
+IE_TRACE:     15:16:44.659970 line       890         format_expressions.extend([
+IE_TRACE:     Modified var:.. format_expressions = list(len=26)
+IE_TRACE:     15:16:44.659981 line       905     for expression in format_expressions:
+IE_TRACE:     New var:....... expression = '%d %B %Y'
+IE_TRACE:     15:16:44.659995 line       906         try:
+IE_TRACE:     15:16:44.660009 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.662337 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data 'UNKNOWN DATE FORMAT' does not match format '%d %B %Y'
+IE_TRACE:     15:16:44.662359 line       908         except ValueError:
+IE_TRACE:     15:16:44.662372 line       909             pass
+IE_TRACE:     [CONDENSED] 24 identical loop iterations skipped (26 total iterations, showing first and last)
+IE_TRACE:     15:16:44.725232 line       905     for expression in format_expressions:
+IE_TRACE:     Modified var:.. expression = '%d/%m/%Y %H:%M:%S'
+IE_TRACE:     15:16:44.725244 line       906         try:
+IE_TRACE:     15:16:44.725258 line       907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:44.727973 exception  907             upload_date = datetime.datetime.strptime(date_str, expression).strftime('%Y%m%d')
+IE_TRACE:     Exception:..... ValueError: time data 'UNKNOWN DATE FORMAT' does not match format '%d/%m/%Y %H:%M:%S'
+IE_TRACE:     15:16:44.727996 line       908         except ValueError:
+IE_TRACE:     15:16:44.728009 line       909             pass
+IE_TRACE:     15:16:44.728021 line       905     for expression in format_expressions:
+IE_TRACE:     15:16:44.728033 line       910     if upload_date is None:
+IE_TRACE:     15:16:44.728045 line       911         timetuple = email.utils.parsedate_tz(date_str)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... timetuple = None
+IE_TRACE:     15:16:44.728438 line       912         if timetuple:
+IE_TRACE:     15:16:44.728458 line       914     return compat_str(upload_date)
+IE_TRACE:     15:16:44.728471 return     914     return compat_str(upload_date)
+IE_TRACE:     Return value:.. 'None'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:16:44.729092 exception  242         self.assertEqual(unified_strdate('UNKNOWN DATE FORMAT'), None)
+IE_TRACE: Exception:..... AssertionError: 'None' != None
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:01.803954
+======================================================================
+FAIL: test_unified_dates (test.test_utils.TestUtil.test_unified_dates)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py", line 242, in test_unified_dates
+    self.assertEqual(unified_strdate('UNKNOWN DATE FORMAT'), None)
+AssertionError: 'None' != None
+
+----------------------------------------------------------------------
+Ran 1 test in 1.805s
+
+FAILED (failures=1)
+
+
+Exit code: 1

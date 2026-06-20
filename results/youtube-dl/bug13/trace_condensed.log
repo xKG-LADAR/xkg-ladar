@@ -1,0 +1,353 @@
+Cleared: /path/to/results/youtube-dl/bug13
+Running: python -m unittest -q test.test_utils.TestUtil.test_urljoin
+Workdir: /path/to/BugsInPy/workspace/youtube-dl
+PYTHONPATH: /path/to/BugsInPy/workspace/youtube-dl
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Starting var:.. self = <test.test_utils.TestUtil testMethod=test_urljoin>
+IE_TRACE: 15:03:29.359649 call       494     def test_urljoin(self):
+IE_TRACE: 15:03:29.359926 line       495         self.assertEqual(urljoin('http://foo.de/', '/a/b/c.txt'), 'http://foo.de/a/b/c.txt')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. base = 'http://foo.de/'
+IE_TRACE:     Starting var:.. path = '/a/b/c.txt'
+IE_TRACE:     15:03:29.359957 call      1866 def urljoin(base, path):
+IE_TRACE:     15:03:29.360288 line      1867     if isinstance(path, bytes):
+IE_TRACE:     15:03:29.360305 line      1869     if not isinstance(path, compat_str) or not path:
+IE_TRACE:     15:03:29.360317 line      1871     if re.match(r'^(?:https?:)?//', path):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.390781 line      1873     if isinstance(base, bytes):
+IE_TRACE:     15:03:29.390799 line      1875     if not isinstance(base, compat_str) or not re.match(
+IE_TRACE:     15:03:29.390811 line      1876             r'^(?:https?:)?//', base):
+IE_TRACE:     15:03:29.390821 line      1875     if not isinstance(base, compat_str) or not re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.390955 line      1878     return compat_urlparse.urljoin(base, path)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.396225 return    1878     return compat_urlparse.urljoin(base, path)
+IE_TRACE:     Return value:.. 'http://foo.de/a/b/c.txt'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:03:29.396744 line       496         self.assertEqual(urljoin(b'http://foo.de/', '/a/b/c.txt'), 'http://foo.de/a/b/c.txt')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. base = b'http://foo.de/'
+IE_TRACE:     Starting var:.. path = '/a/b/c.txt'
+IE_TRACE:     15:03:29.396761 call      1866 def urljoin(base, path):
+IE_TRACE:     15:03:29.396784 line      1867     if isinstance(path, bytes):
+IE_TRACE:     15:03:29.396795 line      1869     if not isinstance(path, compat_str) or not path:
+IE_TRACE:     15:03:29.396805 line      1871     if re.match(r'^(?:https?:)?//', path):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.396932 line      1873     if isinstance(base, bytes):
+IE_TRACE:     15:03:29.396945 line      1874         base = base.decode('utf-8')
+IE_TRACE:     Modified var:.. base = 'http://foo.de/'
+IE_TRACE:     15:03:29.396954 line      1875     if not isinstance(base, compat_str) or not re.match(
+IE_TRACE:     15:03:29.396967 line      1876             r'^(?:https?:)?//', base):
+IE_TRACE:     15:03:29.396976 line      1875     if not isinstance(base, compat_str) or not re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.397096 line      1878     return compat_urlparse.urljoin(base, path)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.399933 return    1878     return compat_urlparse.urljoin(base, path)
+IE_TRACE:     Return value:.. 'http://foo.de/a/b/c.txt'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:03:29.400319 line       497         self.assertEqual(urljoin('http://foo.de/', b'/a/b/c.txt'), 'http://foo.de/a/b/c.txt')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. base = 'http://foo.de/'
+IE_TRACE:     Starting var:.. path = b'/a/b/c.txt'
+IE_TRACE:     15:03:29.400332 call      1866 def urljoin(base, path):
+IE_TRACE:     15:03:29.400351 line      1867     if isinstance(path, bytes):
+IE_TRACE:     15:03:29.400360 line      1868         path = path.decode('utf-8')
+IE_TRACE:     Modified var:.. path = '/a/b/c.txt'
+IE_TRACE:     15:03:29.400371 line      1869     if not isinstance(path, compat_str) or not path:
+IE_TRACE:     15:03:29.400384 line      1871     if re.match(r'^(?:https?:)?//', path):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.400504 line      1873     if isinstance(base, bytes):
+IE_TRACE:     15:03:29.400517 line      1875     if not isinstance(base, compat_str) or not re.match(
+IE_TRACE:     15:03:29.400526 line      1876             r'^(?:https?:)?//', base):
+IE_TRACE:     15:03:29.400535 line      1875     if not isinstance(base, compat_str) or not re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.400655 line      1878     return compat_urlparse.urljoin(base, path)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.403439 return    1878     return compat_urlparse.urljoin(base, path)
+IE_TRACE:     Return value:.. 'http://foo.de/a/b/c.txt'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:03:29.403814 line       498         self.assertEqual(urljoin(b'http://foo.de/', b'/a/b/c.txt'), 'http://foo.de/a/b/c.txt')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. base = b'http://foo.de/'
+IE_TRACE:     Starting var:.. path = b'/a/b/c.txt'
+IE_TRACE:     15:03:29.403828 call      1866 def urljoin(base, path):
+IE_TRACE:     15:03:29.403848 line      1867     if isinstance(path, bytes):
+IE_TRACE:     15:03:29.403857 line      1868         path = path.decode('utf-8')
+IE_TRACE:     Modified var:.. path = '/a/b/c.txt'
+IE_TRACE:     15:03:29.403867 line      1869     if not isinstance(path, compat_str) or not path:
+IE_TRACE:     15:03:29.403880 line      1871     if re.match(r'^(?:https?:)?//', path):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.404002 line      1873     if isinstance(base, bytes):
+IE_TRACE:     15:03:29.404015 line      1874         base = base.decode('utf-8')
+IE_TRACE:     Modified var:.. base = 'http://foo.de/'
+IE_TRACE:     15:03:29.404024 line      1875     if not isinstance(base, compat_str) or not re.match(
+IE_TRACE:     15:03:29.404036 line      1876             r'^(?:https?:)?//', base):
+IE_TRACE:     15:03:29.404045 line      1875     if not isinstance(base, compat_str) or not re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.404162 line      1878     return compat_urlparse.urljoin(base, path)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.407071 return    1878     return compat_urlparse.urljoin(base, path)
+IE_TRACE:     Return value:.. 'http://foo.de/a/b/c.txt'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:03:29.407456 line       499         self.assertEqual(urljoin('//foo.de/', '/a/b/c.txt'), '//foo.de/a/b/c.txt')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. base = '//foo.de/'
+IE_TRACE:     Starting var:.. path = '/a/b/c.txt'
+IE_TRACE:     15:03:29.407469 call      1866 def urljoin(base, path):
+IE_TRACE:     15:03:29.407487 line      1867     if isinstance(path, bytes):
+IE_TRACE:     15:03:29.407497 line      1869     if not isinstance(path, compat_str) or not path:
+IE_TRACE:     15:03:29.407506 line      1871     if re.match(r'^(?:https?:)?//', path):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.407625 line      1873     if isinstance(base, bytes):
+IE_TRACE:     15:03:29.407637 line      1875     if not isinstance(base, compat_str) or not re.match(
+IE_TRACE:     15:03:29.407646 line      1876             r'^(?:https?:)?//', base):
+IE_TRACE:     15:03:29.407655 line      1875     if not isinstance(base, compat_str) or not re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.407772 line      1878     return compat_urlparse.urljoin(base, path)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.412144 return    1878     return compat_urlparse.urljoin(base, path)
+IE_TRACE:     Return value:.. '//foo.de/a/b/c.txt'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:03:29.412509 line       500         self.assertEqual(urljoin('http://foo.de/', 'a/b/c.txt'), 'http://foo.de/a/b/c.txt')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. base = 'http://foo.de/'
+IE_TRACE:     Starting var:.. path = 'a/b/c.txt'
+IE_TRACE:     15:03:29.412523 call      1866 def urljoin(base, path):
+IE_TRACE:     15:03:29.412541 line      1867     if isinstance(path, bytes):
+IE_TRACE:     15:03:29.412550 line      1869     if not isinstance(path, compat_str) or not path:
+IE_TRACE:     15:03:29.412560 line      1871     if re.match(r'^(?:https?:)?//', path):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.412678 line      1873     if isinstance(base, bytes):
+IE_TRACE:     15:03:29.412691 line      1875     if not isinstance(base, compat_str) or not re.match(
+IE_TRACE:     15:03:29.412700 line      1876             r'^(?:https?:)?//', base):
+IE_TRACE:     15:03:29.412708 line      1875     if not isinstance(base, compat_str) or not re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.412822 line      1878     return compat_urlparse.urljoin(base, path)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.416264 return    1878     return compat_urlparse.urljoin(base, path)
+IE_TRACE:     Return value:.. 'http://foo.de/a/b/c.txt'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:03:29.416632 line       501         self.assertEqual(urljoin('http://foo.de', '/a/b/c.txt'), 'http://foo.de/a/b/c.txt')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. base = 'http://foo.de'
+IE_TRACE:     Starting var:.. path = '/a/b/c.txt'
+IE_TRACE:     15:03:29.416645 call      1866 def urljoin(base, path):
+IE_TRACE:     15:03:29.416663 line      1867     if isinstance(path, bytes):
+IE_TRACE:     15:03:29.416672 line      1869     if not isinstance(path, compat_str) or not path:
+IE_TRACE:     15:03:29.416681 line      1871     if re.match(r'^(?:https?:)?//', path):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.416798 line      1873     if isinstance(base, bytes):
+IE_TRACE:     15:03:29.416810 line      1875     if not isinstance(base, compat_str) or not re.match(
+IE_TRACE:     15:03:29.416819 line      1876             r'^(?:https?:)?//', base):
+IE_TRACE:     15:03:29.416828 line      1875     if not isinstance(base, compat_str) or not re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.416941 line      1878     return compat_urlparse.urljoin(base, path)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.421504 return    1878     return compat_urlparse.urljoin(base, path)
+IE_TRACE:     Return value:.. 'http://foo.de/a/b/c.txt'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:03:29.422039 line       502         self.assertEqual(urljoin('http://foo.de', 'a/b/c.txt'), 'http://foo.de/a/b/c.txt')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. base = 'http://foo.de'
+IE_TRACE:     Starting var:.. path = 'a/b/c.txt'
+IE_TRACE:     15:03:29.422053 call      1866 def urljoin(base, path):
+IE_TRACE:     15:03:29.422072 line      1867     if isinstance(path, bytes):
+IE_TRACE:     15:03:29.422081 line      1869     if not isinstance(path, compat_str) or not path:
+IE_TRACE:     15:03:29.422091 line      1871     if re.match(r'^(?:https?:)?//', path):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.422219 line      1873     if isinstance(base, bytes):
+IE_TRACE:     15:03:29.422231 line      1875     if not isinstance(base, compat_str) or not re.match(
+IE_TRACE:     15:03:29.422241 line      1876             r'^(?:https?:)?//', base):
+IE_TRACE:     15:03:29.422250 line      1875     if not isinstance(base, compat_str) or not re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.422367 line      1878     return compat_urlparse.urljoin(base, path)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.425325 return    1878     return compat_urlparse.urljoin(base, path)
+IE_TRACE:     Return value:.. 'http://foo.de/a/b/c.txt'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:03:29.425701 line       503         self.assertEqual(urljoin('http://foo.de/', 'http://foo.de/a/b/c.txt'), 'http://foo.de/a/b/c.txt')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. base = 'http://foo.de/'
+IE_TRACE:     Starting var:.. path = 'http://foo.de/a/b/c.txt'
+IE_TRACE:     15:03:29.425715 call      1866 def urljoin(base, path):
+IE_TRACE:     15:03:29.425733 line      1867     if isinstance(path, bytes):
+IE_TRACE:     15:03:29.425742 line      1869     if not isinstance(path, compat_str) or not path:
+IE_TRACE:     15:03:29.425751 line      1871     if re.match(r'^(?:https?:)?//', path):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.425870 line      1872         return path
+IE_TRACE:     15:03:29.425882 return    1872         return path
+IE_TRACE:     Return value:.. 'http://foo.de/a/b/c.txt'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:03:29.426241 line       504         self.assertEqual(urljoin('http://foo.de/', '//foo.de/a/b/c.txt'), '//foo.de/a/b/c.txt')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. base = 'http://foo.de/'
+IE_TRACE:     Starting var:.. path = '//foo.de/a/b/c.txt'
+IE_TRACE:     15:03:29.426253 call      1866 def urljoin(base, path):
+IE_TRACE:     15:03:29.426271 line      1867     if isinstance(path, bytes):
+IE_TRACE:     15:03:29.426280 line      1869     if not isinstance(path, compat_str) or not path:
+IE_TRACE:     15:03:29.426289 line      1871     if re.match(r'^(?:https?:)?//', path):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.426404 line      1872         return path
+IE_TRACE:     15:03:29.426416 return    1872         return path
+IE_TRACE:     Return value:.. '//foo.de/a/b/c.txt'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:03:29.426771 line       505         self.assertEqual(urljoin(None, 'http://foo.de/a/b/c.txt'), 'http://foo.de/a/b/c.txt')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. base = None
+IE_TRACE:     Starting var:.. path = 'http://foo.de/a/b/c.txt'
+IE_TRACE:     15:03:29.426783 call      1866 def urljoin(base, path):
+IE_TRACE:     15:03:29.426801 line      1867     if isinstance(path, bytes):
+IE_TRACE:     15:03:29.426810 line      1869     if not isinstance(path, compat_str) or not path:
+IE_TRACE:     15:03:29.426819 line      1871     if re.match(r'^(?:https?:)?//', path):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.426934 line      1872         return path
+IE_TRACE:     15:03:29.426945 return    1872         return path
+IE_TRACE:     Return value:.. 'http://foo.de/a/b/c.txt'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:03:29.427300 line       506         self.assertEqual(urljoin(None, '//foo.de/a/b/c.txt'), '//foo.de/a/b/c.txt')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. base = None
+IE_TRACE:     Starting var:.. path = '//foo.de/a/b/c.txt'
+IE_TRACE:     15:03:29.427312 call      1866 def urljoin(base, path):
+IE_TRACE:     15:03:29.427329 line      1867     if isinstance(path, bytes):
+IE_TRACE:     15:03:29.427338 line      1869     if not isinstance(path, compat_str) or not path:
+IE_TRACE:     15:03:29.427347 line      1871     if re.match(r'^(?:https?:)?//', path):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.427460 line      1872         return path
+IE_TRACE:     15:03:29.427472 return    1872         return path
+IE_TRACE:     Return value:.. '//foo.de/a/b/c.txt'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:03:29.427828 line       507         self.assertEqual(urljoin('', 'http://foo.de/a/b/c.txt'), 'http://foo.de/a/b/c.txt')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. base = ''
+IE_TRACE:     Starting var:.. path = 'http://foo.de/a/b/c.txt'
+IE_TRACE:     15:03:29.427839 call      1866 def urljoin(base, path):
+IE_TRACE:     15:03:29.427856 line      1867     if isinstance(path, bytes):
+IE_TRACE:     15:03:29.427865 line      1869     if not isinstance(path, compat_str) or not path:
+IE_TRACE:     15:03:29.427874 line      1871     if re.match(r'^(?:https?:)?//', path):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.427988 line      1872         return path
+IE_TRACE:     15:03:29.428000 return    1872         return path
+IE_TRACE:     Return value:.. 'http://foo.de/a/b/c.txt'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:03:29.428359 line       508         self.assertEqual(urljoin(['foobar'], 'http://foo.de/a/b/c.txt'), 'http://foo.de/a/b/c.txt')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. base = ['foobar']
+IE_TRACE:     Starting var:.. path = 'http://foo.de/a/b/c.txt'
+IE_TRACE:     15:03:29.428371 call      1866 def urljoin(base, path):
+IE_TRACE:     15:03:29.428388 line      1867     if isinstance(path, bytes):
+IE_TRACE:     15:03:29.428398 line      1869     if not isinstance(path, compat_str) or not path:
+IE_TRACE:     15:03:29.428407 line      1871     if re.match(r'^(?:https?:)?//', path):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.428520 line      1872         return path
+IE_TRACE:     15:03:29.428532 return    1872         return path
+IE_TRACE:     Return value:.. 'http://foo.de/a/b/c.txt'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:03:29.428886 line       509         self.assertEqual(urljoin('http://foo.de/', None), None)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. base = 'http://foo.de/'
+IE_TRACE:     Starting var:.. path = None
+IE_TRACE:     15:03:29.428898 call      1866 def urljoin(base, path):
+IE_TRACE:     15:03:29.428915 line      1867     if isinstance(path, bytes):
+IE_TRACE:     15:03:29.428924 line      1869     if not isinstance(path, compat_str) or not path:
+IE_TRACE:     15:03:29.428933 line      1870         return None
+IE_TRACE:     15:03:29.428942 return    1870         return None
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:03:29.429152 line       510         self.assertEqual(urljoin('http://foo.de/', ''), None)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. base = 'http://foo.de/'
+IE_TRACE:     Starting var:.. path = ''
+IE_TRACE:     15:03:29.429164 call      1866 def urljoin(base, path):
+IE_TRACE:     15:03:29.429181 line      1867     if isinstance(path, bytes):
+IE_TRACE:     15:03:29.429190 line      1869     if not isinstance(path, compat_str) or not path:
+IE_TRACE:     15:03:29.429199 line      1870         return None
+IE_TRACE:     15:03:29.429208 return    1870         return None
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:03:29.429409 line       511         self.assertEqual(urljoin('http://foo.de/', ['foobar']), None)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. base = 'http://foo.de/'
+IE_TRACE:     Starting var:.. path = ['foobar']
+IE_TRACE:     15:03:29.429420 call      1866 def urljoin(base, path):
+IE_TRACE:     15:03:29.429437 line      1867     if isinstance(path, bytes):
+IE_TRACE:     15:03:29.429446 line      1869     if not isinstance(path, compat_str) or not path:
+IE_TRACE:     15:03:29.429455 line      1870         return None
+IE_TRACE:     15:03:29.429464 return    1870         return None
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:03:29.429667 line       512         self.assertEqual(urljoin('http://foo.de/a/b/c.txt', '.././../d.txt'), 'http://foo.de/d.txt')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. base = 'http://foo.de/a/b/c.txt'
+IE_TRACE:     Starting var:.. path = '.././../d.txt'
+IE_TRACE:     15:03:29.429679 call      1866 def urljoin(base, path):
+IE_TRACE:     15:03:29.429695 line      1867     if isinstance(path, bytes):
+IE_TRACE:     15:03:29.429704 line      1869     if not isinstance(path, compat_str) or not path:
+IE_TRACE:     15:03:29.429713 line      1871     if re.match(r'^(?:https?:)?//', path):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.429830 line      1873     if isinstance(base, bytes):
+IE_TRACE:     15:03:29.429842 line      1875     if not isinstance(base, compat_str) or not re.match(
+IE_TRACE:     15:03:29.429851 line      1876             r'^(?:https?:)?//', base):
+IE_TRACE:     15:03:29.429859 line      1875     if not isinstance(base, compat_str) or not re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.429974 line      1878     return compat_urlparse.urljoin(base, path)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.434994 return    1878     return compat_urlparse.urljoin(base, path)
+IE_TRACE:     Return value:.. 'http://foo.de/d.txt'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:03:29.435360 line       513         self.assertEqual(urljoin('http://foo.de/a/b/c.txt', 'rtmp://foo.de'), 'rtmp://foo.de')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. base = 'http://foo.de/a/b/c.txt'
+IE_TRACE:     Starting var:.. path = 'rtmp://foo.de'
+IE_TRACE:     15:03:29.435373 call      1866 def urljoin(base, path):
+IE_TRACE:     15:03:29.435390 line      1867     if isinstance(path, bytes):
+IE_TRACE:     15:03:29.435400 line      1869     if not isinstance(path, compat_str) or not path:
+IE_TRACE:     15:03:29.435409 line      1871     if re.match(r'^(?:https?:)?//', path):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.435525 line      1873     if isinstance(base, bytes):
+IE_TRACE:     15:03:29.435537 line      1875     if not isinstance(base, compat_str) or not re.match(
+IE_TRACE:     15:03:29.435546 line      1876             r'^(?:https?:)?//', base):
+IE_TRACE:     15:03:29.435555 line      1875     if not isinstance(base, compat_str) or not re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.435672 line      1878     return compat_urlparse.urljoin(base, path)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.438037 return    1878     return compat_urlparse.urljoin(base, path)
+IE_TRACE:     Return value:.. 'rtmp://foo.de'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:03:29.438401 line       514         self.assertEqual(urljoin(None, 'rtmp://foo.de'), 'rtmp://foo.de')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. base = None
+IE_TRACE:     Starting var:.. path = 'rtmp://foo.de'
+IE_TRACE:     15:03:29.438414 call      1866 def urljoin(base, path):
+IE_TRACE:     15:03:29.438431 line      1867     if isinstance(path, bytes):
+IE_TRACE:     15:03:29.438440 line      1869     if not isinstance(path, compat_str) or not path:
+IE_TRACE:     15:03:29.438449 line      1871     if re.match(r'^(?:https?:)?//', path):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:29.438714 line      1873     if isinstance(base, bytes):
+IE_TRACE:     15:03:29.438726 line      1875     if not isinstance(base, compat_str) or not re.match(
+IE_TRACE:     15:03:29.438735 line      1877         return None
+IE_TRACE:     15:03:29.438744 return    1877         return None
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:03:29.439443 exception  514         self.assertEqual(urljoin(None, 'rtmp://foo.de'), 'rtmp://foo.de')
+IE_TRACE: Exception:..... AssertionError: None != 'rtmp://foo.de'
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.079962
+======================================================================
+FAIL: test_urljoin (test.test_utils.TestUtil.test_urljoin)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py", line 514, in test_urljoin
+    self.assertEqual(urljoin(None, 'rtmp://foo.de'), 'rtmp://foo.de')
+AssertionError: None != 'rtmp://foo.de'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.081s
+
+FAILED (failures=1)
+
+
+Exit code: 1

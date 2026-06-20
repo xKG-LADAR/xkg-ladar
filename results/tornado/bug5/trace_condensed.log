@@ -1,0 +1,131 @@
+Cleared: /path/to/results/tornado/bug5
+Running: python -m unittest -q tornado.test.ioloop_test.TestPeriodicCallbackMath.test_clock_backwards
+Workdir: /path/to/BugsInPy/workspace/tornado
+PYTHONPATH: /path/to/BugsInPy/workspace/tornado::
+/path/to/BugsInPy/workspace/tornado/tornado/util.py:255: SyntaxWarning: invalid escape sequence '\d'
+  """Unescape a string escaped by `re.escape`.
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/ioloop_test.py
+IE_TRACE: Starting var:.. self = <tornado.test.ioloop_test.TestPeriodicCallbackMath testMethod=test_clock_backwards>
+IE_TRACE: 19:12:20.679953 call       836     def test_clock_backwards(self):
+IE_TRACE: 19:12:20.680253 line       837         pc = PeriodicCallback(None, 10000)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:     Starting var:.. self = <tornado.ioloop.PeriodicCallback object at 0x7d045415e6f0>
+IE_TRACE:     Starting var:.. callback = None
+IE_TRACE:     Starting var:.. callback_time = 10000
+IE_TRACE:     19:12:20.680299 call      1172     def __init__(self, callback, callback_time):
+IE_TRACE:     19:12:20.680494 line      1173         self.callback = callback
+IE_TRACE:     19:12:20.680521 line      1174         if callback_time <= 0:
+IE_TRACE:     19:12:20.680544 line      1176         self.callback_time = callback_time
+IE_TRACE:     19:12:20.680563 line      1177         self._running = False
+IE_TRACE:     19:12:20.680580 line      1178         self._timeout = None
+IE_TRACE:     19:12:20.680598 return    1178         self._timeout = None
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/ioloop_test.py
+IE_TRACE: New var:....... pc = <tornado.ioloop.PeriodicCallback object at 0x7d045415e6f0>
+IE_TRACE: 19:12:20.680627 line       842         self.assertEqual(self.simulate_calls(pc, [-2, -1, -3, -2, 0]),
+IE_TRACE:     Starting var:.. self = <tornado.test.ioloop_test.TestPeriodicCallbackMath testMethod=test_clock_backwards>
+IE_TRACE:     Starting var:.. pc = <tornado.ioloop.PeriodicCallback object at 0x7d045415e6f0>
+IE_TRACE:     Starting var:.. durations = [-2, -1, -3, -2, 0]
+IE_TRACE:     19:12:20.680667 call       797     def simulate_calls(self, pc, durations):
+IE_TRACE:     19:12:20.680709 line       805         calls = []
+IE_TRACE:     New var:....... calls = []
+IE_TRACE:     19:12:20.680730 line       806         now = 1000
+IE_TRACE:     New var:....... now = 1000
+IE_TRACE:     19:12:20.680756 line       807         pc._next_timeout = now
+IE_TRACE:     19:12:20.680784 line       808         for d in durations:
+IE_TRACE:     New var:....... d = -2
+IE_TRACE:     19:12:20.680804 line       809             pc._update_next(now)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. self = <tornado.ioloop.PeriodicCallback object at 0x7d045415e6f0>
+IE_TRACE:         Starting var:.. current_time = 1000
+IE_TRACE:         19:12:20.680839 call      1219     def _update_next(self, current_time):
+IE_TRACE:         19:12:20.680873 line      1220         if self._next_timeout <= current_time:
+IE_TRACE:         19:12:20.680889 line      1221             callback_time_sec = self.callback_time / 1000.0
+IE_TRACE:         New var:....... callback_time_sec = 10.0
+IE_TRACE:         19:12:20.680906 line      1222             self._next_timeout += (math.floor((current_time - self._next_timeout) /
+IE_TRACE:         19:12:20.680935 line      1223                                               callback_time_sec) + 1) * callback_time_sec
+IE_TRACE:     [CONDENSED] 1 identical loop iterations skipped (3 total iterations, showing first and last)
+IE_TRACE:         19:12:20.680984 line      1222             self._next_timeout += (math.floor((current_time - self._next_timeout) /
+IE_TRACE:         19:12:20.681000 line      1223                                               callback_time_sec) + 1) * callback_time_sec
+IE_TRACE:         19:12:20.681015 line      1222             self._next_timeout += (math.floor((current_time - self._next_timeout) /
+IE_TRACE:         19:12:20.681032 return    1222             self._next_timeout += (math.floor((current_time - self._next_timeout) /
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/ioloop_test.py
+IE_TRACE:     19:12:20.681059 line       810             calls.append(pc._next_timeout)
+IE_TRACE:     Modified var:.. calls = [1010.0]
+IE_TRACE:     19:12:20.681089 line       811             now = pc._next_timeout + d
+IE_TRACE:     Modified var:.. now = 1008.0
+IE_TRACE:     19:12:20.681117 line       808         for d in durations:
+IE_TRACE:     Modified var:.. d = -1
+IE_TRACE:     19:12:20.681153 line       809             pc._update_next(now)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. self = <tornado.ioloop.PeriodicCallback object at 0x7d045415e6f0>
+IE_TRACE:         Starting var:.. current_time = 1008.0
+IE_TRACE:         19:12:20.681180 call      1219     def _update_next(self, current_time):
+IE_TRACE:         19:12:20.681211 line      1220         if self._next_timeout <= current_time:
+IE_TRACE:         19:12:20.681227 return    1220         if self._next_timeout <= current_time:
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/ioloop_test.py
+IE_TRACE:     [CONDENSED] 2 identical loop iterations skipped (4 total iterations, showing first and last)
+IE_TRACE:     19:12:20.681588 line       810             calls.append(pc._next_timeout)
+IE_TRACE:     Modified var:.. calls = [1010.0, 1010.0, 1010.0, 1010.0]
+IE_TRACE:     19:12:20.681614 line       811             now = pc._next_timeout + d
+IE_TRACE:     Modified var:.. now = 1008.0
+IE_TRACE:     19:12:20.681640 line       808         for d in durations:
+IE_TRACE:     Modified var:.. d = 0
+IE_TRACE:     19:12:20.681665 line       809             pc._update_next(now)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. self = <tornado.ioloop.PeriodicCallback object at 0x7d045415e6f0>
+IE_TRACE:         Starting var:.. current_time = 1008.0
+IE_TRACE:         19:12:20.681691 call      1219     def _update_next(self, current_time):
+IE_TRACE:         19:12:20.681720 line      1220         if self._next_timeout <= current_time:
+IE_TRACE:         19:12:20.681735 return    1220         if self._next_timeout <= current_time:
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/ioloop_test.py
+IE_TRACE:     19:12:20.681756 line       810             calls.append(pc._next_timeout)
+IE_TRACE:     Modified var:.. calls = [1010.0, 1010.0, 1010.0, 1010.0, 1010.0]
+IE_TRACE:     19:12:20.681782 line       811             now = pc._next_timeout + d
+IE_TRACE:     Modified var:.. now = 1010.0
+IE_TRACE:     19:12:20.681808 line       808         for d in durations:
+IE_TRACE:     19:12:20.681835 line       812         return calls
+IE_TRACE:     19:12:20.681857 return     812         return calls
+IE_TRACE:     Return value:.. [1010.0, 1010.0, 1010.0, 1010.0, 1010.0]
+IE_TRACE: 19:12:20.681887 line       843                          [1010, 1020, 1030, 1040, 1050])
+IE_TRACE: 19:12:20.681903 line       842         self.assertEqual(self.simulate_calls(pc, [-2, -1, -3, -2, 0]),
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/ioloop_test.py
+IE_TRACE: 19:12:20.980347 exception  842         self.assertEqual(self.simulate_calls(pc, [-2, -1, -3, -2, 0]),
+IE_TRACE: Exception:..... AssertionError: Lists differ: [1010.0, 1010.0, 1010.0, 1010.0, 1010.0] != [1010, 1020, 1030, 1040, 1050]
+
+First differing element 1:
+1010.0
+1020
+
+- [1010.0, 1010.0, 1010.0, 1010.0, 1010.0]
++ [1010, 1020, 1030, 1040, 1050]
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.300632
+======================================================================
+FAIL: test_clock_backwards (tornado.test.ioloop_test.TestPeriodicCallbackMath.test_clock_backwards)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/test/ioloop_test.py", line 842, in test_clock_backwards
+    self.assertEqual(self.simulate_calls(pc, [-2, -1, -3, -2, 0]),
+AssertionError: Lists differ: [1010.0, 1010.0, 1010.0, 1010.0, 1010.0] != [1010, 1020, 1030, 1040, 1050]
+
+First differing element 1:
+1010.0
+1020
+
+- [1010.0, 1010.0, 1010.0, 1010.0, 1010.0]
++ [1010, 1020, 1030, 1040, 1050]
+
+----------------------------------------------------------------------
+Ran 1 test in 0.301s
+
+FAILED (failures=1)
+
+
+Exit code: 1

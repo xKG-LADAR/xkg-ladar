@@ -1,0 +1,1354 @@
+Cleared: /path/to/results/scrapy/bug26
+Running: python -m unittest -q tests.test_settings.__init__.BaseSettingsTest.test_getcomposite
+Workdir: /path/to/BugsInPy/workspace/scrapy
+PYTHONPATH: /path/to/BugsInPy/workspace/scrapy::
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_settings/__init__.py
+IE_TRACE: Starting var:.. self = <tests.test_settings.__init__.BaseSettingsTest testMethod=test_getcomposite>
+IE_TRACE: 12:38:54.831618 call       257     def test_getcomposite(self):
+IE_TRACE: 12:38:54.831816 line       258         s = BaseSettings({'TEST_BASE': {1: 1, 2: 2},
+IE_TRACE: 12:38:54.831844 line       259                           'TEST': BaseSettings({1: 10, 3: 30}, 'default'),
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. values = {1: 10, 3: 30}
+IE_TRACE:     Starting var:.. priority = 'default'
+IE_TRACE:     12:38:54.831867 call        90     def __init__(self, values=None, priority='project'):
+IE_TRACE:     12:38:54.831962 line        91         self.frozen = False
+IE_TRACE:     12:38:54.831985 line        92         self.attributes = {}
+IE_TRACE:     Modified var:.. self = <BaseSettings {}>
+IE_TRACE:     12:38:54.832003 line        93         self.update(values, priority)
+IE_TRACE:         Starting var:.. self = <BaseSettings {}>
+IE_TRACE:         Starting var:.. values = {1: 10, 3: 30}
+IE_TRACE:         Starting var:.. priority = 'default'
+IE_TRACE:         12:38:54.832030 call       293     def update(self, values, priority='project'):
+IE_TRACE:         12:38:54.832062 line       315         self._assert_mutability()
+IE_TRACE:             Starting var:.. self = <BaseSettings {}>
+IE_TRACE:             12:38:54.832080 call       336     def _assert_mutability(self):
+IE_TRACE:             12:38:54.832099 line       337         if self.frozen:
+IE_TRACE:             12:38:54.832112 return     337         if self.frozen:
+IE_TRACE:             Return value:.. None
+IE_TRACE:         12:38:54.832132 line       316         if isinstance(values, six.string_types):
+IE_TRACE:         12:38:54.832149 line       318         if values is not None:
+IE_TRACE:         12:38:54.832163 line       319             if isinstance(values, BaseSettings):
+IE_TRACE:             Source path:... <frozen abc>
+IE_TRACE:             Starting var:.. cls = <class 'scrapy.settings.BaseSettings'>
+IE_TRACE:             Starting var:.. instance = {1: 10, 3: 30}
+IE_TRACE:             12:38:54.832179 call       117 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:38:54.832257 line       119 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Starting var:.. cls = <class 'scrapy.settings.BaseSettings'>
+IE_TRACE:                 Starting var:.. subclass = <class 'dict'>
+IE_TRACE:                 12:38:54.832274 call       121 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:38:54.832299 line       123 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Source path:... <frozen _collections_abc>
+IE_TRACE:                     Starting var:.. cls = <class 'scrapy.settings.BaseSettings'>
+IE_TRACE:                     Starting var:.. C = <class 'dict'>
+IE_TRACE:                     12:38:54.832315 call       435 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:38:54.832351 line       437 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:38:54.832366 line       439 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:38:54.832379 return     439 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. NotImplemented
+IE_TRACE:                     Source path:... <frozen abc>
+IE_TRACE:                     Starting var:.. cls = <class 'scrapy.settings.Settings'>
+IE_TRACE:                     Starting var:.. subclass = <class 'dict'>
+IE_TRACE:                     12:38:54.832400 call       121 SOURCE IS UNAVAILABLE
+IE_TRACE:     [CONDENSED] 1 identical loop iterations skipped (3 total iterations, showing first and last)
+IE_TRACE:                         12:38:54.832533 line       123 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Source path:... <frozen _collections_abc>
+IE_TRACE:                             Starting var:.. cls = <class 'scrapy.settings.CrawlerSettings'>
+IE_TRACE:                             Starting var:.. C = <class 'dict'>
+IE_TRACE:                             12:38:54.832547 call       435 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:38:54.832571 line       437 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:38:54.832585 line       439 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:38:54.832598 return     439 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. NotImplemented
+IE_TRACE:                             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/deprecate.py
+IE_TRACE:                             Starting var:.. cls = <class 'scrapy.settings.CrawlerSettings'>
+IE_TRACE:                             Starting var:.. sub = <class 'dict'>
+IE_TRACE:                             Starting var:.. DeprecatedClass = <class 'scrapy.utils.deprecate.create_deprecated_class.<locals>.DeprecatedClass'>
+IE_TRACE:                             Starting var:.. __class__ = <class 'scrapy.utils.deprecate.create_deprecated_class.<locals>.DeprecatedClass'>
+IE_TRACE:                             Starting var:.. new_class = <class 'scrapy.settings.CrawlerSettings'>
+IE_TRACE:                             12:38:54.832620 call        81         def __subclasscheck__(cls, sub):
+IE_TRACE:                             12:38:54.832697 line        82             if cls is not DeprecatedClass.deprecated_class:
+IE_TRACE:                             12:38:54.832718 line        89             if not inspect.isclass(sub):
+IE_TRACE:                             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/deprecate.py
+IE_TRACE:                             12:38:54.833009 line        92             mro = getattr(sub, '__mro__', ())
+IE_TRACE:                             New var:....... mro = (<class 'dict'>, <class 'object'>)
+IE_TRACE:                             12:38:54.833033 line        93             return any(c in {cls, new_class} for c in mro)
+IE_TRACE:                                 Starting var:.. .0 = <tuple_iterator object at 0x7b2110fe5c00>
+IE_TRACE:                                 Starting var:.. cls = <class 'scrapy.settings.CrawlerSettings'>
+IE_TRACE:                                 Starting var:.. new_class = <class 'scrapy.settings.CrawlerSettings'>
+IE_TRACE:                                 12:38:54.833062 call        93             return any(c in {cls, new_class} for c in mro)
+IE_TRACE:                                 12:38:54.833092 line        93             return any(c in {cls, new_class} for c in mro)
+IE_TRACE:                                 New var:....... c = <class 'dict'>
+IE_TRACE:                                 12:38:54.833109 return      93             return any(c in {cls, new_class} for c in mro)
+IE_TRACE:                                 Return value:.. False
+IE_TRACE:                                 Starting var:.. .0 = <tuple_iterator object at 0x7b2110fe5c00>
+IE_TRACE:                                 Starting var:.. c = <class 'dict'>
+IE_TRACE:                                 Starting var:.. cls = <class 'scrapy.settings.CrawlerSettings'>
+IE_TRACE:                                 Starting var:.. new_class = <class 'scrapy.settings.CrawlerSettings'>
+IE_TRACE:                                 12:38:54.833135 call        93             return any(c in {cls, new_class} for c in mro)
+IE_TRACE:                                 12:38:54.833165 line        93             return any(c in {cls, new_class} for c in mro)
+IE_TRACE:                                 Modified var:.. c = <class 'object'>
+IE_TRACE:                                 12:38:54.833181 return      93             return any(c in {cls, new_class} for c in mro)
+IE_TRACE:                                 Return value:.. False
+IE_TRACE:                                 Starting var:.. .0 = <tuple_iterator object at 0x7b2110fe5c00>
+IE_TRACE:                                 Starting var:.. c = <class 'object'>
+IE_TRACE:                                 Starting var:.. cls = <class 'scrapy.settings.CrawlerSettings'>
+IE_TRACE:                                 Starting var:.. new_class = <class 'scrapy.settings.CrawlerSettings'>
+IE_TRACE:                                 12:38:54.833212 call        93             return any(c in {cls, new_class} for c in mro)
+IE_TRACE:                                 12:38:54.833241 line        93             return any(c in {cls, new_class} for c in mro)
+IE_TRACE:                                 12:38:54.833258 return      93             return any(c in {cls, new_class} for c in mro)
+IE_TRACE:                                 Return value:.. None
+IE_TRACE:                             12:38:54.833280 return      93             return any(c in {cls, new_class} for c in mro)
+IE_TRACE:                             Return value:.. False
+IE_TRACE:                         Source path:... <frozen abc>
+IE_TRACE:                         12:38:54.833308 return     123 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Return value:.. False
+IE_TRACE:                     12:38:54.833333 return     123 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. False
+IE_TRACE:                 12:38:54.833350 return     123 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Return value:.. False
+IE_TRACE:             12:38:54.833368 return     119 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. False
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:         12:38:54.833387 line       323                 for name, value in six.iteritems(values):
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/six.py
+IE_TRACE:             Starting var:.. d = {1: 10, 3: 30}
+IE_TRACE:             Starting var:.. kw = {}
+IE_TRACE:             12:38:54.833411 call       588     def iteritems(d, **kw):
+IE_TRACE:             12:38:54.833511 line       589         return iter(d.items(**kw))
+IE_TRACE:             12:38:54.833526 return     589         return iter(d.items(**kw))
+IE_TRACE:             Return value:.. <dict_itemiterator object at 0x7b2110e6f100>
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:         New var:....... name = 1
+IE_TRACE:         New var:....... value = 10
+IE_TRACE:         12:38:54.833545 line       324                     self.set(name, value, priority)
+IE_TRACE:             Starting var:.. self = <BaseSettings {}>
+IE_TRACE:             Starting var:.. name = 1
+IE_TRACE:             Starting var:.. value = 10
+IE_TRACE:             Starting var:.. priority = 'default'
+IE_TRACE:             12:38:54.833577 call       240     def set(self, name, value, priority='project'):
+IE_TRACE:             12:38:54.833608 line       258         self._assert_mutability()
+IE_TRACE:                 Starting var:.. self = <BaseSettings {}>
+IE_TRACE:                 12:38:54.833624 call       336     def _assert_mutability(self):
+IE_TRACE:                 12:38:54.833639 line       337         if self.frozen:
+IE_TRACE:                 12:38:54.833651 return     337         if self.frozen:
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             12:38:54.833668 line       259         priority = get_settings_priority(priority)
+IE_TRACE:                 Starting var:.. priority = 'default'
+IE_TRACE:                 12:38:54.833684 call        23 def get_settings_priority(priority):
+IE_TRACE:                 12:38:54.833700 line        29     if isinstance(priority, six.string_types):
+IE_TRACE:                 12:38:54.833712 line        30         return SETTINGS_PRIORITIES[priority]
+IE_TRACE:                 12:38:54.833723 return      30         return SETTINGS_PRIORITIES[priority]
+IE_TRACE:                 Return value:.. 0
+IE_TRACE:             Modified var:.. priority = 0
+IE_TRACE:             12:38:54.833739 line       260         if name not in self:
+IE_TRACE:                 Starting var:.. self = <BaseSettings {}>
+IE_TRACE:                 Starting var:.. name = 1
+IE_TRACE:                 12:38:54.833758 call       101     def __contains__(self, name):
+IE_TRACE:                 12:38:54.833779 line       102         return name in self.attributes
+IE_TRACE:                 12:38:54.833792 return     102         return name in self.attributes
+IE_TRACE:                 Return value:.. False
+IE_TRACE:             12:38:54.833809 line       261             if isinstance(value, SettingsAttribute):
+IE_TRACE:             12:38:54.833824 line       264                 self.attributes[name] = SettingsAttribute(value, priority)
+IE_TRACE:                 Starting var:.. self = REPR FAILED
+IE_TRACE:                 Starting var:.. value = 10
+IE_TRACE:                 Starting var:.. priority = 0
+IE_TRACE:                 12:38:54.833842 call        43     def __init__(self, value, priority):
+IE_TRACE:                 12:38:54.833870 line        44         self.value = value
+IE_TRACE:                 12:38:54.833886 line        45         if isinstance(self.value, BaseSettings):
+IE_TRACE:                     Source path:... <frozen abc>
+IE_TRACE:                     Starting var:.. cls = <class 'scrapy.settings.BaseSettings'>
+IE_TRACE:                     Starting var:.. instance = 10
+IE_TRACE:                     12:38:54.833902 call       117 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:38:54.833927 line       119 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Starting var:.. cls = <class 'scrapy.settings.BaseSettings'>
+IE_TRACE:                         Starting var:.. subclass = <class 'int'>
+IE_TRACE:                         12:38:54.833942 call       121 SOURCE IS UNAVAILABLE
+IE_TRACE:                         12:38:54.833963 line       123 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Source path:... <frozen _collections_abc>
+IE_TRACE:                             Starting var:.. cls = <class 'scrapy.settings.BaseSettings'>
+IE_TRACE:                             Starting var:.. C = <class 'int'>
+IE_TRACE:                             12:38:54.833978 call       435 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:38:54.834002 line       437 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:38:54.834015 line       439 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:38:54.834028 return     439 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. NotImplemented
+IE_TRACE:                             Source path:... <frozen abc>
+IE_TRACE:                             Starting var:.. cls = <class 'scrapy.settings.Settings'>
+IE_TRACE:                             Starting var:.. subclass = <class 'int'>
+IE_TRACE:                             12:38:54.834047 call       121 SOURCE IS UNAVAILABLE
+IE_TRACE:     [CONDENSED] 1 identical loop iterations skipped (3 total iterations, showing first and last)
+IE_TRACE:                                 12:38:54.834176 line       123 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Source path:... <frozen _collections_abc>
+IE_TRACE:                                     Starting var:.. cls = <class 'scrapy.settings.CrawlerSettings'>
+IE_TRACE:                                     Starting var:.. C = <class 'int'>
+IE_TRACE:                                     12:38:54.834190 call       435 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:38:54.834217 line       437 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:38:54.834230 line       439 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:38:54.834243 return     439 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. NotImplemented
+IE_TRACE:                                     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/deprecate.py
+IE_TRACE:                                     Starting var:.. cls = <class 'scrapy.settings.CrawlerSettings'>
+IE_TRACE:                                     Starting var:.. sub = <class 'int'>
+IE_TRACE:                                     Starting var:.. DeprecatedClass = <class 'scrapy.utils.deprecate.create_deprecated_class.<locals>.DeprecatedClass'>
+IE_TRACE:                                     Starting var:.. __class__ = <class 'scrapy.utils.deprecate.create_deprecated_class.<locals>.DeprecatedClass'>
+IE_TRACE:                                     Starting var:.. new_class = <class 'scrapy.settings.CrawlerSettings'>
+IE_TRACE:                                     12:38:54.834262 call        81         def __subclasscheck__(cls, sub):
+IE_TRACE:                                     12:38:54.834302 line        82             if cls is not DeprecatedClass.deprecated_class:
+IE_TRACE:                                     12:38:54.834320 line        89             if not inspect.isclass(sub):
+IE_TRACE:                                     12:38:54.834342 line        92             mro = getattr(sub, '__mro__', ())
+IE_TRACE:                                     New var:....... mro = (<class 'int'>, <class 'object'>)
+IE_TRACE:                                     12:38:54.834360 line        93             return any(c in {cls, new_class} for c in mro)
+IE_TRACE:                                     12:38:54.834394 return      93             return any(c in {cls, new_class} for c in mro)
+IE_TRACE:                                     Return value:.. False
+IE_TRACE:                                 Source path:... <frozen abc>
+IE_TRACE:                                 12:38:54.834420 return     123 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. False
+IE_TRACE:                             12:38:54.834443 return     123 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. False
+IE_TRACE:                         12:38:54.834461 return     123 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Return value:.. False
+IE_TRACE:                     12:38:54.834479 return     119 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. False
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:                 12:38:54.834496 line        48             self.priority = priority
+IE_TRACE:                 Modified var:.. self = <SettingsAttribute value=10 priority=0>
+IE_TRACE:                 12:38:54.834516 return      48             self.priority = priority
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Modified var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>}>
+IE_TRACE:             12:38:54.834540 return     264                 self.attributes[name] = SettingsAttribute(value, priority)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Modified var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>}>
+IE_TRACE:         12:38:54.834566 line       323                 for name, value in six.iteritems(values):
+IE_TRACE:         Modified var:.. name = 3
+IE_TRACE:         Modified var:.. value = 30
+IE_TRACE:         12:38:54.834589 line       324                     self.set(name, value, priority)
+IE_TRACE:             Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>}>
+IE_TRACE:             Starting var:.. name = 3
+IE_TRACE:             Starting var:.. value = 30
+IE_TRACE:             Starting var:.. priority = 'default'
+IE_TRACE:             12:38:54.834614 call       240     def set(self, name, value, priority='project'):
+IE_TRACE:             12:38:54.834644 line       258         self._assert_mutability()
+IE_TRACE:                 Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>}>
+IE_TRACE:                 12:38:54.834661 call       336     def _assert_mutability(self):
+IE_TRACE:                 12:38:54.834677 line       337         if self.frozen:
+IE_TRACE:                 12:38:54.834690 return     337         if self.frozen:
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             12:38:54.834708 line       259         priority = get_settings_priority(priority)
+IE_TRACE:                 Starting var:.. priority = 'default'
+IE_TRACE:                 12:38:54.834724 call        23 def get_settings_priority(priority):
+IE_TRACE:                 12:38:54.834739 line        29     if isinstance(priority, six.string_types):
+IE_TRACE:                 12:38:54.834750 line        30         return SETTINGS_PRIORITIES[priority]
+IE_TRACE:                 12:38:54.834761 return      30         return SETTINGS_PRIORITIES[priority]
+IE_TRACE:                 Return value:.. 0
+IE_TRACE:             Modified var:.. priority = 0
+IE_TRACE:             12:38:54.834777 line       260         if name not in self:
+IE_TRACE:                 Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>}>
+IE_TRACE:                 Starting var:.. name = 3
+IE_TRACE:                 12:38:54.834796 call       101     def __contains__(self, name):
+IE_TRACE:                 12:38:54.834816 line       102         return name in self.attributes
+IE_TRACE:                 12:38:54.834830 return     102         return name in self.attributes
+IE_TRACE:                 Return value:.. False
+IE_TRACE:             12:38:54.834848 line       261             if isinstance(value, SettingsAttribute):
+IE_TRACE:             12:38:54.834863 line       264                 self.attributes[name] = SettingsAttribute(value, priority)
+IE_TRACE:                 Starting var:.. self = REPR FAILED
+IE_TRACE:                 Starting var:.. value = 30
+IE_TRACE:                 Starting var:.. priority = 0
+IE_TRACE:                 12:38:54.834880 call        43     def __init__(self, value, priority):
+IE_TRACE:                 12:38:54.834906 line        44         self.value = value
+IE_TRACE:                 12:38:54.834921 line        45         if isinstance(self.value, BaseSettings):
+IE_TRACE:                     Source path:... <frozen abc>
+IE_TRACE:                     Starting var:.. cls = <class 'scrapy.settings.BaseSettings'>
+IE_TRACE:                     Starting var:.. instance = 30
+IE_TRACE:                     12:38:54.834936 call       117 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:38:54.834960 line       119 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:38:54.834973 return     119 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. False
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:                 12:38:54.834990 line        48             self.priority = priority
+IE_TRACE:                 Modified var:.. self = <SettingsAttribute value=30 priority=0>
+IE_TRACE:                 12:38:54.835009 return      48             self.priority = priority
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Modified var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:             12:38:54.835031 return     264                 self.attributes[name] = SettingsAttribute(value, priority)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Modified var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:         12:38:54.835056 line       323                 for name, value in six.iteritems(values):
+IE_TRACE:         12:38:54.835078 return     323                 for name, value in six.iteritems(values):
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Modified var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:     12:38:54.835102 return      93         self.update(values, priority)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_settings/__init__.py
+IE_TRACE: 12:38:54.835126 line       260                           'HASNOBASE': BaseSettings({1: 1}, 'default')})
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. values = {1: 1}
+IE_TRACE:     Starting var:.. priority = 'default'
+IE_TRACE:     12:38:54.835145 call        90     def __init__(self, values=None, priority='project'):
+IE_TRACE:     12:38:54.835175 line        91         self.frozen = False
+IE_TRACE:     12:38:54.835189 line        92         self.attributes = {}
+IE_TRACE:     Modified var:.. self = <BaseSettings {}>
+IE_TRACE:     12:38:54.835205 line        93         self.update(values, priority)
+IE_TRACE:         Starting var:.. self = <BaseSettings {}>
+IE_TRACE:         Starting var:.. values = {1: 1}
+IE_TRACE:         Starting var:.. priority = 'default'
+IE_TRACE:         12:38:54.835222 call       293     def update(self, values, priority='project'):
+IE_TRACE:         12:38:54.835246 line       315         self._assert_mutability()
+IE_TRACE:             Starting var:.. self = <BaseSettings {}>
+IE_TRACE:             12:38:54.835260 call       336     def _assert_mutability(self):
+IE_TRACE:             12:38:54.835275 line       337         if self.frozen:
+IE_TRACE:             12:38:54.835286 return     337         if self.frozen:
+IE_TRACE:             Return value:.. None
+IE_TRACE:         12:38:54.835302 line       316         if isinstance(values, six.string_types):
+IE_TRACE:         12:38:54.835316 line       318         if values is not None:
+IE_TRACE:         12:38:54.835330 line       319             if isinstance(values, BaseSettings):
+IE_TRACE:             Source path:... <frozen abc>
+IE_TRACE:             Starting var:.. cls = <class 'scrapy.settings.BaseSettings'>
+IE_TRACE:             Starting var:.. instance = {1: 1}
+IE_TRACE:             12:38:54.835344 call       117 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:38:54.835367 line       119 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:38:54.835380 return     119 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. False
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:         12:38:54.835397 line       323                 for name, value in six.iteritems(values):
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/six.py
+IE_TRACE:             Starting var:.. d = {1: 1}
+IE_TRACE:             Starting var:.. kw = {}
+IE_TRACE:             12:38:54.835415 call       588     def iteritems(d, **kw):
+IE_TRACE:             12:38:54.835438 line       589         return iter(d.items(**kw))
+IE_TRACE:             12:38:54.835451 return     589         return iter(d.items(**kw))
+IE_TRACE:             Return value:.. <dict_itemiterator object at 0x7b2110e6f650>
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:         New var:....... name = 1
+IE_TRACE:         New var:....... value = 1
+IE_TRACE:         12:38:54.835469 line       324                     self.set(name, value, priority)
+IE_TRACE:             Starting var:.. self = <BaseSettings {}>
+IE_TRACE:             Starting var:.. name = 1
+IE_TRACE:             Starting var:.. value = 1
+IE_TRACE:             Starting var:.. priority = 'default'
+IE_TRACE:             12:38:54.835496 call       240     def set(self, name, value, priority='project'):
+IE_TRACE:             12:38:54.835523 line       258         self._assert_mutability()
+IE_TRACE:                 Starting var:.. self = <BaseSettings {}>
+IE_TRACE:                 12:38:54.835538 call       336     def _assert_mutability(self):
+IE_TRACE:                 12:38:54.835553 line       337         if self.frozen:
+IE_TRACE:                 12:38:54.835565 return     337         if self.frozen:
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             12:38:54.835580 line       259         priority = get_settings_priority(priority)
+IE_TRACE:                 Starting var:.. priority = 'default'
+IE_TRACE:                 12:38:54.835595 call        23 def get_settings_priority(priority):
+IE_TRACE:                 12:38:54.835609 line        29     if isinstance(priority, six.string_types):
+IE_TRACE:                 12:38:54.835621 line        30         return SETTINGS_PRIORITIES[priority]
+IE_TRACE:                 12:38:54.835631 return      30         return SETTINGS_PRIORITIES[priority]
+IE_TRACE:                 Return value:.. 0
+IE_TRACE:             Modified var:.. priority = 0
+IE_TRACE:             12:38:54.835647 line       260         if name not in self:
+IE_TRACE:                 Starting var:.. self = <BaseSettings {}>
+IE_TRACE:                 Starting var:.. name = 1
+IE_TRACE:                 12:38:54.835665 call       101     def __contains__(self, name):
+IE_TRACE:                 12:38:54.835685 line       102         return name in self.attributes
+IE_TRACE:                 12:38:54.835697 return     102         return name in self.attributes
+IE_TRACE:                 Return value:.. False
+IE_TRACE:             12:38:54.835714 line       261             if isinstance(value, SettingsAttribute):
+IE_TRACE:             12:38:54.835728 line       264                 self.attributes[name] = SettingsAttribute(value, priority)
+IE_TRACE:                 Starting var:.. self = REPR FAILED
+IE_TRACE:                 Starting var:.. value = 1
+IE_TRACE:                 Starting var:.. priority = 0
+IE_TRACE:                 12:38:54.835743 call        43     def __init__(self, value, priority):
+IE_TRACE:                 12:38:54.835768 line        44         self.value = value
+IE_TRACE:                 12:38:54.835783 line        45         if isinstance(self.value, BaseSettings):
+IE_TRACE:                     Source path:... <frozen abc>
+IE_TRACE:                     Starting var:.. cls = <class 'scrapy.settings.BaseSettings'>
+IE_TRACE:                     Starting var:.. instance = 1
+IE_TRACE:                     12:38:54.835798 call       117 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:38:54.835823 line       119 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:38:54.835836 return     119 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. False
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:                 12:38:54.835853 line        48             self.priority = priority
+IE_TRACE:                 Modified var:.. self = <SettingsAttribute value=1 priority=0>
+IE_TRACE:                 12:38:54.835872 return      48             self.priority = priority
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Modified var:.. self = <BaseSettings {1: <SettingsAttribute value=1 priority=0>}>
+IE_TRACE:             12:38:54.835895 return     264                 self.attributes[name] = SettingsAttribute(value, priority)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Modified var:.. self = <BaseSettings {1: <SettingsAttribute value=1 priority=0>}>
+IE_TRACE:         12:38:54.835919 line       323                 for name, value in six.iteritems(values):
+IE_TRACE:         12:38:54.835940 return     323                 for name, value in six.iteritems(values):
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Modified var:.. self = <BaseSettings {1: <SettingsAttribute value=1 priority=0>}>
+IE_TRACE:     12:38:54.835961 return      93         self.update(values, priority)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_settings/__init__.py
+IE_TRACE: 12:38:54.835982 line       258         s = BaseSettings({'TEST_BASE': {1: 1, 2: 2},
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. values = {'TEST_BASE': {1: 1, 2: 2}, 'TEST': <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>, 'HASNOBASE': <BaseSettings {1: <SettingsAttribute value=1 priority=0>}>}
+IE_TRACE:     Starting var:.. priority = 'project'
+IE_TRACE:     12:38:54.836000 call        90     def __init__(self, values=None, priority='project'):
+IE_TRACE:     12:38:54.836034 line        91         self.frozen = False
+IE_TRACE:     12:38:54.836051 line        92         self.attributes = {}
+IE_TRACE:     Modified var:.. self = <BaseSettings {}>
+IE_TRACE:     12:38:54.836069 line        93         self.update(values, priority)
+IE_TRACE:         Starting var:.. self = <BaseSettings {}>
+IE_TRACE:         Starting var:.. values = {'TEST_BASE': {1: 1, 2: 2}, 'TEST': <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>, 'HASNOBASE': <BaseSettings {1: <SettingsAttribute value=1 priority=0>}>}
+IE_TRACE:         Starting var:.. priority = 'project'
+IE_TRACE:         12:38:54.836090 call       293     def update(self, values, priority='project'):
+IE_TRACE:         12:38:54.836118 line       315         self._assert_mutability()
+IE_TRACE:             Starting var:.. self = <BaseSettings {}>
+IE_TRACE:             12:38:54.836136 call       336     def _assert_mutability(self):
+IE_TRACE:             12:38:54.836150 line       337         if self.frozen:
+IE_TRACE:             12:38:54.836162 return     337         if self.frozen:
+IE_TRACE:             Return value:.. None
+IE_TRACE:         12:38:54.836177 line       316         if isinstance(values, six.string_types):
+IE_TRACE:         12:38:54.836196 line       318         if values is not None:
+IE_TRACE:         12:38:54.836213 line       319             if isinstance(values, BaseSettings):
+IE_TRACE:             Source path:... <frozen abc>
+IE_TRACE:             Starting var:.. cls = <class 'scrapy.settings.BaseSettings'>
+IE_TRACE:             Starting var:.. instance = {'TEST_BASE': {1: 1, 2: 2}, 'TEST': <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>, 'HASNOBASE': <BaseSettings {1: <SettingsAttribute value=1 priority=0>}>}
+IE_TRACE:             12:38:54.836230 call       117 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:38:54.836258 line       119 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:38:54.836275 return     119 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. False
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:         12:38:54.836295 line       323                 for name, value in six.iteritems(values):
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/six.py
+IE_TRACE:             Starting var:.. d = {'TEST_BASE': {1: 1, 2: 2}, 'TEST': <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>, 'HASNOBASE': <BaseSettings {1: <SettingsAttribute value=1 priority=0>}>}
+IE_TRACE:             Starting var:.. kw = {}
+IE_TRACE:             12:38:54.836317 call       588     def iteritems(d, **kw):
+IE_TRACE:             12:38:54.836344 line       589         return iter(d.items(**kw))
+IE_TRACE:             12:38:54.836360 return     589         return iter(d.items(**kw))
+IE_TRACE:             Return value:.. <dict_itemiterator object at 0x7b2110e6f100>
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:         New var:....... name = 'TEST_BASE'
+IE_TRACE:         New var:....... value = {1: 1, 2: 2}
+IE_TRACE:         12:38:54.836381 line       324                     self.set(name, value, priority)
+IE_TRACE:             Starting var:.. self = <BaseSettings {}>
+IE_TRACE:             Starting var:.. name = 'TEST_BASE'
+IE_TRACE:             Starting var:.. value = {1: 1, 2: 2}
+IE_TRACE:             Starting var:.. priority = 'project'
+IE_TRACE:             12:38:54.836412 call       240     def set(self, name, value, priority='project'):
+IE_TRACE:             12:38:54.836443 line       258         self._assert_mutability()
+IE_TRACE:                 Starting var:.. self = <BaseSettings {}>
+IE_TRACE:                 12:38:54.836458 call       336     def _assert_mutability(self):
+IE_TRACE:                 12:38:54.836473 line       337         if self.frozen:
+IE_TRACE:                 12:38:54.836485 return     337         if self.frozen:
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             12:38:54.836500 line       259         priority = get_settings_priority(priority)
+IE_TRACE:                 Starting var:.. priority = 'project'
+IE_TRACE:                 12:38:54.836515 call        23 def get_settings_priority(priority):
+IE_TRACE:                 12:38:54.836530 line        29     if isinstance(priority, six.string_types):
+IE_TRACE:                 12:38:54.836541 line        30         return SETTINGS_PRIORITIES[priority]
+IE_TRACE:                 12:38:54.836552 return      30         return SETTINGS_PRIORITIES[priority]
+IE_TRACE:                 Return value:.. 20
+IE_TRACE:             Modified var:.. priority = 20
+IE_TRACE:             12:38:54.836567 line       260         if name not in self:
+IE_TRACE:                 Starting var:.. self = <BaseSettings {}>
+IE_TRACE:                 Starting var:.. name = 'TEST_BASE'
+IE_TRACE:                 12:38:54.836586 call       101     def __contains__(self, name):
+IE_TRACE:                 12:38:54.836605 line       102         return name in self.attributes
+IE_TRACE:                 12:38:54.836618 return     102         return name in self.attributes
+IE_TRACE:                 Return value:.. False
+IE_TRACE:             12:38:54.836635 line       261             if isinstance(value, SettingsAttribute):
+IE_TRACE:             12:38:54.836650 line       264                 self.attributes[name] = SettingsAttribute(value, priority)
+IE_TRACE:                 Starting var:.. self = REPR FAILED
+IE_TRACE:                 Starting var:.. value = {1: 1, 2: 2}
+IE_TRACE:                 Starting var:.. priority = 20
+IE_TRACE:                 12:38:54.836666 call        43     def __init__(self, value, priority):
+IE_TRACE:                 12:38:54.836691 line        44         self.value = value
+IE_TRACE:                 12:38:54.836706 line        45         if isinstance(self.value, BaseSettings):
+IE_TRACE:                     Source path:... <frozen abc>
+IE_TRACE:                     Starting var:.. cls = <class 'scrapy.settings.BaseSettings'>
+IE_TRACE:                     Starting var:.. instance = {1: 1, 2: 2}
+IE_TRACE:                     12:38:54.836722 call       117 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:38:54.836747 line       119 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:38:54.836760 return     119 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. False
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:                 12:38:54.836778 line        48             self.priority = priority
+IE_TRACE:                 Modified var:.. self = <SettingsAttribute value={1: 1, 2: 2} priority=20>
+IE_TRACE:                 12:38:54.836797 return      48             self.priority = priority
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Modified var:.. self = <BaseSettings {'TEST_BASE': <SettingsAttribute value={1: 1, 2: 2} priority=20>}>
+IE_TRACE:             12:38:54.836820 return     264                 self.attributes[name] = SettingsAttribute(value, priority)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Modified var:.. self = <BaseSettings {'TEST_BASE': <SettingsAttribute value={1: 1, 2: 2} priority=20>}>
+IE_TRACE:         12:38:54.836845 line       323                 for name, value in six.iteritems(values):
+IE_TRACE:         Modified var:.. name = 'TEST'
+IE_TRACE:         Modified var:.. value = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:         12:38:54.836870 line       324                     self.set(name, value, priority)
+IE_TRACE:             Starting var:.. self = <BaseSettings {'TEST_BASE': <SettingsAttribute value={1: 1, 2: 2} priority=20>}>
+IE_TRACE:             Starting var:.. name = 'TEST'
+IE_TRACE:             Starting var:.. value = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:             Starting var:.. priority = 'project'
+IE_TRACE:             12:38:54.836900 call       240     def set(self, name, value, priority='project'):
+IE_TRACE:             12:38:54.836932 line       258         self._assert_mutability()
+IE_TRACE:                 Starting var:.. self = <BaseSettings {'TEST_BASE': <SettingsAttribute value={1: 1, 2: 2} priority=20>}>
+IE_TRACE:                 12:38:54.836951 call       336     def _assert_mutability(self):
+IE_TRACE:                 12:38:54.836967 line       337         if self.frozen:
+IE_TRACE:                 12:38:54.836980 return     337         if self.frozen:
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             12:38:54.836997 line       259         priority = get_settings_priority(priority)
+IE_TRACE:                 Starting var:.. priority = 'project'
+IE_TRACE:                 12:38:54.837017 call        23 def get_settings_priority(priority):
+IE_TRACE:                 12:38:54.837033 line        29     if isinstance(priority, six.string_types):
+IE_TRACE:                 12:38:54.837044 line        30         return SETTINGS_PRIORITIES[priority]
+IE_TRACE:                 12:38:54.837055 return      30         return SETTINGS_PRIORITIES[priority]
+IE_TRACE:                 Return value:.. 20
+IE_TRACE:             Modified var:.. priority = 20
+IE_TRACE:             12:38:54.837071 line       260         if name not in self:
+IE_TRACE:                 Starting var:.. self = <BaseSettings {'TEST_BASE': <SettingsAttribute value={1: 1, 2: 2} priority=20>}>
+IE_TRACE:                 Starting var:.. name = 'TEST'
+IE_TRACE:                 12:38:54.837093 call       101     def __contains__(self, name):
+IE_TRACE:                 12:38:54.837114 line       102         return name in self.attributes
+IE_TRACE:                 12:38:54.837127 return     102         return name in self.attributes
+IE_TRACE:                 Return value:.. False
+IE_TRACE:             12:38:54.837145 line       261             if isinstance(value, SettingsAttribute):
+IE_TRACE:             12:38:54.837163 line       264                 self.attributes[name] = SettingsAttribute(value, priority)
+IE_TRACE:                 Starting var:.. self = REPR FAILED
+IE_TRACE:                 Starting var:.. value = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:                 Starting var:.. priority = 20
+IE_TRACE:                 12:38:54.837181 call        43     def __init__(self, value, priority):
+IE_TRACE:                 12:38:54.837213 line        44         self.value = value
+IE_TRACE:                 12:38:54.837229 line        45         if isinstance(self.value, BaseSettings):
+IE_TRACE:                 12:38:54.837248 line        46             self.priority = max(self.value.maxpriority(), priority)
+IE_TRACE:                     Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:                     12:38:54.837269 call       225     def maxpriority(self):
+IE_TRACE:                     12:38:54.837288 line       232         if len(self) > 0:
+IE_TRACE:                         Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:                         12:38:54.837303 call       375     def __len__(self):
+IE_TRACE:                         12:38:54.837321 line       376         return len(self.attributes)
+IE_TRACE:                         12:38:54.837335 return     376         return len(self.attributes)
+IE_TRACE:                         Return value:.. 2
+IE_TRACE:                     12:38:54.837354 line       233             return max(self.getpriority(name) for name in self)
+IE_TRACE:                         Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:                         12:38:54.837369 call       372     def __iter__(self):
+IE_TRACE:                         12:38:54.837386 line       373         return iter(self.attributes)
+IE_TRACE:                         12:38:54.837400 return     373         return iter(self.attributes)
+IE_TRACE:                         Return value:.. <dict_keyiterator object at 0x7b2110e6f560>
+IE_TRACE:                         Starting var:.. .0 = <dict_keyiterator object at 0x7b2110e6f560>
+IE_TRACE:                         Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:                         12:38:54.837421 call       233             return max(self.getpriority(name) for name in self)
+IE_TRACE:                         12:38:54.837445 line       233             return max(self.getpriority(name) for name in self)
+IE_TRACE:                             Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:                             Starting var:.. name = 1
+IE_TRACE:                             12:38:54.837464 call       212     def getpriority(self, name):
+IE_TRACE:                             12:38:54.837487 line       220         prio = None
+IE_TRACE:                             New var:....... prio = None
+IE_TRACE:                             12:38:54.837502 line       221         if name in self:
+IE_TRACE:                                 Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:                                 Starting var:.. name = 1
+IE_TRACE:                                 12:38:54.837523 call       101     def __contains__(self, name):
+IE_TRACE:                                 12:38:54.837545 line       102         return name in self.attributes
+IE_TRACE:                                 12:38:54.837561 return     102         return name in self.attributes
+IE_TRACE:                                 Return value:.. True
+IE_TRACE:                             12:38:54.837581 line       222             prio = self.attributes[name].priority
+IE_TRACE:                             Modified var:.. prio = 0
+IE_TRACE:                             12:38:54.837597 line       223         return prio
+IE_TRACE:                             12:38:54.837616 return     223         return prio
+IE_TRACE:                             Return value:.. 0
+IE_TRACE:                         New var:....... name = 1
+IE_TRACE:                         12:38:54.837638 return     233             return max(self.getpriority(name) for name in self)
+IE_TRACE:                         Return value:.. 0
+IE_TRACE:                         Starting var:.. .0 = <dict_keyiterator object at 0x7b2110e6f560>
+IE_TRACE:                         Starting var:.. name = 1
+IE_TRACE:                         Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:                         12:38:54.837663 call       233             return max(self.getpriority(name) for name in self)
+IE_TRACE:                         12:38:54.837690 line       233             return max(self.getpriority(name) for name in self)
+IE_TRACE:                             Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:                             Starting var:.. name = 3
+IE_TRACE:                             12:38:54.837708 call       212     def getpriority(self, name):
+IE_TRACE:                             12:38:54.837729 line       220         prio = None
+IE_TRACE:                             New var:....... prio = None
+IE_TRACE:                             12:38:54.837745 line       221         if name in self:
+IE_TRACE:                                 Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:                                 Starting var:.. name = 3
+IE_TRACE:                                 12:38:54.837764 call       101     def __contains__(self, name):
+IE_TRACE:                                 12:38:54.837786 line       102         return name in self.attributes
+IE_TRACE:                                 12:38:54.837801 return     102         return name in self.attributes
+IE_TRACE:                                 Return value:.. True
+IE_TRACE:                             12:38:54.837821 line       222             prio = self.attributes[name].priority
+IE_TRACE:                             Modified var:.. prio = 0
+IE_TRACE:                             12:38:54.837837 line       223         return prio
+IE_TRACE:                             12:38:54.837856 return     223         return prio
+IE_TRACE:                             Return value:.. 0
+IE_TRACE:                         Modified var:.. name = 3
+IE_TRACE:                         12:38:54.837876 return     233             return max(self.getpriority(name) for name in self)
+IE_TRACE:                         Return value:.. 0
+IE_TRACE:                         Starting var:.. .0 = <dict_keyiterator object at 0x7b2110e6f560>
+IE_TRACE:                         Starting var:.. name = 3
+IE_TRACE:                         Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:                         12:38:54.837900 call       233             return max(self.getpriority(name) for name in self)
+IE_TRACE:                         12:38:54.837927 line       233             return max(self.getpriority(name) for name in self)
+IE_TRACE:                         12:38:54.837943 return     233             return max(self.getpriority(name) for name in self)
+IE_TRACE:                         Return value:.. None
+IE_TRACE:                     12:38:54.837963 return     233             return max(self.getpriority(name) for name in self)
+IE_TRACE:                     Return value:.. 0
+IE_TRACE:                 Modified var:.. self = <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}> priority=20>
+IE_TRACE:                 12:38:54.837982 return      46             self.priority = max(self.value.maxpriority(), priority)
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Modified var:.. self = <BaseSettings {'TEST_BASE': <SettingsAttribute value={1: 1, 2: 2} priority=20>, 'TEST': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}> priority=20>}>
+IE_TRACE:             12:38:54.838009 return     264                 self.attributes[name] = SettingsAttribute(value, priority)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Modified var:.. self = <BaseSettings {'TEST_BASE': <SettingsAttribute value={1: 1, 2: 2} priority=20>, 'TEST': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}> priority=20>}>
+IE_TRACE:         12:38:54.838039 line       323                 for name, value in six.iteritems(values):
+IE_TRACE:         Modified var:.. name = 'HASNOBASE'
+IE_TRACE:         Modified var:.. value = <BaseSettings {1: <SettingsAttribute value=1 priority=0>}>
+IE_TRACE:         12:38:54.838069 line       324                     self.set(name, value, priority)
+IE_TRACE:             Starting var:.. self = <BaseSettings {'TEST_BASE': <SettingsAttribute value={1: 1, 2: 2} priority=20>, 'TEST': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}> priority=20>}>
+IE_TRACE:             Starting var:.. name = 'HASNOBASE'
+IE_TRACE:             Starting var:.. value = <BaseSettings {1: <SettingsAttribute value=1 priority=0>}>
+IE_TRACE:             Starting var:.. priority = 'project'
+IE_TRACE:             12:38:54.838101 call       240     def set(self, name, value, priority='project'):
+IE_TRACE:             12:38:54.838135 line       258         self._assert_mutability()
+IE_TRACE:                 Starting var:.. self = <BaseSettings {'TEST_BASE': <SettingsAttribute value={1: 1, 2: 2} priority=20>, 'TEST': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}> priority=20>}>
+IE_TRACE:                 12:38:54.838155 call       336     def _assert_mutability(self):
+IE_TRACE:                 12:38:54.838173 line       337         if self.frozen:
+IE_TRACE:                 12:38:54.838188 return     337         if self.frozen:
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             12:38:54.838212 line       259         priority = get_settings_priority(priority)
+IE_TRACE:                 Starting var:.. priority = 'project'
+IE_TRACE:                 12:38:54.838232 call        23 def get_settings_priority(priority):
+IE_TRACE:                 12:38:54.838247 line        29     if isinstance(priority, six.string_types):
+IE_TRACE:                 12:38:54.838258 line        30         return SETTINGS_PRIORITIES[priority]
+IE_TRACE:                 12:38:54.838269 return      30         return SETTINGS_PRIORITIES[priority]
+IE_TRACE:                 Return value:.. 20
+IE_TRACE:             Modified var:.. priority = 20
+IE_TRACE:             12:38:54.838284 line       260         if name not in self:
+IE_TRACE:                 Starting var:.. self = <BaseSettings {'TEST_BASE': <SettingsAttribute value={1: 1, 2: 2} priority=20>, 'TEST': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}> priority=20>}>
+IE_TRACE:                 Starting var:.. name = 'HASNOBASE'
+IE_TRACE:                 12:38:54.838307 call       101     def __contains__(self, name):
+IE_TRACE:                 12:38:54.838330 line       102         return name in self.attributes
+IE_TRACE:                 12:38:54.838346 return     102         return name in self.attributes
+IE_TRACE:                 Return value:.. False
+IE_TRACE:             12:38:54.838366 line       261             if isinstance(value, SettingsAttribute):
+IE_TRACE:             12:38:54.838386 line       264                 self.attributes[name] = SettingsAttribute(value, priority)
+IE_TRACE:                 Starting var:.. self = REPR FAILED
+IE_TRACE:                 Starting var:.. value = <BaseSettings {1: <SettingsAttribute value=1 priority=0>}>
+IE_TRACE:                 Starting var:.. priority = 20
+IE_TRACE:                 12:38:54.838406 call        43     def __init__(self, value, priority):
+IE_TRACE:                 12:38:54.838431 line        44         self.value = value
+IE_TRACE:                 12:38:54.838447 line        45         if isinstance(self.value, BaseSettings):
+IE_TRACE:                 12:38:54.838464 line        46             self.priority = max(self.value.maxpriority(), priority)
+IE_TRACE:                     Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=1 priority=0>}>
+IE_TRACE:                     12:38:54.838481 call       225     def maxpriority(self):
+IE_TRACE:                     12:38:54.838497 line       232         if len(self) > 0:
+IE_TRACE:                         Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=1 priority=0>}>
+IE_TRACE:                         12:38:54.838511 call       375     def __len__(self):
+IE_TRACE:                         12:38:54.838527 line       376         return len(self.attributes)
+IE_TRACE:                         12:38:54.838540 return     376         return len(self.attributes)
+IE_TRACE:                         Return value:.. 1
+IE_TRACE:                     12:38:54.838557 line       233             return max(self.getpriority(name) for name in self)
+IE_TRACE:                         Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=1 priority=0>}>
+IE_TRACE:                         12:38:54.838571 call       372     def __iter__(self):
+IE_TRACE:                         12:38:54.838587 line       373         return iter(self.attributes)
+IE_TRACE:                         12:38:54.838600 return     373         return iter(self.attributes)
+IE_TRACE:                         Return value:.. <dict_keyiterator object at 0x7b2110e6f560>
+IE_TRACE:                         Starting var:.. .0 = <dict_keyiterator object at 0x7b2110e6f560>
+IE_TRACE:                         Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=1 priority=0>}>
+IE_TRACE:                         12:38:54.838618 call       233             return max(self.getpriority(name) for name in self)
+IE_TRACE:                         12:38:54.838639 line       233             return max(self.getpriority(name) for name in self)
+IE_TRACE:                             Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=1 priority=0>}>
+IE_TRACE:                             Starting var:.. name = 1
+IE_TRACE:                             12:38:54.838655 call       212     def getpriority(self, name):
+IE_TRACE:                             12:38:54.838676 line       220         prio = None
+IE_TRACE:                             New var:....... prio = None
+IE_TRACE:                             12:38:54.838690 line       221         if name in self:
+IE_TRACE:                                 Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=1 priority=0>}>
+IE_TRACE:                                 Starting var:.. name = 1
+IE_TRACE:                                 12:38:54.838709 call       101     def __contains__(self, name):
+IE_TRACE:                                 12:38:54.838730 line       102         return name in self.attributes
+IE_TRACE:                                 12:38:54.838744 return     102         return name in self.attributes
+IE_TRACE:                                 Return value:.. True
+IE_TRACE:                             12:38:54.838763 line       222             prio = self.attributes[name].priority
+IE_TRACE:                             Modified var:.. prio = 0
+IE_TRACE:                             12:38:54.838778 line       223         return prio
+IE_TRACE:                             12:38:54.838797 return     223         return prio
+IE_TRACE:                             Return value:.. 0
+IE_TRACE:                         New var:....... name = 1
+IE_TRACE:                         12:38:54.838816 return     233             return max(self.getpriority(name) for name in self)
+IE_TRACE:                         Return value:.. 0
+IE_TRACE:                         Starting var:.. .0 = <dict_keyiterator object at 0x7b2110e6f560>
+IE_TRACE:                         Starting var:.. name = 1
+IE_TRACE:                         Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=1 priority=0>}>
+IE_TRACE:                         12:38:54.838840 call       233             return max(self.getpriority(name) for name in self)
+IE_TRACE:                         12:38:54.838865 line       233             return max(self.getpriority(name) for name in self)
+IE_TRACE:                         12:38:54.838881 return     233             return max(self.getpriority(name) for name in self)
+IE_TRACE:                         Return value:.. None
+IE_TRACE:                     12:38:54.838900 return     233             return max(self.getpriority(name) for name in self)
+IE_TRACE:                     Return value:.. 0
+IE_TRACE:                 Modified var:.. self = <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=1 priority=0>}> priority=20>
+IE_TRACE:                 12:38:54.838918 return      46             self.priority = max(self.value.maxpriority(), priority)
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Modified var:.. self = <BaseSettings {'TEST_BASE': <SettingsAttribute value={1: 1, 2: 2} priority=20>, 'TEST': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}> priority=20>, 'HASNOBASE': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=1 priority=0>}> priority=20>}>
+IE_TRACE:             12:38:54.838942 return     264                 self.attributes[name] = SettingsAttribute(value, priority)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Modified var:.. self = <BaseSettings {'TEST_BASE': <SettingsAttribute value={1: 1, 2: 2} priority=20>, 'TEST': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}> priority=20>, 'HASNOBASE': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=1 priority=0>}> priority=20>}>
+IE_TRACE:         12:38:54.838973 line       323                 for name, value in six.iteritems(values):
+IE_TRACE:         12:38:54.839004 return     323                 for name, value in six.iteritems(values):
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Modified var:.. self = <BaseSettings {'TEST_BASE': <SettingsAttribute value={1: 1, 2: 2} priority=20>, 'TEST': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}> priority=20>, 'HASNOBASE': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=1 priority=0>}> priority=20>}>
+IE_TRACE:     12:38:54.839035 return      93         self.update(values, priority)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_settings/__init__.py
+IE_TRACE: New var:....... s = <BaseSettings {'TEST_BASE': <SettingsAttribute value={1: 1, 2: 2} priority=20>, 'TEST': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}> priority=20>, 'HASNOBASE': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=1 priority=0>}> priority=20>}>
+IE_TRACE: 12:38:54.839066 line       261         s['TEST'].set(4, 4, priority='project')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:     Starting var:.. self = <BaseSettings {'TEST_BASE': <SettingsAttribute value={1: 1, 2: 2} priority=20>, 'TEST': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}> priority=20>, 'HASNOBASE': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=1 priority=0>}> priority=20>}>
+IE_TRACE:     Starting var:.. opt_name = 'TEST'
+IE_TRACE:     12:38:54.839096 call        95     def __getitem__(self, opt_name):
+IE_TRACE:     12:38:54.839125 line        96         value = None
+IE_TRACE:     New var:....... value = None
+IE_TRACE:     12:38:54.839143 line        97         if opt_name in self:
+IE_TRACE:         Starting var:.. self = <BaseSettings {'TEST_BASE': <SettingsAttribute value={1: 1, 2: 2} priority=20>, 'TEST': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}> priority=20>, 'HASNOBASE': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=1 priority=0>}> priority=20>}>
+IE_TRACE:         Starting var:.. name = 'TEST'
+IE_TRACE:         12:38:54.839165 call       101     def __contains__(self, name):
+IE_TRACE:         12:38:54.839190 line       102         return name in self.attributes
+IE_TRACE:         12:38:54.839209 return     102         return name in self.attributes
+IE_TRACE:         Return value:.. True
+IE_TRACE:     12:38:54.839230 line        98             value = self.attributes[opt_name].value
+IE_TRACE:     Modified var:.. value = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:     12:38:54.839248 line        99         return value
+IE_TRACE:     12:38:54.839272 return      99         return value
+IE_TRACE:     Return value:.. <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:     Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:     Starting var:.. name = 4
+IE_TRACE:     Starting var:.. value = 4
+IE_TRACE:     Starting var:.. priority = 'project'
+IE_TRACE:     12:38:54.839300 call       240     def set(self, name, value, priority='project'):
+IE_TRACE:     12:38:54.839329 line       258         self._assert_mutability()
+IE_TRACE:         Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:         12:38:54.839346 call       336     def _assert_mutability(self):
+IE_TRACE:         12:38:54.839362 line       337         if self.frozen:
+IE_TRACE:         12:38:54.839375 return     337         if self.frozen:
+IE_TRACE:         Return value:.. None
+IE_TRACE:     12:38:54.839391 line       259         priority = get_settings_priority(priority)
+IE_TRACE:         Starting var:.. priority = 'project'
+IE_TRACE:         12:38:54.839407 call        23 def get_settings_priority(priority):
+IE_TRACE:         12:38:54.839420 line        29     if isinstance(priority, six.string_types):
+IE_TRACE:         12:38:54.839431 line        30         return SETTINGS_PRIORITIES[priority]
+IE_TRACE:         12:38:54.839441 return      30         return SETTINGS_PRIORITIES[priority]
+IE_TRACE:         Return value:.. 20
+IE_TRACE:     Modified var:.. priority = 20
+IE_TRACE:     12:38:54.839456 line       260         if name not in self:
+IE_TRACE:         Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:         Starting var:.. name = 4
+IE_TRACE:         12:38:54.839475 call       101     def __contains__(self, name):
+IE_TRACE:         12:38:54.839495 line       102         return name in self.attributes
+IE_TRACE:         12:38:54.839508 return     102         return name in self.attributes
+IE_TRACE:         Return value:.. False
+IE_TRACE:     12:38:54.839526 line       261             if isinstance(value, SettingsAttribute):
+IE_TRACE:     12:38:54.839541 line       264                 self.attributes[name] = SettingsAttribute(value, priority)
+IE_TRACE:         Starting var:.. self = REPR FAILED
+IE_TRACE:         Starting var:.. value = 4
+IE_TRACE:         Starting var:.. priority = 20
+IE_TRACE:         12:38:54.839557 call        43     def __init__(self, value, priority):
+IE_TRACE:         12:38:54.839581 line        44         self.value = value
+IE_TRACE:         12:38:54.839595 line        45         if isinstance(self.value, BaseSettings):
+IE_TRACE:             Source path:... <frozen abc>
+IE_TRACE:             Starting var:.. cls = <class 'scrapy.settings.BaseSettings'>
+IE_TRACE:             Starting var:.. instance = 4
+IE_TRACE:             12:38:54.839610 call       117 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:38:54.839634 line       119 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:38:54.839646 return     119 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. False
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:         12:38:54.839662 line        48             self.priority = priority
+IE_TRACE:         Modified var:.. self = <SettingsAttribute value=4 priority=20>
+IE_TRACE:         12:38:54.839680 return      48             self.priority = priority
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Modified var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE:     12:38:54.839702 return     264                 self.attributes[name] = SettingsAttribute(value, priority)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_settings/__init__.py
+IE_TRACE: Modified var:.. s = <BaseSettings {'TEST_BASE': <SettingsAttribute value={1: 1, 2: 2} priority=20>, 'TEST': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}> priority=20>, 'HASNOBASE': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=1 priority=0>}> priority=20>}>
+IE_TRACE: 12:38:54.839727 line       265         cs = s._getcomposite('TEST')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:     Starting var:.. self = <BaseSettings {'TEST_BASE': <SettingsAttribute value={1: 1, 2: 2} priority=20>, 'TEST': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}> priority=20>, 'HASNOBASE': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=1 priority=0>}> priority=20>}>
+IE_TRACE:     Starting var:.. name = 'TEST'
+IE_TRACE:     12:38:54.839758 call       198     def _getcomposite(self, name):
+IE_TRACE:     12:38:54.839788 line       202         basename = name + "_BASE"
+IE_TRACE:     New var:....... basename = 'TEST_BASE'
+IE_TRACE:     12:38:54.839807 line       203         if basename in self:
+IE_TRACE:         Starting var:.. self = <BaseSettings {'TEST_BASE': <SettingsAttribute value={1: 1, 2: 2} priority=20>, 'TEST': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}> priority=20>, 'HASNOBASE': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=1 priority=0>}> priority=20>}>
+IE_TRACE:         Starting var:.. name = 'TEST_BASE'
+IE_TRACE:         12:38:54.839831 call       101     def __contains__(self, name):
+IE_TRACE:         12:38:54.839857 line       102         return name in self.attributes
+IE_TRACE:         12:38:54.839876 return     102         return name in self.attributes
+IE_TRACE:         Return value:.. True
+IE_TRACE:     12:38:54.839898 line       204             warnings.warn('_BASE settings are deprecated.',
+IE_TRACE:     12:38:54.839918 line       205                           category=ScrapyDeprecationWarning)
+IE_TRACE:     12:38:54.839937 line       204             warnings.warn('_BASE settings are deprecated.',
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:     12:38:54.842181 line       206             compsett = BaseSettings(self[name + "_BASE"], priority='default')
+IE_TRACE:         Starting var:.. self = <BaseSettings {'TEST_BASE': <SettingsAttribute value={1: 1, 2: 2} priority=20>, 'TEST': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}> priority=20>, 'HASNOBASE': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=1 priority=0>}> priority=20>}>
+IE_TRACE:         Starting var:.. opt_name = 'TEST_BASE'
+IE_TRACE:         12:38:54.842219 call        95     def __getitem__(self, opt_name):
+IE_TRACE:         12:38:54.842249 line        96         value = None
+IE_TRACE:         New var:....... value = None
+IE_TRACE:         12:38:54.842268 line        97         if opt_name in self:
+IE_TRACE:             Starting var:.. self = <BaseSettings {'TEST_BASE': <SettingsAttribute value={1: 1, 2: 2} priority=20>, 'TEST': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}> priority=20>, 'HASNOBASE': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=1 priority=0>}> priority=20>}>
+IE_TRACE:             Starting var:.. name = 'TEST_BASE'
+IE_TRACE:             12:38:54.842293 call       101     def __contains__(self, name):
+IE_TRACE:             12:38:54.842320 line       102         return name in self.attributes
+IE_TRACE:             12:38:54.842340 return     102         return name in self.attributes
+IE_TRACE:             Return value:.. True
+IE_TRACE:         12:38:54.842365 line        98             value = self.attributes[opt_name].value
+IE_TRACE:         Modified var:.. value = {1: 1, 2: 2}
+IE_TRACE:         12:38:54.842386 line        99         return value
+IE_TRACE:         12:38:54.842409 return      99         return value
+IE_TRACE:         Return value:.. {1: 1, 2: 2}
+IE_TRACE:         Starting var:.. self = REPR FAILED
+IE_TRACE:         Starting var:.. values = {1: 1, 2: 2}
+IE_TRACE:         Starting var:.. priority = 'default'
+IE_TRACE:         12:38:54.842435 call        90     def __init__(self, values=None, priority='project'):
+IE_TRACE:         12:38:54.842461 line        91         self.frozen = False
+IE_TRACE:         12:38:54.842475 line        92         self.attributes = {}
+IE_TRACE:         Modified var:.. self = <BaseSettings {}>
+IE_TRACE:         12:38:54.842489 line        93         self.update(values, priority)
+IE_TRACE:             Starting var:.. self = <BaseSettings {}>
+IE_TRACE:             Starting var:.. values = {1: 1, 2: 2}
+IE_TRACE:             Starting var:.. priority = 'default'
+IE_TRACE:             12:38:54.842506 call       293     def update(self, values, priority='project'):
+IE_TRACE:             12:38:54.842531 line       315         self._assert_mutability()
+IE_TRACE:                 Starting var:.. self = <BaseSettings {}>
+IE_TRACE:                 12:38:54.842547 call       336     def _assert_mutability(self):
+IE_TRACE:                 12:38:54.842562 line       337         if self.frozen:
+IE_TRACE:                 12:38:54.842574 return     337         if self.frozen:
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             12:38:54.842590 line       316         if isinstance(values, six.string_types):
+IE_TRACE:             12:38:54.842606 line       318         if values is not None:
+IE_TRACE:             12:38:54.842621 line       319             if isinstance(values, BaseSettings):
+IE_TRACE:                 Source path:... <frozen abc>
+IE_TRACE:                 Starting var:.. cls = <class 'scrapy.settings.BaseSettings'>
+IE_TRACE:                 Starting var:.. instance = {1: 1, 2: 2}
+IE_TRACE:                 12:38:54.842636 call       117 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:38:54.842663 line       119 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:38:54.842677 return     119 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Return value:.. False
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:             12:38:54.842695 line       323                 for name, value in six.iteritems(values):
+IE_TRACE:                 Source path:... /path/to/.venv/lib/python3.12/site-packages/six.py
+IE_TRACE:                 Starting var:.. d = {1: 1, 2: 2}
+IE_TRACE:                 Starting var:.. kw = {}
+IE_TRACE:                 12:38:54.842715 call       588     def iteritems(d, **kw):
+IE_TRACE:                 12:38:54.842738 line       589         return iter(d.items(**kw))
+IE_TRACE:                 12:38:54.842751 return     589         return iter(d.items(**kw))
+IE_TRACE:                 Return value:.. <dict_itemiterator object at 0x7b2110e87420>
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:             New var:....... name = 1
+IE_TRACE:             New var:....... value = 1
+IE_TRACE:             12:38:54.842769 line       324                     self.set(name, value, priority)
+IE_TRACE:                 Starting var:.. self = <BaseSettings {}>
+IE_TRACE:                 Starting var:.. name = 1
+IE_TRACE:                 Starting var:.. value = 1
+IE_TRACE:                 Starting var:.. priority = 'default'
+IE_TRACE:                 12:38:54.842798 call       240     def set(self, name, value, priority='project'):
+IE_TRACE:                 12:38:54.842827 line       258         self._assert_mutability()
+IE_TRACE:                     Starting var:.. self = <BaseSettings {}>
+IE_TRACE:                     12:38:54.842843 call       336     def _assert_mutability(self):
+IE_TRACE:                     12:38:54.842859 line       337         if self.frozen:
+IE_TRACE:                     12:38:54.842871 return     337         if self.frozen:
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 12:38:54.842888 line       259         priority = get_settings_priority(priority)
+IE_TRACE:                     Starting var:.. priority = 'default'
+IE_TRACE:                     12:38:54.842903 call        23 def get_settings_priority(priority):
+IE_TRACE:                     12:38:54.842918 line        29     if isinstance(priority, six.string_types):
+IE_TRACE:                     12:38:54.842930 line        30         return SETTINGS_PRIORITIES[priority]
+IE_TRACE:                     12:38:54.842941 return      30         return SETTINGS_PRIORITIES[priority]
+IE_TRACE:                     Return value:.. 0
+IE_TRACE:                 Modified var:.. priority = 0
+IE_TRACE:                 12:38:54.842958 line       260         if name not in self:
+IE_TRACE:                     Starting var:.. self = <BaseSettings {}>
+IE_TRACE:                     Starting var:.. name = 1
+IE_TRACE:                     12:38:54.842977 call       101     def __contains__(self, name):
+IE_TRACE:                     12:38:54.842997 line       102         return name in self.attributes
+IE_TRACE:                     12:38:54.843010 return     102         return name in self.attributes
+IE_TRACE:                     Return value:.. False
+IE_TRACE:                 12:38:54.843027 line       261             if isinstance(value, SettingsAttribute):
+IE_TRACE:                 12:38:54.843042 line       264                 self.attributes[name] = SettingsAttribute(value, priority)
+IE_TRACE:                     Starting var:.. self = REPR FAILED
+IE_TRACE:                     Starting var:.. value = 1
+IE_TRACE:                     Starting var:.. priority = 0
+IE_TRACE:                     12:38:54.843058 call        43     def __init__(self, value, priority):
+IE_TRACE:                     12:38:54.843085 line        44         self.value = value
+IE_TRACE:                     12:38:54.843100 line        45         if isinstance(self.value, BaseSettings):
+IE_TRACE:                         Source path:... <frozen abc>
+IE_TRACE:                         Starting var:.. cls = <class 'scrapy.settings.BaseSettings'>
+IE_TRACE:                         Starting var:.. instance = 1
+IE_TRACE:                         12:38:54.843116 call       117 SOURCE IS UNAVAILABLE
+IE_TRACE:                         12:38:54.843141 line       119 SOURCE IS UNAVAILABLE
+IE_TRACE:                         12:38:54.843156 return     119 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Return value:.. False
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:                     12:38:54.843175 line        48             self.priority = priority
+IE_TRACE:                     Modified var:.. self = <SettingsAttribute value=1 priority=0>
+IE_TRACE:                     12:38:54.843197 return      48             self.priority = priority
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 Modified var:.. self = <BaseSettings {1: <SettingsAttribute value=1 priority=0>}>
+IE_TRACE:                 12:38:54.843220 return     264                 self.attributes[name] = SettingsAttribute(value, priority)
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Modified var:.. self = <BaseSettings {1: <SettingsAttribute value=1 priority=0>}>
+IE_TRACE:             12:38:54.843246 line       323                 for name, value in six.iteritems(values):
+IE_TRACE:             Modified var:.. name = 2
+IE_TRACE:             Modified var:.. value = 2
+IE_TRACE:             12:38:54.843268 line       324                     self.set(name, value, priority)
+IE_TRACE:                 Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=1 priority=0>}>
+IE_TRACE:                 Starting var:.. name = 2
+IE_TRACE:                 Starting var:.. value = 2
+IE_TRACE:                 Starting var:.. priority = 'default'
+IE_TRACE:                 12:38:54.843292 call       240     def set(self, name, value, priority='project'):
+IE_TRACE:                 12:38:54.843323 line       258         self._assert_mutability()
+IE_TRACE:                     Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=1 priority=0>}>
+IE_TRACE:                     12:38:54.843339 call       336     def _assert_mutability(self):
+IE_TRACE:                     12:38:54.843355 line       337         if self.frozen:
+IE_TRACE:                     12:38:54.843367 return     337         if self.frozen:
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 12:38:54.843384 line       259         priority = get_settings_priority(priority)
+IE_TRACE:                     Starting var:.. priority = 'default'
+IE_TRACE:                     12:38:54.843400 call        23 def get_settings_priority(priority):
+IE_TRACE:                     12:38:54.843415 line        29     if isinstance(priority, six.string_types):
+IE_TRACE:                     12:38:54.843426 line        30         return SETTINGS_PRIORITIES[priority]
+IE_TRACE:                     12:38:54.843437 return      30         return SETTINGS_PRIORITIES[priority]
+IE_TRACE:                     Return value:.. 0
+IE_TRACE:                 Modified var:.. priority = 0
+IE_TRACE:                 12:38:54.843453 line       260         if name not in self:
+IE_TRACE:                     Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=1 priority=0>}>
+IE_TRACE:                     Starting var:.. name = 2
+IE_TRACE:                     12:38:54.843472 call       101     def __contains__(self, name):
+IE_TRACE:                     12:38:54.843492 line       102         return name in self.attributes
+IE_TRACE:                     12:38:54.843505 return     102         return name in self.attributes
+IE_TRACE:                     Return value:.. False
+IE_TRACE:                 12:38:54.843523 line       261             if isinstance(value, SettingsAttribute):
+IE_TRACE:                 12:38:54.843538 line       264                 self.attributes[name] = SettingsAttribute(value, priority)
+IE_TRACE:                     Starting var:.. self = REPR FAILED
+IE_TRACE:                     Starting var:.. value = 2
+IE_TRACE:                     Starting var:.. priority = 0
+IE_TRACE:                     12:38:54.843555 call        43     def __init__(self, value, priority):
+IE_TRACE:                     12:38:54.843579 line        44         self.value = value
+IE_TRACE:                     12:38:54.843594 line        45         if isinstance(self.value, BaseSettings):
+IE_TRACE:                         Source path:... <frozen abc>
+IE_TRACE:                         Starting var:.. cls = <class 'scrapy.settings.BaseSettings'>
+IE_TRACE:                         Starting var:.. instance = 2
+IE_TRACE:                         12:38:54.843609 call       117 SOURCE IS UNAVAILABLE
+IE_TRACE:                         12:38:54.843633 line       119 SOURCE IS UNAVAILABLE
+IE_TRACE:                         12:38:54.843646 return     119 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Return value:.. False
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:                     12:38:54.843664 line        48             self.priority = priority
+IE_TRACE:                     Modified var:.. self = <SettingsAttribute value=2 priority=0>
+IE_TRACE:                     12:38:54.843683 return      48             self.priority = priority
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 Modified var:.. self = <BaseSettings {1: <SettingsAttribute value=1 priority=0>, 2: <SettingsAttribute value=2 priority=0>}>
+IE_TRACE:                 12:38:54.843706 return     264                 self.attributes[name] = SettingsAttribute(value, priority)
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Modified var:.. self = <BaseSettings {1: <SettingsAttribute value=1 priority=0>, 2: <SettingsAttribute value=2 priority=0>}>
+IE_TRACE:             12:38:54.843730 line       323                 for name, value in six.iteritems(values):
+IE_TRACE:             12:38:54.843752 return     323                 for name, value in six.iteritems(values):
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Modified var:.. self = <BaseSettings {1: <SettingsAttribute value=1 priority=0>, 2: <SettingsAttribute value=2 priority=0>}>
+IE_TRACE:         12:38:54.843775 return      93         self.update(values, priority)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     New var:....... compsett = <BaseSettings {1: <SettingsAttribute value=1 priority=0>, 2: <SettingsAttribute value=2 priority=0>}>
+IE_TRACE:     12:38:54.843799 line       207             compsett.update(self[name])
+IE_TRACE:         Starting var:.. self = <BaseSettings {'TEST_BASE': <SettingsAttribute value={1: 1, 2: 2} priority=20>, 'TEST': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}> priority=20>, 'HASNOBASE': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=1 priority=0>}> priority=20>}>
+IE_TRACE:         Starting var:.. opt_name = 'TEST'
+IE_TRACE:         12:38:54.843828 call        95     def __getitem__(self, opt_name):
+IE_TRACE:         12:38:54.843854 line        96         value = None
+IE_TRACE:         New var:....... value = None
+IE_TRACE:         12:38:54.843873 line        97         if opt_name in self:
+IE_TRACE:             Starting var:.. self = <BaseSettings {'TEST_BASE': <SettingsAttribute value={1: 1, 2: 2} priority=20>, 'TEST': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}> priority=20>, 'HASNOBASE': <SettingsAttribute value=<BaseSettings {1: <SettingsAttribute value=1 priority=0>}> priority=20>}>
+IE_TRACE:             Starting var:.. name = 'TEST'
+IE_TRACE:             12:38:54.843896 call       101     def __contains__(self, name):
+IE_TRACE:             12:38:54.843922 line       102         return name in self.attributes
+IE_TRACE:             12:38:54.843940 return     102         return name in self.attributes
+IE_TRACE:             Return value:.. True
+IE_TRACE:         12:38:54.843962 line        98             value = self.attributes[opt_name].value
+IE_TRACE:         Modified var:.. value = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE:         12:38:54.843981 line        99         return value
+IE_TRACE:         12:38:54.844006 return      99         return value
+IE_TRACE:         Return value:.. <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE:         Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=1 priority=0>, 2: <SettingsAttribute value=2 priority=0>}>
+IE_TRACE:         Starting var:.. values = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE:         Starting var:.. priority = 'project'
+IE_TRACE:         12:38:54.844037 call       293     def update(self, values, priority='project'):
+IE_TRACE:         12:38:54.844066 line       315         self._assert_mutability()
+IE_TRACE:             Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=1 priority=0>, 2: <SettingsAttribute value=2 priority=0>}>
+IE_TRACE:             12:38:54.844085 call       336     def _assert_mutability(self):
+IE_TRACE:             12:38:54.844101 line       337         if self.frozen:
+IE_TRACE:             12:38:54.844114 return     337         if self.frozen:
+IE_TRACE:             Return value:.. None
+IE_TRACE:         12:38:54.844131 line       316         if isinstance(values, six.string_types):
+IE_TRACE:         12:38:54.844149 line       318         if values is not None:
+IE_TRACE:         12:38:54.844167 line       319             if isinstance(values, BaseSettings):
+IE_TRACE:         12:38:54.844185 line       320                 for name, value in six.iteritems(values):
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/six.py
+IE_TRACE:             Starting var:.. d = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE:             Starting var:.. kw = {}
+IE_TRACE:             12:38:54.844207 call       588     def iteritems(d, **kw):
+IE_TRACE:             12:38:54.844233 line       589         return iter(d.items(**kw))
+IE_TRACE:                 Source path:... <frozen _collections_abc>
+IE_TRACE:                 Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE:                 12:38:54.844250 call       823 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:38:54.844273 line       825 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Starting var:.. self = REPR FAILED
+IE_TRACE:                     Starting var:.. mapping = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE:                     12:38:54.844290 call       845 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:38:54.844318 line       846 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Modified var:.. self = ItemsView(<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>)
+IE_TRACE:                     12:38:54.844336 return     846 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 12:38:54.844364 return     825 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Return value:.. ItemsView(<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>)
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/six.py
+IE_TRACE:             12:38:54.844388 return     589         return iter(d.items(**kw))
+IE_TRACE:             Return value:.. <generator object ItemsView.__iter__ at 0x7b2110fc5ff0>
+IE_TRACE:             Source path:... <frozen _collections_abc>
+IE_TRACE:             Starting var:.. self = ItemsView(<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>)
+IE_TRACE:             12:38:54.844416 call       892 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:38:54.844440 line       893 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:                 Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE:                 12:38:54.844456 call       372     def __iter__(self):
+IE_TRACE:                 12:38:54.844478 line       373         return iter(self.attributes)
+IE_TRACE:                 12:38:54.844492 return     373         return iter(self.attributes)
+IE_TRACE:                 Return value:.. <dict_keyiterator object at 0x7b2110e944a0>
+IE_TRACE:             Source path:... <frozen _collections_abc>
+IE_TRACE:             New var:....... key = 1
+IE_TRACE:             12:38:54.844511 line       894 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:                 Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE:                 Starting var:.. opt_name = 1
+IE_TRACE:                 12:38:54.844535 call        95     def __getitem__(self, opt_name):
+IE_TRACE:                 12:38:54.844561 line        96         value = None
+IE_TRACE:                 New var:....... value = None
+IE_TRACE:                 12:38:54.844576 line        97         if opt_name in self:
+IE_TRACE:                     Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE:                     Starting var:.. name = 1
+IE_TRACE:                     12:38:54.844596 call       101     def __contains__(self, name):
+IE_TRACE:                     12:38:54.844618 line       102         return name in self.attributes
+IE_TRACE:                     12:38:54.844633 return     102         return name in self.attributes
+IE_TRACE:                     Return value:.. True
+IE_TRACE:                 12:38:54.844653 line        98             value = self.attributes[opt_name].value
+IE_TRACE:                 Modified var:.. value = 10
+IE_TRACE:                 12:38:54.844669 line        99         return value
+IE_TRACE:                 12:38:54.844688 return      99         return value
+IE_TRACE:                 Return value:.. 10
+IE_TRACE:             Source path:... <frozen _collections_abc>
+IE_TRACE:             12:38:54.844709 return     894 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. (1, 10)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:         New var:....... name = 1
+IE_TRACE:         New var:....... value = 10
+IE_TRACE:         12:38:54.844735 line       321                     self.set(name, value, values.getpriority(name))
+IE_TRACE:             Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE:             Starting var:.. name = 1
+IE_TRACE:             12:38:54.844767 call       212     def getpriority(self, name):
+IE_TRACE:             12:38:54.844790 line       220         prio = None
+IE_TRACE:             New var:....... prio = None
+IE_TRACE:             12:38:54.844805 line       221         if name in self:
+IE_TRACE:                 Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE:                 Starting var:.. name = 1
+IE_TRACE:                 12:38:54.844824 call       101     def __contains__(self, name):
+IE_TRACE:                 12:38:54.844846 line       102         return name in self.attributes
+IE_TRACE:                 12:38:54.844860 return     102         return name in self.attributes
+IE_TRACE:                 Return value:.. True
+IE_TRACE:             12:38:54.844879 line       222             prio = self.attributes[name].priority
+IE_TRACE:             Modified var:.. prio = 0
+IE_TRACE:             12:38:54.844894 line       223         return prio
+IE_TRACE:             12:38:54.844914 return     223         return prio
+IE_TRACE:             Return value:.. 0
+IE_TRACE:             Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=1 priority=0>, 2: <SettingsAttribute value=2 priority=0>}>
+IE_TRACE:             Starting var:.. name = 1
+IE_TRACE:             Starting var:.. value = 10
+IE_TRACE:             Starting var:.. priority = 0
+IE_TRACE:             12:38:54.844934 call       240     def set(self, name, value, priority='project'):
+IE_TRACE:             12:38:54.844964 line       258         self._assert_mutability()
+IE_TRACE:                 Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=1 priority=0>, 2: <SettingsAttribute value=2 priority=0>}>
+IE_TRACE:                 12:38:54.844982 call       336     def _assert_mutability(self):
+IE_TRACE:                 12:38:54.844999 line       337         if self.frozen:
+IE_TRACE:                 12:38:54.845012 return     337         if self.frozen:
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             12:38:54.845029 line       259         priority = get_settings_priority(priority)
+IE_TRACE:                 Starting var:.. priority = 0
+IE_TRACE:                 12:38:54.845046 call        23 def get_settings_priority(priority):
+IE_TRACE:                 12:38:54.845060 line        29     if isinstance(priority, six.string_types):
+IE_TRACE:                 12:38:54.845072 line        32         return priority
+IE_TRACE:                 12:38:54.845082 return      32         return priority
+IE_TRACE:                 Return value:.. 0
+IE_TRACE:             12:38:54.845098 line       260         if name not in self:
+IE_TRACE:                 Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=1 priority=0>, 2: <SettingsAttribute value=2 priority=0>}>
+IE_TRACE:                 Starting var:.. name = 1
+IE_TRACE:                 12:38:54.845114 call       101     def __contains__(self, name):
+IE_TRACE:                 12:38:54.845135 line       102         return name in self.attributes
+IE_TRACE:                 12:38:54.845149 return     102         return name in self.attributes
+IE_TRACE:                 Return value:.. True
+IE_TRACE:             12:38:54.845167 line       266             self.attributes[name].set(value, priority)
+IE_TRACE:                 Starting var:.. self = <SettingsAttribute value=1 priority=0>
+IE_TRACE:                 Starting var:.. value = 10
+IE_TRACE:                 Starting var:.. priority = 0
+IE_TRACE:                 12:38:54.845187 call        50     def set(self, value, priority):
+IE_TRACE:                 12:38:54.845216 line        52         if isinstance(self.value, BaseSettings):
+IE_TRACE:                     Source path:... <frozen abc>
+IE_TRACE:                     Starting var:.. cls = <class 'scrapy.settings.BaseSettings'>
+IE_TRACE:                     Starting var:.. instance = 1
+IE_TRACE:                     12:38:54.845231 call       117 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:38:54.845258 line       119 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:38:54.845271 return     119 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. False
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:                 12:38:54.845288 line        57             if priority >= self.priority:
+IE_TRACE:                 12:38:54.845307 line        58                 self.value = value
+IE_TRACE:                 Modified var:.. self = <SettingsAttribute value=10 priority=0>
+IE_TRACE:                 12:38:54.845321 line        59                 self.priority = priority
+IE_TRACE:                 12:38:54.845339 return      59                 self.priority = priority
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Modified var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 2: <SettingsAttribute value=2 priority=0>}>
+IE_TRACE:             12:38:54.845357 return     266             self.attributes[name].set(value, priority)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Modified var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 2: <SettingsAttribute value=2 priority=0>}>
+IE_TRACE:         12:38:54.845381 line       320                 for name, value in six.iteritems(values):
+IE_TRACE:             Source path:... <frozen _collections_abc>
+IE_TRACE:             Starting var:.. self = ItemsView(<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>)
+IE_TRACE:             Starting var:.. key = 1
+IE_TRACE:             12:38:54.845406 call       894 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:38:54.845434 line       893 SOURCE IS UNAVAILABLE
+IE_TRACE:             Modified var:.. key = 3
+IE_TRACE:             12:38:54.845450 line       894 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:                 Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE:                 Starting var:.. opt_name = 3
+IE_TRACE:                 12:38:54.845470 call        95     def __getitem__(self, opt_name):
+IE_TRACE:                 12:38:54.845496 line        96         value = None
+IE_TRACE:                 New var:....... value = None
+IE_TRACE:                 12:38:54.845511 line        97         if opt_name in self:
+IE_TRACE:                     Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE:                     Starting var:.. name = 3
+IE_TRACE:                     12:38:54.845530 call       101     def __contains__(self, name):
+IE_TRACE:                     12:38:54.845551 line       102         return name in self.attributes
+IE_TRACE:                     12:38:54.845567 return     102         return name in self.attributes
+IE_TRACE:                     Return value:.. True
+IE_TRACE:                 12:38:54.845586 line        98             value = self.attributes[opt_name].value
+IE_TRACE:                 Modified var:.. value = 30
+IE_TRACE:                 12:38:54.845602 line        99         return value
+IE_TRACE:                 12:38:54.845621 return      99         return value
+IE_TRACE:                 Return value:.. 30
+IE_TRACE:             Source path:... <frozen _collections_abc>
+IE_TRACE:             12:38:54.845641 return     894 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. (3, 30)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:         Modified var:.. name = 3
+IE_TRACE:         Modified var:.. value = 30
+IE_TRACE:         12:38:54.845665 line       321                     self.set(name, value, values.getpriority(name))
+IE_TRACE:             Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE:             Starting var:.. name = 3
+IE_TRACE:             12:38:54.845697 call       212     def getpriority(self, name):
+IE_TRACE:             12:38:54.845719 line       220         prio = None
+IE_TRACE:             New var:....... prio = None
+IE_TRACE:             12:38:54.845734 line       221         if name in self:
+IE_TRACE:                 Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE:                 Starting var:.. name = 3
+IE_TRACE:                 12:38:54.845753 call       101     def __contains__(self, name):
+IE_TRACE:                 12:38:54.845775 line       102         return name in self.attributes
+IE_TRACE:                 12:38:54.845789 return     102         return name in self.attributes
+IE_TRACE:                 Return value:.. True
+IE_TRACE:             12:38:54.845809 line       222             prio = self.attributes[name].priority
+IE_TRACE:             Modified var:.. prio = 0
+IE_TRACE:             12:38:54.845824 line       223         return prio
+IE_TRACE:             12:38:54.845843 return     223         return prio
+IE_TRACE:             Return value:.. 0
+IE_TRACE:             Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 2: <SettingsAttribute value=2 priority=0>}>
+IE_TRACE:             Starting var:.. name = 3
+IE_TRACE:             Starting var:.. value = 30
+IE_TRACE:             Starting var:.. priority = 0
+IE_TRACE:             12:38:54.845863 call       240     def set(self, name, value, priority='project'):
+IE_TRACE:             12:38:54.845892 line       258         self._assert_mutability()
+IE_TRACE:                 Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 2: <SettingsAttribute value=2 priority=0>}>
+IE_TRACE:                 12:38:54.845909 call       336     def _assert_mutability(self):
+IE_TRACE:                 12:38:54.845925 line       337         if self.frozen:
+IE_TRACE:                 12:38:54.845939 return     337         if self.frozen:
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             12:38:54.845956 line       259         priority = get_settings_priority(priority)
+IE_TRACE:                 Starting var:.. priority = 0
+IE_TRACE:                 12:38:54.845973 call        23 def get_settings_priority(priority):
+IE_TRACE:                 12:38:54.845987 line        29     if isinstance(priority, six.string_types):
+IE_TRACE:                 12:38:54.845999 line        32         return priority
+IE_TRACE:                 12:38:54.846010 return      32         return priority
+IE_TRACE:                 Return value:.. 0
+IE_TRACE:             12:38:54.846025 line       260         if name not in self:
+IE_TRACE:                 Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 2: <SettingsAttribute value=2 priority=0>}>
+IE_TRACE:                 Starting var:.. name = 3
+IE_TRACE:                 12:38:54.846042 call       101     def __contains__(self, name):
+IE_TRACE:                 12:38:54.846063 line       102         return name in self.attributes
+IE_TRACE:                 12:38:54.846077 return     102         return name in self.attributes
+IE_TRACE:                 Return value:.. False
+IE_TRACE:             12:38:54.846095 line       261             if isinstance(value, SettingsAttribute):
+IE_TRACE:             12:38:54.846111 line       264                 self.attributes[name] = SettingsAttribute(value, priority)
+IE_TRACE:                 Starting var:.. self = REPR FAILED
+IE_TRACE:                 Starting var:.. value = 30
+IE_TRACE:                 Starting var:.. priority = 0
+IE_TRACE:                 12:38:54.846128 call        43     def __init__(self, value, priority):
+IE_TRACE:                 12:38:54.846154 line        44         self.value = value
+IE_TRACE:                 12:38:54.846169 line        45         if isinstance(self.value, BaseSettings):
+IE_TRACE:                     Source path:... <frozen abc>
+IE_TRACE:                     Starting var:.. cls = <class 'scrapy.settings.BaseSettings'>
+IE_TRACE:                     Starting var:.. instance = 30
+IE_TRACE:                     12:38:54.846185 call       117 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:38:54.846212 line       119 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:38:54.846225 return     119 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. False
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:                 12:38:54.846242 line        48             self.priority = priority
+IE_TRACE:                 Modified var:.. self = <SettingsAttribute value=30 priority=0>
+IE_TRACE:                 12:38:54.846262 return      48             self.priority = priority
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Modified var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 2: <SettingsAttribute value=2 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:             12:38:54.846284 return     264                 self.attributes[name] = SettingsAttribute(value, priority)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Modified var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 2: <SettingsAttribute value=2 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:         12:38:54.846310 line       320                 for name, value in six.iteritems(values):
+IE_TRACE:             Source path:... <frozen _collections_abc>
+IE_TRACE:             Starting var:.. self = ItemsView(<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>)
+IE_TRACE:             Starting var:.. key = 3
+IE_TRACE:             12:38:54.846335 call       894 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:38:54.846362 line       893 SOURCE IS UNAVAILABLE
+IE_TRACE:             Modified var:.. key = 4
+IE_TRACE:             12:38:54.846377 line       894 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:                 Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE:                 Starting var:.. opt_name = 4
+IE_TRACE:                 12:38:54.846397 call        95     def __getitem__(self, opt_name):
+IE_TRACE:                 12:38:54.846424 line        96         value = None
+IE_TRACE:                 New var:....... value = None
+IE_TRACE:                 12:38:54.846440 line        97         if opt_name in self:
+IE_TRACE:                     Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE:                     Starting var:.. name = 4
+IE_TRACE:                     12:38:54.846459 call       101     def __contains__(self, name):
+IE_TRACE:                     12:38:54.846481 line       102         return name in self.attributes
+IE_TRACE:                     12:38:54.846496 return     102         return name in self.attributes
+IE_TRACE:                     Return value:.. True
+IE_TRACE:                 12:38:54.846515 line        98             value = self.attributes[opt_name].value
+IE_TRACE:                 Modified var:.. value = 4
+IE_TRACE:                 12:38:54.846531 line        99         return value
+IE_TRACE:                 12:38:54.846550 return      99         return value
+IE_TRACE:                 Return value:.. 4
+IE_TRACE:             Source path:... <frozen _collections_abc>
+IE_TRACE:             12:38:54.846570 return     894 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. (4, 4)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:         Modified var:.. name = 4
+IE_TRACE:         Modified var:.. value = 4
+IE_TRACE:         12:38:54.846594 line       321                     self.set(name, value, values.getpriority(name))
+IE_TRACE:             Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE:             Starting var:.. name = 4
+IE_TRACE:             12:38:54.846628 call       212     def getpriority(self, name):
+IE_TRACE:             12:38:54.846649 line       220         prio = None
+IE_TRACE:             New var:....... prio = None
+IE_TRACE:             12:38:54.846664 line       221         if name in self:
+IE_TRACE:                 Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE:                 Starting var:.. name = 4
+IE_TRACE:                 12:38:54.846683 call       101     def __contains__(self, name):
+IE_TRACE:                 12:38:54.846704 line       102         return name in self.attributes
+IE_TRACE:                 12:38:54.846719 return     102         return name in self.attributes
+IE_TRACE:                 Return value:.. True
+IE_TRACE:             12:38:54.846737 line       222             prio = self.attributes[name].priority
+IE_TRACE:             Modified var:.. prio = 20
+IE_TRACE:             12:38:54.846753 line       223         return prio
+IE_TRACE:             12:38:54.846772 return     223         return prio
+IE_TRACE:             Return value:.. 20
+IE_TRACE:             Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 2: <SettingsAttribute value=2 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:             Starting var:.. name = 4
+IE_TRACE:             Starting var:.. value = 4
+IE_TRACE:             Starting var:.. priority = 20
+IE_TRACE:             12:38:54.846792 call       240     def set(self, name, value, priority='project'):
+IE_TRACE:             12:38:54.846822 line       258         self._assert_mutability()
+IE_TRACE:                 Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 2: <SettingsAttribute value=2 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:                 12:38:54.846839 call       336     def _assert_mutability(self):
+IE_TRACE:                 12:38:54.846856 line       337         if self.frozen:
+IE_TRACE:                 12:38:54.846870 return     337         if self.frozen:
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             12:38:54.846888 line       259         priority = get_settings_priority(priority)
+IE_TRACE:                 Starting var:.. priority = 20
+IE_TRACE:                 12:38:54.846905 call        23 def get_settings_priority(priority):
+IE_TRACE:                 12:38:54.846920 line        29     if isinstance(priority, six.string_types):
+IE_TRACE:                 12:38:54.846931 line        32         return priority
+IE_TRACE:                 12:38:54.846942 return      32         return priority
+IE_TRACE:                 Return value:.. 20
+IE_TRACE:             12:38:54.846957 line       260         if name not in self:
+IE_TRACE:                 Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 2: <SettingsAttribute value=2 priority=0>, 3: <SettingsAttribute value=30 priority=0>}>
+IE_TRACE:                 Starting var:.. name = 4
+IE_TRACE:                 12:38:54.846974 call       101     def __contains__(self, name):
+IE_TRACE:                 12:38:54.846995 line       102         return name in self.attributes
+IE_TRACE:                 12:38:54.847010 return     102         return name in self.attributes
+IE_TRACE:                 Return value:.. False
+IE_TRACE:             12:38:54.847029 line       261             if isinstance(value, SettingsAttribute):
+IE_TRACE:             12:38:54.847046 line       264                 self.attributes[name] = SettingsAttribute(value, priority)
+IE_TRACE:                 Starting var:.. self = REPR FAILED
+IE_TRACE:                 Starting var:.. value = 4
+IE_TRACE:                 Starting var:.. priority = 20
+IE_TRACE:                 12:38:54.847063 call        43     def __init__(self, value, priority):
+IE_TRACE:                 12:38:54.847088 line        44         self.value = value
+IE_TRACE:                 12:38:54.847103 line        45         if isinstance(self.value, BaseSettings):
+IE_TRACE:                     Source path:... <frozen abc>
+IE_TRACE:                     Starting var:.. cls = <class 'scrapy.settings.BaseSettings'>
+IE_TRACE:                     Starting var:.. instance = 4
+IE_TRACE:                     12:38:54.847118 call       117 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:38:54.847141 line       119 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:38:54.847154 return     119 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. False
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:                 12:38:54.847171 line        48             self.priority = priority
+IE_TRACE:                 Modified var:.. self = <SettingsAttribute value=4 priority=20>
+IE_TRACE:                 12:38:54.847189 return      48             self.priority = priority
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Modified var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 2: <SettingsAttribute value=2 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE:             12:38:54.847214 return     264                 self.attributes[name] = SettingsAttribute(value, priority)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Modified var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 2: <SettingsAttribute value=2 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE:         12:38:54.847240 line       320                 for name, value in six.iteritems(values):
+IE_TRACE:             Source path:... <frozen _collections_abc>
+IE_TRACE:             Starting var:.. self = ItemsView(<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>)
+IE_TRACE:             Starting var:.. key = 4
+IE_TRACE:             12:38:54.847266 call       894 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:38:54.847293 line       893 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:38:54.847309 return     893 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:         12:38:54.847330 return     320                 for name, value in six.iteritems(values):
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Modified var:.. compsett = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 2: <SettingsAttribute value=2 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE:     12:38:54.847360 line       208             return compsett
+IE_TRACE:     12:38:54.847389 return     208             return compsett
+IE_TRACE:     Return value:.. <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 2: <SettingsAttribute value=2 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_settings/__init__.py
+IE_TRACE: New var:....... cs = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 2: <SettingsAttribute value=2 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE: 12:38:54.847422 line       266         self.assertEqual(len(cs), 3)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/settings/__init__.py
+IE_TRACE:     Starting var:.. self = <BaseSettings {1: <SettingsAttribute value=10 priority=0>, 2: <SettingsAttribute value=2 priority=0>, 3: <SettingsAttribute value=30 priority=0>, 4: <SettingsAttribute value=4 priority=20>}>
+IE_TRACE:     12:38:54.847459 call       375     def __len__(self):
+IE_TRACE:     12:38:54.847481 line       376         return len(self.attributes)
+IE_TRACE:     12:38:54.847495 return     376         return len(self.attributes)
+IE_TRACE:     Return value:.. 4
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_settings/__init__.py
+IE_TRACE: 12:38:54.848506 exception  266         self.assertEqual(len(cs), 3)
+IE_TRACE: Exception:..... AssertionError: 4 != 3
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.017103
+======================================================================
+FAIL: test_getcomposite (tests.test_settings.__init__.BaseSettingsTest.test_getcomposite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/tests/test_settings/__init__.py", line 266, in test_getcomposite
+    self.assertEqual(len(cs), 3)
+AssertionError: 4 != 3
+
+----------------------------------------------------------------------
+Ran 1 test in 0.017s
+
+FAILED (failures=1)
+
+
+Exit code: 1

@@ -1,0 +1,27 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_get_new_command [label="test_get_new_command
+test_cd_parent.py:10" fillcolor=white shape=box style=filled]
+	__init__ [label="__init__
+const.py:5" fillcolor=white shape=box style=filled]
+	self [label="self
+Command(script=pip un+install thefuck, output=ERROR: unknown command \"un+install\" - maybe you meant \"uninstall\")" shape=ellipse]
+	get_new_command [label="get_new_command
+cargo.py:5" fillcolor=white shape=box style=filled]
+	ERROR__IndexError [label="IndexError
+list index out of range" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_get_new_command
+	}
+	{
+		rank=same
+		__init__
+		get_new_command
+	}
+	test_get_new_command -> __init__ [label="calls [#1]" color=blue penwidth=1.1]
+	test_get_new_command -> get_new_command [label="calls [#2]" color=blue penwidth=1.1]
+	test_get_new_command -> ERROR__IndexError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	__init__ -> self [label=writes color=black]
+	get_new_command -> ERROR__IndexError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+}

@@ -1,0 +1,27 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_strip_jsonp [label="test_strip_jsonp
+test_utils.py:285" fillcolor=white shape=box style=filled]
+	strip_jsonp [label="strip_jsonp
+utils.py:1333" fillcolor=white shape=box style=filled]
+	stripped [label="stripped
+(2 writes, 2 distinct)
+'[ {\"id\":\"532cb\",\n\n\n\"x\":\n3}\n]\n'
+'parseMetadata({\"STATUS\":\"OK\"})\n\n\n//epc'" shape=ellipse]
+	d [label="d
+[{'id': '532cb', 'x': 3}]" shape=ellipse]
+	"ERROR__json.decoder.JSONDecodeError" [label="json.decoder.JSONDecodeError
+Expecting value: line 1 column 1 (char 0)" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_strip_jsonp
+	}
+	{
+		rank=same
+		strip_jsonp
+	}
+	test_strip_jsonp -> strip_jsonp [label="calls×2 [#1]" color=blue penwidth=1.2]
+	test_strip_jsonp -> stripped [label="writes×2" color=black]
+	test_strip_jsonp -> d [label=writes color=black]
+	test_strip_jsonp -> "ERROR__json.decoder.JSONDecodeError" [label="raises (caught)" color=gray penwidth=1 style=dashed]
+}

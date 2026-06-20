@@ -1,0 +1,34 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_cache_without_limit [label="test_cache_without_limit
+test_utils_datatypes.py:264" fillcolor=white shape=box style=filled]
+	max [label="max
+10000" shape=ellipse]
+	__init__ [label="__init__
+extensions.py:5" fillcolor=white shape=box style=filled]
+	cache [label="cache
+LocalCache()" shape=ellipse]
+	x [label="x
+0" shape=ellipse]
+	__setitem__ [label="__setitem__
+[closure inside test_init_mutable_mapping]
+test_utils_datatypes.py:60" fillcolor=white shape=box style=filled]
+	ERROR__TypeError [label="TypeError
+'>=' not supported between instances of 'int' and 'NoneType'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_cache_without_limit
+	}
+	{
+		rank=same
+		__init__
+		__setitem__
+	}
+	test_cache_without_limit -> max [label=writes color=black]
+	test_cache_without_limit -> __init__ [label="calls [#1]" color=blue penwidth=1.1]
+	test_cache_without_limit -> cache [label=writes color=black]
+	test_cache_without_limit -> x [label=writes color=black]
+	test_cache_without_limit -> __setitem__ [label="calls [#2]" color=blue penwidth=1.1]
+	test_cache_without_limit -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	__setitem__ -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+}

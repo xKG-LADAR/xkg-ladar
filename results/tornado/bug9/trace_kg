@@ -1,0 +1,27 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_url_concat_none_params [label="test_url_concat_none_params
+httputil_test.py:72" fillcolor=white shape=box style=filled]
+	url_concat [label="url_concat
+Concatenate url and arguments regardless of whether
+httputil.py:592" fillcolor=white shape=box style=filled]
+	parsed_url [label="parsed_url
+ParseResult(scheme='https', netloc='localhost', path='/path', params='', query='r=1&t=2', fragment='')" shape=ellipse]
+	err [label="err
+\"'args' parameter should be dict, list or tuple. Not <class 'NoneType'>\"" shape=ellipse]
+	ERROR__TypeError [label="TypeError
+'args' parameter should be dict, list or tuple. Not <class 'NoneType'>" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_url_concat_none_params
+	}
+	{
+		rank=same
+		url_concat
+	}
+	test_url_concat_none_params -> url_concat [label="calls [#1]" color=blue penwidth=1.1]
+	test_url_concat_none_params -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	url_concat -> parsed_url [label=writes color=black]
+	url_concat -> err [label=writes color=black]
+	url_concat -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+}

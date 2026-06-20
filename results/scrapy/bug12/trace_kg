@@ -1,0 +1,12 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_selector_bad_args [label="test_selector_bad_args
+test_selector.py:129" fillcolor=white shape=box style=filled]
+	ERROR__AttributeError [label="AttributeError
+'SelectorTestCase' object has no attribute 'assertRaisesRegexp'. Did you mean: 'assertRaisesRegex'?" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_selector_bad_args
+	}
+	test_selector_bad_args -> ERROR__AttributeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+}

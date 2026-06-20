@@ -1,0 +1,1565 @@
+Cleared: /path/to/results/tornado/bug7
+Running: python -m unittest -q tornado.test.ioloop_test.TestIOLoopFutures.test_run_in_executor_native
+Workdir: /path/to/BugsInPy/workspace/tornado
+PYTHONPATH: /path/to/BugsInPy/workspace/tornado::
+/path/to/BugsInPy/workspace/tornado/tornado/util.py:255: SyntaxWarning: invalid escape sequence '\d'
+  """Unescape a string escaped by `re.escape`.
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/ioloop_test.py
+IE_TRACE: Starting var:.. self = <tornado.test.ioloop_test.TestIOLoopFutures testMethod=test_run_in_executor_native>
+IE_TRACE: 19:13:22.911454 call       631     def test_run_in_executor_native(self):
+IE_TRACE: 19:13:22.911778 line       632         event1 = threading.Event()
+IE_TRACE:     Source path:... /usr/lib/python3.12/threading.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     19:13:22.911824 call       588     def __init__(self):
+IE_TRACE:     19:13:22.912026 line       589         self._cond = Condition(Lock())
+IE_TRACE:         Starting var:.. self = REPR FAILED
+IE_TRACE:         Starting var:.. lock = <unlocked _thread.lock object at 0x7f74d8d47740>
+IE_TRACE:         19:13:22.912056 call       277     def __init__(self, lock=None):
+IE_TRACE:         19:13:22.912102 line       278         if lock is None:
+IE_TRACE:         19:13:22.912138 line       280         self._lock = lock
+IE_TRACE:         19:13:22.912271 line       282         self.acquire = lock.acquire
+IE_TRACE:         19:13:22.912334 line       283         self.release = lock.release
+IE_TRACE:         19:13:22.912367 line       287         if hasattr(lock, '_release_save'):
+IE_TRACE:         19:13:22.912392 line       289         if hasattr(lock, '_acquire_restore'):
+IE_TRACE:         19:13:22.912410 line       291         if hasattr(lock, '_is_owned'):
+IE_TRACE:         19:13:22.912429 line       293         self._waiters = _deque()
+IE_TRACE:         Modified var:.. self = <Condition(<unlocked _thread.lock object at 0x7f74d8d47740>, 0)>
+IE_TRACE:         19:13:22.912446 return     293         self._waiters = _deque()
+IE_TRACE:         Return value:.. None
+IE_TRACE:     19:13:22.912491 line       590         self._flag = False
+IE_TRACE:     Modified var:.. self = <threading.Event at 0x7f74d8196f00: unset>
+IE_TRACE:     19:13:22.912509 return     590         self._flag = False
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/ioloop_test.py
+IE_TRACE: New var:....... event1 = <threading.Event at 0x7f74d8196f00: unset>
+IE_TRACE: 19:13:22.912703 line       633         event2 = threading.Event()
+IE_TRACE:     Source path:... /usr/lib/python3.12/threading.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     19:13:22.912740 call       588     def __init__(self):
+IE_TRACE:     19:13:22.912771 line       589         self._cond = Condition(Lock())
+IE_TRACE:         Starting var:.. self = REPR FAILED
+IE_TRACE:         Starting var:.. lock = <unlocked _thread.lock object at 0x7f74d817f3c0>
+IE_TRACE:         19:13:22.912787 call       277     def __init__(self, lock=None):
+IE_TRACE:         19:13:22.912815 line       278         if lock is None:
+IE_TRACE:         19:13:22.912832 line       280         self._lock = lock
+IE_TRACE:         19:13:22.912848 line       282         self.acquire = lock.acquire
+IE_TRACE:         19:13:22.912864 line       283         self.release = lock.release
+IE_TRACE:         19:13:22.912878 line       287         if hasattr(lock, '_release_save'):
+IE_TRACE:         19:13:22.912893 line       289         if hasattr(lock, '_acquire_restore'):
+IE_TRACE:         19:13:22.912907 line       291         if hasattr(lock, '_is_owned'):
+IE_TRACE:         19:13:22.912923 line       293         self._waiters = _deque()
+IE_TRACE:         Modified var:.. self = <Condition(<unlocked _thread.lock object at 0x7f74d817f3c0>, 0)>
+IE_TRACE:         19:13:22.912938 return     293         self._waiters = _deque()
+IE_TRACE:         Return value:.. None
+IE_TRACE:     19:13:22.912967 line       590         self._flag = False
+IE_TRACE:     Modified var:.. self = <threading.Event at 0x7f74d8197ec0: unset>
+IE_TRACE:     19:13:22.912981 return     590         self._flag = False
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/ioloop_test.py
+IE_TRACE: New var:....... event2 = <threading.Event at 0x7f74d8197ec0: unset>
+IE_TRACE: 19:13:22.913004 line       635         def sync_func(self_event, other_event):
+IE_TRACE: New var:....... sync_func = <function TestIOLoopFutures.test_run_in_executor_native.<locals>.sync_func at 0x7f74d802e200>
+IE_TRACE: 19:13:22.913034 line       643         namespace = exec_test(globals(), locals(), """
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/util.py
+IE_TRACE:     Starting var:.. caller_globals = dict(len=57)
+IE_TRACE:     Starting var:.. caller_locals = {'self': <tornado.test.ioloop_test.TestIOLoopFutures testMethod=test_run_in_executor_native>, 'event1': <threading.Event at 0x7f74d8196f00: unset>, 'event2': <threading.Event at 0x7f74d8197ec0: unset>, 'sync_func': <function TestIOLoopFutures.test_run_in_executor_native.<locals>.sync_func at 0x7f74d802e200>}
+IE_TRACE:     Starting var:.. s = '\n            async def async_wrapper(self_event, other_event):\n                return await IOLoop.current().run_in_executor(\n                    None, sync_func, self_event, other_event)\n        '
+IE_TRACE:     19:13:22.913066 call        75 def exec_test(caller_globals, caller_locals, s):
+IE_TRACE:     19:13:22.913225 line        84     global_namespace = dict(caller_globals, **caller_locals)  # type: ignore
+IE_TRACE:     New var:....... global_namespace = dict(len=61)
+IE_TRACE:     19:13:22.913253 line        85     local_namespace = {}
+IE_TRACE:     New var:....... local_namespace = {}
+IE_TRACE:     19:13:22.913280 line        86     exec(textwrap.dedent(s), global_namespace, local_namespace)
+IE_TRACE:         Source path:... /usr/lib/python3.12/textwrap.py
+IE_TRACE:         Starting var:.. text = '\n            async def async_wrapper(self_event, other_event):\n                return await IOLoop.current().run_in_executor(\n                    None, sync_func, self_event, other_event)\n        '
+IE_TRACE:         19:13:22.913321 call       419 def dedent(text):
+IE_TRACE:         19:13:22.913424 line       434     margin = None
+IE_TRACE:         New var:....... margin = None
+IE_TRACE:         19:13:22.913441 line       435     text = _whitespace_only_re.sub('', text)
+IE_TRACE:         Modified var:.. text = '\n            async def async_wrapper(self_event, other_event):\n                return await IOLoop.current().run_in_executor(\n                    None, sync_func, self_event, other_event)\n'
+IE_TRACE:         19:13:22.913469 line       436     indents = _leading_whitespace_re.findall(text)
+IE_TRACE:         New var:....... indents = ['            ', '                ', '                    ']
+IE_TRACE:         19:13:22.913496 line       437     for indent in indents:
+IE_TRACE:         New var:....... indent = '            '
+IE_TRACE:         19:13:22.913522 line       438         if margin is None:
+IE_TRACE:         19:13:22.913547 line       439             margin = indent
+IE_TRACE:         Modified var:.. margin = '            '
+IE_TRACE:         19:13:22.913567 line       437     for indent in indents:
+IE_TRACE:         Modified var:.. indent = '                '
+IE_TRACE:         19:13:22.913591 line       438         if margin is None:
+IE_TRACE:         19:13:22.913613 line       443         elif indent.startswith(margin):
+IE_TRACE:         19:13:22.913632 line       444             pass
+IE_TRACE:         19:13:22.913651 line       437     for indent in indents:
+IE_TRACE:         Modified var:.. indent = '                    '
+IE_TRACE:         19:13:22.913671 line       438         if margin is None:
+IE_TRACE:         19:13:22.913693 line       443         elif indent.startswith(margin):
+IE_TRACE:         19:13:22.913711 line       444             pass
+IE_TRACE:         19:13:22.913730 line       437     for indent in indents:
+IE_TRACE:         19:13:22.913749 line       460     if 0 and margin:
+IE_TRACE:         19:13:22.913768 line       465     if margin:
+IE_TRACE:         19:13:22.913787 line       466         text = re.sub(r'(?m)^' + margin, '', text)
+IE_TRACE:             Source path:... /usr/lib/python3.12/re/__init__.py
+IE_TRACE:             Starting var:.. pattern = '(?m)^            '
+IE_TRACE:             Starting var:.. repl = ''
+IE_TRACE:             Starting var:.. string = '\n            async def async_wrapper(self_event, other_event):\n                return await IOLoop.current().run_in_executor(\n                    None, sync_func, self_event, other_event)\n'
+IE_TRACE:             Starting var:.. count = 0
+IE_TRACE:             Starting var:.. flags = 0
+IE_TRACE:             19:13:22.913812 call       179 def sub(pattern, repl, string, count=0, flags=0):
+IE_TRACE:             19:13:22.913927 line       186     return _compile(pattern, flags).sub(repl, string, count)
+IE_TRACE:                 Starting var:.. pattern = '(?m)^            '
+IE_TRACE:                 Starting var:.. flags = 0
+IE_TRACE:                 19:13:22.913967 call       280 def _compile(pattern, flags):
+IE_TRACE:                 19:13:22.913997 line       282     if isinstance(flags, RegexFlag):
+IE_TRACE:                 19:13:22.914016 line       284     try:
+IE_TRACE:                 19:13:22.914033 line       285         return _cache2[type(pattern), pattern, flags]
+IE_TRACE:                 19:13:22.914050 exception  285         return _cache2[type(pattern), pattern, flags]
+IE_TRACE:                 Exception:..... KeyError: (<class 'str'>, '(?m)^            ', 0)
+IE_TRACE:                 19:13:22.914195 line       286     except KeyError:
+IE_TRACE:                 19:13:22.914216 line       287         pass
+IE_TRACE:                 19:13:22.914234 line       289     key = (type(pattern), pattern, flags)
+IE_TRACE:                 New var:....... key = (<class 'str'>, '(?m)^            ', 0)
+IE_TRACE:                 19:13:22.914250 line       291     p = _cache.pop(key, None)
+IE_TRACE:                 New var:....... p = None
+IE_TRACE:                 19:13:22.914274 line       292     if p is None:
+IE_TRACE:                 19:13:22.914299 line       293         if isinstance(pattern, Pattern):
+IE_TRACE:                 19:13:22.914319 line       298         if not _compiler.isstring(pattern):
+IE_TRACE:                     Source path:... /usr/lib/python3.12/re/_compiler.py
+IE_TRACE:                     Starting var:.. obj = '(?m)^            '
+IE_TRACE:                     19:13:22.914341 call       570 def isstring(obj):
+IE_TRACE:                     19:13:22.914454 line       571     return isinstance(obj, (str, bytes))
+IE_TRACE:                     19:13:22.914471 return     571     return isinstance(obj, (str, bytes))
+IE_TRACE:                     Return value:.. True
+IE_TRACE:                 Source path:... /usr/lib/python3.12/re/__init__.py
+IE_TRACE:                 19:13:22.914496 line       300         if flags & T:
+IE_TRACE:                     Source path:... /usr/lib/python3.12/enum.py
+IE_TRACE:                     Starting var:.. self = re.TEMPLATE
+IE_TRACE:                     Starting var:.. other = 0
+IE_TRACE:                     19:13:22.914528 call      1562     def __and__(self, other):
+IE_TRACE:                     19:13:22.914744 line      1563         other_value = self._get_value(other)
+IE_TRACE:                         Starting var:.. self = re.TEMPLATE
+IE_TRACE:                         Starting var:.. flag = 0
+IE_TRACE:                         19:13:22.914769 call      1544     def _get_value(self, flag):
+IE_TRACE:                         19:13:22.914800 line      1545         if isinstance(flag, self.__class__):
+IE_TRACE:                         19:13:22.914818 line      1547         elif self._member_type_ is not object and isinstance(flag, self._member_type_):
+IE_TRACE:                         19:13:22.914836 line      1548             return flag
+IE_TRACE:                         19:13:22.914854 return    1548             return flag
+IE_TRACE:                         Return value:.. 0
+IE_TRACE:                     New var:....... other_value = 0
+IE_TRACE:                     19:13:22.914878 line      1564         if other_value is NotImplemented:
+IE_TRACE:                     19:13:22.914901 line      1567         for flag in self, other:
+IE_TRACE:                     New var:....... flag = re.TEMPLATE
+IE_TRACE:                     19:13:22.914920 line      1568             if self._get_value(flag) is None:
+IE_TRACE:                         Starting var:.. self = re.TEMPLATE
+IE_TRACE:                         Starting var:.. flag = re.TEMPLATE
+IE_TRACE:                         19:13:22.914946 call      1544     def _get_value(self, flag):
+IE_TRACE:                         19:13:22.914973 line      1545         if isinstance(flag, self.__class__):
+IE_TRACE:                         19:13:22.914991 line      1546             return flag._value_
+IE_TRACE:                         19:13:22.915008 return    1546             return flag._value_
+IE_TRACE:                         Return value:.. 1
+IE_TRACE:                     19:13:22.915033 line      1567         for flag in self, other:
+IE_TRACE:                     Modified var:.. flag = 0
+IE_TRACE:                     19:13:22.915056 line      1568             if self._get_value(flag) is None:
+IE_TRACE:                         Starting var:.. self = re.TEMPLATE
+IE_TRACE:                         Starting var:.. flag = 0
+IE_TRACE:                         19:13:22.915103 call      1544     def _get_value(self, flag):
+IE_TRACE:                         19:13:22.915137 line      1545         if isinstance(flag, self.__class__):
+IE_TRACE:                         19:13:22.915162 line      1547         elif self._member_type_ is not object and isinstance(flag, self._member_type_):
+IE_TRACE:                         19:13:22.915179 line      1548             return flag
+IE_TRACE:                         19:13:22.915196 return    1548             return flag
+IE_TRACE:                         Return value:.. 0
+IE_TRACE:                     19:13:22.915219 line      1567         for flag in self, other:
+IE_TRACE:                     19:13:22.915239 line      1570         value = self._value_
+IE_TRACE:                     New var:....... value = 1
+IE_TRACE:                     19:13:22.915258 line      1571         return self.__class__(value & other_value)
+IE_TRACE:                         Starting var:.. cls = <flag 'RegexFlag'>
+IE_TRACE:                         Starting var:.. value = 0
+IE_TRACE:                         Starting var:.. names = <not given>
+IE_TRACE:                         Starting var:.. module = None
+IE_TRACE:                         Starting var:.. qualname = None
+IE_TRACE:                         Starting var:.. type = None
+IE_TRACE:                         Starting var:.. start = 1
+IE_TRACE:                         Starting var:.. boundary = None
+IE_TRACE:                         Starting var:.. values = ()
+IE_TRACE:                         19:13:22.915292 call       726     def __call__(cls, value, names=_not_given, *values, module=None, qualname=None, type=None, start=1, boundary=None):
+IE_TRACE:                         19:13:22.915371 line       753         if cls._member_map_:
+IE_TRACE:                         19:13:22.915401 line       755             if names is not _not_given:
+IE_TRACE:                         19:13:22.915429 line       757             return cls.__new__(cls, value)
+IE_TRACE:                             Starting var:.. cls = <flag 'RegexFlag'>
+IE_TRACE:                             Starting var:.. value = 0
+IE_TRACE:                             19:13:22.915472 call      1129     def __new__(cls, value):
+IE_TRACE:                             19:13:22.915504 line      1133         if type(value) is cls:
+IE_TRACE:                             19:13:22.915524 line      1138         try:
+IE_TRACE:                             19:13:22.915544 line      1139             return cls._value2member_map_[value]
+IE_TRACE:                             19:13:22.915565 return    1139             return cls._value2member_map_[value]
+IE_TRACE:                             Return value:.. re.NOFLAG
+IE_TRACE:                         19:13:22.915598 return     757             return cls.__new__(cls, value)
+IE_TRACE:                         Return value:.. re.NOFLAG
+IE_TRACE:                     19:13:22.915637 return    1571         return self.__class__(value & other_value)
+IE_TRACE:                     Return value:.. re.NOFLAG
+IE_TRACE:                 Source path:... /usr/lib/python3.12/re/__init__.py
+IE_TRACE:                 19:13:22.915667 line       307         p = _compiler.compile(pattern, flags)
+IE_TRACE:                     Source path:... /usr/lib/python3.12/re/_compiler.py
+IE_TRACE:                     Starting var:.. p = '(?m)^            '
+IE_TRACE:                     Starting var:.. flags = 0
+IE_TRACE:                     19:13:22.915701 call       740 def compile(p, flags=0):
+IE_TRACE:                     19:13:22.915738 line       743     if isstring(p):
+IE_TRACE:                         Starting var:.. obj = '(?m)^            '
+IE_TRACE:                         19:13:22.915758 call       570 def isstring(obj):
+IE_TRACE:                         19:13:22.915778 line       571     return isinstance(obj, (str, bytes))
+IE_TRACE:                         19:13:22.915794 return     571     return isinstance(obj, (str, bytes))
+IE_TRACE:                         Return value:.. True
+IE_TRACE:                     19:13:22.915817 line       744         pattern = p
+IE_TRACE:                     New var:....... pattern = '(?m)^            '
+IE_TRACE:                     19:13:22.915836 line       745         p = _parser.parse(p, flags)
+IE_TRACE:                         Source path:... /usr/lib/python3.12/re/_parser.py
+IE_TRACE:                         Starting var:.. str = '(?m)^            '
+IE_TRACE:                         Starting var:.. flags = 0
+IE_TRACE:                         Starting var:.. state = None
+IE_TRACE:                         19:13:22.915868 call       969 def parse(str, flags=0, state=None):
+IE_TRACE:                         19:13:22.916030 line       972     source = Tokenizer(str)
+IE_TRACE:                             Starting var:.. self = <re._parser.Tokenizer object at 0x7f74d8199490>
+IE_TRACE:                             Starting var:.. string = '(?m)^            '
+IE_TRACE:                             19:13:22.916058 call       231     def __init__(self, string):
+IE_TRACE:                             19:13:22.916091 line       232         self.istext = isinstance(string, str)
+IE_TRACE:                             19:13:22.916113 line       233         self.string = string
+IE_TRACE:                             19:13:22.916138 line       234         if not self.istext:
+IE_TRACE:                             19:13:22.916159 line       236         self.decoded_string = string
+IE_TRACE:                             19:13:22.916177 line       237         self.index = 0
+IE_TRACE:                             19:13:22.916194 line       238         self.next = None
+IE_TRACE:                             19:13:22.916212 line       239         self.__next()
+IE_TRACE:                                 Starting var:.. self = <re._parser.Tokenizer object at 0x7f74d8199490>
+IE_TRACE:                                 19:13:22.916237 call       240     def __next(self):
+IE_TRACE:                                 19:13:22.916261 line       241         index = self.index
+IE_TRACE:                                 New var:....... index = 0
+IE_TRACE:                                 19:13:22.916279 line       242         try:
+IE_TRACE:                                 19:13:22.916305 line       243             char = self.decoded_string[index]
+IE_TRACE:                                 New var:....... char = '('
+IE_TRACE:                                 19:13:22.916323 line       247         if char == "\\":
+IE_TRACE:                                 19:13:22.916347 line       254         self.index = index + 1
+IE_TRACE:                                 19:13:22.916367 line       255         self.next = char
+IE_TRACE:                                 19:13:22.916386 return     255         self.next = char
+IE_TRACE:                                 Return value:.. None
+IE_TRACE:                             19:13:22.916413 return     239         self.__next()
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         New var:....... source = <re._parser.Tokenizer object at 0x7f74d8199490>
+IE_TRACE:                         19:13:22.916438 line       974     if state is None:
+IE_TRACE:                         19:13:22.916464 line       975         state = State()
+IE_TRACE:                             Starting var:.. self = <re._parser.State object at 0x7f74d819ad50>
+IE_TRACE:                             19:13:22.916488 call        77     def __init__(self):
+IE_TRACE:                             19:13:22.916511 line        78         self.flags = 0
+IE_TRACE:                             19:13:22.916527 line        79         self.groupdict = {}
+IE_TRACE:                             19:13:22.916543 line        80         self.groupwidths = [None]  # group 0
+IE_TRACE:                             19:13:22.916559 line        81         self.lookbehindgroups = None
+IE_TRACE:                             19:13:22.916575 line        82         self.grouprefpos = {}
+IE_TRACE:                             19:13:22.916591 return      82         self.grouprefpos = {}
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         Modified var:.. state = <re._parser.State object at 0x7f74d819ad50>
+IE_TRACE:                         19:13:22.916613 line       976     state.flags = flags
+IE_TRACE:                         19:13:22.916639 line       977     state.str = str
+IE_TRACE:                         19:13:22.916661 line       979     p = _parse_sub(source, state, flags & SRE_FLAG_VERBOSE, 0)
+IE_TRACE:                             Starting var:.. source = <re._parser.Tokenizer object at 0x7f74d8199490>
+IE_TRACE:                             Starting var:.. state = <re._parser.State object at 0x7f74d819ad50>
+IE_TRACE:                             Starting var:.. verbose = 0
+IE_TRACE:                             Starting var:.. nested = 0
+IE_TRACE:                             19:13:22.916697 call       452 def _parse_sub(source, state, verbose, nested):
+IE_TRACE:                             19:13:22.916742 line       455     items = []
+IE_TRACE:                             New var:....... items = []
+IE_TRACE:                             19:13:22.916767 line       456     itemsappend = items.append
+IE_TRACE:                             New var:....... itemsappend = <built-in method append of list object at 0x7f74d81ff680>
+IE_TRACE:                             19:13:22.916798 line       457     sourcematch = source.match
+IE_TRACE:                             New var:....... sourcematch = <bound method Tokenizer.match of <re._parser.Tokenizer object at 0x7f74d8199490>>
+IE_TRACE:                             19:13:22.916834 line       458     start = source.tell()
+IE_TRACE:                                 Starting var:.. self = <re._parser.Tokenizer object at 0x7f74d8199490>
+IE_TRACE:                                 19:13:22.916872 call       293     def tell(self):
+IE_TRACE:                                 19:13:22.916895 line       294         return self.index - len(self.next or '')
+IE_TRACE:                                 19:13:22.916914 return     294         return self.index - len(self.next or '')
+IE_TRACE:                                 Return value:.. 0
+IE_TRACE:                             New var:....... start = 0
+IE_TRACE:                             19:13:22.916937 line       459     while True:
+IE_TRACE:                             19:13:22.916972 line       460         itemsappend(_parse(source, state, verbose, nested + 1,
+IE_TRACE:                             19:13:22.917002 line       461                            not nested and not items))
+IE_TRACE:                             19:13:22.917031 line       460         itemsappend(_parse(source, state, verbose, nested + 1,
+IE_TRACE:                                 Starting var:.. source = <re._parser.Tokenizer object at 0x7f74d8199490>
+IE_TRACE:                                 Starting var:.. state = <re._parser.State object at 0x7f74d819ad50>
+IE_TRACE:                                 Starting var:.. verbose = 0
+IE_TRACE:                                 Starting var:.. nested = 1
+IE_TRACE:                                 Starting var:.. first = True
+IE_TRACE:                                 19:13:22.917168 call       512 def _parse(source, state, verbose, nested, first=False):
+IE_TRACE:                                 19:13:22.917254 line       514     subpattern = SubPattern(state)
+IE_TRACE:                                     Starting var:.. self = REPR FAILED
+IE_TRACE:                                     Starting var:.. state = <re._parser.State object at 0x7f74d819ad50>
+IE_TRACE:                                     Starting var:.. data = None
+IE_TRACE:                                     19:13:22.917304 call       113     def __init__(self, state, data=None):
+IE_TRACE:                                     19:13:22.917356 line       114         self.state = state
+IE_TRACE:                                     19:13:22.917390 line       115         if data is None:
+IE_TRACE:                                     19:13:22.917421 line       116             data = []
+IE_TRACE:                                     Modified var:.. data = []
+IE_TRACE:                                     19:13:22.917452 line       117         self.data = data
+IE_TRACE:                                     Modified var:.. self = []
+IE_TRACE:                                     19:13:22.917488 line       118         self.width = None
+IE_TRACE:                                     19:13:22.917522 return     118         self.width = None
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 New var:....... subpattern = []
+IE_TRACE:                                 19:13:22.917559 line       517     subpatternappend = subpattern.append
+IE_TRACE:                                 New var:....... subpatternappend = <bound method SubPattern.append of []>
+IE_TRACE:                                 19:13:22.917610 line       518     sourceget = source.get
+IE_TRACE:                                 New var:....... sourceget = <bound method Tokenizer.get of <re._parser.Tokenizer object at 0x7f74d8199490>>
+IE_TRACE:                                 19:13:22.917663 line       519     sourcematch = source.match
+IE_TRACE:                                 New var:....... sourcematch = <bound method Tokenizer.match of <re._parser.Tokenizer object at 0x7f74d8199490>>
+IE_TRACE:                                 19:13:22.917715 line       520     _len = len
+IE_TRACE:                                 New var:....... _len = <built-in function len>
+IE_TRACE:                                 19:13:22.917770 line       521     _ord = ord
+IE_TRACE:                                 New var:....... _ord = <built-in function ord>
+IE_TRACE:                                 19:13:22.917827 line       523     while True:
+IE_TRACE:                                 19:13:22.917883 line       525         this = source.next
+IE_TRACE:                                 New var:....... this = '('
+IE_TRACE:                                 19:13:22.917935 line       526         if this is None:
+IE_TRACE:                                 19:13:22.917993 line       528         if this in "|)":
+IE_TRACE:                                 19:13:22.918045 line       530         sourceget()
+IE_TRACE:                                     Starting var:.. self = <re._parser.Tokenizer object at 0x7f74d8199490>
+IE_TRACE:                                     19:13:22.918100 call       261     def get(self):
+IE_TRACE:                                     19:13:22.918138 line       262         this = self.next
+IE_TRACE:                                     New var:....... this = '('
+IE_TRACE:                                     19:13:22.918169 line       263         self.__next()
+IE_TRACE:                                     19:13:22.918221 line       264         return this
+IE_TRACE:                                     19:13:22.918250 return     264         return this
+IE_TRACE:                                     Return value:.. '('
+IE_TRACE:                                 19:13:22.918285 line       532         if verbose:
+IE_TRACE:                                 19:13:22.918339 line       543         if this[0] == "\\":
+IE_TRACE:                                 19:13:22.918392 line       547         elif this not in SPECIAL_CHARS:
+IE_TRACE:                                 19:13:22.918444 line       550         elif this == "[":
+IE_TRACE:                                 19:13:22.918496 line       639         elif this in REPEAT_CHARS:
+IE_TRACE:                                 19:13:22.918548 line       706         elif this == ".":
+IE_TRACE:                                 19:13:22.918600 line       709         elif this == "(":
+IE_TRACE:                                 19:13:22.918652 line       710             start = source.tell() - 1
+IE_TRACE:                                     Starting var:.. self = <re._parser.Tokenizer object at 0x7f74d8199490>
+IE_TRACE:                                     19:13:22.918704 call       293     def tell(self):
+IE_TRACE:                                     19:13:22.918737 line       294         return self.index - len(self.next or '')
+IE_TRACE:                                     19:13:22.918766 return     294         return self.index - len(self.next or '')
+IE_TRACE:                                     Return value:.. 1
+IE_TRACE:                                 New var:....... start = 0
+IE_TRACE:                                 19:13:22.918800 line       711             capture = True
+IE_TRACE:                                 New var:....... capture = True
+IE_TRACE:                                 19:13:22.918860 line       712             atomic = False
+IE_TRACE:                                 New var:....... atomic = False
+IE_TRACE:                                 19:13:22.918921 line       713             name = None
+IE_TRACE:                                 New var:....... name = None
+IE_TRACE:                                 19:13:22.918983 line       714             add_flags = 0
+IE_TRACE:                                 New var:....... add_flags = 0
+IE_TRACE:                                 19:13:22.919047 line       715             del_flags = 0
+IE_TRACE:                                 New var:....... del_flags = 0
+IE_TRACE:                                 19:13:22.919111 line       716             if sourcematch("?"):
+IE_TRACE:                                     Starting var:.. self = <re._parser.Tokenizer object at 0x7f74d8199490>
+IE_TRACE:                                     Starting var:.. char = '?'
+IE_TRACE:                                     19:13:22.919189 call       256     def match(self, char):
+IE_TRACE:                                     19:13:22.919229 line       257         if char == self.next:
+IE_TRACE:                                     19:13:22.919258 line       258             self.__next()
+IE_TRACE:                                     19:13:22.919304 line       259             return True
+IE_TRACE:                                     19:13:22.919333 return     259             return True
+IE_TRACE:                                     Return value:.. True
+IE_TRACE:                                 19:13:22.919367 line       718                 char = sourceget()
+IE_TRACE:                                     Starting var:.. self = <re._parser.Tokenizer object at 0x7f74d8199490>
+IE_TRACE:                                     19:13:22.919429 call       261     def get(self):
+IE_TRACE:                                     19:13:22.919461 line       262         this = self.next
+IE_TRACE:                                     New var:....... this = 'm'
+IE_TRACE:                                     19:13:22.919489 line       263         self.__next()
+IE_TRACE:                                     19:13:22.919539 line       264         return this
+IE_TRACE:                                     19:13:22.919567 return     264         return this
+IE_TRACE:                                     Return value:.. 'm'
+IE_TRACE:                                 New var:....... char = 'm'
+IE_TRACE:                                 19:13:22.919602 line       719                 if char is None:
+IE_TRACE:                                 19:13:22.919669 line       721                 if char == "P":
+IE_TRACE:                                 19:13:22.919731 line       748                 elif char == ":":
+IE_TRACE:                                 19:13:22.919791 line       751                 elif char == "#":
+IE_TRACE:                                 19:13:22.919852 line       761                 elif char in "=!<":
+IE_TRACE:                                 19:13:22.919922 line       788                 elif char == "(":
+IE_TRACE:                                 19:13:22.919994 line       831                 elif char == ">":
+IE_TRACE:                                 19:13:22.920060 line       835                 elif char in FLAGS or char == "-":
+IE_TRACE:                                 19:13:22.920132 line       837                     flags = _parse_flags(source, state, char)
+IE_TRACE:                                     Starting var:.. source = <re._parser.Tokenizer object at 0x7f74d8199490>
+IE_TRACE:                                     Starting var:.. state = <re._parser.State object at 0x7f74d819ad50>
+IE_TRACE:                                     Starting var:.. char = 'm'
+IE_TRACE:                                     19:13:22.920218 call       893 def _parse_flags(source, state, char):
+IE_TRACE:                                     19:13:22.920269 line       894     sourceget = source.get
+IE_TRACE:                                     New var:....... sourceget = <bound method Tokenizer.get of <re._parser.Tokenizer object at 0x7f74d8199490>>
+IE_TRACE:                                     19:13:22.920303 line       895     add_flags = 0
+IE_TRACE:                                     New var:....... add_flags = 0
+IE_TRACE:                                     19:13:22.920344 line       896     del_flags = 0
+IE_TRACE:                                     New var:....... del_flags = 0
+IE_TRACE:                                     19:13:22.920385 line       897     if char != "-":
+IE_TRACE:                                     19:13:22.920428 line       898         while True:
+IE_TRACE:                                     19:13:22.920465 line       899             flag = FLAGS[char]
+IE_TRACE:                                     New var:....... flag = 8
+IE_TRACE:                                     19:13:22.920502 line       900             if source.istext:
+IE_TRACE:                                     19:13:22.920544 line       901                 if char == 'L':
+IE_TRACE:                                     19:13:22.920581 line       908             add_flags |= flag
+IE_TRACE:                                     Modified var:.. add_flags = 8
+IE_TRACE:                                     19:13:22.920619 line       909             if (flag & TYPE_FLAGS) and (add_flags & TYPE_FLAGS) != flag:
+IE_TRACE:                                     19:13:22.920663 line       912             char = sourceget()
+IE_TRACE:                                     Modified var:.. char = ')'
+IE_TRACE:                                     19:13:22.920737 line       913             if char is None:
+IE_TRACE:                                     19:13:22.920780 line       915             if char in ")-:":
+IE_TRACE:                                     19:13:22.920817 line       916                 break
+IE_TRACE:                                     19:13:22.920855 line       920     if char == ")":
+IE_TRACE:                                     19:13:22.920892 line       921         state.flags |= add_flags
+IE_TRACE:                                     19:13:22.920929 line       922         return None
+IE_TRACE:                                     19:13:22.920967 return     922         return None
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 New var:....... flags = None
+IE_TRACE:                                 19:13:22.921018 line       838                     if flags is None:  # global flags
+IE_TRACE:                                 19:13:22.921095 line       839                         if not first or subpattern:
+IE_TRACE:                                     Starting var:.. self = []
+IE_TRACE:                                     19:13:22.921175 call       164     def __len__(self):
+IE_TRACE:                                     19:13:22.921208 line       165         return len(self.data)
+IE_TRACE:                                     19:13:22.921236 return     165         return len(self.data)
+IE_TRACE:                                     Return value:.. 0
+IE_TRACE:                                 19:13:22.921275 line       843                         verbose = state.flags & SRE_FLAG_VERBOSE
+IE_TRACE:                                 19:13:22.921344 line       844                         continue
+IE_TRACE:                                 19:13:22.921433 line       523     while True:
+IE_TRACE:                                 19:13:22.921497 line       525         this = source.next
+IE_TRACE:                                 Modified var:.. this = '^'
+IE_TRACE:                                 19:13:22.921559 line       526         if this is None:
+IE_TRACE:                                 19:13:22.921627 line       528         if this in "|)":
+IE_TRACE:                                 19:13:22.921689 line       530         sourceget()
+IE_TRACE:                                     Starting var:.. self = <re._parser.Tokenizer object at 0x7f74d8199490>
+IE_TRACE:                                     19:13:22.921751 call       261     def get(self):
+IE_TRACE:                                     19:13:22.921783 line       262         this = self.next
+IE_TRACE:                                     New var:....... this = '^'
+IE_TRACE:                                     19:13:22.921811 line       263         self.__next()
+IE_TRACE:                                     19:13:22.921861 line       264         return this
+IE_TRACE:                                     19:13:22.921889 return     264         return this
+IE_TRACE:                                     Return value:.. '^'
+IE_TRACE:                                 19:13:22.921923 line       532         if verbose:
+IE_TRACE:                                 19:13:22.921985 line       543         if this[0] == "\\":
+IE_TRACE:                                 19:13:22.922047 line       547         elif this not in SPECIAL_CHARS:
+IE_TRACE:                                 19:13:22.922109 line       550         elif this == "[":
+IE_TRACE:                                 19:13:22.922176 line       639         elif this in REPEAT_CHARS:
+IE_TRACE:                                 19:13:22.922238 line       706         elif this == ".":
+IE_TRACE:                                 19:13:22.922301 line       709         elif this == "(":
+IE_TRACE:                                 19:13:22.922366 line       874         elif this == "^":
+IE_TRACE:                                 19:13:22.922435 line       875             subpatternappend((AT, AT_BEGINNING))
+IE_TRACE:                                     Starting var:.. self = []
+IE_TRACE:                                     Starting var:.. code = (AT, AT_BEGINNING)
+IE_TRACE:                                     19:13:22.922500 call       176     def append(self, code):
+IE_TRACE:                                     19:13:22.922546 line       177         self.data.append(code)
+IE_TRACE:                                     Modified var:.. self = [(AT, AT_BEGINNING)]
+IE_TRACE:                                     19:13:22.922576 return     177         self.data.append(code)
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 Modified var:.. subpattern = [(AT, AT_BEGINNING)]
+IE_TRACE:                                 Modified var:.. subpatternappend = <bound method SubPattern.append of [(AT, AT_BEGINNING)]>
+IE_TRACE:                                 19:13:22.922623 line       523     while True:
+IE_TRACE:                                 19:13:22.922703 line       525         this = source.next
+IE_TRACE:                                 Modified var:.. this = ' '
+IE_TRACE:                                 19:13:22.922766 line       526         if this is None:
+IE_TRACE:                                 19:13:22.922837 line       528         if this in "|)":
+IE_TRACE:                                 19:13:22.922900 line       530         sourceget()
+IE_TRACE:                                     Starting var:.. self = <re._parser.Tokenizer object at 0x7f74d8199490>
+IE_TRACE:                                     19:13:22.922965 call       261     def get(self):
+IE_TRACE:                                     19:13:22.922998 line       262         this = self.next
+IE_TRACE:                                     New var:....... this = ' '
+IE_TRACE:                                     19:13:22.923025 line       263         self.__next()
+IE_TRACE:                                     19:13:22.923075 line       264         return this
+IE_TRACE:                                     19:13:22.923103 return     264         return this
+IE_TRACE:                                     Return value:.. ' '
+IE_TRACE:                                 19:13:22.923141 line       532         if verbose:
+IE_TRACE:                                 19:13:22.923205 line       543         if this[0] == "\\":
+IE_TRACE:                                 19:13:22.923268 line       547         elif this not in SPECIAL_CHARS:
+IE_TRACE:                                 19:13:22.923331 line       548             subpatternappend((LITERAL, _ord(this)))
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING)]
+IE_TRACE:                                     Starting var:.. code = (LITERAL, 32)
+IE_TRACE:                                     19:13:22.923396 call       176     def append(self, code):
+IE_TRACE:                                     19:13:22.923436 line       177         self.data.append(code)
+IE_TRACE:                                     Modified var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32)]
+IE_TRACE:                                     19:13:22.923466 return     177         self.data.append(code)
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 Modified var:.. subpattern = [(AT, AT_BEGINNING), (LITERAL, 32)]
+IE_TRACE:                                 Modified var:.. subpatternappend = <bound method SubPattern.append of [(AT, AT_BEGINNING), (LITERAL, 32)]>
+IE_TRACE:                                 19:13:22.923510 line       523     while True:
+IE_TRACE:                                 19:13:22.923586 line       525         this = source.next
+IE_TRACE:                                 19:13:22.923650 line       526         if this is None:
+IE_TRACE:                                 19:13:22.923714 line       528         if this in "|)":
+IE_TRACE:                                 19:13:22.923777 line       530         sourceget()
+IE_TRACE:                                     Starting var:.. self = <re._parser.Tokenizer object at 0x7f74d8199490>
+IE_TRACE:                                     19:13:22.923841 call       261     def get(self):
+IE_TRACE:                                     19:13:22.923873 line       262         this = self.next
+IE_TRACE:                                     New var:....... this = ' '
+IE_TRACE:                                     19:13:22.923901 line       263         self.__next()
+IE_TRACE:                                     19:13:22.923951 line       264         return this
+IE_TRACE:                                     19:13:22.923979 return     264         return this
+IE_TRACE:                                     Return value:.. ' '
+IE_TRACE:                                 19:13:22.924013 line       532         if verbose:
+IE_TRACE:                                 19:13:22.924077 line       543         if this[0] == "\\":
+IE_TRACE:                                 19:13:22.924146 line       547         elif this not in SPECIAL_CHARS:
+IE_TRACE:                                 19:13:22.924210 line       548             subpatternappend((LITERAL, _ord(this)))
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32)]
+IE_TRACE:                                     Starting var:.. code = (LITERAL, 32)
+IE_TRACE:                                     19:13:22.924274 call       176     def append(self, code):
+IE_TRACE:                                     19:13:22.924313 line       177         self.data.append(code)
+IE_TRACE:                                     Modified var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     19:13:22.924343 return     177         self.data.append(code)
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 Modified var:.. subpattern = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                 Modified var:.. subpatternappend = <bound method SubPattern.append of [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32)]>
+IE_TRACE:                                 19:13:22.924386 line       523     while True:
+IE_TRACE:                                 19:13:22.924463 line       525         this = source.next
+IE_TRACE:                                 19:13:22.924527 line       526         if this is None:
+IE_TRACE:                                 19:13:22.924591 line       528         if this in "|)":
+IE_TRACE:                                 19:13:22.924658 line       530         sourceget()
+IE_TRACE:                                     Starting var:.. self = <re._parser.Tokenizer object at 0x7f74d8199490>
+IE_TRACE:                                     19:13:22.924723 call       261     def get(self):
+IE_TRACE:                                     19:13:22.924756 line       262         this = self.next
+IE_TRACE:                                     New var:....... this = ' '
+IE_TRACE:                                     19:13:22.924783 line       263         self.__next()
+IE_TRACE:                                     19:13:22.924833 line       264         return this
+IE_TRACE:                                     19:13:22.924862 return     264         return this
+IE_TRACE:                                     Return value:.. ' '
+IE_TRACE:                                 19:13:22.924896 line       532         if verbose:
+IE_TRACE:                                 19:13:22.924961 line       543         if this[0] == "\\":
+IE_TRACE:                                 19:13:22.925025 line       547         elif this not in SPECIAL_CHARS:
+IE_TRACE:                                 19:13:22.925089 line       548             subpatternappend((LITERAL, _ord(this)))
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     Starting var:.. code = (LITERAL, 32)
+IE_TRACE:                                     19:13:22.925163 call       176     def append(self, code):
+IE_TRACE:                                     19:13:22.925204 line       177         self.data.append(code)
+IE_TRACE:                                     Modified var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     19:13:22.925234 return     177         self.data.append(code)
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 Modified var:.. subpattern = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                 Modified var:.. subpatternappend = <bound method SubPattern.append of [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]>
+IE_TRACE:                                 19:13:22.925277 line       523     while True:
+IE_TRACE:                                 19:13:22.925354 line       525         this = source.next
+IE_TRACE:                                 19:13:22.925419 line       526         if this is None:
+IE_TRACE:                                 19:13:22.925484 line       528         if this in "|)":
+IE_TRACE:                                 19:13:22.925549 line       530         sourceget()
+IE_TRACE:                                     Starting var:.. self = <re._parser.Tokenizer object at 0x7f74d8199490>
+IE_TRACE:                                     19:13:22.925615 call       261     def get(self):
+IE_TRACE:                                     19:13:22.925649 line       262         this = self.next
+IE_TRACE:                                     New var:....... this = ' '
+IE_TRACE:                                     19:13:22.925677 line       263         self.__next()
+IE_TRACE:                                     19:13:22.925730 line       264         return this
+IE_TRACE:                                     19:13:22.925759 return     264         return this
+IE_TRACE:                                     Return value:.. ' '
+IE_TRACE:                                 19:13:22.925794 line       532         if verbose:
+IE_TRACE:                                 19:13:22.925860 line       543         if this[0] == "\\":
+IE_TRACE:                                 19:13:22.925925 line       547         elif this not in SPECIAL_CHARS:
+IE_TRACE:                                 19:13:22.925990 line       548             subpatternappend((LITERAL, _ord(this)))
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     Starting var:.. code = (LITERAL, 32)
+IE_TRACE:                                     19:13:22.926056 call       176     def append(self, code):
+IE_TRACE:                                     19:13:22.926097 line       177         self.data.append(code)
+IE_TRACE:                                     Modified var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     19:13:22.926134 return     177         self.data.append(code)
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 Modified var:.. subpattern = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                 Modified var:.. subpatternappend = <bound method SubPattern.append of [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]>
+IE_TRACE:                                 19:13:22.926180 line       523     while True:
+IE_TRACE:                                 19:13:22.926264 line       525         this = source.next
+IE_TRACE:                                 19:13:22.926330 line       526         if this is None:
+IE_TRACE:                                 19:13:22.926395 line       528         if this in "|)":
+IE_TRACE:                                 19:13:22.926461 line       530         sourceget()
+IE_TRACE:                                     Starting var:.. self = <re._parser.Tokenizer object at 0x7f74d8199490>
+IE_TRACE:                                     19:13:22.926526 call       261     def get(self):
+IE_TRACE:                                     19:13:22.926559 line       262         this = self.next
+IE_TRACE:                                     New var:....... this = ' '
+IE_TRACE:                                     19:13:22.926587 line       263         self.__next()
+IE_TRACE:                                     19:13:22.926638 line       264         return this
+IE_TRACE:                                     19:13:22.926666 return     264         return this
+IE_TRACE:                                     Return value:.. ' '
+IE_TRACE:                                 19:13:22.926700 line       532         if verbose:
+IE_TRACE:                                 19:13:22.926768 line       543         if this[0] == "\\":
+IE_TRACE:                                 19:13:22.926833 line       547         elif this not in SPECIAL_CHARS:
+IE_TRACE:                                 19:13:22.926899 line       548             subpatternappend((LITERAL, _ord(this)))
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     Starting var:.. code = (LITERAL, 32)
+IE_TRACE:                                     19:13:22.926965 call       176     def append(self, code):
+IE_TRACE:                                     19:13:22.927005 line       177         self.data.append(code)
+IE_TRACE:                                     Modified var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     19:13:22.927036 return     177         self.data.append(code)
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 Modified var:.. subpattern = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                 Modified var:.. subpatternappend = <bound method SubPattern.append of [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]>
+IE_TRACE:                                 19:13:22.927080 line       523     while True:
+IE_TRACE:                                 19:13:22.927168 line       525         this = source.next
+IE_TRACE:                                 19:13:22.927234 line       526         if this is None:
+IE_TRACE:                                 19:13:22.927300 line       528         if this in "|)":
+IE_TRACE:                                 19:13:22.927366 line       530         sourceget()
+IE_TRACE:                                     Starting var:.. self = <re._parser.Tokenizer object at 0x7f74d8199490>
+IE_TRACE:                                     19:13:22.927433 call       261     def get(self):
+IE_TRACE:                                     19:13:22.927465 line       262         this = self.next
+IE_TRACE:                                     New var:....... this = ' '
+IE_TRACE:                                     19:13:22.927493 line       263         self.__next()
+IE_TRACE:                                     19:13:22.927543 line       264         return this
+IE_TRACE:                                     19:13:22.927571 return     264         return this
+IE_TRACE:                                     Return value:.. ' '
+IE_TRACE:                                 19:13:22.927604 line       532         if verbose:
+IE_TRACE:                                 19:13:22.927671 line       543         if this[0] == "\\":
+IE_TRACE:                                 19:13:22.927737 line       547         elif this not in SPECIAL_CHARS:
+IE_TRACE:                                 19:13:22.927803 line       548             subpatternappend((LITERAL, _ord(this)))
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     Starting var:.. code = (LITERAL, 32)
+IE_TRACE:                                     19:13:22.927870 call       176     def append(self, code):
+IE_TRACE:                                     19:13:22.927909 line       177         self.data.append(code)
+IE_TRACE:                                     Modified var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     19:13:22.927941 return     177         self.data.append(code)
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 Modified var:.. subpattern = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                 Modified var:.. subpatternappend = <bound method SubPattern.append of [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]>
+IE_TRACE:                                 19:13:22.927985 line       523     while True:
+IE_TRACE:                                 19:13:22.928064 line       525         this = source.next
+IE_TRACE:                                 19:13:22.928135 line       526         if this is None:
+IE_TRACE:                                 19:13:22.928210 line       528         if this in "|)":
+IE_TRACE:                                 19:13:22.928277 line       530         sourceget()
+IE_TRACE:                                     Starting var:.. self = <re._parser.Tokenizer object at 0x7f74d8199490>
+IE_TRACE:                                     19:13:22.928344 call       261     def get(self):
+IE_TRACE:                                     19:13:22.928377 line       262         this = self.next
+IE_TRACE:                                     New var:....... this = ' '
+IE_TRACE:                                     19:13:22.928405 line       263         self.__next()
+IE_TRACE:                                     19:13:22.928455 line       264         return this
+IE_TRACE:                                     19:13:22.928483 return     264         return this
+IE_TRACE:                                     Return value:.. ' '
+IE_TRACE:                                 19:13:22.928517 line       532         if verbose:
+IE_TRACE:                                 19:13:22.928584 line       543         if this[0] == "\\":
+IE_TRACE:                                 19:13:22.928652 line       547         elif this not in SPECIAL_CHARS:
+IE_TRACE:                                 19:13:22.928719 line       548             subpatternappend((LITERAL, _ord(this)))
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     Starting var:.. code = (LITERAL, 32)
+IE_TRACE:                                     19:13:22.928786 call       176     def append(self, code):
+IE_TRACE:                                     19:13:22.928827 line       177         self.data.append(code)
+IE_TRACE:                                     Modified var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     19:13:22.928859 return     177         self.data.append(code)
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 Modified var:.. subpattern = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                 Modified var:.. subpatternappend = <bound method SubPattern.append of [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]>
+IE_TRACE:                                 19:13:22.928911 line       523     while True:
+IE_TRACE:                                 19:13:22.928993 line       525         this = source.next
+IE_TRACE:                                 19:13:22.929061 line       526         if this is None:
+IE_TRACE:                                 19:13:22.929132 line       528         if this in "|)":
+IE_TRACE:                                 19:13:22.929357 line       530         sourceget()
+IE_TRACE:                                     Starting var:.. self = <re._parser.Tokenizer object at 0x7f74d8199490>
+IE_TRACE:                                     19:13:22.929427 call       261     def get(self):
+IE_TRACE:                                     19:13:22.929459 line       262         this = self.next
+IE_TRACE:                                     New var:....... this = ' '
+IE_TRACE:                                     19:13:22.929487 line       263         self.__next()
+IE_TRACE:                                     19:13:22.929537 line       264         return this
+IE_TRACE:                                     19:13:22.929565 return     264         return this
+IE_TRACE:                                     Return value:.. ' '
+IE_TRACE:                                 19:13:22.929599 line       532         if verbose:
+IE_TRACE:                                 19:13:22.929667 line       543         if this[0] == "\\":
+IE_TRACE:                                 19:13:22.929734 line       547         elif this not in SPECIAL_CHARS:
+IE_TRACE:                                 19:13:22.929801 line       548             subpatternappend((LITERAL, _ord(this)))
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     Starting var:.. code = (LITERAL, 32)
+IE_TRACE:                                     19:13:22.929869 call       176     def append(self, code):
+IE_TRACE:                                     19:13:22.929910 line       177         self.data.append(code)
+IE_TRACE:                                     Modified var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     19:13:22.929941 return     177         self.data.append(code)
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 Modified var:.. subpattern = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                 Modified var:.. subpatternappend = <bound method SubPattern.append of [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]>
+IE_TRACE:                                 19:13:22.929986 line       523     while True:
+IE_TRACE:                                 19:13:22.930067 line       525         this = source.next
+IE_TRACE:                                 19:13:22.930140 line       526         if this is None:
+IE_TRACE:                                 19:13:22.930208 line       528         if this in "|)":
+IE_TRACE:                                 19:13:22.930276 line       530         sourceget()
+IE_TRACE:                                     Starting var:.. self = <re._parser.Tokenizer object at 0x7f74d8199490>
+IE_TRACE:                                     19:13:22.930344 call       261     def get(self):
+IE_TRACE:                                     19:13:22.930377 line       262         this = self.next
+IE_TRACE:                                     New var:....... this = ' '
+IE_TRACE:                                     19:13:22.930404 line       263         self.__next()
+IE_TRACE:                                     19:13:22.930454 line       264         return this
+IE_TRACE:                                     19:13:22.930482 return     264         return this
+IE_TRACE:                                     Return value:.. ' '
+IE_TRACE:                                 19:13:22.930516 line       532         if verbose:
+IE_TRACE:                                 19:13:22.930584 line       543         if this[0] == "\\":
+IE_TRACE:                                 19:13:22.930652 line       547         elif this not in SPECIAL_CHARS:
+IE_TRACE:                                 19:13:22.930720 line       548             subpatternappend((LITERAL, _ord(this)))
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     Starting var:.. code = (LITERAL, 32)
+IE_TRACE:                                     19:13:22.930790 call       176     def append(self, code):
+IE_TRACE:                                     19:13:22.930832 line       177         self.data.append(code)
+IE_TRACE:                                     Modified var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     19:13:22.930864 return     177         self.data.append(code)
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 Modified var:.. subpattern = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                 Modified var:.. subpatternappend = <bound method SubPattern.append of [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]>
+IE_TRACE:                                 19:13:22.930910 line       523     while True:
+IE_TRACE:                                 19:13:22.930992 line       525         this = source.next
+IE_TRACE:                                 19:13:22.931061 line       526         if this is None:
+IE_TRACE:                                 19:13:22.931131 line       528         if this in "|)":
+IE_TRACE:                                 19:13:22.931202 line       530         sourceget()
+IE_TRACE:                                     Starting var:.. self = <re._parser.Tokenizer object at 0x7f74d8199490>
+IE_TRACE:                                     19:13:22.931271 call       261     def get(self):
+IE_TRACE:                                     19:13:22.931304 line       262         this = self.next
+IE_TRACE:                                     New var:....... this = ' '
+IE_TRACE:                                     19:13:22.931332 line       263         self.__next()
+IE_TRACE:                                     19:13:22.931382 line       264         return this
+IE_TRACE:                                     19:13:22.931410 return     264         return this
+IE_TRACE:                                     Return value:.. ' '
+IE_TRACE:                                 19:13:22.931444 line       532         if verbose:
+IE_TRACE:                                 19:13:22.931513 line       543         if this[0] == "\\":
+IE_TRACE:                                 19:13:22.931582 line       547         elif this not in SPECIAL_CHARS:
+IE_TRACE:                                 19:13:22.931650 line       548             subpatternappend((LITERAL, _ord(this)))
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     Starting var:.. code = (LITERAL, 32)
+IE_TRACE:                                     19:13:22.931720 call       176     def append(self, code):
+IE_TRACE:                                     19:13:22.931761 line       177         self.data.append(code)
+IE_TRACE:                                     Modified var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     19:13:22.931794 return     177         self.data.append(code)
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 Modified var:.. subpattern = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                 Modified var:.. subpatternappend = <bound method SubPattern.append of [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]>
+IE_TRACE:                                 19:13:22.931840 line       523     while True:
+IE_TRACE:                                 19:13:22.931922 line       525         this = source.next
+IE_TRACE:                                 19:13:22.931991 line       526         if this is None:
+IE_TRACE:                                 19:13:22.932060 line       528         if this in "|)":
+IE_TRACE:                                 19:13:22.932130 line       530         sourceget()
+IE_TRACE:                                     Starting var:.. self = <re._parser.Tokenizer object at 0x7f74d8199490>
+IE_TRACE:                                     19:13:22.932203 call       261     def get(self):
+IE_TRACE:                                     19:13:22.932235 line       262         this = self.next
+IE_TRACE:                                     New var:....... this = ' '
+IE_TRACE:                                     19:13:22.932263 line       263         self.__next()
+IE_TRACE:                                     19:13:22.932314 line       264         return this
+IE_TRACE:                                     19:13:22.932342 return     264         return this
+IE_TRACE:                                     Return value:.. ' '
+IE_TRACE:                                 19:13:22.932376 line       532         if verbose:
+IE_TRACE:                                 19:13:22.932445 line       543         if this[0] == "\\":
+IE_TRACE:                                 19:13:22.932514 line       547         elif this not in SPECIAL_CHARS:
+IE_TRACE:                                 19:13:22.932584 line       548             subpatternappend((LITERAL, _ord(this)))
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     Starting var:.. code = (LITERAL, 32)
+IE_TRACE:                                     19:13:22.932653 call       176     def append(self, code):
+IE_TRACE:                                     19:13:22.932695 line       177         self.data.append(code)
+IE_TRACE:                                     Modified var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     19:13:22.932728 return     177         self.data.append(code)
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 Modified var:.. subpattern = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                 Modified var:.. subpatternappend = <bound method SubPattern.append of [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]>
+IE_TRACE:                                 19:13:22.932774 line       523     while True:
+IE_TRACE:                                 19:13:22.932859 line       525         this = source.next
+IE_TRACE:                                 19:13:22.932928 line       526         if this is None:
+IE_TRACE:                                 19:13:22.932998 line       528         if this in "|)":
+IE_TRACE:                                 19:13:22.933067 line       530         sourceget()
+IE_TRACE:                                     Starting var:.. self = <re._parser.Tokenizer object at 0x7f74d8199490>
+IE_TRACE:                                     19:13:22.933139 call       261     def get(self):
+IE_TRACE:                                     19:13:22.933172 line       262         this = self.next
+IE_TRACE:                                     New var:....... this = ' '
+IE_TRACE:                                     19:13:22.933200 line       263         self.__next()
+IE_TRACE:                                     19:13:22.933253 line       264         return this
+IE_TRACE:                                     19:13:22.933282 return     264         return this
+IE_TRACE:                                     Return value:.. ' '
+IE_TRACE:                                 19:13:22.933315 line       532         if verbose:
+IE_TRACE:                                 19:13:22.933386 line       543         if this[0] == "\\":
+IE_TRACE:                                 19:13:22.933455 line       547         elif this not in SPECIAL_CHARS:
+IE_TRACE:                                 19:13:22.933525 line       548             subpatternappend((LITERAL, _ord(this)))
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     Starting var:.. code = (LITERAL, 32)
+IE_TRACE:                                     19:13:22.933595 call       176     def append(self, code):
+IE_TRACE:                                     19:13:22.933637 line       177         self.data.append(code)
+IE_TRACE:                                     Modified var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     19:13:22.933670 return     177         self.data.append(code)
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 Modified var:.. subpattern = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                 Modified var:.. subpatternappend = <bound method SubPattern.append of [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]>
+IE_TRACE:                                 19:13:22.933717 line       523     while True:
+IE_TRACE:                                 19:13:22.933800 line       525         this = source.next
+IE_TRACE:                                 Modified var:.. this = None
+IE_TRACE:                                 19:13:22.933872 line       526         if this is None:
+IE_TRACE:                                 19:13:22.933946 line       527             break # end of pattern
+IE_TRACE:                                 19:13:22.934020 line       884     for i in range(len(subpattern))[::-1]:
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     19:13:22.934092 call       164     def __len__(self):
+IE_TRACE:                                     19:13:22.934131 line       165         return len(self.data)
+IE_TRACE:                                     19:13:22.934164 return     165         return len(self.data)
+IE_TRACE:                                     Return value:.. 13
+IE_TRACE:                                 New var:....... i = 12
+IE_TRACE:                                 19:13:22.934217 line       885         op, av = subpattern[i]
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     Starting var:.. index = 12
+IE_TRACE:                                     19:13:22.934299 call       168     def __getitem__(self, index):
+IE_TRACE:                                     19:13:22.934341 line       169         if isinstance(index, slice):
+IE_TRACE:                                     19:13:22.934375 line       171         return self.data[index]
+IE_TRACE:                                     19:13:22.934407 return     171         return self.data[index]
+IE_TRACE:                                     Return value:.. (LITERAL, 32)
+IE_TRACE:                                 New var:....... op = LITERAL
+IE_TRACE:                                 New var:....... av = 32
+IE_TRACE:                                 19:13:22.934453 line       886         if op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.934560 line       884     for i in range(len(subpattern))[::-1]:
+IE_TRACE:                                 Modified var:.. i = 11
+IE_TRACE:                                 19:13:22.934644 line       885         op, av = subpattern[i]
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     Starting var:.. index = 11
+IE_TRACE:                                     19:13:22.934725 call       168     def __getitem__(self, index):
+IE_TRACE:                                     19:13:22.934767 line       169         if isinstance(index, slice):
+IE_TRACE:                                     19:13:22.934799 line       171         return self.data[index]
+IE_TRACE:                                     19:13:22.934832 return     171         return self.data[index]
+IE_TRACE:                                     Return value:.. (LITERAL, 32)
+IE_TRACE:                                 19:13:22.934876 line       886         if op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.934958 line       884     for i in range(len(subpattern))[::-1]:
+IE_TRACE:                                 Modified var:.. i = 10
+IE_TRACE:                                 19:13:22.935039 line       885         op, av = subpattern[i]
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     Starting var:.. index = 10
+IE_TRACE:                                     19:13:22.935118 call       168     def __getitem__(self, index):
+IE_TRACE:                                     19:13:22.935161 line       169         if isinstance(index, slice):
+IE_TRACE:                                     19:13:22.935194 line       171         return self.data[index]
+IE_TRACE:                                     19:13:22.935227 return     171         return self.data[index]
+IE_TRACE:                                     Return value:.. (LITERAL, 32)
+IE_TRACE:                                 19:13:22.935272 line       886         if op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.935353 line       884     for i in range(len(subpattern))[::-1]:
+IE_TRACE:                                 Modified var:.. i = 9
+IE_TRACE:                                 19:13:22.935434 line       885         op, av = subpattern[i]
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     Starting var:.. index = 9
+IE_TRACE:                                     19:13:22.935515 call       168     def __getitem__(self, index):
+IE_TRACE:                                     19:13:22.935556 line       169         if isinstance(index, slice):
+IE_TRACE:                                     19:13:22.935589 line       171         return self.data[index]
+IE_TRACE:                                     19:13:22.935621 return     171         return self.data[index]
+IE_TRACE:                                     Return value:.. (LITERAL, 32)
+IE_TRACE:                                 19:13:22.935666 line       886         if op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.935747 line       884     for i in range(len(subpattern))[::-1]:
+IE_TRACE:                                 Modified var:.. i = 8
+IE_TRACE:                                 19:13:22.935828 line       885         op, av = subpattern[i]
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     Starting var:.. index = 8
+IE_TRACE:                                     19:13:22.935908 call       168     def __getitem__(self, index):
+IE_TRACE:                                     19:13:22.935949 line       169         if isinstance(index, slice):
+IE_TRACE:                                     19:13:22.935982 line       171         return self.data[index]
+IE_TRACE:                                     19:13:22.936015 return     171         return self.data[index]
+IE_TRACE:                                     Return value:.. (LITERAL, 32)
+IE_TRACE:                                 19:13:22.936059 line       886         if op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.936144 line       884     for i in range(len(subpattern))[::-1]:
+IE_TRACE:                                 Modified var:.. i = 7
+IE_TRACE:                                 19:13:22.936225 line       885         op, av = subpattern[i]
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     Starting var:.. index = 7
+IE_TRACE:                                     19:13:22.936306 call       168     def __getitem__(self, index):
+IE_TRACE:                                     19:13:22.936348 line       169         if isinstance(index, slice):
+IE_TRACE:                                     19:13:22.936381 line       171         return self.data[index]
+IE_TRACE:                                     19:13:22.936413 return     171         return self.data[index]
+IE_TRACE:                                     Return value:.. (LITERAL, 32)
+IE_TRACE:                                 19:13:22.936458 line       886         if op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.936539 line       884     for i in range(len(subpattern))[::-1]:
+IE_TRACE:                                 Modified var:.. i = 6
+IE_TRACE:                                 19:13:22.936621 line       885         op, av = subpattern[i]
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     Starting var:.. index = 6
+IE_TRACE:                                     19:13:22.936700 call       168     def __getitem__(self, index):
+IE_TRACE:                                     19:13:22.936742 line       169         if isinstance(index, slice):
+IE_TRACE:                                     19:13:22.936774 line       171         return self.data[index]
+IE_TRACE:                                     19:13:22.936806 return     171         return self.data[index]
+IE_TRACE:                                     Return value:.. (LITERAL, 32)
+IE_TRACE:                                 19:13:22.936851 line       886         if op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.936932 line       884     for i in range(len(subpattern))[::-1]:
+IE_TRACE:                                 Modified var:.. i = 5
+IE_TRACE:                                 19:13:22.937013 line       885         op, av = subpattern[i]
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     Starting var:.. index = 5
+IE_TRACE:                                     19:13:22.937092 call       168     def __getitem__(self, index):
+IE_TRACE:                                     19:13:22.937136 line       169         if isinstance(index, slice):
+IE_TRACE:                                     19:13:22.937169 line       171         return self.data[index]
+IE_TRACE:                                     19:13:22.937201 return     171         return self.data[index]
+IE_TRACE:                                     Return value:.. (LITERAL, 32)
+IE_TRACE:                                 19:13:22.937245 line       886         if op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.937326 line       884     for i in range(len(subpattern))[::-1]:
+IE_TRACE:                                 Modified var:.. i = 4
+IE_TRACE:                                 19:13:22.937407 line       885         op, av = subpattern[i]
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     Starting var:.. index = 4
+IE_TRACE:                                     19:13:22.937487 call       168     def __getitem__(self, index):
+IE_TRACE:                                     19:13:22.937529 line       169         if isinstance(index, slice):
+IE_TRACE:                                     19:13:22.937561 line       171         return self.data[index]
+IE_TRACE:                                     19:13:22.937594 return     171         return self.data[index]
+IE_TRACE:                                     Return value:.. (LITERAL, 32)
+IE_TRACE:                                 19:13:22.937638 line       886         if op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.937719 line       884     for i in range(len(subpattern))[::-1]:
+IE_TRACE:                                 Modified var:.. i = 3
+IE_TRACE:                                 19:13:22.937800 line       885         op, av = subpattern[i]
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     Starting var:.. index = 3
+IE_TRACE:                                     19:13:22.937879 call       168     def __getitem__(self, index):
+IE_TRACE:                                     19:13:22.937920 line       169         if isinstance(index, slice):
+IE_TRACE:                                     19:13:22.937952 line       171         return self.data[index]
+IE_TRACE:                                     19:13:22.937984 return     171         return self.data[index]
+IE_TRACE:                                     Return value:.. (LITERAL, 32)
+IE_TRACE:                                 19:13:22.938028 line       886         if op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.938109 line       884     for i in range(len(subpattern))[::-1]:
+IE_TRACE:                                 Modified var:.. i = 2
+IE_TRACE:                                 19:13:22.938192 line       885         op, av = subpattern[i]
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     Starting var:.. index = 2
+IE_TRACE:                                     19:13:22.938272 call       168     def __getitem__(self, index):
+IE_TRACE:                                     19:13:22.938313 line       169         if isinstance(index, slice):
+IE_TRACE:                                     19:13:22.938345 line       171         return self.data[index]
+IE_TRACE:                                     19:13:22.938377 return     171         return self.data[index]
+IE_TRACE:                                     Return value:.. (LITERAL, 32)
+IE_TRACE:                                 19:13:22.938421 line       886         if op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.938502 line       884     for i in range(len(subpattern))[::-1]:
+IE_TRACE:                                 Modified var:.. i = 1
+IE_TRACE:                                 19:13:22.938583 line       885         op, av = subpattern[i]
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     Starting var:.. index = 1
+IE_TRACE:                                     19:13:22.938662 call       168     def __getitem__(self, index):
+IE_TRACE:                                     19:13:22.938703 line       169         if isinstance(index, slice):
+IE_TRACE:                                     19:13:22.938735 line       171         return self.data[index]
+IE_TRACE:                                     19:13:22.938767 return     171         return self.data[index]
+IE_TRACE:                                     Return value:.. (LITERAL, 32)
+IE_TRACE:                                 19:13:22.938811 line       886         if op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.938892 line       884     for i in range(len(subpattern))[::-1]:
+IE_TRACE:                                 Modified var:.. i = 0
+IE_TRACE:                                 19:13:22.938973 line       885         op, av = subpattern[i]
+IE_TRACE:                                     Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                     Starting var:.. index = 0
+IE_TRACE:                                     19:13:22.939052 call       168     def __getitem__(self, index):
+IE_TRACE:                                     19:13:22.939093 line       169         if isinstance(index, slice):
+IE_TRACE:                                     19:13:22.939129 line       171         return self.data[index]
+IE_TRACE:                                     19:13:22.939161 return     171         return self.data[index]
+IE_TRACE:                                     Return value:.. (AT, AT_BEGINNING)
+IE_TRACE:                                 Modified var:.. op = AT
+IE_TRACE:                                 Modified var:.. av = AT_BEGINNING
+IE_TRACE:                                 19:13:22.939205 line       886         if op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.939297 line       884     for i in range(len(subpattern))[::-1]:
+IE_TRACE:                                 19:13:22.939379 line       891     return subpattern
+IE_TRACE:                                 19:13:22.939454 return     891     return subpattern
+IE_TRACE:                                 Return value:.. [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                             Modified var:.. items = [[(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]]
+IE_TRACE:                             19:13:22.939536 line       462         if not sourcematch("|"):
+IE_TRACE:                                 Starting var:.. self = <re._parser.Tokenizer object at 0x7f74d8199490>
+IE_TRACE:                                 Starting var:.. char = '|'
+IE_TRACE:                                 19:13:22.939579 call       256     def match(self, char):
+IE_TRACE:                                 19:13:22.939607 line       257         if char == self.next:
+IE_TRACE:                                 19:13:22.939626 line       260         return False
+IE_TRACE:                                 19:13:22.939645 return     260         return False
+IE_TRACE:                                 Return value:.. False
+IE_TRACE:                             19:13:22.939670 line       463             break
+IE_TRACE:                             19:13:22.939705 line       467     if len(items) == 1:
+IE_TRACE:                             19:13:22.939739 line       468         return items[0]
+IE_TRACE:                             19:13:22.939772 return     468         return items[0]
+IE_TRACE:                             Return value:.. [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                         New var:....... p = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                         19:13:22.939815 line       980     p.state.flags = fix_flags(str, p.state.flags)
+IE_TRACE:                             Starting var:.. src = '(?m)^            '
+IE_TRACE:                             Starting var:.. flags = 8
+IE_TRACE:                             19:13:22.939853 call       953 def fix_flags(src, flags):
+IE_TRACE:                             19:13:22.939881 line       955     if isinstance(src, str):
+IE_TRACE:                             19:13:22.939899 line       956         if flags & SRE_FLAG_LOCALE:
+IE_TRACE:                             19:13:22.939917 line       958         if not flags & SRE_FLAG_ASCII:
+IE_TRACE:                             19:13:22.939934 line       959             flags |= SRE_FLAG_UNICODE
+IE_TRACE:                             Modified var:.. flags = 40
+IE_TRACE:                             19:13:22.939951 line       967     return flags
+IE_TRACE:                             19:13:22.939973 return     967     return flags
+IE_TRACE:                             Return value:.. 40
+IE_TRACE:                         19:13:22.939995 line       982     if source.next is not None:
+IE_TRACE:                         19:13:22.940023 line       986     for g in p.state.grouprefpos:
+IE_TRACE:                         19:13:22.940050 line       991     if flags & SRE_FLAG_DEBUG:
+IE_TRACE:                         19:13:22.940076 line       994     return p
+IE_TRACE:                         19:13:22.940102 return     994     return p
+IE_TRACE:                         Return value:.. [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                     Source path:... /usr/lib/python3.12/re/_compiler.py
+IE_TRACE:                     Modified var:.. p = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                     19:13:22.940144 line       749     code = _code(p, flags)
+IE_TRACE:                         Starting var:.. p = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                         Starting var:.. flags = 0
+IE_TRACE:                         19:13:22.940183 call       573 def _code(p, flags):
+IE_TRACE:                         19:13:22.940215 line       575     flags = p.state.flags | flags
+IE_TRACE:                         Modified var:.. flags = 40
+IE_TRACE:                         19:13:22.940237 line       576     code = []
+IE_TRACE:                         New var:....... code = []
+IE_TRACE:                         19:13:22.940263 line       579     _compile_info(code, p, flags)
+IE_TRACE:                             Starting var:.. code = []
+IE_TRACE:                             Starting var:.. pattern = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                             Starting var:.. flags = 40
+IE_TRACE:                             19:13:22.940307 call       511 def _compile_info(code, pattern, flags):
+IE_TRACE:                             19:13:22.940350 line       515     lo, hi = pattern.getwidth()
+IE_TRACE:                                 Source path:... /usr/lib/python3.12/re/_parser.py
+IE_TRACE:                                 Starting var:.. self = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                 19:13:22.940393 call       178     def getwidth(self):
+IE_TRACE:                                 19:13:22.940432 line       180         if self.width is not None:
+IE_TRACE:                                 19:13:22.940457 line       182         lo = hi = 0
+IE_TRACE:                                 New var:....... lo = 0
+IE_TRACE:                                 New var:....... hi = 0
+IE_TRACE:                                 19:13:22.940482 line       183         for op, av in self.data:
+IE_TRACE:                                 New var:....... op = AT
+IE_TRACE:                                 New var:....... av = AT_BEGINNING
+IE_TRACE:                                 19:13:22.940518 line       184             if op is BRANCH:
+IE_TRACE:                                 19:13:22.940558 line       193             elif op is ATOMIC_GROUP:
+IE_TRACE:                                 19:13:22.940587 line       197             elif op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.940616 line       201             elif op in _REPEATCODES:
+IE_TRACE:                                 19:13:22.940646 line       208             elif op in _UNITCODES:
+IE_TRACE:                                 19:13:22.940675 line       211             elif op is GROUPREF:
+IE_TRACE:                                 19:13:22.940704 line       215             elif op is GROUPREF_EXISTS:
+IE_TRACE:                                 19:13:22.940733 line       225             elif op is SUCCESS:
+IE_TRACE:                                 19:13:22.940762 line       183         for op, av in self.data:
+IE_TRACE:                                 Modified var:.. op = LITERAL
+IE_TRACE:                                 Modified var:.. av = 32
+IE_TRACE:                                 19:13:22.940790 line       184             if op is BRANCH:
+IE_TRACE:                                 19:13:22.940828 line       193             elif op is ATOMIC_GROUP:
+IE_TRACE:                                 19:13:22.940857 line       197             elif op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.940885 line       201             elif op in _REPEATCODES:
+IE_TRACE:                                 19:13:22.940914 line       208             elif op in _UNITCODES:
+IE_TRACE:                                 19:13:22.940942 line       209                 lo = lo + 1
+IE_TRACE:                                 Modified var:.. lo = 1
+IE_TRACE:                                 19:13:22.940971 line       210                 hi = hi + 1
+IE_TRACE:                                 Modified var:.. hi = 1
+IE_TRACE:                                 19:13:22.941004 line       183         for op, av in self.data:
+IE_TRACE:                                 19:13:22.941037 line       184             if op is BRANCH:
+IE_TRACE:                                 19:13:22.941066 line       193             elif op is ATOMIC_GROUP:
+IE_TRACE:                                 19:13:22.941094 line       197             elif op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.941122 line       201             elif op in _REPEATCODES:
+IE_TRACE:                                 19:13:22.941156 line       208             elif op in _UNITCODES:
+IE_TRACE:                                 19:13:22.941184 line       209                 lo = lo + 1
+IE_TRACE:                                 Modified var:.. lo = 2
+IE_TRACE:                                 19:13:22.941213 line       210                 hi = hi + 1
+IE_TRACE:                                 Modified var:.. hi = 2
+IE_TRACE:                                 19:13:22.941245 line       183         for op, av in self.data:
+IE_TRACE:                                 19:13:22.941278 line       184             if op is BRANCH:
+IE_TRACE:                                 19:13:22.941306 line       193             elif op is ATOMIC_GROUP:
+IE_TRACE:                                 19:13:22.941335 line       197             elif op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.941363 line       201             elif op in _REPEATCODES:
+IE_TRACE:                                 19:13:22.941391 line       208             elif op in _UNITCODES:
+IE_TRACE:                                 19:13:22.941419 line       209                 lo = lo + 1
+IE_TRACE:                                 Modified var:.. lo = 3
+IE_TRACE:                                 19:13:22.941448 line       210                 hi = hi + 1
+IE_TRACE:                                 Modified var:.. hi = 3
+IE_TRACE:                                 19:13:22.941481 line       183         for op, av in self.data:
+IE_TRACE:                                 19:13:22.941513 line       184             if op is BRANCH:
+IE_TRACE:                                 19:13:22.941542 line       193             elif op is ATOMIC_GROUP:
+IE_TRACE:                                 19:13:22.941570 line       197             elif op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.941598 line       201             elif op in _REPEATCODES:
+IE_TRACE:                                 19:13:22.941627 line       208             elif op in _UNITCODES:
+IE_TRACE:                                 19:13:22.941655 line       209                 lo = lo + 1
+IE_TRACE:                                 Modified var:.. lo = 4
+IE_TRACE:                                 19:13:22.941683 line       210                 hi = hi + 1
+IE_TRACE:                                 Modified var:.. hi = 4
+IE_TRACE:                                 19:13:22.941716 line       183         for op, av in self.data:
+IE_TRACE:                                 19:13:22.941748 line       184             if op is BRANCH:
+IE_TRACE:                                 19:13:22.941777 line       193             elif op is ATOMIC_GROUP:
+IE_TRACE:                                 19:13:22.941805 line       197             elif op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.941834 line       201             elif op in _REPEATCODES:
+IE_TRACE:                                 19:13:22.941862 line       208             elif op in _UNITCODES:
+IE_TRACE:                                 19:13:22.941890 line       209                 lo = lo + 1
+IE_TRACE:                                 Modified var:.. lo = 5
+IE_TRACE:                                 19:13:22.941918 line       210                 hi = hi + 1
+IE_TRACE:                                 Modified var:.. hi = 5
+IE_TRACE:                                 19:13:22.941951 line       183         for op, av in self.data:
+IE_TRACE:                                 19:13:22.941983 line       184             if op is BRANCH:
+IE_TRACE:                                 19:13:22.942012 line       193             elif op is ATOMIC_GROUP:
+IE_TRACE:                                 19:13:22.942040 line       197             elif op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.942068 line       201             elif op in _REPEATCODES:
+IE_TRACE:                                 19:13:22.942096 line       208             elif op in _UNITCODES:
+IE_TRACE:                                 19:13:22.942125 line       209                 lo = lo + 1
+IE_TRACE:                                 Modified var:.. lo = 6
+IE_TRACE:                                 19:13:22.942156 line       210                 hi = hi + 1
+IE_TRACE:                                 Modified var:.. hi = 6
+IE_TRACE:                                 19:13:22.942189 line       183         for op, av in self.data:
+IE_TRACE:                                 19:13:22.942221 line       184             if op is BRANCH:
+IE_TRACE:                                 19:13:22.942249 line       193             elif op is ATOMIC_GROUP:
+IE_TRACE:                                 19:13:22.942278 line       197             elif op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.942307 line       201             elif op in _REPEATCODES:
+IE_TRACE:                                 19:13:22.942335 line       208             elif op in _UNITCODES:
+IE_TRACE:                                 19:13:22.942363 line       209                 lo = lo + 1
+IE_TRACE:                                 Modified var:.. lo = 7
+IE_TRACE:                                 19:13:22.942391 line       210                 hi = hi + 1
+IE_TRACE:                                 Modified var:.. hi = 7
+IE_TRACE:                                 19:13:22.942424 line       183         for op, av in self.data:
+IE_TRACE:                                 19:13:22.942457 line       184             if op is BRANCH:
+IE_TRACE:                                 19:13:22.942491 line       193             elif op is ATOMIC_GROUP:
+IE_TRACE:                                 19:13:22.942519 line       197             elif op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.942548 line       201             elif op in _REPEATCODES:
+IE_TRACE:                                 19:13:22.942576 line       208             elif op in _UNITCODES:
+IE_TRACE:                                 19:13:22.942604 line       209                 lo = lo + 1
+IE_TRACE:                                 Modified var:.. lo = 8
+IE_TRACE:                                 19:13:22.942633 line       210                 hi = hi + 1
+IE_TRACE:                                 Modified var:.. hi = 8
+IE_TRACE:                                 19:13:22.942665 line       183         for op, av in self.data:
+IE_TRACE:                                 19:13:22.942699 line       184             if op is BRANCH:
+IE_TRACE:                                 19:13:22.942727 line       193             elif op is ATOMIC_GROUP:
+IE_TRACE:                                 19:13:22.942755 line       197             elif op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.942784 line       201             elif op in _REPEATCODES:
+IE_TRACE:                                 19:13:22.942812 line       208             elif op in _UNITCODES:
+IE_TRACE:                                 19:13:22.942840 line       209                 lo = lo + 1
+IE_TRACE:                                 Modified var:.. lo = 9
+IE_TRACE:                                 19:13:22.942869 line       210                 hi = hi + 1
+IE_TRACE:                                 Modified var:.. hi = 9
+IE_TRACE:                                 19:13:22.942902 line       183         for op, av in self.data:
+IE_TRACE:                                 19:13:22.942935 line       184             if op is BRANCH:
+IE_TRACE:                                 19:13:22.942963 line       193             elif op is ATOMIC_GROUP:
+IE_TRACE:                                 19:13:22.942991 line       197             elif op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.943019 line       201             elif op in _REPEATCODES:
+IE_TRACE:                                 19:13:22.943047 line       208             elif op in _UNITCODES:
+IE_TRACE:                                 19:13:22.943076 line       209                 lo = lo + 1
+IE_TRACE:                                 Modified var:.. lo = 10
+IE_TRACE:                                 19:13:22.943104 line       210                 hi = hi + 1
+IE_TRACE:                                 Modified var:.. hi = 10
+IE_TRACE:                                 19:13:22.943141 line       183         for op, av in self.data:
+IE_TRACE:                                 19:13:22.943174 line       184             if op is BRANCH:
+IE_TRACE:                                 19:13:22.943202 line       193             elif op is ATOMIC_GROUP:
+IE_TRACE:                                 19:13:22.943231 line       197             elif op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.943259 line       201             elif op in _REPEATCODES:
+IE_TRACE:                                 19:13:22.943287 line       208             elif op in _UNITCODES:
+IE_TRACE:                                 19:13:22.943315 line       209                 lo = lo + 1
+IE_TRACE:                                 Modified var:.. lo = 11
+IE_TRACE:                                 19:13:22.943344 line       210                 hi = hi + 1
+IE_TRACE:                                 Modified var:.. hi = 11
+IE_TRACE:                                 19:13:22.943376 line       183         for op, av in self.data:
+IE_TRACE:                                 19:13:22.943408 line       184             if op is BRANCH:
+IE_TRACE:                                 19:13:22.943436 line       193             elif op is ATOMIC_GROUP:
+IE_TRACE:                                 19:13:22.943464 line       197             elif op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.943492 line       201             elif op in _REPEATCODES:
+IE_TRACE:                                 19:13:22.943520 line       208             elif op in _UNITCODES:
+IE_TRACE:                                 19:13:22.943549 line       209                 lo = lo + 1
+IE_TRACE:                                 Modified var:.. lo = 12
+IE_TRACE:                                 19:13:22.943577 line       210                 hi = hi + 1
+IE_TRACE:                                 Modified var:.. hi = 12
+IE_TRACE:                                 19:13:22.943609 line       183         for op, av in self.data:
+IE_TRACE:                                 19:13:22.943642 line       227         self.width = min(lo, MAXWIDTH), min(hi, MAXWIDTH)
+IE_TRACE:                                 19:13:22.943672 line       228         return self.width
+IE_TRACE:                                 19:13:22.943701 return     228         return self.width
+IE_TRACE:                                 Return value:.. (12, 12)
+IE_TRACE:                             Source path:... /usr/lib/python3.12/re/_compiler.py
+IE_TRACE:                             New var:....... lo = 12
+IE_TRACE:                             New var:....... hi = 12
+IE_TRACE:                             19:13:22.943737 line       516     if hi > MAXCODE:
+IE_TRACE:                             19:13:22.943786 line       518     if lo == 0:
+IE_TRACE:                             19:13:22.943815 line       522     prefix = []
+IE_TRACE:                             New var:....... prefix = []
+IE_TRACE:                             19:13:22.943843 line       523     prefix_skip = 0
+IE_TRACE:                             New var:....... prefix_skip = 0
+IE_TRACE:                             19:13:22.943877 line       524     charset = [] # not used
+IE_TRACE:                             New var:....... charset = []
+IE_TRACE:                             19:13:22.943912 line       525     if not (flags & SRE_FLAG_IGNORECASE and flags & SRE_FLAG_LOCALE):
+IE_TRACE:                             19:13:22.943949 line       527         prefix, prefix_skip, got_all = _get_literal_prefix(pattern, flags)
+IE_TRACE:                                 Starting var:.. pattern = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                 Starting var:.. flags = 40
+IE_TRACE:                                 19:13:22.943991 call       436 def _get_literal_prefix(pattern, flags):
+IE_TRACE:                                 19:13:22.944030 line       438     prefix = []
+IE_TRACE:                                 New var:....... prefix = []
+IE_TRACE:                                 19:13:22.944057 line       439     prefixappend = prefix.append
+IE_TRACE:                                 New var:....... prefixappend = <built-in method append of list object at 0x7f74d815c2c0>
+IE_TRACE:                                 19:13:22.944089 line       440     prefix_skip = None
+IE_TRACE:                                 New var:....... prefix_skip = None
+IE_TRACE:                                 19:13:22.944123 line       441     iscased = _get_iscased(flags)
+IE_TRACE:                                     Starting var:.. flags = 40
+IE_TRACE:                                     19:13:22.944166 call       428 def _get_iscased(flags):
+IE_TRACE:                                     19:13:22.944190 line       429     if not flags & SRE_FLAG_IGNORECASE:
+IE_TRACE:                                     19:13:22.944208 line       430         return None
+IE_TRACE:                                     19:13:22.944226 return     430         return None
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 New var:....... iscased = None
+IE_TRACE:                                 19:13:22.944250 line       442     for op, av in pattern.data:
+IE_TRACE:                                 New var:....... op = AT
+IE_TRACE:                                 New var:....... av = AT_BEGINNING
+IE_TRACE:                                 19:13:22.944287 line       443         if op is LITERAL:
+IE_TRACE:                                 19:13:22.944332 line       447         elif op is SUBPATTERN:
+IE_TRACE:                                 19:13:22.944366 line       462             break
+IE_TRACE:                                 19:13:22.944401 line       465     return prefix, prefix_skip, False
+IE_TRACE:                                 19:13:22.944434 return     465     return prefix, prefix_skip, False
+IE_TRACE:                                 Return value:.. ([], None, False)
+IE_TRACE:                             Modified var:.. prefix_skip = None
+IE_TRACE:                             New var:....... got_all = False
+IE_TRACE:                             19:13:22.944475 line       529         if not prefix:
+IE_TRACE:                             19:13:22.944518 line       530             charset = _get_charset_prefix(pattern, flags)
+IE_TRACE:                                 Starting var:.. pattern = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                                 Starting var:.. flags = 40
+IE_TRACE:                                 19:13:22.944565 call       467 def _get_charset_prefix(pattern, flags):
+IE_TRACE:                                 19:13:22.944604 line       468     while True:
+IE_TRACE:                                 19:13:22.944629 line       469         if not pattern.data:
+IE_TRACE:                                 19:13:22.944655 line       471         op, av = pattern.data[0]
+IE_TRACE:                                 New var:....... op = AT
+IE_TRACE:                                 New var:....... av = AT_BEGINNING
+IE_TRACE:                                 19:13:22.944680 line       472         if op is not SUBPATTERN:
+IE_TRACE:                                 19:13:22.944717 line       473             break
+IE_TRACE:                                 19:13:22.944745 line       479     iscased = _get_iscased(flags)
+IE_TRACE:                                     Starting var:.. flags = 40
+IE_TRACE:                                     19:13:22.944773 call       428 def _get_iscased(flags):
+IE_TRACE:                                     19:13:22.944796 line       429     if not flags & SRE_FLAG_IGNORECASE:
+IE_TRACE:                                     19:13:22.944814 line       430         return None
+IE_TRACE:                                     19:13:22.944832 return     430         return None
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 New var:....... iscased = None
+IE_TRACE:                                 19:13:22.944855 line       480     if op is LITERAL:
+IE_TRACE:                                 19:13:22.944889 line       484     elif op is BRANCH:
+IE_TRACE:                                 19:13:22.944919 line       496     elif op is IN:
+IE_TRACE:                                 19:13:22.944948 line       509     return None
+IE_TRACE:                                 19:13:22.944976 return     509     return None
+IE_TRACE:                                 Return value:.. None
+IE_TRACE:                             Modified var:.. charset = None
+IE_TRACE:                             19:13:22.945011 line       536     emit = code.append
+IE_TRACE:                             New var:....... emit = <built-in method append of list object at 0x7f74d81ff680>
+IE_TRACE:                             19:13:22.945050 line       537     emit(INFO)
+IE_TRACE:                             Modified var:.. code = [INFO]
+IE_TRACE:                             19:13:22.945089 line       538     skip = len(code); emit(0)
+IE_TRACE:                             Modified var:.. code = [INFO, 0]
+IE_TRACE:                             New var:....... skip = 1
+IE_TRACE:                             19:13:22.945133 line       540     mask = 0
+IE_TRACE:                             New var:....... mask = 0
+IE_TRACE:                             19:13:22.945179 line       541     if prefix:
+IE_TRACE:                             19:13:22.945221 line       545     elif charset:
+IE_TRACE:                             19:13:22.945257 line       547     emit(mask)
+IE_TRACE:                             Modified var:.. code = [INFO, 0, 0]
+IE_TRACE:                             19:13:22.945294 line       549     if lo < MAXCODE:
+IE_TRACE:                             19:13:22.945334 line       550         emit(lo)
+IE_TRACE:                             Modified var:.. code = [INFO, 0, 0, 12]
+IE_TRACE:                             19:13:22.945371 line       554     emit(hi)
+IE_TRACE:                             Modified var:.. code = [INFO, 0, 0, 12, 12]
+IE_TRACE:                             19:13:22.945411 line       556     if prefix:
+IE_TRACE:                             19:13:22.945451 line       564     elif charset:
+IE_TRACE:                             19:13:22.945488 line       568     code[skip] = len(code) - skip
+IE_TRACE:                             Modified var:.. code = [INFO, 4, 0, 12, 12]
+IE_TRACE:                             19:13:22.945524 return     568     code[skip] = len(code) - skip
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         Modified var:.. code = [INFO, 4, 0, 12, 12]
+IE_TRACE:                         19:13:22.945571 line       582     _compile(code, p.data, flags)
+IE_TRACE:                             Starting var:.. code = [INFO, 4, 0, 12, 12]
+IE_TRACE:                             Starting var:.. pattern = [(AT, AT_BEGINNING), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32), (LITERAL, 32)]
+IE_TRACE:                             Starting var:.. flags = 40
+IE_TRACE:                             19:13:22.945652 call        37 def _compile(code, pattern, flags):
+IE_TRACE:                             19:13:22.945709 line        39     emit = code.append
+IE_TRACE:                             New var:....... emit = <built-in method append of list object at 0x7f74d81ff680>
+IE_TRACE:                             19:13:22.945744 line        40     _len = len
+IE_TRACE:                             New var:....... _len = <built-in function len>
+IE_TRACE:                             19:13:22.945785 line        41     LITERAL_CODES = _LITERAL_CODES
+IE_TRACE:                             New var:....... LITERAL_CODES = {LITERAL, NOT_LITERAL}
+IE_TRACE:                             19:13:22.945828 line        42     REPEATING_CODES = _REPEATING_CODES
+IE_TRACE:                             New var:....... REPEATING_CODES = {MIN_REPEAT: (REPEAT, MIN_UNTIL, MIN_REPEAT_ONE), MAX_REPEAT: (REPEAT, MAX_UNTIL, REPEAT_ONE), POSSESSIVE_REPEAT: (POSSESSIVE_REPEAT, SUCCESS, POSSESSIVE_REPEAT_ONE)}
+IE_TRACE:                             19:13:22.946027 line        43     SUCCESS_CODES = _SUCCESS_CODES
+IE_TRACE:                             New var:....... SUCCESS_CODES = {FAILURE, SUCCESS}
+IE_TRACE:                             19:13:22.946082 line        44     ASSERT_CODES = _ASSERT_CODES
+IE_TRACE:                             New var:....... ASSERT_CODES = {ASSERT, ASSERT_NOT}
+IE_TRACE:                             19:13:22.946134 line        45     iscased = None
+IE_TRACE:                             New var:....... iscased = None
+IE_TRACE:                             19:13:22.946186 line        46     tolower = None
+IE_TRACE:                             New var:....... tolower = None
+IE_TRACE:                             19:13:22.946237 line        47     fixes = None
+IE_TRACE:                             New var:....... fixes = None
+IE_TRACE:                             19:13:22.946290 line        48     if flags & SRE_FLAG_IGNORECASE and not flags & SRE_FLAG_LOCALE:
+IE_TRACE:                             19:13:22.946343 line        56     for op, av in pattern:
+IE_TRACE:                             New var:....... op = AT
+IE_TRACE:                             New var:....... av = AT_BEGINNING
+IE_TRACE:                             19:13:22.946392 line        57         if op in LITERAL_CODES:
+IE_TRACE:                             19:13:22.946453 line        85         elif op is IN:
+IE_TRACE:                             19:13:22.946505 line        98         elif op is ANY:
+IE_TRACE:                             19:13:22.946556 line       103         elif op in REPEATING_CODES:
+IE_TRACE:                             19:13:22.946607 line       122         elif op is SUBPATTERN:
+IE_TRACE:                             19:13:22.946658 line       132         elif op is ATOMIC_GROUP:
+IE_TRACE:                             19:13:22.946708 line       143         elif op in SUCCESS_CODES:
+IE_TRACE:                             19:13:22.946759 line       145         elif op in ASSERT_CODES:
+IE_TRACE:                             19:13:22.946809 line       160         elif op is AT:
+IE_TRACE:                             19:13:22.946860 line       161             emit(op)
+IE_TRACE:                             Modified var:.. code = [INFO, 4, 0, 12, 12, AT]
+IE_TRACE:                             19:13:22.946910 line       162             if flags & SRE_FLAG_MULTILINE:
+IE_TRACE:                             19:13:22.946967 line       163                 av = AT_MULTILINE.get(av, av)
+IE_TRACE:                             Modified var:.. av = AT_BEGINNING_LINE
+IE_TRACE:                             19:13:22.947019 line       164             if flags & SRE_FLAG_LOCALE:
+IE_TRACE:                             19:13:22.947075 line       166             elif flags & SRE_FLAG_UNICODE:
+IE_TRACE:                             19:13:22.947129 line       167                 av = AT_UNICODE.get(av, av)
+IE_TRACE:                             19:13:22.947181 line       168             emit(av)
+IE_TRACE:                             Modified var:.. code = [INFO, 4, 0, 12, 12, AT, AT_BEGINNING_LINE]
+IE_TRACE:                             19:13:22.947231 line        56     for op, av in pattern:
+IE_TRACE:                             Modified var:.. op = LITERAL
+IE_TRACE:                             Modified var:.. av = 32
+IE_TRACE:                             19:13:22.947287 line        57         if op in LITERAL_CODES:
+IE_TRACE:                             19:13:22.947347 line        58             if not flags & SRE_FLAG_IGNORECASE:
+IE_TRACE:                             19:13:22.947399 line        59                 emit(op)
+IE_TRACE:                             Modified var:.. code = [INFO, 4, 0, 12, 12, AT, AT_BEGINNING_LINE, LITERAL]
+IE_TRACE:                             19:13:22.947450 line        60                 emit(av)
+IE_TRACE:                             Modified var:.. code = [INFO, 4, 0, 12, 12, AT, AT_BEGINNING_LINE, LITERAL, 32]
+IE_TRACE:                             19:13:22.947506 line        56     for op, av in pattern:
+IE_TRACE:                             19:13:22.947561 line        57         if op in LITERAL_CODES:
+IE_TRACE:                             19:13:22.947612 line        58             if not flags & SRE_FLAG_IGNORECASE:
+IE_TRACE:                             19:13:22.947663 line        59                 emit(op)
+IE_TRACE:                             Modified var:.. code = [INFO, 4, 0, 12, 12, AT, AT_BEGINNING_LINE, LITERAL, 32, LITERAL]
+IE_TRACE:                             19:13:22.947713 line        60                 emit(av)
+IE_TRACE:                             Modified var:.. code = [INFO, 4, 0, 12, 12, AT, AT_BEGINNING_LINE, LITERAL, 32, LITERAL, 32]
+IE_TRACE:                             19:13:22.947768 line        56     for op, av in pattern:
+IE_TRACE:                             19:13:22.947824 line        57         if op in LITERAL_CODES:
+IE_TRACE:                             19:13:22.947875 line        58             if not flags & SRE_FLAG_IGNORECASE:
+IE_TRACE:                             19:13:22.947926 line        59                 emit(op)
+IE_TRACE:                             Modified var:.. code = [INFO, 4, 0, 12, 12, AT, AT_BEGINNING_LINE, LITERAL, 32, LITERAL, 32, LITERAL]
+IE_TRACE:                             19:13:22.947977 line        60                 emit(av)
+IE_TRACE:                             Modified var:.. code = [INFO, 4, 0, 12, 12, AT, AT_BEGINNING_LINE, LITERAL, 32, LITERAL, 32, LITERAL, 32]
+IE_TRACE:                             19:13:22.948033 line        56     for op, av in pattern:
+IE_TRACE:                             19:13:22.948089 line        57         if op in LITERAL_CODES:
+IE_TRACE:                             19:13:22.948143 line        58             if not flags & SRE_FLAG_IGNORECASE:
+IE_TRACE:                             19:13:22.948194 line        59                 emit(op)
+IE_TRACE:                             Modified var:.. code = [INFO, 4, 0, 12, 12, AT, AT_BEGINNING_LINE, LITERAL, 32, LITERAL, 32, LITERAL, 32, LITERAL]
+IE_TRACE:                             19:13:22.948246 line        60                 emit(av)
+IE_TRACE:                             Modified var:.. code = [INFO, 4, 0, 12, 12, AT, AT_BEGINNING_LINE, LITERAL, 32, LITERAL, 32, LITERAL, 32, LITERAL, 32]
+IE_TRACE:                             19:13:22.948302 line        56     for op, av in pattern:
+IE_TRACE:                             19:13:22.948358 line        57         if op in LITERAL_CODES:
+IE_TRACE:                             19:13:22.948410 line        58             if not flags & SRE_FLAG_IGNORECASE:
+IE_TRACE:                             19:13:22.948461 line        59                 emit(op)
+IE_TRACE:                             Modified var:.. code = [INFO, 4, 0, 12, 12, AT, AT_BEGINNING_LINE, LITERAL, 32, LITERAL, 32, LITERAL, 32, LITERAL, 32, LITERAL]
+IE_TRACE:                             19:13:22.948512 line        60                 emit(av)
+IE_TRACE:                             Modified var:.. code = [INFO, 4, 0, 12, 12, AT, AT_BEGINNING_LINE, LITERAL, 32, LITERAL, 32, LITERAL, 32, LITERAL, 32, LITERAL, 32]
+IE_TRACE:                             19:13:22.948568 line        56     for op, av in pattern:
+IE_TRACE:                             19:13:22.948624 line        57         if op in LITERAL_CODES:
+IE_TRACE:                             19:13:22.948676 line        58             if not flags & SRE_FLAG_IGNORECASE:
+IE_TRACE:                             19:13:22.948727 line        59                 emit(op)
+IE_TRACE:                             Modified var:.. code = [INFO, 4, 0, 12, 12, AT, AT_BEGINNING_LINE, LITERAL, 32, LITERAL, 32, LITERAL, 32, LITERAL, 32, LITERAL, 32, LITERAL]
+IE_TRACE:                             19:13:22.948778 line        60                 emit(av)
+IE_TRACE:                             Modified var:.. code = [INFO, 4, 0, 12, 12, AT, AT_BEGINNING_LINE, LITERAL, 32, LITERAL, 32, LITERAL, 32, LITERAL, 32, LITERAL, 32, LITERAL, 32]
+IE_TRACE:                             19:13:22.948834 line        56     for op, av in pattern:
+IE_TRACE:                             19:13:22.948890 line        57         if op in LITERAL_CODES:
+IE_TRACE:                             19:13:22.948941 line        58             if not flags & SRE_FLAG_IGNORECASE:
+IE_TRACE:                             19:13:22.948993 line        59                 emit(op)
+IE_TRACE:                             Modified var:.. code = [INFO, 4, 0, 12, 12, AT, AT_BEGINNING_LINE, LITERAL, 32, LITERAL, 32, LITERAL, 32, LITERAL, 32, LITERAL, 32, LITERAL, 32, LITERAL]
+IE_TRACE:                             19:13:22.949044 line        60                 emit(av)
+IE_TRACE:                             Modified var:.. code = list(len=21)
+IE_TRACE:                             19:13:22.949099 line        56     for op, av in pattern:
+IE_TRACE:                             19:13:22.949158 line        57         if op in LITERAL_CODES:
+IE_TRACE:                             19:13:22.949208 line        58             if not flags & SRE_FLAG_IGNORECASE:
+IE_TRACE:                             19:13:22.949258 line        59                 emit(op)
+IE_TRACE:                             Modified var:.. code = list(len=22)
+IE_TRACE:                             19:13:22.949308 line        60                 emit(av)
+IE_TRACE:                             Modified var:.. code = list(len=23)
+IE_TRACE:                             19:13:22.949362 line        56     for op, av in pattern:
+IE_TRACE:                             19:13:22.949416 line        57         if op in LITERAL_CODES:
+IE_TRACE:                             19:13:22.949467 line        58             if not flags & SRE_FLAG_IGNORECASE:
+IE_TRACE:                             19:13:22.949517 line        59                 emit(op)
+IE_TRACE:                             Modified var:.. code = list(len=24)
+IE_TRACE:                             19:13:22.949566 line        60                 emit(av)
+IE_TRACE:                             Modified var:.. code = list(len=25)
+IE_TRACE:                             19:13:22.949620 line        56     for op, av in pattern:
+IE_TRACE:                             19:13:22.949674 line        57         if op in LITERAL_CODES:
+IE_TRACE:                             19:13:22.949724 line        58             if not flags & SRE_FLAG_IGNORECASE:
+IE_TRACE:                             19:13:22.949774 line        59                 emit(op)
+IE_TRACE:                             Modified var:.. code = list(len=26)
+IE_TRACE:                             19:13:22.949824 line        60                 emit(av)
+IE_TRACE:                             Modified var:.. code = list(len=27)
+IE_TRACE:                             19:13:22.949878 line        56     for op, av in pattern:
+IE_TRACE:                             19:13:22.949932 line        57         if op in LITERAL_CODES:
+IE_TRACE:                             19:13:22.949982 line        58             if not flags & SRE_FLAG_IGNORECASE:
+IE_TRACE:                             19:13:22.950032 line        59                 emit(op)
+IE_TRACE:                             Modified var:.. code = list(len=28)
+IE_TRACE:                             19:13:22.950082 line        60                 emit(av)
+IE_TRACE:                             Modified var:.. code = list(len=29)
+IE_TRACE:                             19:13:22.950140 line        56     for op, av in pattern:
+IE_TRACE:                             19:13:22.950194 line        57         if op in LITERAL_CODES:
+IE_TRACE:                             19:13:22.950244 line        58             if not flags & SRE_FLAG_IGNORECASE:
+IE_TRACE:                             19:13:22.950294 line        59                 emit(op)
+IE_TRACE:                             Modified var:.. code = list(len=30)
+IE_TRACE:                             19:13:22.950344 line        60                 emit(av)
+IE_TRACE:                             Modified var:.. code = list(len=31)
+IE_TRACE:                             19:13:22.950398 line        56     for op, av in pattern:
+IE_TRACE:                             19:13:22.950452 return      56     for op, av in pattern:
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         Modified var:.. code = list(len=31)
+IE_TRACE:                         19:13:22.950509 line       584     code.append(SUCCESS)
+IE_TRACE:                         Modified var:.. code = list(len=32)
+IE_TRACE:                         19:13:22.950537 line       586     return code
+IE_TRACE:                         19:13:22.950564 return     586     return code
+IE_TRACE:                         Return value:.. list(len=32)
+IE_TRACE:                     New var:....... code = list(len=32)
+IE_TRACE:                     19:13:22.950593 line       751     if flags & SRE_FLAG_DEBUG:
+IE_TRACE:                     19:13:22.950626 line       756     groupindex = p.state.groupdict
+IE_TRACE:                     New var:....... groupindex = {}
+IE_TRACE:                     19:13:22.950652 line       757     indexgroup = [None] * p.state.groups
+IE_TRACE:                         Source path:... /usr/lib/python3.12/re/_parser.py
+IE_TRACE:                         Starting var:.. self = <re._parser.State object at 0x7f74d819ad50>
+IE_TRACE:                         19:13:22.950686 call        84     def groups(self):
+IE_TRACE:                         19:13:22.950721 line        85         return len(self.groupwidths)
+IE_TRACE:                         19:13:22.950737 return      85         return len(self.groupwidths)
+IE_TRACE:                         Return value:.. 1
+IE_TRACE:                     Source path:... /usr/lib/python3.12/re/_compiler.py
+IE_TRACE:                     New var:....... indexgroup = [None]
+IE_TRACE:                     19:13:22.950760 line       758     for k, i in groupindex.items():
+IE_TRACE:                     19:13:22.950798 line       761     return _sre.compile(
+IE_TRACE:                     19:13:22.950828 line       762         pattern, flags | p.state.flags, code,
+IE_TRACE:                     19:13:22.950855 line       763         p.state.groups-1,
+IE_TRACE:                         Source path:... /usr/lib/python3.12/re/_parser.py
+IE_TRACE:                         Starting var:.. self = <re._parser.State object at 0x7f74d819ad50>
+IE_TRACE:                         19:13:22.950882 call        84     def groups(self):
+IE_TRACE:                         19:13:22.950908 line        85         return len(self.groupwidths)
+IE_TRACE:                         19:13:22.950924 return      85         return len(self.groupwidths)
+IE_TRACE:                         Return value:.. 1
+IE_TRACE:                     Source path:... /usr/lib/python3.12/re/_compiler.py
+IE_TRACE:                     19:13:22.950946 line       764         groupindex, tuple(indexgroup)
+IE_TRACE:                     19:13:22.950977 line       761     return _sre.compile(
+IE_TRACE:                     19:13:22.951006 return     761     return _sre.compile(
+IE_TRACE:                     Return value:.. re.compile('(?m)^            ', re.MULTILINE)
+IE_TRACE:                 Source path:... /usr/lib/python3.12/re/__init__.py
+IE_TRACE:                 Modified var:.. p = re.compile('(?m)^            ', re.MULTILINE)
+IE_TRACE:                 19:13:22.951046 line       308         if flags & DEBUG:
+IE_TRACE:                     Source path:... /usr/lib/python3.12/enum.py
+IE_TRACE:                     Starting var:.. self = re.DEBUG
+IE_TRACE:                     Starting var:.. other = 0
+IE_TRACE:                     19:13:22.951084 call      1562     def __and__(self, other):
+IE_TRACE:                     19:13:22.951125 line      1563         other_value = self._get_value(other)
+IE_TRACE:                         Starting var:.. self = re.DEBUG
+IE_TRACE:                         Starting var:.. flag = 0
+IE_TRACE:                         19:13:22.951149 call      1544     def _get_value(self, flag):
+IE_TRACE:                         19:13:22.951176 line      1545         if isinstance(flag, self.__class__):
+IE_TRACE:                         19:13:22.951196 line      1547         elif self._member_type_ is not object and isinstance(flag, self._member_type_):
+IE_TRACE:                         19:13:22.951214 line      1548             return flag
+IE_TRACE:                         19:13:22.951232 return    1548             return flag
+IE_TRACE:                         Return value:.. 0
+IE_TRACE:                     New var:....... other_value = 0
+IE_TRACE:                     19:13:22.951255 line      1564         if other_value is NotImplemented:
+IE_TRACE:                     19:13:22.951278 line      1567         for flag in self, other:
+IE_TRACE:                     New var:....... flag = re.DEBUG
+IE_TRACE:                     19:13:22.951297 line      1568             if self._get_value(flag) is None:
+IE_TRACE:                         Starting var:.. self = re.DEBUG
+IE_TRACE:                         Starting var:.. flag = re.DEBUG
+IE_TRACE:                         19:13:22.951322 call      1544     def _get_value(self, flag):
+IE_TRACE:                         19:13:22.951349 line      1545         if isinstance(flag, self.__class__):
+IE_TRACE:                         19:13:22.951366 line      1546             return flag._value_
+IE_TRACE:                         19:13:22.951384 return    1546             return flag._value_
+IE_TRACE:                         Return value:.. 128
+IE_TRACE:                     19:13:22.951407 line      1567         for flag in self, other:
+IE_TRACE:                     Modified var:.. flag = 0
+IE_TRACE:                     19:13:22.951428 line      1568             if self._get_value(flag) is None:
+IE_TRACE:                         Starting var:.. self = re.DEBUG
+IE_TRACE:                         Starting var:.. flag = 0
+IE_TRACE:                         19:13:22.951452 call      1544     def _get_value(self, flag):
+IE_TRACE:                         19:13:22.951477 line      1545         if isinstance(flag, self.__class__):
+IE_TRACE:                         19:13:22.951495 line      1547         elif self._member_type_ is not object and isinstance(flag, self._member_type_):
+IE_TRACE:                         19:13:22.951511 line      1548             return flag
+IE_TRACE:                         19:13:22.951528 return    1548             return flag
+IE_TRACE:                         Return value:.. 0
+IE_TRACE:                     19:13:22.951550 line      1567         for flag in self, other:
+IE_TRACE:                     19:13:22.951569 line      1570         value = self._value_
+IE_TRACE:                     New var:....... value = 128
+IE_TRACE:                     19:13:22.951589 line      1571         return self.__class__(value & other_value)
+IE_TRACE:                         Starting var:.. cls = <flag 'RegexFlag'>
+IE_TRACE:                         Starting var:.. value = 0
+IE_TRACE:                         Starting var:.. names = <not given>
+IE_TRACE:                         Starting var:.. module = None
+IE_TRACE:                         Starting var:.. qualname = None
+IE_TRACE:                         Starting var:.. type = None
+IE_TRACE:                         Starting var:.. start = 1
+IE_TRACE:                         Starting var:.. boundary = None
+IE_TRACE:                         Starting var:.. values = ()
+IE_TRACE:                         19:13:22.951618 call       726     def __call__(cls, value, names=_not_given, *values, module=None, qualname=None, type=None, start=1, boundary=None):
+IE_TRACE:                         19:13:22.951691 line       753         if cls._member_map_:
+IE_TRACE:                         19:13:22.951720 line       755             if names is not _not_given:
+IE_TRACE:                         19:13:22.951748 line       757             return cls.__new__(cls, value)
+IE_TRACE:                             Starting var:.. cls = <flag 'RegexFlag'>
+IE_TRACE:                             Starting var:.. value = 0
+IE_TRACE:                             19:13:22.951779 call      1129     def __new__(cls, value):
+IE_TRACE:                             19:13:22.951808 line      1133         if type(value) is cls:
+IE_TRACE:                             19:13:22.951827 line      1138         try:
+IE_TRACE:                             19:13:22.951846 line      1139             return cls._value2member_map_[value]
+IE_TRACE:                             19:13:22.951867 return    1139             return cls._value2member_map_[value]
+IE_TRACE:                             Return value:.. re.NOFLAG
+IE_TRACE:                         19:13:22.951896 return     757             return cls.__new__(cls, value)
+IE_TRACE:                         Return value:.. re.NOFLAG
+IE_TRACE:                     19:13:22.951932 return    1571         return self.__class__(value & other_value)
+IE_TRACE:                     Return value:.. re.NOFLAG
+IE_TRACE:                 Source path:... /usr/lib/python3.12/re/__init__.py
+IE_TRACE:                 19:13:22.951961 line       310         if len(_cache) >= _MAXCACHE:
+IE_TRACE:                 19:13:22.951988 line       320     _cache[key] = p
+IE_TRACE:                 19:13:22.952009 line       322     if len(_cache2) >= _MAXCACHE2:
+IE_TRACE:                 19:13:22.952031 line       328     _cache2[key] = p
+IE_TRACE:                 19:13:22.952051 line       329     return p
+IE_TRACE:                 19:13:22.952071 return     329     return p
+IE_TRACE:                 Return value:.. re.compile('(?m)^            ', re.MULTILINE)
+IE_TRACE:             19:13:22.952103 return     186     return _compile(pattern, flags).sub(repl, string, count)
+IE_TRACE:             Return value:.. '\nasync def async_wrapper(self_event, other_event):\n    return await IOLoop.current().run_in_executor(\n        None, sync_func, self_event, other_event)\n'
+IE_TRACE:         Source path:... /usr/lib/python3.12/textwrap.py
+IE_TRACE:         Modified var:.. text = '\nasync def async_wrapper(self_event, other_event):\n    return await IOLoop.current().run_in_executor(\n        None, sync_func, self_event, other_event)\n'
+IE_TRACE:         19:13:22.952137 line       467     return text
+IE_TRACE:         19:13:22.952169 return     467     return text
+IE_TRACE:         Return value:.. '\nasync def async_wrapper(self_event, other_event):\n    return await IOLoop.current().run_in_executor(\n        None, sync_func, self_event, other_event)\n'
+IE_TRACE:         Source path:... <string>
+IE_TRACE:         19:13:22.952375 call         0     unittest.main()
+IE_TRACE:         19:13:22.952553 line         2 
+IE_TRACE:         New var:....... async_wrapper = <function async_wrapper at 0x7f74d802e7a0>
+IE_TRACE:         19:13:22.952568 return       2 
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/util.py
+IE_TRACE:     Modified var:.. local_namespace = {'async_wrapper': <function async_wrapper at 0x7f74d802e7a0>}
+IE_TRACE:     19:13:22.952601 line        87     return local_namespace
+IE_TRACE:     19:13:22.952655 return      87     return local_namespace
+IE_TRACE:     Return value:.. {'async_wrapper': <function async_wrapper at 0x7f74d802e7a0>}
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/ioloop_test.py
+IE_TRACE: New var:....... namespace = {'async_wrapper': <function async_wrapper at 0x7f74d802e7a0>}
+IE_TRACE: 19:13:22.952687 line       650             namespace["async_wrapper"](event1, event2),
+IE_TRACE: 19:13:22.952727 line       651             namespace["async_wrapper"](event2, event1)
+IE_TRACE: 19:13:22.952748 line       649         res = yield [
+IE_TRACE: 19:13:22.952769 return     649         res = yield [
+IE_TRACE: Return value:.. [<coroutine object async_wrapper at 0x7f74d8001d20>, <coroutine object async_wrapper at 0x7f74d8001ee0>]
+IE_TRACE: Elapsed time: 00:00:00.041689
+ERROR:tornado.application:Multiple exceptions in yield list
+Traceback (most recent call last):
+  File "/path/to/BugsInPy/workspace/tornado/tornado/gen.py", line 823, in callback
+    result_list.append(f.result())
+                       ^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "<string>", line 4, in raise_exc_info
+  File "/path/to/BugsInPy/workspace/tornado/tornado/gen.py", line 303, in wrapper
+    yielded = next(result)
+              ^^^^^^^^^^^^
+  File "<string>", line 6, in _wrap_awaitable
+  File "<string>", line 3, in async_wrapper
+TypeError: object Future can't be used in 'await' expression
+/usr/lib/python3.12/types.py:248: DeprecationWarning: the (type, exc, tb) signature of throw() is deprecated, use the single-arg signature instead.
+  return self.__wrapped.throw(tp, *rest)
+IE_TRACE: Starting var:.. self = <tornado.test.ioloop_test.TestIOLoopFutures testMethod=test_run_in_executor_native>
+IE_TRACE: Starting var:.. event1 = <threading.Event at 0x7f74d8196f00: set>
+IE_TRACE: Starting var:.. event2 = <threading.Event at 0x7f74d8197ec0: set>
+IE_TRACE: Starting var:.. sync_func = <function TestIOLoopFutures.test_run_in_executor_native.<locals>.sync_func at 0x7f74d802e200>
+IE_TRACE: Starting var:.. namespace = {'async_wrapper': <function async_wrapper at 0x7f74d802e7a0>}
+IE_TRACE: 19:13:22.955240 call       649         res = yield [
+IE_TRACE: 19:13:22.955338 exception  649         res = yield [
+IE_TRACE: Exception:..... TypeError: object Future can't be used in 'await' expression
+IE_TRACE: 19:13:22.955423 return     649         res = yield [
+IE_TRACE: Return value:.. None
+IE_TRACE: Elapsed time: 00:00:00.000425
+======================================================================
+ERROR: test_run_in_executor_native (tornado.test.ioloop_test.TestIOLoopFutures.test_run_in_executor_native)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/BugsInPy/workspace/tornado/tornado/testing.py", line 118, in __call__
+    result = self.orig_method(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/testing.py", line 514, in post_coroutine
+    return self.io_loop.run_sync(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/ioloop.py", line 501, in run_sync
+    return future_cell[0].result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "<string>", line 4, in raise_exc_info
+  File "/path/to/BugsInPy/workspace/tornado/tornado/gen.py", line 1057, in run
+    yielded = self.gen.throw(*exc_info)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/types.py", line 248, in throw
+    return self.__wrapped.throw(tp, *rest)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 329, in generator_wrapper
+    outgoing = method(incoming)
+               ^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/test/ioloop_test.py", line 649, in test_run_in_executor_native
+    res = yield [
+          ^^^^^^^
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 333, in generator_wrapper
+    method, incoming = gen.send, (yield outgoing)
+                                  ^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/gen.py", line 1049, in run
+    value = future.result()
+            ^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "<string>", line 4, in raise_exc_info
+  File "/path/to/BugsInPy/workspace/tornado/tornado/gen.py", line 823, in callback
+    result_list.append(f.result())
+                       ^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "<string>", line 4, in raise_exc_info
+  File "/path/to/BugsInPy/workspace/tornado/tornado/gen.py", line 303, in wrapper
+    yielded = next(result)
+              ^^^^^^^^^^^^
+  File "<string>", line 6, in _wrap_awaitable
+  File "<string>", line 3, in async_wrapper
+TypeError: object Future can't be used in 'await' expression
+
+----------------------------------------------------------------------
+Ran 1 test in 0.047s
+
+FAILED (errors=1)
+
+
+Exit code: 1

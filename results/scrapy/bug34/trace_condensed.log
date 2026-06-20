@@ -1,0 +1,199 @@
+Cleared: /path/to/results/scrapy/bug34
+Running: python -m unittest -q tests.test_item.ItemTest.test_metaclass_with_fields_attribute
+Workdir: /path/to/BugsInPy/workspace/scrapy
+PYTHONPATH: /path/to/BugsInPy/workspace/scrapy::
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_item.py
+IE_TRACE: Starting var:.. self = <tests.test_item.ItemTest testMethod=test_metaclass_with_fields_attribute>
+IE_TRACE: 12:41:59.283897 call       126     def test_metaclass_with_fields_attribute(self):
+IE_TRACE: 12:41:59.284071 line       127         class TestItem(Item):
+IE_TRACE:     12:41:59.284105 call       127         class TestItem(Item):
+IE_TRACE:     12:41:59.284122 line       127         class TestItem(Item):
+IE_TRACE:     New var:....... __module__ = 'tests.test_item'
+IE_TRACE:     New var:....... __qualname__ = 'ItemTest.test_metaclass_with_fields_attribute.<locals>.TestItem'
+IE_TRACE:     12:41:59.284133 line       128             fields = {'new': Field(default='X')}
+IE_TRACE:     New var:....... fields = {'new': {'default': 'X'}}
+IE_TRACE:     12:41:59.284159 return     128             fields = {'new': Field(default='X')}
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/item.py
+IE_TRACE:     Starting var:.. mcs = <class 'scrapy.item.ItemMeta'>
+IE_TRACE:     Starting var:.. class_name = 'TestItem'
+IE_TRACE:     Starting var:.. bases = (<class 'scrapy.item.Item'>,)
+IE_TRACE:     Starting var:.. attrs = {'__module__': 'tests.test_item', '__qualname__': 'ItemTest.test_metaclass_with_fields_attribute.<locals>.TestItem', 'fields': {'new': {'default': 'X'}}}
+IE_TRACE:     Starting var:.. __class__ = <class 'scrapy.item.ItemMeta'>
+IE_TRACE:     12:41:59.284204 call        26     def __new__(mcs, class_name, bases, attrs):
+IE_TRACE:     12:41:59.284292 line        27         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         Starting var:.. .0 = <tuple_iterator object at 0x78050badf730>
+IE_TRACE:         12:41:59.284318 call        27         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         12:41:59.284337 line        27         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         New var:....... base = <class 'scrapy.item.Item'>
+IE_TRACE:         12:41:59.284351 return      27         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         Return value:.. <class 'scrapy.item.Item'>
+IE_TRACE:         Starting var:.. .0 = <tuple_iterator object at 0x78050badf730>
+IE_TRACE:         Starting var:.. base = <class 'scrapy.item.Item'>
+IE_TRACE:         12:41:59.284378 call        27         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         12:41:59.284400 line        27         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         12:41:59.284414 return      27         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         Return value:.. None
+IE_TRACE:     New var:....... new_bases = (<class 'scrapy.item.Item'>,)
+IE_TRACE:     12:41:59.284433 line        28         _class = super(ItemMeta, mcs).__new__(mcs, 'x_' + class_name, new_bases, attrs)
+IE_TRACE:         Source path:... <frozen abc>
+IE_TRACE:         Starting var:.. mcls = <class 'scrapy.item.ItemMeta'>
+IE_TRACE:         Starting var:.. name = 'x_TestItem'
+IE_TRACE:         Starting var:.. bases = (<class 'scrapy.item.Item'>,)
+IE_TRACE:         Starting var:.. namespace = {'__module__': 'tests.test_item', '__qualname__': 'ItemTest.test_metaclass_with_fields_attribute.<locals>.TestItem', 'fields': {'new': {'default': 'X'}}}
+IE_TRACE:         Starting var:.. kwargs = {}
+IE_TRACE:         Starting var:.. __class__ = <class 'abc.ABCMeta'>
+IE_TRACE:         12:41:59.284463 call       105 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:41:59.284527 line       106 SOURCE IS UNAVAILABLE
+IE_TRACE:         New var:....... cls = <class 'tests.test_item.ItemTest.test_metaclass_with_fields_attribute.<locals>.TestItem'>
+IE_TRACE:         12:41:59.284558 line       107 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:41:59.284587 line       108 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:41:59.284607 return     108 SOURCE IS UNAVAILABLE
+IE_TRACE:         Return value:.. <class 'tests.test_item.ItemTest.test_metaclass_with_fields_attribute.<locals>.TestItem'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/item.py
+IE_TRACE:     New var:....... _class = <class 'tests.test_item.ItemTest.test_metaclass_with_fields_attribute.<locals>.TestItem'>
+IE_TRACE:     12:41:59.284632 line        30         fields = {}
+IE_TRACE:     New var:....... fields = {}
+IE_TRACE:     12:41:59.284663 line        31         new_attrs = {}
+IE_TRACE:     New var:....... new_attrs = {}
+IE_TRACE:     12:41:59.284691 line        32         for n in dir(_class):
+IE_TRACE:     New var:....... n = '__abstractmethods__'
+IE_TRACE:     12:41:59.284726 line        33             v = getattr(_class, n)
+IE_TRACE:     New var:....... v = frozenset()
+IE_TRACE:     12:41:59.284753 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.284781 line        36             elif n in attrs:
+IE_TRACE:     [CONDENSED] 16 identical loop iterations skipped (18 total iterations, showing first and last)
+IE_TRACE:     12:41:59.286384 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__module__'
+IE_TRACE:     12:41:59.286406 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = 'tests.test_item'
+IE_TRACE:     12:41:59.286432 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.286457 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.286479 line        37                 new_attrs[n] = attrs[n]
+IE_TRACE:     Modified var:.. new_attrs = {'__module__': 'tests.test_item'}
+IE_TRACE:     12:41:59.286502 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__ne__'
+IE_TRACE:     12:41:59.286528 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__ne__' of 'object' objects>
+IE_TRACE:     12:41:59.286554 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.286580 line        36             elif n in attrs:
+IE_TRACE:     [CONDENSED] 10 identical loop iterations skipped (12 total iterations, showing first and last)
+IE_TRACE:     12:41:59.287585 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = 'fields'
+IE_TRACE:     12:41:59.287607 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = {'new': {'default': 'X'}}
+IE_TRACE:     12:41:59.287633 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.287659 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.287682 line        37                 new_attrs[n] = attrs[n]
+IE_TRACE:     Modified var:.. new_attrs = {'__module__': 'tests.test_item', 'fields': {'new': {'default': 'X'}}}
+IE_TRACE:     12:41:59.287705 line        32         for n in dir(_class):
+IE_TRACE:     12:41:59.287732 line        39         new_attrs['fields'] = fields
+IE_TRACE:     Modified var:.. new_attrs = {'__module__': 'tests.test_item', 'fields': {}}
+IE_TRACE:     12:41:59.287755 line        40         new_attrs['_class'] = _class
+IE_TRACE:     Modified var:.. new_attrs = {'__module__': 'tests.test_item', 'fields': {}, '_class': <class 'tests.test_item.ItemTest.test_metaclass_with_fields_attribute.<locals>.TestItem'>}
+IE_TRACE:     12:41:59.287782 line        41         return super(ItemMeta, mcs).__new__(mcs, class_name, bases, new_attrs)
+IE_TRACE:         Source path:... <frozen abc>
+IE_TRACE:         Starting var:.. mcls = <class 'scrapy.item.ItemMeta'>
+IE_TRACE:         Starting var:.. name = 'TestItem'
+IE_TRACE:         Starting var:.. bases = (<class 'scrapy.item.Item'>,)
+IE_TRACE:         Starting var:.. namespace = {'__module__': 'tests.test_item', 'fields': {}, '_class': <class 'tests.test_item.ItemTest.test_metaclass_with_fields_attribute.<locals>.TestItem'>}
+IE_TRACE:         Starting var:.. kwargs = {}
+IE_TRACE:         Starting var:.. __class__ = <class 'abc.ABCMeta'>
+IE_TRACE:         12:41:59.287810 call       105 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:41:59.287854 line       106 SOURCE IS UNAVAILABLE
+IE_TRACE:         New var:....... cls = <class 'tests.test_item.TestItem'>
+IE_TRACE:         12:41:59.287895 line       107 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:41:59.287921 line       108 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:41:59.287940 return     108 SOURCE IS UNAVAILABLE
+IE_TRACE:         Return value:.. <class 'tests.test_item.TestItem'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/item.py
+IE_TRACE:     12:41:59.287965 return      41         return super(ItemMeta, mcs).__new__(mcs, class_name, bases, new_attrs)
+IE_TRACE:     Return value:.. <class 'tests.test_item.TestItem'>
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_item.py
+IE_TRACE: New var:....... TestItem = <class 'tests.test_item.TestItem'>
+IE_TRACE: 12:41:59.288000 line       130         item = TestItem(new=u'New')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/trackref.py
+IE_TRACE:     Starting var:.. cls = <class 'tests.test_item.TestItem'>
+IE_TRACE:     Starting var:.. args = ()
+IE_TRACE:     Starting var:.. kwargs = {'new': 'New'}
+IE_TRACE:     12:41:59.288027 call        28     def __new__(cls, *args, **kwargs):
+IE_TRACE:     12:41:59.288089 line        29         obj = object.__new__(cls)
+IE_TRACE:     New var:....... obj = REPR FAILED
+IE_TRACE:     12:41:59.288104 line        30         live_refs[cls][obj] = time()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/trackref.py
+IE_TRACE:     12:41:59.288445 line        31         return obj
+IE_TRACE:     12:41:59.288466 return      31         return obj
+IE_TRACE:     Return value:.. REPR FAILED
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/item.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. args = ()
+IE_TRACE:     Starting var:.. kwargs = {'new': 'New'}
+IE_TRACE:     12:41:59.288491 call        48     def __init__(self, *args, **kwargs):
+IE_TRACE:     12:41:59.288521 line        49         self._values = {}
+IE_TRACE:         Starting var:.. self = REPR FAILED
+IE_TRACE:         Starting var:.. name = '_values'
+IE_TRACE:         Starting var:.. value = {}
+IE_TRACE:         Starting var:.. __class__ = <class 'scrapy.item.DictItem'>
+IE_TRACE:         12:41:59.288538 call        72     def __setattr__(self, name, value):
+IE_TRACE:         12:41:59.288568 line        73         if not name.startswith('_'):
+IE_TRACE:         12:41:59.288583 line        76         super(DictItem, self).__setattr__(name, value)
+IE_TRACE:         Modified var:.. self = {}
+IE_TRACE:         12:41:59.288599 return      76         super(DictItem, self).__setattr__(name, value)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Modified var:.. self = {}
+IE_TRACE:     12:41:59.288670 line        50         if args or kwargs:  # avoid creating dict for most common case
+IE_TRACE:     12:41:59.288699 line        51             for k, v in six.iteritems(dict(*args, **kwargs)):
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/six.py
+IE_TRACE:         Starting var:.. d = {'new': 'New'}
+IE_TRACE:         Starting var:.. kw = {}
+IE_TRACE:         12:41:59.288721 call       588     def iteritems(d, **kw):
+IE_TRACE:         12:41:59.288820 line       589         return iter(d.items(**kw))
+IE_TRACE:         12:41:59.288834 return     589         return iter(d.items(**kw))
+IE_TRACE:         Return value:.. <dict_itemiterator object at 0x78050b94fab0>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/item.py
+IE_TRACE:     New var:....... k = 'new'
+IE_TRACE:     New var:....... v = 'New'
+IE_TRACE:     12:41:59.288852 line        52                 self[k] = v
+IE_TRACE:         Starting var:.. self = {}
+IE_TRACE:         Starting var:.. key = 'new'
+IE_TRACE:         Starting var:.. value = 'New'
+IE_TRACE:         12:41:59.288886 call        57     def __setitem__(self, key, value):
+IE_TRACE:         12:41:59.288914 line        58         if key in self.fields:
+IE_TRACE:         12:41:59.288931 line        61             raise KeyError("%s does not support field: %s" %
+IE_TRACE:         12:41:59.288946 line        62                 (self.__class__.__name__, key))
+IE_TRACE:         12:41:59.288961 line        61             raise KeyError("%s does not support field: %s" %
+IE_TRACE:         12:41:59.288976 exception   61             raise KeyError("%s does not support field: %s" %
+IE_TRACE:         Exception:..... KeyError: 'TestItem does not support field: new'
+IE_TRACE:         Call ended by exception
+IE_TRACE:     12:41:59.289075 exception   52                 self[k] = v
+IE_TRACE:     Exception:..... KeyError: 'TestItem does not support field: new'
+IE_TRACE:     Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_item.py
+IE_TRACE: 12:41:59.289128 exception  130         item = TestItem(new=u'New')
+IE_TRACE: Exception:..... KeyError: 'TestItem does not support field: new'
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.005448
+======================================================================
+ERROR: test_metaclass_with_fields_attribute (tests.test_item.ItemTest.test_metaclass_with_fields_attribute)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/tests/test_item.py", line 130, in test_metaclass_with_fields_attribute
+    item = TestItem(new=u'New')
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/scrapy/item.py", line 52, in __init__
+    self[k] = v
+    ~~~~^^^
+  File "/path/to/BugsInPy/workspace/scrapy/scrapy/item.py", line 61, in __setitem__
+    raise KeyError("%s does not support field: %s" %
+KeyError: 'TestItem does not support field: new'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.006s
+
+FAILED (errors=1)
+
+
+Exit code: 1

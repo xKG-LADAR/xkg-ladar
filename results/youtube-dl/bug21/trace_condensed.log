@@ -1,0 +1,59 @@
+Cleared: /path/to/results/youtube-dl/bug21
+Running: python -m unittest -q test.test_utils.TestUtil.test_urljoin
+Workdir: /path/to/BugsInPy/workspace/youtube-dl
+PYTHONPATH: /path/to/BugsInPy/workspace/youtube-dl
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/pandatv.py:36: SyntaxWarning: "is not" with 'int' literal. Did you mean "!="?
+  if error_code is not 0:
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Starting var:.. self = <test.test_utils.TestUtil testMethod=test_urljoin>
+IE_TRACE: 15:10:50.708256 call       459     def test_urljoin(self):
+IE_TRACE: 15:10:50.708627 line       460         self.assertEqual(urljoin('http://foo.de/', '/a/b/c.txt'), 'http://foo.de/a/b/c.txt')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. base = 'http://foo.de/'
+IE_TRACE:     Starting var:.. path = '/a/b/c.txt'
+IE_TRACE:     15:10:50.708674 call      1750 def urljoin(base, path):
+IE_TRACE:     15:10:50.709053 line      1751     if not isinstance(path, compat_str) or not path:
+IE_TRACE:     15:10:50.709080 line      1753     if re.match(r'^(?:https?:)?//', path):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:10:50.758096 line      1755     if not isinstance(base, compat_str) or not re.match(r'^(?:https?:)?//', base):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:10:50.758315 line      1757     return compat_urlparse.urljoin(base, path)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:10:50.766207 return    1757     return compat_urlparse.urljoin(base, path)
+IE_TRACE:     Return value:.. 'http://foo.de/a/b/c.txt'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:10:50.767005 line       461         self.assertEqual(urljoin(b'http://foo.de/', '/a/b/c.txt'), 'http://foo.de/a/b/c.txt')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. base = b'http://foo.de/'
+IE_TRACE:     Starting var:.. path = '/a/b/c.txt'
+IE_TRACE:     15:10:50.767030 call      1750 def urljoin(base, path):
+IE_TRACE:     15:10:50.767063 line      1751     if not isinstance(path, compat_str) or not path:
+IE_TRACE:     15:10:50.767078 line      1753     if re.match(r'^(?:https?:)?//', path):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:10:50.767270 line      1755     if not isinstance(base, compat_str) or not re.match(r'^(?:https?:)?//', base):
+IE_TRACE:     15:10:50.767290 line      1756         return None
+IE_TRACE:     15:10:50.767304 return    1756         return None
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:10:50.768300 exception  461         self.assertEqual(urljoin(b'http://foo.de/', '/a/b/c.txt'), 'http://foo.de/a/b/c.txt')
+IE_TRACE: Exception:..... AssertionError: None != 'http://foo.de/a/b/c.txt'
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.060288
+======================================================================
+FAIL: test_urljoin (test.test_utils.TestUtil.test_urljoin)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py", line 461, in test_urljoin
+    self.assertEqual(urljoin(b'http://foo.de/', '/a/b/c.txt'), 'http://foo.de/a/b/c.txt')
+AssertionError: None != 'http://foo.de/a/b/c.txt'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.061s
+
+FAILED (failures=1)
+
+
+Exit code: 1

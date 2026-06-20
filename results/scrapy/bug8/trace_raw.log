@@ -1,0 +1,1181 @@
+Cleared: /path/to/results/scrapy/bug8
+Running: python -m unittest -q tests.test_item.ItemMetaTest.test_new_method_propagates_classcell
+Workdir: /path/to/BugsInPy/workspace/scrapy
+PYTHONPATH: /path/to/BugsInPy/workspace/scrapy::
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_item.py
+IE_TRACE: Starting var:.. self = <tests.test_item.ItemMetaTest testMethod=test_new_method_propagates_classcell>
+IE_TRACE: 12:31:39.017531 call       258     def test_new_method_propagates_classcell(self):
+IE_TRACE: 12:31:39.017716 line       259         new_mock = mock.Mock(side_effect=ABCMeta.__new__)
+IE_TRACE:     Source path:... /usr/lib/python3.12/unittest/mock.py
+IE_TRACE:     Starting var:.. cls = <class 'unittest.mock.Mock'>
+IE_TRACE:     Starting var:.. spec = None
+IE_TRACE:     Starting var:.. wraps = None
+IE_TRACE:     Starting var:.. name = None
+IE_TRACE:     Starting var:.. spec_set = None
+IE_TRACE:     Starting var:.. parent = None
+IE_TRACE:     Starting var:.. _spec_state = None
+IE_TRACE:     Starting var:.. _new_name = ''
+IE_TRACE:     Starting var:.. _new_parent = None
+IE_TRACE:     Starting var:.. _spec_as_instance = False
+IE_TRACE:     Starting var:.. _eat_self = None
+IE_TRACE:     Starting var:.. unsafe = False
+IE_TRACE:     Starting var:.. kwargs = {'side_effect': <function ABCMeta.__new__ at 0x779842df2980>}
+IE_TRACE:     12:31:39.017756 call       420     def __new__(
+IE_TRACE:     12:31:39.018512 line       428         bases = (cls,)
+IE_TRACE:     New var:....... bases = (<class 'unittest.mock.Mock'>,)
+IE_TRACE:     12:31:39.018550 line       429         if not issubclass(cls, AsyncMockMixin):
+IE_TRACE:     12:31:39.018588 line       431             spec_arg = spec_set or spec
+IE_TRACE:     New var:....... spec_arg = None
+IE_TRACE:     12:31:39.018617 line       432             if spec_arg is not None and _is_async_obj(spec_arg):
+IE_TRACE:     12:31:39.018651 line       434         new = type(cls.__name__, bases, {'__doc__': cls.__doc__})
+IE_TRACE:     New var:....... new = <class 'unittest.mock.Mock'>
+IE_TRACE:     12:31:39.018699 line       435         instance = _safe_super(NonCallableMock, cls).__new__(new)
+IE_TRACE:     New var:....... instance = REPR FAILED
+IE_TRACE:     12:31:39.018733 line       436         return instance
+IE_TRACE:     12:31:39.018801 return     436         return instance
+IE_TRACE:     Return value:.. REPR FAILED
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. spec = None
+IE_TRACE:     Starting var:.. side_effect = <function ABCMeta.__new__ at 0x779842df2980>
+IE_TRACE:     Starting var:.. return_value = sentinel.DEFAULT
+IE_TRACE:     Starting var:.. wraps = None
+IE_TRACE:     Starting var:.. name = None
+IE_TRACE:     Starting var:.. spec_set = None
+IE_TRACE:     Starting var:.. parent = None
+IE_TRACE:     Starting var:.. _spec_state = None
+IE_TRACE:     Starting var:.. _new_name = ''
+IE_TRACE:     Starting var:.. _new_parent = None
+IE_TRACE:     Starting var:.. kwargs = {}
+IE_TRACE:     12:31:39.018861 call      1112     def __init__(self, spec=None, side_effect=None, return_value=DEFAULT,
+IE_TRACE:     12:31:39.018947 line      1115         self.__dict__['_mock_return_value'] = return_value
+IE_TRACE:     12:31:39.018982 line      1116         _safe_super(CallableMixin, self).__init__(
+IE_TRACE:     12:31:39.019014 line      1117             spec, wraps, name, spec_set, parent,
+IE_TRACE:     12:31:39.019043 line      1118             _spec_state, _new_name, _new_parent, **kwargs
+IE_TRACE:     12:31:39.019073 line      1116         _safe_super(CallableMixin, self).__init__(
+IE_TRACE:     12:31:39.019103 line      1118             _spec_state, _new_name, _new_parent, **kwargs
+IE_TRACE:     12:31:39.019133 line      1116         _safe_super(CallableMixin, self).__init__(
+IE_TRACE:         Starting var:.. self = REPR FAILED
+IE_TRACE:         Starting var:.. spec = None
+IE_TRACE:         Starting var:.. wraps = None
+IE_TRACE:         Starting var:.. name = None
+IE_TRACE:         Starting var:.. spec_set = None
+IE_TRACE:         Starting var:.. parent = None
+IE_TRACE:         Starting var:.. _spec_state = None
+IE_TRACE:         Starting var:.. _new_name = ''
+IE_TRACE:         Starting var:.. _new_parent = None
+IE_TRACE:         Starting var:.. _spec_as_instance = False
+IE_TRACE:         Starting var:.. _eat_self = None
+IE_TRACE:         Starting var:.. unsafe = False
+IE_TRACE:         Starting var:.. kwargs = {}
+IE_TRACE:         12:31:39.019172 call       439     def __init__(
+IE_TRACE:         12:31:39.019293 line       444         if _new_parent is None:
+IE_TRACE:         12:31:39.019337 line       445             _new_parent = parent
+IE_TRACE:         12:31:39.019368 line       447         __dict__ = self.__dict__
+IE_TRACE:         New var:....... __dict__ = {'_mock_return_value': sentinel.DEFAULT}
+IE_TRACE:         12:31:39.019399 line       448         __dict__['_mock_parent'] = parent
+IE_TRACE:         Modified var:.. __dict__ = {'_mock_return_value': sentinel.DEFAULT, '_mock_parent': None}
+IE_TRACE:         12:31:39.019436 line       449         __dict__['_mock_name'] = name
+IE_TRACE:         Modified var:.. __dict__ = {'_mock_return_value': sentinel.DEFAULT, '_mock_parent': None, '_mock_name': None}
+IE_TRACE:         12:31:39.019472 line       450         __dict__['_mock_new_name'] = _new_name
+IE_TRACE:         Modified var:.. __dict__ = {'_mock_return_value': sentinel.DEFAULT, '_mock_parent': None, '_mock_name': None, '_mock_new_name': ''}
+IE_TRACE:         12:31:39.019508 line       451         __dict__['_mock_new_parent'] = _new_parent
+IE_TRACE:         Modified var:.. __dict__ = {'_mock_return_value': sentinel.DEFAULT, '_mock_parent': None, '_mock_name': None, '_mock_new_name': '', '_mock_new_parent': None}
+IE_TRACE:         12:31:39.019547 line       452         __dict__['_mock_sealed'] = False
+IE_TRACE:         Modified var:.. __dict__ = {'_mock_return_value': sentinel.DEFAULT, '_mock_parent': None, '_mock_name': None, '_mock_new_name': '', '_mock_new_parent': None, '_mock_sealed': False}
+IE_TRACE:         12:31:39.019589 line       454         if spec_set is not None:
+IE_TRACE:         12:31:39.019627 line       457         if _eat_self is None:
+IE_TRACE:         12:31:39.019662 line       458             _eat_self = parent is not None
+IE_TRACE:         Modified var:.. _eat_self = False
+IE_TRACE:         12:31:39.019695 line       460         self._mock_add_spec(spec, spec_set, _spec_as_instance, _eat_self)
+IE_TRACE:             Starting var:.. self = REPR FAILED
+IE_TRACE:             Starting var:.. spec = None
+IE_TRACE:             Starting var:.. spec_set = None
+IE_TRACE:             Starting var:.. _spec_as_instance = False
+IE_TRACE:             Starting var:.. _eat_self = False
+IE_TRACE:             12:31:39.019742 call       508     def _mock_add_spec(self, spec, spec_set, _spec_as_instance=False,
+IE_TRACE:             12:31:39.019788 line       510         if _is_instance_mock(spec):
+IE_TRACE:                 Starting var:.. obj = None
+IE_TRACE:                 12:31:39.019816 call        68 def _is_instance_mock(obj):
+IE_TRACE:                 12:31:39.019835 line        71     return issubclass(type(obj), NonCallableMock)
+IE_TRACE:                 12:31:39.019849 return      71     return issubclass(type(obj), NonCallableMock)
+IE_TRACE:                 Return value:.. False
+IE_TRACE:             12:31:39.019869 line       513         _spec_class = None
+IE_TRACE:             New var:....... _spec_class = None
+IE_TRACE:             12:31:39.019896 line       514         _spec_signature = None
+IE_TRACE:             New var:....... _spec_signature = None
+IE_TRACE:             12:31:39.019947 line       515         _spec_asyncs = []
+IE_TRACE:             New var:....... _spec_asyncs = []
+IE_TRACE:             12:31:39.019978 line       517         if spec is not None and not _is_list(spec):
+IE_TRACE:             12:31:39.020010 line       534         __dict__ = self.__dict__
+IE_TRACE:             New var:....... __dict__ = {'_mock_return_value': sentinel.DEFAULT, '_mock_parent': None, '_mock_name': None, '_mock_new_name': '', '_mock_new_parent': None, '_mock_sealed': False}
+IE_TRACE:             12:31:39.020038 line       535         __dict__['_spec_class'] = _spec_class
+IE_TRACE:             Modified var:.. self = <Mock id='131495796998064'>
+IE_TRACE:             Modified var:.. __dict__ = {'_mock_return_value': sentinel.DEFAULT, '_mock_parent': None, '_mock_name': None, '_mock_new_name': '', '_mock_new_parent': None, '_mock_sealed': False, '_spec_class': None}
+IE_TRACE:             12:31:39.020074 line       536         __dict__['_spec_set'] = spec_set
+IE_TRACE:             Modified var:.. __dict__ = {'_mock_return_value': sentinel.DEFAULT, '_mock_parent': None, '_mock_name': None, '_mock_new_name': '', '_mock_new_parent': None, '_mock_sealed': False, '_spec_class': None, '_spec_set': None}
+IE_TRACE:             12:31:39.020110 line       537         __dict__['_spec_signature'] = _spec_signature
+IE_TRACE:             Modified var:.. __dict__ = {'_mock_return_value': sentinel.DEFAULT, '_mock_parent': None, '_mock_name': None, '_mock_new_name': '', '_mock_new_parent': None, '_mock_sealed': False, '_spec_class': None, '_spec_set': None, '_spec_signature': None}
+IE_TRACE:             12:31:39.020139 line       538         __dict__['_mock_methods'] = spec
+IE_TRACE:             Modified var:.. __dict__ = {'_mock_return_value': sentinel.DEFAULT, '_mock_parent': None, '_mock_name': None, '_mock_new_name': '', '_mock_new_parent': None, '_mock_sealed': False, '_spec_class': None, '_spec_set': None, '_spec_signature': None, '_mock_methods': None}
+IE_TRACE:             12:31:39.020169 line       539         __dict__['_spec_asyncs'] = _spec_asyncs
+IE_TRACE:             Modified var:.. __dict__ = {'_mock_return_value': sentinel.DEFAULT, '_mock_parent': None, '_mock_name': None, '_mock_new_name': '', '_mock_new_parent': None, '_mock_sealed': False, '_spec_class': None, '_spec_set': None, '_spec_signature': None, '_mock_methods': None, '_spec_asyncs': []}
+IE_TRACE:             12:31:39.020230 return     539         __dict__['_spec_asyncs'] = _spec_asyncs
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Modified var:.. self = <Mock id='131495796998064'>
+IE_TRACE:         Modified var:.. __dict__ = {'_mock_return_value': sentinel.DEFAULT, '_mock_parent': None, '_mock_name': None, '_mock_new_name': '', '_mock_new_parent': None, '_mock_sealed': False, '_spec_class': None, '_spec_set': None, '_spec_signature': None, '_mock_methods': None, '_spec_asyncs': []}
+IE_TRACE:         12:31:39.020266 line       462         __dict__['_mock_children'] = {}
+IE_TRACE:         Modified var:.. __dict__ = {'_mock_return_value': sentinel.DEFAULT, '_mock_parent': None, '_mock_name': None, '_mock_new_name': '', '_mock_new_parent': None, '_mock_sealed': False, '_spec_class': None, '_spec_set': None, '_spec_signature': None, '_mock_methods': None, '_spec_asyncs': [], '_mock_children': {}}
+IE_TRACE:         12:31:39.020303 line       463         __dict__['_mock_wraps'] = wraps
+IE_TRACE:         Modified var:.. __dict__ = {'_mock_return_value': sentinel.DEFAULT, '_mock_parent': None, '_mock_name': None, '_mock_new_name': '', '_mock_new_parent': None, '_mock_sealed': False, '_spec_class': None, '_spec_set': None, '_spec_signature': None, '_mock_methods': None, '_spec_asyncs': [], '_mock_children': {}, '_mock_wraps': None}
+IE_TRACE:         12:31:39.020336 line       464         __dict__['_mock_delegate'] = None
+IE_TRACE:         Modified var:.. __dict__ = {'_mock_return_value': sentinel.DEFAULT, '_mock_parent': None, '_mock_name': None, '_mock_new_name': '', '_mock_new_parent': None, '_mock_sealed': False, '_spec_class': None, '_spec_set': None, '_spec_signature': None, '_mock_methods': None, '_spec_asyncs': [], '_mock_children': {}, '_mock_wraps': None, '_mock_delegate': None}
+IE_TRACE:         12:31:39.020368 line       466         __dict__['_mock_called'] = False
+IE_TRACE:         Modified var:.. __dict__ = {'_mock_return_value': sentinel.DEFAULT, '_mock_parent': None, '_mock_name': None, '_mock_new_name': '', '_mock_new_parent': None, '_mock_sealed': False, '_spec_class': None, '_spec_set': None, '_spec_signature': None, '_mock_methods': None, '_spec_asyncs': [], '_mock_children': {}, '_mock_wraps': None, '_mock_delegate': None, '_mock_called': False}
+IE_TRACE:         12:31:39.020400 line       467         __dict__['_mock_call_args'] = None
+IE_TRACE:         Modified var:.. __dict__ = {'_mock_return_value': sentinel.DEFAULT, '_mock_parent': None, '_mock_name': None, '_mock_new_name': '', '_mock_new_parent': None, '_mock_sealed': False, '_spec_class': None, '_spec_set': None, '_spec_signature': None, '_mock_methods': None, '_spec_asyncs': [], '_mock_children': {}, '_mock_wraps': None, '_mock_delegate': None, '_mock_called': False, '_mock_call_args': None}
+IE_TRACE:         12:31:39.020431 line       468         __dict__['_mock_call_count'] = 0
+IE_TRACE:         Modified var:.. __dict__ = {'_mock_return_value': sentinel.DEFAULT, '_mock_parent': None, '_mock_name': None, '_mock_new_name': '', '_mock_new_parent': None, '_mock_sealed': False, '_spec_class': None, '_spec_set': None, '_spec_signature': None, '_mock_methods': None, '_spec_asyncs': [], '_mock_children': {}, '_mock_wraps': None, '_mock_delegate': None, '_mock_called': False, '_mock_call_args': None, '_mock_call_count': 0}
+IE_TRACE:         12:31:39.020463 line       469         __dict__['_mock_call_args_list'] = _CallList()
+IE_TRACE:         Modified var:.. __dict__ = {'_mock_return_value': sentinel.DEFAULT, '_mock_parent': None, '_mock_name': None, '_mock_new_name': '', '_mock_new_parent': None, '_mock_sealed': False, '_spec_class': None, '_spec_set': None, '_spec_signature': None, '_mock_methods': None, '_spec_asyncs': [], '_mock_children': {}, '_mock_wraps': None, '_mock_delegate': None, '_mock_called': False, '_mock_call_args': None, '_mock_call_count': 0, '_mock_call_args_list': []}
+IE_TRACE:         12:31:39.020495 line       470         __dict__['_mock_mock_calls'] = _CallList()
+IE_TRACE:         Modified var:.. __dict__ = {'_mock_return_value': sentinel.DEFAULT, '_mock_parent': None, '_mock_name': None, '_mock_new_name': '', '_mock_new_parent': None, '_mock_sealed': False, '_spec_class': None, '_spec_set': None, '_spec_signature': None, '_mock_methods': None, '_spec_asyncs': [], '_mock_children': {}, '_mock_wraps': None, '_mock_delegate': None, '_mock_called': False, '_mock_call_args': None, '_mock_call_count': 0, '_mock_call_args_list': [], '_mock_mock_calls': []}
+IE_TRACE:         12:31:39.020579 line       472         __dict__['method_calls'] = _CallList()
+IE_TRACE:         Modified var:.. __dict__ = {'_mock_return_value': sentinel.DEFAULT, '_mock_parent': None, '_mock_name': None, '_mock_new_name': '', '_mock_new_parent': None, '_mock_sealed': False, '_spec_class': None, '_spec_set': None, '_spec_signature': None, '_mock_methods': None, '_spec_asyncs': [], '_mock_children': {}, '_mock_wraps': None, '_mock_delegate': None, '_mock_called': False, '_mock_call_args': None, '_mock_call_count': 0, '_mock_call_args_list': [], '_mock_mock_calls': [], 'method_calls': []}
+IE_TRACE:         12:31:39.020628 line       473         __dict__['_mock_unsafe'] = unsafe
+IE_TRACE:         Modified var:.. __dict__ = dict(len=21)
+IE_TRACE:         12:31:39.020673 line       475         if kwargs:
+IE_TRACE:         12:31:39.020707 line       478         _safe_super(NonCallableMock, self).__init__(
+IE_TRACE:         12:31:39.020735 line       479             spec, wraps, name, spec_set, parent,
+IE_TRACE:         12:31:39.020762 line       480             _spec_state
+IE_TRACE:         12:31:39.020788 line       478         _safe_super(NonCallableMock, self).__init__(
+IE_TRACE:             Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:             Starting var:.. args = (None, None, None, None, None, None)
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             12:31:39.020816 call       404     def __init__(self, /, *args, **kwargs):
+IE_TRACE:             12:31:39.020845 line       405         pass
+IE_TRACE:             12:31:39.020862 return     405         pass
+IE_TRACE:             Return value:.. None
+IE_TRACE:         12:31:39.020884 return     478         _safe_super(NonCallableMock, self).__init__(
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Modified var:.. self = <Mock id='131495796998064'>
+IE_TRACE:     12:31:39.020919 line      1121         self.side_effect = side_effect
+IE_TRACE:         Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:         Starting var:.. name = 'side_effect'
+IE_TRACE:         Starting var:.. value = <function ABCMeta.__new__ at 0x779842df2980>
+IE_TRACE:         12:31:39.020960 call       767     def __setattr__(self, name, value):
+IE_TRACE:         12:31:39.020992 line       768         if name in _allowed_names:
+IE_TRACE:         12:31:39.021011 line       770             return object.__setattr__(self, name, value)
+IE_TRACE:             Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:             Starting var:.. value = <function ABCMeta.__new__ at 0x779842df2980>
+IE_TRACE:             12:31:39.021031 call       590     def __set_side_effect(self, value):
+IE_TRACE:             12:31:39.021054 line       591         value = _try_iter(value)
+IE_TRACE:                 Starting var:.. obj = <function ABCMeta.__new__ at 0x779842df2980>
+IE_TRACE:                 12:31:39.021073 call      1095 def _try_iter(obj):
+IE_TRACE:                 12:31:39.021090 line      1096     if obj is None:
+IE_TRACE:                 12:31:39.021102 line      1098     if _is_exception(obj):
+IE_TRACE:                     Starting var:.. obj = <function ABCMeta.__new__ at 0x779842df2980>
+IE_TRACE:                     12:31:39.021117 call        74 def _is_exception(obj):
+IE_TRACE:                     12:31:39.021134 line        76         isinstance(obj, BaseException) or
+IE_TRACE:                     12:31:39.021147 line        77         isinstance(obj, type) and issubclass(obj, BaseException)
+IE_TRACE:                     12:31:39.021159 line        75     return (
+IE_TRACE:                     12:31:39.021171 return      75     return (
+IE_TRACE:                     Return value:.. False
+IE_TRACE:                 12:31:39.021189 line      1100     if _callable(obj):
+IE_TRACE:                     Starting var:.. obj = <function ABCMeta.__new__ at 0x779842df2980>
+IE_TRACE:                     12:31:39.021208 call       150 def _callable(obj):
+IE_TRACE:                     12:31:39.021224 line       151     if isinstance(obj, type):
+IE_TRACE:                     12:31:39.021237 line       153     if isinstance(obj, (staticmethod, classmethod, MethodType)):
+IE_TRACE:                     12:31:39.021249 line       155     if getattr(obj, '__call__', None) is not None:
+IE_TRACE:                     12:31:39.021262 line       156         return True
+IE_TRACE:                     12:31:39.021274 return     156         return True
+IE_TRACE:                     Return value:.. True
+IE_TRACE:                 12:31:39.021291 line      1101         return obj
+IE_TRACE:                 12:31:39.021303 return    1101         return obj
+IE_TRACE:                 Return value:.. <function ABCMeta.__new__ at 0x779842df2980>
+IE_TRACE:             12:31:39.021320 line       592         delegated = self._mock_delegate
+IE_TRACE:             New var:....... delegated = None
+IE_TRACE:             12:31:39.021336 line       593         if delegated is None:
+IE_TRACE:             12:31:39.021355 line       594             self._mock_side_effect = value
+IE_TRACE:                 Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:                 Starting var:.. name = '_mock_side_effect'
+IE_TRACE:                 Starting var:.. value = <function ABCMeta.__new__ at 0x779842df2980>
+IE_TRACE:                 12:31:39.021373 call       767     def __setattr__(self, name, value):
+IE_TRACE:                 12:31:39.021401 line       768         if name in _allowed_names:
+IE_TRACE:                 12:31:39.021418 line       770             return object.__setattr__(self, name, value)
+IE_TRACE:                 12:31:39.021436 return     770             return object.__setattr__(self, name, value)
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             12:31:39.021458 return     594             self._mock_side_effect = value
+IE_TRACE:             Return value:.. None
+IE_TRACE:         12:31:39.021478 return     770             return object.__setattr__(self, name, value)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     12:31:39.021498 return    1121         self.side_effect = side_effect
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_item.py
+IE_TRACE: New var:....... new_mock = <Mock id='131495796998064'>
+IE_TRACE: 12:31:39.021530 line       260         base = ItemMeta.__bases__[0]
+IE_TRACE: New var:....... base = <class 'abc.ABCMeta'>
+IE_TRACE: 12:31:39.021557 line       262         with mock.patch.object(base, '__new__', new_mock):
+IE_TRACE:     Source path:... /usr/lib/python3.12/unittest/mock.py
+IE_TRACE:     Starting var:.. target = <class 'abc.ABCMeta'>
+IE_TRACE:     Starting var:.. attribute = '__new__'
+IE_TRACE:     Starting var:.. new = <Mock id='131495796998064'>
+IE_TRACE:     Starting var:.. spec = None
+IE_TRACE:     Starting var:.. create = False
+IE_TRACE:     Starting var:.. spec_set = None
+IE_TRACE:     Starting var:.. autospec = None
+IE_TRACE:     Starting var:.. new_callable = None
+IE_TRACE:     Starting var:.. unsafe = False
+IE_TRACE:     Starting var:.. kwargs = {}
+IE_TRACE:     12:31:39.021585 call      1632 def _patch_object(
+IE_TRACE:     12:31:39.021650 line      1650     if type(target) is str:
+IE_TRACE:     12:31:39.021674 line      1654     getter = lambda: target
+IE_TRACE:     New var:....... getter = <function _patch_object.<locals>.<lambda> at 0x7798404b49a0>
+IE_TRACE:     12:31:39.021696 line      1655     return _patch(
+IE_TRACE:     12:31:39.021724 line      1656         getter, attribute, new, spec, create,
+IE_TRACE:     12:31:39.021747 line      1657         spec_set, autospec, new_callable, kwargs, unsafe=unsafe
+IE_TRACE:     12:31:39.021770 line      1655     return _patch(
+IE_TRACE:         Starting var:.. self = <unittest.mock._patch object at 0x7798404ad310>
+IE_TRACE:         Starting var:.. getter = <function _patch_object.<locals>.<lambda> at 0x7798404b49a0>
+IE_TRACE:         Starting var:.. attribute = '__new__'
+IE_TRACE:         Starting var:.. new = <Mock id='131495796998064'>
+IE_TRACE:         Starting var:.. spec = None
+IE_TRACE:         Starting var:.. create = False
+IE_TRACE:         Starting var:.. spec_set = None
+IE_TRACE:         Starting var:.. autospec = None
+IE_TRACE:         Starting var:.. new_callable = None
+IE_TRACE:         Starting var:.. kwargs = {}
+IE_TRACE:         Starting var:.. unsafe = False
+IE_TRACE:         12:31:39.021800 call      1292     def __init__(
+IE_TRACE:         12:31:39.021866 line      1296         if new_callable is not None:
+IE_TRACE:         12:31:39.021892 line      1305         if not unsafe:
+IE_TRACE:         12:31:39.021916 line      1306             _check_spec_arg_typos(kwargs)
+IE_TRACE:             Starting var:.. kwargs_to_check = {}
+IE_TRACE:             12:31:39.021943 call      1278 def _check_spec_arg_typos(kwargs_to_check):
+IE_TRACE:             12:31:39.021960 line      1279     typos = ("autospect", "auto_spec", "set_spec")
+IE_TRACE:             New var:....... typos = ('autospect', 'auto_spec', 'set_spec')
+IE_TRACE:             12:31:39.021971 line      1280     for typo in typos:
+IE_TRACE:             New var:....... typo = 'autospect'
+IE_TRACE:             12:31:39.021988 line      1281         if typo in kwargs_to_check:
+IE_TRACE:             12:31:39.022005 line      1280     for typo in typos:
+IE_TRACE:             Modified var:.. typo = 'auto_spec'
+IE_TRACE:             12:31:39.022019 line      1281         if typo in kwargs_to_check:
+IE_TRACE:             12:31:39.022035 line      1280     for typo in typos:
+IE_TRACE:             Modified var:.. typo = 'set_spec'
+IE_TRACE:             12:31:39.022049 line      1281         if typo in kwargs_to_check:
+IE_TRACE:             12:31:39.022067 line      1280     for typo in typos:
+IE_TRACE:             12:31:39.022081 return    1280     for typo in typos:
+IE_TRACE:             Return value:.. None
+IE_TRACE:         12:31:39.022100 line      1307         if _is_instance_mock(spec):
+IE_TRACE:             Starting var:.. obj = None
+IE_TRACE:             12:31:39.022126 call        68 def _is_instance_mock(obj):
+IE_TRACE:             12:31:39.022143 line        71     return issubclass(type(obj), NonCallableMock)
+IE_TRACE:             12:31:39.022156 return      71     return issubclass(type(obj), NonCallableMock)
+IE_TRACE:             Return value:.. False
+IE_TRACE:         12:31:39.022172 line      1311         if _is_instance_mock(spec_set):
+IE_TRACE:             Starting var:.. obj = None
+IE_TRACE:             12:31:39.022200 call        68 def _is_instance_mock(obj):
+IE_TRACE:             12:31:39.022215 line        71     return issubclass(type(obj), NonCallableMock)
+IE_TRACE:             12:31:39.022225 return      71     return issubclass(type(obj), NonCallableMock)
+IE_TRACE:             Return value:.. False
+IE_TRACE:         12:31:39.022241 line      1316         self.getter = getter
+IE_TRACE:         12:31:39.022265 line      1317         self.attribute = attribute
+IE_TRACE:         12:31:39.022289 line      1318         self.new = new
+IE_TRACE:         12:31:39.022313 line      1319         self.new_callable = new_callable
+IE_TRACE:         12:31:39.022337 line      1320         self.spec = spec
+IE_TRACE:         12:31:39.022360 line      1321         self.create = create
+IE_TRACE:         12:31:39.022384 line      1322         self.has_local = False
+IE_TRACE:         12:31:39.022407 line      1323         self.spec_set = spec_set
+IE_TRACE:         12:31:39.022430 line      1324         self.autospec = autospec
+IE_TRACE:         12:31:39.022452 line      1325         self.kwargs = kwargs
+IE_TRACE:         12:31:39.022475 line      1326         self.additional_patchers = []
+IE_TRACE:         12:31:39.022499 return    1326         self.additional_patchers = []
+IE_TRACE:         Return value:.. None
+IE_TRACE:     12:31:39.022529 return    1655     return _patch(
+IE_TRACE:     Return value:.. <unittest.mock._patch object at 0x7798404ad310>
+IE_TRACE:     Starting var:.. self = <unittest.mock._patch object at 0x7798404ad310>
+IE_TRACE:     12:31:39.022587 call      1437     def __enter__(self):
+IE_TRACE:     12:31:39.022613 line      1439         new, spec, spec_set = self.new, self.spec, self.spec_set
+IE_TRACE:     New var:....... new = <Mock id='131495796998064'>
+IE_TRACE:     New var:....... spec = None
+IE_TRACE:     New var:....... spec_set = None
+IE_TRACE:     12:31:39.022629 line      1440         autospec, kwargs = self.autospec, self.kwargs
+IE_TRACE:     New var:....... autospec = None
+IE_TRACE:     New var:....... kwargs = {}
+IE_TRACE:     12:31:39.022660 line      1441         new_callable = self.new_callable
+IE_TRACE:     New var:....... new_callable = None
+IE_TRACE:     12:31:39.022689 line      1442         self.target = self.getter()
+IE_TRACE:         Starting var:.. target = <class 'abc.ABCMeta'>
+IE_TRACE:         12:31:39.022716 call      1654     getter = lambda: target
+IE_TRACE:         12:31:39.022733 line      1654     getter = lambda: target
+IE_TRACE:         12:31:39.022746 return    1654     getter = lambda: target
+IE_TRACE:         Return value:.. <class 'abc.ABCMeta'>
+IE_TRACE:     12:31:39.022764 line      1445         if spec is False:
+IE_TRACE:     12:31:39.022787 line      1447         if spec_set is False:
+IE_TRACE:     12:31:39.022809 line      1449         if autospec is False:
+IE_TRACE:     12:31:39.022831 line      1452         if spec is not None and autospec is not None:
+IE_TRACE:     12:31:39.022853 line      1454         if ((spec is not None or autospec is not None) and
+IE_TRACE:     12:31:39.022875 line      1458         original, local = self.get_original()
+IE_TRACE:         Starting var:.. self = <unittest.mock._patch object at 0x7798404ad310>
+IE_TRACE:         12:31:39.022903 call      1413     def get_original(self):
+IE_TRACE:         12:31:39.022922 line      1414         target = self.getter()
+IE_TRACE:             Starting var:.. target = <class 'abc.ABCMeta'>
+IE_TRACE:             12:31:39.022936 call      1654     getter = lambda: target
+IE_TRACE:             12:31:39.022953 line      1654     getter = lambda: target
+IE_TRACE:             12:31:39.022966 return    1654     getter = lambda: target
+IE_TRACE:             Return value:.. <class 'abc.ABCMeta'>
+IE_TRACE:         New var:....... target = <class 'abc.ABCMeta'>
+IE_TRACE:         12:31:39.022983 line      1415         name = self.attribute
+IE_TRACE:         New var:....... name = '__new__'
+IE_TRACE:         12:31:39.023002 line      1417         original = DEFAULT
+IE_TRACE:         New var:....... original = sentinel.DEFAULT
+IE_TRACE:         12:31:39.023021 line      1418         local = False
+IE_TRACE:         New var:....... local = False
+IE_TRACE:         12:31:39.023041 line      1420         try:
+IE_TRACE:         12:31:39.023063 line      1421             original = target.__dict__[name]
+IE_TRACE:         Modified var:.. original = <staticmethod(<function ABCMeta.__new__ at 0x779842df2980>)>
+IE_TRACE:         12:31:39.023081 line      1425             local = True
+IE_TRACE:         Modified var:.. local = True
+IE_TRACE:         12:31:39.023103 line      1427         if name in _builtins and isinstance(target, ModuleType):
+IE_TRACE:         12:31:39.023124 line      1430         if not self.create and original is DEFAULT:
+IE_TRACE:         12:31:39.023142 line      1434         return original, local
+IE_TRACE:         12:31:39.023159 return    1434         return original, local
+IE_TRACE:         Return value:.. (<staticmethod(<function ABCMeta.__new__ at 0x779842df2980>)>, True)
+IE_TRACE:     New var:....... original = <staticmethod(<function ABCMeta.__new__ at 0x779842df2980>)>
+IE_TRACE:     New var:....... local = True
+IE_TRACE:     12:31:39.023182 line      1460         if new is DEFAULT and autospec is None:
+IE_TRACE:     12:31:39.023220 line      1527         elif autospec is not None:
+IE_TRACE:     12:31:39.023245 line      1556         elif kwargs:
+IE_TRACE:     12:31:39.023270 line      1561         new_attr = new
+IE_TRACE:     New var:....... new_attr = <Mock id='131495796998064'>
+IE_TRACE:     12:31:39.023295 line      1563         self.temp_original = original
+IE_TRACE:     12:31:39.023326 line      1564         self.is_local = local
+IE_TRACE:     12:31:39.023353 line      1565         self._exit_stack = contextlib.ExitStack()
+IE_TRACE:         Source path:... /usr/lib/python3.12/contextlib.py
+IE_TRACE:         Starting var:.. self = <contextlib.ExitStack object at 0x7798404ae090>
+IE_TRACE:         12:31:39.023383 call       481     def __init__(self):
+IE_TRACE:         12:31:39.023681 line       482         self._exit_callbacks = deque()
+IE_TRACE:         12:31:39.023698 return     482         self._exit_callbacks = deque()
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /usr/lib/python3.12/unittest/mock.py
+IE_TRACE:     12:31:39.023717 line      1566         try:
+IE_TRACE:     12:31:39.023752 line      1567             setattr(self.target, self.attribute, new_attr)
+IE_TRACE:     12:31:39.023784 line      1568             if self.attribute_name is not None:
+IE_TRACE:     12:31:39.023812 line      1578             return new
+IE_TRACE:     12:31:39.023839 return    1578             return new
+IE_TRACE:     Return value:.. <Mock id='131495796998064'>
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_item.py
+IE_TRACE: 12:31:39.023875 line       264             class MyItem(Item):
+IE_TRACE:     12:31:39.023901 call       264             class MyItem(Item):
+IE_TRACE:     12:31:39.023913 line       264             class MyItem(Item):
+IE_TRACE:     New var:....... __module__ = 'tests.test_item'
+IE_TRACE:     New var:....... __qualname__ = 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'
+IE_TRACE:     12:31:39.023923 line       265                 if not PY36_PLUS:
+IE_TRACE:     12:31:39.023943 line       273                 def f(self):
+IE_TRACE:     New var:....... f = <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>
+IE_TRACE:     New var:....... __classcell__ = <cell at 0x7798404ad840: empty>
+IE_TRACE:     12:31:39.023956 return     273                 def f(self):
+IE_TRACE:     Return value:.. <cell at 0x7798404ad840: empty>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/item.py
+IE_TRACE:     Starting var:.. mcs = <class 'scrapy.item.ItemMeta'>
+IE_TRACE:     Starting var:.. class_name = 'MyItem'
+IE_TRACE:     Starting var:.. bases = (<class 'scrapy.item.Item'>,)
+IE_TRACE:     Starting var:.. attrs = {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: empty>}
+IE_TRACE:     Starting var:.. __class__ = <class 'scrapy.item.ItemMeta'>
+IE_TRACE:     12:31:39.023990 call        27     def __new__(mcs, class_name, bases, attrs):
+IE_TRACE:     12:31:39.024062 line        28         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         Starting var:.. .0 = <tuple_iterator object at 0x7798404ae7a0>
+IE_TRACE:         12:31:39.024086 call        28         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         12:31:39.024104 line        28         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         New var:....... base = <class 'scrapy.item.Item'>
+IE_TRACE:         12:31:39.024119 return      28         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         Return value:.. <class 'scrapy.item.Item'>
+IE_TRACE:         Starting var:.. .0 = <tuple_iterator object at 0x7798404ae7a0>
+IE_TRACE:         Starting var:.. base = <class 'scrapy.item.Item'>
+IE_TRACE:         12:31:39.024142 call        28         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         12:31:39.024162 line        28         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         12:31:39.024174 return      28         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         Return value:.. None
+IE_TRACE:     New var:....... new_bases = (<class 'scrapy.item.Item'>,)
+IE_TRACE:     12:31:39.024199 line        29         _class = super(ItemMeta, mcs).__new__(mcs, 'x_' + class_name, new_bases, attrs)
+IE_TRACE:         Source path:... /usr/lib/python3.12/unittest/mock.py
+IE_TRACE:         Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:         Starting var:.. args = (<class 'scrapy.item.ItemMeta'>, 'x_MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: empty>})
+IE_TRACE:         Starting var:.. kwargs = {}
+IE_TRACE:         12:31:39.024227 call      1129     def __call__(self, /, *args, **kwargs):
+IE_TRACE:         12:31:39.024262 line      1132         self._mock_check_sig(*args, **kwargs)
+IE_TRACE:             Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:             Starting var:.. args = (<class 'scrapy.item.ItemMeta'>, 'x_MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: empty>})
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             12:31:39.024281 call      1124     def _mock_check_sig(self, /, *args, **kwargs):
+IE_TRACE:             12:31:39.024309 line      1126         pass
+IE_TRACE:             12:31:39.024326 return    1126         pass
+IE_TRACE:             Return value:.. None
+IE_TRACE:         12:31:39.024347 line      1133         self._increment_mock_call(*args, **kwargs)
+IE_TRACE:             Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:             Starting var:.. args = (<class 'scrapy.item.ItemMeta'>, 'x_MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: empty>})
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             12:31:39.024371 call      1140     def _increment_mock_call(self, /, *args, **kwargs):
+IE_TRACE:             12:31:39.024402 line      1141         self.called = True
+IE_TRACE:                 Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:                 Starting var:.. name = 'called'
+IE_TRACE:                 Starting var:.. value = True
+IE_TRACE:                 12:31:39.024423 call       767     def __setattr__(self, name, value):
+IE_TRACE:                 12:31:39.024452 line       768         if name in _allowed_names:
+IE_TRACE:                 12:31:39.024470 line       770             return object.__setattr__(self, name, value)
+IE_TRACE:                     Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:                     Starting var:.. value = True
+IE_TRACE:                     Starting var:.. name = 'called'
+IE_TRACE:                     Starting var:.. _the_name = '_mock_called'
+IE_TRACE:                     12:31:39.024491 call       337     def _set(self, value, name=name, _the_name=_the_name):
+IE_TRACE:                     12:31:39.024524 line       338         sig = self._mock_delegate
+IE_TRACE:                     New var:....... sig = None
+IE_TRACE:                     12:31:39.024543 line       339         if sig is None:
+IE_TRACE:                     12:31:39.024567 line       340             self.__dict__[_the_name] = value
+IE_TRACE:                     12:31:39.024586 return     340             self.__dict__[_the_name] = value
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 12:31:39.024610 return     770             return object.__setattr__(self, name, value)
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             12:31:39.024632 line      1142         self.call_count += 1
+IE_TRACE:                 Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:                 Starting var:.. name = 'call_count'
+IE_TRACE:                 Starting var:.. _the_name = '_mock_call_count'
+IE_TRACE:                 12:31:39.024653 call       332     def _get(self, name=name, _the_name=_the_name):
+IE_TRACE:                 12:31:39.024681 line       333         sig = self._mock_delegate
+IE_TRACE:                 New var:....... sig = None
+IE_TRACE:                 12:31:39.024697 line       334         if sig is None:
+IE_TRACE:                 12:31:39.024717 line       335             return getattr(self, _the_name)
+IE_TRACE:                 12:31:39.024734 return     335             return getattr(self, _the_name)
+IE_TRACE:                 Return value:.. 0
+IE_TRACE:                 Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:                 Starting var:.. name = 'call_count'
+IE_TRACE:                 Starting var:.. value = 1
+IE_TRACE:                 12:31:39.024757 call       767     def __setattr__(self, name, value):
+IE_TRACE:                 12:31:39.024785 line       768         if name in _allowed_names:
+IE_TRACE:                 12:31:39.024802 line       770             return object.__setattr__(self, name, value)
+IE_TRACE:                     Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:                     Starting var:.. value = 1
+IE_TRACE:                     Starting var:.. name = 'call_count'
+IE_TRACE:                     Starting var:.. _the_name = '_mock_call_count'
+IE_TRACE:                     12:31:39.024819 call       337     def _set(self, value, name=name, _the_name=_the_name):
+IE_TRACE:                     12:31:39.024851 line       338         sig = self._mock_delegate
+IE_TRACE:                     New var:....... sig = None
+IE_TRACE:                     12:31:39.024869 line       339         if sig is None:
+IE_TRACE:                     12:31:39.024890 line       340             self.__dict__[_the_name] = value
+IE_TRACE:                     12:31:39.024909 return     340             self.__dict__[_the_name] = value
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 12:31:39.024933 return     770             return object.__setattr__(self, name, value)
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             12:31:39.024953 line      1147         _call = _Call((args, kwargs), two=True)
+IE_TRACE:                 Starting var:.. cls = <class 'unittest.mock._Call'>
+IE_TRACE:                 Starting var:.. value = ((<class 'scrapy.item.ItemMeta'>, 'x_MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: empty>}), {})
+IE_TRACE:                 Starting var:.. name = ''
+IE_TRACE:                 Starting var:.. parent = None
+IE_TRACE:                 Starting var:.. two = True
+IE_TRACE:                 Starting var:.. from_kall = True
+IE_TRACE:                 12:31:39.024980 call      2508     def __new__(cls, value=(), name='', parent=None, two=False,
+IE_TRACE:                 12:31:39.025023 line      2510         args = ()
+IE_TRACE:                 New var:....... args = ()
+IE_TRACE:                 12:31:39.025045 line      2511         kwargs = {}
+IE_TRACE:                 New var:....... kwargs = {}
+IE_TRACE:                 12:31:39.025070 line      2512         _len = len(value)
+IE_TRACE:                 New var:....... _len = 2
+IE_TRACE:                 12:31:39.025096 line      2513         if _len == 3:
+IE_TRACE:                 12:31:39.025123 line      2515         elif _len == 2:
+IE_TRACE:                 12:31:39.025146 line      2516             first, second = value
+IE_TRACE:                 New var:....... first = (<class 'scrapy.item.ItemMeta'>, 'x_MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: empty>})
+IE_TRACE:                 New var:....... second = {}
+IE_TRACE:                 12:31:39.025170 line      2517             if isinstance(first, str):
+IE_TRACE:                 12:31:39.025210 line      2524                 args, kwargs = first, second
+IE_TRACE:                 Modified var:.. args = (<class 'scrapy.item.ItemMeta'>, 'x_MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: empty>})
+IE_TRACE:                 12:31:39.025237 line      2534         if two:
+IE_TRACE:                 12:31:39.025271 line      2535             return tuple.__new__(cls, (args, kwargs))
+IE_TRACE:                 12:31:39.025299 return    2535             return tuple.__new__(cls, (args, kwargs))
+IE_TRACE:                 Return value:.. REPR FAILED
+IE_TRACE:                 Starting var:.. self = REPR FAILED
+IE_TRACE:                 Starting var:.. value = ((<class 'scrapy.item.ItemMeta'>, 'x_MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: empty>}), {})
+IE_TRACE:                 Starting var:.. name = None
+IE_TRACE:                 Starting var:.. parent = None
+IE_TRACE:                 Starting var:.. two = True
+IE_TRACE:                 Starting var:.. from_kall = True
+IE_TRACE:                 12:31:39.026476 call      2540     def __init__(self, value=(), name=None, parent=None, two=False,
+IE_TRACE:                 12:31:39.027296 line      2542         self._mock_name = name
+IE_TRACE:                 Modified var:.. self = call(<class 'scrapy.item.ItemMeta'>, 'x_MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: empty>})
+IE_TRACE:                 12:31:39.028082 line      2543         self._mock_parent = parent
+IE_TRACE:                 12:31:39.028127 line      2544         self._mock_from_kall = from_kall
+IE_TRACE:                 12:31:39.028155 return    2544         self._mock_from_kall = from_kall
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             New var:....... _call = call(<class 'scrapy.item.ItemMeta'>, 'x_MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: empty>})
+IE_TRACE:             12:31:39.028184 line      1148         self.call_args = _call
+IE_TRACE:                 Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:                 Starting var:.. name = 'call_args'
+IE_TRACE:                 Starting var:.. value = call(<class 'scrapy.item.ItemMeta'>, 'x_MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: empty>})
+IE_TRACE:                 12:31:39.028222 call       767     def __setattr__(self, name, value):
+IE_TRACE:                 12:31:39.028256 line       768         if name in _allowed_names:
+IE_TRACE:                 12:31:39.028277 line       770             return object.__setattr__(self, name, value)
+IE_TRACE:                     Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:                     Starting var:.. value = call(<class 'scrapy.item.ItemMeta'>, 'x_MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: empty>})
+IE_TRACE:                     Starting var:.. name = 'call_args'
+IE_TRACE:                     Starting var:.. _the_name = '_mock_call_args'
+IE_TRACE:                     12:31:39.028300 call       337     def _set(self, value, name=name, _the_name=_the_name):
+IE_TRACE:                     12:31:39.028337 line       338         sig = self._mock_delegate
+IE_TRACE:                     New var:....... sig = None
+IE_TRACE:                     12:31:39.028359 line       339         if sig is None:
+IE_TRACE:                     12:31:39.028386 line       340             self.__dict__[_the_name] = value
+IE_TRACE:                     12:31:39.028409 return     340             self.__dict__[_the_name] = value
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 12:31:39.028437 return     770             return object.__setattr__(self, name, value)
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             12:31:39.028462 line      1149         self.call_args_list.append(_call)
+IE_TRACE:                 Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:                 Starting var:.. name = 'call_args_list'
+IE_TRACE:                 Starting var:.. _the_name = '_mock_call_args_list'
+IE_TRACE:                 12:31:39.028486 call       332     def _get(self, name=name, _the_name=_the_name):
+IE_TRACE:                 12:31:39.028513 line       333         sig = self._mock_delegate
+IE_TRACE:                 New var:....... sig = None
+IE_TRACE:                 12:31:39.028529 line       334         if sig is None:
+IE_TRACE:                 12:31:39.028550 line       335             return getattr(self, _the_name)
+IE_TRACE:                 12:31:39.028567 return     335             return getattr(self, _the_name)
+IE_TRACE:                 Return value:.. []
+IE_TRACE:             12:31:39.028600 line      1152         do_method_calls = self._mock_parent is not None
+IE_TRACE:             New var:....... do_method_calls = False
+IE_TRACE:             12:31:39.028626 line      1153         method_call_name = self._mock_name
+IE_TRACE:             New var:....... method_call_name = None
+IE_TRACE:             12:31:39.028655 line      1156         mock_call_name = self._mock_new_name
+IE_TRACE:             New var:....... mock_call_name = ''
+IE_TRACE:             12:31:39.028684 line      1157         is_a_call = mock_call_name == '()'
+IE_TRACE:             New var:....... is_a_call = False
+IE_TRACE:             12:31:39.028713 line      1158         self.mock_calls.append(_Call(('', args, kwargs)))
+IE_TRACE:                 Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:                 Starting var:.. name = 'mock_calls'
+IE_TRACE:                 Starting var:.. _the_name = '_mock_mock_calls'
+IE_TRACE:                 12:31:39.028744 call       332     def _get(self, name=name, _the_name=_the_name):
+IE_TRACE:                 12:31:39.028770 line       333         sig = self._mock_delegate
+IE_TRACE:                 New var:....... sig = None
+IE_TRACE:                 12:31:39.028786 line       334         if sig is None:
+IE_TRACE:                 12:31:39.028806 line       335             return getattr(self, _the_name)
+IE_TRACE:                 12:31:39.028823 return     335             return getattr(self, _the_name)
+IE_TRACE:                 Return value:.. []
+IE_TRACE:                 Starting var:.. cls = <class 'unittest.mock._Call'>
+IE_TRACE:                 Starting var:.. value = ('', (<class 'scrapy.item.ItemMeta'>, 'x_MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: empty>}), {})
+IE_TRACE:                 Starting var:.. name = ''
+IE_TRACE:                 Starting var:.. parent = None
+IE_TRACE:                 Starting var:.. two = False
+IE_TRACE:                 Starting var:.. from_kall = True
+IE_TRACE:                 12:31:39.028851 call      2508     def __new__(cls, value=(), name='', parent=None, two=False,
+IE_TRACE:                 12:31:39.028894 line      2510         args = ()
+IE_TRACE:                 New var:....... args = ()
+IE_TRACE:                 12:31:39.028917 line      2511         kwargs = {}
+IE_TRACE:                 New var:....... kwargs = {}
+IE_TRACE:                 12:31:39.028943 line      2512         _len = len(value)
+IE_TRACE:                 New var:....... _len = 3
+IE_TRACE:                 12:31:39.028968 line      2513         if _len == 3:
+IE_TRACE:                 12:31:39.028995 line      2514             name, args, kwargs = value
+IE_TRACE:                 Modified var:.. args = (<class 'scrapy.item.ItemMeta'>, 'x_MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: empty>})
+IE_TRACE:                 12:31:39.029019 line      2534         if two:
+IE_TRACE:                 12:31:39.029047 line      2537         return tuple.__new__(cls, (name, args, kwargs))
+IE_TRACE:                 12:31:39.029072 return    2537         return tuple.__new__(cls, (name, args, kwargs))
+IE_TRACE:                 Return value:.. REPR FAILED
+IE_TRACE:                 Starting var:.. self = REPR FAILED
+IE_TRACE:                 Starting var:.. value = ('', (<class 'scrapy.item.ItemMeta'>, 'x_MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: empty>}), {})
+IE_TRACE:                 Starting var:.. name = None
+IE_TRACE:                 Starting var:.. parent = None
+IE_TRACE:                 Starting var:.. two = False
+IE_TRACE:                 Starting var:.. from_kall = True
+IE_TRACE:                 12:31:39.030379 call      2540     def __init__(self, value=(), name=None, parent=None, two=False,
+IE_TRACE:                 12:31:39.031186 line      2542         self._mock_name = name
+IE_TRACE:                 Modified var:.. self = call(<class 'scrapy.item.ItemMeta'>, 'x_MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: empty>})
+IE_TRACE:                 12:31:39.031969 line      2543         self._mock_parent = parent
+IE_TRACE:                 12:31:39.032006 line      2544         self._mock_from_kall = from_kall
+IE_TRACE:                 12:31:39.032032 return    2544         self._mock_from_kall = from_kall
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             12:31:39.032062 line      1161         _new_parent = self._mock_new_parent
+IE_TRACE:             New var:....... _new_parent = None
+IE_TRACE:             12:31:39.032094 line      1162         while _new_parent is not None:
+IE_TRACE:             12:31:39.032129 return    1162         while _new_parent is not None:
+IE_TRACE:             Return value:.. None
+IE_TRACE:         12:31:39.032164 line      1134         return self._mock_call(*args, **kwargs)
+IE_TRACE:             Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:             Starting var:.. args = (<class 'scrapy.item.ItemMeta'>, 'x_MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: empty>})
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             12:31:39.032185 call      1137     def _mock_call(self, /, *args, **kwargs):
+IE_TRACE:             12:31:39.032218 line      1138         return self._execute_mock_call(*args, **kwargs)
+IE_TRACE:                 Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:                 Starting var:.. args = (<class 'scrapy.item.ItemMeta'>, 'x_MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: empty>})
+IE_TRACE:                 Starting var:.. kwargs = {}
+IE_TRACE:                 12:31:39.032240 call      1186     def _execute_mock_call(self, /, *args, **kwargs):
+IE_TRACE:                 12:31:39.032269 line      1190         effect = self.side_effect
+IE_TRACE:                     Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:                     12:31:39.032290 call       579     def __get_side_effect(self):
+IE_TRACE:                     12:31:39.032309 line       580         delegated = self._mock_delegate
+IE_TRACE:                     New var:....... delegated = None
+IE_TRACE:                     12:31:39.032324 line       581         if delegated is None:
+IE_TRACE:                     12:31:39.032343 line       582             return self._mock_side_effect
+IE_TRACE:                     12:31:39.032358 return     582             return self._mock_side_effect
+IE_TRACE:                     Return value:.. <function ABCMeta.__new__ at 0x779842df2980>
+IE_TRACE:                 New var:....... effect = <function ABCMeta.__new__ at 0x779842df2980>
+IE_TRACE:                 12:31:39.032379 line      1191         if effect is not None:
+IE_TRACE:                 12:31:39.032402 line      1192             if _is_exception(effect):
+IE_TRACE:                     Starting var:.. obj = <function ABCMeta.__new__ at 0x779842df2980>
+IE_TRACE:                     12:31:39.032421 call        74 def _is_exception(obj):
+IE_TRACE:                     12:31:39.032438 line        76         isinstance(obj, BaseException) or
+IE_TRACE:                     12:31:39.032451 line        77         isinstance(obj, type) and issubclass(obj, BaseException)
+IE_TRACE:                     12:31:39.032463 line        75     return (
+IE_TRACE:                     12:31:39.032475 return      75     return (
+IE_TRACE:                     Return value:.. False
+IE_TRACE:                 12:31:39.032492 line      1194             elif not _callable(effect):
+IE_TRACE:                     Starting var:.. obj = <function ABCMeta.__new__ at 0x779842df2980>
+IE_TRACE:                     12:31:39.032511 call       150 def _callable(obj):
+IE_TRACE:                     12:31:39.032527 line       151     if isinstance(obj, type):
+IE_TRACE:                     12:31:39.032539 line       153     if isinstance(obj, (staticmethod, classmethod, MethodType)):
+IE_TRACE:                     12:31:39.032551 line       155     if getattr(obj, '__call__', None) is not None:
+IE_TRACE:                     12:31:39.032564 line       156         return True
+IE_TRACE:                     12:31:39.032575 return     156         return True
+IE_TRACE:                     Return value:.. True
+IE_TRACE:                 12:31:39.032592 line      1199                 result = effect(*args, **kwargs)
+IE_TRACE:                     Source path:... <frozen abc>
+IE_TRACE:                     Starting var:.. mcls = <class 'scrapy.item.ItemMeta'>
+IE_TRACE:                     Starting var:.. name = 'x_MyItem'
+IE_TRACE:                     Starting var:.. bases = (<class 'scrapy.item.Item'>,)
+IE_TRACE:                     Starting var:.. namespace = {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: empty>}
+IE_TRACE:                     Starting var:.. kwargs = {}
+IE_TRACE:                     Starting var:.. __class__ = <class 'abc.ABCMeta'>
+IE_TRACE:                     12:31:39.032613 call       105 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:31:39.032683 line       106 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Modified var:.. namespace = {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: ItemMeta object at 0xe914e70>}
+IE_TRACE:                     New var:....... cls = <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>
+IE_TRACE:                     12:31:39.032719 line       107 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:31:39.032754 line       108 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:31:39.032775 return     108 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>
+IE_TRACE:                 Source path:... /usr/lib/python3.12/unittest/mock.py
+IE_TRACE:                 Modified var:.. args = (<class 'scrapy.item.ItemMeta'>, 'x_MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: ItemMeta object at 0xe914e70>})
+IE_TRACE:                 New var:....... result = <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>
+IE_TRACE:                 12:31:39.032802 line      1201             if result is not DEFAULT:
+IE_TRACE:                 12:31:39.032836 line      1202                 return result
+IE_TRACE:                 12:31:39.032856 return    1202                 return result
+IE_TRACE:                 Return value:.. <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>
+IE_TRACE:             Modified var:.. args = (<class 'scrapy.item.ItemMeta'>, 'x_MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: ItemMeta object at 0xe914e70>})
+IE_TRACE:             12:31:39.032882 return    1138         return self._execute_mock_call(*args, **kwargs)
+IE_TRACE:             Return value:.. <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>
+IE_TRACE:         Modified var:.. args = (<class 'scrapy.item.ItemMeta'>, 'x_MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: ItemMeta object at 0xe914e70>})
+IE_TRACE:         12:31:39.032908 return    1134         return self._mock_call(*args, **kwargs)
+IE_TRACE:         Return value:.. <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/item.py
+IE_TRACE:     Modified var:.. attrs = {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: ItemMeta object at 0xe914e70>}
+IE_TRACE:     New var:....... _class = <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>
+IE_TRACE:     12:31:39.032933 line        31         fields = getattr(_class, 'fields', {})
+IE_TRACE:     New var:....... fields = {}
+IE_TRACE:     12:31:39.032968 line        32         new_attrs = {}
+IE_TRACE:     New var:....... new_attrs = {}
+IE_TRACE:     12:31:39.032994 line        33         for n in dir(_class):
+IE_TRACE:     New var:....... n = '__abstractmethods__'
+IE_TRACE:     12:31:39.033029 line        34             v = getattr(_class, n)
+IE_TRACE:     New var:....... v = frozenset()
+IE_TRACE:     12:31:39.033057 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.033085 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.033110 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__class__'
+IE_TRACE:     12:31:39.033133 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <class 'scrapy.item.ItemMeta'>
+IE_TRACE:     12:31:39.033160 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.033187 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.033214 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__delattr__'
+IE_TRACE:     12:31:39.033237 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__delattr__' of 'object' objects>
+IE_TRACE:     12:31:39.033263 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.033290 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.033313 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__dict__'
+IE_TRACE:     12:31:39.033336 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = mappingproxy({'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__doc__': None, '__abstractmethods__': frozenset(), '_abc_impl': <_abc._abc_data object at 0x7798404f7580>})
+IE_TRACE:     12:31:39.033363 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.033392 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.033416 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__dir__'
+IE_TRACE:     12:31:39.033440 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <method '__dir__' of 'object' objects>
+IE_TRACE:     12:31:39.033468 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.033494 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.033517 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__doc__'
+IE_TRACE:     12:31:39.033540 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = None
+IE_TRACE:     12:31:39.033566 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.033594 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.033617 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__eq__'
+IE_TRACE:     12:31:39.033639 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__eq__' of 'object' objects>
+IE_TRACE:     12:31:39.033666 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.033692 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.033715 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__format__'
+IE_TRACE:     12:31:39.033738 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <method '__format__' of 'object' objects>
+IE_TRACE:     12:31:39.033764 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.033791 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.033813 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__ge__'
+IE_TRACE:     12:31:39.033836 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__ge__' of 'object' objects>
+IE_TRACE:     12:31:39.033863 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.033889 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.033911 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__getattribute__'
+IE_TRACE:     12:31:39.033934 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__getattribute__' of 'object' objects>
+IE_TRACE:     12:31:39.033960 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.033986 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.034009 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__getstate__'
+IE_TRACE:     12:31:39.034032 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <method '__getstate__' of 'object' objects>
+IE_TRACE:     12:31:39.034058 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.034085 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.034109 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__gt__'
+IE_TRACE:     12:31:39.034132 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__gt__' of 'object' objects>
+IE_TRACE:     12:31:39.034159 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.034186 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.034213 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__hash__'
+IE_TRACE:     12:31:39.034236 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__hash__' of 'object' objects>
+IE_TRACE:     12:31:39.034263 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.034289 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.034312 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__init__'
+IE_TRACE:     12:31:39.034334 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__init__' of 'object' objects>
+IE_TRACE:     12:31:39.034361 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.034388 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.034411 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__init_subclass__'
+IE_TRACE:     12:31:39.034434 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <built-in method __init_subclass__ of ItemMeta object at 0xe914e70>
+IE_TRACE:     12:31:39.034460 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.034487 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.034510 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__le__'
+IE_TRACE:     12:31:39.034533 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__le__' of 'object' objects>
+IE_TRACE:     12:31:39.034560 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.034586 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.034609 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__lt__'
+IE_TRACE:     12:31:39.034632 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__lt__' of 'object' objects>
+IE_TRACE:     12:31:39.034658 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.034684 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.034707 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__module__'
+IE_TRACE:     12:31:39.034729 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = 'tests.test_item'
+IE_TRACE:     12:31:39.034756 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.034782 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.034804 line        38                 new_attrs[n] = attrs[n]
+IE_TRACE:     Modified var:.. new_attrs = {'__module__': 'tests.test_item'}
+IE_TRACE:     12:31:39.034828 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__ne__'
+IE_TRACE:     12:31:39.034854 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__ne__' of 'object' objects>
+IE_TRACE:     12:31:39.034880 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.034906 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.034930 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__new__'
+IE_TRACE:     12:31:39.034953 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <built-in method __new__ of type object at 0xa44820>
+IE_TRACE:     12:31:39.034979 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.035006 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.035029 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__reduce__'
+IE_TRACE:     12:31:39.035053 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <method '__reduce__' of 'object' objects>
+IE_TRACE:     12:31:39.035079 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.035106 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.035130 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__reduce_ex__'
+IE_TRACE:     12:31:39.035153 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <method '__reduce_ex__' of 'object' objects>
+IE_TRACE:     12:31:39.035180 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.035212 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.035236 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__repr__'
+IE_TRACE:     12:31:39.035259 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__repr__' of 'object' objects>
+IE_TRACE:     12:31:39.035286 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.035312 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.035336 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__setattr__'
+IE_TRACE:     12:31:39.035359 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__setattr__' of 'object' objects>
+IE_TRACE:     12:31:39.035385 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.035412 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.035435 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__sizeof__'
+IE_TRACE:     12:31:39.035458 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <method '__sizeof__' of 'object' objects>
+IE_TRACE:     12:31:39.035485 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.035511 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.035535 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__str__'
+IE_TRACE:     12:31:39.035558 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__str__' of 'object' objects>
+IE_TRACE:     12:31:39.035585 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.035611 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.035635 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__subclasshook__'
+IE_TRACE:     12:31:39.035658 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <built-in method __subclasshook__ of ItemMeta object at 0xe914e70>
+IE_TRACE:     12:31:39.035685 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.035711 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.035735 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__weakref__'
+IE_TRACE:     12:31:39.035758 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <attribute '__weakref__' of 'x_Item' objects>
+IE_TRACE:     12:31:39.035785 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.035812 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.035835 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '_abc_impl'
+IE_TRACE:     12:31:39.035858 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <_abc._abc_data object at 0x7798404f7580>
+IE_TRACE:     12:31:39.035885 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.035911 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.035935 line        33         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = 'f'
+IE_TRACE:     12:31:39.035958 line        34             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>
+IE_TRACE:     12:31:39.035985 line        35             if isinstance(v, Field):
+IE_TRACE:     12:31:39.036011 line        37             elif n in attrs:
+IE_TRACE:     12:31:39.036035 line        38                 new_attrs[n] = attrs[n]
+IE_TRACE:     Modified var:.. new_attrs = {'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>}
+IE_TRACE:     12:31:39.036058 line        33         for n in dir(_class):
+IE_TRACE:     12:31:39.036085 line        40         new_attrs['fields'] = fields
+IE_TRACE:     Modified var:.. new_attrs = {'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, 'fields': {}}
+IE_TRACE:     12:31:39.036109 line        41         new_attrs['_class'] = _class
+IE_TRACE:     Modified var:.. new_attrs = {'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, 'fields': {}, '_class': <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>}
+IE_TRACE:     12:31:39.036136 line        42         return super(ItemMeta, mcs).__new__(mcs, class_name, bases, new_attrs)
+IE_TRACE:         Source path:... /usr/lib/python3.12/unittest/mock.py
+IE_TRACE:         Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:         Starting var:.. args = (<class 'scrapy.item.ItemMeta'>, 'MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, 'fields': {}, '_class': <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>})
+IE_TRACE:         Starting var:.. kwargs = {}
+IE_TRACE:         12:31:39.036166 call      1129     def __call__(self, /, *args, **kwargs):
+IE_TRACE:         12:31:39.036200 line      1132         self._mock_check_sig(*args, **kwargs)
+IE_TRACE:             Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:             Starting var:.. args = (<class 'scrapy.item.ItemMeta'>, 'MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, 'fields': {}, '_class': <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>})
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             12:31:39.036221 call      1124     def _mock_check_sig(self, /, *args, **kwargs):
+IE_TRACE:             12:31:39.036248 line      1126         pass
+IE_TRACE:             12:31:39.036264 return    1126         pass
+IE_TRACE:             Return value:.. None
+IE_TRACE:         12:31:39.036286 line      1133         self._increment_mock_call(*args, **kwargs)
+IE_TRACE:             Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:             Starting var:.. args = (<class 'scrapy.item.ItemMeta'>, 'MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, 'fields': {}, '_class': <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>})
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             12:31:39.036304 call      1140     def _increment_mock_call(self, /, *args, **kwargs):
+IE_TRACE:             12:31:39.036333 line      1141         self.called = True
+IE_TRACE:                 Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:                 Starting var:.. name = 'called'
+IE_TRACE:                 Starting var:.. value = True
+IE_TRACE:                 12:31:39.036353 call       767     def __setattr__(self, name, value):
+IE_TRACE:                 12:31:39.036382 line       768         if name in _allowed_names:
+IE_TRACE:                 12:31:39.036401 line       770             return object.__setattr__(self, name, value)
+IE_TRACE:                     Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:                     Starting var:.. value = True
+IE_TRACE:                     Starting var:.. name = 'called'
+IE_TRACE:                     Starting var:.. _the_name = '_mock_called'
+IE_TRACE:                     12:31:39.036420 call       337     def _set(self, value, name=name, _the_name=_the_name):
+IE_TRACE:                     12:31:39.036452 line       338         sig = self._mock_delegate
+IE_TRACE:                     New var:....... sig = None
+IE_TRACE:                     12:31:39.036472 line       339         if sig is None:
+IE_TRACE:                     12:31:39.036495 line       340             self.__dict__[_the_name] = value
+IE_TRACE:                     12:31:39.036514 return     340             self.__dict__[_the_name] = value
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 12:31:39.036539 return     770             return object.__setattr__(self, name, value)
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             12:31:39.036561 line      1142         self.call_count += 1
+IE_TRACE:                 Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:                 Starting var:.. name = 'call_count'
+IE_TRACE:                 Starting var:.. _the_name = '_mock_call_count'
+IE_TRACE:                 12:31:39.036580 call       332     def _get(self, name=name, _the_name=_the_name):
+IE_TRACE:                 12:31:39.036614 line       333         sig = self._mock_delegate
+IE_TRACE:                 New var:....... sig = None
+IE_TRACE:                 12:31:39.036640 line       334         if sig is None:
+IE_TRACE:                 12:31:39.036670 line       335             return getattr(self, _the_name)
+IE_TRACE:                 12:31:39.036690 return     335             return getattr(self, _the_name)
+IE_TRACE:                 Return value:.. 1
+IE_TRACE:                 Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:                 Starting var:.. name = 'call_count'
+IE_TRACE:                 Starting var:.. value = 2
+IE_TRACE:                 12:31:39.036714 call       767     def __setattr__(self, name, value):
+IE_TRACE:                 12:31:39.036742 line       768         if name in _allowed_names:
+IE_TRACE:                 12:31:39.036759 line       770             return object.__setattr__(self, name, value)
+IE_TRACE:                     Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:                     Starting var:.. value = 2
+IE_TRACE:                     Starting var:.. name = 'call_count'
+IE_TRACE:                     Starting var:.. _the_name = '_mock_call_count'
+IE_TRACE:                     12:31:39.036776 call       337     def _set(self, value, name=name, _the_name=_the_name):
+IE_TRACE:                     12:31:39.036807 line       338         sig = self._mock_delegate
+IE_TRACE:                     New var:....... sig = None
+IE_TRACE:                     12:31:39.036826 line       339         if sig is None:
+IE_TRACE:                     12:31:39.036848 line       340             self.__dict__[_the_name] = value
+IE_TRACE:                     12:31:39.036867 return     340             self.__dict__[_the_name] = value
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 12:31:39.036890 return     770             return object.__setattr__(self, name, value)
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             12:31:39.036910 line      1147         _call = _Call((args, kwargs), two=True)
+IE_TRACE:                 Starting var:.. cls = <class 'unittest.mock._Call'>
+IE_TRACE:                 Starting var:.. value = ((<class 'scrapy.item.ItemMeta'>, 'MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, 'fields': {}, '_class': <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>}), {})
+IE_TRACE:                 Starting var:.. name = ''
+IE_TRACE:                 Starting var:.. parent = None
+IE_TRACE:                 Starting var:.. two = True
+IE_TRACE:                 Starting var:.. from_kall = True
+IE_TRACE:                 12:31:39.036932 call      2508     def __new__(cls, value=(), name='', parent=None, two=False,
+IE_TRACE:                 12:31:39.036974 line      2510         args = ()
+IE_TRACE:                 New var:....... args = ()
+IE_TRACE:                 12:31:39.036996 line      2511         kwargs = {}
+IE_TRACE:                 New var:....... kwargs = {}
+IE_TRACE:                 12:31:39.037021 line      2512         _len = len(value)
+IE_TRACE:                 New var:....... _len = 2
+IE_TRACE:                 12:31:39.037047 line      2513         if _len == 3:
+IE_TRACE:                 12:31:39.037073 line      2515         elif _len == 2:
+IE_TRACE:                 12:31:39.037096 line      2516             first, second = value
+IE_TRACE:                 New var:....... first = (<class 'scrapy.item.ItemMeta'>, 'MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, 'fields': {}, '_class': <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>})
+IE_TRACE:                 New var:....... second = {}
+IE_TRACE:                 12:31:39.037119 line      2517             if isinstance(first, str):
+IE_TRACE:                 12:31:39.037152 line      2524                 args, kwargs = first, second
+IE_TRACE:                 Modified var:.. args = (<class 'scrapy.item.ItemMeta'>, 'MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, 'fields': {}, '_class': <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>})
+IE_TRACE:                 12:31:39.037179 line      2534         if two:
+IE_TRACE:                 12:31:39.037214 line      2535             return tuple.__new__(cls, (args, kwargs))
+IE_TRACE:                 12:31:39.037244 return    2535             return tuple.__new__(cls, (args, kwargs))
+IE_TRACE:                 Return value:.. REPR FAILED
+IE_TRACE:                 Starting var:.. self = REPR FAILED
+IE_TRACE:                 Starting var:.. value = ((<class 'scrapy.item.ItemMeta'>, 'MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, 'fields': {}, '_class': <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>}), {})
+IE_TRACE:                 Starting var:.. name = None
+IE_TRACE:                 Starting var:.. parent = None
+IE_TRACE:                 Starting var:.. two = True
+IE_TRACE:                 Starting var:.. from_kall = True
+IE_TRACE:                 12:31:39.038057 call      2540     def __init__(self, value=(), name=None, parent=None, two=False,
+IE_TRACE:                 12:31:39.038868 line      2542         self._mock_name = name
+IE_TRACE:                 Modified var:.. self = call(<class 'scrapy.item.ItemMeta'>, 'MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, 'fields': {}, '_class': <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>})
+IE_TRACE:                 12:31:39.039646 line      2543         self._mock_parent = parent
+IE_TRACE:                 12:31:39.039682 line      2544         self._mock_from_kall = from_kall
+IE_TRACE:                 12:31:39.039707 return    2544         self._mock_from_kall = from_kall
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             New var:....... _call = call(<class 'scrapy.item.ItemMeta'>, 'MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, 'fields': {}, '_class': <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>})
+IE_TRACE:             12:31:39.039735 line      1148         self.call_args = _call
+IE_TRACE:                 Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:                 Starting var:.. name = 'call_args'
+IE_TRACE:                 Starting var:.. value = call(<class 'scrapy.item.ItemMeta'>, 'MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, 'fields': {}, '_class': <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>})
+IE_TRACE:                 12:31:39.039767 call       767     def __setattr__(self, name, value):
+IE_TRACE:                 12:31:39.039800 line       768         if name in _allowed_names:
+IE_TRACE:                 12:31:39.039821 line       770             return object.__setattr__(self, name, value)
+IE_TRACE:                     Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:                     Starting var:.. value = call(<class 'scrapy.item.ItemMeta'>, 'MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, 'fields': {}, '_class': <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>})
+IE_TRACE:                     Starting var:.. name = 'call_args'
+IE_TRACE:                     Starting var:.. _the_name = '_mock_call_args'
+IE_TRACE:                     12:31:39.039842 call       337     def _set(self, value, name=name, _the_name=_the_name):
+IE_TRACE:                     12:31:39.039878 line       338         sig = self._mock_delegate
+IE_TRACE:                     New var:....... sig = None
+IE_TRACE:                     12:31:39.039900 line       339         if sig is None:
+IE_TRACE:                     12:31:39.039925 line       340             self.__dict__[_the_name] = value
+IE_TRACE:                     12:31:39.039948 return     340             self.__dict__[_the_name] = value
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 12:31:39.039976 return     770             return object.__setattr__(self, name, value)
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             12:31:39.040001 line      1149         self.call_args_list.append(_call)
+IE_TRACE:                 Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:                 Starting var:.. name = 'call_args_list'
+IE_TRACE:                 Starting var:.. _the_name = '_mock_call_args_list'
+IE_TRACE:                 12:31:39.040025 call       332     def _get(self, name=name, _the_name=_the_name):
+IE_TRACE:                 12:31:39.040052 line       333         sig = self._mock_delegate
+IE_TRACE:                 New var:....... sig = None
+IE_TRACE:                 12:31:39.040069 line       334         if sig is None:
+IE_TRACE:                 12:31:39.040089 line       335             return getattr(self, _the_name)
+IE_TRACE:                 12:31:39.040105 return     335             return getattr(self, _the_name)
+IE_TRACE:                 Return value:.. [call(<class 'scrapy.item.ItemMeta'>, 'x_MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: ItemMeta object at 0xe914e70>})]
+IE_TRACE:             12:31:39.040178 line      1152         do_method_calls = self._mock_parent is not None
+IE_TRACE:             New var:....... do_method_calls = False
+IE_TRACE:             12:31:39.040209 line      1153         method_call_name = self._mock_name
+IE_TRACE:             New var:....... method_call_name = None
+IE_TRACE:             12:31:39.040238 line      1156         mock_call_name = self._mock_new_name
+IE_TRACE:             New var:....... mock_call_name = ''
+IE_TRACE:             12:31:39.040267 line      1157         is_a_call = mock_call_name == '()'
+IE_TRACE:             New var:....... is_a_call = False
+IE_TRACE:             12:31:39.040297 line      1158         self.mock_calls.append(_Call(('', args, kwargs)))
+IE_TRACE:                 Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:                 Starting var:.. name = 'mock_calls'
+IE_TRACE:                 Starting var:.. _the_name = '_mock_mock_calls'
+IE_TRACE:                 12:31:39.040327 call       332     def _get(self, name=name, _the_name=_the_name):
+IE_TRACE:                 12:31:39.040355 line       333         sig = self._mock_delegate
+IE_TRACE:                 New var:....... sig = None
+IE_TRACE:                 12:31:39.040371 line       334         if sig is None:
+IE_TRACE:                 12:31:39.040392 line       335             return getattr(self, _the_name)
+IE_TRACE:                 12:31:39.040408 return     335             return getattr(self, _the_name)
+IE_TRACE:                 Return value:.. [call(<class 'scrapy.item.ItemMeta'>, 'x_MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, '__classcell__': <cell at 0x7798404ad840: ItemMeta object at 0xe914e70>})]
+IE_TRACE:                 Starting var:.. cls = <class 'unittest.mock._Call'>
+IE_TRACE:                 Starting var:.. value = ('', (<class 'scrapy.item.ItemMeta'>, 'MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, 'fields': {}, '_class': <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>}), {})
+IE_TRACE:                 Starting var:.. name = ''
+IE_TRACE:                 Starting var:.. parent = None
+IE_TRACE:                 Starting var:.. two = False
+IE_TRACE:                 Starting var:.. from_kall = True
+IE_TRACE:                 12:31:39.040456 call      2508     def __new__(cls, value=(), name='', parent=None, two=False,
+IE_TRACE:                 12:31:39.040500 line      2510         args = ()
+IE_TRACE:                 New var:....... args = ()
+IE_TRACE:                 12:31:39.040522 line      2511         kwargs = {}
+IE_TRACE:                 New var:....... kwargs = {}
+IE_TRACE:                 12:31:39.040548 line      2512         _len = len(value)
+IE_TRACE:                 New var:....... _len = 3
+IE_TRACE:                 12:31:39.040574 line      2513         if _len == 3:
+IE_TRACE:                 12:31:39.040601 line      2514             name, args, kwargs = value
+IE_TRACE:                 Modified var:.. args = (<class 'scrapy.item.ItemMeta'>, 'MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, 'fields': {}, '_class': <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>})
+IE_TRACE:                 12:31:39.040624 line      2534         if two:
+IE_TRACE:                 12:31:39.040653 line      2537         return tuple.__new__(cls, (name, args, kwargs))
+IE_TRACE:                 12:31:39.040679 return    2537         return tuple.__new__(cls, (name, args, kwargs))
+IE_TRACE:                 Return value:.. REPR FAILED
+IE_TRACE:                 Starting var:.. self = REPR FAILED
+IE_TRACE:                 Starting var:.. value = ('', (<class 'scrapy.item.ItemMeta'>, 'MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, 'fields': {}, '_class': <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>}), {})
+IE_TRACE:                 Starting var:.. name = None
+IE_TRACE:                 Starting var:.. parent = None
+IE_TRACE:                 Starting var:.. two = False
+IE_TRACE:                 Starting var:.. from_kall = True
+IE_TRACE:                 12:31:39.041474 call      2540     def __init__(self, value=(), name=None, parent=None, two=False,
+IE_TRACE:                 12:31:39.042289 line      2542         self._mock_name = name
+IE_TRACE:                 Modified var:.. self = call(<class 'scrapy.item.ItemMeta'>, 'MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, 'fields': {}, '_class': <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>})
+IE_TRACE:                 12:31:39.043065 line      2543         self._mock_parent = parent
+IE_TRACE:                 12:31:39.043097 line      2544         self._mock_from_kall = from_kall
+IE_TRACE:                 12:31:39.043122 return    2544         self._mock_from_kall = from_kall
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             12:31:39.043150 line      1161         _new_parent = self._mock_new_parent
+IE_TRACE:             New var:....... _new_parent = None
+IE_TRACE:             12:31:39.043180 line      1162         while _new_parent is not None:
+IE_TRACE:             12:31:39.043222 return    1162         while _new_parent is not None:
+IE_TRACE:             Return value:.. None
+IE_TRACE:         12:31:39.043255 line      1134         return self._mock_call(*args, **kwargs)
+IE_TRACE:             Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:             Starting var:.. args = (<class 'scrapy.item.ItemMeta'>, 'MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, 'fields': {}, '_class': <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>})
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             12:31:39.043274 call      1137     def _mock_call(self, /, *args, **kwargs):
+IE_TRACE:             12:31:39.043301 line      1138         return self._execute_mock_call(*args, **kwargs)
+IE_TRACE:                 Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:                 Starting var:.. args = (<class 'scrapy.item.ItemMeta'>, 'MyItem', (<class 'scrapy.item.Item'>,), {'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, 'fields': {}, '_class': <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>})
+IE_TRACE:                 Starting var:.. kwargs = {}
+IE_TRACE:                 12:31:39.043318 call      1186     def _execute_mock_call(self, /, *args, **kwargs):
+IE_TRACE:                 12:31:39.043346 line      1190         effect = self.side_effect
+IE_TRACE:                     Starting var:.. self = <Mock id='131495796998064'>
+IE_TRACE:                     12:31:39.043364 call       579     def __get_side_effect(self):
+IE_TRACE:                     12:31:39.043383 line       580         delegated = self._mock_delegate
+IE_TRACE:                     New var:....... delegated = None
+IE_TRACE:                     12:31:39.043397 line       581         if delegated is None:
+IE_TRACE:                     12:31:39.043416 line       582             return self._mock_side_effect
+IE_TRACE:                     12:31:39.043432 return     582             return self._mock_side_effect
+IE_TRACE:                     Return value:.. <function ABCMeta.__new__ at 0x779842df2980>
+IE_TRACE:                 New var:....... effect = <function ABCMeta.__new__ at 0x779842df2980>
+IE_TRACE:                 12:31:39.043452 line      1191         if effect is not None:
+IE_TRACE:                 12:31:39.043475 line      1192             if _is_exception(effect):
+IE_TRACE:                     Starting var:.. obj = <function ABCMeta.__new__ at 0x779842df2980>
+IE_TRACE:                     12:31:39.043494 call        74 def _is_exception(obj):
+IE_TRACE:                     12:31:39.043511 line        76         isinstance(obj, BaseException) or
+IE_TRACE:                     12:31:39.043523 line        77         isinstance(obj, type) and issubclass(obj, BaseException)
+IE_TRACE:                     12:31:39.043536 line        75     return (
+IE_TRACE:                     12:31:39.043547 return      75     return (
+IE_TRACE:                     Return value:.. False
+IE_TRACE:                 12:31:39.043564 line      1194             elif not _callable(effect):
+IE_TRACE:                     Starting var:.. obj = <function ABCMeta.__new__ at 0x779842df2980>
+IE_TRACE:                     12:31:39.043584 call       150 def _callable(obj):
+IE_TRACE:                     12:31:39.043600 line       151     if isinstance(obj, type):
+IE_TRACE:                     12:31:39.043611 line       153     if isinstance(obj, (staticmethod, classmethod, MethodType)):
+IE_TRACE:                     12:31:39.043624 line       155     if getattr(obj, '__call__', None) is not None:
+IE_TRACE:                     12:31:39.043636 line       156         return True
+IE_TRACE:                     12:31:39.043647 return     156         return True
+IE_TRACE:                     Return value:.. True
+IE_TRACE:                 12:31:39.043664 line      1199                 result = effect(*args, **kwargs)
+IE_TRACE:                     Source path:... <frozen abc>
+IE_TRACE:                     Starting var:.. mcls = <class 'scrapy.item.ItemMeta'>
+IE_TRACE:                     Starting var:.. name = 'MyItem'
+IE_TRACE:                     Starting var:.. bases = (<class 'scrapy.item.Item'>,)
+IE_TRACE:                     Starting var:.. namespace = {'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>, 'fields': {}, '_class': <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>}
+IE_TRACE:                     Starting var:.. kwargs = {}
+IE_TRACE:                     Starting var:.. __class__ = <class 'abc.ABCMeta'>
+IE_TRACE:                     12:31:39.043683 call       105 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:31:39.043731 line       106 SOURCE IS UNAVAILABLE
+IE_TRACE:                     New var:....... cls = <class 'tests.test_item.MyItem'>
+IE_TRACE:                     12:31:39.043779 line       107 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:31:39.043808 line       108 SOURCE IS UNAVAILABLE
+IE_TRACE:                     12:31:39.043829 return     108 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. <class 'tests.test_item.MyItem'>
+IE_TRACE:                 Source path:... /usr/lib/python3.12/unittest/mock.py
+IE_TRACE:                 New var:....... result = <class 'tests.test_item.MyItem'>
+IE_TRACE:                 12:31:39.043854 line      1201             if result is not DEFAULT:
+IE_TRACE:                 12:31:39.043884 line      1202                 return result
+IE_TRACE:                 12:31:39.043904 return    1202                 return result
+IE_TRACE:                 Return value:.. <class 'tests.test_item.MyItem'>
+IE_TRACE:             12:31:39.043928 return    1138         return self._execute_mock_call(*args, **kwargs)
+IE_TRACE:             Return value:.. <class 'tests.test_item.MyItem'>
+IE_TRACE:         12:31:39.043950 return    1134         return self._mock_call(*args, **kwargs)
+IE_TRACE:         Return value:.. <class 'tests.test_item.MyItem'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/item.py
+IE_TRACE:     12:31:39.043971 return      42         return super(ItemMeta, mcs).__new__(mcs, class_name, bases, new_attrs)
+IE_TRACE:     Return value:.. <class 'tests.test_item.MyItem'>
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_item.py
+IE_TRACE: 12:31:39.044012 exception  264             class MyItem(Item):
+IE_TRACE: Exception:..... TypeError: __class__ set to <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'> defining 'MyItem' as <class 'tests.test_item.MyItem'>
+IE_TRACE: 12:31:39.044106 line       262         with mock.patch.object(base, '__new__', new_mock):
+IE_TRACE:     Source path:... /usr/lib/python3.12/unittest/mock.py
+IE_TRACE:     Starting var:.. self = <unittest.mock._patch object at 0x7798404ad310>
+IE_TRACE:     Starting var:.. exc_info = (<class 'TypeError'>, TypeError("__class__ set to <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'> defining 'MyItem' as <class 'tests.test_item.MyItem'>"), <traceback object at 0x779840f5cd80>)
+IE_TRACE:     12:31:39.044132 call      1583     def __exit__(self, *exc_info):
+IE_TRACE:     12:31:39.044163 line      1585         if self.is_local and self.temp_original is not DEFAULT:
+IE_TRACE:     12:31:39.044178 line      1586             setattr(self.target, self.attribute, self.temp_original)
+IE_TRACE:     12:31:39.044196 line      1596         del self.temp_original
+IE_TRACE:     12:31:39.044209 line      1597         del self.is_local
+IE_TRACE:     12:31:39.044222 line      1598         del self.target
+IE_TRACE:     12:31:39.044235 line      1599         exit_stack = self._exit_stack
+IE_TRACE:     New var:....... exit_stack = <contextlib.ExitStack object at 0x7798404ae090>
+IE_TRACE:     12:31:39.044248 line      1600         del self._exit_stack
+IE_TRACE:     12:31:39.044266 line      1601         return exit_stack.__exit__(*exc_info)
+IE_TRACE:         Source path:... /usr/lib/python3.12/contextlib.py
+IE_TRACE:         Starting var:.. self = <contextlib.ExitStack object at 0x7798404ae090>
+IE_TRACE:         Starting var:.. exc_details = (<class 'TypeError'>, TypeError("__class__ set to <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'> defining 'MyItem' as <class 'tests.test_item.MyItem'>"), <traceback object at 0x779840f5cd80>)
+IE_TRACE:         12:31:39.044291 call       567     def __exit__(self, *exc_details):
+IE_TRACE:         12:31:39.044321 line       568         received_exc = exc_details[0] is not None
+IE_TRACE:         New var:....... received_exc = True
+IE_TRACE:         12:31:39.044337 line       572         frame_exc = sys.exc_info()[1]
+IE_TRACE:         New var:....... frame_exc = TypeError("__class__ set to <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'> defining 'MyItem' as <class 'tests.test_item.MyItem'>")
+IE_TRACE:         12:31:39.044359 line       573         def _fix_exception_context(new_exc, old_exc):
+IE_TRACE:         New var:....... _fix_exception_context = <function ExitStack.__exit__.<locals>._fix_exception_context at 0x7798404b4a40>
+IE_TRACE:         12:31:39.044382 line       589         suppressed_exc = False
+IE_TRACE:         New var:....... suppressed_exc = False
+IE_TRACE:         12:31:39.044406 line       590         pending_raise = False
+IE_TRACE:         New var:....... pending_raise = False
+IE_TRACE:         12:31:39.044432 line       591         while self._exit_callbacks:
+IE_TRACE:         12:31:39.044459 line       605         if pending_raise:
+IE_TRACE:         12:31:39.044480 line       614         return received_exc and suppressed_exc
+IE_TRACE:         12:31:39.044502 return     614         return received_exc and suppressed_exc
+IE_TRACE:         Return value:.. False
+IE_TRACE:     Source path:... /usr/lib/python3.12/unittest/mock.py
+IE_TRACE:     12:31:39.044529 return    1601         return exit_stack.__exit__(*exc_info)
+IE_TRACE:     Return value:.. False
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_item.py
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.027188
+======================================================================
+ERROR: test_new_method_propagates_classcell (tests.test_item.ItemMetaTest.test_new_method_propagates_classcell)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/tests/test_item.py", line 264, in test_new_method_propagates_classcell
+    class MyItem(Item):
+TypeError: __class__ set to <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'> defining 'MyItem' as <class 'tests.test_item.MyItem'>
+
+----------------------------------------------------------------------
+Ran 1 test in 0.028s
+
+FAILED (errors=1)
+
+
+Exit code: 1

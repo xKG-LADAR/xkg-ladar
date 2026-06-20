@@ -1,0 +1,330 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	setUp [label="setUp
+locks_test.py:22" fillcolor=white shape=box style=filled]
+	clear_current [label="clear_current
+ioloop.py:228" fillcolor=white shape=box style=filled]
+	test_force_current [label="test_force_current
+ioloop_test.py:447" fillcolor=white shape=box style=filled]
+	__new__ [label="__new__
+httpclient.py:159" fillcolor=white shape=box style=filled]
+	configurable_base [label="configurable_base
+util_test.py:40" fillcolor=white shape=box style=filled]
+	base [label="base
+(3 writes, 2 distinct)
+<class 'tornado.ioloop.IOLoop'>
+'epoll'" shape=ellipse]
+	init_kwargs [label="init_kwargs
+(2 writes, 2 distinct)
+{}
+{'make_current': True}" shape=ellipse]
+	configured_class [label="configured_class
+Returns the currently configured class.
+util.py:264" fillcolor=white shape=box style=filled]
+	configurable_default [label="configurable_default
+util_test.py:44" fillcolor=white shape=box style=filled]
+	module [label="module
+(8 writes, 5 distinct)
+<object object at 0x775736178060>
+None
+<module 'tornado.platform.epoll'>
+<module 'tornado.platform.epoll' (<_frozen_importlib_external.SourceFileLoader object at 0x775735791400>)>
+<module 'tornado.platform.epoll' from '/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py'>" shape=ellipse]
+	ERROR__KeyError [label="KeyError
+'tornado.platform.epoll'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	lock [label="lock
+(2 writes, 2 distinct)
+None
+_ModuleLock('tornado.platform.epoll') at 131216442963392" shape=ellipse]
+	self [label="self
+(3 writes, 3 distinct)
+_ModuleLock('tornado.platform.epoll') at 131216442963392
+<weakref at 0x775735109d20; to '_List' at 0x77573510ed50>
+<_frozen_importlib._WeakValueDictionary object at 0x77573619b2c0>" shape=ellipse]
+	cb [label="cb
+<function _get_module_lock.<locals>.cb at 0x775735803600>" shape=ellipse]
+	tid [label="tid
+(2 writes)
+131216463036544" shape=ellipse]
+	o [label="o
+None" shape=ellipse]
+	path [label="path
+(2 writes, 2 distinct)
+None
+['/path/to/BugsInPy/workspace/tornado/tornado/platform']" shape=ellipse]
+	parent [label="parent
+'tornado.platform'" shape=ellipse]
+	parent_spec [label="parent_spec
+(2 writes, 2 distinct)
+None
+ModuleSpec(name='tornado.platform', loader=<_frozen_importlib_external.SourceFileLoader object at 0x775735cf6a20>, origi…" shape=ellipse]
+	parent_module [label="parent_module
+<module 'tornado.platform' from '/path/to/BugsInPy/workspace/tornado/tornado/platform/__init__.py'>" shape=ellipse]
+	child [label="child
+'epoll'" shape=ellipse]
+	meta_path [label="meta_path
+[<_distutils_hack.DistutilsMetaFinder object at 0x775735f70470>, <class '_frozen_importlib.BuiltinImporter'>, <class '_f…" shape=ellipse]
+	is_reload [label="is_reload
+False" shape=ellipse]
+	finder [label="finder
+(6 writes, 5 distinct)
+<_distutils_hack.DistutilsMetaFinder object at 0x775735f70470>
+<class '_frozen_importlib.BuiltinImporter'>
+<class '_frozen_importlib.FrozenImporter'>
+<class '_frozen_importlib_external.PathFinder'>
+FileFinder('/path/to/BugsInPy/workspace/tornado/tornado/platform')" shape=ellipse]
+	find_spec [label="find_spec
+(4 writes, 4 distinct)
+<bound method DistutilsMetaFinder.find_spec of <_distutils_hack.DistutilsMetaFinder object at 0x775735f70470>>
+<bound method BuiltinImporter.find_spec of <class '_frozen_importlib.BuiltinImporter'>>
+<bound method FrozenImporter.find_spec of <class '_frozen_importlib.FrozenImporter'>>
+<bound method PathFinder.find_spec of <class '_frozen_importlib_external.PathFinder'>>" shape=ellipse]
+	spec [label="spec
+(5 writes, 2 distinct)
+None
+ModuleSpec(name='tornado.platform.epoll', loader=<_frozen_importlib_external.SourceFileLoader object at 0x775735791400>,…" shape=ellipse]
+	info [label="info
+None" shape=ellipse]
+	namespace_path [label="namespace_path
+[]" shape=ellipse]
+	entry [label="entry
+'/path/to/BugsInPy/workspace/tornado/tornado/platform'" shape=ellipse]
+	is_namespace [label="is_namespace
+False" shape=ellipse]
+	tail_module [label="tail_module
+'epoll'" shape=ellipse]
+	mtime [label="mtime
+1779889626.781145" shape=ellipse]
+	cache [label="cache
+{'epoll.py', 'twisted.py', 'windows.py', 'common.py', 'asyncio.py', 'select.py', 'posix.py', '__init__.py', 'caresresolv…" shape=ellipse]
+	cache_module [label="cache_module
+'epoll'" shape=ellipse]
+	suffix [label="suffix
+(2 writes, 2 distinct)
+'.cpython-312-x86_64-linux-gnu.so'
+'.py'" shape=ellipse]
+	loader_class [label="loader_class
+(2 writes, 2 distinct)
+<class '_frozen_importlib_external.ExtensionFileLoader'>
+<class '_frozen_importlib_external.SourceFileLoader'>" shape=ellipse]
+	full_path [label="full_path
+(2 writes, 2 distinct)
+'/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.cpython-312-x86_64-linux-gnu.so'
+'/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py'" shape=ellipse]
+	loader [label="loader
+<_frozen_importlib_external.SourceFileLoader object at 0x775735791400>" shape=ellipse]
+	source_path [label="source_path
+'/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py'" shape=ellipse]
+	source_mtime [label="source_mtime
+(2 writes, 2 distinct)
+None
+1779889513" shape=ellipse]
+	source_bytes [label="source_bytes
+None" shape=ellipse]
+	source_hash [label="source_hash
+None" shape=ellipse]
+	hash_based [label="hash_based
+False" shape=ellipse]
+	check_source [label="check_source
+True" shape=ellipse]
+	head [label="head
+'/path/to/BugsInPy/workspace/tornado/tornado/platform'" shape=ellipse]
+	tail [label="tail
+'epoll.py'" shape=ellipse]
+	sep [label="sep
+'.'" shape=ellipse]
+	rest [label="rest
+'py'" shape=ellipse]
+	tag [label="tag
+'cpython-312'" shape=ellipse]
+	almost_filename [label="almost_filename
+'epoll.cpython-312'" shape=ellipse]
+	optimization [label="optimization
+''" shape=ellipse]
+	filename [label="filename
+'epoll.cpython-312.pyc'" shape=ellipse]
+	bytecode_path [label="bytecode_path
+'/path/to/BugsInPy/workspace/tornado/tornado/platform/__pycache__/epoll.cpython-312.pyc'" shape=ellipse]
+	st [label="st
+(2 writes, 2 distinct)
+os.stat_result(st_mode=33204, st_ino=3560424, st_dev=66309, st_nlink=1, st_uid=1000, st_gid=1000, st_size=934, st_atime=…
+{'mtime': 1779889513.9638515, 'size': 934}" shape=ellipse]
+	file [label="file
+<_io.BufferedReader name='/path/to/BugsInPy/workspace/tornado/tornado/platform/__pycache__/epoll.cpython-312.p…" shape=ellipse]
+	data [label="data
+bytes(len=943)" shape=ellipse]
+	exc_details [label="exc_details
+{'name': 'tornado.platform.epoll', 'path': '/path/to/BugsInPy/workspace/tornado/tornado/platform/__pycache__/e…" shape=ellipse]
+	magic [label="magic
+b'\xcb\r\r\n'" shape=ellipse]
+	flags [label="flags
+(2 writes)
+0" shape=ellipse]
+	bytes_data [label="bytes_data
+<memory at 0x775735769780>" shape=ellipse]
+	code [label="code
+(2 writes)
+<code object <module> at 0x775735736cd0, file \"/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py\",…" shape=ellipse]
+	__doc__ [label="__doc__
+'EPoll-based IOLoop implementation for Linux systems.'" shape=ellipse]
+	absolute_import [label="absolute_import
+_Feature((2, 5, 0, 'alpha', 1), (3, 0, 0, 'alpha', 0), 262144)" shape=ellipse]
+	division [label="division
+_Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 131072)" shape=ellipse]
+	print_function [label="print_function
+_Feature((2, 6, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 1048576)" shape=ellipse]
+	with_statement [label="with_statement
+_Feature((2, 5, 0, 'alpha', 1), (2, 6, 0, 'alpha', 0), 524288)" shape=ellipse]
+	select [label="select
+<module 'select' (built-in)>" shape=ellipse]
+	PollIOLoop [label="PollIOLoop
+<class 'tornado.ioloop.PollIOLoop'>" shape=ellipse]
+	EPollIOLoop [label="EPollIOLoop
+(2 writes)
+<class 'tornado.platform.epoll.EPollIOLoop'>" shape=ellipse]
+	args [label="args
+(<code object <module> at 0x775735736cd0, file \"/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py\"…" shape=ellipse]
+	impl [label="impl
+<class 'tornado.platform.epoll.EPollIOLoop'>" shape=ellipse]
+	instance [label="instance
+<tornado.platform.epoll.EPollIOLoop object at 0x775735c13080>" shape=ellipse]
+	initialize [label="initialize
+auth_test.py:20" fillcolor=white shape=box style=filled]
+	current [label="current
+Returns the current thread's `IOLoop`.
+ioloop.py:189" fillcolor=white shape=box style=filled]
+	ERROR__RuntimeError [label="RuntimeError
+current IOLoop already exists" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	tearDown [label="tearDown
+locale_test.py:28" fillcolor=white shape=box style=filled]
+	{
+		rank=same
+		setUp
+		test_force_current
+	}
+	{
+		rank=same
+		clear_current
+		__new__
+		tearDown
+	}
+	{
+		rank=same
+		configurable_base
+		configured_class
+		initialize
+	}
+	{
+		rank=same
+		configurable_default
+	}
+	{
+		rank=same
+		current
+	}
+	setUp -> clear_current [label="calls [#1]" color=blue penwidth=1.1]
+	test_force_current -> __new__ [label="calls [#2]" color=blue penwidth=1.1]
+	test_force_current -> ERROR__RuntimeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	test_force_current -> tearDown [label="calls [#12]" color=blue penwidth=1.1]
+	__new__ -> configurable_base [label="calls [#3]" color=blue penwidth=1.1]
+	__new__ -> base [label="writes×2" color=black]
+	__new__ -> init_kwargs [label="writes×2" color=black]
+	__new__ -> configured_class [label="calls [#4]" color=blue penwidth=1.1]
+	__new__ -> __new__ [label="loops(×4)" color=purple style=dashed]
+	__new__ -> suffix [label=writes color=black]
+	__new__ -> loader_class [label=writes color=black]
+	__new__ -> full_path [label=writes color=black]
+	__new__ -> spec [label="writes×4" color=black]
+	__new__ -> module [label="writes×7" color=black]
+	__new__ -> loader [label=writes color=black]
+	__new__ -> source_path [label=writes color=black]
+	__new__ -> source_mtime [label="writes×2" color=black]
+	__new__ -> source_bytes [label=writes color=black]
+	__new__ -> source_hash [label=writes color=black]
+	__new__ -> hash_based [label=writes color=black]
+	__new__ -> check_source [label=writes color=black]
+	__new__ -> head [label=writes color=black]
+	__new__ -> tail [label=writes color=black]
+	__new__ -> sep [label=writes color=black]
+	__new__ -> rest [label=writes color=black]
+	__new__ -> tag [label=writes color=black]
+	__new__ -> almost_filename [label=writes color=black]
+	__new__ -> optimization [label=writes color=black]
+	__new__ -> filename [label=writes color=black]
+	__new__ -> bytecode_path [label=writes color=black]
+	__new__ -> st [label="writes×2" color=black]
+	__new__ -> file [label=writes color=black]
+	__new__ -> data [label=writes color=black]
+	__new__ -> exc_details [label=writes color=black]
+	__new__ -> magic [label=writes color=black]
+	__new__ -> flags [label="writes×2" color=black]
+	__new__ -> bytes_data [label=writes color=black]
+	__new__ -> code [label="writes×2" color=black]
+	__new__ -> __doc__ [label=writes color=black]
+	__new__ -> absolute_import [label=writes color=black]
+	__new__ -> division [label=writes color=black]
+	__new__ -> print_function [label=writes color=black]
+	__new__ -> with_statement [label=writes color=black]
+	__new__ -> select [label=writes color=black]
+	__new__ -> PollIOLoop [label=writes color=black]
+	__new__ -> EPollIOLoop [label="writes×2" color=black]
+	__new__ -> args [label=writes color=black]
+	__new__ -> tid [label=writes color=black]
+	__new__ -> impl [label=writes color=black]
+	__new__ -> instance [label=writes color=black]
+	__new__ -> initialize [label="calls [#8]" color=blue penwidth=1.1]
+	__new__ -> ERROR__RuntimeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	configured_class -> configurable_base [label="calls [#5]" color=blue penwidth=1.1]
+	configured_class -> base [label=writes color=black]
+	configured_class -> configurable_default [label="calls [#6]" color=blue penwidth=1.1]
+	configurable_default -> module [label=writes color=black]
+	configurable_default -> ERROR__KeyError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	configurable_default -> lock [label="writes×2" color=black]
+	configurable_default -> self [label="writes×3" color=black]
+	configurable_default -> cb [label=writes color=black]
+	configurable_default -> tid [label=writes color=black]
+	configurable_default -> o [label=writes color=black]
+	configurable_default -> path [label="writes×2" color=black]
+	configurable_default -> parent [label=writes color=black]
+	configurable_default -> parent_spec [label="writes×2" color=black]
+	configurable_default -> parent_module [label=writes color=black]
+	configurable_default -> child [label=writes color=black]
+	configurable_default -> meta_path [label=writes color=black]
+	configurable_default -> is_reload [label=writes color=black]
+	configurable_default -> finder [label="writes×6" color=black]
+	configurable_default -> find_spec [label="writes×4" color=black]
+	configurable_default -> spec [label=writes color=black]
+	configurable_default -> info [label=writes color=black]
+	configurable_default -> namespace_path [label=writes color=black]
+	configurable_default -> entry [label=writes color=black]
+	configurable_default -> is_namespace [label=writes color=black]
+	configurable_default -> tail_module [label=writes color=black]
+	configurable_default -> mtime [label=writes color=black]
+	configurable_default -> cache [label=writes color=black]
+	configurable_default -> cache_module [label=writes color=black]
+	configurable_default -> suffix [label=writes color=black]
+	configurable_default -> loader_class [label=writes color=black]
+	configurable_default -> full_path [label=writes color=black]
+	module -> initialize [label="passed to" color=green style=dashed]
+	lock -> find_spec [label="passed to" color=green style=dashed]
+	self -> find_spec [label="passed to" color=green style=dashed]
+	self -> initialize [label="passed to" color=green style=dashed]
+	self -> tearDown [label="passed to" color=green style=dashed]
+	path -> find_spec [label="passed to" color=green style=dashed]
+	path -> initialize [label="passed to" color=green style=dashed]
+	spec -> initialize [label="passed to" color=green style=dashed]
+	source_path -> initialize [label="passed to" color=green style=dashed]
+	source_mtime -> initialize [label="passed to" color=green style=dashed]
+	optimization -> initialize [label="passed to" color=green style=dashed]
+	bytecode_path -> initialize [label="passed to" color=green style=dashed]
+	data -> initialize [label="passed to" color=green style=dashed]
+	exc_details -> initialize [label="passed to" color=green style=dashed]
+	__doc__ -> initialize [label="passed to" color=green style=dashed]
+	args -> initialize [label="passed to" color=green style=dashed]
+	impl -> initialize [label="passed to" color=green style=dashed]
+	instance -> current [label="passed to" color=green style=dashed]
+	initialize -> initialize [label="calls×2 [#9]" color=blue penwidth=1.2]
+	initialize -> current [label="calls [#11]" color=blue penwidth=1.1]
+	initialize -> ERROR__RuntimeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	current -> current [label=writes color=black]
+}

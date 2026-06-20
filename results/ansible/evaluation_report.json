@@ -1,0 +1,72 @@
+[
+  {
+    "project": "ansible",
+    "bug_id": 1,
+    "has_diagnosis": false,
+    "has_kg": true,
+    "kg_has_content": false,
+    "has_diff": false,
+    "diff_parseable": false,
+    "checkout_ok": false,
+    "diff_applied": false,
+    "test_passed": false,
+    "test_output_snippet": "",
+    "error": "KG empty (trace produced no data)"
+  },
+  {
+    "project": "ansible",
+    "bug_id": 2,
+    "has_diagnosis": true,
+    "has_kg": true,
+    "kg_has_content": true,
+    "has_diff": true,
+    "diff_parseable": true,
+    "checkout_ok": true,
+    "diff_applied": true,
+    "test_passed": true,
+    "test_output_snippet": "rning: distutils Version classes are deprecated. Use packaging.version instead.\n    LooseVersion(),\n\ntest/units/utils/test_version.py:175\n  /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py:175: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.\n    StrictVersion('1.2.3'),\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================== 1 passed, 7 warnings in 0.10s =========================\n\n",
+    "error": null
+  },
+  {
+    "project": "ansible",
+    "bug_id": 3,
+    "has_diagnosis": false,
+    "has_kg": true,
+    "kg_has_content": false,
+    "has_diff": false,
+    "diff_parseable": false,
+    "checkout_ok": false,
+    "diff_applied": false,
+    "test_passed": false,
+    "test_output_snippet": "",
+    "error": "KG empty (trace produced no data)"
+  },
+  {
+    "project": "ansible",
+    "bug_id": 4,
+    "has_diagnosis": false,
+    "has_kg": true,
+    "kg_has_content": false,
+    "has_diff": false,
+    "diff_parseable": false,
+    "checkout_ok": false,
+    "diff_applied": false,
+    "test_passed": false,
+    "test_output_snippet": "",
+    "error": "KG empty (trace produced no data)"
+  },
+  {
+    "project": "ansible",
+    "bug_id": 5,
+    "has_diagnosis": false,
+    "has_kg": true,
+    "kg_has_content": false,
+    "has_diff": false,
+    "diff_parseable": false,
+    "checkout_ok": false,
+    "diff_applied": false,
+    "test_passed": false,
+    "test_output_snippet": "",
+    "error": "KG empty (trace produced no data)"
+  }
+]

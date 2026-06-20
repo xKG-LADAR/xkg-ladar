@@ -1,0 +1,23 @@
+Project : ansible
+Bug ID  : 2
+Version : 0 (buggy)
+Workdir : /path/to/BugsInPy/workspace/ansible
+Output  : /path/to/results/ansible/bug2
+
+STEP 0: bugsinpy-checkout
+  RESULT: OK
+STEP 0.15: py312-compat patched 36 files
+STEP 0.1: compile
+  RESULT: OK
+STEP 0.5: auto-decorate test functions
+  Modified 2 file(s)
+STEP 1: run_trace.py
+  Raw trace: 151966 chars
+STEP 2: trace_condense.py
+  Condensed trace: /path/to/results/ansible/bug2/trace_condensed.log
+STEP 3: build_trace_kg.py
+  KG output: /path/to/results/ansible/bug2/trace_kg
+STEP 4: debug_agent.py
+  Diagnosis: /path/to/results/ansible/bug2/diagnosis.md
+
+PIPELINE COMPLETE - all steps succeeded.

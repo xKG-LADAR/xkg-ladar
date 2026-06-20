@@ -1,0 +1,61 @@
+Cleared: /path/to/results/scrapy/bug2
+Running: python -m unittest -q tests.test_utils_datatypes.LocalCacheTest.test_cache_without_limit
+Workdir: /path/to/BugsInPy/workspace/scrapy
+PYTHONPATH: /path/to/BugsInPy/workspace/scrapy::
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_datatypes.py
+IE_TRACE: Starting var:.. self = <tests.test_utils_datatypes.LocalCacheTest testMethod=test_cache_without_limit>
+IE_TRACE: 12:29:11.237652 call       264     def test_cache_without_limit(self):
+IE_TRACE: 12:29:11.237872 line       265         max = 10**4
+IE_TRACE: New var:....... max = 10000
+IE_TRACE: 12:29:11.237911 line       266         cache = LocalCache()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/datatypes.py
+IE_TRACE:     Starting var:.. self = LocalCache()
+IE_TRACE:     Starting var:.. limit = None
+IE_TRACE:     Starting var:.. __class__ = <class 'scrapy.utils.datatypes.LocalCache'>
+IE_TRACE:     12:29:11.237952 call       313     def __init__(self, limit=None):
+IE_TRACE:     12:29:11.238070 line       314         super(LocalCache, self).__init__()
+IE_TRACE:     12:29:11.238094 line       315         self.limit = limit
+IE_TRACE:     12:29:11.238112 return     315         self.limit = limit
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_datatypes.py
+IE_TRACE: New var:....... cache = LocalCache()
+IE_TRACE: 12:29:11.238137 line       267         for x in range(max):
+IE_TRACE: New var:....... x = 0
+IE_TRACE: 12:29:11.238167 line       268             cache[str(x)] = x
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/datatypes.py
+IE_TRACE:     Starting var:.. self = LocalCache()
+IE_TRACE:     Starting var:.. key = '0'
+IE_TRACE:     Starting var:.. value = 0
+IE_TRACE:     Starting var:.. __class__ = <class 'scrapy.utils.datatypes.LocalCache'>
+IE_TRACE:     12:29:11.238206 call       317     def __setitem__(self, key, value):
+IE_TRACE:     12:29:11.238250 line       318         while len(self) >= self.limit:
+IE_TRACE:     12:29:11.238268 exception  318         while len(self) >= self.limit:
+IE_TRACE:     Exception:..... TypeError: '>=' not supported between instances of 'int' and 'NoneType'
+IE_TRACE:     Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_datatypes.py
+IE_TRACE: 12:29:11.238378 exception  268             cache[str(x)] = x
+IE_TRACE: Exception:..... TypeError: '>=' not supported between instances of 'int' and 'NoneType'
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.000929
+======================================================================
+ERROR: test_cache_without_limit (tests.test_utils_datatypes.LocalCacheTest.test_cache_without_limit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/tests/test_utils_datatypes.py", line 268, in test_cache_without_limit
+    cache[str(x)] = x
+    ~~~~~^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/scrapy/utils/datatypes.py", line 318, in __setitem__
+    while len(self) >= self.limit:
+          ^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: '>=' not supported between instances of 'int' and 'NoneType'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (errors=1)
+
+
+Exit code: 1

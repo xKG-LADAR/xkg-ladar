@@ -1,0 +1,38 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_js_to_json_edgecases [label="test_js_to_json_edgecases
+test_utils.py:771" fillcolor=white shape=box style=filled]
+	js_to_json [label="js_to_json
+utils.py:2105" fillcolor=white shape=box style=filled]
+	fix_kv [label="fix_kv
+(7 writes, 2 distinct)
+<function js_to_json.<locals>.fix_kv at 0x768f55467e20>
+<function js_to_json.<locals>.fix_kv at 0x768f553c8360>" shape=ellipse]
+	on [label="on
+(7 writes, 7 distinct)
+'{\"abc_def\":\"1\'\\\\2\\\\\'3\\\"4\"}'
+'{\"abc\": true}'
+'{\n            \"x\": 1,\n            \"y\": \"a\",\n            \"z\": \"some.code\"\n        }'
+'[\"abc\", \"def\"]'
+'{\"abc\": \"def\"}'
+'{ \"0\":  \",]\"  }'
+  …+1 more values" shape=ellipse]
+	d [label="d
+{'x': 1, 'y': 'a', 'z': 'some.code'}" shape=ellipse]
+	"ERROR__json.decoder.JSONDecodeError" [label="json.decoder.JSONDecodeError
+Expecting value: line 1 column 8 (char 7)" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_js_to_json_edgecases
+	}
+	{
+		rank=same
+		js_to_json
+	}
+	test_js_to_json_edgecases -> js_to_json [label="calls×7 [#1]" color=blue penwidth=1.7]
+	test_js_to_json_edgecases -> on [label="writes×7" color=black]
+	test_js_to_json_edgecases -> d [label=writes color=black]
+	test_js_to_json_edgecases -> "ERROR__json.decoder.JSONDecodeError" [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	js_to_json -> fix_kv [label="writes×7" color=black]
+	js_to_json -> js_to_json [label="loops(×5)" color=purple style=dashed]
+}

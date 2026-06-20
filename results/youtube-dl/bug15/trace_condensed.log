@@ -1,0 +1,2121 @@
+Cleared: /path/to/results/youtube-dl/bug15
+Running: python -m unittest -q test.test_utils.TestUtil.test_js_to_json_edgecases test.test_utils.TestUtil.test_js_to_json_realworld
+Workdir: /path/to/BugsInPy/workspace/youtube-dl
+PYTHONPATH: /path/to/BugsInPy/workspace/youtube-dl
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/motherless.py:123: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = 'https?://(?:www\.)?motherless\.com/gv?/(?P<id>[a-z0-9_]+)'
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/pandatv.py:39: SyntaxWarning: "is not" with 'int' literal. Did you mean "!="?
+  if error_code is not 0:
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Starting var:.. self = <test.test_utils.TestUtil testMethod=test_js_to_json_edgecases>
+IE_TRACE: 15:04:00.453153 call       823     def test_js_to_json_edgecases(self):
+IE_TRACE: 15:04:00.453417 line       824         on = js_to_json("{abc_def:'1\\'\\\\2\\\\\\'3\"4'}")
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. code = '{abc_def:\'1\\\'\\\\2\\\\\\\'3"4\'}'
+IE_TRACE:     15:04:00.453448 call      2235 def js_to_json(code):
+IE_TRACE:     15:04:00.453749 line      2236     COMMENT_RE = r'/\*(?:(?!\*/).)*?\*/|//[^\n]*'
+IE_TRACE:     New var:....... COMMENT_RE = '/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*'
+IE_TRACE:     15:04:00.453765 line      2237     SKIP_RE = r'\s*(?:{comment})?\s*'.format(comment=COMMENT_RE)
+IE_TRACE:     New var:....... SKIP_RE = '\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*'
+IE_TRACE:     15:04:00.453784 line      2239         (r'(?s)^(0[xX][0-9a-fA-F]+){skip}:?$'.format(skip=SKIP_RE), 16),
+IE_TRACE:     15:04:00.453802 line      2240         (r'(?s)^(0+[0-7]+){skip}:?$'.format(skip=SKIP_RE), 8),
+IE_TRACE:     15:04:00.453816 line      2238     INTEGER_TABLE = (
+IE_TRACE:     New var:....... INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:     15:04:00.453828 line      2243     def fix_kv(m):
+IE_TRACE:     New var:....... fix_kv = <function js_to_json.<locals>.fix_kv at 0x75bcce32b100>
+IE_TRACE:     15:04:00.453847 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:     15:04:00.453867 line      2273         '''.format(comment=COMMENT_RE, skip=SKIP_RE), fix_kv, code)
+IE_TRACE:     15:04:00.453884 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(1, 8), match='abc_def'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.868882 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.868910 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = 'abc_def'
+IE_TRACE:             15:04:00.868924 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.868942 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.868957 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.868970 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.868983 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.910540 line      2260             if im:
+IE_TRACE:             15:04:00.910571 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.910588 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.950792 line      2260             if im:
+IE_TRACE:             15:04:00.950816 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.950833 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.950849 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"abc_def"'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(9, 24), match='\'1\\\'\\\\2\\\\\\\'3"4\''>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.950874 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.950894 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '\'1\\\'\\\\2\\\\\\\'3"4\''
+IE_TRACE:             15:04:00.950907 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.950923 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.950938 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.950951 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             15:04:00.950965 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:             15:04:00.950978 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:                     Starting var:.. m = <re.Match object; span=(1, 3), match="\\'">
+IE_TRACE:                     15:04:00.966230 call      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     15:04:00.966250 line      2252                 '"': '\\"',
+IE_TRACE:                     15:04:00.966260 line      2253                 "\\'": "'",
+IE_TRACE:                     15:04:00.966270 line      2254                 '\\\n': '',
+IE_TRACE:                     15:04:00.966280 line      2255                 '\\x': '\\u00',
+IE_TRACE:     [CONDENSED] 3 identical loop iterations skipped (5 total iterations, showing first and last)
+IE_TRACE:                     15:04:00.966577 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     15:04:00.966586 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:                     15:04:00.966596 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     15:04:00.966606 return    2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     Return value:.. "'"
+IE_TRACE:                     Starting var:.. m = <re.Match object; span=(11, 12), match='"'>
+IE_TRACE:                     15:04:00.966619 call      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     15:04:00.966632 line      2252                 '"': '\\"',
+IE_TRACE:                     15:04:00.966642 line      2253                 "\\'": "'",
+IE_TRACE:                     15:04:00.966651 line      2254                 '\\\n': '',
+IE_TRACE:                     15:04:00.966661 line      2255                 '\\x': '\\u00',
+IE_TRACE:                     15:04:00.966671 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     15:04:00.966680 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:                     15:04:00.966690 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     15:04:00.966700 return    2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     Return value:.. '\\"'
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Modified var:.. v = '1\'\\\\2\\\\\'3\\"4'
+IE_TRACE:             15:04:00.966736 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.966758 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.966905 line      2260             if im:
+IE_TRACE:             15:04:00.966927 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.966944 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.967085 line      2260             if im:
+IE_TRACE:             15:04:00.967103 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.967118 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.967134 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"1\'\\\\2\\\\\'3\\"4"'
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:04:00.967185 return    2266     return re.sub(r'''(?sx)
+IE_TRACE:     Return value:.. '{"abc_def":"1\'\\\\2\\\\\'3\\"4"}'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: New var:....... on = '{"abc_def":"1\'\\\\2\\\\\'3\\"4"}'
+IE_TRACE: 15:04:00.967210 line       825         self.assertEqual(json.loads(on), {"abc_def": "1'\\2\\'3\"4"})
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:00.968209 line       827         on = js_to_json('{"abc": true}')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. code = '{"abc": true}'
+IE_TRACE:     15:04:00.968226 call      2235 def js_to_json(code):
+IE_TRACE:     15:04:00.968244 line      2236     COMMENT_RE = r'/\*(?:(?!\*/).)*?\*/|//[^\n]*'
+IE_TRACE:     New var:....... COMMENT_RE = '/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*'
+IE_TRACE:     15:04:00.968254 line      2237     SKIP_RE = r'\s*(?:{comment})?\s*'.format(comment=COMMENT_RE)
+IE_TRACE:     New var:....... SKIP_RE = '\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*'
+IE_TRACE:     15:04:00.968268 line      2239         (r'(?s)^(0[xX][0-9a-fA-F]+){skip}:?$'.format(skip=SKIP_RE), 16),
+IE_TRACE:     15:04:00.968283 line      2240         (r'(?s)^(0+[0-7]+){skip}:?$'.format(skip=SKIP_RE), 8),
+IE_TRACE:     15:04:00.968296 line      2238     INTEGER_TABLE = (
+IE_TRACE:     New var:....... INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:     15:04:00.968308 line      2243     def fix_kv(m):
+IE_TRACE:     New var:....... fix_kv = <function js_to_json.<locals>.fix_kv at 0x75bcce32b740>
+IE_TRACE:     15:04:00.968324 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:     15:04:00.968341 line      2273         '''.format(comment=COMMENT_RE, skip=SKIP_RE), fix_kv, code)
+IE_TRACE:     15:04:00.968356 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(1, 6), match='"abc"'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.968495 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.968518 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '"abc"'
+IE_TRACE:             15:04:00.968531 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.968547 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.968560 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.968576 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             15:04:00.968589 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:             15:04:00.968602 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Modified var:.. v = 'abc'
+IE_TRACE:             15:04:00.968746 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.968765 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.968903 line      2260             if im:
+IE_TRACE:             15:04:00.968924 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.968940 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.969076 line      2260             if im:
+IE_TRACE:             15:04:00.969094 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.969109 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.969124 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"abc"'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(8, 12), match='true'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.969145 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.969162 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = 'true'
+IE_TRACE:             15:04:00.969175 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.969190 line      2246             return v
+IE_TRACE:             15:04:00.969203 return    2246             return v
+IE_TRACE:             Return value:.. 'true'
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:04:00.969240 return    2266     return re.sub(r'''(?sx)
+IE_TRACE:     Return value:.. '{"abc": true}'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Modified var:.. on = '{"abc": true}'
+IE_TRACE: 15:04:00.969260 line       828         self.assertEqual(json.loads(on), {'abc': True})
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:00.969950 line       831         on = js_to_json('''{
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. code = '{\n            "x": 1,\n            y: "a",\n            z: some.code\n        }'
+IE_TRACE:     15:04:00.969965 call      2235 def js_to_json(code):
+IE_TRACE:     15:04:00.969981 line      2236     COMMENT_RE = r'/\*(?:(?!\*/).)*?\*/|//[^\n]*'
+IE_TRACE:     New var:....... COMMENT_RE = '/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*'
+IE_TRACE:     15:04:00.969991 line      2237     SKIP_RE = r'\s*(?:{comment})?\s*'.format(comment=COMMENT_RE)
+IE_TRACE:     New var:....... SKIP_RE = '\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*'
+IE_TRACE:     15:04:00.970005 line      2239         (r'(?s)^(0[xX][0-9a-fA-F]+){skip}:?$'.format(skip=SKIP_RE), 16),
+IE_TRACE:     15:04:00.970019 line      2240         (r'(?s)^(0+[0-7]+){skip}:?$'.format(skip=SKIP_RE), 8),
+IE_TRACE:     15:04:00.970030 line      2238     INTEGER_TABLE = (
+IE_TRACE:     New var:....... INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:     15:04:00.970041 line      2243     def fix_kv(m):
+IE_TRACE:     New var:....... fix_kv = <function js_to_json.<locals>.fix_kv at 0x75bcce32b740>
+IE_TRACE:     15:04:00.970057 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:     15:04:00.970073 line      2273         '''.format(comment=COMMENT_RE, skip=SKIP_RE), fix_kv, code)
+IE_TRACE:     15:04:00.970087 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(14, 17), match='"x"'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.970217 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.970238 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '"x"'
+IE_TRACE:             15:04:00.970250 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.970266 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.970279 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.970292 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             15:04:00.970304 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:             15:04:00.970317 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Modified var:.. v = 'x'
+IE_TRACE:             15:04:00.970456 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.970475 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.970612 line      2260             if im:
+IE_TRACE:             15:04:00.970633 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.970649 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.970783 line      2260             if im:
+IE_TRACE:             15:04:00.970801 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.970816 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.970831 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"x"'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(34, 35), match='y'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.970852 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.970870 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = 'y'
+IE_TRACE:             15:04:00.970883 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.970898 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.970911 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.970924 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.970936 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.971070 line      2260             if im:
+IE_TRACE:             15:04:00.971090 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.971105 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.971238 line      2260             if im:
+IE_TRACE:             15:04:00.971256 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.971271 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.971286 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"y"'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(37, 40), match='"a"'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.971305 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.971323 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '"a"'
+IE_TRACE:             15:04:00.971335 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.971350 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.971363 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.971376 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             15:04:00.971389 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:             15:04:00.971401 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Modified var:.. v = 'a'
+IE_TRACE:             15:04:00.971540 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.971558 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.971693 line      2260             if im:
+IE_TRACE:             15:04:00.971714 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.971729 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.971863 line      2260             if im:
+IE_TRACE:             15:04:00.971880 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.971895 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.971910 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"a"'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(54, 55), match='z'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.971930 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.971948 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = 'z'
+IE_TRACE:             15:04:00.971960 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.971975 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.971988 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.972000 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.972012 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.972145 line      2260             if im:
+IE_TRACE:             15:04:00.972165 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.972180 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.972313 line      2260             if im:
+IE_TRACE:             15:04:00.972331 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.972346 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.972361 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"z"'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(57, 66), match='some.code'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.972380 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.972397 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = 'some.code'
+IE_TRACE:             15:04:00.972409 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.972424 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.972437 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.972450 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.972462 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.972597 line      2260             if im:
+IE_TRACE:             15:04:00.972618 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.972633 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.972766 line      2260             if im:
+IE_TRACE:             15:04:00.972784 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.972799 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.972814 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"some.code"'
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:04:00.972854 return    2266     return re.sub(r'''(?sx)
+IE_TRACE:     Return value:.. '{\n            "x": 1,\n            "y": "a",\n            "z": "some.code"\n        }'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Modified var:.. on = '{\n            "x": 1,\n            "y": "a",\n            "z": "some.code"\n        }'
+IE_TRACE: 15:04:00.972875 line       836         d = json.loads(on)
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: New var:....... d = {'x': 1, 'y': 'a', 'z': 'some.code'}
+IE_TRACE: 15:04:00.973217 line       837         self.assertEqual(d['x'], 1)
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:00.973429 line       838         self.assertEqual(d['y'], 'a')
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:00.973800 line       840         on = js_to_json('["abc", "def",]')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. code = '["abc", "def",]'
+IE_TRACE:     15:04:00.973817 call      2235 def js_to_json(code):
+IE_TRACE:     15:04:00.973833 line      2236     COMMENT_RE = r'/\*(?:(?!\*/).)*?\*/|//[^\n]*'
+IE_TRACE:     New var:....... COMMENT_RE = '/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*'
+IE_TRACE:     15:04:00.973843 line      2237     SKIP_RE = r'\s*(?:{comment})?\s*'.format(comment=COMMENT_RE)
+IE_TRACE:     New var:....... SKIP_RE = '\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*'
+IE_TRACE:     15:04:00.973857 line      2239         (r'(?s)^(0[xX][0-9a-fA-F]+){skip}:?$'.format(skip=SKIP_RE), 16),
+IE_TRACE:     15:04:00.973871 line      2240         (r'(?s)^(0+[0-7]+){skip}:?$'.format(skip=SKIP_RE), 8),
+IE_TRACE:     15:04:00.973883 line      2238     INTEGER_TABLE = (
+IE_TRACE:     New var:....... INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:     15:04:00.973894 line      2243     def fix_kv(m):
+IE_TRACE:     New var:....... fix_kv = <function js_to_json.<locals>.fix_kv at 0x75bcce32b100>
+IE_TRACE:     15:04:00.973909 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:     15:04:00.973925 line      2273         '''.format(comment=COMMENT_RE, skip=SKIP_RE), fix_kv, code)
+IE_TRACE:     15:04:00.973939 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(1, 6), match='"abc"'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.974068 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.974089 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '"abc"'
+IE_TRACE:             15:04:00.974101 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.974117 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.974130 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.974142 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             15:04:00.974155 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:             15:04:00.974168 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Modified var:.. v = 'abc'
+IE_TRACE:             15:04:00.974307 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.974325 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.974460 line      2260             if im:
+IE_TRACE:             15:04:00.974481 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.974496 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.974633 line      2260             if im:
+IE_TRACE:             15:04:00.974650 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.974665 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.974680 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"abc"'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(8, 13), match='"def"'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.974700 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.974718 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '"def"'
+IE_TRACE:             15:04:00.974730 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.974745 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.974758 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.974770 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             15:04:00.974783 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:             15:04:00.974795 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Modified var:.. v = 'def'
+IE_TRACE:             15:04:00.974933 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.974951 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.975088 line      2260             if im:
+IE_TRACE:             15:04:00.975108 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.975123 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.975257 line      2260             if im:
+IE_TRACE:             15:04:00.975275 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.975290 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.975305 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"def"'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(13, 14), match=','>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.975324 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.975343 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = ','
+IE_TRACE:             15:04:00.975356 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.975372 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.975385 line      2248             return ""
+IE_TRACE:             15:04:00.975398 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:04:00.975435 return    2266     return re.sub(r'''(?sx)
+IE_TRACE:     Return value:.. '["abc", "def"]'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Modified var:.. on = '["abc", "def"]'
+IE_TRACE: 15:04:00.975454 line       841         self.assertEqual(json.loads(on), ['abc', 'def'])
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:00.976306 line       843         on = js_to_json('[/*comment\n*/"abc"/*comment\n*/,/*comment\n*/"def",/*comment\n*/]')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. code = '[/*comment\n*/"abc"/*comment\n*/,/*comment\n*/"def",/*comment\n*/]'
+IE_TRACE:     15:04:00.976322 call      2235 def js_to_json(code):
+IE_TRACE:     15:04:00.976338 line      2236     COMMENT_RE = r'/\*(?:(?!\*/).)*?\*/|//[^\n]*'
+IE_TRACE:     New var:....... COMMENT_RE = '/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*'
+IE_TRACE:     15:04:00.976348 line      2237     SKIP_RE = r'\s*(?:{comment})?\s*'.format(comment=COMMENT_RE)
+IE_TRACE:     New var:....... SKIP_RE = '\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*'
+IE_TRACE:     15:04:00.976362 line      2239         (r'(?s)^(0[xX][0-9a-fA-F]+){skip}:?$'.format(skip=SKIP_RE), 16),
+IE_TRACE:     15:04:00.976376 line      2240         (r'(?s)^(0+[0-7]+){skip}:?$'.format(skip=SKIP_RE), 8),
+IE_TRACE:     15:04:00.976388 line      2238     INTEGER_TABLE = (
+IE_TRACE:     New var:....... INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:     15:04:00.976399 line      2243     def fix_kv(m):
+IE_TRACE:     New var:....... fix_kv = <function js_to_json.<locals>.fix_kv at 0x75bcce32b100>
+IE_TRACE:     15:04:00.976414 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:     15:04:00.976430 line      2273         '''.format(comment=COMMENT_RE, skip=SKIP_RE), fix_kv, code)
+IE_TRACE:     15:04:00.976444 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(1, 13), match='/*comment\n*/'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.976576 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.976596 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/*comment\n*/'
+IE_TRACE:             15:04:00.976608 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.976624 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.976637 line      2248             return ""
+IE_TRACE:             15:04:00.976649 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(13, 18), match='"abc"'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.976666 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.976684 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '"abc"'
+IE_TRACE:             15:04:00.976696 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.976711 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.976724 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.976736 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             15:04:00.976749 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:             15:04:00.976761 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Modified var:.. v = 'abc'
+IE_TRACE:             15:04:00.976899 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.976917 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.977051 line      2260             if im:
+IE_TRACE:             15:04:00.977072 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.977087 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.977221 line      2260             if im:
+IE_TRACE:             15:04:00.977239 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.977254 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.977269 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"abc"'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(18, 30), match='/*comment\n*/'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.977288 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.977305 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/*comment\n*/'
+IE_TRACE:             15:04:00.977317 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.977332 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.977345 line      2248             return ""
+IE_TRACE:             15:04:00.977357 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(31, 43), match='/*comment\n*/'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.977375 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.977392 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/*comment\n*/'
+IE_TRACE:             15:04:00.977404 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.977419 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.977432 line      2248             return ""
+IE_TRACE:             15:04:00.977444 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(43, 48), match='"def"'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.977460 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.977477 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '"def"'
+IE_TRACE:             15:04:00.977489 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.977504 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.977516 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.977529 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             15:04:00.977541 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:             15:04:00.977554 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Modified var:.. v = 'def'
+IE_TRACE:             15:04:00.977691 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.977709 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.977841 line      2260             if im:
+IE_TRACE:             15:04:00.977861 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.977876 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.978009 line      2260             if im:
+IE_TRACE:             15:04:00.978027 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.978042 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.978057 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"def"'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(48, 49), match=','>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.978076 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.978093 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = ','
+IE_TRACE:             15:04:00.978105 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.978120 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.978133 line      2248             return ""
+IE_TRACE:             15:04:00.978146 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(49, 61), match='/*comment\n*/'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.978162 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.978179 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/*comment\n*/'
+IE_TRACE:             15:04:00.978191 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.978206 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.978218 line      2248             return ""
+IE_TRACE:             15:04:00.978231 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:04:00.978267 return    2266     return re.sub(r'''(?sx)
+IE_TRACE:     Return value:.. '["abc","def"]'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Modified var:.. on = '["abc","def"]'
+IE_TRACE: 15:04:00.978286 line       844         self.assertEqual(json.loads(on), ['abc', 'def'])
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:00.979112 line       846         on = js_to_json('[//comment\n"abc" //comment\n,//comment\n"def",//comment\n]')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. code = '[//comment\n"abc" //comment\n,//comment\n"def",//comment\n]'
+IE_TRACE:     15:04:00.979128 call      2235 def js_to_json(code):
+IE_TRACE:     15:04:00.979144 line      2236     COMMENT_RE = r'/\*(?:(?!\*/).)*?\*/|//[^\n]*'
+IE_TRACE:     New var:....... COMMENT_RE = '/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*'
+IE_TRACE:     15:04:00.979154 line      2237     SKIP_RE = r'\s*(?:{comment})?\s*'.format(comment=COMMENT_RE)
+IE_TRACE:     New var:....... SKIP_RE = '\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*'
+IE_TRACE:     15:04:00.979167 line      2239         (r'(?s)^(0[xX][0-9a-fA-F]+){skip}:?$'.format(skip=SKIP_RE), 16),
+IE_TRACE:     15:04:00.979181 line      2240         (r'(?s)^(0+[0-7]+){skip}:?$'.format(skip=SKIP_RE), 8),
+IE_TRACE:     15:04:00.979193 line      2238     INTEGER_TABLE = (
+IE_TRACE:     New var:....... INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:     15:04:00.979204 line      2243     def fix_kv(m):
+IE_TRACE:     New var:....... fix_kv = <function js_to_json.<locals>.fix_kv at 0x75bcce32b100>
+IE_TRACE:     15:04:00.979219 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:     15:04:00.979235 line      2273         '''.format(comment=COMMENT_RE, skip=SKIP_RE), fix_kv, code)
+IE_TRACE:     15:04:00.979249 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(1, 10), match='//comment'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.979376 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.979396 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '//comment'
+IE_TRACE:             15:04:00.979408 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.979424 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.979437 line      2248             return ""
+IE_TRACE:             15:04:00.979449 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(11, 16), match='"abc"'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.979466 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.979484 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '"abc"'
+IE_TRACE:             15:04:00.979496 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.979511 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.979523 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.979536 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             15:04:00.979548 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:             15:04:00.979561 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Modified var:.. v = 'abc'
+IE_TRACE:             15:04:00.979701 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.979719 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.979853 line      2260             if im:
+IE_TRACE:             15:04:00.979873 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.979888 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.980022 line      2260             if im:
+IE_TRACE:             15:04:00.980040 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.980055 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.980070 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"abc"'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(17, 26), match='//comment'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.980088 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.980105 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '//comment'
+IE_TRACE:             15:04:00.980118 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.980133 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.980146 line      2248             return ""
+IE_TRACE:             15:04:00.980158 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(28, 37), match='//comment'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.980175 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.980193 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '//comment'
+IE_TRACE:             15:04:00.980205 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.980219 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.980232 line      2248             return ""
+IE_TRACE:             15:04:00.980244 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(38, 43), match='"def"'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.980261 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.980277 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '"def"'
+IE_TRACE:             15:04:00.980289 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.980304 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.980316 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.980329 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             15:04:00.980341 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:             15:04:00.980354 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Modified var:.. v = 'def'
+IE_TRACE:             15:04:00.980491 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.980510 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.980645 line      2260             if im:
+IE_TRACE:             15:04:00.980666 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.980680 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.980813 line      2260             if im:
+IE_TRACE:             15:04:00.980831 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.980846 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.980860 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"def"'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(43, 44), match=','>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.980879 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.980897 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = ','
+IE_TRACE:             15:04:00.980909 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.980924 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.980937 line      2248             return ""
+IE_TRACE:             15:04:00.980950 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(44, 53), match='//comment'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.980966 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.980983 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '//comment'
+IE_TRACE:             15:04:00.980995 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.981010 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.981023 line      2248             return ""
+IE_TRACE:             15:04:00.981035 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:04:00.981072 return    2266     return re.sub(r'''(?sx)
+IE_TRACE:     Return value:.. '[\n"abc" \n,\n"def"\n]'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Modified var:.. on = '[\n"abc" \n,\n"def"\n]'
+IE_TRACE: 15:04:00.981092 line       847         self.assertEqual(json.loads(on), ['abc', 'def'])
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:00.981911 line       849         on = js_to_json('{"abc": "def",}')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. code = '{"abc": "def",}'
+IE_TRACE:     15:04:00.981927 call      2235 def js_to_json(code):
+IE_TRACE:     15:04:00.981942 line      2236     COMMENT_RE = r'/\*(?:(?!\*/).)*?\*/|//[^\n]*'
+IE_TRACE:     New var:....... COMMENT_RE = '/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*'
+IE_TRACE:     15:04:00.981952 line      2237     SKIP_RE = r'\s*(?:{comment})?\s*'.format(comment=COMMENT_RE)
+IE_TRACE:     New var:....... SKIP_RE = '\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*'
+IE_TRACE:     15:04:00.981965 line      2239         (r'(?s)^(0[xX][0-9a-fA-F]+){skip}:?$'.format(skip=SKIP_RE), 16),
+IE_TRACE:     15:04:00.981979 line      2240         (r'(?s)^(0+[0-7]+){skip}:?$'.format(skip=SKIP_RE), 8),
+IE_TRACE:     15:04:00.981990 line      2238     INTEGER_TABLE = (
+IE_TRACE:     New var:....... INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:     15:04:00.982001 line      2243     def fix_kv(m):
+IE_TRACE:     New var:....... fix_kv = <function js_to_json.<locals>.fix_kv at 0x75bcce32b100>
+IE_TRACE:     15:04:00.982016 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:     15:04:00.982031 line      2273         '''.format(comment=COMMENT_RE, skip=SKIP_RE), fix_kv, code)
+IE_TRACE:     15:04:00.982045 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(1, 6), match='"abc"'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.982172 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.982192 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '"abc"'
+IE_TRACE:             15:04:00.982204 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.982219 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.982233 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.982245 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             15:04:00.982258 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:             15:04:00.982270 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Modified var:.. v = 'abc'
+IE_TRACE:             15:04:00.982408 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.982425 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.982559 line      2260             if im:
+IE_TRACE:             15:04:00.982582 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.982597 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.982732 line      2260             if im:
+IE_TRACE:             15:04:00.982749 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.982764 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.982779 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"abc"'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(8, 13), match='"def"'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.982798 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.982815 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '"def"'
+IE_TRACE:             15:04:00.982827 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.982842 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.982854 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.982867 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             15:04:00.982880 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:             15:04:00.982892 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Modified var:.. v = 'def'
+IE_TRACE:             15:04:00.983029 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.983047 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.983180 line      2260             if im:
+IE_TRACE:             15:04:00.983201 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.983216 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.983349 line      2260             if im:
+IE_TRACE:             15:04:00.983366 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.983381 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.983396 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"def"'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(13, 14), match=','>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.983414 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.983432 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = ','
+IE_TRACE:             15:04:00.983444 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.983459 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.983471 line      2248             return ""
+IE_TRACE:             15:04:00.983484 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:04:00.983520 return    2266     return re.sub(r'''(?sx)
+IE_TRACE:     Return value:.. '{"abc": "def"}'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Modified var:.. on = '{"abc": "def"}'
+IE_TRACE: 15:04:00.983539 line       850         self.assertEqual(json.loads(on), {'abc': 'def'})
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:00.984218 line       852         on = js_to_json('{/*comment\n*/"abc"/*comment\n*/:/*comment\n*/"def"/*comment\n*/,/*comment\n*/}')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. code = '{/*comment\n*/"abc"/*comment\n*/:/*comment\n*/"def"/*comment\n*/,/*comment\n*/}'
+IE_TRACE:     15:04:00.984233 call      2235 def js_to_json(code):
+IE_TRACE:     15:04:00.984249 line      2236     COMMENT_RE = r'/\*(?:(?!\*/).)*?\*/|//[^\n]*'
+IE_TRACE:     New var:....... COMMENT_RE = '/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*'
+IE_TRACE:     15:04:00.984259 line      2237     SKIP_RE = r'\s*(?:{comment})?\s*'.format(comment=COMMENT_RE)
+IE_TRACE:     New var:....... SKIP_RE = '\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*'
+IE_TRACE:     15:04:00.984272 line      2239         (r'(?s)^(0[xX][0-9a-fA-F]+){skip}:?$'.format(skip=SKIP_RE), 16),
+IE_TRACE:     15:04:00.984286 line      2240         (r'(?s)^(0+[0-7]+){skip}:?$'.format(skip=SKIP_RE), 8),
+IE_TRACE:     15:04:00.984297 line      2238     INTEGER_TABLE = (
+IE_TRACE:     New var:....... INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:     15:04:00.984308 line      2243     def fix_kv(m):
+IE_TRACE:     New var:....... fix_kv = <function js_to_json.<locals>.fix_kv at 0x75bcce32b100>
+IE_TRACE:     15:04:00.984323 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:     15:04:00.984339 line      2273         '''.format(comment=COMMENT_RE, skip=SKIP_RE), fix_kv, code)
+IE_TRACE:     15:04:00.984353 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(1, 13), match='/*comment\n*/'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.984479 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.984499 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/*comment\n*/'
+IE_TRACE:             15:04:00.984511 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.984527 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.984540 line      2248             return ""
+IE_TRACE:             15:04:00.984552 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(13, 18), match='"abc"'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.984569 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.984587 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '"abc"'
+IE_TRACE:             15:04:00.984599 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.984614 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.984627 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.984639 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             15:04:00.984652 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:             15:04:00.984664 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Modified var:.. v = 'abc'
+IE_TRACE:             15:04:00.984801 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.984820 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.984957 line      2260             if im:
+IE_TRACE:             15:04:00.984977 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.984992 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.985126 line      2260             if im:
+IE_TRACE:             15:04:00.985144 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.985159 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.985174 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"abc"'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(18, 30), match='/*comment\n*/'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.985193 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.985210 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/*comment\n*/'
+IE_TRACE:             15:04:00.985223 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.985238 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.985250 line      2248             return ""
+IE_TRACE:             15:04:00.985263 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(31, 43), match='/*comment\n*/'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.985279 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.985297 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/*comment\n*/'
+IE_TRACE:             15:04:00.985309 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.985324 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.985337 line      2248             return ""
+IE_TRACE:             15:04:00.985349 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(43, 48), match='"def"'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.985365 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.985382 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '"def"'
+IE_TRACE:             15:04:00.985394 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.985409 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.985422 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.985434 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             15:04:00.985446 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:             15:04:00.985459 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Modified var:.. v = 'def'
+IE_TRACE:             15:04:00.985597 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.985615 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.985748 line      2260             if im:
+IE_TRACE:             15:04:00.985768 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.985783 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.985916 line      2260             if im:
+IE_TRACE:             15:04:00.985934 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.985949 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.985964 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"def"'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(48, 60), match='/*comment\n*/'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.985982 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.986000 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/*comment\n*/'
+IE_TRACE:             15:04:00.986012 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.986027 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.986040 line      2248             return ""
+IE_TRACE:             15:04:00.986052 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(60, 61), match=','>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.986069 call      2243     def fix_kv(m):
+IE_TRACE:     [CONDENSED] 1 identical loop iterations skipped (3 total iterations, showing first and last)
+IE_TRACE:             15:04:00.986172 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/*comment\n*/'
+IE_TRACE:             15:04:00.986184 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.986198 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.986211 line      2248             return ""
+IE_TRACE:             15:04:00.986223 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:04:00.986260 return    2266     return re.sub(r'''(?sx)
+IE_TRACE:     Return value:.. '{"abc":"def"}'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Modified var:.. on = '{"abc":"def"}'
+IE_TRACE: 15:04:00.986279 line       853         self.assertEqual(json.loads(on), {'abc': 'def'})
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:00.986958 line       855         on = js_to_json('{ 0: /* " \n */ ",]" , }')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. code = '{ 0: /* " \n */ ",]" , }'
+IE_TRACE:     15:04:00.986973 call      2235 def js_to_json(code):
+IE_TRACE:     15:04:00.986988 line      2236     COMMENT_RE = r'/\*(?:(?!\*/).)*?\*/|//[^\n]*'
+IE_TRACE:     New var:....... COMMENT_RE = '/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*'
+IE_TRACE:     15:04:00.986998 line      2237     SKIP_RE = r'\s*(?:{comment})?\s*'.format(comment=COMMENT_RE)
+IE_TRACE:     New var:....... SKIP_RE = '\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*'
+IE_TRACE:     15:04:00.987011 line      2239         (r'(?s)^(0[xX][0-9a-fA-F]+){skip}:?$'.format(skip=SKIP_RE), 16),
+IE_TRACE:     15:04:00.987025 line      2240         (r'(?s)^(0+[0-7]+){skip}:?$'.format(skip=SKIP_RE), 8),
+IE_TRACE:     15:04:00.987037 line      2238     INTEGER_TABLE = (
+IE_TRACE:     New var:....... INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:     15:04:00.987048 line      2243     def fix_kv(m):
+IE_TRACE:     New var:....... fix_kv = <function js_to_json.<locals>.fix_kv at 0x75bcce32b100>
+IE_TRACE:     15:04:00.987063 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:     15:04:00.987078 line      2273         '''.format(comment=COMMENT_RE, skip=SKIP_RE), fix_kv, code)
+IE_TRACE:     15:04:00.987092 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(2, 3), match='0'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.987220 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.987240 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '0'
+IE_TRACE:             15:04:00.987253 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.987268 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.987281 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.987294 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.987306 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.987441 line      2260             if im:
+IE_TRACE:             15:04:00.987462 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.987477 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.987614 line      2260             if im:
+IE_TRACE:             15:04:00.987632 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.987647 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.987662 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"0"'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(5, 14), match='/* " \n */'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.987681 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.987699 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/* " \n */'
+IE_TRACE:             15:04:00.987711 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.987727 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.987739 line      2248             return ""
+IE_TRACE:             15:04:00.987752 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(15, 19), match='",]"'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.987769 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.987786 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '",]"'
+IE_TRACE:             15:04:00.987798 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.987813 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.987826 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.987839 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             15:04:00.987851 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:             15:04:00.987864 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Modified var:.. v = ',]'
+IE_TRACE:             15:04:00.988002 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.988020 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.988155 line      2260             if im:
+IE_TRACE:             15:04:00.988175 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.988190 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.988324 line      2260             if im:
+IE_TRACE:             15:04:00.988341 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.988356 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.988371 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '",]"'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(20, 21), match=','>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.988390 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.988407 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = ','
+IE_TRACE:             15:04:00.988419 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.988434 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.988447 line      2248             return ""
+IE_TRACE:             15:04:00.988460 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:04:00.988496 return    2266     return re.sub(r'''(?sx)
+IE_TRACE:     Return value:.. '{ "0":  ",]"  }'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Modified var:.. on = '{ "0":  ",]"  }'
+IE_TRACE: 15:04:00.988516 line       856         self.assertEqual(json.loads(on), {'0': ',]'})
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:00.989195 line       858         on = js_to_json('{ /*comment\n*/0/*comment\n*/: /* " \n */ ",]" , }')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. code = '{ /*comment\n*/0/*comment\n*/: /* " \n */ ",]" , }'
+IE_TRACE:     15:04:00.989210 call      2235 def js_to_json(code):
+IE_TRACE:     15:04:00.989226 line      2236     COMMENT_RE = r'/\*(?:(?!\*/).)*?\*/|//[^\n]*'
+IE_TRACE:     New var:....... COMMENT_RE = '/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*'
+IE_TRACE:     15:04:00.989236 line      2237     SKIP_RE = r'\s*(?:{comment})?\s*'.format(comment=COMMENT_RE)
+IE_TRACE:     New var:....... SKIP_RE = '\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*'
+IE_TRACE:     15:04:00.989249 line      2239         (r'(?s)^(0[xX][0-9a-fA-F]+){skip}:?$'.format(skip=SKIP_RE), 16),
+IE_TRACE:     15:04:00.989263 line      2240         (r'(?s)^(0+[0-7]+){skip}:?$'.format(skip=SKIP_RE), 8),
+IE_TRACE:     15:04:00.989274 line      2238     INTEGER_TABLE = (
+IE_TRACE:     New var:....... INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:     15:04:00.989285 line      2243     def fix_kv(m):
+IE_TRACE:     New var:....... fix_kv = <function js_to_json.<locals>.fix_kv at 0x75bcce32b100>
+IE_TRACE:     15:04:00.989301 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:     15:04:00.989316 line      2273         '''.format(comment=COMMENT_RE, skip=SKIP_RE), fix_kv, code)
+IE_TRACE:     15:04:00.989330 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(2, 14), match='/*comment\n*/'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.989460 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.989480 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/*comment\n*/'
+IE_TRACE:             15:04:00.989493 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.989508 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.989522 line      2248             return ""
+IE_TRACE:             15:04:00.989535 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(14, 15), match='0'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.989553 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.989572 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '0'
+IE_TRACE:             15:04:00.989584 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.989599 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.989612 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.989625 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.989637 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.989775 line      2260             if im:
+IE_TRACE:             15:04:00.989796 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.989811 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.989948 line      2260             if im:
+IE_TRACE:             15:04:00.989967 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.989982 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.989997 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"0"'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(15, 27), match='/*comment\n*/'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.990016 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.990034 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/*comment\n*/'
+IE_TRACE:             15:04:00.990047 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.990062 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.990075 line      2248             return ""
+IE_TRACE:             15:04:00.990088 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(29, 38), match='/* " \n */'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.990104 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.990122 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/* " \n */'
+IE_TRACE:             15:04:00.990134 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.990149 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.990162 line      2248             return ""
+IE_TRACE:             15:04:00.990175 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(39, 43), match='",]"'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.990191 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.990208 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '",]"'
+IE_TRACE:             15:04:00.990220 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.990235 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.990248 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.990261 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             15:04:00.990273 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:             15:04:00.990286 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Modified var:.. v = ',]'
+IE_TRACE:             15:04:00.990426 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.990445 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.990583 line      2260             if im:
+IE_TRACE:             15:04:00.990604 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.990619 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.990754 line      2260             if im:
+IE_TRACE:             15:04:00.990772 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.990787 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.990802 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '",]"'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(44, 45), match=','>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.990821 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.990839 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = ','
+IE_TRACE:             15:04:00.990851 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.990866 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.990879 line      2248             return ""
+IE_TRACE:             15:04:00.990892 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:04:00.990929 return    2266     return re.sub(r'''(?sx)
+IE_TRACE:     Return value:.. '{ "0":  ",]"  }'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:00.990949 line       859         self.assertEqual(json.loads(on), {'0': ',]'})
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:00.991643 line       861         on = js_to_json('{ 0: // comment\n1 }')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. code = '{ 0: // comment\n1 }'
+IE_TRACE:     15:04:00.991658 call      2235 def js_to_json(code):
+IE_TRACE:     15:04:00.991674 line      2236     COMMENT_RE = r'/\*(?:(?!\*/).)*?\*/|//[^\n]*'
+IE_TRACE:     New var:....... COMMENT_RE = '/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*'
+IE_TRACE:     15:04:00.991684 line      2237     SKIP_RE = r'\s*(?:{comment})?\s*'.format(comment=COMMENT_RE)
+IE_TRACE:     New var:....... SKIP_RE = '\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*'
+IE_TRACE:     15:04:00.991697 line      2239         (r'(?s)^(0[xX][0-9a-fA-F]+){skip}:?$'.format(skip=SKIP_RE), 16),
+IE_TRACE:     15:04:00.991711 line      2240         (r'(?s)^(0+[0-7]+){skip}:?$'.format(skip=SKIP_RE), 8),
+IE_TRACE:     15:04:00.991723 line      2238     INTEGER_TABLE = (
+IE_TRACE:     New var:....... INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:     15:04:00.991733 line      2243     def fix_kv(m):
+IE_TRACE:     New var:....... fix_kv = <function js_to_json.<locals>.fix_kv at 0x75bcce32b100>
+IE_TRACE:     15:04:00.991749 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:     15:04:00.991765 line      2273         '''.format(comment=COMMENT_RE, skip=SKIP_RE), fix_kv, code)
+IE_TRACE:     15:04:00.991779 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(2, 3), match='0'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.991908 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.991928 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '0'
+IE_TRACE:             15:04:00.991941 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.991956 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.991969 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.991982 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.991995 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.992131 line      2260             if im:
+IE_TRACE:             15:04:00.992152 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.992167 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.992302 line      2260             if im:
+IE_TRACE:             15:04:00.992320 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.992335 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.992350 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"0"'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(5, 15), match='// comment'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.992369 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.992386 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '// comment'
+IE_TRACE:             15:04:00.992399 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.992414 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.992427 line      2248             return ""
+IE_TRACE:             15:04:00.992439 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:04:00.992476 return    2266     return re.sub(r'''(?sx)
+IE_TRACE:     Return value:.. '{ "0": \n1 }'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Modified var:.. on = '{ "0": \n1 }'
+IE_TRACE: 15:04:00.992496 line       862         self.assertEqual(json.loads(on), {'0': 1})
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:00.993166 line       864         on = js_to_json(r'["<p>x<\/p>"]')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. code = '["<p>x<\\/p>"]'
+IE_TRACE:     15:04:00.993181 call      2235 def js_to_json(code):
+IE_TRACE:     15:04:00.993196 line      2236     COMMENT_RE = r'/\*(?:(?!\*/).)*?\*/|//[^\n]*'
+IE_TRACE:     New var:....... COMMENT_RE = '/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*'
+IE_TRACE:     15:04:00.993206 line      2237     SKIP_RE = r'\s*(?:{comment})?\s*'.format(comment=COMMENT_RE)
+IE_TRACE:     New var:....... SKIP_RE = '\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*'
+IE_TRACE:     15:04:00.993219 line      2239         (r'(?s)^(0[xX][0-9a-fA-F]+){skip}:?$'.format(skip=SKIP_RE), 16),
+IE_TRACE:     15:04:00.993233 line      2240         (r'(?s)^(0+[0-7]+){skip}:?$'.format(skip=SKIP_RE), 8),
+IE_TRACE:     15:04:00.993244 line      2238     INTEGER_TABLE = (
+IE_TRACE:     New var:....... INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:     15:04:00.993255 line      2243     def fix_kv(m):
+IE_TRACE:     New var:....... fix_kv = <function js_to_json.<locals>.fix_kv at 0x75bcce32b100>
+IE_TRACE:     15:04:00.993270 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:     15:04:00.993285 line      2273         '''.format(comment=COMMENT_RE, skip=SKIP_RE), fix_kv, code)
+IE_TRACE:     15:04:00.993299 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(1, 12), match='"<p>x<\\/p>"'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.993425 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.993445 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '"<p>x<\\/p>"'
+IE_TRACE:             15:04:00.993458 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.993473 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.993486 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.993498 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             15:04:00.993511 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:             15:04:00.993523 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:                     Starting var:.. m = <re.Match object; span=(5, 7), match='\\/'>
+IE_TRACE:                     15:04:00.993647 call      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     15:04:00.993663 line      2252                 '"': '\\"',
+IE_TRACE:                     15:04:00.993673 line      2253                 "\\'": "'",
+IE_TRACE:                     15:04:00.993683 line      2254                 '\\\n': '',
+IE_TRACE:                     15:04:00.993693 line      2255                 '\\x': '\\u00',
+IE_TRACE:                     15:04:00.993703 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     15:04:00.993713 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:                     15:04:00.993723 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     15:04:00.993733 return    2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     Return value:.. '\\/'
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Modified var:.. v = '<p>x<\\/p>'
+IE_TRACE:             15:04:00.993767 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.993785 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.993919 line      2260             if im:
+IE_TRACE:             15:04:00.993939 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.993954 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.994088 line      2260             if im:
+IE_TRACE:             15:04:00.994106 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.994120 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.994136 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"<p>x<\\/p>"'
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:04:00.994174 return    2266     return re.sub(r'''(?sx)
+IE_TRACE:     Return value:.. '["<p>x<\\/p>"]'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Modified var:.. on = '["<p>x<\\/p>"]'
+IE_TRACE: 15:04:00.994192 line       865         self.assertEqual(json.loads(on), ['<p>x</p>'])
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:00.995009 line       867         on = js_to_json(r'["\xaa"]')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. code = '["\\xaa"]'
+IE_TRACE:     15:04:00.995025 call      2235 def js_to_json(code):
+IE_TRACE:     15:04:00.995041 line      2236     COMMENT_RE = r'/\*(?:(?!\*/).)*?\*/|//[^\n]*'
+IE_TRACE:     New var:....... COMMENT_RE = '/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*'
+IE_TRACE:     15:04:00.995050 line      2237     SKIP_RE = r'\s*(?:{comment})?\s*'.format(comment=COMMENT_RE)
+IE_TRACE:     New var:....... SKIP_RE = '\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*'
+IE_TRACE:     15:04:00.995063 line      2239         (r'(?s)^(0[xX][0-9a-fA-F]+){skip}:?$'.format(skip=SKIP_RE), 16),
+IE_TRACE:     15:04:00.995077 line      2240         (r'(?s)^(0+[0-7]+){skip}:?$'.format(skip=SKIP_RE), 8),
+IE_TRACE:     15:04:00.995089 line      2238     INTEGER_TABLE = (
+IE_TRACE:     New var:....... INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:     15:04:00.995100 line      2243     def fix_kv(m):
+IE_TRACE:     New var:....... fix_kv = <function js_to_json.<locals>.fix_kv at 0x75bcce32b100>
+IE_TRACE:     15:04:00.995115 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:     15:04:00.995130 line      2273         '''.format(comment=COMMENT_RE, skip=SKIP_RE), fix_kv, code)
+IE_TRACE:     15:04:00.995144 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(1, 7), match='"\\xaa"'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.995270 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.995290 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '"\\xaa"'
+IE_TRACE:             15:04:00.995302 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.995317 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.995330 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.995343 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             15:04:00.995355 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:             15:04:00.995368 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:                     Starting var:.. m = <re.Match object; span=(0, 2), match='\\x'>
+IE_TRACE:                     15:04:00.995491 call      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     15:04:00.995507 line      2252                 '"': '\\"',
+IE_TRACE:                     15:04:00.995517 line      2253                 "\\'": "'",
+IE_TRACE:                     15:04:00.995526 line      2254                 '\\\n': '',
+IE_TRACE:                     15:04:00.995536 line      2255                 '\\x': '\\u00',
+IE_TRACE:                     15:04:00.995546 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     15:04:00.995555 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:                     15:04:00.995566 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     15:04:00.995578 return    2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     Return value:.. '\\u00'
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Modified var:.. v = '\\u00aa'
+IE_TRACE:             15:04:00.995611 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.995628 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.995763 line      2260             if im:
+IE_TRACE:             15:04:00.995783 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.995798 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.995932 line      2260             if im:
+IE_TRACE:             15:04:00.995950 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.995964 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.995980 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"\\u00aa"'
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:04:00.996018 return    2266     return re.sub(r'''(?sx)
+IE_TRACE:     Return value:.. '["\\u00aa"]'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Modified var:.. on = '["\\u00aa"]'
+IE_TRACE: 15:04:00.996036 line       868         self.assertEqual(json.loads(on), ['\u00aa'])
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:00.996855 line       870         on = js_to_json("['a\\\nb']")
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. code = "['a\\\nb']"
+IE_TRACE:     15:04:00.996871 call      2235 def js_to_json(code):
+IE_TRACE:     15:04:00.996886 line      2236     COMMENT_RE = r'/\*(?:(?!\*/).)*?\*/|//[^\n]*'
+IE_TRACE:     New var:....... COMMENT_RE = '/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*'
+IE_TRACE:     15:04:00.996896 line      2237     SKIP_RE = r'\s*(?:{comment})?\s*'.format(comment=COMMENT_RE)
+IE_TRACE:     New var:....... SKIP_RE = '\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*'
+IE_TRACE:     15:04:00.996909 line      2239         (r'(?s)^(0[xX][0-9a-fA-F]+){skip}:?$'.format(skip=SKIP_RE), 16),
+IE_TRACE:     15:04:00.996923 line      2240         (r'(?s)^(0+[0-7]+){skip}:?$'.format(skip=SKIP_RE), 8),
+IE_TRACE:     15:04:00.996934 line      2238     INTEGER_TABLE = (
+IE_TRACE:     New var:....... INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:     15:04:00.996945 line      2243     def fix_kv(m):
+IE_TRACE:     New var:....... fix_kv = <function js_to_json.<locals>.fix_kv at 0x75bcce32b100>
+IE_TRACE:     15:04:00.996960 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:     15:04:00.996976 line      2273         '''.format(comment=COMMENT_RE, skip=SKIP_RE), fix_kv, code)
+IE_TRACE:     15:04:00.996989 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(1, 7), match="'a\\\nb'">
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.997117 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.997137 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = "'a\\\nb'"
+IE_TRACE:             15:04:00.997149 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.997165 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.997178 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.997191 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             15:04:00.997203 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:             15:04:00.997216 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:                     Starting var:.. m = <re.Match object; span=(1, 3), match='\\\n'>
+IE_TRACE:                     15:04:00.997337 call      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     15:04:00.997353 line      2252                 '"': '\\"',
+IE_TRACE:                     15:04:00.997363 line      2253                 "\\'": "'",
+IE_TRACE:                     15:04:00.997373 line      2254                 '\\\n': '',
+IE_TRACE:                     15:04:00.997383 line      2255                 '\\x': '\\u00',
+IE_TRACE:                     15:04:00.997392 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     15:04:00.997402 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:                     15:04:00.997412 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     15:04:00.997422 return    2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     Return value:.. ''
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Modified var:.. v = 'ab'
+IE_TRACE:             15:04:00.997455 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.997473 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.997608 line      2260             if im:
+IE_TRACE:             15:04:00.997629 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.997644 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.997778 line      2260             if im:
+IE_TRACE:             15:04:00.997795 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.997810 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.997825 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"ab"'
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:04:00.997862 return    2266     return re.sub(r'''(?sx)
+IE_TRACE:     Return value:.. '["ab"]'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Modified var:.. on = '["ab"]'
+IE_TRACE: 15:04:00.997881 line       871         self.assertEqual(json.loads(on), ['ab'])
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:00.998696 line       873         on = js_to_json("/*comment\n*/[/*comment\n*/'a\\\nb'/*comment\n*/]/*comment\n*/")
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. code = "/*comment\n*/[/*comment\n*/'a\\\nb'/*comment\n*/]/*comment\n*/"
+IE_TRACE:     15:04:00.998711 call      2235 def js_to_json(code):
+IE_TRACE:     15:04:00.998728 line      2236     COMMENT_RE = r'/\*(?:(?!\*/).)*?\*/|//[^\n]*'
+IE_TRACE:     New var:....... COMMENT_RE = '/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*'
+IE_TRACE:     15:04:00.998737 line      2237     SKIP_RE = r'\s*(?:{comment})?\s*'.format(comment=COMMENT_RE)
+IE_TRACE:     New var:....... SKIP_RE = '\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*'
+IE_TRACE:     15:04:00.998751 line      2239         (r'(?s)^(0[xX][0-9a-fA-F]+){skip}:?$'.format(skip=SKIP_RE), 16),
+IE_TRACE:     15:04:00.998765 line      2240         (r'(?s)^(0+[0-7]+){skip}:?$'.format(skip=SKIP_RE), 8),
+IE_TRACE:     15:04:00.998776 line      2238     INTEGER_TABLE = (
+IE_TRACE:     New var:....... INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:     15:04:00.998787 line      2243     def fix_kv(m):
+IE_TRACE:     New var:....... fix_kv = <function js_to_json.<locals>.fix_kv at 0x75bcce32b100>
+IE_TRACE:     15:04:00.998802 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:     15:04:00.998818 line      2273         '''.format(comment=COMMENT_RE, skip=SKIP_RE), fix_kv, code)
+IE_TRACE:     15:04:00.998832 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(0, 12), match='/*comment\n*/'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.998960 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.998981 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/*comment\n*/'
+IE_TRACE:             15:04:00.998993 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.999009 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.999022 line      2248             return ""
+IE_TRACE:             15:04:00.999034 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(13, 25), match='/*comment\n*/'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.999051 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.999068 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/*comment\n*/'
+IE_TRACE:             15:04:00.999081 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.999097 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.999109 line      2248             return ""
+IE_TRACE:             15:04:00.999122 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(25, 31), match="'a\\\nb'">
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.999138 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.999156 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = "'a\\\nb'"
+IE_TRACE:             15:04:00.999168 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.999183 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.999196 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:00.999209 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:             15:04:00.999222 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:             15:04:00.999234 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:                     Starting var:.. m = <re.Match object; span=(1, 3), match='\\\n'>
+IE_TRACE:                     15:04:00.999357 call      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     15:04:00.999373 line      2252                 '"': '\\"',
+IE_TRACE:                     15:04:00.999383 line      2253                 "\\'": "'",
+IE_TRACE:                     15:04:00.999393 line      2254                 '\\\n': '',
+IE_TRACE:                     15:04:00.999402 line      2255                 '\\x': '\\u00',
+IE_TRACE:                     15:04:00.999412 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     15:04:00.999422 line      2256             }.get(m.group(0), m.group(0)), v[1:-1])
+IE_TRACE:                     15:04:00.999432 line      2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     15:04:00.999442 return    2251             v = re.sub(r'(?s)\\.|"', lambda m: {
+IE_TRACE:                     Return value:.. ''
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Modified var:.. v = 'ab'
+IE_TRACE:             15:04:00.999475 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:00.999493 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:00.999632 line      2260             if im:
+IE_TRACE:             15:04:00.999653 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:00.999668 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:00.999803 line      2260             if im:
+IE_TRACE:             15:04:00.999821 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:00.999836 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:00.999851 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"ab"'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(31, 43), match='/*comment\n*/'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.999870 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.999888 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/*comment\n*/'
+IE_TRACE:             15:04:00.999900 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:00.999916 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:00.999928 line      2248             return ""
+IE_TRACE:             15:04:00.999941 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(44, 56), match='/*comment\n*/'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:00.999957 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:00.999974 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/*comment\n*/'
+IE_TRACE:             15:04:00.999987 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:01.000002 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:01.000015 line      2248             return ""
+IE_TRACE:             15:04:01.000027 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:04:01.000063 return    2266     return re.sub(r'''(?sx)
+IE_TRACE:     Return value:.. '["ab"]'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:01.000082 line       874         self.assertEqual(json.loads(on), ['ab'])
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:01.000897 line       876         on = js_to_json('{0xff:0xff}')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. code = '{0xff:0xff}'
+IE_TRACE:     15:04:01.000912 call      2235 def js_to_json(code):
+IE_TRACE:     15:04:01.000927 line      2236     COMMENT_RE = r'/\*(?:(?!\*/).)*?\*/|//[^\n]*'
+IE_TRACE:     New var:....... COMMENT_RE = '/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*'
+IE_TRACE:     15:04:01.000937 line      2237     SKIP_RE = r'\s*(?:{comment})?\s*'.format(comment=COMMENT_RE)
+IE_TRACE:     New var:....... SKIP_RE = '\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*'
+IE_TRACE:     15:04:01.000950 line      2239         (r'(?s)^(0[xX][0-9a-fA-F]+){skip}:?$'.format(skip=SKIP_RE), 16),
+IE_TRACE:     15:04:01.000964 line      2240         (r'(?s)^(0+[0-7]+){skip}:?$'.format(skip=SKIP_RE), 8),
+IE_TRACE:     15:04:01.000975 line      2238     INTEGER_TABLE = (
+IE_TRACE:     New var:....... INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:     15:04:01.000986 line      2243     def fix_kv(m):
+IE_TRACE:     New var:....... fix_kv = <function js_to_json.<locals>.fix_kv at 0x75bcce32b100>
+IE_TRACE:     15:04:01.001001 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:     15:04:01.001017 line      2273         '''.format(comment=COMMENT_RE, skip=SKIP_RE), fix_kv, code)
+IE_TRACE:     15:04:01.001030 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(1, 6), match='0xff:'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:01.001160 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:01.001181 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '0xff:'
+IE_TRACE:             15:04:01.001193 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:01.001208 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:01.001221 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:01.001234 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:01.001246 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = <re.Match object; span=(0, 5), match='0xff:'>
+IE_TRACE:             15:04:01.001383 line      2260             if im:
+IE_TRACE:             15:04:01.001405 line      2261                 i = int(im.group(1), base)
+IE_TRACE:             New var:....... i = 255
+IE_TRACE:             15:04:01.001422 line      2262                 return '"%d":' % i if v.endswith(':') else '%d' % i
+IE_TRACE:             15:04:01.001446 return    2262                 return '"%d":' % i if v.endswith(':') else '%d' % i
+IE_TRACE:             Return value:.. '"255":'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(6, 10), match='0xff'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:01.001468 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:01.001485 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '0xff'
+IE_TRACE:             15:04:01.001497 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:01.001513 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:01.001525 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:01.001538 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:01.001550 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = <re.Match object; span=(0, 4), match='0xff'>
+IE_TRACE:             15:04:01.001687 line      2260             if im:
+IE_TRACE:             15:04:01.001708 line      2261                 i = int(im.group(1), base)
+IE_TRACE:             New var:....... i = 255
+IE_TRACE:             15:04:01.001723 line      2262                 return '"%d":' % i if v.endswith(':') else '%d' % i
+IE_TRACE:             15:04:01.001742 return    2262                 return '"%d":' % i if v.endswith(':') else '%d' % i
+IE_TRACE:             Return value:.. '255'
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:04:01.001782 return    2266     return re.sub(r'''(?sx)
+IE_TRACE:     Return value:.. '{"255":255}'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Modified var:.. on = '{"255":255}'
+IE_TRACE: 15:04:01.001802 line       877         self.assertEqual(json.loads(on), {'255': 255})
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:01.002485 line       879         on = js_to_json('{/*comment\n*/0xff/*comment\n*/:/*comment\n*/0xff/*comment\n*/}')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. code = '{/*comment\n*/0xff/*comment\n*/:/*comment\n*/0xff/*comment\n*/}'
+IE_TRACE:     15:04:01.002500 call      2235 def js_to_json(code):
+IE_TRACE:     15:04:01.002516 line      2236     COMMENT_RE = r'/\*(?:(?!\*/).)*?\*/|//[^\n]*'
+IE_TRACE:     New var:....... COMMENT_RE = '/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*'
+IE_TRACE:     15:04:01.002526 line      2237     SKIP_RE = r'\s*(?:{comment})?\s*'.format(comment=COMMENT_RE)
+IE_TRACE:     New var:....... SKIP_RE = '\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*'
+IE_TRACE:     15:04:01.002539 line      2239         (r'(?s)^(0[xX][0-9a-fA-F]+){skip}:?$'.format(skip=SKIP_RE), 16),
+IE_TRACE:     15:04:01.002553 line      2240         (r'(?s)^(0+[0-7]+){skip}:?$'.format(skip=SKIP_RE), 8),
+IE_TRACE:     15:04:01.002567 line      2238     INTEGER_TABLE = (
+IE_TRACE:     New var:....... INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:     15:04:01.002578 line      2243     def fix_kv(m):
+IE_TRACE:     New var:....... fix_kv = <function js_to_json.<locals>.fix_kv at 0x75bcce32b100>
+IE_TRACE:     15:04:01.002592 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:     15:04:01.002608 line      2273         '''.format(comment=COMMENT_RE, skip=SKIP_RE), fix_kv, code)
+IE_TRACE:     15:04:01.002622 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(1, 13), match='/*comment\n*/'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:01.002750 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:01.002770 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/*comment\n*/'
+IE_TRACE:             15:04:01.002782 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:01.002798 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:01.002811 line      2248             return ""
+IE_TRACE:             15:04:01.002823 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(13, 30), match='0xff/*comment\n*/:'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:01.002841 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:01.002859 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '0xff/*comment\n*/:'
+IE_TRACE:             15:04:01.002871 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:01.002886 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:01.002899 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:01.002912 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:01.002924 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = <re.Match object; span=(0, 17), match='0xff/*comment\n*/:'>
+IE_TRACE:             15:04:01.003063 line      2260             if im:
+IE_TRACE:             15:04:01.003084 line      2261                 i = int(im.group(1), base)
+IE_TRACE:             New var:....... i = 255
+IE_TRACE:             15:04:01.003100 line      2262                 return '"%d":' % i if v.endswith(':') else '%d' % i
+IE_TRACE:             15:04:01.003119 return    2262                 return '"%d":' % i if v.endswith(':') else '%d' % i
+IE_TRACE:             Return value:.. '"255":'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(30, 42), match='/*comment\n*/'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:01.003139 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:01.003157 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/*comment\n*/'
+IE_TRACE:             15:04:01.003169 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:01.003184 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:01.003197 line      2248             return ""
+IE_TRACE:             15:04:01.003209 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(42, 46), match='0xff'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:01.003226 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:01.003244 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '0xff'
+IE_TRACE:             15:04:01.003256 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:01.003271 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:01.003284 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:01.003296 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:01.003309 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = <re.Match object; span=(0, 4), match='0xff'>
+IE_TRACE:             15:04:01.003444 line      2260             if im:
+IE_TRACE:             15:04:01.003465 line      2261                 i = int(im.group(1), base)
+IE_TRACE:             New var:....... i = 255
+IE_TRACE:             15:04:01.003480 line      2262                 return '"%d":' % i if v.endswith(':') else '%d' % i
+IE_TRACE:             15:04:01.003499 return    2262                 return '"%d":' % i if v.endswith(':') else '%d' % i
+IE_TRACE:             Return value:.. '255'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(46, 58), match='/*comment\n*/'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:01.003519 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:01.003536 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/*comment\n*/'
+IE_TRACE:             15:04:01.003549 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:01.003564 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:01.003578 line      2248             return ""
+IE_TRACE:             15:04:01.003591 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:04:01.003627 return    2266     return re.sub(r'''(?sx)
+IE_TRACE:     Return value:.. '{"255":255}'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:01.003646 line       880         self.assertEqual(json.loads(on), {'255': 255})
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:01.004320 line       882         on = js_to_json('{077:077}')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. code = '{077:077}'
+IE_TRACE:     15:04:01.004335 call      2235 def js_to_json(code):
+IE_TRACE:     15:04:01.004350 line      2236     COMMENT_RE = r'/\*(?:(?!\*/).)*?\*/|//[^\n]*'
+IE_TRACE:     New var:....... COMMENT_RE = '/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*'
+IE_TRACE:     15:04:01.004360 line      2237     SKIP_RE = r'\s*(?:{comment})?\s*'.format(comment=COMMENT_RE)
+IE_TRACE:     New var:....... SKIP_RE = '\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*'
+IE_TRACE:     15:04:01.004373 line      2239         (r'(?s)^(0[xX][0-9a-fA-F]+){skip}:?$'.format(skip=SKIP_RE), 16),
+IE_TRACE:     15:04:01.004387 line      2240         (r'(?s)^(0+[0-7]+){skip}:?$'.format(skip=SKIP_RE), 8),
+IE_TRACE:     15:04:01.004398 line      2238     INTEGER_TABLE = (
+IE_TRACE:     New var:....... INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:     15:04:01.004409 line      2243     def fix_kv(m):
+IE_TRACE:     New var:....... fix_kv = <function js_to_json.<locals>.fix_kv at 0x75bcce32b100>
+IE_TRACE:     15:04:01.004424 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:     15:04:01.004439 line      2273         '''.format(comment=COMMENT_RE, skip=SKIP_RE), fix_kv, code)
+IE_TRACE:     15:04:01.004453 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(1, 5), match='077:'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:01.004581 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:01.004601 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '077:'
+IE_TRACE:             15:04:01.004613 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:01.004628 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:01.004641 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:01.004653 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:01.004666 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:01.004801 line      2260             if im:
+IE_TRACE:             15:04:01.004822 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:01.004837 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Modified var:.. im = <re.Match object; span=(0, 4), match='077:'>
+IE_TRACE:             15:04:01.004973 line      2260             if im:
+IE_TRACE:             15:04:01.004993 line      2261                 i = int(im.group(1), base)
+IE_TRACE:             New var:....... i = 63
+IE_TRACE:             15:04:01.005009 line      2262                 return '"%d":' % i if v.endswith(':') else '%d' % i
+IE_TRACE:             15:04:01.005028 return    2262                 return '"%d":' % i if v.endswith(':') else '%d' % i
+IE_TRACE:             Return value:.. '"63":'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(5, 8), match='077'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:01.005048 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:01.005066 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '077'
+IE_TRACE:             15:04:01.005078 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:01.005093 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:01.005106 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:01.005118 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:01.005131 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:01.005265 line      2260             if im:
+IE_TRACE:             15:04:01.005286 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:01.005301 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Modified var:.. im = <re.Match object; span=(0, 3), match='077'>
+IE_TRACE:             15:04:01.005435 line      2260             if im:
+IE_TRACE:             15:04:01.005456 line      2261                 i = int(im.group(1), base)
+IE_TRACE:             New var:....... i = 63
+IE_TRACE:             15:04:01.005471 line      2262                 return '"%d":' % i if v.endswith(':') else '%d' % i
+IE_TRACE:             15:04:01.005489 return    2262                 return '"%d":' % i if v.endswith(':') else '%d' % i
+IE_TRACE:             Return value:.. '63'
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:04:01.005528 return    2266     return re.sub(r'''(?sx)
+IE_TRACE:     Return value:.. '{"63":63}'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Modified var:.. on = '{"63":63}'
+IE_TRACE: 15:04:01.005546 line       883         self.assertEqual(json.loads(on), {'63': 63})
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:01.006219 line       885         on = js_to_json('{/*comment\n*/077/*comment\n*/:/*comment\n*/077/*comment\n*/}')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. code = '{/*comment\n*/077/*comment\n*/:/*comment\n*/077/*comment\n*/}'
+IE_TRACE:     15:04:01.006234 call      2235 def js_to_json(code):
+IE_TRACE:     15:04:01.006250 line      2236     COMMENT_RE = r'/\*(?:(?!\*/).)*?\*/|//[^\n]*'
+IE_TRACE:     New var:....... COMMENT_RE = '/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*'
+IE_TRACE:     15:04:01.006260 line      2237     SKIP_RE = r'\s*(?:{comment})?\s*'.format(comment=COMMENT_RE)
+IE_TRACE:     New var:....... SKIP_RE = '\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*'
+IE_TRACE:     15:04:01.006273 line      2239         (r'(?s)^(0[xX][0-9a-fA-F]+){skip}:?$'.format(skip=SKIP_RE), 16),
+IE_TRACE:     15:04:01.006287 line      2240         (r'(?s)^(0+[0-7]+){skip}:?$'.format(skip=SKIP_RE), 8),
+IE_TRACE:     15:04:01.006298 line      2238     INTEGER_TABLE = (
+IE_TRACE:     New var:....... INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:     15:04:01.006309 line      2243     def fix_kv(m):
+IE_TRACE:     New var:....... fix_kv = <function js_to_json.<locals>.fix_kv at 0x75bcce32b100>
+IE_TRACE:     15:04:01.006324 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:     15:04:01.006339 line      2273         '''.format(comment=COMMENT_RE, skip=SKIP_RE), fix_kv, code)
+IE_TRACE:     15:04:01.006353 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(1, 13), match='/*comment\n*/'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:01.006480 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:01.006500 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/*comment\n*/'
+IE_TRACE:             15:04:01.006512 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:01.006528 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:01.006540 line      2248             return ""
+IE_TRACE:             15:04:01.006553 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(13, 29), match='077/*comment\n*/:'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:01.006571 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:01.006589 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '077/*comment\n*/:'
+IE_TRACE:             15:04:01.006601 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:01.006616 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:01.006629 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:01.006642 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:01.006654 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:01.006791 line      2260             if im:
+IE_TRACE:             15:04:01.006811 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:01.006826 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Modified var:.. im = <re.Match object; span=(0, 16), match='077/*comment\n*/:'>
+IE_TRACE:             15:04:01.006963 line      2260             if im:
+IE_TRACE:             15:04:01.006984 line      2261                 i = int(im.group(1), base)
+IE_TRACE:             New var:....... i = 63
+IE_TRACE:             15:04:01.006999 line      2262                 return '"%d":' % i if v.endswith(':') else '%d' % i
+IE_TRACE:             15:04:01.007018 return    2262                 return '"%d":' % i if v.endswith(':') else '%d' % i
+IE_TRACE:             Return value:.. '"63":'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(29, 41), match='/*comment\n*/'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:01.007038 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:01.007056 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/*comment\n*/'
+IE_TRACE:             15:04:01.007068 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:01.007083 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:01.007096 line      2248             return ""
+IE_TRACE:             15:04:01.007108 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(41, 44), match='077'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:01.007125 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:01.007143 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '077'
+IE_TRACE:             15:04:01.007155 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:01.007170 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:01.007182 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:01.007195 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:01.007207 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:01.007342 line      2260             if im:
+IE_TRACE:             15:04:01.007362 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:01.007377 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Modified var:.. im = <re.Match object; span=(0, 3), match='077'>
+IE_TRACE:             15:04:01.007512 line      2260             if im:
+IE_TRACE:             15:04:01.007533 line      2261                 i = int(im.group(1), base)
+IE_TRACE:             New var:....... i = 63
+IE_TRACE:             15:04:01.007548 line      2262                 return '"%d":' % i if v.endswith(':') else '%d' % i
+IE_TRACE:             15:04:01.007567 return    2262                 return '"%d":' % i if v.endswith(':') else '%d' % i
+IE_TRACE:             Return value:.. '63'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(44, 56), match='/*comment\n*/'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:01.007589 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:01.007605 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/*comment\n*/'
+IE_TRACE:             15:04:01.007618 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:01.007633 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:01.007646 line      2248             return ""
+IE_TRACE:             15:04:01.007658 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:04:01.007694 return    2266     return re.sub(r'''(?sx)
+IE_TRACE:     Return value:.. '{"63":63}'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:01.007713 line       886         self.assertEqual(json.loads(on), {'63': 63})
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:01.008389 line       888         on = js_to_json('{42:42}')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. code = '{42:42}'
+IE_TRACE:     15:04:01.008405 call      2235 def js_to_json(code):
+IE_TRACE:     15:04:01.008420 line      2236     COMMENT_RE = r'/\*(?:(?!\*/).)*?\*/|//[^\n]*'
+IE_TRACE:     New var:....... COMMENT_RE = '/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*'
+IE_TRACE:     15:04:01.008430 line      2237     SKIP_RE = r'\s*(?:{comment})?\s*'.format(comment=COMMENT_RE)
+IE_TRACE:     New var:....... SKIP_RE = '\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*'
+IE_TRACE:     15:04:01.008443 line      2239         (r'(?s)^(0[xX][0-9a-fA-F]+){skip}:?$'.format(skip=SKIP_RE), 16),
+IE_TRACE:     15:04:01.008457 line      2240         (r'(?s)^(0+[0-7]+){skip}:?$'.format(skip=SKIP_RE), 8),
+IE_TRACE:     15:04:01.008468 line      2238     INTEGER_TABLE = (
+IE_TRACE:     New var:....... INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:     15:04:01.008479 line      2243     def fix_kv(m):
+IE_TRACE:     New var:....... fix_kv = <function js_to_json.<locals>.fix_kv at 0x75bcce32b100>
+IE_TRACE:     15:04:01.008494 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:     15:04:01.008509 line      2273         '''.format(comment=COMMENT_RE, skip=SKIP_RE), fix_kv, code)
+IE_TRACE:     15:04:01.008523 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(1, 3), match='42'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:01.008652 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:01.008672 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '42'
+IE_TRACE:             15:04:01.008684 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:01.008700 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:01.008713 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:01.008725 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:01.008737 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:01.008873 line      2260             if im:
+IE_TRACE:             15:04:01.008894 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:01.008909 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:01.009044 line      2260             if im:
+IE_TRACE:             15:04:01.009062 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:01.009077 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:01.009092 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"42"'
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:04:01.009131 return    2266     return re.sub(r'''(?sx)
+IE_TRACE:     Return value:.. '{"42":42}'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Modified var:.. on = '{"42":42}'
+IE_TRACE: 15:04:01.009151 line       889         self.assertEqual(json.loads(on), {'42': 42})
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:01.009828 line       891         on = js_to_json('{/*comment\n*/42/*comment\n*/:/*comment\n*/42/*comment\n*/}')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. code = '{/*comment\n*/42/*comment\n*/:/*comment\n*/42/*comment\n*/}'
+IE_TRACE:     15:04:01.009843 call      2235 def js_to_json(code):
+IE_TRACE:     15:04:01.009859 line      2236     COMMENT_RE = r'/\*(?:(?!\*/).)*?\*/|//[^\n]*'
+IE_TRACE:     New var:....... COMMENT_RE = '/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*'
+IE_TRACE:     15:04:01.009868 line      2237     SKIP_RE = r'\s*(?:{comment})?\s*'.format(comment=COMMENT_RE)
+IE_TRACE:     New var:....... SKIP_RE = '\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*'
+IE_TRACE:     15:04:01.009882 line      2239         (r'(?s)^(0[xX][0-9a-fA-F]+){skip}:?$'.format(skip=SKIP_RE), 16),
+IE_TRACE:     15:04:01.009896 line      2240         (r'(?s)^(0+[0-7]+){skip}:?$'.format(skip=SKIP_RE), 8),
+IE_TRACE:     15:04:01.009907 line      2238     INTEGER_TABLE = (
+IE_TRACE:     New var:....... INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:     15:04:01.009918 line      2243     def fix_kv(m):
+IE_TRACE:     New var:....... fix_kv = <function js_to_json.<locals>.fix_kv at 0x75bcce32b100>
+IE_TRACE:     15:04:01.009933 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:     15:04:01.009948 line      2273         '''.format(comment=COMMENT_RE, skip=SKIP_RE), fix_kv, code)
+IE_TRACE:     15:04:01.009962 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(1, 13), match='/*comment\n*/'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:01.010090 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:01.010110 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/*comment\n*/'
+IE_TRACE:             15:04:01.010123 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:01.010138 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:01.010151 line      2248             return ""
+IE_TRACE:             15:04:01.010164 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(13, 15), match='42'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:01.010181 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:01.010198 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '42'
+IE_TRACE:             15:04:01.010210 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:01.010225 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:01.010238 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:01.010250 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:01.010263 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:01.010399 line      2260             if im:
+IE_TRACE:             15:04:01.010419 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:01.010434 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:01.010574 line      2260             if im:
+IE_TRACE:             15:04:01.010592 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:01.010607 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:01.010623 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"42"'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(15, 27), match='/*comment\n*/'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:01.010642 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:01.010660 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/*comment\n*/'
+IE_TRACE:             15:04:01.010672 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:01.010687 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:01.010700 line      2248             return ""
+IE_TRACE:             15:04:01.010713 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(28, 40), match='/*comment\n*/'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:01.010729 call      2243     def fix_kv(m):
+IE_TRACE:     [CONDENSED] 1 identical loop iterations skipped (3 total iterations, showing first and last)
+IE_TRACE:             15:04:01.010833 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '/*comment\n*/'
+IE_TRACE:             15:04:01.010845 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:01.010860 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:01.010873 line      2248             return ""
+IE_TRACE:             15:04:01.010885 return    2248             return ""
+IE_TRACE:             Return value:.. ''
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:04:01.010921 return    2266     return re.sub(r'''(?sx)
+IE_TRACE:     Return value:.. '{"42":42}'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:01.010940 line       892         self.assertEqual(json.loads(on), {'42': 42})
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:01.011616 line       894         on = js_to_json('{42:4.2e1}')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. code = '{42:4.2e1}'
+IE_TRACE:     15:04:01.011631 call      2235 def js_to_json(code):
+IE_TRACE:     15:04:01.011646 line      2236     COMMENT_RE = r'/\*(?:(?!\*/).)*?\*/|//[^\n]*'
+IE_TRACE:     New var:....... COMMENT_RE = '/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*'
+IE_TRACE:     15:04:01.011656 line      2237     SKIP_RE = r'\s*(?:{comment})?\s*'.format(comment=COMMENT_RE)
+IE_TRACE:     New var:....... SKIP_RE = '\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*'
+IE_TRACE:     15:04:01.011669 line      2239         (r'(?s)^(0[xX][0-9a-fA-F]+){skip}:?$'.format(skip=SKIP_RE), 16),
+IE_TRACE:     15:04:01.011683 line      2240         (r'(?s)^(0+[0-7]+){skip}:?$'.format(skip=SKIP_RE), 8),
+IE_TRACE:     15:04:01.011694 line      2238     INTEGER_TABLE = (
+IE_TRACE:     New var:....... INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:     15:04:01.011705 line      2243     def fix_kv(m):
+IE_TRACE:     New var:....... fix_kv = <function js_to_json.<locals>.fix_kv at 0x75bcce32b100>
+IE_TRACE:     15:04:01.011720 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:     15:04:01.011735 line      2273         '''.format(comment=COMMENT_RE, skip=SKIP_RE), fix_kv, code)
+IE_TRACE:     15:04:01.011749 line      2266     return re.sub(r'''(?sx)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(1, 3), match='42'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:01.011877 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:01.011897 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = '42'
+IE_TRACE:             15:04:01.011910 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:01.011925 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:01.011938 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:01.011950 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:01.011963 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:01.012099 line      2260             if im:
+IE_TRACE:             15:04:01.012119 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:01.012134 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:01.012270 line      2260             if im:
+IE_TRACE:             15:04:01.012288 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:01.012302 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:01.012318 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"42"'
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(7, 9), match='e1'>
+IE_TRACE:             Starting var:.. INTEGER_TABLE = (('(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 16), ('(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$', 8))
+IE_TRACE:             15:04:01.012337 call      2243     def fix_kv(m):
+IE_TRACE:             15:04:01.012354 line      2244         v = m.group(0)
+IE_TRACE:             New var:....... v = 'e1'
+IE_TRACE:             15:04:01.012366 line      2245         if v in ('true', 'false', 'null'):
+IE_TRACE:             15:04:01.012381 line      2247         elif v.startswith('/*') or v.startswith('//') or v == ',':
+IE_TRACE:             15:04:01.012394 line      2250         if v[0] in ("'", '"'):
+IE_TRACE:             15:04:01.012407 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             New var:....... regex = '(?s)^(0[xX][0-9a-fA-F]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             New var:....... base = 16
+IE_TRACE:             15:04:01.012419 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             New var:....... im = None
+IE_TRACE:             15:04:01.012553 line      2260             if im:
+IE_TRACE:             15:04:01.012575 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             Modified var:.. regex = '(?s)^(0+[0-7]+)\\s*(?:/\\*(?:(?!\\*/).)*?\\*/|//[^\\n]*)?\\s*:?$'
+IE_TRACE:             Modified var:.. base = 8
+IE_TRACE:             15:04:01.012590 line      2259             im = re.match(regex, v)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:04:01.012726 line      2260             if im:
+IE_TRACE:             15:04:01.012743 line      2258         for regex, base in INTEGER_TABLE:
+IE_TRACE:             15:04:01.012758 line      2264         return '"%s"' % v
+IE_TRACE:             15:04:01.012773 return    2264         return '"%s"' % v
+IE_TRACE:             Return value:.. '"e1"'
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:04:01.012812 return    2266     return re.sub(r'''(?sx)
+IE_TRACE:     Return value:.. '{"42":4.2"e1"}'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Modified var:.. on = '{"42":4.2"e1"}'
+IE_TRACE: 15:04:01.012831 line       895         self.assertEqual(json.loads(on), {'42': 42.0})
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:01.013412 exception  895         self.assertEqual(json.loads(on), {'42': 42.0})
+IE_TRACE: Exception:..... json.decoder.JSONDecodeError: Expecting ',' delimiter: line 1 column 10 (char 9)
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.560431
+======================================================================
+ERROR: test_js_to_json_edgecases (test.test_utils.TestUtil.test_js_to_json_edgecases)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py", line 895, in test_js_to_json_edgecases
+    self.assertEqual(json.loads(on), {'42': 42.0})
+                     ^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Expecting ',' delimiter: line 1 column 10 (char 9)
+
+======================================================================
+FAIL: test_js_to_json_realworld (test.test_utils.TestUtil.test_js_to_json_realworld)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py", line 820, in test_js_to_json_realworld
+    self.assertEqual(js_to_json(inp), '''{"segments": [{"offset":-3.885780586188048e-16,"duration":39.75000000000001}]}''')
+AssertionError: '{"se[14 chars]fset":-3.885780586188048"e"-16,"duration":39.75000000000001}]}' != '{"se[14 chars]fset":-3.885780586188048e-16,"duration":39.75000000000001}]}'
+- {"segments": [{"offset":-3.885780586188048"e"-16,"duration":39.75000000000001}]}
+?                                           - -
++ {"segments": [{"offset":-3.885780586188048e-16,"duration":39.75000000000001}]}
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.562s
+
+FAILED (failures=1, errors=1)
+
+
+Exit code: 1

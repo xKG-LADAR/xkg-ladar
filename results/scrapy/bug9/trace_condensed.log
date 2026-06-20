@@ -1,0 +1,90 @@
+Cleared: /path/to/results/scrapy/bug9
+Running: python -m unittest -q tests.test_mail.MailSenderTest.test_send_single_values_to_and_cc
+Workdir: /path/to/BugsInPy/workspace/scrapy
+PYTHONPATH: /path/to/BugsInPy/workspace/scrapy::
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_mail.py
+IE_TRACE: Starting var:.. self = <tests.test_mail.MailSenderTest testMethod=test_send_single_values_to_and_cc>
+IE_TRACE: 12:31:56.055128 call        31     def test_send_single_values_to_and_cc(self):
+IE_TRACE: 12:31:56.055336 line        32         mailsender = MailSender(debug=True)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/mail.py
+IE_TRACE:     Starting var:.. self = <scrapy.mail.MailSender object at 0x7e5b8c533200>
+IE_TRACE:     Starting var:.. smtphost = 'localhost'
+IE_TRACE:     Starting var:.. mailfrom = 'scrapy@localhost'
+IE_TRACE:     Starting var:.. smtpuser = None
+IE_TRACE:     Starting var:.. smtppass = None
+IE_TRACE:     Starting var:.. smtpport = 25
+IE_TRACE:     Starting var:.. smtptls = False
+IE_TRACE:     Starting var:.. smtpssl = False
+IE_TRACE:     Starting var:.. debug = True
+IE_TRACE:     12:31:56.055373 call        30     def __init__(self, smtphost='localhost', mailfrom='scrapy@localhost',
+IE_TRACE:     12:31:56.055510 line        32         self.smtphost = smtphost
+IE_TRACE:     12:31:56.055541 line        33         self.smtpport = smtpport
+IE_TRACE:     12:31:56.055566 line        34         self.smtpuser = smtpuser
+IE_TRACE:     12:31:56.055589 line        35         self.smtppass = smtppass
+IE_TRACE:     12:31:56.055610 line        36         self.smtptls = smtptls
+IE_TRACE:     12:31:56.055630 line        37         self.smtpssl = smtpssl
+IE_TRACE:     12:31:56.055650 line        38         self.mailfrom = mailfrom
+IE_TRACE:     12:31:56.055670 line        39         self.debug = debug
+IE_TRACE:     12:31:56.055691 return      39         self.debug = debug
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_mail.py
+IE_TRACE: New var:....... mailsender = <scrapy.mail.MailSender object at 0x7e5b8c533200>
+IE_TRACE: 12:31:56.055722 line        33         mailsender.send(to='test@scrapy.org', subject='subject', body='body',
+IE_TRACE: 12:31:56.055751 line        34                         cc='test@scrapy.org', _callback=self._catch_mail_sent)
+IE_TRACE: 12:31:56.055766 line        33         mailsender.send(to='test@scrapy.org', subject='subject', body='body',
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/mail.py
+IE_TRACE:     Starting var:.. self = <scrapy.mail.MailSender object at 0x7e5b8c533200>
+IE_TRACE:     Starting var:.. to = 'test@scrapy.org'
+IE_TRACE:     Starting var:.. subject = 'subject'
+IE_TRACE:     Starting var:.. body = 'body'
+IE_TRACE:     Starting var:.. cc = 'test@scrapy.org'
+IE_TRACE:     Starting var:.. attachs = ()
+IE_TRACE:     Starting var:.. mimetype = 'text/plain'
+IE_TRACE:     Starting var:.. charset = None
+IE_TRACE:     Starting var:.. _callback = <bound method MailSenderTest._catch_mail_sent of <tests.test_mail.MailSenderTest testMethod=test_send_single_values_to_and_cc>>
+IE_TRACE:     12:31:56.055794 call        47     def send(self, to, subject, body, cc=None, attachs=(), mimetype='text/plain', charset=None, _callback=None):
+IE_TRACE:     12:31:56.055875 line        48         if attachs:
+IE_TRACE:     12:31:56.055909 line        51             msg = MIMENonMultipart(*mimetype.split('/', 1))
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/mail.py
+IE_TRACE:     New var:....... msg = <email.mime.nonmultipart.MIMENonMultipart object at 0x7e5b8c533ad0>
+IE_TRACE:     12:31:56.059724 line        52         msg['From'] = self.mailfrom
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/mail.py
+IE_TRACE:     12:31:56.060119 line        53         msg['To'] = COMMASPACE.join(to)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/mail.py
+IE_TRACE:     12:31:56.060491 line        54         msg['Date'] = formatdate(localtime=True)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/mail.py
+IE_TRACE:     12:31:56.061889 line        55         msg['Subject'] = subject
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/mail.py
+IE_TRACE:     12:31:56.062262 line        56         rcpts = to[:]
+IE_TRACE:     New var:....... rcpts = 'test@scrapy.org'
+IE_TRACE:     12:31:56.062305 line        57         if cc:
+IE_TRACE:     12:31:56.062347 line        58             rcpts.extend(cc)
+IE_TRACE:     12:31:56.062388 exception   58             rcpts.extend(cc)
+IE_TRACE:     Exception:..... AttributeError: 'str' object has no attribute 'extend'
+IE_TRACE:     Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_mail.py
+IE_TRACE: 12:31:56.063300 exception   33         mailsender.send(to='test@scrapy.org', subject='subject', body='body',
+IE_TRACE: Exception:..... AttributeError: 'str' object has no attribute 'extend'
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.009051
+======================================================================
+ERROR: test_send_single_values_to_and_cc (tests.test_mail.MailSenderTest.test_send_single_values_to_and_cc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/tests/test_mail.py", line 33, in test_send_single_values_to_and_cc
+    mailsender.send(to='test@scrapy.org', subject='subject', body='body',
+  File "/path/to/BugsInPy/workspace/scrapy/scrapy/mail.py", line 58, in send
+    rcpts.extend(cc)
+    ^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'extend'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.010s
+
+FAILED (errors=1)
+
+
+Exit code: 1

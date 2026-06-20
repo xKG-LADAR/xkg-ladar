@@ -1,0 +1,349 @@
+Cleared: /path/to/results/scrapy/bug9
+Running: python -m unittest -q tests.test_mail.MailSenderTest.test_send_single_values_to_and_cc
+Workdir: /path/to/BugsInPy/workspace/scrapy
+PYTHONPATH: /path/to/BugsInPy/workspace/scrapy::
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_mail.py
+IE_TRACE: Starting var:.. self = <tests.test_mail.MailSenderTest testMethod=test_send_single_values_to_and_cc>
+IE_TRACE: 12:31:56.055128 call        31     def test_send_single_values_to_and_cc(self):
+IE_TRACE: 12:31:56.055336 line        32         mailsender = MailSender(debug=True)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/mail.py
+IE_TRACE:     Starting var:.. self = <scrapy.mail.MailSender object at 0x7e5b8c533200>
+IE_TRACE:     Starting var:.. smtphost = 'localhost'
+IE_TRACE:     Starting var:.. mailfrom = 'scrapy@localhost'
+IE_TRACE:     Starting var:.. smtpuser = None
+IE_TRACE:     Starting var:.. smtppass = None
+IE_TRACE:     Starting var:.. smtpport = 25
+IE_TRACE:     Starting var:.. smtptls = False
+IE_TRACE:     Starting var:.. smtpssl = False
+IE_TRACE:     Starting var:.. debug = True
+IE_TRACE:     12:31:56.055373 call        30     def __init__(self, smtphost='localhost', mailfrom='scrapy@localhost',
+IE_TRACE:     12:31:56.055510 line        32         self.smtphost = smtphost
+IE_TRACE:     12:31:56.055541 line        33         self.smtpport = smtpport
+IE_TRACE:     12:31:56.055566 line        34         self.smtpuser = smtpuser
+IE_TRACE:     12:31:56.055589 line        35         self.smtppass = smtppass
+IE_TRACE:     12:31:56.055610 line        36         self.smtptls = smtptls
+IE_TRACE:     12:31:56.055630 line        37         self.smtpssl = smtpssl
+IE_TRACE:     12:31:56.055650 line        38         self.mailfrom = mailfrom
+IE_TRACE:     12:31:56.055670 line        39         self.debug = debug
+IE_TRACE:     12:31:56.055691 return      39         self.debug = debug
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_mail.py
+IE_TRACE: New var:....... mailsender = <scrapy.mail.MailSender object at 0x7e5b8c533200>
+IE_TRACE: 12:31:56.055722 line        33         mailsender.send(to='test@scrapy.org', subject='subject', body='body',
+IE_TRACE: 12:31:56.055751 line        34                         cc='test@scrapy.org', _callback=self._catch_mail_sent)
+IE_TRACE: 12:31:56.055766 line        33         mailsender.send(to='test@scrapy.org', subject='subject', body='body',
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/mail.py
+IE_TRACE:     Starting var:.. self = <scrapy.mail.MailSender object at 0x7e5b8c533200>
+IE_TRACE:     Starting var:.. to = 'test@scrapy.org'
+IE_TRACE:     Starting var:.. subject = 'subject'
+IE_TRACE:     Starting var:.. body = 'body'
+IE_TRACE:     Starting var:.. cc = 'test@scrapy.org'
+IE_TRACE:     Starting var:.. attachs = ()
+IE_TRACE:     Starting var:.. mimetype = 'text/plain'
+IE_TRACE:     Starting var:.. charset = None
+IE_TRACE:     Starting var:.. _callback = <bound method MailSenderTest._catch_mail_sent of <tests.test_mail.MailSenderTest testMethod=test_send_single_values_to_and_cc>>
+IE_TRACE:     12:31:56.055794 call        47     def send(self, to, subject, body, cc=None, attachs=(), mimetype='text/plain', charset=None, _callback=None):
+IE_TRACE:     12:31:56.055875 line        48         if attachs:
+IE_TRACE:     12:31:56.055909 line        51             msg = MIMENonMultipart(*mimetype.split('/', 1))
+IE_TRACE:         Source path:... /usr/lib/python3.12/email/mime/base.py
+IE_TRACE:         Starting var:.. self = <email.mime.nonmultipart.MIMENonMultipart object at 0x7e5b8c533ad0>
+IE_TRACE:         Starting var:.. _maintype = 'text'
+IE_TRACE:         Starting var:.. _subtype = 'plain'
+IE_TRACE:         Starting var:.. policy = None
+IE_TRACE:         Starting var:.. _params = {}
+IE_TRACE:         12:31:56.055943 call        17     def __init__(self, _maintype, _subtype, *, policy=None, **_params):
+IE_TRACE:         12:31:56.056379 line        24         if policy is None:
+IE_TRACE:         12:31:56.056507 line        25             policy = email.policy.compat32
+IE_TRACE:         Modified var:.. policy = Compat32()
+IE_TRACE:         12:31:56.056573 line        26         message.Message.__init__(self, policy=policy)
+IE_TRACE:             Source path:... /usr/lib/python3.12/email/message.py
+IE_TRACE:             Starting var:.. self = <email.mime.nonmultipart.MIMENonMultipart object at 0x7e5b8c533ad0>
+IE_TRACE:             Starting var:.. policy = Compat32()
+IE_TRACE:             12:31:56.056671 call       150     def __init__(self, policy=compat32):
+IE_TRACE:             12:31:56.057711 line       151         self.policy = policy
+IE_TRACE:             12:31:56.057769 line       152         self._headers = []
+IE_TRACE:             12:31:56.057807 line       153         self._unixfrom = None
+IE_TRACE:             12:31:56.057842 line       154         self._payload = None
+IE_TRACE:             12:31:56.057879 line       155         self._charset = None
+IE_TRACE:             12:31:56.057913 line       157         self.preamble = self.epilogue = None
+IE_TRACE:             12:31:56.057948 line       158         self.defects = []
+IE_TRACE:             12:31:56.057982 line       160         self._default_type = 'text/plain'
+IE_TRACE:             12:31:56.058015 return     160         self._default_type = 'text/plain'
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /usr/lib/python3.12/email/mime/base.py
+IE_TRACE:         12:31:56.058072 line        27         ctype = '%s/%s' % (_maintype, _subtype)
+IE_TRACE:         New var:....... ctype = 'text/plain'
+IE_TRACE:         12:31:56.058136 line        28         self.add_header('Content-Type', ctype, **_params)
+IE_TRACE:             Source path:... /usr/lib/python3.12/email/message.py
+IE_TRACE:             Starting var:.. self = <email.mime.nonmultipart.MIMENonMultipart object at 0x7e5b8c533ad0>
+IE_TRACE:             Starting var:.. _name = 'Content-Type'
+IE_TRACE:             Starting var:.. _value = 'text/plain'
+IE_TRACE:             Starting var:.. _params = {}
+IE_TRACE:             12:31:56.058228 call       547     def add_header(self, _name, _value, **_params):
+IE_TRACE:             12:31:56.058321 line       567         parts = []
+IE_TRACE:             New var:....... parts = []
+IE_TRACE:             12:31:56.058363 line       568         for k, v in _params.items():
+IE_TRACE:             12:31:56.058415 line       573         if _value is not None:
+IE_TRACE:             12:31:56.058456 line       574             parts.insert(0, _value)
+IE_TRACE:             Modified var:.. parts = ['text/plain']
+IE_TRACE:             12:31:56.058496 line       575         self[_name] = SEMISPACE.join(parts)
+IE_TRACE:                 Starting var:.. self = <email.mime.nonmultipart.MIMENonMultipart object at 0x7e5b8c533ad0>
+IE_TRACE:                 Starting var:.. name = 'Content-Type'
+IE_TRACE:                 Starting var:.. val = 'text/plain'
+IE_TRACE:                 12:31:56.058555 call       421     def __setitem__(self, name, val):
+IE_TRACE:                 12:31:56.058594 line       427         max_count = self.policy.header_max_count(name)
+IE_TRACE:                     Source path:... /usr/lib/python3.12/email/_policybase.py
+IE_TRACE:                     Starting var:.. self = Compat32()
+IE_TRACE:                     Starting var:.. name = 'Content-Type'
+IE_TRACE:                     12:31:56.058619 call       209     def header_max_count(self, name):
+IE_TRACE:                     12:31:56.059009 line       226         return None
+IE_TRACE:                     12:31:56.059041 return     226         return None
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 Source path:... /usr/lib/python3.12/email/message.py
+IE_TRACE:                 New var:....... max_count = None
+IE_TRACE:                 12:31:56.059076 line       428         if max_count:
+IE_TRACE:                 12:31:56.059116 line       437         self._headers.append(self.policy.header_store_parse(name, val))
+IE_TRACE:                     Source path:... /usr/lib/python3.12/email/_policybase.py
+IE_TRACE:                     Starting var:.. self = Compat32()
+IE_TRACE:                     Starting var:.. name = 'Content-Type'
+IE_TRACE:                     Starting var:.. value = 'text/plain'
+IE_TRACE:                     12:31:56.059145 call       313     def header_store_parse(self, name, value):
+IE_TRACE:                     12:31:56.059189 line       317         return (name, value)
+IE_TRACE:                     12:31:56.059215 return     317         return (name, value)
+IE_TRACE:                     Return value:.. ('Content-Type', 'text/plain')
+IE_TRACE:                 Source path:... /usr/lib/python3.12/email/message.py
+IE_TRACE:                 12:31:56.059247 return     437         self._headers.append(self.policy.header_store_parse(name, val))
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             12:31:56.059285 return     575         self[_name] = SEMISPACE.join(parts)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /usr/lib/python3.12/email/mime/base.py
+IE_TRACE:         12:31:56.059319 line        29         self['MIME-Version'] = '1.0'
+IE_TRACE:             Source path:... /usr/lib/python3.12/email/message.py
+IE_TRACE:             Starting var:.. self = <email.mime.nonmultipart.MIMENonMultipart object at 0x7e5b8c533ad0>
+IE_TRACE:             Starting var:.. name = 'MIME-Version'
+IE_TRACE:             Starting var:.. val = '1.0'
+IE_TRACE:             12:31:56.059355 call       421     def __setitem__(self, name, val):
+IE_TRACE:             12:31:56.059399 line       427         max_count = self.policy.header_max_count(name)
+IE_TRACE:                 Source path:... /usr/lib/python3.12/email/_policybase.py
+IE_TRACE:                 Starting var:.. self = Compat32()
+IE_TRACE:                 Starting var:.. name = 'MIME-Version'
+IE_TRACE:                 12:31:56.059422 call       209     def header_max_count(self, name):
+IE_TRACE:                 12:31:56.059457 line       226         return None
+IE_TRACE:                 12:31:56.059476 return     226         return None
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /usr/lib/python3.12/email/message.py
+IE_TRACE:             New var:....... max_count = None
+IE_TRACE:             12:31:56.059503 line       428         if max_count:
+IE_TRACE:             12:31:56.059537 line       437         self._headers.append(self.policy.header_store_parse(name, val))
+IE_TRACE:                 Source path:... /usr/lib/python3.12/email/_policybase.py
+IE_TRACE:                 Starting var:.. self = Compat32()
+IE_TRACE:                 Starting var:.. name = 'MIME-Version'
+IE_TRACE:                 Starting var:.. value = '1.0'
+IE_TRACE:                 12:31:56.059560 call       313     def header_store_parse(self, name, value):
+IE_TRACE:                 12:31:56.059600 line       317         return (name, value)
+IE_TRACE:                 12:31:56.059621 return     317         return (name, value)
+IE_TRACE:                 Return value:.. ('MIME-Version', '1.0')
+IE_TRACE:             Source path:... /usr/lib/python3.12/email/message.py
+IE_TRACE:             12:31:56.059648 return     437         self._headers.append(self.policy.header_store_parse(name, val))
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /usr/lib/python3.12/email/mime/base.py
+IE_TRACE:         12:31:56.059683 return      29         self['MIME-Version'] = '1.0'
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/mail.py
+IE_TRACE:     New var:....... msg = <email.mime.nonmultipart.MIMENonMultipart object at 0x7e5b8c533ad0>
+IE_TRACE:     12:31:56.059724 line        52         msg['From'] = self.mailfrom
+IE_TRACE:         Source path:... /usr/lib/python3.12/email/message.py
+IE_TRACE:         Starting var:.. self = <email.mime.nonmultipart.MIMENonMultipart object at 0x7e5b8c533ad0>
+IE_TRACE:         Starting var:.. name = 'From'
+IE_TRACE:         Starting var:.. val = 'scrapy@localhost'
+IE_TRACE:         12:31:56.059778 call       421     def __setitem__(self, name, val):
+IE_TRACE:         12:31:56.059825 line       427         max_count = self.policy.header_max_count(name)
+IE_TRACE:             Source path:... /usr/lib/python3.12/email/_policybase.py
+IE_TRACE:             Starting var:.. self = Compat32()
+IE_TRACE:             Starting var:.. name = 'From'
+IE_TRACE:             12:31:56.059850 call       209     def header_max_count(self, name):
+IE_TRACE:             12:31:56.059886 line       226         return None
+IE_TRACE:             12:31:56.059907 return     226         return None
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /usr/lib/python3.12/email/message.py
+IE_TRACE:         New var:....... max_count = None
+IE_TRACE:         12:31:56.059933 line       428         if max_count:
+IE_TRACE:         12:31:56.059967 line       437         self._headers.append(self.policy.header_store_parse(name, val))
+IE_TRACE:             Source path:... /usr/lib/python3.12/email/_policybase.py
+IE_TRACE:             Starting var:.. self = Compat32()
+IE_TRACE:             Starting var:.. name = 'From'
+IE_TRACE:             Starting var:.. value = 'scrapy@localhost'
+IE_TRACE:             12:31:56.059991 call       313     def header_store_parse(self, name, value):
+IE_TRACE:             12:31:56.060032 line       317         return (name, value)
+IE_TRACE:             12:31:56.060053 return     317         return (name, value)
+IE_TRACE:             Return value:.. ('From', 'scrapy@localhost')
+IE_TRACE:         Source path:... /usr/lib/python3.12/email/message.py
+IE_TRACE:         12:31:56.060082 return     437         self._headers.append(self.policy.header_store_parse(name, val))
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/mail.py
+IE_TRACE:     12:31:56.060119 line        53         msg['To'] = COMMASPACE.join(to)
+IE_TRACE:         Source path:... /usr/lib/python3.12/email/message.py
+IE_TRACE:         Starting var:.. self = <email.mime.nonmultipart.MIMENonMultipart object at 0x7e5b8c533ad0>
+IE_TRACE:         Starting var:.. name = 'To'
+IE_TRACE:         Starting var:.. val = 't, e, s, t, @, s, c, r, a, p, y, ., o, r, g'
+IE_TRACE:         12:31:56.060166 call       421     def __setitem__(self, name, val):
+IE_TRACE:         12:31:56.060212 line       427         max_count = self.policy.header_max_count(name)
+IE_TRACE:             Source path:... /usr/lib/python3.12/email/_policybase.py
+IE_TRACE:             Starting var:.. self = Compat32()
+IE_TRACE:             Starting var:.. name = 'To'
+IE_TRACE:             12:31:56.060235 call       209     def header_max_count(self, name):
+IE_TRACE:             12:31:56.060269 line       226         return None
+IE_TRACE:             12:31:56.060287 return     226         return None
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /usr/lib/python3.12/email/message.py
+IE_TRACE:         New var:....... max_count = None
+IE_TRACE:         12:31:56.060312 line       428         if max_count:
+IE_TRACE:         12:31:56.060345 line       437         self._headers.append(self.policy.header_store_parse(name, val))
+IE_TRACE:             Source path:... /usr/lib/python3.12/email/_policybase.py
+IE_TRACE:             Starting var:.. self = Compat32()
+IE_TRACE:             Starting var:.. name = 'To'
+IE_TRACE:             Starting var:.. value = 't, e, s, t, @, s, c, r, a, p, y, ., o, r, g'
+IE_TRACE:             12:31:56.060369 call       313     def header_store_parse(self, name, value):
+IE_TRACE:             12:31:56.060409 line       317         return (name, value)
+IE_TRACE:             12:31:56.060429 return     317         return (name, value)
+IE_TRACE:             Return value:.. ('To', 't, e, s, t, @, s, c, r, a, p, y, ., o, r, g')
+IE_TRACE:         Source path:... /usr/lib/python3.12/email/message.py
+IE_TRACE:         12:31:56.060456 return     437         self._headers.append(self.policy.header_store_parse(name, val))
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/mail.py
+IE_TRACE:     12:31:56.060491 line        54         msg['Date'] = formatdate(localtime=True)
+IE_TRACE:         Source path:... /usr/lib/python3.12/email/utils.py
+IE_TRACE:         Starting var:.. timeval = None
+IE_TRACE:         Starting var:.. localtime = True
+IE_TRACE:         Starting var:.. usegmt = False
+IE_TRACE:         12:31:56.060538 call       242 def formatdate(timeval=None, localtime=False, usegmt=False):
+IE_TRACE:         12:31:56.060817 line       260     if timeval is None:
+IE_TRACE:         12:31:56.060850 line       261         timeval = time.time()
+IE_TRACE:         Modified var:.. timeval = 1780556516.0608685
+IE_TRACE:         12:31:56.060873 line       262     dt = datetime.datetime.fromtimestamp(timeval, datetime.timezone.utc)
+IE_TRACE:         New var:....... dt = datetime.datetime(2026, 6, 4, 7, 1, 56, 60869, tzinfo=datetime.timezone.utc)
+IE_TRACE:         12:31:56.060918 line       264     if localtime:
+IE_TRACE:         12:31:56.060951 line       265         dt = dt.astimezone()
+IE_TRACE:         Modified var:.. dt = datetime.datetime(2026, 6, 4, 12, 31, 56, 60869, tzinfo=datetime.timezone(datetime.timedelta(seconds=19800), 'IST'))
+IE_TRACE:         12:31:56.060983 line       266         usegmt = False
+IE_TRACE:         12:31:56.061014 line       269     return format_datetime(dt, usegmt)
+IE_TRACE:             Starting var:.. dt = datetime.datetime(2026, 6, 4, 12, 31, 56, 60869, tzinfo=datetime.timezone(datetime.timedelta(seconds=19800), 'IST'))
+IE_TRACE:             Starting var:.. usegmt = False
+IE_TRACE:             12:31:56.061044 call       271 def format_datetime(dt, usegmt=False):
+IE_TRACE:             12:31:56.061079 line       278     now = dt.timetuple()
+IE_TRACE:             New var:....... now = time.struct_time(tm_year=2026, tm_mon=6, tm_mday=4, tm_hour=12, tm_min=31, tm_sec=56, tm_wday=3, tm_yday=155, tm_isdst=-1)
+IE_TRACE:             12:31:56.061106 line       279     if usegmt:
+IE_TRACE:             12:31:56.061137 line       283     elif dt.tzinfo is None:
+IE_TRACE:             12:31:56.061160 line       286         zone = dt.strftime("%z")
+IE_TRACE:             New var:....... zone = '+0530'
+IE_TRACE:             12:31:56.061197 line       287     return _format_timetuple_and_zone(now, zone)
+IE_TRACE:                 Starting var:.. timetuple = time.struct_time(tm_year=2026, tm_mon=6, tm_mday=4, tm_hour=12, tm_min=31, tm_sec=56, tm_wday=3, tm_yday=155, tm_isdst=-1)
+IE_TRACE:                 Starting var:.. zone = '+0530'
+IE_TRACE:                 12:31:56.061231 call       233 def _format_timetuple_and_zone(timetuple, zone):
+IE_TRACE:                 12:31:56.061264 line       234     return '%s, %02d %s %04d %02d:%02d:%02d %s' % (
+IE_TRACE:                 12:31:56.061285 line       235         ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'][timetuple[6]],
+IE_TRACE:                 12:31:56.061305 line       236         timetuple[2],
+IE_TRACE:                 12:31:56.061325 line       237         ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+IE_TRACE:                 12:31:56.061345 line       238          'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][timetuple[1] - 1],
+IE_TRACE:                 12:31:56.061365 line       237         ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+IE_TRACE:                 12:31:56.061384 line       239         timetuple[0], timetuple[3], timetuple[4], timetuple[5],
+IE_TRACE:                 12:31:56.061403 line       240         zone)
+IE_TRACE:                 12:31:56.061423 line       234     return '%s, %02d %s %04d %02d:%02d:%02d %s' % (
+IE_TRACE:                 12:31:56.061445 return     234     return '%s, %02d %s %04d %02d:%02d:%02d %s' % (
+IE_TRACE:                 Return value:.. 'Thu, 04 Jun 2026 12:31:56 +0530'
+IE_TRACE:             12:31:56.061475 return     287     return _format_timetuple_and_zone(now, zone)
+IE_TRACE:             Return value:.. 'Thu, 04 Jun 2026 12:31:56 +0530'
+IE_TRACE:         12:31:56.061508 return     269     return format_datetime(dt, usegmt)
+IE_TRACE:         Return value:.. 'Thu, 04 Jun 2026 12:31:56 +0530'
+IE_TRACE:         Source path:... /usr/lib/python3.12/email/message.py
+IE_TRACE:         Starting var:.. self = <email.mime.nonmultipart.MIMENonMultipart object at 0x7e5b8c533ad0>
+IE_TRACE:         Starting var:.. name = 'Date'
+IE_TRACE:         Starting var:.. val = 'Thu, 04 Jun 2026 12:31:56 +0530'
+IE_TRACE:         12:31:56.061542 call       421     def __setitem__(self, name, val):
+IE_TRACE:         12:31:56.061589 line       427         max_count = self.policy.header_max_count(name)
+IE_TRACE:             Source path:... /usr/lib/python3.12/email/_policybase.py
+IE_TRACE:             Starting var:.. self = Compat32()
+IE_TRACE:             Starting var:.. name = 'Date'
+IE_TRACE:             12:31:56.061613 call       209     def header_max_count(self, name):
+IE_TRACE:             12:31:56.061654 line       226         return None
+IE_TRACE:             12:31:56.061676 return     226         return None
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /usr/lib/python3.12/email/message.py
+IE_TRACE:         New var:....... max_count = None
+IE_TRACE:         12:31:56.061703 line       428         if max_count:
+IE_TRACE:         12:31:56.061739 line       437         self._headers.append(self.policy.header_store_parse(name, val))
+IE_TRACE:             Source path:... /usr/lib/python3.12/email/_policybase.py
+IE_TRACE:             Starting var:.. self = Compat32()
+IE_TRACE:             Starting var:.. name = 'Date'
+IE_TRACE:             Starting var:.. value = 'Thu, 04 Jun 2026 12:31:56 +0530'
+IE_TRACE:             12:31:56.061763 call       313     def header_store_parse(self, name, value):
+IE_TRACE:             12:31:56.061804 line       317         return (name, value)
+IE_TRACE:             12:31:56.061825 return     317         return (name, value)
+IE_TRACE:             Return value:.. ('Date', 'Thu, 04 Jun 2026 12:31:56 +0530')
+IE_TRACE:         Source path:... /usr/lib/python3.12/email/message.py
+IE_TRACE:         12:31:56.061853 return     437         self._headers.append(self.policy.header_store_parse(name, val))
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/mail.py
+IE_TRACE:     12:31:56.061889 line        55         msg['Subject'] = subject
+IE_TRACE:         Source path:... /usr/lib/python3.12/email/message.py
+IE_TRACE:         Starting var:.. self = <email.mime.nonmultipart.MIMENonMultipart object at 0x7e5b8c533ad0>
+IE_TRACE:         Starting var:.. name = 'Subject'
+IE_TRACE:         Starting var:.. val = 'subject'
+IE_TRACE:         12:31:56.061937 call       421     def __setitem__(self, name, val):
+IE_TRACE:         12:31:56.061980 line       427         max_count = self.policy.header_max_count(name)
+IE_TRACE:             Source path:... /usr/lib/python3.12/email/_policybase.py
+IE_TRACE:             Starting var:.. self = Compat32()
+IE_TRACE:             Starting var:.. name = 'Subject'
+IE_TRACE:             12:31:56.062002 call       209     def header_max_count(self, name):
+IE_TRACE:             12:31:56.062037 line       226         return None
+IE_TRACE:             12:31:56.062056 return     226         return None
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /usr/lib/python3.12/email/message.py
+IE_TRACE:         New var:....... max_count = None
+IE_TRACE:         12:31:56.062081 line       428         if max_count:
+IE_TRACE:         12:31:56.062114 line       437         self._headers.append(self.policy.header_store_parse(name, val))
+IE_TRACE:             Source path:... /usr/lib/python3.12/email/_policybase.py
+IE_TRACE:             Starting var:.. self = Compat32()
+IE_TRACE:             Starting var:.. name = 'Subject'
+IE_TRACE:             Starting var:.. value = 'subject'
+IE_TRACE:             12:31:56.062137 call       313     def header_store_parse(self, name, value):
+IE_TRACE:             12:31:56.062177 line       317         return (name, value)
+IE_TRACE:             12:31:56.062199 return     317         return (name, value)
+IE_TRACE:             Return value:.. ('Subject', 'subject')
+IE_TRACE:         Source path:... /usr/lib/python3.12/email/message.py
+IE_TRACE:         12:31:56.062227 return     437         self._headers.append(self.policy.header_store_parse(name, val))
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/mail.py
+IE_TRACE:     12:31:56.062262 line        56         rcpts = to[:]
+IE_TRACE:     New var:....... rcpts = 'test@scrapy.org'
+IE_TRACE:     12:31:56.062305 line        57         if cc:
+IE_TRACE:     12:31:56.062347 line        58             rcpts.extend(cc)
+IE_TRACE:     12:31:56.062388 exception   58             rcpts.extend(cc)
+IE_TRACE:     Exception:..... AttributeError: 'str' object has no attribute 'extend'
+IE_TRACE:     Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_mail.py
+IE_TRACE: 12:31:56.063300 exception   33         mailsender.send(to='test@scrapy.org', subject='subject', body='body',
+IE_TRACE: Exception:..... AttributeError: 'str' object has no attribute 'extend'
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.009051
+======================================================================
+ERROR: test_send_single_values_to_and_cc (tests.test_mail.MailSenderTest.test_send_single_values_to_and_cc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/tests/test_mail.py", line 33, in test_send_single_values_to_and_cc
+    mailsender.send(to='test@scrapy.org', subject='subject', body='body',
+  File "/path/to/BugsInPy/workspace/scrapy/scrapy/mail.py", line 58, in send
+    rcpts.extend(cc)
+    ^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'extend'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.010s
+
+FAILED (errors=1)
+
+
+Exit code: 1

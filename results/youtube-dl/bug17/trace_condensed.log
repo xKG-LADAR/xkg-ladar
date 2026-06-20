@@ -1,0 +1,189 @@
+Cleared: /path/to/results/youtube-dl/bug17
+Running: python -m unittest -q test.test_utils.TestUtil.test_cli_bool_option
+Workdir: /path/to/BugsInPy/workspace/youtube-dl
+PYTHONPATH: /path/to/BugsInPy/workspace/youtube-dl
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE: 15:05:16.313299 call      1163     def test_cli_bool_option(self):
+IE_TRACE: 15:05:16.313724 line      1164         self.assertEqual(
+IE_TRACE: 15:05:16.313761 line      1165             cli_bool_option(
+IE_TRACE: 15:05:16.313784 line      1166                 {'nocheckcertificate': True}, '--no-check-certificate', 'nocheckcertificate'),
+IE_TRACE: 15:05:16.313801 line      1165             cli_bool_option(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. params = {'nocheckcertificate': True}
+IE_TRACE:     Starting var:.. command_option = '--no-check-certificate'
+IE_TRACE:     Starting var:.. param = 'nocheckcertificate'
+IE_TRACE:     Starting var:.. true_value = 'true'
+IE_TRACE:     Starting var:.. false_value = 'false'
+IE_TRACE:     Starting var:.. separator = None
+IE_TRACE:     15:05:16.313826 call      2734 def cli_bool_option(params, command_option, param, true_value='true', false_value='false', separator=None):
+IE_TRACE:     15:05:16.314244 line      2735     param = params.get(param)
+IE_TRACE:     Modified var:.. param = True
+IE_TRACE:     15:05:16.314275 line      2736     assert isinstance(param, bool)
+IE_TRACE:     15:05:16.314307 line      2737     if separator:
+IE_TRACE:     15:05:16.314330 line      2739     return [command_option, true_value if param else false_value]
+IE_TRACE:     15:05:16.314352 return    2739     return [command_option, true_value if param else false_value]
+IE_TRACE:     Return value:.. ['--no-check-certificate', 'true']
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.314385 line      1167             ['--no-check-certificate', 'true'])
+IE_TRACE: 15:05:16.314409 line      1164         self.assertEqual(
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.315446 line      1168         self.assertEqual(
+IE_TRACE: 15:05:16.315467 line      1169             cli_bool_option(
+IE_TRACE: 15:05:16.315481 line      1170                 {'nocheckcertificate': True}, '--no-check-certificate', 'nocheckcertificate', separator='='),
+IE_TRACE: 15:05:16.315494 line      1169             cli_bool_option(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. params = {'nocheckcertificate': True}
+IE_TRACE:     Starting var:.. command_option = '--no-check-certificate'
+IE_TRACE:     Starting var:.. param = 'nocheckcertificate'
+IE_TRACE:     Starting var:.. true_value = 'true'
+IE_TRACE:     Starting var:.. false_value = 'false'
+IE_TRACE:     Starting var:.. separator = '='
+IE_TRACE:     15:05:16.315508 call      2734 def cli_bool_option(params, command_option, param, true_value='true', false_value='false', separator=None):
+IE_TRACE:     15:05:16.315560 line      2735     param = params.get(param)
+IE_TRACE:     Modified var:.. param = True
+IE_TRACE:     15:05:16.315586 line      2736     assert isinstance(param, bool)
+IE_TRACE:     15:05:16.315612 line      2737     if separator:
+IE_TRACE:     15:05:16.315632 line      2738         return [command_option + separator + (true_value if param else false_value)]
+IE_TRACE:     15:05:16.315652 return    2738         return [command_option + separator + (true_value if param else false_value)]
+IE_TRACE:     Return value:.. ['--no-check-certificate=true']
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.315678 line      1171             ['--no-check-certificate=true'])
+IE_TRACE: 15:05:16.315697 line      1168         self.assertEqual(
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.316503 line      1172         self.assertEqual(
+IE_TRACE: 15:05:16.316521 line      1173             cli_bool_option(
+IE_TRACE: 15:05:16.316534 line      1174                 {'nocheckcertificate': True}, '--check-certificate', 'nocheckcertificate', 'false', 'true'),
+IE_TRACE: 15:05:16.316546 line      1173             cli_bool_option(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. params = {'nocheckcertificate': True}
+IE_TRACE:     Starting var:.. command_option = '--check-certificate'
+IE_TRACE:     Starting var:.. param = 'nocheckcertificate'
+IE_TRACE:     Starting var:.. true_value = 'false'
+IE_TRACE:     Starting var:.. false_value = 'true'
+IE_TRACE:     Starting var:.. separator = None
+IE_TRACE:     15:05:16.316560 call      2734 def cli_bool_option(params, command_option, param, true_value='true', false_value='false', separator=None):
+IE_TRACE:     15:05:16.316614 line      2735     param = params.get(param)
+IE_TRACE:     Modified var:.. param = True
+IE_TRACE:     15:05:16.316634 line      2736     assert isinstance(param, bool)
+IE_TRACE:     15:05:16.316658 line      2737     if separator:
+IE_TRACE:     15:05:16.316679 line      2739     return [command_option, true_value if param else false_value]
+IE_TRACE:     15:05:16.316698 return    2739     return [command_option, true_value if param else false_value]
+IE_TRACE:     Return value:.. ['--check-certificate', 'false']
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.316723 line      1175             ['--check-certificate', 'false'])
+IE_TRACE: 15:05:16.316741 line      1172         self.assertEqual(
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.317541 line      1176         self.assertEqual(
+IE_TRACE: 15:05:16.317559 line      1177             cli_bool_option(
+IE_TRACE: 15:05:16.317575 line      1178                 {'nocheckcertificate': True}, '--check-certificate', 'nocheckcertificate', 'false', 'true', '='),
+IE_TRACE: 15:05:16.317587 line      1177             cli_bool_option(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. params = {'nocheckcertificate': True}
+IE_TRACE:     Starting var:.. command_option = '--check-certificate'
+IE_TRACE:     Starting var:.. param = 'nocheckcertificate'
+IE_TRACE:     Starting var:.. true_value = 'false'
+IE_TRACE:     Starting var:.. false_value = 'true'
+IE_TRACE:     Starting var:.. separator = '='
+IE_TRACE:     15:05:16.317601 call      2734 def cli_bool_option(params, command_option, param, true_value='true', false_value='false', separator=None):
+IE_TRACE:     15:05:16.317652 line      2735     param = params.get(param)
+IE_TRACE:     Modified var:.. param = True
+IE_TRACE:     15:05:16.317672 line      2736     assert isinstance(param, bool)
+IE_TRACE:     15:05:16.317697 line      2737     if separator:
+IE_TRACE:     15:05:16.317716 line      2738         return [command_option + separator + (true_value if param else false_value)]
+IE_TRACE:     15:05:16.317736 return    2738         return [command_option + separator + (true_value if param else false_value)]
+IE_TRACE:     Return value:.. ['--check-certificate=false']
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.317761 line      1179             ['--check-certificate=false'])
+IE_TRACE: 15:05:16.317780 line      1176         self.assertEqual(
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.318564 line      1180         self.assertEqual(
+IE_TRACE: 15:05:16.318585 line      1181             cli_bool_option(
+IE_TRACE: 15:05:16.318598 line      1182                 {'nocheckcertificate': False}, '--check-certificate', 'nocheckcertificate', 'false', 'true'),
+IE_TRACE: 15:05:16.318610 line      1181             cli_bool_option(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. params = {'nocheckcertificate': False}
+IE_TRACE:     Starting var:.. command_option = '--check-certificate'
+IE_TRACE:     Starting var:.. param = 'nocheckcertificate'
+IE_TRACE:     Starting var:.. true_value = 'false'
+IE_TRACE:     Starting var:.. false_value = 'true'
+IE_TRACE:     Starting var:.. separator = None
+IE_TRACE:     15:05:16.318623 call      2734 def cli_bool_option(params, command_option, param, true_value='true', false_value='false', separator=None):
+IE_TRACE:     15:05:16.318674 line      2735     param = params.get(param)
+IE_TRACE:     Modified var:.. param = False
+IE_TRACE:     15:05:16.318694 line      2736     assert isinstance(param, bool)
+IE_TRACE:     15:05:16.318718 line      2737     if separator:
+IE_TRACE:     15:05:16.318737 line      2739     return [command_option, true_value if param else false_value]
+IE_TRACE:     15:05:16.318757 return    2739     return [command_option, true_value if param else false_value]
+IE_TRACE:     Return value:.. ['--check-certificate', 'true']
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.318782 line      1183             ['--check-certificate', 'true'])
+IE_TRACE: 15:05:16.318799 line      1180         self.assertEqual(
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.319586 line      1184         self.assertEqual(
+IE_TRACE: 15:05:16.319604 line      1185             cli_bool_option(
+IE_TRACE: 15:05:16.319617 line      1186                 {'nocheckcertificate': False}, '--check-certificate', 'nocheckcertificate', 'false', 'true', '='),
+IE_TRACE: 15:05:16.319629 line      1185             cli_bool_option(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. params = {'nocheckcertificate': False}
+IE_TRACE:     Starting var:.. command_option = '--check-certificate'
+IE_TRACE:     Starting var:.. param = 'nocheckcertificate'
+IE_TRACE:     Starting var:.. true_value = 'false'
+IE_TRACE:     Starting var:.. false_value = 'true'
+IE_TRACE:     Starting var:.. separator = '='
+IE_TRACE:     15:05:16.319642 call      2734 def cli_bool_option(params, command_option, param, true_value='true', false_value='false', separator=None):
+IE_TRACE:     15:05:16.319693 line      2735     param = params.get(param)
+IE_TRACE:     Modified var:.. param = False
+IE_TRACE:     15:05:16.319713 line      2736     assert isinstance(param, bool)
+IE_TRACE:     15:05:16.319737 line      2737     if separator:
+IE_TRACE:     15:05:16.319756 line      2738         return [command_option + separator + (true_value if param else false_value)]
+IE_TRACE:     15:05:16.319775 return    2738         return [command_option + separator + (true_value if param else false_value)]
+IE_TRACE:     Return value:.. ['--check-certificate=true']
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.319800 line      1187             ['--check-certificate=true'])
+IE_TRACE: 15:05:16.319818 line      1184         self.assertEqual(
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.320637 line      1188         self.assertEqual(
+IE_TRACE: 15:05:16.320655 line      1189             cli_bool_option(
+IE_TRACE: 15:05:16.320668 line      1190                 {}, '--check-certificate', 'nocheckcertificate', 'false', 'true', '='),
+IE_TRACE: 15:05:16.320680 line      1189             cli_bool_option(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. params = {}
+IE_TRACE:     Starting var:.. command_option = '--check-certificate'
+IE_TRACE:     Starting var:.. param = 'nocheckcertificate'
+IE_TRACE:     Starting var:.. true_value = 'false'
+IE_TRACE:     Starting var:.. false_value = 'true'
+IE_TRACE:     Starting var:.. separator = '='
+IE_TRACE:     15:05:16.320693 call      2734 def cli_bool_option(params, command_option, param, true_value='true', false_value='false', separator=None):
+IE_TRACE:     15:05:16.320743 line      2735     param = params.get(param)
+IE_TRACE:     Modified var:.. param = None
+IE_TRACE:     15:05:16.320763 line      2736     assert isinstance(param, bool)
+IE_TRACE:     15:05:16.320788 exception 2736     assert isinstance(param, bool)
+IE_TRACE:     Exception:..... AssertionError
+IE_TRACE:     Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.320919 exception 1189             cli_bool_option(
+IE_TRACE: Exception:..... AssertionError
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.007869
+======================================================================
+FAIL: test_cli_bool_option (test.test_utils.TestUtil.test_cli_bool_option)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py", line 1189, in test_cli_bool_option
+    cli_bool_option(
+  File "/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py", line 2736, in cli_bool_option
+    assert isinstance(param, bool)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+----------------------------------------------------------------------
+Ran 1 test in 0.009s
+
+FAILED (failures=1)
+
+
+Exit code: 1

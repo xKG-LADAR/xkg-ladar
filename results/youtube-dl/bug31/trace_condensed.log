@@ -1,0 +1,780 @@
+Cleared: /path/to/results/youtube-dl/bug31
+Running: python -m unittest -q test.test_utils.TestUtil.test_parse_duration
+Workdir: /path/to/BugsInPy/workspace/youtube-dl
+PYTHONPATH: /path/to/BugsInPy/workspace/youtube-dl
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py:717: SyntaxWarning: invalid escape sequence '\d'
+  match = re.match('(now|today)(?P<sign>[+-])(?P<time>\d+)(?P<unit>day|week|month|year)(s)?', date_str)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/allocine.py:26: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/allocine.py:36: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/allocine.py:46: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/ard.py:141: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = '(?P<mainurl>https?://(www\.)?daserste\.de/[^?#]+/videos/(?P<display_id>[^/?#]+)-(?P<id>[0-9]+))\.html'
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/ard.py:152: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/generic.py:384: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/youtube.py:1559: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = 'https?://www\.youtube\.com/feed/history|:ythistory'
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/smotri.py:306: SyntaxWarning: invalid escape sequence '\.'
+  'window\.broadcast_control\.addFlashVar\\(\'file\', \'([^\']+)\'\\);',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/beeg.py:19: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/bilibili.py:27: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.+\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/cliphunter.py:35: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/dbtv.py:25: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/drtuber.py:23: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/dump.py:19: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/novamov.py:17: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = _VALID_URL_TEMPLATE % {'host': 'novamov\.com'}
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/empflix.py:22: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/tnaflix.py:28: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/tnaflix.py:63: SyntaxWarning: invalid escape sequence '\d'
+  video_url = re.sub('speed=\d+', 'speed=', item.find('videoLink').text)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/firedrive.py:26: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/funnyordie.py:20: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http:.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/funnyordie.py:29: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http:.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/globo.py:20: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = 'https?://.+?\.globo\.com/(?P<id>.+)'
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/goldenmoustache.py:19: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/goldenmoustache.py:30: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.(?:png|jpg)$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/gorillavid.py:33: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/gorillavid.py:42: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/gorillavid.py:51: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/gorillavid.py:61: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/goshgay.py:20: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/grooveshark.py:86: SyntaxWarning: invalid escape sequence '\s'
+  return re.split('(?m)^\s*try\s*{', js)[0] \
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/hostingbulk.py:28: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/howstuffworks.py:23: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/howstuffworks.py:38: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/howstuffworks.py:53: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/huffpost.py:48: SyntaxWarning: invalid escape sequence '\.'
+  m = re.match('.*-([0-9]+x[0-9]+)\.', url)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/ign.py:91: SyntaxWarning: invalid escape sequence '\.'
+  '<param name="flashvars"[^>]*value="[^"]*?url=(https?://www\.ign\.com/videos/.*?)["&]',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/instagram.py:61: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/iprima.py:37: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http:.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/ivi.py:60: SyntaxWarning: invalid escape sequence '\s'
+  m = re.search('(?s)<a href="#" id="view-comments" class="action-button dim gradient">\s*Комментарии:\s*(?P<commentcount>\d+)\s*</a>', html)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/izlesene.py:31: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/izlesene.py:47: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/krasview.py:27: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/lifenews.py:27: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/livestream.py:32: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http://.*\.jpg$'
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/metacafe.py:131: SyntaxWarning: invalid escape sequence '\w'
+  m_external = re.match('^(\w{2})-(.*)$', video_id)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/minhateca.py:23: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/mixcloud.py:30: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/mlb.py:26: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/mlb.py:40: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/mlb.py:54: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/mlb.py:68: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/moevideo.py:33: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/moevideo.py:48: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/movieclips.py:23: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nfl.py:32: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nfl.py:45: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nosvideo.py:20: SyntaxWarning: invalid escape sequence '\?'
+  '(?:embed/|\?v=)(?P<id>[A-Za-z0-9]{12})/?'
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nosvideo.py:30: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nowvideo.py:10: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = NovaMovIE._VALID_URL_TEMPLATE % {'host': 'nowvideo\.(?:ch|sx|eu|at|ag|co)'}
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/pbs.py:67: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/pbs.py:80: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/playfm.py:34: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/pornhd.py:26: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/promptfile.py:24: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/quickvid.py:22: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.(?:png|jpg|gif)$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/quickvid.py:41: SyntaxWarning: invalid escape sequence '\s'
+  } for src in re.findall('<source\s+src="([^"]+)"', video_code)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/rtlnow.py:84: SyntaxWarning: invalid escape sequence '\.'
+  'description': 're:^Im Therapiezentrum \'Sonnalm\' kommen durch eine Unachtsamkeit die für die B.handlung mit Phobikern gehaltenen Voglespinnen frei\. Eine Ausreißerin',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/rts.py:34: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.image',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/rts.py:51: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.image',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/rts.py:68: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.image',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/rts.py:86: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.image',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/rts.py:117: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.image',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/sbs.py:27: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/screencast.py:24: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.(?:gif|jpg)$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/screencast.py:34: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.(?:gif|jpg)$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/screencast.py:44: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.(?:gif|jpg)$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/screencast.py:54: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.(?:gif|jpg)$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/sexykarma.py:25: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/sexykarma.py:41: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/sexykarma.py:57: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/sockshare.py:25: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/soundgasm.py:29: SyntaxWarning: invalid escape sequence '\/'
+  audio_id = re.split('\/|\.', audio_url)[-2]
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/spankwire.py:71: SyntaxWarning: invalid escape sequence '\.'
+  if webpage.find('flashvars\.encrypted = "true"') != -1:
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/spiegel.py:92: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = 'https?://www\.spiegel\.de/(?!video/)[^?#]*?-(?P<id>[0-9]+)\.html'
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/spiegeltv.py:17: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/sportbox.py:24: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/sportdeutschland.py:23: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/sportdeutschland.py:24: SyntaxWarning: invalid escape sequence '\.'
+  'description': 're:Die Badminton-WM 2014 aus Kopenhagen bei Sportdeutschland\.TV',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/sportdeutschland.py:40: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/srmediathek.py:21: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/sunporno.py:24: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/tagesschau.py:20: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http:.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/tapely.py:27: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.png$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/teachertube.py:27: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/teachertube.py:37: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/ted.py:50: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.+\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/theonion.py:20: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg\?\d+$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/tinypic.py:31: SyntaxWarning: invalid escape sequence '\s'
+  '\s+fo\.addVariable\("s",\s"(?P<serverid>\d+)"\);', webpage)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/tlc.py:51: SyntaxWarning: invalid escape sequence '\.'
+  '<iframe src="(http://www\.tlc\.de/wp-content/.+?)"', webpage,
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/tudou.py:20: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/tudou.py:28: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/tumblr.py:19: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/tumblr.py:29: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/tunein.py:28: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.png$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/turbo.py:27: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/twentyfourvideo.py:24: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/twitch.py:117: SyntaxWarning: invalid escape sequence '\.'
+  """
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/urort.py:24: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.+\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vgtv.py:22: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vgtv.py:37: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vgtv.py:56: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vgtv.py:92: SyntaxWarning: invalid escape sequence '\d'
+  m = re.search('(?P<width>\d+)_(?P<height>\d+)_(?P<vbr>\d+)', mp4_format)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/viddler.py:24: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/videolecturesnet.py:27: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/videomega.py:25: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vidme.py:26: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vimeo.py:257: SyntaxWarning: invalid escape sequence '\w'
+  m_variable_name = re.search('(\w)\.video\.id', webpage)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vimeo.py:520: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vodlocker.py:22: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vporn.py:24: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vporn.py:44: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vube.py:27: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vube.py:45: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http://frame\.thestaticvube\.com/snap/[0-9x]+/102e7e63057-5ebc-4f5c-4065-6ce4ebde131f\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vube.py:65: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http://frame\.thestaticvube\.com/snap/[0-9x]+/102265d5a9f-0f17-4f6b-5753-adf08484ee1e\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vube.py:84: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http://frame\.thestaticvube\.com/snap/[0-9x]+/10283ab622a-86c9-4681-51f2-30d1f65774af\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vulture.py:25: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/walla.py:23: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/wdr.py:150: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = 'http://(?:www\.)?wdrmaus\.de/(?:[^/]+/){,2}(?P<id>[^/?#]+)(?:/index\.php5|(?<!index)\.php5|/(?:$|[?#]))'
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/wdr.py:157: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http://.+\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/wdr.py:167: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http://.+\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/xbef.py:21: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/ynet.py:20: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/ynet.py:28: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/youku.py:45: SyntaxWarning: invalid escape sequence '\:'
+  source = list("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ/\:._-1234567890")
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/yourupload.py:24: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpe?g',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/zingmp3.py:61: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Starting var:.. self = <test.test_utils.TestUtil testMethod=test_parse_duration>
+IE_TRACE: 15:21:14.847993 call       206     def test_parse_duration(self):
+IE_TRACE: 15:21:14.848271 line       207         self.assertEqual(parse_duration(None), None)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = None
+IE_TRACE:     15:21:14.848318 call      1201 def parse_duration(s):
+IE_TRACE:     15:21:14.848476 line      1202     if s is None:
+IE_TRACE:     15:21:14.848502 line      1203         return None
+IE_TRACE:     15:21:14.848522 return    1203         return None
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:21:14.849069 line       208         self.assertEqual(parse_duration('1'), 1)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = '1'
+IE_TRACE:     15:21:14.849094 call      1201 def parse_duration(s):
+IE_TRACE:     15:21:14.849123 line      1202     if s is None:
+IE_TRACE:     15:21:14.849138 line      1205     s = s.strip()
+IE_TRACE:     15:21:14.849152 line      1207     m = re.match(
+IE_TRACE:     15:21:14.849167 line      1208         r'''(?ix)T?
+IE_TRACE:     15:21:14.849180 line      1213             (?P<secs>[0-9]+)(?P<ms>\.[0-9]+)?\s*(?:s|secs?|seconds?)?$''', s)
+IE_TRACE:     15:21:14.849195 line      1207     m = re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = <re.Match object; span=(0, 1), match='1'>
+IE_TRACE:     15:21:15.143864 line      1214     if not m:
+IE_TRACE:     15:21:15.143883 line      1216     res = int(m.group('secs'))
+IE_TRACE:     New var:....... res = 1
+IE_TRACE:     15:21:15.143895 line      1217     if m.group('mins'):
+IE_TRACE:     15:21:15.143908 line      1221     if m.group('ms'):
+IE_TRACE:     15:21:15.143918 line      1223     return res
+IE_TRACE:     15:21:15.143928 return    1223     return res
+IE_TRACE:     Return value:.. 1
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:21:15.144157 line       209         self.assertEqual(parse_duration('1337:12'), 80232)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = '1337:12'
+IE_TRACE:     15:21:15.144173 call      1201 def parse_duration(s):
+IE_TRACE:     15:21:15.144188 line      1202     if s is None:
+IE_TRACE:     15:21:15.144196 line      1205     s = s.strip()
+IE_TRACE:     15:21:15.144205 line      1207     m = re.match(
+IE_TRACE:     15:21:15.144213 line      1208         r'''(?ix)T?
+IE_TRACE:     15:21:15.144221 line      1213             (?P<secs>[0-9]+)(?P<ms>\.[0-9]+)?\s*(?:s|secs?|seconds?)?$''', s)
+IE_TRACE:     15:21:15.144230 line      1207     m = re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = <re.Match object; span=(0, 7), match='1337:12'>
+IE_TRACE:     15:21:15.144354 line      1214     if not m:
+IE_TRACE:     15:21:15.144369 line      1216     res = int(m.group('secs'))
+IE_TRACE:     New var:....... res = 12
+IE_TRACE:     15:21:15.144380 line      1217     if m.group('mins'):
+IE_TRACE:     15:21:15.144393 line      1218         res += int(m.group('mins')) * 60
+IE_TRACE:     Modified var:.. res = 80232
+IE_TRACE:     15:21:15.144403 line      1219         if m.group('hours'):
+IE_TRACE:     15:21:15.144416 line      1221     if m.group('ms'):
+IE_TRACE:     15:21:15.144426 line      1223     return res
+IE_TRACE:     15:21:15.144436 return    1223     return res
+IE_TRACE:     Return value:.. 80232
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:21:15.144645 line       210         self.assertEqual(parse_duration('9:12:43'), 33163)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = '9:12:43'
+IE_TRACE:     15:21:15.144657 call      1201 def parse_duration(s):
+IE_TRACE:     15:21:15.144671 line      1202     if s is None:
+IE_TRACE:     15:21:15.144679 line      1205     s = s.strip()
+IE_TRACE:     15:21:15.144688 line      1207     m = re.match(
+IE_TRACE:     15:21:15.144696 line      1208         r'''(?ix)T?
+IE_TRACE:     15:21:15.144704 line      1213             (?P<secs>[0-9]+)(?P<ms>\.[0-9]+)?\s*(?:s|secs?|seconds?)?$''', s)
+IE_TRACE:     15:21:15.144712 line      1207     m = re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = <re.Match object; span=(0, 7), match='9:12:43'>
+IE_TRACE:     15:21:15.144831 line      1214     if not m:
+IE_TRACE:     15:21:15.144846 line      1216     res = int(m.group('secs'))
+IE_TRACE:     New var:....... res = 43
+IE_TRACE:     15:21:15.144856 line      1217     if m.group('mins'):
+IE_TRACE:     15:21:15.144869 line      1218         res += int(m.group('mins')) * 60
+IE_TRACE:     Modified var:.. res = 763
+IE_TRACE:     15:21:15.144879 line      1219         if m.group('hours'):
+IE_TRACE:     15:21:15.144892 line      1220             res += int(m.group('hours')) * 60 * 60
+IE_TRACE:     Modified var:.. res = 33163
+IE_TRACE:     15:21:15.144902 line      1221     if m.group('ms'):
+IE_TRACE:     15:21:15.144915 line      1223     return res
+IE_TRACE:     15:21:15.144924 return    1223     return res
+IE_TRACE:     Return value:.. 33163
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:21:15.145131 line       211         self.assertEqual(parse_duration('12:00'), 720)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = '12:00'
+IE_TRACE:     15:21:15.145143 call      1201 def parse_duration(s):
+IE_TRACE:     15:21:15.145157 line      1202     if s is None:
+IE_TRACE:     15:21:15.145165 line      1205     s = s.strip()
+IE_TRACE:     15:21:15.145173 line      1207     m = re.match(
+IE_TRACE:     15:21:15.145182 line      1208         r'''(?ix)T?
+IE_TRACE:     15:21:15.145190 line      1213             (?P<secs>[0-9]+)(?P<ms>\.[0-9]+)?\s*(?:s|secs?|seconds?)?$''', s)
+IE_TRACE:     15:21:15.145198 line      1207     m = re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = <re.Match object; span=(0, 5), match='12:00'>
+IE_TRACE:     15:21:15.145316 line      1214     if not m:
+IE_TRACE:     15:21:15.145331 line      1216     res = int(m.group('secs'))
+IE_TRACE:     New var:....... res = 0
+IE_TRACE:     15:21:15.145340 line      1217     if m.group('mins'):
+IE_TRACE:     15:21:15.145354 line      1218         res += int(m.group('mins')) * 60
+IE_TRACE:     Modified var:.. res = 720
+IE_TRACE:     15:21:15.145364 line      1219         if m.group('hours'):
+IE_TRACE:     15:21:15.145377 line      1221     if m.group('ms'):
+IE_TRACE:     15:21:15.145387 line      1223     return res
+IE_TRACE:     15:21:15.145397 return    1223     return res
+IE_TRACE:     Return value:.. 720
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:21:15.145624 line       212         self.assertEqual(parse_duration('00:01:01'), 61)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = '00:01:01'
+IE_TRACE:     15:21:15.145636 call      1201 def parse_duration(s):
+IE_TRACE:     15:21:15.145651 line      1202     if s is None:
+IE_TRACE:     15:21:15.145659 line      1205     s = s.strip()
+IE_TRACE:     15:21:15.145667 line      1207     m = re.match(
+IE_TRACE:     15:21:15.145675 line      1208         r'''(?ix)T?
+IE_TRACE:     15:21:15.145683 line      1213             (?P<secs>[0-9]+)(?P<ms>\.[0-9]+)?\s*(?:s|secs?|seconds?)?$''', s)
+IE_TRACE:     15:21:15.145691 line      1207     m = re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = <re.Match object; span=(0, 8), match='00:01:01'>
+IE_TRACE:     15:21:15.145810 line      1214     if not m:
+IE_TRACE:     15:21:15.145826 line      1216     res = int(m.group('secs'))
+IE_TRACE:     New var:....... res = 1
+IE_TRACE:     15:21:15.145836 line      1217     if m.group('mins'):
+IE_TRACE:     15:21:15.145849 line      1218         res += int(m.group('mins')) * 60
+IE_TRACE:     Modified var:.. res = 61
+IE_TRACE:     15:21:15.145858 line      1219         if m.group('hours'):
+IE_TRACE:     15:21:15.145871 line      1220             res += int(m.group('hours')) * 60 * 60
+IE_TRACE:     15:21:15.145881 line      1221     if m.group('ms'):
+IE_TRACE:     15:21:15.145891 line      1223     return res
+IE_TRACE:     15:21:15.145900 return    1223     return res
+IE_TRACE:     Return value:.. 61
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:21:15.146106 line       213         self.assertEqual(parse_duration('x:y'), None)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = 'x:y'
+IE_TRACE:     15:21:15.146117 call      1201 def parse_duration(s):
+IE_TRACE:     15:21:15.146132 line      1202     if s is None:
+IE_TRACE:     15:21:15.146140 line      1205     s = s.strip()
+IE_TRACE:     15:21:15.146149 line      1207     m = re.match(
+IE_TRACE:     15:21:15.146157 line      1208         r'''(?ix)T?
+IE_TRACE:     15:21:15.146165 line      1213             (?P<secs>[0-9]+)(?P<ms>\.[0-9]+)?\s*(?:s|secs?|seconds?)?$''', s)
+IE_TRACE:     15:21:15.146172 line      1207     m = re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = None
+IE_TRACE:     15:21:15.146290 line      1214     if not m:
+IE_TRACE:     15:21:15.146306 line      1215         return None
+IE_TRACE:     15:21:15.146315 return    1215         return None
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:21:15.146515 line       214         self.assertEqual(parse_duration('3h11m53s'), 11513)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = '3h11m53s'
+IE_TRACE:     15:21:15.146526 call      1201 def parse_duration(s):
+IE_TRACE:     15:21:15.146540 line      1202     if s is None:
+IE_TRACE:     15:21:15.146548 line      1205     s = s.strip()
+IE_TRACE:     15:21:15.146556 line      1207     m = re.match(
+IE_TRACE:     15:21:15.146564 line      1208         r'''(?ix)T?
+IE_TRACE:     15:21:15.146577 line      1213             (?P<secs>[0-9]+)(?P<ms>\.[0-9]+)?\s*(?:s|secs?|seconds?)?$''', s)
+IE_TRACE:     15:21:15.146588 line      1207     m = re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = <re.Match object; span=(0, 8), match='3h11m53s'>
+IE_TRACE:     15:21:15.146711 line      1214     if not m:
+IE_TRACE:     15:21:15.146726 line      1216     res = int(m.group('secs'))
+IE_TRACE:     New var:....... res = 53
+IE_TRACE:     15:21:15.146736 line      1217     if m.group('mins'):
+IE_TRACE:     15:21:15.146749 line      1218         res += int(m.group('mins')) * 60
+IE_TRACE:     Modified var:.. res = 713
+IE_TRACE:     15:21:15.146759 line      1219         if m.group('hours'):
+IE_TRACE:     15:21:15.146772 line      1220             res += int(m.group('hours')) * 60 * 60
+IE_TRACE:     Modified var:.. res = 11513
+IE_TRACE:     15:21:15.146782 line      1221     if m.group('ms'):
+IE_TRACE:     15:21:15.146795 line      1223     return res
+IE_TRACE:     15:21:15.146805 return    1223     return res
+IE_TRACE:     Return value:.. 11513
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:21:15.147011 line       215         self.assertEqual(parse_duration('3h 11m 53s'), 11513)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = '3h 11m 53s'
+IE_TRACE:     15:21:15.147029 call      1201 def parse_duration(s):
+IE_TRACE:     15:21:15.147044 line      1202     if s is None:
+IE_TRACE:     15:21:15.147052 line      1205     s = s.strip()
+IE_TRACE:     15:21:15.147060 line      1207     m = re.match(
+IE_TRACE:     15:21:15.147132 line      1208         r'''(?ix)T?
+IE_TRACE:     15:21:15.147139 line      1213             (?P<secs>[0-9]+)(?P<ms>\.[0-9]+)?\s*(?:s|secs?|seconds?)?$''', s)
+IE_TRACE:     15:21:15.147147 line      1207     m = re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = <re.Match object; span=(0, 10), match='3h 11m 53s'>
+IE_TRACE:     15:21:15.147271 line      1214     if not m:
+IE_TRACE:     15:21:15.147285 line      1216     res = int(m.group('secs'))
+IE_TRACE:     New var:....... res = 53
+IE_TRACE:     15:21:15.147295 line      1217     if m.group('mins'):
+IE_TRACE:     15:21:15.147308 line      1218         res += int(m.group('mins')) * 60
+IE_TRACE:     Modified var:.. res = 713
+IE_TRACE:     15:21:15.147318 line      1219         if m.group('hours'):
+IE_TRACE:     15:21:15.147331 line      1220             res += int(m.group('hours')) * 60 * 60
+IE_TRACE:     Modified var:.. res = 11513
+IE_TRACE:     15:21:15.147341 line      1221     if m.group('ms'):
+IE_TRACE:     15:21:15.147354 line      1223     return res
+IE_TRACE:     15:21:15.147363 return    1223     return res
+IE_TRACE:     Return value:.. 11513
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:21:15.147565 line       216         self.assertEqual(parse_duration('3 hours 11 minutes 53 seconds'), 11513)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = '3 hours 11 minutes 53 seconds'
+IE_TRACE:     15:21:15.147578 call      1201 def parse_duration(s):
+IE_TRACE:     15:21:15.147592 line      1202     if s is None:
+IE_TRACE:     15:21:15.147600 line      1205     s = s.strip()
+IE_TRACE:     15:21:15.147608 line      1207     m = re.match(
+IE_TRACE:     15:21:15.147616 line      1208         r'''(?ix)T?
+IE_TRACE:     15:21:15.147624 line      1213             (?P<secs>[0-9]+)(?P<ms>\.[0-9]+)?\s*(?:s|secs?|seconds?)?$''', s)
+IE_TRACE:     15:21:15.147632 line      1207     m = re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = <re.Match object; span=(0, 29), match='3 hours 11 minutes 53 seconds'>
+IE_TRACE:     15:21:15.147751 line      1214     if not m:
+IE_TRACE:     15:21:15.147766 line      1216     res = int(m.group('secs'))
+IE_TRACE:     New var:....... res = 53
+IE_TRACE:     15:21:15.147775 line      1217     if m.group('mins'):
+IE_TRACE:     15:21:15.147787 line      1218         res += int(m.group('mins')) * 60
+IE_TRACE:     Modified var:.. res = 713
+IE_TRACE:     15:21:15.147797 line      1219         if m.group('hours'):
+IE_TRACE:     15:21:15.147809 line      1220             res += int(m.group('hours')) * 60 * 60
+IE_TRACE:     Modified var:.. res = 11513
+IE_TRACE:     15:21:15.147819 line      1221     if m.group('ms'):
+IE_TRACE:     15:21:15.147831 line      1223     return res
+IE_TRACE:     15:21:15.147841 return    1223     return res
+IE_TRACE:     Return value:.. 11513
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:21:15.148043 line       217         self.assertEqual(parse_duration('3 hours 11 mins 53 secs'), 11513)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = '3 hours 11 mins 53 secs'
+IE_TRACE:     15:21:15.148054 call      1201 def parse_duration(s):
+IE_TRACE:     15:21:15.148068 line      1202     if s is None:
+IE_TRACE:     15:21:15.148076 line      1205     s = s.strip()
+IE_TRACE:     15:21:15.148084 line      1207     m = re.match(
+IE_TRACE:     15:21:15.148092 line      1208         r'''(?ix)T?
+IE_TRACE:     15:21:15.148100 line      1213             (?P<secs>[0-9]+)(?P<ms>\.[0-9]+)?\s*(?:s|secs?|seconds?)?$''', s)
+IE_TRACE:     15:21:15.148108 line      1207     m = re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = <re.Match object; span=(0, 23), match='3 hours 11 mins 53 secs'>
+IE_TRACE:     15:21:15.148226 line      1214     if not m:
+IE_TRACE:     15:21:15.148241 line      1216     res = int(m.group('secs'))
+IE_TRACE:     New var:....... res = 53
+IE_TRACE:     15:21:15.148250 line      1217     if m.group('mins'):
+IE_TRACE:     15:21:15.148263 line      1218         res += int(m.group('mins')) * 60
+IE_TRACE:     Modified var:.. res = 713
+IE_TRACE:     15:21:15.148273 line      1219         if m.group('hours'):
+IE_TRACE:     15:21:15.148286 line      1220             res += int(m.group('hours')) * 60 * 60
+IE_TRACE:     Modified var:.. res = 11513
+IE_TRACE:     15:21:15.148296 line      1221     if m.group('ms'):
+IE_TRACE:     15:21:15.148309 line      1223     return res
+IE_TRACE:     15:21:15.148318 return    1223     return res
+IE_TRACE:     Return value:.. 11513
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:21:15.148521 line       218         self.assertEqual(parse_duration('62m45s'), 3765)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = '62m45s'
+IE_TRACE:     15:21:15.148533 call      1201 def parse_duration(s):
+IE_TRACE:     15:21:15.148547 line      1202     if s is None:
+IE_TRACE:     15:21:15.148555 line      1205     s = s.strip()
+IE_TRACE:     15:21:15.148563 line      1207     m = re.match(
+IE_TRACE:     15:21:15.148571 line      1208         r'''(?ix)T?
+IE_TRACE:     15:21:15.148581 line      1213             (?P<secs>[0-9]+)(?P<ms>\.[0-9]+)?\s*(?:s|secs?|seconds?)?$''', s)
+IE_TRACE:     15:21:15.148589 line      1207     m = re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = <re.Match object; span=(0, 6), match='62m45s'>
+IE_TRACE:     15:21:15.148706 line      1214     if not m:
+IE_TRACE:     15:21:15.148722 line      1216     res = int(m.group('secs'))
+IE_TRACE:     New var:....... res = 45
+IE_TRACE:     15:21:15.148731 line      1217     if m.group('mins'):
+IE_TRACE:     15:21:15.148744 line      1218         res += int(m.group('mins')) * 60
+IE_TRACE:     Modified var:.. res = 3765
+IE_TRACE:     15:21:15.148754 line      1219         if m.group('hours'):
+IE_TRACE:     15:21:15.148766 line      1221     if m.group('ms'):
+IE_TRACE:     15:21:15.148776 line      1223     return res
+IE_TRACE:     15:21:15.148786 return    1223     return res
+IE_TRACE:     Return value:.. 3765
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:21:15.148983 line       219         self.assertEqual(parse_duration('6m59s'), 419)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = '6m59s'
+IE_TRACE:     15:21:15.148994 call      1201 def parse_duration(s):
+IE_TRACE:     15:21:15.149009 line      1202     if s is None:
+IE_TRACE:     15:21:15.149017 line      1205     s = s.strip()
+IE_TRACE:     15:21:15.149025 line      1207     m = re.match(
+IE_TRACE:     15:21:15.149033 line      1208         r'''(?ix)T?
+IE_TRACE:     15:21:15.149042 line      1213             (?P<secs>[0-9]+)(?P<ms>\.[0-9]+)?\s*(?:s|secs?|seconds?)?$''', s)
+IE_TRACE:     15:21:15.149050 line      1207     m = re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = <re.Match object; span=(0, 5), match='6m59s'>
+IE_TRACE:     15:21:15.149167 line      1214     if not m:
+IE_TRACE:     15:21:15.149182 line      1216     res = int(m.group('secs'))
+IE_TRACE:     New var:....... res = 59
+IE_TRACE:     15:21:15.149191 line      1217     if m.group('mins'):
+IE_TRACE:     15:21:15.149204 line      1218         res += int(m.group('mins')) * 60
+IE_TRACE:     Modified var:.. res = 419
+IE_TRACE:     15:21:15.149214 line      1219         if m.group('hours'):
+IE_TRACE:     15:21:15.149226 line      1221     if m.group('ms'):
+IE_TRACE:     15:21:15.149236 line      1223     return res
+IE_TRACE:     15:21:15.149245 return    1223     return res
+IE_TRACE:     Return value:.. 419
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:21:15.149443 line       220         self.assertEqual(parse_duration('49s'), 49)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = '49s'
+IE_TRACE:     15:21:15.149454 call      1201 def parse_duration(s):
+IE_TRACE:     15:21:15.149469 line      1202     if s is None:
+IE_TRACE:     15:21:15.149477 line      1205     s = s.strip()
+IE_TRACE:     15:21:15.149485 line      1207     m = re.match(
+IE_TRACE:     15:21:15.149494 line      1208         r'''(?ix)T?
+IE_TRACE:     15:21:15.149502 line      1213             (?P<secs>[0-9]+)(?P<ms>\.[0-9]+)?\s*(?:s|secs?|seconds?)?$''', s)
+IE_TRACE:     15:21:15.149510 line      1207     m = re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = <re.Match object; span=(0, 3), match='49s'>
+IE_TRACE:     15:21:15.149629 line      1214     if not m:
+IE_TRACE:     15:21:15.149644 line      1216     res = int(m.group('secs'))
+IE_TRACE:     New var:....... res = 49
+IE_TRACE:     15:21:15.149653 line      1217     if m.group('mins'):
+IE_TRACE:     15:21:15.149665 line      1221     if m.group('ms'):
+IE_TRACE:     15:21:15.149675 line      1223     return res
+IE_TRACE:     15:21:15.149685 return    1223     return res
+IE_TRACE:     Return value:.. 49
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:21:15.149882 line       221         self.assertEqual(parse_duration('0h0m0s'), 0)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = '0h0m0s'
+IE_TRACE:     15:21:15.149894 call      1201 def parse_duration(s):
+IE_TRACE:     15:21:15.149909 line      1202     if s is None:
+IE_TRACE:     15:21:15.149917 line      1205     s = s.strip()
+IE_TRACE:     15:21:15.149925 line      1207     m = re.match(
+IE_TRACE:     15:21:15.149933 line      1208         r'''(?ix)T?
+IE_TRACE:     15:21:15.149942 line      1213             (?P<secs>[0-9]+)(?P<ms>\.[0-9]+)?\s*(?:s|secs?|seconds?)?$''', s)
+IE_TRACE:     15:21:15.149950 line      1207     m = re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = <re.Match object; span=(0, 6), match='0h0m0s'>
+IE_TRACE:     15:21:15.150066 line      1214     if not m:
+IE_TRACE:     15:21:15.150081 line      1216     res = int(m.group('secs'))
+IE_TRACE:     New var:....... res = 0
+IE_TRACE:     15:21:15.150090 line      1217     if m.group('mins'):
+IE_TRACE:     15:21:15.150103 line      1218         res += int(m.group('mins')) * 60
+IE_TRACE:     15:21:15.150112 line      1219         if m.group('hours'):
+IE_TRACE:     15:21:15.150122 line      1220             res += int(m.group('hours')) * 60 * 60
+IE_TRACE:     15:21:15.150132 line      1221     if m.group('ms'):
+IE_TRACE:     15:21:15.150141 line      1223     return res
+IE_TRACE:     15:21:15.150151 return    1223     return res
+IE_TRACE:     Return value:.. 0
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:21:15.150347 line       222         self.assertEqual(parse_duration('0m0s'), 0)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = '0m0s'
+IE_TRACE:     15:21:15.150359 call      1201 def parse_duration(s):
+IE_TRACE:     15:21:15.150374 line      1202     if s is None:
+IE_TRACE:     15:21:15.150382 line      1205     s = s.strip()
+IE_TRACE:     15:21:15.150390 line      1207     m = re.match(
+IE_TRACE:     15:21:15.150398 line      1208         r'''(?ix)T?
+IE_TRACE:     15:21:15.150406 line      1213             (?P<secs>[0-9]+)(?P<ms>\.[0-9]+)?\s*(?:s|secs?|seconds?)?$''', s)
+IE_TRACE:     15:21:15.150414 line      1207     m = re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = <re.Match object; span=(0, 4), match='0m0s'>
+IE_TRACE:     15:21:15.150532 line      1214     if not m:
+IE_TRACE:     15:21:15.150546 line      1216     res = int(m.group('secs'))
+IE_TRACE:     New var:....... res = 0
+IE_TRACE:     15:21:15.150556 line      1217     if m.group('mins'):
+IE_TRACE:     15:21:15.150569 line      1218         res += int(m.group('mins')) * 60
+IE_TRACE:     15:21:15.150580 line      1219         if m.group('hours'):
+IE_TRACE:     15:21:15.150590 line      1221     if m.group('ms'):
+IE_TRACE:     15:21:15.150600 line      1223     return res
+IE_TRACE:     15:21:15.150609 return    1223     return res
+IE_TRACE:     Return value:.. 0
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:21:15.150805 line       223         self.assertEqual(parse_duration('0s'), 0)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = '0s'
+IE_TRACE:     15:21:15.150816 call      1201 def parse_duration(s):
+IE_TRACE:     15:21:15.150831 line      1202     if s is None:
+IE_TRACE:     15:21:15.150839 line      1205     s = s.strip()
+IE_TRACE:     15:21:15.150847 line      1207     m = re.match(
+IE_TRACE:     15:21:15.150855 line      1208         r'''(?ix)T?
+IE_TRACE:     15:21:15.150863 line      1213             (?P<secs>[0-9]+)(?P<ms>\.[0-9]+)?\s*(?:s|secs?|seconds?)?$''', s)
+IE_TRACE:     15:21:15.150871 line      1207     m = re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = <re.Match object; span=(0, 2), match='0s'>
+IE_TRACE:     15:21:15.150987 line      1214     if not m:
+IE_TRACE:     15:21:15.151002 line      1216     res = int(m.group('secs'))
+IE_TRACE:     New var:....... res = 0
+IE_TRACE:     15:21:15.151011 line      1217     if m.group('mins'):
+IE_TRACE:     15:21:15.151024 line      1221     if m.group('ms'):
+IE_TRACE:     15:21:15.151033 line      1223     return res
+IE_TRACE:     15:21:15.151043 return    1223     return res
+IE_TRACE:     Return value:.. 0
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:21:15.151241 line       224         self.assertEqual(parse_duration('01:02:03.05'), 3723.05)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = '01:02:03.05'
+IE_TRACE:     15:21:15.151253 call      1201 def parse_duration(s):
+IE_TRACE:     15:21:15.151268 line      1202     if s is None:
+IE_TRACE:     15:21:15.151276 line      1205     s = s.strip()
+IE_TRACE:     15:21:15.151284 line      1207     m = re.match(
+IE_TRACE:     15:21:15.151292 line      1208         r'''(?ix)T?
+IE_TRACE:     15:21:15.151300 line      1213             (?P<secs>[0-9]+)(?P<ms>\.[0-9]+)?\s*(?:s|secs?|seconds?)?$''', s)
+IE_TRACE:     15:21:15.151308 line      1207     m = re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = <re.Match object; span=(0, 11), match='01:02:03.05'>
+IE_TRACE:     15:21:15.151426 line      1214     if not m:
+IE_TRACE:     15:21:15.151441 line      1216     res = int(m.group('secs'))
+IE_TRACE:     New var:....... res = 3
+IE_TRACE:     15:21:15.151451 line      1217     if m.group('mins'):
+IE_TRACE:     15:21:15.151464 line      1218         res += int(m.group('mins')) * 60
+IE_TRACE:     Modified var:.. res = 123
+IE_TRACE:     15:21:15.151474 line      1219         if m.group('hours'):
+IE_TRACE:     15:21:15.151487 line      1220             res += int(m.group('hours')) * 60 * 60
+IE_TRACE:     Modified var:.. res = 3723
+IE_TRACE:     15:21:15.151497 line      1221     if m.group('ms'):
+IE_TRACE:     15:21:15.151509 line      1222         res += float(m.group('ms'))
+IE_TRACE:     Modified var:.. res = 3723.05
+IE_TRACE:     15:21:15.151521 line      1223     return res
+IE_TRACE:     15:21:15.151538 return    1223     return res
+IE_TRACE:     Return value:.. 3723.05
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:21:15.151741 line       225         self.assertEqual(parse_duration('T30M38S'), 1838)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = 'T30M38S'
+IE_TRACE:     15:21:15.151752 call      1201 def parse_duration(s):
+IE_TRACE:     15:21:15.151766 line      1202     if s is None:
+IE_TRACE:     15:21:15.151774 line      1205     s = s.strip()
+IE_TRACE:     15:21:15.151782 line      1207     m = re.match(
+IE_TRACE:     15:21:15.151790 line      1208         r'''(?ix)T?
+IE_TRACE:     15:21:15.151798 line      1213             (?P<secs>[0-9]+)(?P<ms>\.[0-9]+)?\s*(?:s|secs?|seconds?)?$''', s)
+IE_TRACE:     15:21:15.151806 line      1207     m = re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = <re.Match object; span=(0, 7), match='T30M38S'>
+IE_TRACE:     15:21:15.151924 line      1214     if not m:
+IE_TRACE:     15:21:15.151938 line      1216     res = int(m.group('secs'))
+IE_TRACE:     New var:....... res = 38
+IE_TRACE:     15:21:15.151948 line      1217     if m.group('mins'):
+IE_TRACE:     15:21:15.151960 line      1218         res += int(m.group('mins')) * 60
+IE_TRACE:     Modified var:.. res = 1838
+IE_TRACE:     15:21:15.151970 line      1219         if m.group('hours'):
+IE_TRACE:     15:21:15.151982 line      1221     if m.group('ms'):
+IE_TRACE:     15:21:15.151992 line      1223     return res
+IE_TRACE:     15:21:15.152002 return    1223     return res
+IE_TRACE:     Return value:.. 1838
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:21:15.152199 line       226         self.assertEqual(parse_duration('5 s'), 5)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = '5 s'
+IE_TRACE:     15:21:15.152211 call      1201 def parse_duration(s):
+IE_TRACE:     15:21:15.152225 line      1202     if s is None:
+IE_TRACE:     15:21:15.152234 line      1205     s = s.strip()
+IE_TRACE:     15:21:15.152242 line      1207     m = re.match(
+IE_TRACE:     15:21:15.152250 line      1208         r'''(?ix)T?
+IE_TRACE:     15:21:15.152258 line      1213             (?P<secs>[0-9]+)(?P<ms>\.[0-9]+)?\s*(?:s|secs?|seconds?)?$''', s)
+IE_TRACE:     15:21:15.152266 line      1207     m = re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = <re.Match object; span=(0, 3), match='5 s'>
+IE_TRACE:     15:21:15.152384 line      1214     if not m:
+IE_TRACE:     15:21:15.152400 line      1216     res = int(m.group('secs'))
+IE_TRACE:     New var:....... res = 5
+IE_TRACE:     15:21:15.152409 line      1217     if m.group('mins'):
+IE_TRACE:     15:21:15.152422 line      1221     if m.group('ms'):
+IE_TRACE:     15:21:15.152431 line      1223     return res
+IE_TRACE:     15:21:15.152441 return    1223     return res
+IE_TRACE:     Return value:.. 5
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:21:15.152642 line       227         self.assertEqual(parse_duration('3 min'), 180)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = '3 min'
+IE_TRACE:     15:21:15.152653 call      1201 def parse_duration(s):
+IE_TRACE:     15:21:15.152668 line      1202     if s is None:
+IE_TRACE:     15:21:15.152676 line      1205     s = s.strip()
+IE_TRACE:     15:21:15.152685 line      1207     m = re.match(
+IE_TRACE:     15:21:15.152693 line      1208         r'''(?ix)T?
+IE_TRACE:     15:21:15.152701 line      1213             (?P<secs>[0-9]+)(?P<ms>\.[0-9]+)?\s*(?:s|secs?|seconds?)?$''', s)
+IE_TRACE:     15:21:15.152709 line      1207     m = re.match(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = None
+IE_TRACE:     15:21:15.152826 line      1214     if not m:
+IE_TRACE:     15:21:15.152840 line      1215         return None
+IE_TRACE:     15:21:15.152849 return    1215         return None
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:21:15.153534 exception  227         self.assertEqual(parse_duration('3 min'), 180)
+IE_TRACE: Exception:..... AssertionError: None != 180
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.305752
+======================================================================
+FAIL: test_parse_duration (test.test_utils.TestUtil.test_parse_duration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py", line 227, in test_parse_duration
+    self.assertEqual(parse_duration('3 min'), 180)
+AssertionError: None != 180
+
+----------------------------------------------------------------------
+Ran 1 test in 0.306s
+
+FAILED (failures=1)
+
+
+Exit code: 1

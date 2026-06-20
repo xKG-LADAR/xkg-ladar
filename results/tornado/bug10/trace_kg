@@ -1,0 +1,954 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_render_message [label="test_render_message
+websocket_test.py:241" fillcolor=white shape=box style=filled]
+	wrapper [label="wrapper
+[closure inside administrator]
+blog.py:43" fillcolor=white shape=box style=filled]
+	__init__ [label="__init__
+stack_context_test.py:17" fillcolor=white shape=box style=filled]
+	future [label="future
+(13 writes, 7 distinct)
+<tornado.concurrent.Future object at 0x7d269dd09700>
+<tornado.concurrent.Future object at 0x7d269dd0b860>
+<tornado.concurrent.Future object at 0x7d269e98e420>
+None
+<tornado.concurrent.Future object at 0x7d269dd567b0>
+<tornado.concurrent.Future object at 0x7d269dd13860>
+  …+1 more values" shape=ellipse]
+	result [label="result
+(6 writes, 6 distinct)
+<generator object WebSocketBaseTestCase.ws_connect at 0x7d269de47d30>
+<generator object TCPClient.connect at 0x7d269dd6e260>
+<generator object HTTPServer.close_all_connections at 0x7d269ddd2880>
+<tornado.concurrent.Future object at 0x7d269dd11610>
+b'x'
+None" shape=ellipse]
+	orig_stack_contexts [label="orig_stack_contexts
+(4 writes, 2 distinct)
+((), <tornado.stack_context.ExceptionStackContext object at 0x7d269df683e0>)
+((), <tornado.stack_context.ExceptionStackContext object at 0x7d269dd12ae0>)" shape=ellipse]
+	ws_connect [label="ws_connect
+websocket_test.py:143" fillcolor=white shape=box style=filled]
+	get_http_port [label="get_http_port
+Returns the port used by the server.
+testing.py:414" fillcolor=white shape=box style=filled]
+	websocket_connect [label="websocket_connect
+Client-side websocket support.
+websocket.py:1169" fillcolor=white shape=box style=filled]
+	current [label="current
+Returns the current thread's `IOLoop`.
+ioloop.py:194" fillcolor=white shape=box style=filled]
+	io_loop [label="io_loop
+<tornado.platform.epoll.EPollIOLoop object at 0x7d269de1f7d0>" shape=ellipse]
+	headers [label="headers
+httpclient.py:472" fillcolor=white shape=box style=filled]
+	body [label="body
+httpclient.py:483" fillcolor=white shape=box style=filled]
+	utf8 [label="utf8
+Converts a string argument to a byte string.
+escape.py:187" fillcolor=white shape=box style=filled]
+	body_producer [label="body_producer
+[closure inside test_100_continue_early_response]
+simple_httpclient_test.py:452" fillcolor=white shape=box style=filled]
+	wrap [label="wrap
+Returns a callable object that will restore the current…
+stack_context.py:255" fillcolor=white shape=box style=filled]
+	streaming_callback [label="streaming_callback
+[closure inside test_streaming_callback]
+iostream_test.py:291" fillcolor=white shape=box style=filled]
+	header_callback [label="header_callback
+[closure inside test_header_callback]
+httpclient_test.py:319" fillcolor=white shape=box style=filled]
+	prepare_curl_callback [label="prepare_curl_callback
+httpclient.py:515" fillcolor=white shape=box style=filled]
+	request [label="request
+(2 writes, 2 distinct)
+<tornado.httpclient.HTTPRequest object at 0x7d269dd0b0e0>
+<tornado.httpclient._RequestProxy object at 0x7d269dd09ac0>" shape=ellipse]
+	__getattr__ [label="__getattr__
+util.py:90" fillcolor=white shape=box style=filled]
+	request_attr [label="request_attr
+(5 writes, 3 distinct)
+'ws://127.0.0.1:38719/render'
+<tornado.httputil.HTTPHeaders object at 0x7d269dd0b740>
+None" shape=ellipse]
+	scheme [label="scheme
+(2 writes, 2 distinct)
+'ws'
+'http'" shape=ellipse]
+	sep [label="sep
+':'" shape=ellipse]
+	rest [label="rest
+'//127.0.0.1:38719/render'" shape=ellipse]
+	key [label="key
+(4 writes, 4 distinct)
+'Upgrade'
+'Connection'
+'Sec-WebSocket-Key'
+'Sec-WebSocket-Version'" shape=ellipse]
+	__setitem__ [label="__setitem__
+options.py:143" fillcolor=white shape=box style=filled]
+	__missing__ [label="__missing__
+httputil.py:90" fillcolor=white shape=box style=filled]
+	w [label="w
+(8 writes, 6 distinct)
+'Upgrade'
+'Connection'
+'Sec'
+'WebSocket'
+'Key'
+'Version'" shape=ellipse]
+	normalized [label="normalized
+(4 writes, 4 distinct)
+'Upgrade'
+'Connection'
+'Sec-Websocket-Key'
+'Sec-Websocket-Version'" shape=ellipse]
+	self [label="self
+(4 writes, 4 distinct)
+{'Upgrade': 'Upgrade'}
+{'Upgrade': 'Upgrade', 'Connection': 'Connection'}
+{'Upgrade': 'Upgrade', 'Connection': 'Connection', 'Sec-WebSocket-Key': 'Sec-Websocket-Key'}
+{'Upgrade': 'Upgrade', 'Connection': 'Connection', 'Sec-WebSocket-Key': 'Sec-Websocket-Key', 'Sec-WebSocket-Version': 'S…" shape=ellipse]
+	norm_name [label="norm_name
+(4 writes, 4 distinct)
+'Upgrade'
+'Connection'
+'Sec-Websocket-Key'
+'Sec-Websocket-Version'" shape=ellipse]
+	__new__ [label="__new__
+httpclient.py:159" fillcolor=white shape=box style=filled]
+	configurable_base [label="configurable_base
+util_test.py:41" fillcolor=white shape=box style=filled]
+	base [label="base
+(2 writes)
+<class 'tornado.netutil.Resolver'>" shape=ellipse]
+	init_kwargs [label="init_kwargs
+(2 writes, 2 distinct)
+{}
+{'io_loop': <tornado.platform.epoll.EPollIOLoop object at 0x7d269de1f7d0>}" shape=ellipse]
+	configured_class [label="configured_class
+Returns the currently configured class.
+util.py:342" fillcolor=white shape=box style=filled]
+	impl [label="impl
+<class 'tornado.netutil.BlockingResolver'>" shape=ellipse]
+	instance [label="instance
+<tornado.netutil.BlockingResolver object at 0x7d269dd0a870>" shape=ellipse]
+	initialize [label="initialize
+auth_test.py:19" fillcolor=white shape=box style=filled]
+	time [label="time
+ioloop_test.py:33" fillcolor=white shape=box style=filled]
+	__enter__ [label="__enter__
+http1connection.py:49" fillcolor=white shape=box style=filled]
+	to_unicode [label="to_unicode
+Converts a string argument to a unicode string.
+escape.py:206" fillcolor=white shape=box style=filled]
+	netloc [label="netloc
+'127.0.0.1:38719'" shape=ellipse]
+	split_host_and_port [label="split_host_and_port
+Returns ``(host, port)`` tuple from ``netloc``.
+httputil.py:924" fillcolor=white shape=box style=filled]
+	match [label="match
+<re.Match object; span=(0, 15), match='127.0.0.1:38719'>" shape=ellipse]
+	host [label="host
+(2 writes)
+'127.0.0.1'" shape=ellipse]
+	port [label="port
+(2 writes)
+38719" shape=ellipse]
+	af [label="af
+<AddressFamily.AF_UNSPEC: 0>" shape=ellipse]
+	_get_ssl_options [label="_get_ssl_options
+simple_httpclient.py:248" fillcolor=white shape=box style=filled]
+	ssl_options [label="ssl_options
+None" shape=ellipse]
+	timeout [label="timeout
+(4 writes, 4 distinct)
+20.0
+<tornado.ioloop._Timeout object at 0x7d269dcf9d80>
+<tornado.ioloop._Timeout object at 0x7d269db9f1c0>
+None" shape=ellipse]
+	cap_contexts [label="cap_contexts
+(6 writes, 2 distinct)
+[((), <tornado.stack_context.ExceptionStackContext object at 0x7d269dd12ae0>)]
+[((), <tornado.stack_context.ExceptionStackContext object at 0x7d269df683e0>)]" shape=ellipse]
+	wrapped [label="wrapped
+(6 writes, 6 distinct)
+<function wrap.<locals>.wrapped at 0x7d269dd3fba0>
+<function wrap.<locals>.wrapped at 0x7d269db344a0>
+<function wrap.<locals>.wrapped at 0x7d269db349a0>
+<function wrap.<locals>.wrapped at 0x7d269db34cc0>
+<function wrap.<locals>.wrapped at 0x7d269db351c0>
+<function wrap.<locals>.wrapped at 0x7d269db347c0>" shape=ellipse]
+	add_timeout [label="add_timeout
+Runs the ``callback`` at the time ``deadline`` from the…
+ioloop.py:475" fillcolor=white shape=box style=filled]
+	call_at [label="call_at
+asyncio.py:131" fillcolor=white shape=box style=filled]
+	__lt__ [label="__lt__
+ioloop.py:971" fillcolor=white shape=box style=filled]
+	kwargs [label="kwargs
+{'af': <AddressFamily.AF_UNSPEC: 0>, 'ssl_options': None, 'max_buffer_size': 104857600}" shape=ellipse]
+	callback [label="callback
+(5 writes, 5 distinct)
+<bound method _HTTPConnection._on_connect of <tornado.websocket.WebSocketClientConnection object at 0x7d269dd117c0>>
+<function wrap.<locals>.wrapped at 0x7d269db344a0>
+None
+<function wrap.<locals>.wrapped at 0x7d269db349a0>
+<function wrap.<locals>.wrapped at 0x7d269db347c0>" shape=ellipse]
+	add_future [label="add_future
+Schedules a callback on the ``IOLoop`` when the given
+ioloop.py:587" fillcolor=white shape=box style=filled]
+	is_future [label="is_future
+concurrent.py:355" fillcolor=white shape=box style=filled]
+	add_done_callback [label="add_done_callback
+Attaches the given callback to the `Future`.
+concurrent.py:259" fillcolor=white shape=box style=filled]
+	connect [label="connect
+Connect to the given host and port.
+tcpclient.py:157" fillcolor=white shape=box style=filled]
+	submit [label="submit
+concurrent.py:360" fillcolor=white shape=box style=filled]
+	yielded [label="yielded
+(6 writes, 4 distinct)
+<tornado.concurrent.Future object at 0x7d269e98e420>
+<tornado.concurrent.Future object at 0x7d269dd54680>
+None
+<tornado.concurrent.Future object at 0x7d269dd114c0>" shape=ellipse]
+	handle_yield [label="handle_yield
+gen.py:1104" fillcolor=white shape=box style=filled]
+	_contains_yieldpoint [label="_contains_yieldpoint
+Returns True if ``children`` contains any YieldPoints.
+gen.py:659" fillcolor=white shape=box style=filled]
+	done [label="done
+Returns True if the future has finished running.
+concurrent.py:215" fillcolor=white shape=box style=filled]
+	gen [label="gen
+None" shape=ellipse]
+	result_future [label="result_future
+None" shape=ellipse]
+	first_yielded [label="first_yielded
+None" shape=ellipse]
+	run [label="run
+benchmark.py:66" fillcolor=white shape=box style=filled]
+	exc_info [label="exc_info
+None" shape=ellipse]
+	value [label="value
+[(<AddressFamily.AF_INET: 2>, ('127.0.0.1', 38719))]" shape=ellipse]
+	addrinfo [label="addrinfo
+[(<AddressFamily.AF_INET: 2>, ('127.0.0.1', 38719))]" shape=ellipse]
+	connector [label="connector
+<tornado.tcpclient._Connector object at 0x7d269dd56840>" shape=ellipse]
+	inner [label="inner
+(2 writes, 2 distinct)
+<function Runner.handle_yield.<locals>.inner at 0x7d269db347c0>
+<function Runner.handle_yield.<locals>.inner at 0x7d269db34180>" shape=ellipse]
+	__exit__ [label="__exit__
+http1connection.py:52" fillcolor=white shape=box style=filled]
+	final_contexts [label="final_contexts
+((), <tornado.stack_context.ExceptionStackContext object at 0x7d269dd12ae0>)" shape=ellipse]
+	conn [label="conn
+<tornado.websocket.WebSocketClientConnection object at 0x7d269dd117c0>" shape=ellipse]
+	convert_yielded [label="convert_yielded
+Convert a yielded object into a `.Future`.
+gen.py:1259" fillcolor=white shape=box style=filled]
+	write_message [label="write_message
+Sends the given message to the client of this Web Socke…
+websocket.py:231" fillcolor=white shape=box style=filled]
+	opcode [label="opcode
+1" shape=ellipse]
+	message [label="message
+b'hello'" shape=ellipse]
+	flags [label="flags
+0" shape=ellipse]
+	_write_frame [label="_write_frame
+websocket.py:735" fillcolor=white shape=box style=filled]
+	finbit [label="finbit
+128" shape=ellipse]
+	frame [label="frame
+(3 writes, 3 distinct)
+b'\x81'
+b'\x81\x85'
+b'\x81\x85\xb1W\xd6\xc4\xd92\xba\xa8\xde'" shape=ellipse]
+	l [label="l
+5" shape=ellipse]
+	mask_bit [label="mask_bit
+128" shape=ellipse]
+	mask [label="mask
+b'\xb1W\xd6\xc4'" shape=ellipse]
+	_websocket_mask_python [label="_websocket_mask_python
+Websocket masking function.
+util.py:436" fillcolor=white shape=box style=filled]
+	mask_arr [label="mask_arr
+array('B', [177, 87, 214, 196])" shape=ellipse]
+	unmasked_arr [label="unmasked_arr
+(3 writes, 3 distinct)
+array('B', [104, 101, 108, 108, 111])
+array('B', [217, 101, 108, 108, 111])
+array('B', [217, 50, 186, 168, 222])" shape=ellipse]
+	i [label="i
+(4 writes, 2 distinct)
+0
+4" shape=ellipse]
+	data [label="data
+b'\xb1W\xd6\xc4\xd92\xba\xa8\xde'" shape=ellipse]
+	write [label="write
+wsgi.py:122" fillcolor=white shape=box style=filled]
+	_check_closed [label="_check_closed
+iostream.py:923" fillcolor=white shape=box style=filled]
+	closed [label="closed
+Returns true if the stream has been closed.
+iostream.py:486" fillcolor=white shape=box style=filled]
+	_handle_write [label="_handle_write
+iostream.py:845" fillcolor=white shape=box style=filled]
+	start [label="start
+0" shape=ellipse]
+	size [label="size
+11" shape=ellipse]
+	write_to_fd [label="write_to_fd
+Attempts to write ``data`` to the underlying file.
+iostream.py:209" fillcolor=white shape=box style=filled]
+	num_bytes [label="num_bytes
+11" shape=ellipse]
+	index [label="index
+194" shape=ellipse]
+	set_result [label="set_result
+Sets the result of a ``Future``.
+concurrent.py:272" fillcolor=white shape=box style=filled]
+	_set_done [label="_set_done
+concurrent.py:321" fillcolor=white shape=box style=filled]
+	cb [label="cb
+<function BaseIOStream.write.<locals>.<lambda> at 0x7d269db358a0>" shape=ellipse]
+	exception [label="exception
+If the operation raised an exception, return the `Excep…
+concurrent.py:244" fillcolor=white shape=box style=filled]
+	_maybe_add_error_listener [label="_maybe_add_error_listener
+iostream.py:927" fillcolor=white shape=box style=filled]
+	__del__ [label="__del__
+httpclient.py:81" fillcolor=white shape=box style=filled]
+	read_message [label="read_message
+Reads a message from the WebSocket server.
+websocket.py:1128" fillcolor=white shape=box style=filled]
+	tearDown [label="tearDown
+locale_test.py:28" fillcolor=white shape=box style=filled]
+	stop [label="stop
+tcpclient_test.py:49" fillcolor=white shape=box style=filled]
+	fd [label="fd
+(2 writes, 2 distinct)
+6
+4" shape=ellipse]
+	sock [label="sock
+(2 writes, 2 distinct)
+<socket.socket fd=6, family=2, type=1, proto=6, laddr=('127.0.0.1', 38719)>
+<socket.socket [closed] fd=-1, family=2, type=1, proto=6>" shape=ellipse]
+	remove_handler [label="remove_handler
+asyncio.py:100" fillcolor=white shape=box style=filled]
+	split_fd [label="split_fd
+Returns an (fd, obj) pair from an ``fd`` parameter.
+ioloop.py:640" fillcolor=white shape=box style=filled]
+	ERROR__AttributeError [label="AttributeError
+'int' object has no attribute 'fileno'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	obj [label="obj
+(2 writes, 2 distinct)
+6
+4" shape=ellipse]
+	get_async_test_timeout [label="get_async_test_timeout
+Get the global timeout setting for async tests.
+testing.py:110" fillcolor=white shape=box style=filled]
+	ERROR__KeyError [label="KeyError
+b'ASYNC_TEST_TIMEOUT'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	ERROR__TypeError [label="TypeError
+float() argument must be a string or a real number, not 'NoneType'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	run_sync [label="run_sync
+Starts the `IOLoop`, runs the given function, and stops…
+ioloop.py:405" fillcolor=white shape=box style=filled]
+	future_cell [label="future_cell
+(3 writes, 2 distinct)
+[None]
+[<tornado.concurrent.Future object at 0x7d269dd11610>]" shape=ellipse]
+	add_callback [label="add_callback
+[closure inside test_add_callback_return_sequence]
+ioloop_test.py:73" fillcolor=white shape=box style=filled]
+	timeout_handle [label="timeout_handle
+<tornado.ioloop._Timeout object at 0x7d269db9f1c0>" shape=ellipse]
+	_setup_logging [label="_setup_logging
+The IOLoop catches and logs exceptions, so it's
+ioloop.py:365" fillcolor=white shape=box style=filled]
+	old_current [label="old_current
+<tornado.platform.epoll.EPollIOLoop object at 0x7d269de1f7d0>" shape=ellipse]
+	old_wakeup_fd [label="old_wakeup_fd
+(2 writes, 2 distinct)
+None
+-1" shape=ellipse]
+	write_fileno [label="write_fileno
+Returns the write file descriptor for this waker.
+interface.py:49" fillcolor=white shape=box style=filled]
+	ncallbacks [label="ncallbacks
+1" shape=ellipse]
+	due_timeouts [label="due_timeouts
+(4 writes, 2 distinct)
+[]
+None" shape=ellipse]
+	now [label="now
+(2 writes, 2 distinct)
+1779889477.3333201
+1779889477.340694" shape=ellipse]
+	_run_callback [label="_run_callback
+simple_httpclient.py:439" fillcolor=white shape=box style=filled]
+	ret [label="ret
+(5 writes)
+None" shape=ellipse]
+	current_state [label="current_state
+(3 writes)
+((), <tornado.stack_context.ExceptionStackContext object at 0x7d269df683e0>)" shape=ellipse]
+	_remove_deactivated [label="_remove_deactivated
+Remove deactivated handlers from the chain
+stack_context.py:229" fillcolor=white shape=box style=filled]
+	stack_contexts [label="stack_contexts
+(3 writes)
+()" shape=ellipse]
+	head [label="head
+(3 writes)
+<tornado.stack_context.ExceptionStackContext object at 0x7d269df683e0>" shape=ellipse]
+	ctx [label="ctx
+(6 writes, 2 distinct)
+<tornado.stack_context.ExceptionStackContext object at 0x7d269df683e0>
+None" shape=ellipse]
+	parent [label="parent
+(3 writes)
+None" shape=ellipse]
+	contexts [label="contexts
+(3 writes)
+((), <tornado.stack_context.ExceptionStackContext object at 0x7d269df683e0>)" shape=ellipse]
+	exc [label="exc
+(3 writes)
+(None, None, None)" shape=ellipse]
+	top [label="top
+(3 writes)
+None" shape=ellipse]
+	last_ctx [label="last_ctx
+(3 writes)
+0" shape=ellipse]
+	stack [label="stack
+(3 writes)
+()" shape=ellipse]
+	close_all_connections [label="close_all_connections
+httpserver.py:180" fillcolor=white shape=box style=filled]
+	ERROR__StopIteration [label=StopIteration fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	e [label="e
+StopIteration()" shape=ellipse]
+	_value_from_stopiteration [label="_value_from_stopiteration
+gen.py:161" fillcolor=white shape=box style=filled]
+	poll_timeout [label="poll_timeout
+(2 writes, 2 distinct)
+0.0
+4.987168788909912" shape=ellipse]
+	event_pairs [label="event_pairs
+[(4, 1)]" shape=ellipse]
+	events [label="events
+1" shape=ellipse]
+	fd_obj [label="fd_obj
+(2 writes, 2 distinct)
+4
+None" shape=ellipse]
+	handler_func [label="handler_func
+(2 writes, 2 distinct)
+<function wrap.<locals>.wrapped at 0x7d269ea6f1a0>
+None" shape=ellipse]
+	consume [label="consume
+Called after the listen has woken up to do any necessar…
+interface.py:57" fillcolor=white shape=box style=filled]
+	wake [label="wake
+Triggers activity on the waker's file descriptor.
+interface.py:53" fillcolor=white shape=box style=filled]
+	remove_timeout [label="remove_timeout
+asyncio.py:139" fillcolor=white shape=box style=filled]
+	_clear_tb_log [label="_clear_tb_log
+concurrent.py:219" fillcolor=white shape=box style=filled]
+	_check_done [label="_check_done
+concurrent.py:317" fillcolor=white shape=box style=filled]
+	initialized [label="initialized
+Returns true if the singleton instance has been created…
+ioloop.py:166" fillcolor=white shape=box style=filled]
+	close [label="close
+select.py:35" fillcolor=white shape=box style=filled]
+	uninitialize [label="uninitialize
+Removes the ``SIGCHLD`` handler.
+process.py:326" fillcolor=white shape=box style=filled]
+	clear_current [label="clear_current
+ioloop.py:233" fillcolor=white shape=box style=filled]
+	fileno [label="fileno
+kqueue.py:32" fillcolor=white shape=box style=filled]
+	try_close [label="try_close
+common.py:12" fillcolor=white shape=box style=filled]
+	f [label="f
+<_io.FileIO [closed]>" shape=ellipse]
+	__rethrow [label="__rethrow
+testing.py:268" fillcolor=white shape=box style=filled]
+	{
+		rank=same
+		test_render_message
+		write_message
+		__del__
+		read_message
+		tearDown
+	}
+	{
+		rank=same
+		wrapper
+		__init__
+		write
+	}
+	{
+		rank=same
+		ws_connect
+		utf8
+		add_done_callback
+		_write_frame
+		_check_closed
+		_handle_write
+		_maybe_add_error_listener
+		stop
+		get_async_test_timeout
+		run_sync
+		initialized
+		close
+	}
+	{
+		rank=same
+		get_http_port
+		websocket_connect
+		current
+		time
+		add_timeout
+		handle_yield
+		done
+		_websocket_mask_python
+		closed
+		write_to_fd
+		set_result
+		remove_handler
+		add_callback
+		remove_timeout
+		uninitialize
+		clear_current
+		__rethrow
+	}
+	{
+		rank=same
+		wrap
+		call_at
+		__lt__
+		add_future
+		_contains_yieldpoint
+		convert_yielded
+		_set_done
+		split_fd
+		_setup_logging
+		write_fileno
+		_run_callback
+		_clear_tb_log
+		_check_done
+		fileno
+	}
+	{
+		rank=same
+		headers
+		body
+		body_producer
+		streaming_callback
+		header_callback
+		prepare_curl_callback
+		__getattr__
+		__setitem__
+		is_future
+		exception
+		_remove_deactivated
+		consume
+		try_close
+	}
+	{
+		rank=same
+		__missing__
+		__new__
+		__enter__
+		to_unicode
+		split_host_and_port
+		_get_ssl_options
+		run
+		__exit__
+	}
+	{
+		rank=same
+		configurable_base
+		configured_class
+		initialize
+		connect
+		wake
+	}
+	{
+		rank=same
+		close_all_connections
+		_value_from_stopiteration
+	}
+	{
+		rank=same
+		submit
+	}
+	test_render_message -> wrapper [label="calls [#1]" color=blue penwidth=1.1]
+	wrapper -> __init__ [label="calls×5 [#2]" color=blue penwidth=1.5]
+	wrapper -> future [label="writes×7" color=black]
+	wrapper -> result [label="writes×3" color=black]
+	wrapper -> orig_stack_contexts [label="writes×3" color=black]
+	wrapper -> ws_connect [label="calls [#3]" color=blue penwidth=1.1]
+	wrapper -> kwargs [label=writes color=black]
+	wrapper -> callback [label="writes×2" color=black]
+	wrapper -> current [label="calls [#59]" color=blue penwidth=1.1]
+	wrapper -> add_future [label="calls [#60]" color=blue penwidth=1.1]
+	wrapper -> connect [label="calls [#64]" color=blue penwidth=1.1]
+	wrapper -> submit [label="calls [#66]" color=blue penwidth=1.1]
+	wrapper -> yielded [label="writes×5" color=black]
+	wrapper -> close_all_connections [label="calls [#132]" color=blue penwidth=1.1]
+	wrapper -> ERROR__StopIteration [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	wrapper -> e [label=writes color=black]
+	wrapper -> _value_from_stopiteration [label="calls [#133]" color=blue penwidth=1.1]
+	wrapper -> set_result [label="calls [#134]" color=blue penwidth=1.1]
+	__init__ -> headers [label="calls [#8]" color=blue penwidth=1.1]
+	__init__ -> body [label="calls [#10]" color=blue penwidth=1.1]
+	__init__ -> body_producer [label="calls [#12]" color=blue penwidth=1.1]
+	__init__ -> streaming_callback [label="calls [#14]" color=blue penwidth=1.1]
+	__init__ -> header_callback [label="calls [#16]" color=blue penwidth=1.1]
+	__init__ -> prepare_curl_callback [label="calls [#18]" color=blue penwidth=1.1]
+	__init__ -> __init__ [label="calls×4 [#22]" color=blue penwidth=1.4]
+	__init__ -> __getattr__ [label="calls×5 [#23]" color=blue penwidth=1.5]
+	__init__ -> scheme [label="writes×2" color=black]
+	__init__ -> sep [label=writes color=black]
+	__init__ -> rest [label=writes color=black]
+	__init__ -> key [label="writes×4" color=black]
+	__init__ -> __setitem__ [label="calls×4 [#26]" color=blue penwidth=1.4]
+	__init__ -> __new__ [label="calls [#35]" color=blue penwidth=1.1]
+	__init__ -> time [label="calls [#42]" color=blue penwidth=1.1]
+	__init__ -> __enter__ [label="calls [#44]" color=blue penwidth=1.1]
+	__init__ -> to_unicode [label="calls [#45]" color=blue penwidth=1.1]
+	__init__ -> netloc [label=writes color=black]
+	__init__ -> split_host_and_port [label="calls [#46]" color=blue penwidth=1.1]
+	__init__ -> host [label=writes color=black]
+	__init__ -> port [label=writes color=black]
+	__init__ -> af [label=writes color=black]
+	__init__ -> _get_ssl_options [label="calls [#48]" color=blue penwidth=1.1]
+	__init__ -> ssl_options [label=writes color=black]
+	__init__ -> timeout [label=writes color=black]
+	__init__ -> wrap [label="calls [#51]" color=blue penwidth=1.1]
+	__init__ -> add_timeout [label="calls [#52]" color=blue penwidth=1.1]
+	__init__ -> wrapper [label="calls [#57]" color=blue penwidth=1.1]
+	__init__ -> current [label="calls×2 [#68]" color=blue penwidth=1.2]
+	__init__ -> handle_yield [label="calls×2 [#69]" color=blue penwidth=1.2]
+	__init__ -> gen [label=writes color=black]
+	__init__ -> result_future [label=writes color=black]
+	__init__ -> first_yielded [label=writes color=black]
+	__init__ -> run [label="calls [#72]" color=blue penwidth=1.1]
+	__init__ -> __exit__ [label="calls [#76]" color=blue penwidth=1.1]
+	future -> add_future [label="passed to" color=green style=dashed]
+	future -> wrapped [label="passed to" color=green style=dashed]
+	future -> stop [label="passed to" color=green style=dashed]
+	result -> set_result [label="passed to" color=green style=dashed]
+	result -> _clear_tb_log [label="calls [#156]" color=blue penwidth=1.1]
+	result -> _check_done [label="calls [#157]" color=blue penwidth=1.1]
+	ws_connect -> get_http_port [label="calls [#4]" color=blue penwidth=1.1]
+	ws_connect -> websocket_connect [label="calls [#5]" color=blue penwidth=1.1]
+	websocket_connect -> current [label="calls [#6]" color=blue penwidth=1.1]
+	websocket_connect -> io_loop [label=writes color=black]
+	websocket_connect -> __init__ [label="calls×3 [#7]" color=blue penwidth=1.3]
+	websocket_connect -> request [label="writes×2" color=black]
+	websocket_connect -> conn [label=writes color=black]
+	current -> current [label="writes×4" color=black]
+	io_loop -> __init__ [label="passed to" color=green style=dashed]
+	io_loop -> initialize [label="passed to" color=green style=dashed]
+	io_loop -> wrapper [label="passed to" color=green style=dashed]
+	headers -> __init__ [label="calls [#9]" color=blue penwidth=1.1]
+	body -> utf8 [label="calls [#11]" color=blue penwidth=1.1]
+	body_producer -> wrap [label="calls [#13]" color=blue penwidth=1.1]
+	wrap -> cap_contexts [label="writes×6" color=black]
+	wrap -> wrapped [label="writes×6" color=black]
+	streaming_callback -> wrap [label="calls [#15]" color=blue penwidth=1.1]
+	header_callback -> wrap [label="calls [#17]" color=blue penwidth=1.1]
+	prepare_curl_callback -> wrap [label="calls [#19]" color=blue penwidth=1.1]
+	request -> __init__ [label="passed to" color=green style=dashed]
+	__getattr__ -> request_attr [label="writes×5" color=black]
+	__getattr__ -> headers [label="calls [#25]" color=blue penwidth=1.1]
+	scheme -> _get_ssl_options [label="passed to" color=green style=dashed]
+	key -> __missing__ [label="passed to" color=green style=dashed]
+	key -> run_sync [label="passed to" color=green style=dashed]
+	__setitem__ -> __missing__ [label="calls×4 [#27]" color=blue penwidth=1.4]
+	__setitem__ -> norm_name [label="writes×4" color=black]
+	__missing__ -> w [label="writes×8" color=black]
+	__missing__ -> normalized [label="writes×4" color=black]
+	__missing__ -> self [label="writes×4" color=black]
+	self -> __setitem__ [label="passed to" color=green style=dashed]
+	self -> __missing__ [label="passed to" color=green style=dashed]
+	self -> __init__ [label="passed to" color=green style=dashed]
+	self -> initialize [label="passed to" color=green style=dashed]
+	self -> time [label="passed to" color=green style=dashed]
+	self -> __enter__ [label="passed to" color=green style=dashed]
+	self -> __getattr__ [label="passed to" color=green style=dashed]
+	self -> _get_ssl_options [label="passed to" color=green style=dashed]
+	self -> add_timeout [label="passed to" color=green style=dashed]
+	self -> call_at [label="passed to" color=green style=dashed]
+	self -> __lt__ [label="passed to" color=green style=dashed]
+	self -> add_future [label="passed to" color=green style=dashed]
+	self -> add_done_callback [label="passed to" color=green style=dashed]
+	self -> connect [label="passed to" color=green style=dashed]
+	self -> wrapper [label="passed to" color=green style=dashed]
+	self -> submit [label="passed to" color=green style=dashed]
+	self -> handle_yield [label="passed to" color=green style=dashed]
+	self -> done [label="passed to" color=green style=dashed]
+	self -> run [label="passed to" color=green style=dashed]
+	self -> result [label="passed to" color=green style=dashed]
+	self -> __exit__ [label="passed to" color=green style=dashed]
+	self -> write_message [label="passed to" color=green style=dashed]
+	self -> _write_frame [label="passed to" color=green style=dashed]
+	self -> write [label="passed to" color=green style=dashed]
+	self -> _check_closed [label="passed to" color=green style=dashed]
+	self -> closed [label="passed to" color=green style=dashed]
+	self -> _handle_write [label="passed to" color=green style=dashed]
+	self -> write_to_fd [label="passed to" color=green style=dashed]
+	self -> set_result [label="passed to" color=green style=dashed]
+	self -> _set_done [label="passed to" color=green style=dashed]
+	self -> exception [label="passed to" color=green style=dashed]
+	self -> _maybe_add_error_listener [label="passed to" color=green style=dashed]
+	self -> __del__ [label="passed to" color=green style=dashed]
+	self -> read_message [label="passed to" color=green style=dashed]
+	self -> tearDown [label="passed to" color=green style=dashed]
+	self -> stop [label="passed to" color=green style=dashed]
+	self -> remove_handler [label="passed to" color=green style=dashed]
+	self -> split_fd [label="passed to" color=green style=dashed]
+	self -> run_sync [label="passed to" color=green style=dashed]
+	self -> add_callback [label="passed to" color=green style=dashed]
+	self -> start [label="passed to" color=green style=dashed]
+	self -> _setup_logging [label="passed to" color=green style=dashed]
+	self -> write_fileno [label="passed to" color=green style=dashed]
+	self -> _run_callback [label="passed to" color=green style=dashed]
+	self -> close_all_connections [label="passed to" color=green style=dashed]
+	self -> wrapped [label="passed to" color=green style=dashed]
+	self -> consume [label="passed to" color=green style=dashed]
+	self -> wake [label="passed to" color=green style=dashed]
+	self -> remove_timeout [label="passed to" color=green style=dashed]
+	self -> _clear_tb_log [label="passed to" color=green style=dashed]
+	self -> _check_done [label="passed to" color=green style=dashed]
+	self -> close [label="passed to" color=green style=dashed]
+	self -> fileno [label="passed to" color=green style=dashed]
+	self -> __rethrow [label="passed to" color=green style=dashed]
+	__new__ -> configurable_base [label="calls [#36]" color=blue penwidth=1.1]
+	__new__ -> base [label=writes color=black]
+	__new__ -> init_kwargs [label="writes×2" color=black]
+	__new__ -> configured_class [label="calls [#37]" color=blue penwidth=1.1]
+	__new__ -> impl [label=writes color=black]
+	__new__ -> instance [label=writes color=black]
+	__new__ -> initialize [label="calls [#39]" color=blue penwidth=1.1]
+	configured_class -> configurable_base [label="calls [#38]" color=blue penwidth=1.1]
+	configured_class -> base [label=writes color=black]
+	instance -> call_at [label="passed to" color=green style=dashed]
+	instance -> __lt__ [label="passed to" color=green style=dashed]
+	instance -> current [label="passed to" color=green style=dashed]
+	instance -> connect [label="passed to" color=green style=dashed]
+	instance -> close_all_connections [label="passed to" color=green style=dashed]
+	initialize -> initialize [label="calls [#40]" color=blue penwidth=1.1]
+	netloc -> split_host_and_port [label="passed to" color=green style=dashed]
+	split_host_and_port -> match [label=writes color=black]
+	split_host_and_port -> host [label=writes color=black]
+	split_host_and_port -> port [label=writes color=black]
+	host -> connect [label="passed to" color=green style=dashed]
+	host -> handle_yield [label="passed to" color=green style=dashed]
+	port -> connect [label="passed to" color=green style=dashed]
+	port -> handle_yield [label="passed to" color=green style=dashed]
+	af -> connect [label="passed to" color=green style=dashed]
+	af -> handle_yield [label="passed to" color=green style=dashed]
+	ssl_options -> connect [label="passed to" color=green style=dashed]
+	ssl_options -> handle_yield [label="passed to" color=green style=dashed]
+	timeout -> result [label="passed to" color=green style=dashed]
+	timeout -> exception [label="passed to" color=green style=dashed]
+	timeout -> run_sync [label="passed to" color=green style=dashed]
+	timeout -> remove_timeout [label="passed to" color=green style=dashed]
+	cap_contexts -> wrapped [label="passed to" color=green style=dashed]
+	wrapped -> ret [label="writes×3" color=black]
+	wrapped -> current_state [label="writes×3" color=black]
+	wrapped -> _remove_deactivated [label="calls×3 [#128]" color=blue penwidth=1.3]
+	wrapped -> contexts [label="writes×3" color=black]
+	wrapped -> exc [label="writes×3" color=black]
+	wrapped -> top [label="writes×3" color=black]
+	wrapped -> last_ctx [label="writes×3" color=black]
+	wrapped -> stack [label="writes×3" color=black]
+	wrapped -> run [label="calls [#129]" color=blue penwidth=1.1]
+	wrapped -> consume [label="calls [#145]" color=blue penwidth=1.1]
+	wrapped -> stop [label="calls [#150]" color=blue penwidth=1.1]
+	add_timeout -> call_at [label="calls×2 [#53]" color=blue penwidth=1.2]
+	call_at -> wrap [label="calls×2 [#54]" color=blue penwidth=1.2]
+	call_at -> __init__ [label="calls×2 [#55]" color=blue penwidth=1.2]
+	call_at -> timeout [label="writes×2" color=black]
+	call_at -> __lt__ [label="calls×3 [#56]" color=blue penwidth=1.3]
+	kwargs -> wrapper [label="passed to" color=green style=dashed]
+	kwargs -> submit [label="passed to" color=green style=dashed]
+	kwargs -> add_callback [label="passed to" color=green style=dashed]
+	kwargs -> add_timeout [label="passed to" color=green style=dashed]
+	kwargs -> call_at [label="passed to" color=green style=dashed]
+	kwargs -> wrapped [label="passed to" color=green style=dashed]
+	callback -> add_future [label="passed to" color=green style=dashed]
+	callback -> write [label="passed to" color=green style=dashed]
+	callback -> read_message [label="passed to" color=green style=dashed]
+	callback -> add_callback [label="passed to" color=green style=dashed]
+	callback -> add_timeout [label="passed to" color=green style=dashed]
+	callback -> call_at [label="passed to" color=green style=dashed]
+	callback -> __init__ [label="passed to" color=green style=dashed]
+	callback -> _run_callback [label="passed to" color=green style=dashed]
+	callback -> wrapped [label="passed to" color=green style=dashed]
+	add_future -> is_future [label="calls×3 [#61]" color=blue penwidth=1.3]
+	add_future -> wrap [label="calls×3 [#62]" color=blue penwidth=1.3]
+	add_future -> callback [label="writes×3" color=black]
+	add_future -> add_done_callback [label="calls×3 [#63]" color=blue penwidth=1.3]
+	connect -> wrapper [label="calls [#65]" color=blue penwidth=1.1]
+	submit -> future [label=writes color=black]
+	yielded -> handle_yield [label="passed to" color=green style=dashed]
+	yielded -> convert_yielded [label="passed to" color=green style=dashed]
+	handle_yield -> _contains_yieldpoint [label="calls×2 [#70]" color=blue penwidth=1.2]
+	handle_yield -> done [label="calls×2 [#71]" color=blue penwidth=1.2]
+	handle_yield -> inner [label="writes×2" color=black]
+	handle_yield -> convert_yielded [label="calls [#81]" color=blue penwidth=1.1]
+	handle_yield -> add_future [label="calls [#84]" color=blue penwidth=1.1]
+	gen -> __init__ [label="passed to" color=green style=dashed]
+	result_future -> __init__ [label="passed to" color=green style=dashed]
+	first_yielded -> __init__ [label="passed to" color=green style=dashed]
+	run -> future [label="writes×2" color=black]
+	run -> done [label="calls [#73]" color=blue penwidth=1.1]
+	run -> orig_stack_contexts [label=writes color=black]
+	run -> exc_info [label=writes color=black]
+	run -> result [label="calls [#74]" color=blue penwidth=1.1]
+	run -> value [label=writes color=black]
+	run -> addrinfo [label=writes color=black]
+	run -> connector [label=writes color=black]
+	run -> yielded [label=writes color=black]
+	run -> handle_yield [label="calls [#75]" color=blue penwidth=1.1]
+	run -> wrapper [label="calls [#130]" color=blue penwidth=1.1]
+	run -> convert_yielded [label=writes color=black]
+	run -> is_future [label="calls [#138]" color=blue penwidth=1.1]
+	run -> future_cell [label=writes color=black]
+	run -> add_future [label="calls [#139]" color=blue penwidth=1.1]
+	value -> __exit__ [label="passed to" color=green style=dashed]
+	value -> utf8 [label="passed to" color=green style=dashed]
+	value -> run_sync [label="passed to" color=green style=dashed]
+	__exit__ -> final_contexts [label=writes color=black]
+	convert_yielded -> is_future [label="calls×2 [#82]" color=blue penwidth=1.2]
+	write_message -> write_message [label="calls [#88]" color=blue penwidth=1.1]
+	write_message -> opcode [label=writes color=black]
+	write_message -> utf8 [label="calls [#89]" color=blue penwidth=1.1]
+	write_message -> message [label=writes color=black]
+	write_message -> flags [label=writes color=black]
+	write_message -> _write_frame [label="calls [#90]" color=blue penwidth=1.1]
+	write_message -> i [label=writes color=black]
+	write_message -> unmasked_arr [label=writes color=black]
+	write_message -> data [label=writes color=black]
+	write_message -> frame [label=writes color=black]
+	write_message -> write [label="calls [#92]" color=blue penwidth=1.1]
+	opcode -> _write_frame [label="passed to" color=green style=dashed]
+	flags -> _write_frame [label="passed to" color=green style=dashed]
+	_write_frame -> finbit [label=writes color=black]
+	_write_frame -> frame [label="writes×2" color=black]
+	_write_frame -> l [label=writes color=black]
+	_write_frame -> mask_bit [label=writes color=black]
+	_write_frame -> mask [label=writes color=black]
+	_write_frame -> _websocket_mask_python [label="calls [#91]" color=blue penwidth=1.1]
+	mask -> _websocket_mask_python [label="passed to" color=green style=dashed]
+	_websocket_mask_python -> mask_arr [label=writes color=black]
+	_websocket_mask_python -> unmasked_arr [label="writes×2" color=black]
+	_websocket_mask_python -> i [label=writes color=black]
+	data -> write [label="passed to" color=green style=dashed]
+	data -> write_to_fd [label="passed to" color=green style=dashed]
+	write -> _check_closed [label="calls [#93]" color=blue penwidth=1.1]
+	write -> __init__ [label="calls [#95]" color=blue penwidth=1.1]
+	write -> future [label=writes color=black]
+	write -> add_done_callback [label="calls [#96]" color=blue penwidth=1.1]
+	write -> _handle_write [label="calls [#97]" color=blue penwidth=1.1]
+	write -> _maybe_add_error_listener [label="calls [#102]" color=blue penwidth=1.1]
+	_check_closed -> closed [label="calls [#94]" color=blue penwidth=1.1]
+	_handle_write -> start [label=writes color=black]
+	_handle_write -> size [label=writes color=black]
+	_handle_write -> write_to_fd [label="calls [#98]" color=blue penwidth=1.1]
+	_handle_write -> num_bytes [label=writes color=black]
+	_handle_write -> index [label=writes color=black]
+	_handle_write -> future [label=writes color=black]
+	_handle_write -> set_result [label="calls [#99]" color=blue penwidth=1.1]
+	start -> _setup_logging [label="calls [#120]" color=blue penwidth=1.1]
+	start -> old_current [label=writes color=black]
+	start -> old_wakeup_fd [label="writes×2" color=black]
+	start -> write_fileno [label="calls [#121]" color=blue penwidth=1.1]
+	start -> ncallbacks [label=writes color=black]
+	start -> due_timeouts [label="writes×4" color=black]
+	start -> time [label="calls×3 [#122]" color=blue penwidth=1.3]
+	start -> now [label="writes×2" color=black]
+	start -> __lt__ [label="calls×3 [#123]" color=blue penwidth=1.3]
+	start -> i [label=writes color=black]
+	start -> _run_callback [label="calls×2 [#126]" color=blue penwidth=1.2]
+	start -> timeout [label=writes color=black]
+	start -> poll_timeout [label="writes×2" color=black]
+	start -> event_pairs [label=writes color=black]
+	start -> fd [label=writes color=black]
+	start -> events [label=writes color=black]
+	start -> fd_obj [label="writes×2" color=black]
+	start -> handler_func [label="writes×2" color=black]
+	start -> wrapped [label="calls [#143]" color=blue penwidth=1.1]
+	set_result -> _set_done [label="calls×2 [#100]" color=blue penwidth=1.2]
+	_set_done -> cb [label=writes color=black]
+	_set_done -> exception [label="calls [#101]" color=blue penwidth=1.1]
+	read_message -> __init__ [label="calls [#103]" color=blue penwidth=1.1]
+	read_message -> future [label=writes color=black]
+	tearDown -> tearDown [label="calls×2 [#104]" color=blue penwidth=1.2]
+	tearDown -> stop [label="calls [#105]" color=blue penwidth=1.1]
+	tearDown -> get_async_test_timeout [label="calls [#108]" color=blue penwidth=1.1]
+	tearDown -> run_sync [label="calls [#109]" color=blue penwidth=1.1]
+	tearDown -> __del__ [label="calls [#158]" color=blue penwidth=1.1]
+	tearDown -> initialized [label="calls×2 [#159]" color=blue penwidth=1.2]
+	tearDown -> close [label="calls×2 [#160]" color=blue penwidth=1.2]
+	tearDown -> uninitialize [label="calls [#165]" color=blue penwidth=1.1]
+	tearDown -> clear_current [label="calls [#166]" color=blue penwidth=1.1]
+	tearDown -> __rethrow [label="calls [#174]" color=blue penwidth=1.1]
+	stop -> fd [label=writes color=black]
+	stop -> sock [label="writes×2" color=black]
+	stop -> remove_handler [label="calls [#106]" color=blue penwidth=1.1]
+	stop -> wake [label="calls [#151]" color=blue penwidth=1.1]
+	fd -> remove_handler [label="passed to" color=green style=dashed]
+	fd -> split_fd [label="passed to" color=green style=dashed]
+	fd -> consume [label="passed to" color=green style=dashed]
+	remove_handler -> split_fd [label="calls×2 [#107]" color=blue penwidth=1.2]
+	remove_handler -> obj [label="writes×2" color=black]
+	split_fd -> ERROR__AttributeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	get_async_test_timeout -> ERROR__KeyError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	get_async_test_timeout -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	run_sync -> future_cell [label="writes×2" color=black]
+	run_sync -> run [label=writes color=black]
+	run_sync -> add_callback [label="calls [#110]" color=blue penwidth=1.1]
+	run_sync -> time [label="calls [#112]" color=blue penwidth=1.1]
+	run_sync -> add_timeout [label="calls [#113]" color=blue penwidth=1.1]
+	run_sync -> timeout_handle [label=writes color=black]
+	run_sync -> start [label="calls [#119]" color=blue penwidth=1.1]
+	run_sync -> remove_timeout [label="calls [#153]" color=blue penwidth=1.1]
+	run_sync -> done [label="calls [#154]" color=blue penwidth=1.1]
+	run_sync -> result [label="calls [#155]" color=blue penwidth=1.1]
+	future_cell -> run [label="passed to" color=green style=dashed]
+	add_callback -> wrap [label="calls [#111]" color=blue penwidth=1.1]
+	_run_callback -> wrapped [label="calls×2 [#127]" color=blue penwidth=1.2]
+	_run_callback -> ret [label="writes×2" color=black]
+	_remove_deactivated -> stack_contexts [label="writes×3" color=black]
+	_remove_deactivated -> head [label="writes×3" color=black]
+	_remove_deactivated -> ctx [label="writes×6" color=black]
+	_remove_deactivated -> parent [label="writes×3" color=black]
+	contexts -> _remove_deactivated [label="passed to" color=green style=dashed]
+	e -> _value_from_stopiteration [label="passed to" color=green style=dashed]
+	events -> consume [label="passed to" color=green style=dashed]
+	consume -> result [label="writes×2" color=black]
+	close -> close [label="calls×4 [#161]" color=blue penwidth=1.4]
+	close -> fileno [label="calls [#169]" color=blue penwidth=1.1]
+	close -> remove_handler [label="calls [#170]" color=blue penwidth=1.1]
+	close -> try_close [label="calls [#173]" color=blue penwidth=1.1]
+	try_close -> i [label=writes color=black]
+	try_close -> f [label=writes color=black]
+}

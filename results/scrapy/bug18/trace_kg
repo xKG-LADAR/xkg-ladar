@@ -1,0 +1,318 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_from_content_disposition [label="test_from_content_disposition
+test_responsetypes.py:25" fillcolor=white shape=box style=filled]
+	find_spec [label=find_spec fillcolor=white shape=box style=filled]
+	finder [label="finder
+(15 writes, 4 distinct)
+<class '_frozen_importlib.BuiltinImporter'>
+<class '_frozen_importlib.FrozenImporter'>
+<class '_frozen_importlib_external.PathFinder'>
+FileFinder('/usr/lib/python3.12/encodings')" shape=ellipse]
+	info [label="info
+(3 writes)
+None" shape=ellipse]
+	namespace_path [label="namespace_path
+(3 writes)
+[]" shape=ellipse]
+	entry [label="entry
+(3 writes)
+'/usr/lib/python3.12/encodings'" shape=ellipse]
+	is_namespace [label="is_namespace
+(3 writes)
+False" shape=ellipse]
+	tail_module [label="tail_module
+(3 writes, 3 distinct)
+'gbk'
+'cp720'
+'iso2022_jp'" shape=ellipse]
+	mtime [label="mtime
+(3 writes)
+1775119204.8187785" shape=ellipse]
+	cache [label="cache
+(3 writes)
+set(len=123)" shape=ellipse]
+	cache_module [label="cache_module
+(3 writes, 3 distinct)
+'gbk'
+'cp720'
+'iso2022_jp'" shape=ellipse]
+	suffix [label="suffix
+(6 writes, 2 distinct)
+'.cpython-312-x86_64-linux-gnu.so'
+'.py'" shape=ellipse]
+	loader_class [label="loader_class
+(6 writes, 2 distinct)
+<class '_frozen_importlib_external.ExtensionFileLoader'>
+<class '_frozen_importlib_external.SourceFileLoader'>" shape=ellipse]
+	full_path [label="full_path
+(6 writes, 6 distinct)
+'/usr/lib/python3.12/encodings/gbk.cpython-312-x86_64-linux-gnu.so'
+'/usr/lib/python3.12/encodings/gbk.py'
+'/usr/lib/python3.12/encodings/cp720.cpython-312-x86_64-linux-gnu.so'
+'/usr/lib/python3.12/encodings/cp720.py'
+'/usr/lib/python3.12/encodings/iso2022_jp.cpython-312-x86_64-linux-gnu.so'
+'/usr/lib/python3.12/encodings/iso2022_jp.py'" shape=ellipse]
+	stat_info [label="stat_info
+(3 writes, 3 distinct)
+os.stat_result(st_mode=33188, st_ino=527615, st_dev=66309, st_nlink=1, st_uid=0, st_gid=0, st_size=1015, st_atime=177511…
+os.stat_result(st_mode=33188, st_ino=527526, st_dev=66309, st_nlink=1, st_uid=0, st_gid=0, st_size=13686, st_atime=17751…
+os.stat_result(st_mode=33188, st_ino=527620, st_dev=66309, st_nlink=1, st_uid=0, st_gid=0, st_size=1053, st_atime=177511…" shape=ellipse]
+	loader [label="loader
+(6 writes, 3 distinct)
+<_frozen_importlib_external.SourceFileLoader object at 0x76f56d1ebb60>
+<_frozen_importlib_external.SourceFileLoader object at 0x76f56d1f78f0>
+<_frozen_importlib_external.SourceFileLoader object at 0x76f56d1e8380>" shape=ellipse]
+	head [label="head
+(6 writes)
+'/usr/lib/python3.12/encodings'" shape=ellipse]
+	tail [label="tail
+(6 writes, 3 distinct)
+'gbk.py'
+'cp720.py'
+'iso2022_jp.py'" shape=ellipse]
+	base [label="base
+(6 writes, 3 distinct)
+'gbk'
+'cp720'
+'iso2022_jp'" shape=ellipse]
+	sep [label="sep
+(6 writes)
+'.'" shape=ellipse]
+	rest [label="rest
+(6 writes)
+'py'" shape=ellipse]
+	tag [label="tag
+(6 writes)
+'cpython-312'" shape=ellipse]
+	almost_filename [label="almost_filename
+(6 writes, 3 distinct)
+'gbk.cpython-312'
+'cp720.cpython-312'
+'iso2022_jp.cpython-312'" shape=ellipse]
+	optimization [label="optimization
+(6 writes)
+''" shape=ellipse]
+	filename [label="filename
+(10 writes, 6 distinct)
+'gbk.cpython-312.pyc'
+'cp720.cpython-312.pyc'
+'iso2022_jp.cpython-312.pyc'
+'\"data.xml\"'
+'data.xml'
+'data£.tar.gz'" shape=ellipse]
+	source_path [label="source_path
+(3 writes, 3 distinct)
+'/usr/lib/python3.12/encodings/gbk.py'
+'/usr/lib/python3.12/encodings/cp720.py'
+'/usr/lib/python3.12/encodings/iso2022_jp.py'" shape=ellipse]
+	source_mtime [label="source_mtime
+(6 writes, 2 distinct)
+None
+1772540118" shape=ellipse]
+	source_bytes [label="source_bytes
+(3 writes)
+None" shape=ellipse]
+	source_hash [label="source_hash
+(3 writes)
+None" shape=ellipse]
+	hash_based [label="hash_based
+(3 writes)
+False" shape=ellipse]
+	check_source [label="check_source
+(3 writes)
+True" shape=ellipse]
+	p [label="p
+(3 writes)
+'/'" shape=ellipse]
+	i [label="i
+(3 writes)
+29" shape=ellipse]
+	bytecode_path [label="bytecode_path
+(3 writes, 3 distinct)
+'/usr/lib/python3.12/encodings/__pycache__/gbk.cpython-312.pyc'
+'/usr/lib/python3.12/encodings/__pycache__/cp720.cpython-312.pyc'
+'/usr/lib/python3.12/encodings/__pycache__/iso2022_jp.cpython-312.pyc'" shape=ellipse]
+	st [label="st
+(6 writes, 6 distinct)
+os.stat_result(st_mode=33188, st_ino=527615, st_dev=66309, st_nlink=1, st_uid=0, st_gid=0, st_size=1015, st_atime=177511…
+{'mtime': 1772540118.0, 'size': 1015}
+os.stat_result(st_mode=33188, st_ino=527526, st_dev=66309, st_nlink=1, st_uid=0, st_gid=0, st_size=13686, st_atime=17751…
+{'mtime': 1772540118.0, 'size': 13686}
+os.stat_result(st_mode=33188, st_ino=527620, st_dev=66309, st_nlink=1, st_uid=0, st_gid=0, st_size=1053, st_atime=177511…
+{'mtime': 1772540118.0, 'size': 1053}" shape=ellipse]
+	file [label="file
+(3 writes, 3 distinct)
+<_io.BufferedReader name='/usr/lib/python3.12/encodings/__pycache__/gbk.cpython-312.pyc'>
+<_io.BufferedReader name='/usr/lib/python3.12/encodings/__pycache__/cp720.cpython-312.pyc'>
+<_io.BufferedReader name='/usr/lib/python3.12/encodings/__pycache__/iso2022_jp.cpython-312.pyc'>" shape=ellipse]
+	data [label="data
+(3 writes, 3 distinct)
+bytes(len=1988)
+bytes(len=3204)
+bytes(len=2007)" shape=ellipse]
+	exc_details [label="exc_details
+(3 writes, 3 distinct)
+{'name': 'encodings.gbk', 'path': '/usr/lib/python3.12/encodings/__pycache__/gbk.cpython-312.pyc'}
+{'name': 'encodings.cp720', 'path': '/usr/lib/python3.12/encodings/__pycache__/cp720.cpython-312.pyc'}
+{'name': 'encodings.iso2022_jp', 'path': '/usr/lib/python3.12/encodings/__pycache__/iso2022_jp.cpython-312.pyc'}" shape=ellipse]
+	magic [label="magic
+(3 writes)
+b'\xcb\r\r\n'" shape=ellipse]
+	flags [label="flags
+(6 writes)
+0" shape=ellipse]
+	bytes_data [label="bytes_data
+(3 writes, 2 distinct)
+<memory at 0x76f56d338940>
+<memory at 0x76f56d338a00>" shape=ellipse]
+	code [label="code
+(6 writes, 3 distinct)
+<code object <module> at 0xa5b5280, file \"/usr/lib/python3.12/encodings/gbk.py\", line 1>
+<code object <module> at 0x76f56d591e30, file \"/usr/lib/python3.12/encodings/cp720.py\", line 1>
+<code object <module> at 0xa5b5280, file \"/usr/lib/python3.12/encodings/iso2022_jp.py\", line 1>" shape=ellipse]
+	mappings [label="mappings
+[(b'attachment; filename=\"data.xml\"', <class 'scrapy.http.response.xml.XmlResponse'>), (b'attachment; filename=data.xml'…" shape=ellipse]
+	source [label="source
+(4 writes, 4 distinct)
+bytes(len=31)
+bytes(len=29)
+bytes(len=33)
+bytes(len=32)" shape=ellipse]
+	cls [label="cls
+(2 writes, 2 distinct)
+<class 'scrapy.http.response.xml.XmlResponse'>
+<class 'scrapy.http.response.Response'>" shape=ellipse]
+	from_content_disposition [label="from_content_disposition
+responsetypes.py:60" fillcolor=white shape=box style=filled]
+	to_native_str [label="to_native_str
+Return str representation of `text`
+python.py:125" fillcolor=white shape=box style=filled]
+	to_unicode [label="to_unicode
+Return the unicode representation of a bytes object `te…
+python.py:99" fillcolor=white shape=box style=filled]
+	encoding [label="encoding
+(7 writes, 3 distinct)
+'utf-8'
+None
+'gzip'" shape=ellipse]
+	from_filename [label="from_filename
+Return the most appropriate Response class from a file …
+responsetypes.py:81" fillcolor=white shape=box style=filled]
+	mimetype [label="mimetype
+(3 writes, 2 distinct)
+'application/xml'
+'application/x-tar'" shape=ellipse]
+	from_mimetype [label="from_mimetype
+Return the most appropriate Response class for the give…
+responsetypes.py:42" fillcolor=white shape=box style=filled]
+	retcls [label="retcls
+(2 writes, 2 distinct)
+<class 'scrapy.http.response.xml.XmlResponse'>
+<class 'scrapy.http.response.Response'>" shape=ellipse]
+	ERROR__UnicodeDecodeError [label="UnicodeDecodeError
+'utf-8' codec can't decode byte 0xb5 in position 24: invalid start byte" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_from_content_disposition
+	}
+	{
+		rank=same
+		find_spec
+		from_content_disposition
+	}
+	{
+		rank=same
+		to_native_str
+		from_filename
+	}
+	{
+		rank=same
+		to_unicode
+		from_mimetype
+	}
+	test_from_content_disposition -> find_spec [label="calls×3 [#1]" color=blue penwidth=1.3]
+	test_from_content_disposition -> finder [label="writes×15" color=black]
+	test_from_content_disposition -> info [label="writes×3" color=black]
+	test_from_content_disposition -> namespace_path [label="writes×3" color=black]
+	test_from_content_disposition -> entry [label="writes×3" color=black]
+	test_from_content_disposition -> is_namespace [label="writes×3" color=black]
+	test_from_content_disposition -> tail_module [label="writes×3" color=black]
+	test_from_content_disposition -> mtime [label="writes×3" color=black]
+	test_from_content_disposition -> cache [label="writes×3" color=black]
+	test_from_content_disposition -> cache_module [label="writes×3" color=black]
+	test_from_content_disposition -> suffix [label="writes×6" color=black]
+	test_from_content_disposition -> loader_class [label="writes×6" color=black]
+	test_from_content_disposition -> full_path [label="writes×6" color=black]
+	test_from_content_disposition -> test_from_content_disposition [label="loops(×21)" color=purple style=dashed]
+	test_from_content_disposition -> stat_info [label="writes×3" color=black]
+	test_from_content_disposition -> loader [label="writes×6" color=black]
+	test_from_content_disposition -> head [label="writes×6" color=black]
+	test_from_content_disposition -> tail [label="writes×6" color=black]
+	test_from_content_disposition -> base [label="writes×6" color=black]
+	test_from_content_disposition -> sep [label="writes×6" color=black]
+	test_from_content_disposition -> rest [label="writes×6" color=black]
+	test_from_content_disposition -> tag [label="writes×6" color=black]
+	test_from_content_disposition -> almost_filename [label="writes×6" color=black]
+	test_from_content_disposition -> optimization [label="writes×6" color=black]
+	test_from_content_disposition -> filename [label="writes×6" color=black]
+	test_from_content_disposition -> source_path [label="writes×3" color=black]
+	test_from_content_disposition -> source_mtime [label="writes×6" color=black]
+	test_from_content_disposition -> source_bytes [label="writes×3" color=black]
+	test_from_content_disposition -> source_hash [label="writes×3" color=black]
+	test_from_content_disposition -> hash_based [label="writes×3" color=black]
+	test_from_content_disposition -> check_source [label="writes×3" color=black]
+	test_from_content_disposition -> p [label="writes×3" color=black]
+	test_from_content_disposition -> i [label="writes×3" color=black]
+	test_from_content_disposition -> bytecode_path [label="writes×3" color=black]
+	test_from_content_disposition -> st [label="writes×6" color=black]
+	test_from_content_disposition -> file [label="writes×3" color=black]
+	test_from_content_disposition -> data [label="writes×3" color=black]
+	test_from_content_disposition -> exc_details [label="writes×3" color=black]
+	test_from_content_disposition -> magic [label="writes×3" color=black]
+	test_from_content_disposition -> flags [label="writes×6" color=black]
+	test_from_content_disposition -> bytes_data [label="writes×3" color=black]
+	test_from_content_disposition -> code [label="writes×6" color=black]
+	test_from_content_disposition -> mappings [label=writes color=black]
+	test_from_content_disposition -> source [label="writes×4" color=black]
+	test_from_content_disposition -> cls [label="writes×2" color=black]
+	test_from_content_disposition -> from_content_disposition [label="calls×4 [#4]" color=blue penwidth=1.4]
+	test_from_content_disposition -> retcls [label="writes×2" color=black]
+	test_from_content_disposition -> ERROR__UnicodeDecodeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	loader_class -> find_spec [label="passed to" color=green style=dashed]
+	loader_class -> from_content_disposition [label="passed to" color=green style=dashed]
+	loader -> find_spec [label="passed to" color=green style=dashed]
+	loader -> from_content_disposition [label="passed to" color=green style=dashed]
+	optimization -> find_spec [label="passed to" color=green style=dashed]
+	optimization -> from_content_disposition [label="passed to" color=green style=dashed]
+	filename -> find_spec [label="passed to" color=green style=dashed]
+	filename -> from_content_disposition [label="passed to" color=green style=dashed]
+	filename -> from_filename [label="passed to" color=green style=dashed]
+	source_path -> find_spec [label="passed to" color=green style=dashed]
+	source_path -> from_content_disposition [label="passed to" color=green style=dashed]
+	source_mtime -> find_spec [label="passed to" color=green style=dashed]
+	source_mtime -> from_content_disposition [label="passed to" color=green style=dashed]
+	p -> find_spec [label="passed to" color=green style=dashed]
+	p -> from_content_disposition [label="passed to" color=green style=dashed]
+	bytecode_path -> find_spec [label="passed to" color=green style=dashed]
+	bytecode_path -> from_content_disposition [label="passed to" color=green style=dashed]
+	data -> find_spec [label="passed to" color=green style=dashed]
+	data -> from_content_disposition [label="passed to" color=green style=dashed]
+	exc_details -> find_spec [label="passed to" color=green style=dashed]
+	exc_details -> from_content_disposition [label="passed to" color=green style=dashed]
+	cls -> from_content_disposition [label="passed to" color=green style=dashed]
+	from_content_disposition -> to_native_str [label="calls×4 [#5]" color=blue penwidth=1.4]
+	from_content_disposition -> filename [label="writes×4" color=black]
+	from_content_disposition -> from_filename [label="calls×3 [#7]" color=blue penwidth=1.3]
+	from_content_disposition -> ERROR__UnicodeDecodeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	to_native_str -> to_unicode [label="calls×4 [#6]" color=blue penwidth=1.4]
+	to_native_str -> ERROR__UnicodeDecodeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	to_unicode -> encoding [label="writes×4" color=black]
+	to_unicode -> ERROR__UnicodeDecodeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	encoding -> to_native_str [label="passed to" color=green style=dashed]
+	encoding -> to_unicode [label="passed to" color=green style=dashed]
+	from_filename -> mimetype [label="writes×3" color=black]
+	from_filename -> encoding [label="writes×3" color=black]
+	from_filename -> from_mimetype [label="calls×2 [#8]" color=blue penwidth=1.2]
+	mimetype -> from_mimetype [label="passed to" color=green style=dashed]
+}

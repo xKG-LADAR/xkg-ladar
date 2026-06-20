@@ -1,0 +1,148 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_no_ref [label="test_no_ref
+gen_test.py:1258" fillcolor=white shape=box style=filled]
+	sleep [label="sleep
+ioloop_test.py:35" fillcolor=white shape=box style=filled]
+	__init__ [label="__init__
+stack_context_test.py:17" fillcolor=white shape=box style=filled]
+	f [label="f
+(2 writes)
+<tornado.concurrent.Future object at 0x7f4ba2026db0>" shape=ellipse]
+	current [label="current
+Returns the current thread's `IOLoop`.
+ioloop.py:189" fillcolor=white shape=box style=filled]
+	call_later [label="call_later
+Runs the ``callback`` after ``delay`` seconds have pass…
+ioloop.py:496" fillcolor=white shape=box style=filled]
+	time [label="time
+ioloop_test.py:32" fillcolor=white shape=box style=filled]
+	call_at [label="call_at
+asyncio.py:114" fillcolor=white shape=box style=filled]
+	wrap [label="wrap
+Returns a callable object that will restore the current…
+stack_context.py:253" fillcolor=white shape=box style=filled]
+	cap_contexts [label="cap_contexts
+(2 writes)
+[((), <tornado.stack_context.ExceptionStackContext object at 0x7f4ba2c159a0>)]" shape=ellipse]
+	wrapped [label="wrapped
+(2 writes, 2 distinct)
+<function wrap.<locals>.wrapped at 0x7f4ba203a660>
+<function wrap.<locals>.wrapped at 0x7f4ba203aa20>" shape=ellipse]
+	timeout [label="timeout
+(2 writes, 2 distinct)
+<tornado.ioloop._Timeout object at 0x7f4ba2166d40>
+<tornado.ioloop._Timeout object at 0x7f4ba2032bc0>" shape=ellipse]
+	__lt__ [label="__lt__
+ioloop.py:963" fillcolor=white shape=box style=filled]
+	i [label="i
+0" shape=ellipse]
+	futures [label="futures
+(<tornado.concurrent.Future object at 0x7f4ba2026db0>,)" shape=ellipse]
+	self_ref [label="self_ref
+<weakref at 0x7f4ba1f05440; to 'WaitIterator' at 0x7f4ba2027830>" shape=ellipse]
+	future [label="future
+<tornado.concurrent.Future object at 0x7f4ba2026db0>" shape=ellipse]
+	add_done_callback [label="add_done_callback
+Attaches the given callback to the `Future`.
+concurrent.py:226" fillcolor=white shape=box style=filled]
+	next [label="next
+Returns a `.Future` that will yield the next available …
+gen.py:352" fillcolor=white shape=box style=filled]
+	with_timeout [label="with_timeout
+Wraps a `.Future` in a timeout.
+gen.py:699" fillcolor=white shape=box style=filled]
+	result [label="result
+<tornado.concurrent.Future object at 0x7f4ba2029430>" shape=ellipse]
+	chain_future [label="chain_future
+Chain two futures together so that when one completes, …
+concurrent.py:467" fillcolor=white shape=box style=filled]
+	copy [label="copy
+<function chain_future.<locals>.copy at 0x7f4ba203a840>" shape=ellipse]
+	io_loop [label="io_loop
+<tornado.platform.epoll.EPollIOLoop object at 0x7f4ba2c790a0>" shape=ellipse]
+	error_callback [label="error_callback
+<function with_timeout.<locals>.error_callback at 0x7f4ba203a700>" shape=ellipse]
+	timeout_callback [label="timeout_callback
+<function with_timeout.<locals>.timeout_callback at 0x7f4ba203a7a0>" shape=ellipse]
+	add_timeout [label="add_timeout
+Runs the ``callback`` at the time ``deadline`` from the…
+ioloop.py:462" fillcolor=white shape=box style=filled]
+	timedelta_to_seconds [label="timedelta_to_seconds
+Equivalent to td.total_seconds() (introduced in python …
+util.py:324" fillcolor=white shape=box style=filled]
+	timeout_handle [label="timeout_handle
+<tornado.ioloop._Timeout object at 0x7f4ba2032bc0>" shape=ellipse]
+	{
+		rank=same
+		test_no_ref
+	}
+	{
+		rank=same
+		sleep
+		__init__
+		next
+		with_timeout
+	}
+	{
+		rank=same
+		current
+		call_later
+		call_at
+		add_done_callback
+		chain_future
+		add_timeout
+	}
+	{
+		rank=same
+		time
+		wrap
+		__lt__
+		timedelta_to_seconds
+	}
+	test_no_ref -> sleep [label="calls [#1]" color=blue penwidth=1.1]
+	test_no_ref -> __init__ [label="calls [#10]" color=blue penwidth=1.1]
+	test_no_ref -> next [label="calls [#12]" color=blue penwidth=1.1]
+	test_no_ref -> with_timeout [label="calls [#14]" color=blue penwidth=1.1]
+	sleep -> __init__ [label="calls [#2]" color=blue penwidth=1.1]
+	sleep -> f [label=writes color=black]
+	sleep -> current [label="calls [#3]" color=blue penwidth=1.1]
+	sleep -> call_later [label="calls [#4]" color=blue penwidth=1.1]
+	__init__ -> i [label=writes color=black]
+	__init__ -> f [label=writes color=black]
+	__init__ -> futures [label=writes color=black]
+	__init__ -> self_ref [label=writes color=black]
+	__init__ -> future [label=writes color=black]
+	__init__ -> add_done_callback [label="calls [#11]" color=blue penwidth=1.1]
+	f -> add_done_callback [label="passed to" color=green style=dashed]
+	current -> current [label="writes×2" color=black]
+	call_later -> time [label="calls [#5]" color=blue penwidth=1.1]
+	call_later -> call_at [label="calls [#6]" color=blue penwidth=1.1]
+	call_at -> wrap [label="calls×2 [#7]" color=blue penwidth=1.2]
+	call_at -> __init__ [label="calls×2 [#8]" color=blue penwidth=1.2]
+	call_at -> timeout [label="writes×2" color=black]
+	call_at -> __lt__ [label="calls×2 [#9]" color=blue penwidth=1.2]
+	wrap -> cap_contexts [label="writes×2" color=black]
+	wrap -> wrapped [label="writes×2" color=black]
+	timeout -> with_timeout [label="passed to" color=green style=dashed]
+	i -> add_done_callback [label="passed to" color=green style=dashed]
+	future -> with_timeout [label="passed to" color=green style=dashed]
+	next -> __init__ [label="calls [#13]" color=blue penwidth=1.1]
+	with_timeout -> __init__ [label="calls [#15]" color=blue penwidth=1.1]
+	with_timeout -> result [label=writes color=black]
+	with_timeout -> chain_future [label="calls [#16]" color=blue penwidth=1.1]
+	with_timeout -> current [label="calls [#18]" color=blue penwidth=1.1]
+	with_timeout -> io_loop [label=writes color=black]
+	with_timeout -> error_callback [label=writes color=black]
+	with_timeout -> timeout_callback [label=writes color=black]
+	with_timeout -> add_timeout [label="calls [#19]" color=blue penwidth=1.1]
+	with_timeout -> with_timeout [label="loops(×3)" color=purple style=dashed]
+	with_timeout -> call_at [label="calls [#22]" color=blue penwidth=1.1]
+	with_timeout -> timeout_handle [label=writes color=black]
+	with_timeout -> add_done_callback [label="calls [#26]" color=blue penwidth=1.1]
+	chain_future -> copy [label=writes color=black]
+	chain_future -> add_done_callback [label="calls [#17]" color=blue penwidth=1.1]
+	io_loop -> __init__ [label="passed to" color=green style=dashed]
+	add_timeout -> time [label="calls [#20]" color=blue penwidth=1.1]
+	add_timeout -> timedelta_to_seconds [label="calls [#21]" color=blue penwidth=1.1]
+}

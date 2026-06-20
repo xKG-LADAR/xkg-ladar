@@ -1,0 +1,314 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_unified_timestamps [label="test_unified_timestamps
+test_utils.py:296" fillcolor=white shape=box style=filled]
+	unified_timestamp [label="unified_timestamp
+utils.py:1098" fillcolor=white shape=box style=filled]
+	date_str [label="date_str
+(11 writes, 9 distinct)
+'December 21  2010'
+'Dec 14  2012'
+'2012/10/11 01:56:38'
+'28/01/2014 21:00:00'
+'11/26/2014 11:30:00'
+'2/2/2015 6:47:40'
+  …+3 more values" shape=ellipse]
+	pm_delta [label="pm_delta
+(14 writes, 2 distinct)
+datetime.timedelta(0)
+datetime.timedelta(seconds=43200)" shape=ellipse]
+	extract_timezone [label="extract_timezone
+utils.py:1029" fillcolor=white shape=box style=filled]
+	m [label="m
+(14 writes, 3 distinct)
+None
+<re.Match object; span=(0, 25), match='2012/10/11 01:56:38 +0000'>
+<re.Match object; span=(0, 25), match='28/01/2014 21:00:00 +0100'>" shape=ellipse]
+	date_formats [label="date_formats
+utils.py:1066" fillcolor=white shape=box style=filled]
+	module [label="module
+(7 writes, 5 distinct)
+<object object at 0x725379578060>
+None
+<module '_strptime'>
+<module '_strptime' (<_frozen_importlib_external.SourceFileLoader object at 0x725377bd2ba0>)>
+<module '_strptime' from '/usr/lib/python3.12/_strptime.py'>" shape=ellipse]
+	ERROR__KeyError [label="KeyError
+'_strptime'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	lock [label="lock
+(2 writes, 2 distinct)
+None
+_ModuleLock('_strptime') at 125702839286432" shape=ellipse]
+	self [label="self
+(3 writes, 3 distinct)
+_ModuleLock('_strptime') at 125702839286432
+<weakref at 0x725377b3eaa0; to '_List' at 0x725377b35810>
+<_frozen_importlib._WeakValueDictionary object at 0x72537959b2c0>" shape=ellipse]
+	cb [label="cb
+<function _get_module_lock.<locals>.cb at 0x725377c86c00>" shape=ellipse]
+	tid [label="tid
+125702853177472" shape=ellipse]
+	o [label="o
+None" shape=ellipse]
+	path [label="path
+(2 writes, 2 distinct)
+None
+['/path/to/BugsInPy/workspace/youtube-dl', '/path/to/BugsInPy/workspace/youtube-dl', '<redacted>" shape=ellipse]
+	parent [label="parent
+''" shape=ellipse]
+	parent_spec [label="parent_spec
+None" shape=ellipse]
+	meta_path [label="meta_path
+[<class '_frozen_importlib.BuiltinImporter'>, <class '_frozen_importlib.FrozenImporter'>, <class '_frozen_importlib_exte…" shape=ellipse]
+	is_reload [label="is_reload
+False" shape=ellipse]
+	finder [label="finder
+(11 writes, 6 distinct)
+<class '_frozen_importlib.BuiltinImporter'>
+<class '_frozen_importlib.FrozenImporter'>
+<class '_frozen_importlib_external.PathFinder'>
+FileFinder('/path/to/BugsInPy/workspace/youtube-dl')
+None
+FileFinder('/usr/lib/python3.12')" shape=ellipse]
+	find_spec [label="find_spec
+(3 writes, 3 distinct)
+<bound method BuiltinImporter.find_spec of <class '_frozen_importlib.BuiltinImporter'>>
+<bound method FrozenImporter.find_spec of <class '_frozen_importlib.FrozenImporter'>>
+<bound method PathFinder.find_spec of <class '_frozen_importlib_external.PathFinder'>>" shape=ellipse]
+	spec [label="spec
+(7 writes, 2 distinct)
+None
+ModuleSpec(name='_strptime', loader=<_frozen_importlib_external.SourceFileLoader object at 0x725377bd2ba0>, origin='/usr…" shape=ellipse]
+	info [label="info
+None" shape=ellipse]
+	namespace_path [label="namespace_path
+[]" shape=ellipse]
+	entry [label="entry
+(3 writes, 3 distinct)
+'/path/to/BugsInPy/workspace/youtube-dl'
+'/usr/lib/python312.zip'
+'/usr/lib/python3.12'" shape=ellipse]
+	is_namespace [label="is_namespace
+(4 writes)
+False" shape=ellipse]
+	tail_module [label="tail_module
+(4 writes)
+'_strptime'" shape=ellipse]
+	mtime [label="mtime
+(4 writes, 2 distinct)
+1775122185.9128377
+1775119204.8377783" shape=ellipse]
+	cache [label="cache
+(4 writes, 2 distinct)
+set(len=26)
+set(len=202)" shape=ellipse]
+	cache_module [label="cache_module
+(4 writes)
+'_strptime'" shape=ellipse]
+	suffix [label="suffix
+(8 writes, 3 distinct)
+'.cpython-312-x86_64-linux-gnu.so'
+'.pyc'
+'.py'" shape=ellipse]
+	loader_class [label="loader_class
+(8 writes, 3 distinct)
+<class '_frozen_importlib_external.ExtensionFileLoader'>
+<class '_frozen_importlib_external.SourcelessFileLoader'>
+<class '_frozen_importlib_external.SourceFileLoader'>" shape=ellipse]
+	full_path [label="full_path
+(8 writes, 4 distinct)
+'/path/to/BugsInPy/workspace/youtube-dl/_strptime.cpython-312-x86_64-linux-gnu.so'
+'/path/to/BugsInPy/workspace/youtube-dl/_strptime.pyc'
+'/usr/lib/python3.12/_strptime.cpython-312-x86_64-linux-gnu.so'
+'/usr/lib/python3.12/_strptime.py'" shape=ellipse]
+	stat_info [label="stat_info
+os.stat_result(st_mode=33188, st_ino=527086, st_dev=66309, st_nlink=1, st_uid=0, st_gid=0, st_size=24615, st_atime=17751…" shape=ellipse]
+	loader [label="loader
+(2 writes)
+<_frozen_importlib_external.SourceFileLoader object at 0x725377bd2ba0>" shape=ellipse]
+	head [label="head
+(2 writes)
+'/usr/lib/python3.12'" shape=ellipse]
+	tail [label="tail
+(2 writes)
+'_strptime.py'" shape=ellipse]
+	base [label="base
+(2 writes)
+'_strptime'" shape=ellipse]
+	sep [label="sep
+(2 writes)
+'.'" shape=ellipse]
+	rest [label="rest
+(2 writes)
+'py'" shape=ellipse]
+	tag [label="tag
+(2 writes)
+'cpython-312'" shape=ellipse]
+	almost_filename [label="almost_filename
+(2 writes)
+'_strptime.cpython-312'" shape=ellipse]
+	optimization [label="optimization
+(2 writes)
+''" shape=ellipse]
+	filename [label="filename
+(2 writes)
+'_strptime.cpython-312.pyc'" shape=ellipse]
+	source_path [label="source_path
+'/usr/lib/python3.12/_strptime.py'" shape=ellipse]
+	source_mtime [label="source_mtime
+(2 writes, 2 distinct)
+None
+1772540118" shape=ellipse]
+	source_bytes [label="source_bytes
+None" shape=ellipse]
+	source_hash [label="source_hash
+None" shape=ellipse]
+	hash_based [label="hash_based
+False" shape=ellipse]
+	check_source [label="check_source
+True" shape=ellipse]
+	p [label="p
+'/'" shape=ellipse]
+	i [label="i
+19" shape=ellipse]
+	bytecode_path [label="bytecode_path
+'/usr/lib/python3.12/__pycache__/_strptime.cpython-312.pyc'" shape=ellipse]
+	st [label="st
+(2 writes, 2 distinct)
+os.stat_result(st_mode=33188, st_ino=527086, st_dev=66309, st_nlink=1, st_uid=0, st_gid=0, st_size=24615, st_atime=17751…
+{'mtime': 1772540118.0, 'size': 24615}" shape=ellipse]
+	file [label="file
+<_io.BufferedReader name='/usr/lib/python3.12/__pycache__/_strptime.cpython-312.pyc'>" shape=ellipse]
+	data [label="data
+bytes(len=24116)" shape=ellipse]
+	exc_details [label="exc_details
+{'name': '_strptime', 'path': '/usr/lib/python3.12/__pycache__/_strptime.cpython-312.pyc'}" shape=ellipse]
+	magic [label="magic
+b'\xcb\r\r\n'" shape=ellipse]
+	flags [label="flags
+(2 writes)
+0" shape=ellipse]
+	bytes_data [label="bytes_data
+<memory at 0x725377d73880>" shape=ellipse]
+	code [label="code
+(2 writes)
+<code object <module> at 0x725377cf6590, file \"/usr/lib/python3.12/_strptime.py\", line 1>" shape=ellipse]
+	ERROR__ValueError [label="ValueError
+time data 'December 21  2010' does not match format '%d %B %Y'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	dt [label="dt
+(12 writes, 11 distinct)
+datetime.datetime(2010, 12, 21, 0, 0)
+datetime.datetime(2009, 7, 8, 0, 0)
+datetime.datetime(2012, 12, 14, 0, 0)
+datetime.datetime(2012, 10, 11, 1, 56, 38)
+datetime.datetime(1968, 12, 10, 0, 0)
+datetime.datetime(2014, 1, 28, 20, 0)
+  …+5 more values" shape=ellipse]
+	sign [label="sign
+(2 writes)
+1" shape=ellipse]
+	timetuple [label="timetuple
+(2 writes, 2 distinct)
+None
+(2016, 5, 16, 11, 15, 0, 0, 1, -1, 0)" shape=ellipse]
+	ERROR__AttributeError [label="AttributeError
+'tuple' object has no attribute 'timetuple'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_unified_timestamps
+	}
+	{
+		rank=same
+		unified_timestamp
+	}
+	{
+		rank=same
+		extract_timezone
+		date_formats
+	}
+	test_unified_timestamps -> unified_timestamp [label="calls×14 [#1]" color=blue penwidth=2.4]
+	test_unified_timestamps -> ERROR__AttributeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	unified_timestamp -> date_str [label="writes×9" color=black]
+	unified_timestamp -> pm_delta [label="writes×14" color=black]
+	unified_timestamp -> extract_timezone [label="calls×14 [#2]" color=blue penwidth=2.4]
+	unified_timestamp -> date_formats [label="calls×14 [#3]" color=blue penwidth=2.4]
+	unified_timestamp -> module [label="writes×7" color=black]
+	unified_timestamp -> ERROR__KeyError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	unified_timestamp -> lock [label="writes×2" color=black]
+	unified_timestamp -> self [label="writes×3" color=black]
+	unified_timestamp -> cb [label=writes color=black]
+	unified_timestamp -> tid [label=writes color=black]
+	unified_timestamp -> o [label=writes color=black]
+	unified_timestamp -> path [label="writes×2" color=black]
+	unified_timestamp -> parent [label=writes color=black]
+	unified_timestamp -> parent_spec [label=writes color=black]
+	unified_timestamp -> meta_path [label=writes color=black]
+	unified_timestamp -> is_reload [label=writes color=black]
+	unified_timestamp -> finder [label="writes×11" color=black]
+	unified_timestamp -> find_spec [label="writes×3" color=black]
+	unified_timestamp -> spec [label="writes×7" color=black]
+	unified_timestamp -> info [label=writes color=black]
+	unified_timestamp -> namespace_path [label=writes color=black]
+	unified_timestamp -> entry [label="writes×3" color=black]
+	unified_timestamp -> is_namespace [label="writes×4" color=black]
+	unified_timestamp -> tail_module [label="writes×4" color=black]
+	unified_timestamp -> mtime [label="writes×4" color=black]
+	unified_timestamp -> cache [label="writes×4" color=black]
+	unified_timestamp -> cache_module [label="writes×4" color=black]
+	unified_timestamp -> suffix [label="writes×8" color=black]
+	unified_timestamp -> loader_class [label="writes×8" color=black]
+	unified_timestamp -> full_path [label="writes×8" color=black]
+	unified_timestamp -> unified_timestamp [label="loops(×244)" color=purple style=dashed]
+	unified_timestamp -> stat_info [label=writes color=black]
+	unified_timestamp -> loader [label="writes×2" color=black]
+	unified_timestamp -> head [label="writes×2" color=black]
+	unified_timestamp -> tail [label="writes×2" color=black]
+	unified_timestamp -> base [label="writes×2" color=black]
+	unified_timestamp -> sep [label="writes×2" color=black]
+	unified_timestamp -> rest [label="writes×2" color=black]
+	unified_timestamp -> tag [label="writes×2" color=black]
+	unified_timestamp -> almost_filename [label="writes×2" color=black]
+	unified_timestamp -> optimization [label="writes×2" color=black]
+	unified_timestamp -> filename [label="writes×2" color=black]
+	unified_timestamp -> source_path [label=writes color=black]
+	unified_timestamp -> source_mtime [label="writes×2" color=black]
+	unified_timestamp -> source_bytes [label=writes color=black]
+	unified_timestamp -> source_hash [label=writes color=black]
+	unified_timestamp -> hash_based [label=writes color=black]
+	unified_timestamp -> check_source [label=writes color=black]
+	unified_timestamp -> p [label=writes color=black]
+	unified_timestamp -> i [label=writes color=black]
+	unified_timestamp -> bytecode_path [label=writes color=black]
+	unified_timestamp -> st [label="writes×2" color=black]
+	unified_timestamp -> file [label=writes color=black]
+	unified_timestamp -> data [label=writes color=black]
+	unified_timestamp -> exc_details [label=writes color=black]
+	unified_timestamp -> magic [label=writes color=black]
+	unified_timestamp -> flags [label="writes×2" color=black]
+	unified_timestamp -> bytes_data [label=writes color=black]
+	unified_timestamp -> code [label="writes×2" color=black]
+	unified_timestamp -> ERROR__ValueError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	unified_timestamp -> dt [label="writes×12" color=black]
+	unified_timestamp -> timetuple [label="writes×2" color=black]
+	unified_timestamp -> ERROR__AttributeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	date_str -> extract_timezone [label="passed to" color=green style=dashed]
+	date_str -> unified_timestamp [label="passed to" color=green style=dashed]
+	extract_timezone -> m [label="writes×14" color=black]
+	extract_timezone -> date_str [label="writes×2" color=black]
+	extract_timezone -> sign [label="writes×2" color=black]
+	module -> unified_timestamp [label="passed to" color=green style=dashed]
+	lock -> unified_timestamp [label="passed to" color=green style=dashed]
+	self -> unified_timestamp [label="passed to" color=green style=dashed]
+	path -> unified_timestamp [label="passed to" color=green style=dashed]
+	spec -> unified_timestamp [label="passed to" color=green style=dashed]
+	loader_class -> unified_timestamp [label="passed to" color=green style=dashed]
+	loader -> unified_timestamp [label="passed to" color=green style=dashed]
+	optimization -> unified_timestamp [label="passed to" color=green style=dashed]
+	filename -> unified_timestamp [label="passed to" color=green style=dashed]
+	source_path -> unified_timestamp [label="passed to" color=green style=dashed]
+	source_mtime -> unified_timestamp [label="passed to" color=green style=dashed]
+	p -> unified_timestamp [label="passed to" color=green style=dashed]
+	bytecode_path -> unified_timestamp [label="passed to" color=green style=dashed]
+	data -> unified_timestamp [label="passed to" color=green style=dashed]
+	exc_details -> unified_timestamp [label="passed to" color=green style=dashed]
+}

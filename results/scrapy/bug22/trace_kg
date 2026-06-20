@@ -1,0 +1,73 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	setUp [label="setUp
+test_spidermiddleware_referer.py:10" fillcolor=white shape=box style=filled]
+	__new__ [label="__new__
+item.py:27" fillcolor=white shape=box style=filled]
+	obj [label="obj
+REPR FAILED" shape=ellipse]
+	__init__ [label="__init__
+extensions.py:5" fillcolor=white shape=box style=filled]
+	__setattr__ [label="__setattr__
+item.py:73" fillcolor=white shape=box style=filled]
+	self [label="self
+(6 writes, 3 distinct)
+{}
+{'name': 'John£'}
+{'age': '22', 'name': 'John£'}" shape=ellipse]
+	iteritems [label="iteritems
+headers.py:72" fillcolor=white shape=box style=filled]
+	k [label="k
+(2 writes, 2 distinct)
+'name'
+'age'" shape=ellipse]
+	v [label="v
+(2 writes, 2 distinct)
+'John£'
+'22'" shape=ellipse]
+	__setitem__ [label="__setitem__
+item.py:58" fillcolor=white shape=box style=filled]
+	_get_exporter [label="_get_exporter
+test_exporters.py:39" fillcolor=white shape=box style=filled]
+	_configure [label="_configure
+Configure the exporter by poping options from the ``opt…
+exporters.py:32" fillcolor=white shape=box style=filled]
+	{
+		rank=same
+		setUp
+	}
+	{
+		rank=same
+		__new__
+		__init__
+		_get_exporter
+	}
+	{
+		rank=same
+		__setattr__
+		iteritems
+		__setitem__
+	}
+	{
+		rank=same
+		_configure
+	}
+	setUp -> __new__ [label="calls [#1]" color=blue penwidth=1.1]
+	setUp -> __init__ [label="calls [#2]" color=blue penwidth=1.1]
+	setUp -> _get_exporter [label="calls [#7]" color=blue penwidth=1.1]
+	__new__ -> obj [label=writes color=black]
+	__init__ -> __setattr__ [label="calls [#3]" color=blue penwidth=1.1]
+	__init__ -> self [label="writes×3" color=black]
+	__init__ -> iteritems [label="calls [#4]" color=blue penwidth=1.1]
+	__init__ -> k [label="writes×2" color=black]
+	__init__ -> v [label="writes×2" color=black]
+	__init__ -> __setitem__ [label="calls×2 [#5]" color=blue penwidth=1.2]
+	__init__ -> _configure [label="calls [#9]" color=blue penwidth=1.1]
+	__setattr__ -> self [label=writes color=black]
+	self -> __setitem__ [label="passed to" color=green style=dashed]
+	self -> _get_exporter [label="passed to" color=green style=dashed]
+	self -> __init__ [label="passed to" color=green style=dashed]
+	self -> _configure [label="passed to" color=green style=dashed]
+	__setitem__ -> self [label="writes×2" color=black]
+	_get_exporter -> __init__ [label="calls [#8]" color=blue penwidth=1.1]
+}

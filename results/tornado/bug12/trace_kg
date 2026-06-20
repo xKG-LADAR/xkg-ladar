@@ -1,0 +1,1211 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_facebook_login [label="test_facebook_login
+auth_test.py:402" fillcolor=white shape=box style=filled]
+	fetch [label="fetch
+Executes a request, returning an `HTTPResponse`.
+httpclient.py:91" fillcolor=white shape=box style=filled]
+	get_url [label="get_url
+[closure inside test_multi_process]
+process_test.py:68" fillcolor=white shape=box style=filled]
+	get_protocol [label="get_protocol
+testing.py:410" fillcolor=white shape=box style=filled]
+	get_http_port [label="get_http_port
+Returns the port used by the server.
+testing.py:403" fillcolor=white shape=box style=filled]
+	__init__ [label="__init__
+stack_context_test.py:17" fillcolor=white shape=box style=filled]
+	headers [label="headers
+httpclient.py:459" fillcolor=white shape=box style=filled]
+	body [label="body
+httpclient.py:470" fillcolor=white shape=box style=filled]
+	utf8 [label="utf8
+Converts a string argument to a byte string.
+escape.py:193" fillcolor=white shape=box style=filled]
+	body_producer [label="body_producer
+[closure inside test_100_continue_early_response]
+simple_httpclient_test.py:414" fillcolor=white shape=box style=filled]
+	wrap [label="wrap
+Returns a callable object that will restore the current…
+stack_context.py:253" fillcolor=white shape=box style=filled]
+	streaming_callback [label="streaming_callback
+[closure inside test_streaming_callback]
+iostream_test.py:291" fillcolor=white shape=box style=filled]
+	header_callback [label="header_callback
+[closure inside test_header_callback]
+httpclient_test.py:310" fillcolor=white shape=box style=filled]
+	prepare_curl_callback [label="prepare_curl_callback
+httpclient.py:502" fillcolor=white shape=box style=filled]
+	request [label="request
+(8 writes, 4 distinct)
+<tornado.httpclient.HTTPRequest object at 0x7670a55d4170>
+<tornado.httpclient._RequestProxy object at 0x7670a55d73b0>
+<tornado.httpclient.HTTPRequest object at 0x7670a542e1b0>
+<tornado.httpclient._RequestProxy object at 0x7670a55d59a0>" shape=ellipse]
+	get_all [label="get_all
+Returns an iterable of all (name, value) pairs.
+httputil.py:160" fillcolor=white shape=box style=filled]
+	handle_future [label="handle_future
+(2 writes, 2 distinct)
+<function AsyncHTTPClient.fetch.<locals>.handle_future at 0x7670a530f1a0>
+<function AsyncHTTPClient.fetch.<locals>.handle_future at 0x7670a530f100>" shape=ellipse]
+	add_done_callback [label="add_done_callback
+Attaches the given callback to the `Future`.
+concurrent.py:251" fillcolor=white shape=box style=filled]
+	handle_response [label="handle_response
+(2 writes, 2 distinct)
+<function AsyncHTTPClient.fetch.<locals>.handle_response at 0x7670a530f100>
+<function AsyncHTTPClient.fetch.<locals>.handle_response at 0x7670a5208400>" shape=ellipse]
+	fetch_impl [label="fetch_impl
+curl_httpclient.py:77" fillcolor=white shape=box style=filled]
+	key [label="key
+(12 writes, 4 distinct)
+<object object at 0x7670a6578de0>
+'network_interface'
+'proxy_password'
+<object object at 0x7670a6578e50>" shape=ellipse]
+	timeout_handle [label="timeout_handle
+(4 writes)
+None" shape=ellipse]
+	_process_queue [label="_process_queue
+simple_httpclient.py:139" fillcolor=white shape=box style=filled]
+	__enter__ [label="__enter__
+http1connection.py:49" fillcolor=white shape=box style=filled]
+	_remove_timeout [label="_remove_timeout
+simple_httpclient.py:163" fillcolor=white shape=box style=filled]
+	release_callback [label="release_callback
+(2 writes, 2 distinct)
+functools.partial(<bound method SimpleAsyncHTTPClient._release_fetch of <tornado.simple_httpclient.SimpleAsyncHTTPClient…
+functools.partial(<bound method SimpleAsyncHTTPClient._release_fetch of <tornado.simple_httpclient.SimpleAsyncHTTPClient…" shape=ellipse]
+	_handle_request [label="_handle_request
+simple_httpclient.py:153" fillcolor=white shape=box style=filled]
+	_connection_class [label="_connection_class
+simple_httpclient.py:150" fillcolor=white shape=box style=filled]
+	time [label="time
+ioloop_test.py:32" fillcolor=white shape=box style=filled]
+	__getattr__ [label="__getattr__
+util.py:37" fillcolor=white shape=box style=filled]
+	to_unicode [label="to_unicode
+Converts a string argument to a unicode string.
+escape.py:210" fillcolor=white shape=box style=filled]
+	netloc [label="netloc
+(2 writes)
+'localhost:33959'" shape=ellipse]
+	split_host_and_port [label="split_host_and_port
+Returns ``(host, port)`` tuple from ``netloc``.
+httputil.py:883" fillcolor=white shape=box style=filled]
+	match [label="match
+(5 writes, 3 distinct)
+<re.Match object; span=(0, 15), match='localhost:33959'>
+<re.Match object; span=(0, 18), match='HTTP/1.1 302 Found'>
+<re.Match object; span=(0, 15), match='HTTP/1.1 200 OK'>" shape=ellipse]
+	host [label="host
+(4 writes)
+'localhost'" shape=ellipse]
+	port [label="port
+(4 writes)
+33959" shape=ellipse]
+	af [label="af
+(6 writes, 2 distinct)
+<AddressFamily.AF_UNSPEC: 0>
+<AddressFamily.AF_INET: 2>" shape=ellipse]
+	_get_ssl_options [label="_get_ssl_options
+simple_httpclient.py:238" fillcolor=white shape=box style=filled]
+	ssl_options [label="ssl_options
+(2 writes)
+None" shape=ellipse]
+	add_timeout [label="add_timeout
+Runs the ``callback`` at the time ``deadline`` from the…
+ioloop.py:462" fillcolor=white shape=box style=filled]
+	call_at [label="call_at
+asyncio.py:131" fillcolor=white shape=box style=filled]
+	wrapper [label="wrapper
+[closure inside administrator]
+blog.py:43" fillcolor=white shape=box style=filled]
+	kwargs [label="kwargs
+(4 writes, 2 distinct)
+{'af': <AddressFamily.AF_UNSPEC: 0>, 'ssl_options': None, 'max_buffer_size': 104857600}
+{'path': '/me', 'callback': <tornado.concurrent.Future object at 0x7670a54710a0>, 'access_token': b'asdf', 'fields': 'pi…" shape=ellipse]
+	current [label="current
+Returns the current thread's `IOLoop`.
+ioloop.py:189" fillcolor=white shape=box style=filled]
+	add_future [label="add_future
+Schedules a callback on the ``IOLoop`` when the given
+ioloop.py:574" fillcolor=white shape=box style=filled]
+	is_future [label="is_future
+concurrent.py:346" fillcolor=white shape=box style=filled]
+	result [label="result
+(11 writes, 11 distinct)
+<generator object TCPClient.connect at 0x7670a54d4af0>
+<generator object HTTP1ServerConnection._server_request_loop at 0x7670a53f5640>
+HTTPResponse(_body=None,buffer=<_io.BytesIO object at 0x7670a52c8bd0>,code=302,effective_url='http://localhost:33959/fac…
+<generator object TCPClient.connect at 0x7670a54d63e0>
+<generator object HTTP1ServerConnection._server_request_loop at 0x7670a53f6240>
+b'x'
+  …+5 more values" shape=ellipse]
+	connect [label="connect
+Connect to the given host and port.
+tcpclient.py:157" fillcolor=white shape=box style=filled]
+	handle_yield [label="handle_yield
+gen.py:1032" fillcolor=white shape=box style=filled]
+	run [label="run
+runtests.py:64" fillcolor=white shape=box style=filled]
+	__del__ [label="__del__
+httpclient.py:81" fillcolor=white shape=box style=filled]
+	__exit__ [label="__exit__
+http1connection.py:52" fillcolor=white shape=box style=filled]
+	final_contexts [label="final_contexts
+(3 writes, 3 distinct)
+((), <tornado.stack_context.ExceptionStackContext object at 0x7670a55d6db0>)
+((), <tornado.stack_context.ExceptionStackContext object at 0x7670a542e930>)
+((), <tornado.stack_context.ExceptionStackContext object at 0x7670a54716d0>)" shape=ellipse]
+	wait [label="wait
+Wait for `.notify`.
+locks.py:116" fillcolor=white shape=box style=filled]
+	get_async_test_timeout [label="get_async_test_timeout
+Get the global timeout setting for async tests.
+testing.py:99" fillcolor=white shape=box style=filled]
+	ERROR__KeyError [label="KeyError
+b'ASYNC_TEST_TIMEOUT'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	ERROR__TypeError [label="TypeError
+float() argument must be a string or a real number, not 'NoneType'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	timeout_func [label="timeout_func
+(2 writes, 2 distinct)
+<function AsyncTestCase.wait.<locals>.timeout_func at 0x7670a5208360>
+<function AsyncTestCase.wait.<locals>.timeout_func at 0x7670a5208b80>" shape=ellipse]
+	__lt__ [label="__lt__
+ioloop.py:965" fillcolor=white shape=box style=filled]
+	start [label="start
+Starts the mock S3 server on the given port at the give…
+s3server.py:46" fillcolor=white shape=box style=filled]
+	_setup_logging [label="_setup_logging
+The IOLoop catches and logs exceptions, so it's
+ioloop.py:360" fillcolor=white shape=box style=filled]
+	old_current [label="old_current
+(2 writes)
+<tornado.platform.epoll.EPollIOLoop object at 0x7670a550fb00>" shape=ellipse]
+	old_wakeup_fd [label="old_wakeup_fd
+(4 writes, 2 distinct)
+None
+-1" shape=ellipse]
+	write_fileno [label="write_fileno
+Returns the write file descriptor for this waker.
+interface.py:49" fillcolor=white shape=box style=filled]
+	events [label="events
+(8 writes, 2 distinct)
+4
+1" shape=ellipse]
+	null_wrapper [label="null_wrapper
+[closure inside wrap]
+stack_context.py:271" fillcolor=white shape=box style=filled]
+	_handle_events [label="_handle_events
+caresresolver.py:43" fillcolor=white shape=box style=filled]
+	closed [label="closed
+Returns true if the stream has been closed.
+iostream.py:478" fillcolor=white shape=box style=filled]
+	_handle_connect [label="_handle_connect
+iostream.py:1176" fillcolor=white shape=box style=filled]
+	err [label="err
+(4 writes)
+0" shape=ellipse]
+	set_result [label="set_result
+Sets the result of a ``Future``.
+concurrent.py:264" fillcolor=white shape=box style=filled]
+	_set_done [label="_set_done
+concurrent.py:313" fillcolor=white shape=box style=filled]
+	on_connect_done [label="on_connect_done
+tcpclient.py:100" fillcolor=white shape=box style=filled]
+	stream [label="stream
+(12 writes, 8 distinct)
+<tornado.iostream.IOStream object at 0x7670a55d42c0>
+<tornado.iostream.IOStream object at 0x7670a542cf80>
+<tornado.iostream.IOStream object at 0x7670a542ffe0>
+<tornado.iostream.IOStream object at 0x7670a55877d0>
+<tornado.iostream.IOStream object at 0x7670a54709e0>
+<tornado.iostream.IOStream object at 0x7670a55d7680>
+  …+2 more values" shape=ellipse]
+	_handle_write [label="_handle_write
+iostream.py:827" fillcolor=white shape=box style=filled]
+	reading [label="reading
+Returns true if we are currently reading from the strea…
+iostream.py:470" fillcolor=white shape=box style=filled]
+	writing [label="writing
+Returns true if we are currently writing to the stream.
+iostream.py:474" fillcolor=white shape=box style=filled]
+	fileno [label="fileno
+kqueue.py:32" fillcolor=white shape=box style=filled]
+	update_handler [label="update_handler
+asyncio.py:79" fillcolor=white shape=box style=filled]
+	split_fd [label="split_fd
+Returns an (fd, obj) pair from an ``fd`` parameter.
+ioloop.py:614" fillcolor=white shape=box style=filled]
+	obj [label="obj
+(6 writes, 4 distinct)
+<socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 42814), raddr=('127.0.0.1', 33959)>
+<socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 42816), raddr=('127.0.0.1', 33959)>
+<socket.socket fd=9, family=2, type=1, proto=0, laddr=('127.0.0.1', 42830), raddr=('127.0.0.1', 33959)>
+<socket.socket fd=9, family=2, type=1, proto=0, laddr=('127.0.0.1', 42836), raddr=('127.0.0.1', 33959)>" shape=ellipse]
+	_remove_deactivated [label="_remove_deactivated
+Remove deactivated handlers from the chain
+stack_context.py:227" fillcolor=white shape=box style=filled]
+	accept_handler [label="accept_handler
+[closure inside add_accept_handler]
+netutil.py:248" fillcolor=white shape=box style=filled]
+	i [label="i
+(13 writes, 3 distinct)
+0
+1
+'asdf'" shape=ellipse]
+	connection [label="connection
+(8 writes, 8 distinct)
+<socket.socket fd=8, family=2, type=1, proto=6, laddr=('127.0.0.1', 33959), raddr=('127.0.0.1', 42814)>
+<tornado.http1connection.HTTP1Connection object at 0x7670a542e9c0>
+<socket.socket fd=8, family=2, type=1, proto=6, laddr=('127.0.0.1', 33959), raddr=('127.0.0.1', 42816)>
+<tornado.http1connection.HTTP1Connection object at 0x7670a5587920>
+<socket.socket fd=10, family=2, type=1, proto=6, laddr=('127.0.0.1', 33959), raddr=('127.0.0.1', 42830)>
+<tornado.http1connection.HTTP1Connection object at 0x7670a5471880>
+  …+2 more values" shape=ellipse]
+	address [label="address
+(4 writes, 4 distinct)
+('127.0.0.1', 42814)
+('127.0.0.1', 42816)
+('127.0.0.1', 42830)
+('127.0.0.1', 42836)" shape=ellipse]
+	_handle_connection [label="_handle_connection
+tcpserver.py:232" fillcolor=white shape=box style=filled]
+	handle_stream [label="handle_stream
+[closure inside test_handle_stream_coroutine_logging]
+tcpserver_test.py:18" fillcolor=white shape=box style=filled]
+	context [label="context
+(4 writes, 4 distinct)
+<tornado.httpserver._HTTPRequestContext object at 0x7670a542d3d0>
+<tornado.httpserver._HTTPRequestContext object at 0x7670a542f860>
+<tornado.httpserver._HTTPRequestContext object at 0x7670a542f800>
+<tornado.httpserver._HTTPRequestContext object at 0x7670a542fc20>" shape=ellipse]
+	conn [label="conn
+(7 writes, 7 distinct)
+<tornado.http1connection.HTTP1ServerConnection object at 0x7670a55d54f0>
+<tornado.http1connection.HTTP1Connection object at 0x7670a5411730>
+<tornado.http1connection.HTTP1ServerConnection object at 0x7670a542f140>
+<tornado.http1connection.HTTP1ServerConnection object at 0x7670a55e0f80>
+<tornado.http1connection.HTTP1Connection object at 0x7670a542fa70>
+<tornado.http1connection.HTTP1ServerConnection object at 0x7670a5411730>
+  …+1 more values" shape=ellipse]
+	start_serving [label="start_serving
+Starts serving requests on this connection.
+http1connection.py:674" fillcolor=white shape=box style=filled]
+	ERROR__BlockingIOError [label="BlockingIOError
+[Errno 11] Resource temporarily unavailable" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	errno_from_exception [label="errno_from_exception
+Provides the errno from an Exception object.
+util.py:166" fillcolor=white shape=box style=filled]
+	_run_callback [label="_run_callback
+Runs the given callback with exception handling.
+websocket.py:412" fillcolor=white shape=box style=filled]
+	done [label="done
+Returns True if the future has finished running.
+concurrent.py:210" fillcolor=white shape=box style=filled]
+	_clear_tb_log [label="_clear_tb_log
+concurrent.py:214" fillcolor=white shape=box style=filled]
+	addr [label="addr
+(4 writes)
+('127.0.0.1', 33959)" shape=ellipse]
+	"ERROR__tornado.gen.Return" [label="tornado.gen.Return
+<tornado.iostream.IOStream object at 0x7670a55d42c0>" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	_value_from_stopiteration [label="_value_from_stopiteration
+gen.py:145" fillcolor=white shape=box style=filled]
+	_deactivate_stack_context [label="_deactivate_stack_context
+gen.py:1095" fillcolor=white shape=box style=filled]
+	_on_connect [label="_on_connect
+simple_httpclient.py:297" fillcolor=white shape=box style=filled]
+	set_close_callback [label="set_close_callback
+wsgi.py:101" fillcolor=white shape=box style=filled]
+	_maybe_add_error_listener [label="_maybe_add_error_listener
+iostream.py:887" fillcolor=white shape=box style=filled]
+	remove_timeout [label="remove_timeout
+asyncio.py:139" fillcolor=white shape=box style=filled]
+	__getitem__ [label="__getitem__
+options.py:134" fillcolor=white shape=box style=filled]
+	__setitem__ [label="__setitem__
+httputil.py:203" fillcolor=white shape=box style=filled]
+	norm_name [label="norm_name
+(12 writes, 3 distinct)
+'Connection'
+'Host'
+'Accept-Encoding'" shape=ellipse]
+	username [label="username
+(4 writes)
+None" shape=ellipse]
+	password [label="password
+(4 writes)
+None" shape=ellipse]
+	body_expected [label="body_expected
+(4 writes)
+False" shape=ellipse]
+	body_present [label="body_present
+(4 writes)
+False" shape=ellipse]
+	__missing__ [label="__missing__
+httputil.py:86" fillcolor=white shape=box style=filled]
+	w [label="w
+(2 writes, 2 distinct)
+'Accept'
+'Encoding'" shape=ellipse]
+	normalized [label="normalized
+'Accept-Encoding'" shape=ellipse]
+	req_path [label="req_path
+(4 writes, 4 distinct)
+'/facebook/client/login'
+'/facebook/client/login?code=1234'
+'/facebook/server/access_token?redirect_uri=http%3A%2F%2Flocalhost%3A33959%2Ffacebook%2Fclient%2Flogin%3Fcode%3D1234&cod…
+'/facebook/server/me?access_token=asdf&fields=picture%2Clink%2Cname%2Clocale%2Clast_name%2Cfirst_name%2Cid'" shape=ellipse]
+	_create_connection [label="_create_connection
+simple_httpclient.py:377" fillcolor=white shape=box style=filled]
+	set_nodelay [label="set_nodelay
+Set the no-delay flag for this stream.
+websocket.py:348" fillcolor=white shape=box style=filled]
+	write_headers [label="write_headers
+wsgi.py:106" fillcolor=white shape=box style=filled]
+	lines [label="lines
+(12 writes, 9 distinct)
+[]
+[b'GET /facebook/client/login HTTP/1.1']
+[b'GET /facebook/client/login HTTP/1.1', b'Connection: close', b'Host: localhost:33959', b'Accept-Encoding: gzip']
+[b'GET /facebook/client/login?code=1234 HTTP/1.1']
+[b'GET /facebook/client/login?code=1234 HTTP/1.1', b'Connection: close', b'Host: localhost:33959', b'Accept-Encoding: gz…
+[b'GET /facebook/server/access_token?redirect_uri=http%3A%2F%2Flocalhost%3A33959%2Ffacebook%2Fclient%2Flogin%3Fcode%3D12…
+  …+3 more values" shape=ellipse]
+	name [label="name
+(8 writes, 2 distinct)
+'Connection'
+'Accept-Encoding'" shape=ellipse]
+	values [label="values
+(8 writes, 2 distinct)
+['close']
+['gzip']" shape=ellipse]
+	n [label="n
+(8 writes, 2 distinct)
+'Connection'
+'Accept-Encoding'" shape=ellipse]
+	v [label="v
+(9 writes, 3 distinct)
+'close'
+'gzip'
+['asdf']" shape=ellipse]
+	line [label="line
+(4 writes, 4 distinct)
+bytes(len=35)
+bytes(len=45)
+bytes(len=205)
+bytes(len=118)" shape=ellipse]
+	data [label="data
+(11 writes, 11 distinct)
+bytes(len=104)
+'GET /facebook/client/login HTTP/1.1\r\nConnection: close\r\nHost: localhost:33959\r\nAccept-Encoding: gzip\r\n\r\n'
+'HTTP/1.1 302 Found\r\nServer: TornadoServer/4.3.dev1\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Wed, 27 May 202…
+bytes(len=114)
+'GET /facebook/client/login?code=1234 HTTP/1.1\r\nConnection: close\r\nHost: localhost:33959\r\nAccept-Encoding: gzip\r\…
+bytes(len=274)
+  …+5 more values" shape=ellipse]
+	write [label="write
+wsgi.py:122" fillcolor=white shape=box style=filled]
+	WRITE_BUFFER_CHUNK_SIZE [label="WRITE_BUFFER_CHUNK_SIZE
+(4 writes)
+131072" shape=ellipse]
+	_write_body [label="_write_body
+simple_httpclient.py:389" fillcolor=white shape=box style=filled]
+	finish [label="finish
+[closure inside read_stream_body]
+httpserver_test.py:43" fillcolor=white shape=box style=filled]
+	_read_response [label="_read_response
+simple_httpclient.py:406" fillcolor=white shape=box style=filled]
+	_handle_read [label="_handle_read
+iostream.py:645" fillcolor=white shape=box style=filled]
+	_read_to_buffer_loop [label="_read_to_buffer_loop
+iostream.py:585" fillcolor=white shape=box style=filled]
+	target_bytes [label="target_bytes
+(7 writes)
+65536" shape=ellipse]
+	next_find_pos [label="next_find_pos
+(7 writes)
+0" shape=ellipse]
+	_read_to_buffer [label="_read_to_buffer
+Reads from the socket and appends the result to the rea…
+iostream.py:721" fillcolor=white shape=box style=filled]
+	read_from_fd [label="read_from_fd
+Attempts to read from the underlying file.
+iostream.py:209" fillcolor=white shape=box style=filled]
+	chunk [label="chunk
+(14 writes, 7 distinct)
+bytes(len=104)
+bytes(len=368)
+bytes(len=114)
+bytes(len=274)
+bytes(len=215)
+bytes(len=187)
+  …+1 more values" shape=ellipse]
+	_run_streaming_callback [label="_run_streaming_callback
+iostream.py:754" fillcolor=white shape=box style=filled]
+	_find_read_pos [label="_find_read_pos
+Attempts to find a position in the read buffer that sat…
+iostream.py:772" fillcolor=white shape=box style=filled]
+	m [label="m
+(7 writes, 7 distinct)
+<re.Match object; span=(100, 104), match=b'\r\n\r\n'>
+<re.Match object; span=(364, 368), match=b'\r\n\r\n'>
+<re.Match object; span=(110, 114), match=b'\r\n\r\n'>
+<re.Match object; span=(270, 274), match=b'\r\n\r\n'>
+<re.Match object; span=(194, 198), match=b'\r\n\r\n'>
+<re.Match object; span=(183, 187), match=b'\r\n\r\n'>
+  …+1 more values" shape=ellipse]
+	_check_max_bytes [label="_check_max_bytes
+iostream.py:820" fillcolor=white shape=box style=filled]
+	pos [label="pos
+(14 writes, 7 distinct)
+104
+368
+114
+274
+198
+187
+  …+1 more values" shape=ellipse]
+	_read_from_buffer [label="_read_from_buffer
+Attempts to complete the currently-pending read from th…
+iostream.py:762" fillcolor=white shape=box style=filled]
+	_run_read_callback [label="_run_read_callback
+iostream.py:669" fillcolor=white shape=box style=filled]
+	_consume [label="_consume
+iostream.py:876" fillcolor=white shape=box style=filled]
+	header_data [label="header_data
+(7 writes, 7 distinct)
+bytes(len=104)
+bytes(len=368)
+bytes(len=114)
+bytes(len=274)
+bytes(len=198)
+bytes(len=187)
+  …+1 more values" shape=ellipse]
+	_parse_headers [label="_parse_headers
+http1connection.py:499" fillcolor=white shape=box style=filled]
+	eol [label="eol
+(7 writes, 6 distinct)
+36
+19
+46
+206
+16
+119" shape=ellipse]
+	parse_request_start_line [label="parse_request_start_line
+Returns a (method, path, version) tuple for an HTTP 1.x…
+httputil.py:778" fillcolor=white shape=box style=filled]
+	method [label="method
+(4 writes)
+'GET'" shape=ellipse]
+	path [label="path
+(4 writes, 4 distinct)
+'/facebook/client/login'
+'/facebook/client/login?code=1234'
+'/facebook/server/access_token?redirect_uri=http%3A%2F%2Flocalhost%3A33959%2Ffacebook%2Fclient%2Flogin%3Fcode%3D1234&cod…
+'/facebook/server/me?access_token=asdf&fields=picture%2Clink%2Cname%2Clocale%2Clast_name%2Cfirst_name%2Cid'" shape=ellipse]
+	version [label="version
+(4 writes)
+'HTTP/1.1'" shape=ellipse]
+	_can_keep_alive [label="_can_keep_alive
+http1connection.py:474" fillcolor=white shape=box style=filled]
+	connection_header [label="connection_header
+(4 writes)
+'close'" shape=ellipse]
+	need_delegate_close [label="need_delegate_close
+(14 writes, 2 distinct)
+True
+False" shape=ellipse]
+	headers_received [label="headers_received
+[closure inside read_stream_body]
+httpserver_test.py:37" fillcolor=white shape=box style=filled]
+	header_future [label="header_future
+(7 writes)
+None" shape=ellipse]
+	skip_body [label="skip_body
+(7 writes)
+False" shape=ellipse]
+	_read_body [label="_read_body
+http1connection.py:516" fillcolor=white shape=box style=filled]
+	content_length [label="content_length
+(7 writes, 4 distinct)
+None
+0
+17
+2" shape=ellipse]
+	body_future [label="body_future
+(7 writes, 4 distinct)
+None
+<tornado.concurrent.Future object at 0x7670a542f4a0>
+<tornado.concurrent.Future object at 0x7670a54710a0>
+<tornado.concurrent.Future object at 0x7670a55e0650>" shape=ellipse]
+	_clear_callbacks [label="_clear_callbacks
+Clears the callback attributes.
+http1connection.py:263" fillcolor=white shape=box style=filled]
+	_contains_yieldpoint [label="_contains_yieldpoint
+Returns True if ``children`` contains any YieldPoints.
+gen.py:609" fillcolor=white shape=box style=filled]
+	parse_response_start_line [label="parse_response_start_line
+Returns a (version, code, reason) tuple for an HTTP 1.x…
+httputil.py:800" fillcolor=white shape=box style=filled]
+	code [label="code
+(3 writes, 2 distinct)
+302
+200" shape=ellipse]
+	_check_done [label="_check_done
+concurrent.py:309" fillcolor=white shape=box style=filled]
+	close [label="close
+select.py:35" fillcolor=white shape=box style=filled]
+	start_request [label="start_request
+httpserver.py:181" fillcolor=white shape=box style=filled]
+	request_delegate [label="request_delegate
+(3 writes, 3 distinct)
+<tornado.httpserver._ServerRequestAdapter object at 0x7670a542e960>
+<tornado.httpserver._ServerRequestAdapter object at 0x7670a5471220>
+<tornado.httpserver._ServerRequestAdapter object at 0x7670a5470fe0>" shape=ellipse]
+	read_response [label="read_response
+Read a single HTTP response.
+http1connection.py:138" fillcolor=white shape=box style=filled]
+	"ERROR__tornado.iostream.StreamClosedError" [label="tornado.iostream.StreamClosedError
+Stream is closed" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	on_close [label="on_close
+websocket_test.py:45" fillcolor=white shape=box style=filled]
+	ERROR__StopIteration [label=StopIteration fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	set_exception [label="set_exception
+Sets the exception of a ``Future.``
+concurrent.py:273" fillcolor=white shape=box style=filled]
+	set_exc_info [label="set_exc_info
+Sets the exception information of a ``Future.``
+concurrent.py:288" fillcolor=white shape=box style=filled]
+	stop [label="stop
+tcpclient_test.py:46" fillcolor=white shape=box style=filled]
+	wake [label="wake
+Triggers activity on the waker's file descriptor.
+interface.py:53" fillcolor=white shape=box style=filled]
+	__rethrow [label="__rethrow
+testing.py:257" fillcolor=white shape=box style=filled]
+	response [label="response
+(5 writes, 5 distinct)
+HTTPResponse(_body=None,buffer=<_io.BytesIO object at 0x7670a52c8bd0>,code=302,effective_url='http://localhost:33959/fac…
+HTTPResponse(_body=None,buffer=<_io.BytesIO object at 0x7670a52b6ed0>,code=200,effective_url='http://localhost:33959/fac…
+HTTPResponse(_body=b'access_token=asdf',buffer=<_io.BytesIO object at 0x7670a52b6ed0>,code=200,effective_url='http://loc…
+HTTPResponse(_body=None,buffer=<_io.BytesIO object at 0x7670a52b6ed0>,code=200,effective_url='http://localhost:33959/fac…
+HTTPResponse(_body=b'{}',buffer=<_io.BytesIO object at 0x7670a52b6ed0>,code=200,effective_url='http://localhost:33959/fa…" shape=ellipse]
+	consume [label="consume
+Called after the listen has woken up to do any necessar…
+interface.py:57" fillcolor=white shape=box style=filled]
+	_on_access_token [label="_on_access_token
+auth.py:481" fillcolor=white shape=box style=filled]
+	_get_body [label="_get_body
+httpclient.py:570" fillcolor=white shape=box style=filled]
+	parse_qs_bytes [label="parse_qs_bytes
+Parses a query string like urlparse.parse_qs, but retur…
+escape.py:172" fillcolor=white shape=box style=filled]
+	encoded [label="encoded
+(2 writes, 2 distinct)
+{}
+{'access_token': [b'asdf']}" shape=ellipse]
+	k [label="k
+'access_token'" shape=ellipse]
+	args [label="args
+(4 writes, 4 distinct)
+{'access_token': [b'asdf']}
+[<tornado.test.auth_test.FacebookClientLoginHandler object at 0x7670a542c680>, 'http://localhost:33959/facebook/server/m…
+(HTTPResponse(_body=b'access_token=asdf',buffer=<_io.BytesIO object at 0x7670a52b6ed0>,code=200,effective_url='http://lo…
+(HTTPResponse(_body=b'{}',buffer=<_io.BytesIO object at 0x7670a52b6ed0>,code=200,effective_url='http://localhost:33959/f…" shape=ellipse]
+	session [label="session
+{'access_token': b'asdf', 'expires': None}" shape=ellipse]
+	replace [label="replace
+Replace the named argument in ``args, kwargs`` with ``n…
+util.py:323" fillcolor=white shape=box style=filled]
+	old_value [label="old_value
+functools.partial(<bound method FacebookGraphMixin._on_get_user_info of <tornado.test.auth_test.FacebookClientLoginHandl…" shape=ellipse]
+	handle_exception [label="handle_exception
+(2 writes, 2 distinct)
+<function _auth_return_future.<locals>.wrapper.<locals>.handle_exception at 0x7670a5208900>
+<function _auth_return_future.<locals>.wrapper.<locals>.handle_exception at 0x7670a520ab60>" shape=ellipse]
+	facebook_request [label="facebook_request
+Fetches the given relative API path, e.g., \"/btaylor/pi…
+auth.py:1015" fillcolor=white shape=box style=filled]
+	url [label="url
+'http://localhost:33959/facebook/server/me'" shape=ellipse]
+	_on_oauth2_request [label="_on_oauth2_request
+auth.py:672" fillcolor=white shape=box style=filled]
+	json_decode [label="json_decode
+Returns Python objects for the given JSON string.
+escape.py:91" fillcolor=white shape=box style=filled]
+	to_basestring [label="to_basestring
+Converts a string argument to a subclass of basestring.
+escape.py:238" fillcolor=white shape=box style=filled]
+	_auth_future_to_callback [label="_auth_future_to_callback
+auth.py:107" fillcolor=white shape=box style=filled]
+	ERROR__AssertionError [label="AssertionError
+Async operation timed out after 5 seconds" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	failure [label="failure
+(<class 'AssertionError'>, AssertionError('Async operation timed out after 5 seconds'), <traceback object at 0x7670a50f7…" shape=ellipse]
+	{
+		rank=same
+		test_facebook_login
+	}
+	{
+		rank=same
+		fetch
+		__getitem__
+	}
+	{
+		rank=same
+		get_url
+		__init__
+		utf8
+		add_done_callback
+		time
+		__getattr__
+		__del__
+		wait
+		__lt__
+		null_wrapper
+		closed
+		_run_callback
+		remove_timeout
+		__setitem__
+		_create_connection
+		write_headers
+		write
+		_write_body
+		__rethrow
+		_on_oauth2_request
+	}
+	{
+		rank=same
+		get_protocol
+		get_http_port
+		headers
+		body
+		body_producer
+		wrap
+		get_all
+		fetch_impl
+		add_timeout
+		is_future
+		get_async_test_timeout
+		start
+		_handle_events
+		set_result
+		_remove_deactivated
+		accept_handler
+		__missing__
+		set_nodelay
+		finish
+		_read_response
+		_get_body
+		json_decode
+	}
+	{
+		rank=same
+		streaming_callback
+		header_callback
+		prepare_curl_callback
+		_process_queue
+		call_at
+		run
+		_setup_logging
+		write_fileno
+		_handle_connect
+		_set_done
+		_handle_write
+		reading
+		writing
+		fileno
+		update_handler
+		_handle_connection
+		errno_from_exception
+		_on_connect
+		_handle_read
+		stop
+		_on_access_token
+		to_basestring
+	}
+	{
+		rank=same
+		__enter__
+		_remove_timeout
+		_handle_request
+		to_unicode
+		wrapper
+		handle_yield
+		__exit__
+		split_fd
+		handle_stream
+		done
+		_clear_tb_log
+		_value_from_stopiteration
+		_deactivate_stack_context
+		set_close_callback
+		_read_to_buffer_loop
+		_read_from_buffer
+		_parse_headers
+		parse_request_start_line
+		_can_keep_alive
+		headers_received
+		_read_body
+		_clear_callbacks
+		parse_response_start_line
+		_check_done
+		close
+		start_request
+		read_response
+		on_close
+		set_exception
+		consume
+		parse_qs_bytes
+		_auth_future_to_callback
+	}
+	{
+		rank=same
+		_connection_class
+		add_future
+		start_serving
+		_maybe_add_error_listener
+		_read_to_buffer
+		_run_streaming_callback
+		_find_read_pos
+		_run_read_callback
+		_contains_yieldpoint
+		set_exc_info
+		wake
+		replace
+		facebook_request
+	}
+	{
+		rank=same
+		split_host_and_port
+		_get_ssl_options
+		on_connect_done
+		read_from_fd
+		_check_max_bytes
+		_consume
+	}
+	{
+		rank=same
+		current
+		connect
+	}
+	test_facebook_login -> fetch [label="calls×2 [#1]" color=blue penwidth=1.2]
+	test_facebook_login -> response [label=writes color=black]
+	test_facebook_login -> __getitem__ [label="calls [#367]" color=blue penwidth=1.1]
+	test_facebook_login -> ERROR__AssertionError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	fetch -> get_url [label="calls×2 [#2]" color=blue penwidth=1.2]
+	fetch -> fetch [label="calls×2 [#5]" color=blue penwidth=1.2]
+	fetch -> __init__ [label="calls×12 [#6]" color=blue penwidth=2.2]
+	fetch -> request [label="writes×4" color=black]
+	fetch -> headers [label="calls×4 [#19]" color=blue penwidth=1.4]
+	fetch -> wrap [label="calls×2 [#25]" color=blue penwidth=1.2]
+	fetch -> handle_future [label="writes×2" color=black]
+	fetch -> add_done_callback [label="calls×6 [#26]" color=blue penwidth=1.6]
+	fetch -> handle_response [label="writes×2" color=black]
+	fetch -> fetch_impl [label="calls×2 [#27]" color=blue penwidth=1.2]
+	fetch -> wait [label="calls×2 [#65]" color=blue penwidth=1.2]
+	fetch -> key [label="writes×4" color=black]
+	fetch -> __getattr__ [label="calls×76 [#142]" color=blue penwidth=5.0]
+	fetch -> __getitem__ [label="calls×8 [#145]" color=blue penwidth=1.8]
+	fetch -> ERROR__KeyError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	fetch -> __setitem__ [label="calls×12 [#148]" color=blue penwidth=2.2]
+	fetch -> username [label="writes×4" color=black]
+	fetch -> password [label="writes×4" color=black]
+	fetch -> body_expected [label="writes×4" color=black]
+	fetch -> body_present [label="writes×4" color=black]
+	fetch -> req_path [label="writes×4" color=black]
+	fetch -> _create_connection [label="calls×4 [#172]" color=blue penwidth=1.4]
+	fetch -> write_headers [label="calls×4 [#180]" color=blue penwidth=1.4]
+	fetch -> name [label="writes×4" color=black]
+	fetch -> values [label="writes×4" color=black]
+	fetch -> utf8 [label="calls×8 [#185]" color=blue penwidth=1.8]
+	fetch -> n [label="writes×4" color=black]
+	fetch -> v [label="writes×4" color=black]
+	fetch -> lines [label="writes×4" color=black]
+	fetch -> line [label="writes×4" color=black]
+	fetch -> closed [label="calls×4 [#187]" color=blue penwidth=1.4]
+	fetch -> data [label="writes×4" color=black]
+	fetch -> write [label="calls×4 [#189]" color=blue penwidth=1.4]
+	fetch -> __del__ [label="calls×4 [#191]" color=blue penwidth=1.4]
+	fetch -> _write_body [label="calls×4 [#193]" color=blue penwidth=1.4]
+	fetch -> time [label="calls×28 [#198]" color=blue penwidth=3.8]
+	fetch -> null_wrapper [label="calls×9 [#199]" color=blue penwidth=1.9]
+	fetch -> _run_callback [label="calls×32 [#221]" color=blue penwidth=4.2]
+	fetch -> remove_timeout [label="calls×2 [#365]" color=blue penwidth=1.2]
+	fetch -> __rethrow [label="calls×2 [#366]" color=blue penwidth=1.2]
+	fetch -> result [label=writes color=black]
+	fetch -> __lt__ [label="calls×14 [#482]" color=blue penwidth=2.4]
+	fetch -> events [label="writes×4" color=black]
+	fetch -> _on_oauth2_request [label="calls [#1204]" color=blue penwidth=1.1]
+	fetch -> args [label=writes color=black]
+	fetch -> ERROR__AssertionError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	get_url -> get_protocol [label="calls×2 [#3]" color=blue penwidth=1.2]
+	get_url -> get_http_port [label="calls×2 [#4]" color=blue penwidth=1.2]
+	__init__ -> headers [label="calls×2 [#7]" color=blue penwidth=1.2]
+	__init__ -> body [label="calls×2 [#9]" color=blue penwidth=1.2]
+	__init__ -> body_producer [label="calls×2 [#11]" color=blue penwidth=1.2]
+	__init__ -> streaming_callback [label="calls×2 [#13]" color=blue penwidth=1.2]
+	__init__ -> header_callback [label="calls×2 [#15]" color=blue penwidth=1.2]
+	__init__ -> prepare_curl_callback [label="calls×2 [#17]" color=blue penwidth=1.2]
+	__init__ -> get_all [label="calls×2 [#21]" color=blue penwidth=1.2]
+	__init__ -> time [label="calls×2 [#34]" color=blue penwidth=1.2]
+	__init__ -> __init__ [label="calls×6 [#35]" color=blue penwidth=1.6]
+	__init__ -> __enter__ [label="calls×2 [#36]" color=blue penwidth=1.2]
+	__init__ -> __getattr__ [label="calls×8 [#37]" color=blue penwidth=1.8]
+	__init__ -> to_unicode [label="calls×2 [#38]" color=blue penwidth=1.2]
+	__init__ -> netloc [label="writes×2" color=black]
+	__init__ -> split_host_and_port [label="calls×2 [#39]" color=blue penwidth=1.2]
+	__init__ -> host [label="writes×2" color=black]
+	__init__ -> port [label="writes×2" color=black]
+	__init__ -> af [label="writes×2" color=black]
+	__init__ -> _get_ssl_options [label="calls×2 [#41]" color=blue penwidth=1.2]
+	__init__ -> ssl_options [label="writes×2" color=black]
+	__init__ -> wrap [label="calls×2 [#44]" color=blue penwidth=1.2]
+	__init__ -> add_timeout [label="calls×2 [#45]" color=blue penwidth=1.2]
+	__init__ -> wrapper [label="calls×2 [#49]" color=blue penwidth=1.2]
+	__init__ -> current [label="calls×2 [#59]" color=blue penwidth=1.2]
+	__init__ -> handle_yield [label="calls×2 [#60]" color=blue penwidth=1.2]
+	__init__ -> run [label="calls×2 [#61]" color=blue penwidth=1.2]
+	__init__ -> __del__ [label="calls×2 [#62]" color=blue penwidth=1.2]
+	__init__ -> __exit__ [label="calls×2 [#63]" color=blue penwidth=1.2]
+	headers -> __init__ [label="passed to" color=green style=dashed]
+	headers -> _can_keep_alive [label="passed to" color=green style=dashed]
+	headers -> headers_received [label="passed to" color=green style=dashed]
+	headers -> _read_body [label="passed to" color=green style=dashed]
+	headers -> write_headers [label="passed to" color=green style=dashed]
+	body -> utf8 [label="calls×2 [#10]" color=blue penwidth=1.2]
+	body_producer -> wrap [label="calls×2 [#12]" color=blue penwidth=1.2]
+	wrap -> null_wrapper [label=defines color="#aaaaaa" penwidth=1 style=dashed]
+	streaming_callback -> wrap [label="calls×2 [#14]" color=blue penwidth=1.2]
+	header_callback -> wrap [label="calls×2 [#16]" color=blue penwidth=1.2]
+	prepare_curl_callback -> wrap [label="calls×2 [#18]" color=blue penwidth=1.2]
+	request -> __init__ [label="passed to" color=green style=dashed]
+	request -> fetch_impl [label="passed to" color=green style=dashed]
+	request -> _handle_request [label="passed to" color=green style=dashed]
+	request -> fetch [label="passed to" color=green style=dashed]
+	request -> handle_future [label="passed to" color=green style=dashed]
+	get_all -> name [label="writes×4" color=black]
+	get_all -> values [label="writes×4" color=black]
+	handle_future -> response [label="writes×2" color=black]
+	handle_response -> set_exception [label="calls [#342]" color=blue penwidth=1.1]
+	handle_response -> set_result [label="calls×2 [#886]" color=blue penwidth=1.2]
+	fetch_impl -> key [label="writes×2" color=black]
+	fetch_impl -> timeout_handle [label="writes×2" color=black]
+	fetch_impl -> _process_queue [label="calls×2 [#28]" color=blue penwidth=1.2]
+	key -> _remove_timeout [label="passed to" color=green style=dashed]
+	key -> time [label="passed to" color=green style=dashed]
+	key -> __getitem__ [label="passed to" color=green style=dashed]
+	key -> __missing__ [label="passed to" color=green style=dashed]
+	key -> get_all [label="passed to" color=green style=dashed]
+	key -> _read_body [label="passed to" color=green style=dashed]
+	_process_queue -> __enter__ [label="calls×2 [#29]" color=blue penwidth=1.2]
+	_process_queue -> key [label="writes×2" color=black]
+	_process_queue -> request [label="writes×2" color=black]
+	_process_queue -> _remove_timeout [label="calls×2 [#30]" color=blue penwidth=1.2]
+	_process_queue -> release_callback [label="writes×2" color=black]
+	_process_queue -> _handle_request [label="calls×2 [#31]" color=blue penwidth=1.2]
+	_process_queue -> __exit__ [label="calls×2 [#64]" color=blue penwidth=1.2]
+	_remove_timeout -> request [label="writes×2" color=black]
+	_remove_timeout -> timeout_handle [label="writes×2" color=black]
+	_remove_timeout -> remove_timeout [label="calls×4 [#134]" color=blue penwidth=1.4]
+	release_callback -> _handle_request [label="passed to" color=green style=dashed]
+	release_callback -> __init__ [label="passed to" color=green style=dashed]
+	_handle_request -> _connection_class [label="calls×2 [#32]" color=blue penwidth=1.2]
+	_handle_request -> __init__ [label="calls×2 [#33]" color=blue penwidth=1.2]
+	__getattr__ -> headers [label="calls×24 [#144]" color=blue penwidth=3.4]
+	__getattr__ -> body [label="calls×8 [#160]" color=blue penwidth=1.8]
+	__getattr__ -> body_producer [label="calls×4 [#162]" color=blue penwidth=1.4]
+	netloc -> split_host_and_port [label="passed to" color=green style=dashed]
+	split_host_and_port -> match [label="writes×2" color=black]
+	split_host_and_port -> host [label="writes×2" color=black]
+	split_host_and_port -> port [label="writes×2" color=black]
+	host -> connect [label="passed to" color=green style=dashed]
+	host -> __init__ [label="passed to" color=green style=dashed]
+	port -> connect [label="passed to" color=green style=dashed]
+	port -> __init__ [label="passed to" color=green style=dashed]
+	af -> connect [label="passed to" color=green style=dashed]
+	af -> on_connect_done [label="passed to" color=green style=dashed]
+	af -> __init__ [label="passed to" color=green style=dashed]
+	ssl_options -> connect [label="passed to" color=green style=dashed]
+	ssl_options -> __init__ [label="passed to" color=green style=dashed]
+	add_timeout -> call_at [label="calls×8 [#46]" color=blue penwidth=1.8]
+	call_at -> wrap [label="calls×4 [#47]" color=blue penwidth=1.4]
+	call_at -> __init__ [label="calls×4 [#48]" color=blue penwidth=1.4]
+	call_at -> __lt__ [label="calls×3 [#72]" color=blue penwidth=1.3]
+	wrapper -> __init__ [label="calls×6 [#50]" color=blue penwidth=1.6]
+	wrapper -> kwargs [label="writes×3" color=black]
+	wrapper -> current [label="calls×2 [#51]" color=blue penwidth=1.2]
+	wrapper -> add_future [label="calls×2 [#52]" color=blue penwidth=1.2]
+	wrapper -> result [label="writes×6" color=black]
+	wrapper -> connect [label="calls×2 [#56]" color=blue penwidth=1.2]
+	wrapper -> replace [label="calls [#911]" color=blue penwidth=1.1]
+	wrapper -> add_done_callback [label="calls [#912]" color=blue penwidth=1.1]
+	wrapper -> handle_exception [label="writes×2" color=black]
+	wrapper -> __enter__ [label="calls [#914]" color=blue penwidth=1.1]
+	wrapper -> facebook_request [label="calls [#915]" color=blue penwidth=1.1]
+	wrapper -> args [label=writes color=black]
+	wrapper -> __exit__ [label="calls [#917]" color=blue penwidth=1.1]
+	kwargs -> wrapper [label="passed to" color=green style=dashed]
+	kwargs -> add_timeout [label="passed to" color=green style=dashed]
+	kwargs -> call_at [label="passed to" color=green style=dashed]
+	kwargs -> null_wrapper [label="passed to" color=green style=dashed]
+	kwargs -> __init__ [label="passed to" color=green style=dashed]
+	kwargs -> stop [label="passed to" color=green style=dashed]
+	kwargs -> fetch [label="passed to" color=green style=dashed]
+	kwargs -> replace [label="passed to" color=green style=dashed]
+	current -> current [label="writes×4" color=black]
+	add_future -> is_future [label="calls×2 [#53]" color=blue penwidth=1.2]
+	add_future -> wrap [label="calls×2 [#54]" color=blue penwidth=1.2]
+	add_future -> add_done_callback [label="calls×2 [#55]" color=blue penwidth=1.2]
+	result -> set_result [label="passed to" color=green style=dashed]
+	result -> _clear_tb_log [label="calls×33 [#117]" color=blue penwidth=4.3]
+	result -> _check_done [label="calls×9 [#301]" color=blue penwidth=1.9]
+	result -> "ERROR__tornado.iostream.StreamClosedError" [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	connect -> wrapper [label="calls×2 [#57]" color=blue penwidth=1.2]
+	handle_yield -> _contains_yieldpoint [label="calls×10 [#277]" color=blue penwidth=2.0]
+	handle_yield -> done [label="calls×10 [#278]" color=blue penwidth=2.0]
+	handle_yield -> add_future [label="calls×4 [#279]" color=blue penwidth=1.4]
+	run -> done [label="calls×30 [#115]" color=blue penwidth=4.0]
+	run -> result [label="calls×23 [#116]" color=blue penwidth=3.3]
+	run -> af [label="writes×4" color=black]
+	run -> addr [label="writes×4" color=black]
+	run -> stream [label="writes×4" color=black]
+	run -> __init__ [label="calls×27 [#118]" color=blue penwidth=3.7]
+	run -> "ERROR__tornado.gen.Return" [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	run -> _value_from_stopiteration [label="calls×13 [#119]" color=blue penwidth=2.3]
+	run -> set_result [label="calls×13 [#120]" color=blue penwidth=2.3]
+	run -> _deactivate_stack_context [label="calls×13 [#122]" color=blue penwidth=2.3]
+	run -> header_data [label="writes×7" color=black]
+	run -> _parse_headers [label="calls×7 [#228]" color=blue penwidth=1.7]
+	run -> headers [label="writes×7" color=black]
+	run -> parse_request_start_line [label="calls×4 [#229]" color=blue penwidth=1.4]
+	run -> _can_keep_alive [label="calls×7 [#230]" color=blue penwidth=1.7]
+	run -> need_delegate_close [label="writes×14" color=black]
+	run -> __enter__ [label="calls×14 [#232]" color=blue penwidth=2.4]
+	run -> headers_received [label="calls×7 [#233]" color=blue penwidth=1.7]
+	run -> header_future [label="writes×7" color=black]
+	run -> __exit__ [label="calls×14 [#234]" color=blue penwidth=2.4]
+	run -> skip_body [label="writes×7" color=black]
+	run -> ERROR__KeyError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	run -> _read_body [label="calls×7 [#235]" color=blue penwidth=1.7]
+	run -> body_future [label="writes×7" color=black]
+	run -> finish [label="calls×7 [#238]" color=blue penwidth=1.7]
+	run -> _clear_callbacks [label="calls×6 [#241]" color=blue penwidth=1.6]
+	run -> handle_yield [label="calls×10 [#276]" color=blue penwidth=2.0]
+	run -> parse_response_start_line [label="calls×3 [#288]" color=blue penwidth=1.3]
+	run -> code [label="writes×3" color=black]
+	run -> close [label="calls×3 [#307]" color=blue penwidth=1.3]
+	run -> conn [label="writes×3" color=black]
+	run -> start_request [label="calls×3 [#325]" color=blue penwidth=1.3]
+	run -> request_delegate [label="writes×3" color=black]
+	run -> read_response [label="calls×3 [#326]" color=blue penwidth=1.3]
+	run -> "ERROR__tornado.iostream.StreamClosedError" [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	run -> on_close [label="calls×3 [#333]" color=blue penwidth=1.3]
+	run -> ERROR__StopIteration [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	run -> closed [label="calls [#613]" color=blue penwidth=1.1]
+	run -> set_close_callback [label="calls [#614]" color=blue penwidth=1.1]
+	__exit__ -> final_contexts [label="writes×3" color=black]
+	wait -> get_async_test_timeout [label="calls×2 [#66]" color=blue penwidth=1.2]
+	wait -> timeout_func [label="writes×2" color=black]
+	wait -> time [label="calls×2 [#67]" color=blue penwidth=1.2]
+	wait -> add_timeout [label="calls×2 [#68]" color=blue penwidth=1.2]
+	wait -> start [label="calls×2 [#73]" color=blue penwidth=1.2]
+	get_async_test_timeout -> ERROR__KeyError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	get_async_test_timeout -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	timeout_func -> ERROR__AssertionError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	timeout_func -> stop [label="calls [#1225]" color=blue penwidth=1.1]
+	start -> _setup_logging [label="calls×2 [#74]" color=blue penwidth=1.2]
+	start -> old_current [label="writes×2" color=black]
+	start -> old_wakeup_fd [label="writes×4" color=black]
+	start -> write_fileno [label="calls×2 [#75]" color=blue penwidth=1.2]
+	start -> time [label="calls×7 [#76]" color=blue penwidth=1.7]
+	start -> events [label="writes×4" color=black]
+	start -> null_wrapper [label="calls×2 [#78]" color=blue penwidth=1.2]
+	start -> __lt__ [label="calls×4 [#109]" color=blue penwidth=1.4]
+	start -> _run_callback [label="calls×2 [#111]" color=blue penwidth=1.2]
+	events -> _handle_events [label="passed to" color=green style=dashed]
+	events -> update_handler [label="passed to" color=green style=dashed]
+	events -> accept_handler [label="passed to" color=green style=dashed]
+	events -> consume [label="passed to" color=green style=dashed]
+	null_wrapper -> _handle_events [label="calls×11 [#79]" color=blue penwidth=2.1]
+	_handle_events -> closed [label="calls×44 [#80]" color=blue penwidth=5.0]
+	_handle_events -> _handle_connect [label="calls×4 [#81]" color=blue penwidth=1.4]
+	_handle_events -> __del__ [label="calls×4 [#85]" color=blue penwidth=1.4]
+	_handle_events -> _handle_write [label="calls×4 [#88]" color=blue penwidth=1.4]
+	_handle_events -> reading [label="calls×11 [#90]" color=blue penwidth=2.1]
+	_handle_events -> writing [label="calls×11 [#91]" color=blue penwidth=2.1]
+	_handle_events -> fileno [label="calls×6 [#92]" color=blue penwidth=1.6]
+	_handle_events -> update_handler [label="calls×6 [#93]" color=blue penwidth=1.6]
+	_handle_events -> _handle_read [label="calls×7 [#203]" color=blue penwidth=1.7]
+	_handle_connect -> err [label="writes×4" color=black]
+	_handle_connect -> set_result [label="calls×4 [#82]" color=blue penwidth=1.4]
+	set_result -> _set_done [label="calls×20 [#83]" color=blue penwidth=3.0]
+	_set_done -> on_connect_done [label="calls×4 [#84]" color=blue penwidth=1.4]
+	_set_done -> handle_future [label="calls×2 [#888]" color=blue penwidth=1.2]
+	_set_done -> _auth_future_to_callback [label="calls [#1210]" color=blue penwidth=1.1]
+	_set_done -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	on_connect_done -> stream [label="writes×4" color=black]
+	stream -> handle_stream [label="passed to" color=green style=dashed]
+	stream -> __init__ [label="passed to" color=green style=dashed]
+	stream -> _on_connect [label="passed to" color=green style=dashed]
+	stream -> _create_connection [label="passed to" color=green style=dashed]
+	update_handler -> split_fd [label="calls×6 [#94]" color=blue penwidth=1.6]
+	update_handler -> obj [label="writes×6" color=black]
+	accept_handler -> i [label="writes×8" color=black]
+	accept_handler -> connection [label="writes×4" color=black]
+	accept_handler -> address [label="writes×4" color=black]
+	accept_handler -> _handle_connection [label="calls×4 [#98]" color=blue penwidth=1.4]
+	accept_handler -> ERROR__BlockingIOError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	accept_handler -> errno_from_exception [label="calls×4 [#107]" color=blue penwidth=1.4]
+	connection -> _handle_connection [label="passed to" color=green style=dashed]
+	address -> _handle_connection [label="passed to" color=green style=dashed]
+	address -> handle_stream [label="passed to" color=green style=dashed]
+	address -> __init__ [label="passed to" color=green style=dashed]
+	_handle_connection -> __init__ [label="calls×4 [#99]" color=blue penwidth=1.4]
+	_handle_connection -> stream [label="writes×4" color=black]
+	_handle_connection -> handle_stream [label="calls×4 [#101]" color=blue penwidth=1.4]
+	handle_stream -> __init__ [label="calls×8 [#102]" color=blue penwidth=1.8]
+	handle_stream -> context [label="writes×4" color=black]
+	handle_stream -> conn [label="writes×4" color=black]
+	handle_stream -> start_serving [label="calls×4 [#104]" color=blue penwidth=1.4]
+	context -> __init__ [label="passed to" color=green style=dashed]
+	conn -> handle_yield [label="passed to" color=green style=dashed]
+	conn -> __init__ [label="passed to" color=green style=dashed]
+	conn -> on_close [label="passed to" color=green style=dashed]
+	start_serving -> wrapper [label="calls×4 [#105]" color=blue penwidth=1.4]
+	start_serving -> add_future [label="calls×4 [#106]" color=blue penwidth=1.4]
+	_run_callback -> is_future [label="calls×3 [#350]" color=blue penwidth=1.3]
+	addr -> on_connect_done [label="passed to" color=green style=dashed]
+	_on_connect -> set_close_callback [label="calls×4 [#130]" color=blue penwidth=1.4]
+	_on_connect -> _remove_timeout [label="calls×4 [#133]" color=blue penwidth=1.4]
+	_on_connect -> __getattr__ [label="calls×16 [#135]" color=blue penwidth=2.6]
+	_on_connect -> wrap [label="calls×4 [#137]" color=blue penwidth=1.4]
+	_on_connect -> add_timeout [label="calls×4 [#138]" color=blue penwidth=1.4]
+	_on_connect -> key [label="writes×4" color=black]
+	set_close_callback -> wrap [label="calls×4 [#131]" color=blue penwidth=1.4]
+	set_close_callback -> _maybe_add_error_listener [label="calls×4 [#132]" color=blue penwidth=1.4]
+	__getitem__ -> ERROR__KeyError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	__setitem__ -> norm_name [label="writes×12" color=black]
+	__setitem__ -> __missing__ [label="calls [#171]" color=blue penwidth=1.1]
+	__missing__ -> w [label="writes×2" color=black]
+	__missing__ -> normalized [label=writes color=black]
+	_create_connection -> set_nodelay [label="calls×4 [#173]" color=blue penwidth=1.4]
+	_create_connection -> __getattr__ [label="calls×4 [#174]" color=blue penwidth=1.4]
+	_create_connection -> __init__ [label="calls×8 [#175]" color=blue penwidth=1.8]
+	_create_connection -> connection [label="writes×4" color=black]
+	write_headers -> lines [label="writes×8" color=black]
+	write_headers -> utf8 [label="calls×12 [#181]" color=blue penwidth=2.2]
+	write_headers -> ERROR__KeyError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	write_headers -> get_all [label="calls×4 [#182]" color=blue penwidth=1.4]
+	write_headers -> n [label="writes×4" color=black]
+	write_headers -> v [label="writes×4" color=black]
+	name -> utf8 [label="passed to" color=green style=dashed]
+	name -> closed [label="passed to" color=green style=dashed]
+	name -> __getattr__ [label="passed to" color=green style=dashed]
+	name -> __getitem__ [label="passed to" color=green style=dashed]
+	name -> __setitem__ [label="passed to" color=green style=dashed]
+	values -> utf8 [label="passed to" color=green style=dashed]
+	values -> closed [label="passed to" color=green style=dashed]
+	line -> parse_request_start_line [label="passed to" color=green style=dashed]
+	line -> parse_response_start_line [label="passed to" color=green style=dashed]
+	data -> write [label="passed to" color=green style=dashed]
+	data -> _parse_headers [label="passed to" color=green style=dashed]
+	write -> WRITE_BUFFER_CHUNK_SIZE [label="writes×4" color=black]
+	write -> i [label="writes×4" color=black]
+	_write_body -> __getattr__ [label="calls×8 [#194]" color=blue penwidth=1.8]
+	_write_body -> finish [label="calls×4 [#196]" color=blue penwidth=1.4]
+	_write_body -> _read_response [label="calls×4 [#197]" color=blue penwidth=1.4]
+	_handle_read -> _read_to_buffer_loop [label="calls×7 [#204]" color=blue penwidth=1.7]
+	_handle_read -> pos [label="writes×7" color=black]
+	_handle_read -> _read_from_buffer [label="calls×7 [#211]" color=blue penwidth=1.7]
+	_read_to_buffer_loop -> target_bytes [label="writes×7" color=black]
+	_read_to_buffer_loop -> next_find_pos [label="writes×7" color=black]
+	_read_to_buffer_loop -> closed [label="calls×7 [#205]" color=blue penwidth=1.7]
+	_read_to_buffer_loop -> _read_to_buffer [label="calls×7 [#206]" color=blue penwidth=1.7]
+	_read_to_buffer_loop -> _run_streaming_callback [label="calls×7 [#208]" color=blue penwidth=1.7]
+	_read_to_buffer_loop -> _find_read_pos [label="calls×7 [#209]" color=blue penwidth=1.7]
+	_read_to_buffer_loop -> pos [label="writes×7" color=black]
+	_read_to_buffer -> read_from_fd [label="calls×7 [#207]" color=blue penwidth=1.7]
+	_read_to_buffer -> chunk [label="writes×7" color=black]
+	read_from_fd -> chunk [label="writes×7" color=black]
+	chunk -> write_headers [label="passed to" color=green style=dashed]
+	_find_read_pos -> m [label="writes×7" color=black]
+	_find_read_pos -> _check_max_bytes [label="calls×7 [#210]" color=blue penwidth=1.7]
+	pos -> _read_from_buffer [label="passed to" color=green style=dashed]
+	_read_from_buffer -> _run_read_callback [label="calls×7 [#212]" color=blue penwidth=1.7]
+	_run_read_callback -> _consume [label="calls×7 [#213]" color=blue penwidth=1.7]
+	_run_read_callback -> set_result [label="calls×7 [#214]" color=blue penwidth=1.7]
+	_run_read_callback -> _maybe_add_error_listener [label="calls×7 [#215]" color=blue penwidth=1.7]
+	header_data -> __init__ [label="passed to" color=green style=dashed]
+	_parse_headers -> data [label="writes×7" color=black]
+	_parse_headers -> eol [label="writes×7" color=black]
+	_parse_headers -> headers [label="writes×7" color=black]
+	parse_request_start_line -> method [label="writes×4" color=black]
+	parse_request_start_line -> path [label="writes×4" color=black]
+	parse_request_start_line -> version [label="writes×4" color=black]
+	method -> __init__ [label="passed to" color=green style=dashed]
+	method -> __getattr__ [label="passed to" color=green style=dashed]
+	path -> fetch [label="passed to" color=green style=dashed]
+	path -> get_url [label="passed to" color=green style=dashed]
+	path -> __getattr__ [label="passed to" color=green style=dashed]
+	path -> facebook_request [label="passed to" color=green style=dashed]
+	version -> __getattr__ [label="passed to" color=green style=dashed]
+	_can_keep_alive -> connection_header [label="writes×4" color=black]
+	need_delegate_close -> _parse_headers [label="passed to" color=green style=dashed]
+	need_delegate_close -> __init__ [label="passed to" color=green style=dashed]
+	header_future -> _parse_headers [label="passed to" color=green style=dashed]
+	header_future -> __init__ [label="passed to" color=green style=dashed]
+	skip_body -> __init__ [label="passed to" color=green style=dashed]
+	_read_body -> content_length [label="writes×7" color=black]
+	body_future -> __init__ [label="passed to" color=green style=dashed]
+	parse_response_start_line -> match [label="writes×3" color=black]
+	code -> _read_body [label="passed to" color=green style=dashed]
+	code -> __init__ [label="passed to" color=green style=dashed]
+	request_delegate -> on_close [label="passed to" color=green style=dashed]
+	request_delegate -> handle_yield [label="passed to" color=green style=dashed]
+	request_delegate -> __init__ [label="passed to" color=green style=dashed]
+	set_exception -> set_exc_info [label="calls [#343]" color=blue penwidth=1.1]
+	set_exc_info -> _set_done [label="calls [#344]" color=blue penwidth=1.1]
+	stop -> stop [label="calls×2 [#362]" color=blue penwidth=1.2]
+	stop -> wake [label="calls×2 [#363]" color=blue penwidth=1.2]
+	__rethrow -> failure [label=writes color=black]
+	__rethrow -> ERROR__AssertionError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	response -> handle_response [label="passed to" color=green style=dashed]
+	response -> _on_access_token [label="passed to" color=green style=dashed]
+	response -> _on_oauth2_request [label="passed to" color=green style=dashed]
+	consume -> result [label="writes×2" color=black]
+	_on_access_token -> _get_body [label="calls [#906]" color=blue penwidth=1.1]
+	_on_access_token -> to_unicode [label="calls [#907]" color=blue penwidth=1.1]
+	_on_access_token -> parse_qs_bytes [label="calls [#908]" color=blue penwidth=1.1]
+	_on_access_token -> response [label=writes color=black]
+	_on_access_token -> args [label=writes color=black]
+	_on_access_token -> session [label=writes color=black]
+	_on_access_token -> wrapper [label="calls [#909]" color=blue penwidth=1.1]
+	parse_qs_bytes -> result [label=writes color=black]
+	parse_qs_bytes -> encoded [label="writes×2" color=black]
+	parse_qs_bytes -> k [label=writes color=black]
+	parse_qs_bytes -> v [label=writes color=black]
+	parse_qs_bytes -> i [label=writes color=black]
+	args -> wrapper [label="passed to" color=green style=dashed]
+	args -> replace [label="passed to" color=green style=dashed]
+	args -> facebook_request [label="passed to" color=green style=dashed]
+	args -> null_wrapper [label="passed to" color=green style=dashed]
+	args -> __init__ [label="passed to" color=green style=dashed]
+	args -> add_timeout [label="passed to" color=green style=dashed]
+	args -> call_at [label="passed to" color=green style=dashed]
+	replace -> old_value [label=writes color=black]
+	replace -> kwargs [label=writes color=black]
+	facebook_request -> url [label=writes color=black]
+	facebook_request -> wrapper [label="calls [#916]" color=blue penwidth=1.1]
+	_on_oauth2_request -> _get_body [label="calls [#1205]" color=blue penwidth=1.1]
+	_on_oauth2_request -> json_decode [label="calls [#1206]" color=blue penwidth=1.1]
+	_on_oauth2_request -> set_result [label="calls [#1208]" color=blue penwidth=1.1]
+	_on_oauth2_request -> response [label=writes color=black]
+	json_decode -> to_basestring [label="calls [#1207]" color=blue penwidth=1.1]
+	_auth_future_to_callback -> result [label=writes color=black]
+	_auth_future_to_callback -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+}

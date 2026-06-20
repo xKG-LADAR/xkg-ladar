@@ -1,0 +1,64 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_get_element_by_attribute [label="test_get_element_by_attribute
+test_utils.py:1225" fillcolor=white shape=box style=filled]
+	html [label="html
+(2 writes, 2 distinct)
+'\n            <span class=\"foo bar\">nice</span>\n        '
+'\n            <div itemprop=\"author\" itemscope>foo</div>\n        '" shape=ellipse]
+	get_element_by_attribute [label="get_element_by_attribute
+utils.py:348" fillcolor=white shape=box style=filled]
+	get_elements_by_attribute [label="get_elements_by_attribute
+Return the content of the tag with the specified attrib…
+utils.py:360" fillcolor=white shape=box style=filled]
+	value [label="value
+(2 writes, 2 distinct)
+'foo\\ bar'
+'no\\-such\\-foo'" shape=ellipse]
+	retlist [label="retlist
+(5 writes, 2 distinct)
+[]
+['nice']" shape=ellipse]
+	m [label="m
+<re.Match object; span=(13, 46), match='<span class=\"foo bar\">nice</span>'>" shape=ellipse]
+	res [label="res
+'nice'" shape=ellipse]
+	unescapeHTML [label="unescapeHTML
+utils.py:593" fillcolor=white shape=box style=filled]
+	retval [label="retval
+(4 writes, 2 distinct)
+['nice']
+[]" shape=ellipse]
+	ERROR__AssertionError [label="AssertionError
+None != 'foo'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_get_element_by_attribute
+	}
+	{
+		rank=same
+		get_element_by_attribute
+	}
+	{
+		rank=same
+		get_elements_by_attribute
+	}
+	{
+		rank=same
+		unescapeHTML
+	}
+	test_get_element_by_attribute -> html [label="writes×2" color=black]
+	test_get_element_by_attribute -> get_element_by_attribute [label="calls×4 [#1]" color=blue penwidth=1.4]
+	test_get_element_by_attribute -> ERROR__AssertionError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	html -> get_element_by_attribute [label="passed to" color=green style=dashed]
+	html -> get_elements_by_attribute [label="passed to" color=green style=dashed]
+	get_element_by_attribute -> get_elements_by_attribute [label="calls×4 [#2]" color=blue penwidth=1.4]
+	get_element_by_attribute -> retval [label="writes×4" color=black]
+	get_elements_by_attribute -> value [label="writes×2" color=black]
+	get_elements_by_attribute -> retlist [label="writes×5" color=black]
+	get_elements_by_attribute -> m [label=writes color=black]
+	get_elements_by_attribute -> res [label=writes color=black]
+	get_elements_by_attribute -> unescapeHTML [label="calls [#3]" color=blue penwidth=1.1]
+	value -> get_element_by_attribute [label="passed to" color=green style=dashed]
+	value -> get_elements_by_attribute [label="passed to" color=green style=dashed]
+}

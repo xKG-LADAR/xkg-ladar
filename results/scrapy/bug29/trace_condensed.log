@@ -1,0 +1,291 @@
+Cleared: /path/to/results/scrapy/bug29
+Running: python -m unittest -q tests.test_utils_request.UtilsRequestTest.test_request_httprepr_for_non_http_request
+Workdir: /path/to/BugsInPy/workspace/scrapy
+PYTHONPATH: /path/to/BugsInPy/workspace/scrapy::
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_request.py
+IE_TRACE: Starting var:.. self = <tests.test_utils_request.UtilsRequestTest testMethod=test_request_httprepr_for_non_http_request>
+IE_TRACE: 12:40:11.364873 call        77     def test_request_httprepr_for_non_http_request(self):
+IE_TRACE: 12:40:11.365043 line        79         request_httprepr(Request("file:///tmp/foo.txt"))
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/trackref.py
+IE_TRACE:     Starting var:.. cls = <class 'scrapy.http.request.Request'>
+IE_TRACE:     Starting var:.. args = ('file:///tmp/foo.txt',)
+IE_TRACE:     Starting var:.. kwargs = {}
+IE_TRACE:     12:40:11.365075 call        28     def __new__(cls, *args, **kwargs):
+IE_TRACE:     12:40:11.365144 line        29         obj = object.__new__(cls)
+IE_TRACE:     New var:....... obj = REPR FAILED
+IE_TRACE:     12:40:11.365164 line        30         live_refs[cls][obj] = time()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/trackref.py
+IE_TRACE:     12:40:11.365497 line        31         return obj
+IE_TRACE:     12:40:11.365519 return      31         return obj
+IE_TRACE:     Return value:.. REPR FAILED
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/request/__init__.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. url = 'file:///tmp/foo.txt'
+IE_TRACE:     Starting var:.. callback = None
+IE_TRACE:     Starting var:.. method = 'GET'
+IE_TRACE:     Starting var:.. headers = None
+IE_TRACE:     Starting var:.. body = None
+IE_TRACE:     Starting var:.. cookies = None
+IE_TRACE:     Starting var:.. meta = None
+IE_TRACE:     Starting var:.. encoding = 'utf-8'
+IE_TRACE:     Starting var:.. priority = 0
+IE_TRACE:     Starting var:.. dont_filter = False
+IE_TRACE:     Starting var:.. errback = None
+IE_TRACE:     12:40:11.365548 call        19     def __init__(self, url, callback=None, method='GET', headers=None, body=None,
+IE_TRACE:     12:40:11.365644 line        23         self._encoding = encoding  # this one has to be set first
+IE_TRACE:     12:40:11.365670 line        24         self.method = str(method).upper()
+IE_TRACE:     12:40:11.365693 line        25         self._set_url(url)
+IE_TRACE:         Starting var:.. self = REPR FAILED
+IE_TRACE:         Starting var:.. url = 'file:///tmp/foo.txt'
+IE_TRACE:         12:40:11.365722 call        49     def _set_url(self, url):
+IE_TRACE:         12:40:11.365744 line        50         if not isinstance(url, six.string_types):
+IE_TRACE:         12:40:11.365757 line        53         url = to_native_str(url, self.encoding)
+IE_TRACE:             Starting var:.. self = REPR FAILED
+IE_TRACE:             12:40:11.365771 call        73     def encoding(self):
+IE_TRACE:             12:40:11.365790 line        74         return self._encoding
+IE_TRACE:             12:40:11.365802 return      74         return self._encoding
+IE_TRACE:             Return value:.. 'utf-8'
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/python.py
+IE_TRACE:             Starting var:.. text = 'file:///tmp/foo.txt'
+IE_TRACE:             Starting var:.. encoding = 'utf-8'
+IE_TRACE:             Starting var:.. errors = 'strict'
+IE_TRACE:             12:40:11.365821 call       125 def to_native_str(text, encoding=None, errors='strict'):
+IE_TRACE:             12:40:11.365883 line       128     if six.PY2:
+IE_TRACE:             12:40:11.365897 line       131         return to_unicode(text, encoding, errors)
+IE_TRACE:                 Starting var:.. text = 'file:///tmp/foo.txt'
+IE_TRACE:                 Starting var:.. encoding = 'utf-8'
+IE_TRACE:                 Starting var:.. errors = 'strict'
+IE_TRACE:                 12:40:11.365914 call        99 def to_unicode(text, encoding=None, errors='strict'):
+IE_TRACE:                 12:40:11.365939 line       102     if isinstance(text, six.text_type):
+IE_TRACE:                 12:40:11.365952 line       103         return text
+IE_TRACE:                 12:40:11.365965 return     103         return text
+IE_TRACE:                 Return value:.. 'file:///tmp/foo.txt'
+IE_TRACE:             12:40:11.365984 return     131         return to_unicode(text, encoding, errors)
+IE_TRACE:             Return value:.. 'file:///tmp/foo.txt'
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/request/__init__.py
+IE_TRACE:         12:40:11.366001 line        54         self._url = escape_ajax(safe_url_string(url))
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:             Starting var:.. url = 'file:///tmp/foo.txt'
+IE_TRACE:             Starting var:.. encoding = 'utf8'
+IE_TRACE:             Starting var:.. path_encoding = 'utf8'
+IE_TRACE:             Starting var:.. quote_path = True
+IE_TRACE:             12:40:11.366031 call        90 def safe_url_string(  # pylint: disable=too-many-locals
+IE_TRACE:             12:40:11.366152 line       139     decoded = to_unicode(url, encoding=encoding, errors="percentencode")
+IE_TRACE:                 Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/util.py
+IE_TRACE:                 Starting var:.. text = 'file:///tmp/foo.txt'
+IE_TRACE:                 Starting var:.. encoding = 'utf8'
+IE_TRACE:                 Starting var:.. errors = 'percentencode'
+IE_TRACE:                 12:40:11.366176 call         4 def to_unicode(
+IE_TRACE:                 12:40:11.366227 line         9     if isinstance(text, str):
+IE_TRACE:                 12:40:11.366243 line        10         return text
+IE_TRACE:                 12:40:11.366257 return      10         return text
+IE_TRACE:                 Return value:.. 'file:///tmp/foo.txt'
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:             New var:....... decoded = 'file:///tmp/foo.txt'
+IE_TRACE:             12:40:11.366276 line       140     parts = urlsplit(_strip(decoded))
+IE_TRACE:                 Starting var:.. url = 'file:///tmp/foo.txt'
+IE_TRACE:                 12:40:11.366306 call        84 def _strip(url: str) -> str:
+IE_TRACE:                 12:40:11.366322 line        85     return url.strip(_C0_CONTROL_OR_SPACE).translate(
+IE_TRACE:                 12:40:11.366334 line        86         _ASCII_TAB_OR_NEWLINE_TRANSLATION_TABLE
+IE_TRACE:                 12:40:11.366346 line        85     return url.strip(_C0_CONTROL_OR_SPACE).translate(
+IE_TRACE:                 12:40:11.366359 return      85     return url.strip(_C0_CONTROL_OR_SPACE).translate(
+IE_TRACE:                 Return value:.. 'file:///tmp/foo.txt'
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:             New var:....... parts = SplitResult(scheme='file', netloc='', path='/tmp/foo.txt', query='', fragment='')
+IE_TRACE:             12:40:11.368180 line       143         parts.username,
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:             12:40:11.368422 line       144         parts.password,
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:             12:40:11.368649 line       145         parts.hostname,
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:             12:40:11.368990 line       146         parts.port,
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:             12:40:11.369327 line       142     username, password, hostname, port = (
+IE_TRACE:             New var:....... username = None
+IE_TRACE:             New var:....... password = None
+IE_TRACE:             New var:....... hostname = None
+IE_TRACE:             New var:....... port = None
+IE_TRACE:             12:40:11.369352 line       148     netloc_bytes = b""
+IE_TRACE:             New var:....... netloc_bytes = b''
+IE_TRACE:             12:40:11.369390 line       149     if username is not None or password is not None:
+IE_TRACE:             12:40:11.369420 line       158     if hostname is not None:
+IE_TRACE:             12:40:11.369445 line       170     if port is not None:
+IE_TRACE:             12:40:11.369469 line       174     netloc = netloc_bytes.decode()
+IE_TRACE:             New var:....... netloc = ''
+IE_TRACE:             12:40:11.369494 line       177     if quote_path:
+IE_TRACE:             12:40:11.369522 line       178         path = quote(parts.path.encode(path_encoding), _PATH_SAFEST_CHARS)
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:             New var:....... path = '/tmp/foo.txt'
+IE_TRACE:             12:40:11.371369 line       182     if parts.scheme in _SPECIAL_SCHEMES:
+IE_TRACE:             12:40:11.371407 line       183         query = quote(parts.query.encode(encoding), _SPECIAL_QUERY_SAFEST_CHARS)
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:             New var:....... query = ''
+IE_TRACE:             12:40:11.371642 line       187     return urlunsplit(
+IE_TRACE:             12:40:11.371678 line       189             parts.scheme,
+IE_TRACE:             12:40:11.371707 line       190             netloc,
+IE_TRACE:             12:40:11.371734 line       191             path,
+IE_TRACE:             12:40:11.371761 line       192             query,
+IE_TRACE:             12:40:11.371787 line       193             quote(parts.fragment.encode(encoding), _FRAGMENT_SAFEST_CHARS),
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:             12:40:11.372019 line       188         (
+IE_TRACE:             12:40:11.372050 line       187     return urlunsplit(
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:             12:40:11.372633 return     187     return urlunsplit(
+IE_TRACE:             Return value:.. 'file:///tmp/foo.txt'
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:             Starting var:.. url = 'file:///tmp/foo.txt'
+IE_TRACE:             12:40:11.372674 call        87 def escape_ajax(url):
+IE_TRACE:             12:40:11.372729 line       110     defrag, frag = urldefrag(url)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:             New var:....... defrag = 'file:///tmp/foo.txt'
+IE_TRACE:             New var:....... frag = ''
+IE_TRACE:             12:40:11.373106 line       111     if not frag.startswith('!'):
+IE_TRACE:             12:40:11.373131 line       112         return url
+IE_TRACE:             12:40:11.373144 return     112         return url
+IE_TRACE:             Return value:.. 'file:///tmp/foo.txt'
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/request/__init__.py
+IE_TRACE:         Modified var:.. self = <GET file:///tmp/foo.txt>
+IE_TRACE:         12:40:11.373161 line        56         if ':' not in self._url:
+IE_TRACE:         12:40:11.373182 return      56         if ':' not in self._url:
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Modified var:.. self = <GET file:///tmp/foo.txt>
+IE_TRACE:     12:40:11.373201 line        26         self._set_body(body)
+IE_TRACE:         Starting var:.. self = <GET file:///tmp/foo.txt>
+IE_TRACE:         Starting var:.. body = None
+IE_TRACE:         12:40:11.373235 call        64     def _set_body(self, body):
+IE_TRACE:         12:40:11.373255 line        65         if body is None:
+IE_TRACE:         12:40:11.373267 line        66             self._body = b''
+IE_TRACE:         12:40:11.373279 return      66             self._body = b''
+IE_TRACE:         Return value:.. None
+IE_TRACE:     12:40:11.373295 line        27         assert isinstance(priority, int), "Request priority not an integer: %r" % priority
+IE_TRACE:     12:40:11.373319 line        28         self.priority = priority
+IE_TRACE:     12:40:11.373342 line        30         assert callback or not errback, "Cannot use errback without a callback"
+IE_TRACE:     12:40:11.373365 line        31         self.callback = callback
+IE_TRACE:     12:40:11.373388 line        32         self.errback = errback
+IE_TRACE:     12:40:11.373410 line        34         self.cookies = cookies or {}
+IE_TRACE:     12:40:11.373432 line        35         self.headers = Headers(headers or {}, encoding=encoding)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/headers.py
+IE_TRACE:         Starting var:.. self = {}
+IE_TRACE:         Starting var:.. seq = {}
+IE_TRACE:         Starting var:.. encoding = 'utf-8'
+IE_TRACE:         Starting var:.. __class__ = <class 'scrapy.http.headers.Headers'>
+IE_TRACE:         12:40:11.373458 call         9     def __init__(self, seq=None, encoding='utf-8'):
+IE_TRACE:         12:40:11.373518 line        10         self.encoding = encoding
+IE_TRACE:         12:40:11.373533 line        11         super(Headers, self).__init__(seq)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/datatypes.py
+IE_TRACE:             Starting var:.. self = {}
+IE_TRACE:             Starting var:.. seq = {}
+IE_TRACE:             Starting var:.. __class__ = <class 'scrapy.utils.datatypes.CaselessDict'>
+IE_TRACE:             12:40:11.373550 call       167     def __init__(self, seq=None):
+IE_TRACE:             12:40:11.373611 line       168         super(CaselessDict, self).__init__()
+IE_TRACE:             12:40:11.373625 line       169         if seq:
+IE_TRACE:             12:40:11.373638 return     169         if seq:
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/headers.py
+IE_TRACE:         12:40:11.373656 return      11         super(Headers, self).__init__(seq)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/request/__init__.py
+IE_TRACE:     12:40:11.373679 line        36         self.dont_filter = dont_filter
+IE_TRACE:     12:40:11.373706 line        38         self._meta = dict(meta) if meta else None
+IE_TRACE:     12:40:11.373730 return      38         self._meta = dict(meta) if meta else None
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/request.py
+IE_TRACE:     Starting var:.. request = <GET file:///tmp/foo.txt>
+IE_TRACE:     12:40:11.373761 call        74 def request_httprepr(request):
+IE_TRACE:     12:40:11.373799 line        80     parsed = urlparse_cached(request)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/httpobj.py
+IE_TRACE:         Starting var:.. request_or_response = <GET file:///tmp/foo.txt>
+IE_TRACE:         12:40:11.373812 call         9 def urlparse_cached(request_or_response):
+IE_TRACE:         12:40:11.373843 line        13     if request_or_response not in _urlparse_cache:
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/httpobj.py
+IE_TRACE:         12:40:11.373947 line        14         _urlparse_cache[request_or_response] = urlparse(request_or_response.url)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/request/__init__.py
+IE_TRACE:             Starting var:.. self = <GET file:///tmp/foo.txt>
+IE_TRACE:             12:40:11.373962 call        46     def _get_url(self):
+IE_TRACE:             12:40:11.373980 line        47         return self._url
+IE_TRACE:             12:40:11.373990 return      47         return self._url
+IE_TRACE:             Return value:.. 'file:///tmp/foo.txt'
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/httpobj.py
+IE_TRACE:         12:40:11.376042 line        15     return _urlparse_cache[request_or_response]
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/httpobj.py
+IE_TRACE:         12:40:11.376113 return      15     return _urlparse_cache[request_or_response]
+IE_TRACE:         Return value:.. ParseResult(scheme='file', netloc='', path='/tmp/foo.txt', params='', query='', fragment='')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/request.py
+IE_TRACE:     New var:....... parsed = ParseResult(scheme='file', netloc='', path='/tmp/foo.txt', params='', query='', fragment='')
+IE_TRACE:     12:40:11.376133 line        81     path = urlunparse(('', '', parsed.path or '/', parsed.params, parsed.query, ''))
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/request.py
+IE_TRACE:     New var:....... path = '/tmp/foo.txt'
+IE_TRACE:     12:40:11.376980 line        82     s = to_bytes(request.method) + b" " + to_bytes(path) + b" HTTP/1.1\r\n"
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/python.py
+IE_TRACE:         Starting var:.. text = 'GET'
+IE_TRACE:         Starting var:.. encoding = None
+IE_TRACE:         Starting var:.. errors = 'strict'
+IE_TRACE:         12:40:11.377005 call       112 def to_bytes(text, encoding=None, errors='strict'):
+IE_TRACE:         12:40:11.377032 line       115     if isinstance(text, bytes):
+IE_TRACE:         12:40:11.377045 line       117     if not isinstance(text, six.string_types):
+IE_TRACE:         12:40:11.377058 line       120     if encoding is None:
+IE_TRACE:         12:40:11.377070 line       121         encoding = 'utf-8'
+IE_TRACE:         Modified var:.. encoding = 'utf-8'
+IE_TRACE:         12:40:11.377082 line       122     return text.encode(encoding, errors)
+IE_TRACE:         12:40:11.377098 return     122     return text.encode(encoding, errors)
+IE_TRACE:         Return value:.. b'GET'
+IE_TRACE:         Starting var:.. text = '/tmp/foo.txt'
+IE_TRACE:         Starting var:.. encoding = None
+IE_TRACE:         Starting var:.. errors = 'strict'
+IE_TRACE:         12:40:11.377116 call       112 def to_bytes(text, encoding=None, errors='strict'):
+IE_TRACE:         12:40:11.377138 line       115     if isinstance(text, bytes):
+IE_TRACE:         12:40:11.377150 line       117     if not isinstance(text, six.string_types):
+IE_TRACE:         12:40:11.377162 line       120     if encoding is None:
+IE_TRACE:         12:40:11.377174 line       121         encoding = 'utf-8'
+IE_TRACE:         Modified var:.. encoding = 'utf-8'
+IE_TRACE:         12:40:11.377186 line       122     return text.encode(encoding, errors)
+IE_TRACE:         12:40:11.377204 return     122     return text.encode(encoding, errors)
+IE_TRACE:         Return value:.. b'/tmp/foo.txt'
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/request.py
+IE_TRACE:     New var:....... s = bytes(len=27)
+IE_TRACE:     12:40:11.377220 line        83     s += b"Host: " + to_bytes(parsed.hostname) + b"\r\n"
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/python.py
+IE_TRACE:         Starting var:.. text = None
+IE_TRACE:         Starting var:.. encoding = None
+IE_TRACE:         Starting var:.. errors = 'strict'
+IE_TRACE:         12:40:11.377528 call       112 def to_bytes(text, encoding=None, errors='strict'):
+IE_TRACE:         12:40:11.377554 line       115     if isinstance(text, bytes):
+IE_TRACE:         12:40:11.377567 line       117     if not isinstance(text, six.string_types):
+IE_TRACE:         12:40:11.377579 line       118         raise TypeError('to_bytes must receive a unicode, str or bytes '
+IE_TRACE:         12:40:11.377592 line       119                         'object, got %s' % type(text).__name__)
+IE_TRACE:         12:40:11.377604 line       118         raise TypeError('to_bytes must receive a unicode, str or bytes '
+IE_TRACE:         12:40:11.377617 exception  118         raise TypeError('to_bytes must receive a unicode, str or bytes '
+IE_TRACE:         Exception:..... TypeError: to_bytes must receive a unicode, str or bytes object, got NoneType
+IE_TRACE:         Call ended by exception
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/request.py
+IE_TRACE:     12:40:11.377709 exception   83     s += b"Host: " + to_bytes(parsed.hostname) + b"\r\n"
+IE_TRACE:     Exception:..... TypeError: to_bytes must receive a unicode, str or bytes object, got NoneType
+IE_TRACE:     Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_request.py
+IE_TRACE: 12:40:11.377761 exception   79         request_httprepr(Request("file:///tmp/foo.txt"))
+IE_TRACE: Exception:..... TypeError: to_bytes must receive a unicode, str or bytes object, got NoneType
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.013068
+======================================================================
+ERROR: test_request_httprepr_for_non_http_request (tests.test_utils_request.UtilsRequestTest.test_request_httprepr_for_non_http_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/tests/test_utils_request.py", line 79, in test_request_httprepr_for_non_http_request
+    request_httprepr(Request("file:///tmp/foo.txt"))
+  File "/path/to/BugsInPy/workspace/scrapy/scrapy/utils/request.py", line 83, in request_httprepr
+    s += b"Host: " + to_bytes(parsed.hostname) + b"\r\n"
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/scrapy/utils/python.py", line 118, in to_bytes
+    raise TypeError('to_bytes must receive a unicode, str or bytes '
+TypeError: to_bytes must receive a unicode, str or bytes object, got NoneType
+
+----------------------------------------------------------------------
+Ran 1 test in 0.013s
+
+FAILED (errors=1)
+
+
+Exit code: 1

@@ -1,0 +1,18 @@
+TORNADO EVALUATION SUMMARY
+Total: 16  Passed: 9  (56.2%)
+bug 1: FAIL  
+bug 2: PASS  
+bug 3: FAIL  KG empty (trace produced no data)
+bug 4: PASS  
+bug 5: PASS  
+bug 6: PASS  
+bug 7: FAIL  
+bug 8: FAIL  
+bug 9: PASS  
+bug10: FAIL  
+bug11: PASS  
+bug12: FAIL  no diff block in diagnosis.md
+bug13: PASS  
+bug14: PASS  
+bug15: FAIL  no diff block in diagnosis.md
+bug16: PASS  

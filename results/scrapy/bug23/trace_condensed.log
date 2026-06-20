@@ -1,0 +1,259 @@
+Cleared: /path/to/results/scrapy/bug23
+Running: python -m unittest -q tests.test_downloadermiddleware_httpproxy.TestDefaultHeadersMiddleware.test_proxy_auth
+Workdir: /path/to/BugsInPy/workspace/scrapy
+PYTHONPATH: /path/to/BugsInPy/workspace/scrapy::
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_downloadermiddleware_httpproxy.py
+IE_TRACE: Starting var:.. self = <tests.test_downloadermiddleware_httpproxy.TestDefaultHeadersMiddleware testMethod=test_proxy_auth>
+IE_TRACE: 12:37:48.749587 call        19     def setUp(self):
+IE_TRACE: 12:37:48.749783 line        20         self._oldenv = os.environ.copy()
+IE_TRACE:     Source path:... <frozen os>
+IE_TRACE:     Starting var:.. self = environ({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '<redacted>', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'AI_AGENT': 'claude-code_2-1-152_agent', 'USER': 'anonymous'...ve-binary/claude', 'PYTHONPATH': '/path/to/BugsInPy/workspace/scrapy::', 'CLAUDE_CODE_ENABLE_TASKS': '0', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VSCODE_PID': '3337', 'http_proxy': '', 'https_proxy': '', 'ftp_proxy': ''})
+IE_TRACE:     12:37:48.749817 call       719 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:37:48.749936 line       720 SOURCE IS UNAVAILABLE
+IE_TRACE:         Source path:... <frozen _collections_abc>
+IE_TRACE:         Starting var:.. self = environ({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '<redacted>', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'AI_AGENT': 'claude-code_2-1-152_agent', 'USER': 'anonymous'...ve-binary/claude', 'PYTHONPATH': '/path/to/BugsInPy/workspace/scrapy::', 'CLAUDE_CODE_ENABLE_TASKS': '0', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VSCODE_PID': '3337', 'http_proxy': '', 'https_proxy': '', 'ftp_proxy': ''})
+IE_TRACE:         12:37:48.749994 call       819 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:37:48.750063 line       821 SOURCE IS UNAVAILABLE
+IE_TRACE:             Starting var:.. self = REPR FAILED
+IE_TRACE:             Starting var:.. mapping = environ({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '<redacted>', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'AI_AGENT': 'claude-code_2-1-152_agent', 'USER': 'anonymous'...ve-binary/claude', 'PYTHONPATH': '/path/to/BugsInPy/workspace/scrapy::', 'CLAUDE_CODE_ENABLE_TASKS': '0', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VSCODE_PID': '3337', 'http_proxy': '', 'https_proxy': '', 'ftp_proxy': ''})
+IE_TRACE:             12:37:48.750110 call       845 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:37:48.750173 line       846 SOURCE IS UNAVAILABLE
+IE_TRACE:             Modified var:.. self = KeysView(environ({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '<redacted>', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'AI_AGENT': 'claude-code_2-1-152_agent', 'USER': '...e-binary/claude', 'PYTHONPATH': '/path/to/BugsInPy/workspace/scrapy::', 'CLAUDE_CODE_ENABLE_TASKS': '0', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VSCODE_PID': '3337', 'http_proxy': '', 'https_proxy': '', 'ftp_proxy': ''}))
+IE_TRACE:             12:37:48.750226 return     846 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. None
+IE_TRACE:         12:37:48.750315 return     821 SOURCE IS UNAVAILABLE
+IE_TRACE:         Return value:.. KeysView(environ({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '<redacted>', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'AI_AGENT': 'claude-code_2-1-152_agent', 'USER': '...e-binary/claude', 'PYTHONPATH': '/path/to/BugsInPy/workspace/scrapy::', 'CLAUDE_CODE_ENABLE_TASKS': '0', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VSCODE_PID': '3337', 'http_proxy': '', 'https_proxy': '', 'ftp_proxy': ''}))
+IE_TRACE:         Starting var:.. self = KeysView(environ({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '<redacted>', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'AI_AGENT': 'claude-code_2-1-152_agent', 'USER': '...e-binary/claude', 'PYTHONPATH': '/path/to/BugsInPy/workspace/scrapy::', 'CLAUDE_CODE_ENABLE_TASKS': '0', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VSCODE_PID': '3337', 'http_proxy': '', 'https_proxy': '', 'ftp_proxy': ''}))
+IE_TRACE:         12:37:48.750400 call       868 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:37:48.750451 line       869 SOURCE IS UNAVAILABLE
+IE_TRACE:             Source path:... <frozen os>
+IE_TRACE:             Starting var:.. self = environ({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '<redacted>', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'AI_AGENT': 'claude-code_2-1-152_agent', 'USER': 'anonymous'...ve-binary/claude', 'PYTHONPATH': '/path/to/BugsInPy/workspace/scrapy::', 'CLAUDE_CODE_ENABLE_TASKS': '0', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VSCODE_PID': '3337', 'http_proxy': '', 'https_proxy': '', 'ftp_proxy': ''})
+IE_TRACE:             12:37:48.750511 call       703 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:37:48.750581 line       705 SOURCE IS UNAVAILABLE
+IE_TRACE:             New var:....... keys = list(len=81)
+IE_TRACE:             12:37:48.750645 line       706 SOURCE IS UNAVAILABLE
+IE_TRACE:             New var:....... key = b'GJS_DEBUG_TOPICS'
+IE_TRACE:             12:37:48.750694 line       707 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Starting var:.. value = b'GJS_DEBUG_TOPICS'
+IE_TRACE:                 Starting var:.. encoding = 'utf-8'
+IE_TRACE:                 12:37:48.750745 call       766 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:37:48.750767 line       767 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:37:48.750779 return     767 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Return value:.. 'GJS_DEBUG_TOPICS'
+IE_TRACE:             12:37:48.750797 return     707 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. 'GJS_DEBUG_TOPICS'
+IE_TRACE:         Source path:... <frozen _collections_abc>
+IE_TRACE:         12:37:48.750845 return     869 SOURCE IS UNAVAILABLE
+IE_TRACE:         Return value:.. 'GJS_DEBUG_TOPICS'
+IE_TRACE:         Starting var:.. self = KeysView(environ({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '<redacted>', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'AI_AGENT': 'claude-code_2-1-152_agent', 'USER': '...e-binary/claude', 'PYTHONPATH': '/path/to/BugsInPy/workspace/scrapy::', 'CLAUDE_CODE_ENABLE_TASKS': '0', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VSCODE_PID': '3337', 'http_proxy': '', 'https_proxy': '', 'ftp_proxy': ''}))
+IE_TRACE:         12:37:48.750898 call       869 SOURCE IS UNAVAILABLE
+IE_TRACE:             Source path:... <frozen os>
+IE_TRACE:             Starting var:.. self = environ({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '<redacted>', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'AI_AGENT': 'claude-code_2-1-152_agent', 'USER': 'anonymous'...ve-binary/claude', 'PYTHONPATH': '/path/to/BugsInPy/workspace/scrapy::', 'CLAUDE_CODE_ENABLE_TASKS': '0', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VSCODE_PID': '3337', 'http_proxy': '', 'https_proxy': '', 'ftp_proxy': ''})
+IE_TRACE:             Starting var:.. keys = list(len=81)
+IE_TRACE:             Starting var:.. key = b'GJS_DEBUG_TOPICS'
+IE_TRACE:             12:37:48.750948 call       707 SOURCE IS UNAVAILABLE
+IE_TRACE:     [CONDENSED] 79 identical loop iterations skipped (81 total iterations, showing first and last)
+IE_TRACE:             12:37:48.778883 line       706 SOURCE IS UNAVAILABLE
+IE_TRACE:             Modified var:.. key = b'ftp_proxy'
+IE_TRACE:             12:37:48.778924 line       707 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Starting var:.. value = b'ftp_proxy'
+IE_TRACE:                 Starting var:.. encoding = 'utf-8'
+IE_TRACE:                 12:37:48.778969 call       766 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:37:48.778987 line       767 SOURCE IS UNAVAILABLE
+IE_TRACE:                 12:37:48.778998 return     767 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Return value:.. 'ftp_proxy'
+IE_TRACE:             12:37:48.779013 return     707 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. 'ftp_proxy'
+IE_TRACE:         Source path:... <frozen _collections_abc>
+IE_TRACE:         12:37:48.779059 return     869 SOURCE IS UNAVAILABLE
+IE_TRACE:         Return value:.. 'ftp_proxy'
+IE_TRACE:         Starting var:.. self = KeysView(environ({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '<redacted>', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'AI_AGENT': 'claude-code_2-1-152_agent', 'USER': '...e-binary/claude', 'PYTHONPATH': '/path/to/BugsInPy/workspace/scrapy::', 'CLAUDE_CODE_ENABLE_TASKS': '0', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VSCODE_PID': '3337', 'http_proxy': '', 'https_proxy': '', 'ftp_proxy': ''}))
+IE_TRACE:         12:37:48.779108 call       869 SOURCE IS UNAVAILABLE
+IE_TRACE:             Source path:... <frozen os>
+IE_TRACE:             Starting var:.. self = environ({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '<redacted>', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'AI_AGENT': 'claude-code_2-1-152_agent', 'USER': 'anonymous'...ve-binary/claude', 'PYTHONPATH': '/path/to/BugsInPy/workspace/scrapy::', 'CLAUDE_CODE_ENABLE_TASKS': '0', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VSCODE_PID': '3337', 'http_proxy': '', 'https_proxy': '', 'ftp_proxy': ''})
+IE_TRACE:             Starting var:.. keys = list(len=81)
+IE_TRACE:             Starting var:.. key = b'ftp_proxy'
+IE_TRACE:             12:37:48.779151 call       707 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:37:48.779217 line       706 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:37:48.779259 return     706 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... <frozen _collections_abc>
+IE_TRACE:         12:37:48.779312 exception  869 SOURCE IS UNAVAILABLE
+IE_TRACE:         Exception:..... StopIteration
+IE_TRACE:         12:37:48.779476 return     869 SOURCE IS UNAVAILABLE
+IE_TRACE:         Return value:.. None
+IE_TRACE:         Source path:... <frozen os>
+IE_TRACE:         Starting var:.. self = environ({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '<redacted>', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'AI_AGENT': 'claude-code_2-1-152_agent', 'USER': 'anonymous'...ve-binary/claude', 'PYTHONPATH': '/path/to/BugsInPy/workspace/scrapy::', 'CLAUDE_CODE_ENABLE_TASKS': '0', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VSCODE_PID': '3337', 'http_proxy': '', 'https_proxy': '', 'ftp_proxy': ''})
+IE_TRACE:         Starting var:.. key = 'GJS_DEBUG_TOPICS'
+IE_TRACE:         12:37:48.779539 call       680 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:37:48.779599 line       681 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:37:48.779641 line       682 SOURCE IS UNAVAILABLE
+IE_TRACE:             Starting var:.. value = 'GJS_DEBUG_TOPICS'
+IE_TRACE:             Starting var:.. encoding = 'utf-8'
+IE_TRACE:             12:37:48.779685 call       762 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:37:48.779706 line       763 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:37:48.779718 line       765 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:37:48.779730 return     765 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. b'GJS_DEBUG_TOPICS'
+IE_TRACE:         New var:....... value = b'JS ERROR;JS LOG'
+IE_TRACE:         12:37:48.779747 line       686 SOURCE IS UNAVAILABLE
+IE_TRACE:             Starting var:.. value = b'JS ERROR;JS LOG'
+IE_TRACE:             Starting var:.. encoding = 'utf-8'
+IE_TRACE:             12:37:48.779794 call       766 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:37:48.779812 line       767 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:37:48.779823 return     767 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. 'JS ERROR;JS LOG'
+IE_TRACE:         12:37:48.779838 return     686 SOURCE IS UNAVAILABLE
+IE_TRACE:         Return value:.. 'JS ERROR;JS LOG'
+IE_TRACE:         Starting var:.. self = environ({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '<redacted>', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'AI_AGENT': 'claude-code_2-1-152_agent', 'USER': 'anonymous'...ve-binary/claude', 'PYTHONPATH': '/path/to/BugsInPy/workspace/scrapy::', 'CLAUDE_CODE_ENABLE_TASKS': '0', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VSCODE_PID': '3337', 'http_proxy': '', 'https_proxy': '', 'ftp_proxy': ''})
+IE_TRACE:         Starting var:.. key = 'LESSOPEN'
+IE_TRACE:         12:37:48.779886 call       680 SOURCE IS UNAVAILABLE
+IE_TRACE:     [CONDENSED] 79 identical loop iterations skipped (81 total iterations, showing first and last)
+IE_TRACE:         12:37:48.804015 line       681 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:37:48.804049 line       682 SOURCE IS UNAVAILABLE
+IE_TRACE:             Starting var:.. value = 'ftp_proxy'
+IE_TRACE:             Starting var:.. encoding = 'utf-8'
+IE_TRACE:             12:37:48.804083 call       762 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:37:48.804097 line       763 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:37:48.804106 line       765 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:37:48.804115 return     765 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. b'ftp_proxy'
+IE_TRACE:         New var:....... value = b''
+IE_TRACE:         12:37:48.804127 line       686 SOURCE IS UNAVAILABLE
+IE_TRACE:             Starting var:.. value = b''
+IE_TRACE:             Starting var:.. encoding = 'utf-8'
+IE_TRACE:             12:37:48.804164 call       766 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:37:48.804178 line       767 SOURCE IS UNAVAILABLE
+IE_TRACE:             12:37:48.804187 return     767 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. ''
+IE_TRACE:         12:37:48.804201 return     686 SOURCE IS UNAVAILABLE
+IE_TRACE:         Return value:.. ''
+IE_TRACE:     12:37:48.804239 return     720 SOURCE IS UNAVAILABLE
+IE_TRACE:     Return value:.. dict(len=81)
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_downloadermiddleware_httpproxy.py
+IE_TRACE: 12:37:48.804281 return      20         self._oldenv = os.environ.copy()
+IE_TRACE: Return value:.. None
+IE_TRACE: Elapsed time: 00:00:00.054927
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_downloadermiddleware_httpproxy.py
+IE_TRACE: Starting var:.. self = <tests.test_downloadermiddleware_httpproxy.TestDefaultHeadersMiddleware testMethod=test_proxy_auth>
+IE_TRACE: 12:37:48.804514 call        54     def test_proxy_auth(self):
+IE_TRACE: 12:37:48.804546 line        55         os.environ['http_proxy'] = 'https://user:pass@proxy:3128'
+IE_TRACE:     Source path:... <frozen os>
+IE_TRACE:     Starting var:.. self = environ({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '<redacted>', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'AI_AGENT': 'claude-code_2-1-152_agent', 'USER': 'anonymous'...ve-binary/claude', 'PYTHONPATH': '/path/to/BugsInPy/workspace/scrapy::', 'CLAUDE_CODE_ENABLE_TASKS': '0', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VSCODE_PID': '3337', 'http_proxy': '', 'https_proxy': '', 'ftp_proxy': ''})
+IE_TRACE:     Starting var:.. key = 'http_proxy'
+IE_TRACE:     Starting var:.. value = 'https://user:pass@proxy:3128'
+IE_TRACE:     12:37:48.804561 call       688 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:37:48.804624 line       689 SOURCE IS UNAVAILABLE
+IE_TRACE:         Starting var:.. value = 'http_proxy'
+IE_TRACE:         Starting var:.. encoding = 'utf-8'
+IE_TRACE:         12:37:48.804663 call       762 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:37:48.804680 line       763 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:37:48.804689 line       765 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:37:48.804698 return     765 SOURCE IS UNAVAILABLE
+IE_TRACE:         Return value:.. b'http_proxy'
+IE_TRACE:     Modified var:.. key = b'http_proxy'
+IE_TRACE:     12:37:48.804712 line       690 SOURCE IS UNAVAILABLE
+IE_TRACE:         Starting var:.. value = 'https://user:pass@proxy:3128'
+IE_TRACE:         Starting var:.. encoding = 'utf-8'
+IE_TRACE:         12:37:48.804752 call       762 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:37:48.804767 line       763 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:37:48.804776 line       765 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:37:48.804785 return     765 SOURCE IS UNAVAILABLE
+IE_TRACE:         Return value:.. bytes(len=28)
+IE_TRACE:     Modified var:.. value = bytes(len=28)
+IE_TRACE:     12:37:48.804803 line       691 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:37:48.804845 line       692 SOURCE IS UNAVAILABLE
+IE_TRACE:     Modified var:.. self = environ({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '<redacted>', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'AI_AGENT': 'claude-code_2-1-152_agent', 'USER': 'anonymous'...TH': '/path/to/BugsInPy/workspace/scrapy::', 'CLAUDE_CODE_ENABLE_TASKS': '0', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VSCODE_PID': '3337', 'http_proxy': 'https://user:pass@proxy:3128', 'https_proxy': '', 'ftp_proxy': ''})
+IE_TRACE:     12:37:48.804880 return     692 SOURCE IS UNAVAILABLE
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_downloadermiddleware_httpproxy.py
+IE_TRACE: 12:37:48.804922 line        56         mw = HttpProxyMiddleware()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/downloadermiddlewares/httpproxy.py
+IE_TRACE:     Starting var:.. self = <scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware object at 0x7a6c2932eb40>
+IE_TRACE:     12:37:48.804941 call        17     def __init__(self):
+IE_TRACE:     12:37:48.805048 line        18         self.proxies = {}
+IE_TRACE:     12:37:48.805059 line        19         for type, url in getproxies().items():
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/downloadermiddlewares/httpproxy.py
+IE_TRACE:     New var:....... type = 'http'
+IE_TRACE:     New var:....... url = 'https://user:pass@proxy:3128'
+IE_TRACE:     12:37:48.833142 line        20             self.proxies[type] = self._get_proxy(url, type)
+IE_TRACE:         Starting var:.. self = <scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware object at 0x7a6c2932eb40>
+IE_TRACE:         Starting var:.. url = 'https://user:pass@proxy:3128'
+IE_TRACE:         Starting var:.. orig_type = 'http'
+IE_TRACE:         12:37:48.833169 call        25     def _get_proxy(self, url, orig_type):
+IE_TRACE:         12:37:48.833190 line        26         proxy_type, user, password, hostport = _parse_proxy(url)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/downloadermiddlewares/httpproxy.py
+IE_TRACE:         New var:....... proxy_type = 'https'
+IE_TRACE:         New var:....... user = 'user'
+IE_TRACE:         New var:....... password = 'pass'
+IE_TRACE:         New var:....... hostport = 'proxy:3128'
+IE_TRACE:         12:37:48.841490 line        27         proxy_url = urlunparse((proxy_type or orig_type, hostport, '', '', '', ''))
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/downloadermiddlewares/httpproxy.py
+IE_TRACE:         New var:....... proxy_url = 'https://proxy:3128'
+IE_TRACE:         12:37:48.842183 line        29         if user:
+IE_TRACE:         12:37:48.842204 line        30             user_pass = '%s:%s' % (unquote(user), unquote(password))
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/downloadermiddlewares/httpproxy.py
+IE_TRACE:         New var:....... user_pass = 'user:pass'
+IE_TRACE:         12:37:48.842358 line        31             creds = base64.b64encode(user_pass).strip()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/downloadermiddlewares/httpproxy.py
+IE_TRACE:         12:37:48.842722 exception   31             creds = base64.b64encode(user_pass).strip()
+IE_TRACE:         Exception:..... TypeError: a bytes-like object is required, not 'str'
+IE_TRACE:         Call ended by exception
+IE_TRACE:     12:37:48.842766 exception   20             self.proxies[type] = self._get_proxy(url, type)
+IE_TRACE:     Exception:..... TypeError: a bytes-like object is required, not 'str'
+IE_TRACE:     Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_downloadermiddleware_httpproxy.py
+IE_TRACE: 12:37:48.842793 exception   56         mw = HttpProxyMiddleware()
+IE_TRACE: Exception:..... TypeError: a bytes-like object is required, not 'str'
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.038401
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_downloadermiddleware_httpproxy.py
+IE_TRACE: Starting var:.. self = <tests.test_downloadermiddleware_httpproxy.TestDefaultHeadersMiddleware testMethod=test_proxy_auth>
+IE_TRACE: 12:37:48.843742 call        23     def tearDown(self):
+IE_TRACE: 12:37:48.843773 line        24         os.environ = self._oldenv
+IE_TRACE: 12:37:48.843786 return      24         os.environ = self._oldenv
+IE_TRACE: Return value:.. None
+IE_TRACE: Elapsed time: 00:00:00.000120
+======================================================================
+ERROR: test_proxy_auth (tests.test_downloadermiddleware_httpproxy.TestDefaultHeadersMiddleware.test_proxy_auth)
+test_proxy_auth
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/twisted/trial/_asynctest.py", line 173, in _deferSetUpAndRun
+    await self._run(
+  File "/path/to/.venv/lib/python3.12/site-packages/twisted/internet/defer.py", line 1185, in __iter__
+    result.raiseException()
+  File "/path/to/.venv/lib/python3.12/site-packages/twisted/python/failure.py", line 455, in raiseException
+    raise self.value.with_traceback(self.tb)
+  File "/path/to/.venv/lib/python3.12/site-packages/twisted/internet/defer.py", line 205, in maybeDeferred
+    result = f(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^
+  File "/path/to/.venv/lib/python3.12/site-packages/twisted/internet/utils.py", line 227, in runWithWarningsSuppressed
+    raise exc_info[1].with_traceback(exc_info[2])
+  File "/path/to/.venv/lib/python3.12/site-packages/twisted/internet/utils.py", line 223, in runWithWarningsSuppressed
+    result = f(*a, **kw)
+             ^^^^^^^^^^^
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/tests/test_downloadermiddleware_httpproxy.py", line 56, in test_proxy_auth
+    mw = HttpProxyMiddleware()
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/scrapy/downloadermiddlewares/httpproxy.py", line 20, in __init__
+    self.proxies[type] = self._get_proxy(url, type)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/scrapy/downloadermiddlewares/httpproxy.py", line 31, in _get_proxy
+    creds = base64.b64encode(user_pass).strip()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/base64.py", line 58, in b64encode
+    encoded = binascii.b2a_base64(s, newline=False)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: a bytes-like object is required, not 'str'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.096s
+
+FAILED (errors=1)
+
+
+Exit code: 1

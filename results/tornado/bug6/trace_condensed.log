@@ -1,0 +1,1859 @@
+Cleared: /path/to/results/tornado/bug6
+Running: python -m unittest -q tornado.test.asyncio_test.LeakTest.test_ioloop_close_leak
+Workdir: /path/to/BugsInPy/workspace/tornado
+PYTHONPATH: /path/to/BugsInPy/workspace/tornado::
+/path/to/BugsInPy/workspace/tornado/tornado/util.py:255: SyntaxWarning: invalid escape sequence '\d'
+  """Unescape a string escaped by `re.escape`.
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: Starting var:.. self = <tornado.test.asyncio_test.LeakTest testMethod=test_ioloop_close_leak>
+IE_TRACE: 19:12:54.999634 call       130     def setUp(self):
+IE_TRACE: 19:12:54.999878 line       132         AsyncIOLoop().close()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     Starting var:.. args = ()
+IE_TRACE:     Starting var:.. kwargs = {}
+IE_TRACE:     Starting var:.. __class__ = <class 'tornado.util.Configurable'>
+IE_TRACE:     19:12:54.999926 call       295     def __new__(cls, *args, **kwargs):
+IE_TRACE:     19:12:55.000058 line       296         base = cls.configurable_base()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.000094 call       344     def configurable_base(cls):
+IE_TRACE:         19:12:55.000262 line       345         return IOLoop
+IE_TRACE:         19:12:55.000280 return     345         return IOLoop
+IE_TRACE:         Return value:.. <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     New var:....... base = <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     19:12:55.000305 line       297         init_kwargs = {}
+IE_TRACE:     New var:....... init_kwargs = {}
+IE_TRACE:     19:12:55.000343 line       298         if cls is base:
+IE_TRACE:     19:12:55.000374 line       303             impl = cls
+IE_TRACE:     New var:....... impl = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     19:12:55.000397 line       304         init_kwargs.update(kwargs)
+IE_TRACE:     19:12:55.000426 line       305         if impl.configurable_base() is not base:
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.000451 call       344     def configurable_base(cls):
+IE_TRACE:         19:12:55.000479 line       345         return IOLoop
+IE_TRACE:         19:12:55.000495 return     345         return IOLoop
+IE_TRACE:         Return value:.. <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     19:12:55.000517 line       308         instance = super(Configurable, cls).__new__(impl)
+IE_TRACE:     New var:....... instance = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f89f10>
+IE_TRACE:     19:12:55.000546 line       312         instance.initialize(*args, **init_kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f89f10>
+IE_TRACE:         Starting var:.. kwargs = {}
+IE_TRACE:         Starting var:.. __class__ = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.000584 call       194     def initialize(self, **kwargs):
+IE_TRACE:         19:12:55.000672 line       195         self.is_current = False
+IE_TRACE:         19:12:55.000692 line       196         loop = asyncio.new_event_loop()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:         19:12:55.008869 line       197         try:
+IE_TRACE:         19:12:55.008901 line       198             super(AsyncIOLoop, self).initialize(loop, **kwargs)
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f89f10>
+IE_TRACE:             Starting var:.. asyncio_loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             Starting var:.. __class__ = <class 'tornado.platform.asyncio.BaseAsyncIOLoop'>
+IE_TRACE:             19:12:55.008926 call        33     def initialize(self, asyncio_loop, **kwargs):
+IE_TRACE:             19:12:55.008963 line        34         self.asyncio_loop = asyncio_loop
+IE_TRACE:             19:12:55.008983 line        36         self.handlers = {}
+IE_TRACE:             19:12:55.009003 line        38         self.readers = set()
+IE_TRACE:             19:12:55.009022 line        39         self.writers = set()
+IE_TRACE:             19:12:55.009041 line        40         self.closing = False
+IE_TRACE:             19:12:55.009059 line        41         IOLoop._ioloop_for_asyncio[asyncio_loop] = self
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.009210 line        42         super(BaseAsyncIOLoop, self).initialize(**kwargs)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f89f10>
+IE_TRACE:                 Starting var:.. make_current = None
+IE_TRACE:                 19:12:55.009240 call       354     def initialize(self, make_current=None):
+IE_TRACE:                 19:12:55.009272 line       355         if make_current is None:
+IE_TRACE:                 19:12:55.009289 line       356             if IOLoop.current(instance=False) is None:
+IE_TRACE:                     Starting var:.. instance = False
+IE_TRACE:                     19:12:55.009316 call       255     def current(instance=True):
+IE_TRACE:                     19:12:55.009342 line       275         if asyncio is None:
+IE_TRACE:                     19:12:55.009359 line       282             try:
+IE_TRACE:                     19:12:55.009375 line       283                 loop = asyncio.get_event_loop()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                     New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:                     19:12:55.012492 line       288             try:
+IE_TRACE:                     19:12:55.012522 line       289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                     19:12:55.012661 exception  289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                     Exception:..... KeyError: <weakref at 0x72e0d0ee89f0; to '_UnixSelectorEventLoop' at 0x72e0d0faa810>
+IE_TRACE:                     19:12:55.012698 line       290             except KeyError:
+IE_TRACE:                     19:12:55.012717 line       291                 if instance:
+IE_TRACE:                     19:12:55.012735 line       295                     current = None
+IE_TRACE:                     New var:....... current = None
+IE_TRACE:                     19:12:55.012753 line       296         return current
+IE_TRACE:                     19:12:55.012778 return     296         return current
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 19:12:55.012804 line       357                 self.make_current()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f89f10>
+IE_TRACE:                     19:12:55.012826 call       210     def make_current(self):
+IE_TRACE:                     19:12:55.012851 line       211         if not self.is_current:
+IE_TRACE:                     19:12:55.012867 line       212             try:
+IE_TRACE:                     19:12:55.012882 line       213                 self.old_asyncio = asyncio.get_event_loop()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     19:12:55.013059 line       216             self.is_current = True
+IE_TRACE:                     19:12:55.013079 line       217         asyncio.set_event_loop(self.asyncio_loop)
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     19:12:55.013443 return     217         asyncio.set_event_loop(self.asyncio_loop)
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 19:12:55.013469 return     357                 self.make_current()
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.013495 return      42         super(BaseAsyncIOLoop, self).initialize(**kwargs)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         19:12:55.013527 return     198             super(AsyncIOLoop, self).initialize(loop, **kwargs)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     19:12:55.013552 line       313         return instance
+IE_TRACE:     19:12:55.013584 return     313         return instance
+IE_TRACE:     Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f89f10>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f89f10>
+IE_TRACE:     Starting var:.. all_fds = False
+IE_TRACE:     Starting var:.. __class__ = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     19:12:55.013619 call       205     def close(self, all_fds=False):
+IE_TRACE:     19:12:55.013655 line       206         if self.is_current:
+IE_TRACE:     19:12:55.013672 line       207             self.clear_current()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         19:12:55.013693 call       322     def clear_current():
+IE_TRACE:         19:12:55.013713 line       330         old = IOLoop.current(instance=False)
+IE_TRACE:             Starting var:.. instance = False
+IE_TRACE:             19:12:55.013727 call       255     def current(instance=True):
+IE_TRACE:             19:12:55.013748 line       275         if asyncio is None:
+IE_TRACE:             19:12:55.013763 line       282             try:
+IE_TRACE:             19:12:55.013777 line       283                 loop = asyncio.get_event_loop()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:             19:12:55.013940 line       288             try:
+IE_TRACE:             19:12:55.013966 line       289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             19:12:55.014053 return     289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:             Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f89f10>
+IE_TRACE:         New var:....... old = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f89f10>
+IE_TRACE:         19:12:55.014080 line       331         if old is not None:
+IE_TRACE:         19:12:55.014098 line       332             old._clear_current_hook()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f89f10>
+IE_TRACE:             19:12:55.014113 call       219     def _clear_current_hook(self):
+IE_TRACE:             19:12:55.014139 line       220         if self.is_current:
+IE_TRACE:             19:12:55.014152 line       221             asyncio.set_event_loop(self.old_asyncio)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.014479 line       222             self.is_current = False
+IE_TRACE:             19:12:55.014497 return     222             self.is_current = False
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         19:12:55.014516 line       333         if asyncio is None:
+IE_TRACE:         19:12:55.014533 return     333         if asyncio is None:
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:     19:12:55.014551 line       208         super(AsyncIOLoop, self).close(all_fds=all_fds)
+IE_TRACE:         Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f89f10>
+IE_TRACE:         Starting var:.. all_fds = False
+IE_TRACE:         19:12:55.014577 call        44     def close(self, all_fds=False):
+IE_TRACE:         19:12:55.014602 line        45         self.closing = True
+IE_TRACE:         19:12:55.014618 line        46         for fd in list(self.handlers):
+IE_TRACE:         19:12:55.014634 line        51         self.asyncio_loop.close()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         19:12:55.017530 return      51         self.asyncio_loop.close()
+IE_TRACE:         Return value:.. None
+IE_TRACE:     19:12:55.017557 return     208         super(AsyncIOLoop, self).close(all_fds=all_fds)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: 19:12:55.017580 line       135         self.orig_policy = asyncio.get_event_loop_policy()
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: 19:12:55.017659 line       136         asyncio.set_event_loop_policy(asyncio.DefaultEventLoopPolicy())
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: 19:12:55.017884 return     136         asyncio.set_event_loop_policy(asyncio.DefaultEventLoopPolicy())
+IE_TRACE: Return value:.. None
+IE_TRACE: Elapsed time: 00:00:00.018472
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: Starting var:.. self = <tornado.test.asyncio_test.LeakTest testMethod=test_ioloop_close_leak>
+IE_TRACE: 19:12:55.018033 call       144     def test_ioloop_close_leak(self):
+IE_TRACE: 19:12:55.018067 line       145         orig_count = len(IOLoop._ioloop_for_asyncio)
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: New var:....... orig_count = 1
+IE_TRACE: 19:12:55.018164 line       146         for i in range(10):
+IE_TRACE: New var:....... i = 0
+IE_TRACE: 19:12:55.018191 line       148             loop = AsyncIOLoop()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     Starting var:.. args = ()
+IE_TRACE:     Starting var:.. kwargs = {}
+IE_TRACE:     Starting var:.. __class__ = <class 'tornado.util.Configurable'>
+IE_TRACE:     19:12:55.018215 call       295     def __new__(cls, *args, **kwargs):
+IE_TRACE:     19:12:55.018259 line       296         base = cls.configurable_base()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.018280 call       344     def configurable_base(cls):
+IE_TRACE:         19:12:55.018305 line       345         return IOLoop
+IE_TRACE:         19:12:55.018318 return     345         return IOLoop
+IE_TRACE:         Return value:.. <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     New var:....... base = <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     19:12:55.018338 line       297         init_kwargs = {}
+IE_TRACE:     New var:....... init_kwargs = {}
+IE_TRACE:     19:12:55.018367 line       298         if cls is base:
+IE_TRACE:     19:12:55.018393 line       303             impl = cls
+IE_TRACE:     New var:....... impl = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     19:12:55.018414 line       304         init_kwargs.update(kwargs)
+IE_TRACE:     19:12:55.018440 line       305         if impl.configurable_base() is not base:
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.018462 call       344     def configurable_base(cls):
+IE_TRACE:         19:12:55.018485 line       345         return IOLoop
+IE_TRACE:         19:12:55.018498 return     345         return IOLoop
+IE_TRACE:         Return value:.. <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     19:12:55.018516 line       308         instance = super(Configurable, cls).__new__(impl)
+IE_TRACE:     New var:....... instance = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f8b620>
+IE_TRACE:     19:12:55.018544 line       312         instance.initialize(*args, **init_kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f8b620>
+IE_TRACE:         Starting var:.. kwargs = {}
+IE_TRACE:         Starting var:.. __class__ = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.018573 call       194     def initialize(self, **kwargs):
+IE_TRACE:         19:12:55.018609 line       195         self.is_current = False
+IE_TRACE:         19:12:55.018627 line       196         loop = asyncio.new_event_loop()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:         19:12:55.023679 line       197         try:
+IE_TRACE:         19:12:55.023709 line       198             super(AsyncIOLoop, self).initialize(loop, **kwargs)
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f8b620>
+IE_TRACE:             Starting var:.. asyncio_loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             Starting var:.. __class__ = <class 'tornado.platform.asyncio.BaseAsyncIOLoop'>
+IE_TRACE:             19:12:55.023730 call        33     def initialize(self, asyncio_loop, **kwargs):
+IE_TRACE:             19:12:55.023766 line        34         self.asyncio_loop = asyncio_loop
+IE_TRACE:             19:12:55.023785 line        36         self.handlers = {}
+IE_TRACE:             19:12:55.023804 line        38         self.readers = set()
+IE_TRACE:             19:12:55.023823 line        39         self.writers = set()
+IE_TRACE:             19:12:55.023841 line        40         self.closing = False
+IE_TRACE:             19:12:55.023860 line        41         IOLoop._ioloop_for_asyncio[asyncio_loop] = self
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.023960 line        42         super(BaseAsyncIOLoop, self).initialize(**kwargs)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f8b620>
+IE_TRACE:                 Starting var:.. make_current = None
+IE_TRACE:                 19:12:55.023986 call       354     def initialize(self, make_current=None):
+IE_TRACE:                 19:12:55.024017 line       355         if make_current is None:
+IE_TRACE:                 19:12:55.024034 line       356             if IOLoop.current(instance=False) is None:
+IE_TRACE:                     Starting var:.. instance = False
+IE_TRACE:                     19:12:55.024053 call       255     def current(instance=True):
+IE_TRACE:                     19:12:55.024077 line       275         if asyncio is None:
+IE_TRACE:                     19:12:55.024094 line       282             try:
+IE_TRACE:                     19:12:55.024110 line       283                 loop = asyncio.get_event_loop()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                     New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:                     19:12:55.025670 line       288             try:
+IE_TRACE:                     19:12:55.025699 line       289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                     19:12:55.025826 exception  289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                     Exception:..... KeyError: <weakref at 0x72e0d0ee9490; to '_UnixSelectorEventLoop' at 0x72e0d0f8bd10>
+IE_TRACE:                     19:12:55.025863 line       290             except KeyError:
+IE_TRACE:                     19:12:55.025882 line       291                 if instance:
+IE_TRACE:                     19:12:55.025900 line       295                     current = None
+IE_TRACE:                     New var:....... current = None
+IE_TRACE:                     19:12:55.025917 line       296         return current
+IE_TRACE:                     19:12:55.025941 return     296         return current
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 19:12:55.025967 line       357                 self.make_current()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f8b620>
+IE_TRACE:                     19:12:55.025986 call       210     def make_current(self):
+IE_TRACE:                     19:12:55.026011 line       211         if not self.is_current:
+IE_TRACE:                     19:12:55.026027 line       212             try:
+IE_TRACE:                     19:12:55.026042 line       213                 self.old_asyncio = asyncio.get_event_loop()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     19:12:55.026223 line       216             self.is_current = True
+IE_TRACE:                     19:12:55.026243 line       217         asyncio.set_event_loop(self.asyncio_loop)
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     19:12:55.026599 return     217         asyncio.set_event_loop(self.asyncio_loop)
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 19:12:55.026624 return     357                 self.make_current()
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.026652 return      42         super(BaseAsyncIOLoop, self).initialize(**kwargs)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         19:12:55.026683 return     198             super(AsyncIOLoop, self).initialize(loop, **kwargs)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     19:12:55.026709 line       313         return instance
+IE_TRACE:     19:12:55.026739 return     313         return instance
+IE_TRACE:     Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f8b620>
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: New var:....... loop = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f8b620>
+IE_TRACE: 19:12:55.026770 line       149             loop.close()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f8b620>
+IE_TRACE:     Starting var:.. all_fds = False
+IE_TRACE:     Starting var:.. __class__ = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     19:12:55.026803 call       205     def close(self, all_fds=False):
+IE_TRACE:     19:12:55.026839 line       206         if self.is_current:
+IE_TRACE:     19:12:55.026855 line       207             self.clear_current()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         19:12:55.026874 call       322     def clear_current():
+IE_TRACE:         19:12:55.026893 line       330         old = IOLoop.current(instance=False)
+IE_TRACE:             Starting var:.. instance = False
+IE_TRACE:             19:12:55.026906 call       255     def current(instance=True):
+IE_TRACE:             19:12:55.026928 line       275         if asyncio is None:
+IE_TRACE:             19:12:55.026942 line       282             try:
+IE_TRACE:             19:12:55.026957 line       283                 loop = asyncio.get_event_loop()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:             19:12:55.027121 line       288             try:
+IE_TRACE:             19:12:55.027149 line       289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             19:12:55.027236 return     289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:             Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f8b620>
+IE_TRACE:         New var:....... old = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f8b620>
+IE_TRACE:         19:12:55.027263 line       331         if old is not None:
+IE_TRACE:         19:12:55.027281 line       332             old._clear_current_hook()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f8b620>
+IE_TRACE:             19:12:55.027295 call       219     def _clear_current_hook(self):
+IE_TRACE:             19:12:55.027318 line       220         if self.is_current:
+IE_TRACE:             19:12:55.027331 line       221             asyncio.set_event_loop(self.old_asyncio)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.027660 line       222             self.is_current = False
+IE_TRACE:             19:12:55.027678 return     222             self.is_current = False
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         19:12:55.027697 line       333         if asyncio is None:
+IE_TRACE:         19:12:55.027714 return     333         if asyncio is None:
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:     19:12:55.027732 line       208         super(AsyncIOLoop, self).close(all_fds=all_fds)
+IE_TRACE:         Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f8b620>
+IE_TRACE:         Starting var:.. all_fds = False
+IE_TRACE:         19:12:55.027755 call        44     def close(self, all_fds=False):
+IE_TRACE:         19:12:55.027780 line        45         self.closing = True
+IE_TRACE:         19:12:55.027796 line        46         for fd in list(self.handlers):
+IE_TRACE:         19:12:55.027812 line        51         self.asyncio_loop.close()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         19:12:55.030663 return      51         self.asyncio_loop.close()
+IE_TRACE:         Return value:.. None
+IE_TRACE:     19:12:55.030690 return     208         super(AsyncIOLoop, self).close(all_fds=all_fds)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: 19:12:55.030714 line       146         for i in range(10):
+IE_TRACE: Modified var:.. i = 1
+IE_TRACE: 19:12:55.030740 line       148             loop = AsyncIOLoop()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     Starting var:.. args = ()
+IE_TRACE:     Starting var:.. kwargs = {}
+IE_TRACE:     Starting var:.. __class__ = <class 'tornado.util.Configurable'>
+IE_TRACE:     19:12:55.030765 call       295     def __new__(cls, *args, **kwargs):
+IE_TRACE:     19:12:55.030808 line       296         base = cls.configurable_base()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.030828 call       344     def configurable_base(cls):
+IE_TRACE:         19:12:55.030853 line       345         return IOLoop
+IE_TRACE:         19:12:55.030866 return     345         return IOLoop
+IE_TRACE:         Return value:.. <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     New var:....... base = <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     19:12:55.030885 line       297         init_kwargs = {}
+IE_TRACE:     New var:....... init_kwargs = {}
+IE_TRACE:     19:12:55.030915 line       298         if cls is base:
+IE_TRACE:     19:12:55.030940 line       303             impl = cls
+IE_TRACE:     New var:....... impl = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     19:12:55.030961 line       304         init_kwargs.update(kwargs)
+IE_TRACE:     19:12:55.030987 line       305         if impl.configurable_base() is not base:
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.031009 call       344     def configurable_base(cls):
+IE_TRACE:         19:12:55.031032 line       345         return IOLoop
+IE_TRACE:         19:12:55.031045 return     345         return IOLoop
+IE_TRACE:         Return value:.. <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     19:12:55.031064 line       308         instance = super(Configurable, cls).__new__(impl)
+IE_TRACE:     New var:....... instance = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabc50>
+IE_TRACE:     19:12:55.031090 line       312         instance.initialize(*args, **init_kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabc50>
+IE_TRACE:         Starting var:.. kwargs = {}
+IE_TRACE:         Starting var:.. __class__ = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.031119 call       194     def initialize(self, **kwargs):
+IE_TRACE:         19:12:55.031157 line       195         self.is_current = False
+IE_TRACE:         19:12:55.031174 line       196         loop = asyncio.new_event_loop()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:         19:12:55.036121 line       197         try:
+IE_TRACE:         19:12:55.036168 line       198             super(AsyncIOLoop, self).initialize(loop, **kwargs)
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabc50>
+IE_TRACE:             Starting var:.. asyncio_loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             Starting var:.. __class__ = <class 'tornado.platform.asyncio.BaseAsyncIOLoop'>
+IE_TRACE:             19:12:55.036199 call        33     def initialize(self, asyncio_loop, **kwargs):
+IE_TRACE:             19:12:55.036241 line        34         self.asyncio_loop = asyncio_loop
+IE_TRACE:             19:12:55.036261 line        36         self.handlers = {}
+IE_TRACE:             19:12:55.036280 line        38         self.readers = set()
+IE_TRACE:             19:12:55.036299 line        39         self.writers = set()
+IE_TRACE:             19:12:55.036318 line        40         self.closing = False
+IE_TRACE:             19:12:55.036336 line        41         IOLoop._ioloop_for_asyncio[asyncio_loop] = self
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.036438 line        42         super(BaseAsyncIOLoop, self).initialize(**kwargs)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabc50>
+IE_TRACE:                 Starting var:.. make_current = None
+IE_TRACE:                 19:12:55.036463 call       354     def initialize(self, make_current=None):
+IE_TRACE:                 19:12:55.036494 line       355         if make_current is None:
+IE_TRACE:                 19:12:55.036513 line       356             if IOLoop.current(instance=False) is None:
+IE_TRACE:                     Starting var:.. instance = False
+IE_TRACE:                     19:12:55.036538 call       255     def current(instance=True):
+IE_TRACE:                     19:12:55.036562 line       275         if asyncio is None:
+IE_TRACE:                     19:12:55.036579 line       282             try:
+IE_TRACE:                     19:12:55.036594 line       283                 loop = asyncio.get_event_loop()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                     New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:                     19:12:55.036778 line       288             try:
+IE_TRACE:                     19:12:55.036805 line       289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                     19:12:55.036943 exception  289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                     Exception:..... KeyError: <weakref at 0x72e0d0ee93f0; to '_UnixSelectorEventLoop' at 0x72e0d0f8bd10>
+IE_TRACE:                     19:12:55.036987 line       290             except KeyError:
+IE_TRACE:                     19:12:55.037007 line       291                 if instance:
+IE_TRACE:                     19:12:55.037025 line       295                     current = None
+IE_TRACE:                     New var:....... current = None
+IE_TRACE:                     19:12:55.037043 line       296         return current
+IE_TRACE:                     19:12:55.037067 return     296         return current
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 19:12:55.037093 line       357                 self.make_current()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabc50>
+IE_TRACE:                     19:12:55.037112 call       210     def make_current(self):
+IE_TRACE:                     19:12:55.037141 line       211         if not self.is_current:
+IE_TRACE:                     19:12:55.037158 line       212             try:
+IE_TRACE:                     19:12:55.037172 line       213                 self.old_asyncio = asyncio.get_event_loop()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     19:12:55.037348 line       216             self.is_current = True
+IE_TRACE:                     19:12:55.037368 line       217         asyncio.set_event_loop(self.asyncio_loop)
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     19:12:55.037728 return     217         asyncio.set_event_loop(self.asyncio_loop)
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 19:12:55.037753 return     357                 self.make_current()
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.037780 return      42         super(BaseAsyncIOLoop, self).initialize(**kwargs)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         19:12:55.037812 return     198             super(AsyncIOLoop, self).initialize(loop, **kwargs)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     19:12:55.037838 line       313         return instance
+IE_TRACE:     19:12:55.037869 return     313         return instance
+IE_TRACE:     Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabc50>
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: Modified var:.. loop = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabc50>
+IE_TRACE: 19:12:55.037899 line       149             loop.close()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabc50>
+IE_TRACE:     Starting var:.. all_fds = False
+IE_TRACE:     Starting var:.. __class__ = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     19:12:55.037933 call       205     def close(self, all_fds=False):
+IE_TRACE:     19:12:55.037968 line       206         if self.is_current:
+IE_TRACE:     19:12:55.037984 line       207             self.clear_current()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         19:12:55.038001 call       322     def clear_current():
+IE_TRACE:         19:12:55.038020 line       330         old = IOLoop.current(instance=False)
+IE_TRACE:             Starting var:.. instance = False
+IE_TRACE:             19:12:55.038033 call       255     def current(instance=True):
+IE_TRACE:             19:12:55.038054 line       275         if asyncio is None:
+IE_TRACE:             19:12:55.038069 line       282             try:
+IE_TRACE:             19:12:55.038083 line       283                 loop = asyncio.get_event_loop()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:             19:12:55.038250 line       288             try:
+IE_TRACE:             19:12:55.038276 line       289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             19:12:55.038362 return     289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:             Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabc50>
+IE_TRACE:         New var:....... old = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabc50>
+IE_TRACE:         19:12:55.038388 line       331         if old is not None:
+IE_TRACE:         19:12:55.038405 line       332             old._clear_current_hook()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabc50>
+IE_TRACE:             19:12:55.038419 call       219     def _clear_current_hook(self):
+IE_TRACE:             19:12:55.038441 line       220         if self.is_current:
+IE_TRACE:             19:12:55.038454 line       221             asyncio.set_event_loop(self.old_asyncio)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.038781 line       222             self.is_current = False
+IE_TRACE:             19:12:55.038799 return     222             self.is_current = False
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         19:12:55.038818 line       333         if asyncio is None:
+IE_TRACE:         19:12:55.038835 return     333         if asyncio is None:
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:     19:12:55.038854 line       208         super(AsyncIOLoop, self).close(all_fds=all_fds)
+IE_TRACE:         Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabc50>
+IE_TRACE:         Starting var:.. all_fds = False
+IE_TRACE:         19:12:55.038875 call        44     def close(self, all_fds=False):
+IE_TRACE:         19:12:55.038901 line        45         self.closing = True
+IE_TRACE:         19:12:55.038917 line        46         for fd in list(self.handlers):
+IE_TRACE:         19:12:55.038932 line        51         self.asyncio_loop.close()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         19:12:55.041741 return      51         self.asyncio_loop.close()
+IE_TRACE:         Return value:.. None
+IE_TRACE:     19:12:55.041769 return     208         super(AsyncIOLoop, self).close(all_fds=all_fds)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: 19:12:55.041791 line       146         for i in range(10):
+IE_TRACE: Modified var:.. i = 2
+IE_TRACE: 19:12:55.041816 line       148             loop = AsyncIOLoop()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     Starting var:.. args = ()
+IE_TRACE:     Starting var:.. kwargs = {}
+IE_TRACE:     Starting var:.. __class__ = <class 'tornado.util.Configurable'>
+IE_TRACE:     19:12:55.041841 call       295     def __new__(cls, *args, **kwargs):
+IE_TRACE:     19:12:55.041882 line       296         base = cls.configurable_base()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.041903 call       344     def configurable_base(cls):
+IE_TRACE:         19:12:55.041927 line       345         return IOLoop
+IE_TRACE:         19:12:55.041940 return     345         return IOLoop
+IE_TRACE:         Return value:.. <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     New var:....... base = <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     19:12:55.041959 line       297         init_kwargs = {}
+IE_TRACE:     New var:....... init_kwargs = {}
+IE_TRACE:     19:12:55.041988 line       298         if cls is base:
+IE_TRACE:     19:12:55.042014 line       303             impl = cls
+IE_TRACE:     New var:....... impl = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     19:12:55.042035 line       304         init_kwargs.update(kwargs)
+IE_TRACE:     19:12:55.042061 line       305         if impl.configurable_base() is not base:
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.042083 call       344     def configurable_base(cls):
+IE_TRACE:         19:12:55.042106 line       345         return IOLoop
+IE_TRACE:         19:12:55.042119 return     345         return IOLoop
+IE_TRACE:         Return value:.. <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     19:12:55.042140 line       308         instance = super(Configurable, cls).__new__(impl)
+IE_TRACE:     New var:....... instance = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabbf0>
+IE_TRACE:     19:12:55.042166 line       312         instance.initialize(*args, **init_kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabbf0>
+IE_TRACE:         Starting var:.. kwargs = {}
+IE_TRACE:         Starting var:.. __class__ = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.042195 call       194     def initialize(self, **kwargs):
+IE_TRACE:         19:12:55.042230 line       195         self.is_current = False
+IE_TRACE:         19:12:55.042247 line       196         loop = asyncio.new_event_loop()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:         19:12:55.047195 line       197         try:
+IE_TRACE:         19:12:55.047225 line       198             super(AsyncIOLoop, self).initialize(loop, **kwargs)
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabbf0>
+IE_TRACE:             Starting var:.. asyncio_loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             Starting var:.. __class__ = <class 'tornado.platform.asyncio.BaseAsyncIOLoop'>
+IE_TRACE:             19:12:55.047246 call        33     def initialize(self, asyncio_loop, **kwargs):
+IE_TRACE:             19:12:55.047282 line        34         self.asyncio_loop = asyncio_loop
+IE_TRACE:             19:12:55.047301 line        36         self.handlers = {}
+IE_TRACE:             19:12:55.047319 line        38         self.readers = set()
+IE_TRACE:             19:12:55.047338 line        39         self.writers = set()
+IE_TRACE:             19:12:55.047356 line        40         self.closing = False
+IE_TRACE:             19:12:55.047374 line        41         IOLoop._ioloop_for_asyncio[asyncio_loop] = self
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.047472 line        42         super(BaseAsyncIOLoop, self).initialize(**kwargs)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabbf0>
+IE_TRACE:                 Starting var:.. make_current = None
+IE_TRACE:                 19:12:55.047497 call       354     def initialize(self, make_current=None):
+IE_TRACE:                 19:12:55.047528 line       355         if make_current is None:
+IE_TRACE:                 19:12:55.047544 line       356             if IOLoop.current(instance=False) is None:
+IE_TRACE:                     Starting var:.. instance = False
+IE_TRACE:                     19:12:55.047561 call       255     def current(instance=True):
+IE_TRACE:                     19:12:55.047585 line       275         if asyncio is None:
+IE_TRACE:                     19:12:55.047602 line       282             try:
+IE_TRACE:                     19:12:55.047617 line       283                 loop = asyncio.get_event_loop()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                     New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:                     19:12:55.047797 line       288             try:
+IE_TRACE:                     19:12:55.047824 line       289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                     19:12:55.047946 exception  289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                     Exception:..... KeyError: <weakref at 0x72e0d0ee9940; to '_UnixSelectorEventLoop' at 0x72e0d0f8bd10>
+IE_TRACE:                     19:12:55.047984 line       290             except KeyError:
+IE_TRACE:                     19:12:55.048003 line       291                 if instance:
+IE_TRACE:                     19:12:55.048021 line       295                     current = None
+IE_TRACE:                     New var:....... current = None
+IE_TRACE:                     19:12:55.048038 line       296         return current
+IE_TRACE:                     19:12:55.048062 return     296         return current
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 19:12:55.048088 line       357                 self.make_current()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabbf0>
+IE_TRACE:                     19:12:55.048106 call       210     def make_current(self):
+IE_TRACE:                     19:12:55.048131 line       211         if not self.is_current:
+IE_TRACE:                     19:12:55.048150 line       212             try:
+IE_TRACE:                     19:12:55.048164 line       213                 self.old_asyncio = asyncio.get_event_loop()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     19:12:55.048340 line       216             self.is_current = True
+IE_TRACE:                     19:12:55.048359 line       217         asyncio.set_event_loop(self.asyncio_loop)
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     19:12:55.048713 return     217         asyncio.set_event_loop(self.asyncio_loop)
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 19:12:55.048737 return     357                 self.make_current()
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.048764 return      42         super(BaseAsyncIOLoop, self).initialize(**kwargs)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         19:12:55.048794 return     198             super(AsyncIOLoop, self).initialize(loop, **kwargs)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     19:12:55.048819 line       313         return instance
+IE_TRACE:     19:12:55.048850 return     313         return instance
+IE_TRACE:     Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabbf0>
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: Modified var:.. loop = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabbf0>
+IE_TRACE: 19:12:55.048881 line       149             loop.close()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabbf0>
+IE_TRACE:     Starting var:.. all_fds = False
+IE_TRACE:     Starting var:.. __class__ = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     19:12:55.048914 call       205     def close(self, all_fds=False):
+IE_TRACE:     19:12:55.048949 line       206         if self.is_current:
+IE_TRACE:     19:12:55.048966 line       207             self.clear_current()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         19:12:55.048983 call       322     def clear_current():
+IE_TRACE:         19:12:55.049002 line       330         old = IOLoop.current(instance=False)
+IE_TRACE:             Starting var:.. instance = False
+IE_TRACE:             19:12:55.049015 call       255     def current(instance=True):
+IE_TRACE:             19:12:55.049036 line       275         if asyncio is None:
+IE_TRACE:             19:12:55.049051 line       282             try:
+IE_TRACE:             19:12:55.049065 line       283                 loop = asyncio.get_event_loop()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:             19:12:55.049234 line       288             try:
+IE_TRACE:             19:12:55.049259 line       289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             19:12:55.049345 return     289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:             Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabbf0>
+IE_TRACE:         New var:....... old = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabbf0>
+IE_TRACE:         19:12:55.049371 line       331         if old is not None:
+IE_TRACE:         19:12:55.049388 line       332             old._clear_current_hook()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabbf0>
+IE_TRACE:             19:12:55.049401 call       219     def _clear_current_hook(self):
+IE_TRACE:             19:12:55.049424 line       220         if self.is_current:
+IE_TRACE:             19:12:55.049436 line       221             asyncio.set_event_loop(self.old_asyncio)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.049762 line       222             self.is_current = False
+IE_TRACE:             19:12:55.049780 return     222             self.is_current = False
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         19:12:55.049799 line       333         if asyncio is None:
+IE_TRACE:         19:12:55.049816 return     333         if asyncio is None:
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:     19:12:55.049834 line       208         super(AsyncIOLoop, self).close(all_fds=all_fds)
+IE_TRACE:         Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabbf0>
+IE_TRACE:         Starting var:.. all_fds = False
+IE_TRACE:         19:12:55.049856 call        44     def close(self, all_fds=False):
+IE_TRACE:         19:12:55.049881 line        45         self.closing = True
+IE_TRACE:         19:12:55.049896 line        46         for fd in list(self.handlers):
+IE_TRACE:         19:12:55.049912 line        51         self.asyncio_loop.close()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         19:12:55.052791 return      51         self.asyncio_loop.close()
+IE_TRACE:         Return value:.. None
+IE_TRACE:     19:12:55.052820 return     208         super(AsyncIOLoop, self).close(all_fds=all_fds)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: 19:12:55.052843 line       146         for i in range(10):
+IE_TRACE: Modified var:.. i = 3
+IE_TRACE: 19:12:55.052869 line       148             loop = AsyncIOLoop()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     Starting var:.. args = ()
+IE_TRACE:     Starting var:.. kwargs = {}
+IE_TRACE:     Starting var:.. __class__ = <class 'tornado.util.Configurable'>
+IE_TRACE:     19:12:55.052894 call       295     def __new__(cls, *args, **kwargs):
+IE_TRACE:     19:12:55.052937 line       296         base = cls.configurable_base()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.052956 call       344     def configurable_base(cls):
+IE_TRACE:         19:12:55.052981 line       345         return IOLoop
+IE_TRACE:         19:12:55.052994 return     345         return IOLoop
+IE_TRACE:         Return value:.. <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     New var:....... base = <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     19:12:55.053014 line       297         init_kwargs = {}
+IE_TRACE:     New var:....... init_kwargs = {}
+IE_TRACE:     19:12:55.053043 line       298         if cls is base:
+IE_TRACE:     19:12:55.053069 line       303             impl = cls
+IE_TRACE:     New var:....... impl = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     19:12:55.053092 line       304         init_kwargs.update(kwargs)
+IE_TRACE:     19:12:55.053122 line       305         if impl.configurable_base() is not base:
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.053149 call       344     def configurable_base(cls):
+IE_TRACE:         19:12:55.053173 line       345         return IOLoop
+IE_TRACE:         19:12:55.053186 return     345         return IOLoop
+IE_TRACE:         Return value:.. <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     19:12:55.053205 line       308         instance = super(Configurable, cls).__new__(impl)
+IE_TRACE:     New var:....... instance = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f8bd40>
+IE_TRACE:     19:12:55.053232 line       312         instance.initialize(*args, **init_kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f8bd40>
+IE_TRACE:         Starting var:.. kwargs = {}
+IE_TRACE:         Starting var:.. __class__ = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.053261 call       194     def initialize(self, **kwargs):
+IE_TRACE:         19:12:55.053297 line       195         self.is_current = False
+IE_TRACE:         19:12:55.053314 line       196         loop = asyncio.new_event_loop()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:         19:12:55.058254 line       197         try:
+IE_TRACE:         19:12:55.058283 line       198             super(AsyncIOLoop, self).initialize(loop, **kwargs)
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f8bd40>
+IE_TRACE:             Starting var:.. asyncio_loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             Starting var:.. __class__ = <class 'tornado.platform.asyncio.BaseAsyncIOLoop'>
+IE_TRACE:             19:12:55.058303 call        33     def initialize(self, asyncio_loop, **kwargs):
+IE_TRACE:             19:12:55.058340 line        34         self.asyncio_loop = asyncio_loop
+IE_TRACE:             19:12:55.058358 line        36         self.handlers = {}
+IE_TRACE:             19:12:55.058376 line        38         self.readers = set()
+IE_TRACE:             19:12:55.058395 line        39         self.writers = set()
+IE_TRACE:             19:12:55.058413 line        40         self.closing = False
+IE_TRACE:             19:12:55.058430 line        41         IOLoop._ioloop_for_asyncio[asyncio_loop] = self
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.058529 line        42         super(BaseAsyncIOLoop, self).initialize(**kwargs)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f8bd40>
+IE_TRACE:                 Starting var:.. make_current = None
+IE_TRACE:                 19:12:55.058554 call       354     def initialize(self, make_current=None):
+IE_TRACE:                 19:12:55.058584 line       355         if make_current is None:
+IE_TRACE:                 19:12:55.058600 line       356             if IOLoop.current(instance=False) is None:
+IE_TRACE:                     Starting var:.. instance = False
+IE_TRACE:                     19:12:55.058618 call       255     def current(instance=True):
+IE_TRACE:                     19:12:55.058641 line       275         if asyncio is None:
+IE_TRACE:                     19:12:55.058658 line       282             try:
+IE_TRACE:                     19:12:55.058673 line       283                 loop = asyncio.get_event_loop()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                     New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:                     19:12:55.058853 line       288             try:
+IE_TRACE:                     19:12:55.058880 line       289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                     19:12:55.059003 exception  289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                     Exception:..... KeyError: <weakref at 0x72e0d0ee9cb0; to '_UnixSelectorEventLoop' at 0x72e0d0f8bd10>
+IE_TRACE:                     19:12:55.059040 line       290             except KeyError:
+IE_TRACE:                     19:12:55.059058 line       291                 if instance:
+IE_TRACE:                     19:12:55.059075 line       295                     current = None
+IE_TRACE:                     New var:....... current = None
+IE_TRACE:                     19:12:55.059093 line       296         return current
+IE_TRACE:                     19:12:55.059116 return     296         return current
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 19:12:55.059144 line       357                 self.make_current()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f8bd40>
+IE_TRACE:                     19:12:55.059162 call       210     def make_current(self):
+IE_TRACE:                     19:12:55.059187 line       211         if not self.is_current:
+IE_TRACE:                     19:12:55.059202 line       212             try:
+IE_TRACE:                     19:12:55.059216 line       213                 self.old_asyncio = asyncio.get_event_loop()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     19:12:55.059389 line       216             self.is_current = True
+IE_TRACE:                     19:12:55.059409 line       217         asyncio.set_event_loop(self.asyncio_loop)
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     19:12:55.059767 return     217         asyncio.set_event_loop(self.asyncio_loop)
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 19:12:55.059791 return     357                 self.make_current()
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.059818 return      42         super(BaseAsyncIOLoop, self).initialize(**kwargs)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         19:12:55.059848 return     198             super(AsyncIOLoop, self).initialize(loop, **kwargs)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     19:12:55.059873 line       313         return instance
+IE_TRACE:     19:12:55.059904 return     313         return instance
+IE_TRACE:     Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f8bd40>
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: Modified var:.. loop = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f8bd40>
+IE_TRACE: 19:12:55.059935 line       149             loop.close()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f8bd40>
+IE_TRACE:     Starting var:.. all_fds = False
+IE_TRACE:     Starting var:.. __class__ = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     19:12:55.059968 call       205     def close(self, all_fds=False):
+IE_TRACE:     19:12:55.060005 line       206         if self.is_current:
+IE_TRACE:     19:12:55.060021 line       207             self.clear_current()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         19:12:55.060038 call       322     def clear_current():
+IE_TRACE:         19:12:55.060057 line       330         old = IOLoop.current(instance=False)
+IE_TRACE:             Starting var:.. instance = False
+IE_TRACE:             19:12:55.060070 call       255     def current(instance=True):
+IE_TRACE:             19:12:55.060092 line       275         if asyncio is None:
+IE_TRACE:             19:12:55.060107 line       282             try:
+IE_TRACE:             19:12:55.060121 line       283                 loop = asyncio.get_event_loop()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:             19:12:55.060289 line       288             try:
+IE_TRACE:             19:12:55.060315 line       289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             19:12:55.060401 return     289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:             Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f8bd40>
+IE_TRACE:         New var:....... old = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f8bd40>
+IE_TRACE:         19:12:55.060428 line       331         if old is not None:
+IE_TRACE:         19:12:55.060445 line       332             old._clear_current_hook()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f8bd40>
+IE_TRACE:             19:12:55.060458 call       219     def _clear_current_hook(self):
+IE_TRACE:             19:12:55.060480 line       220         if self.is_current:
+IE_TRACE:             19:12:55.060493 line       221             asyncio.set_event_loop(self.old_asyncio)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.060819 line       222             self.is_current = False
+IE_TRACE:             19:12:55.060837 return     222             self.is_current = False
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         19:12:55.060856 line       333         if asyncio is None:
+IE_TRACE:         19:12:55.060873 return     333         if asyncio is None:
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:     19:12:55.060892 line       208         super(AsyncIOLoop, self).close(all_fds=all_fds)
+IE_TRACE:         Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0f8bd40>
+IE_TRACE:         Starting var:.. all_fds = False
+IE_TRACE:         19:12:55.060914 call        44     def close(self, all_fds=False):
+IE_TRACE:         19:12:55.060939 line        45         self.closing = True
+IE_TRACE:         19:12:55.060954 line        46         for fd in list(self.handlers):
+IE_TRACE:         19:12:55.060970 line        51         self.asyncio_loop.close()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         19:12:55.063783 return      51         self.asyncio_loop.close()
+IE_TRACE:         Return value:.. None
+IE_TRACE:     19:12:55.063811 return     208         super(AsyncIOLoop, self).close(all_fds=all_fds)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: 19:12:55.063833 line       146         for i in range(10):
+IE_TRACE: Modified var:.. i = 4
+IE_TRACE: 19:12:55.063858 line       148             loop = AsyncIOLoop()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     Starting var:.. args = ()
+IE_TRACE:     Starting var:.. kwargs = {}
+IE_TRACE:     Starting var:.. __class__ = <class 'tornado.util.Configurable'>
+IE_TRACE:     19:12:55.063882 call       295     def __new__(cls, *args, **kwargs):
+IE_TRACE:     19:12:55.063924 line       296         base = cls.configurable_base()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.063944 call       344     def configurable_base(cls):
+IE_TRACE:         19:12:55.063969 line       345         return IOLoop
+IE_TRACE:         19:12:55.063982 return     345         return IOLoop
+IE_TRACE:         Return value:.. <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     New var:....... base = <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     19:12:55.064001 line       297         init_kwargs = {}
+IE_TRACE:     New var:....... init_kwargs = {}
+IE_TRACE:     19:12:55.064031 line       298         if cls is base:
+IE_TRACE:     19:12:55.064057 line       303             impl = cls
+IE_TRACE:     New var:....... impl = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     19:12:55.064077 line       304         init_kwargs.update(kwargs)
+IE_TRACE:     19:12:55.064103 line       305         if impl.configurable_base() is not base:
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.064127 call       344     def configurable_base(cls):
+IE_TRACE:         19:12:55.064154 line       345         return IOLoop
+IE_TRACE:         19:12:55.064167 return     345         return IOLoop
+IE_TRACE:         Return value:.. <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     19:12:55.064186 line       308         instance = super(Configurable, cls).__new__(impl)
+IE_TRACE:     New var:....... instance = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fab530>
+IE_TRACE:     19:12:55.064213 line       312         instance.initialize(*args, **init_kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fab530>
+IE_TRACE:         Starting var:.. kwargs = {}
+IE_TRACE:         Starting var:.. __class__ = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.064241 call       194     def initialize(self, **kwargs):
+IE_TRACE:         19:12:55.064276 line       195         self.is_current = False
+IE_TRACE:         19:12:55.064292 line       196         loop = asyncio.new_event_loop()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:         19:12:55.069226 line       197         try:
+IE_TRACE:         19:12:55.069256 line       198             super(AsyncIOLoop, self).initialize(loop, **kwargs)
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fab530>
+IE_TRACE:             Starting var:.. asyncio_loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             Starting var:.. __class__ = <class 'tornado.platform.asyncio.BaseAsyncIOLoop'>
+IE_TRACE:             19:12:55.069276 call        33     def initialize(self, asyncio_loop, **kwargs):
+IE_TRACE:             19:12:55.069316 line        34         self.asyncio_loop = asyncio_loop
+IE_TRACE:             19:12:55.069335 line        36         self.handlers = {}
+IE_TRACE:             19:12:55.069354 line        38         self.readers = set()
+IE_TRACE:             19:12:55.069373 line        39         self.writers = set()
+IE_TRACE:             19:12:55.069392 line        40         self.closing = False
+IE_TRACE:             19:12:55.069414 line        41         IOLoop._ioloop_for_asyncio[asyncio_loop] = self
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.069528 line        42         super(BaseAsyncIOLoop, self).initialize(**kwargs)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fab530>
+IE_TRACE:                 Starting var:.. make_current = None
+IE_TRACE:                 19:12:55.069554 call       354     def initialize(self, make_current=None):
+IE_TRACE:                 19:12:55.069586 line       355         if make_current is None:
+IE_TRACE:                 19:12:55.069603 line       356             if IOLoop.current(instance=False) is None:
+IE_TRACE:                     Starting var:.. instance = False
+IE_TRACE:                     19:12:55.069621 call       255     def current(instance=True):
+IE_TRACE:                     19:12:55.069645 line       275         if asyncio is None:
+IE_TRACE:                     19:12:55.069661 line       282             try:
+IE_TRACE:                     19:12:55.069677 line       283                 loop = asyncio.get_event_loop()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                     New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:                     19:12:55.069865 line       288             try:
+IE_TRACE:                     19:12:55.069892 line       289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                     19:12:55.070021 exception  289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                     Exception:..... KeyError: <weakref at 0x72e0d0ee9f80; to '_UnixSelectorEventLoop' at 0x72e0d0f8bd10>
+IE_TRACE:                     19:12:55.070058 line       290             except KeyError:
+IE_TRACE:                     19:12:55.070078 line       291                 if instance:
+IE_TRACE:                     19:12:55.070096 line       295                     current = None
+IE_TRACE:                     New var:....... current = None
+IE_TRACE:                     19:12:55.070114 line       296         return current
+IE_TRACE:                     19:12:55.070143 return     296         return current
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 19:12:55.070170 line       357                 self.make_current()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fab530>
+IE_TRACE:                     19:12:55.070195 call       210     def make_current(self):
+IE_TRACE:                     19:12:55.070223 line       211         if not self.is_current:
+IE_TRACE:                     19:12:55.070238 line       212             try:
+IE_TRACE:                     19:12:55.070253 line       213                 self.old_asyncio = asyncio.get_event_loop()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     19:12:55.070429 line       216             self.is_current = True
+IE_TRACE:                     19:12:55.070449 line       217         asyncio.set_event_loop(self.asyncio_loop)
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     19:12:55.070809 return     217         asyncio.set_event_loop(self.asyncio_loop)
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 19:12:55.070834 return     357                 self.make_current()
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.070861 return      42         super(BaseAsyncIOLoop, self).initialize(**kwargs)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         19:12:55.070892 return     198             super(AsyncIOLoop, self).initialize(loop, **kwargs)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     19:12:55.070918 line       313         return instance
+IE_TRACE:     19:12:55.070949 return     313         return instance
+IE_TRACE:     Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fab530>
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: Modified var:.. loop = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fab530>
+IE_TRACE: 19:12:55.070979 line       149             loop.close()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fab530>
+IE_TRACE:     Starting var:.. all_fds = False
+IE_TRACE:     Starting var:.. __class__ = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     19:12:55.071012 call       205     def close(self, all_fds=False):
+IE_TRACE:     19:12:55.071047 line       206         if self.is_current:
+IE_TRACE:     19:12:55.071064 line       207             self.clear_current()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         19:12:55.071081 call       322     def clear_current():
+IE_TRACE:         19:12:55.071100 line       330         old = IOLoop.current(instance=False)
+IE_TRACE:             Starting var:.. instance = False
+IE_TRACE:             19:12:55.071114 call       255     def current(instance=True):
+IE_TRACE:             19:12:55.071137 line       275         if asyncio is None:
+IE_TRACE:             19:12:55.071152 line       282             try:
+IE_TRACE:             19:12:55.071166 line       283                 loop = asyncio.get_event_loop()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:             19:12:55.071332 line       288             try:
+IE_TRACE:             19:12:55.071357 line       289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             19:12:55.071443 return     289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:             Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fab530>
+IE_TRACE:         New var:....... old = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fab530>
+IE_TRACE:         19:12:55.071470 line       331         if old is not None:
+IE_TRACE:         19:12:55.071490 line       332             old._clear_current_hook()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fab530>
+IE_TRACE:             19:12:55.071503 call       219     def _clear_current_hook(self):
+IE_TRACE:             19:12:55.071525 line       220         if self.is_current:
+IE_TRACE:             19:12:55.071538 line       221             asyncio.set_event_loop(self.old_asyncio)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.071867 line       222             self.is_current = False
+IE_TRACE:             19:12:55.071885 return     222             self.is_current = False
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         19:12:55.071904 line       333         if asyncio is None:
+IE_TRACE:         19:12:55.071921 return     333         if asyncio is None:
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:     19:12:55.071939 line       208         super(AsyncIOLoop, self).close(all_fds=all_fds)
+IE_TRACE:         Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fab530>
+IE_TRACE:         Starting var:.. all_fds = False
+IE_TRACE:         19:12:55.071961 call        44     def close(self, all_fds=False):
+IE_TRACE:         19:12:55.071986 line        45         self.closing = True
+IE_TRACE:         19:12:55.072002 line        46         for fd in list(self.handlers):
+IE_TRACE:         19:12:55.072018 line        51         self.asyncio_loop.close()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         19:12:55.074835 return      51         self.asyncio_loop.close()
+IE_TRACE:         Return value:.. None
+IE_TRACE:     19:12:55.074863 return     208         super(AsyncIOLoop, self).close(all_fds=all_fds)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: 19:12:55.074885 line       146         for i in range(10):
+IE_TRACE: Modified var:.. i = 5
+IE_TRACE: 19:12:55.074911 line       148             loop = AsyncIOLoop()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     Starting var:.. args = ()
+IE_TRACE:     Starting var:.. kwargs = {}
+IE_TRACE:     Starting var:.. __class__ = <class 'tornado.util.Configurable'>
+IE_TRACE:     19:12:55.074936 call       295     def __new__(cls, *args, **kwargs):
+IE_TRACE:     19:12:55.074979 line       296         base = cls.configurable_base()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.075000 call       344     def configurable_base(cls):
+IE_TRACE:         19:12:55.075025 line       345         return IOLoop
+IE_TRACE:         19:12:55.075039 return     345         return IOLoop
+IE_TRACE:         Return value:.. <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     New var:....... base = <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     19:12:55.075059 line       297         init_kwargs = {}
+IE_TRACE:     New var:....... init_kwargs = {}
+IE_TRACE:     19:12:55.075089 line       298         if cls is base:
+IE_TRACE:     19:12:55.075115 line       303             impl = cls
+IE_TRACE:     New var:....... impl = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     19:12:55.075139 line       304         init_kwargs.update(kwargs)
+IE_TRACE:     19:12:55.075167 line       305         if impl.configurable_base() is not base:
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.075190 call       344     def configurable_base(cls):
+IE_TRACE:         19:12:55.075213 line       345         return IOLoop
+IE_TRACE:         19:12:55.075226 return     345         return IOLoop
+IE_TRACE:         Return value:.. <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     19:12:55.075244 line       308         instance = super(Configurable, cls).__new__(impl)
+IE_TRACE:     New var:....... instance = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabe30>
+IE_TRACE:     19:12:55.075272 line       312         instance.initialize(*args, **init_kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabe30>
+IE_TRACE:         Starting var:.. kwargs = {}
+IE_TRACE:         Starting var:.. __class__ = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.075301 call       194     def initialize(self, **kwargs):
+IE_TRACE:         19:12:55.075337 line       195         self.is_current = False
+IE_TRACE:         19:12:55.075354 line       196         loop = asyncio.new_event_loop()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:         19:12:55.080281 line       197         try:
+IE_TRACE:         19:12:55.080311 line       198             super(AsyncIOLoop, self).initialize(loop, **kwargs)
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabe30>
+IE_TRACE:             Starting var:.. asyncio_loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             Starting var:.. __class__ = <class 'tornado.platform.asyncio.BaseAsyncIOLoop'>
+IE_TRACE:             19:12:55.080331 call        33     def initialize(self, asyncio_loop, **kwargs):
+IE_TRACE:             19:12:55.080368 line        34         self.asyncio_loop = asyncio_loop
+IE_TRACE:             19:12:55.080387 line        36         self.handlers = {}
+IE_TRACE:             19:12:55.080406 line        38         self.readers = set()
+IE_TRACE:             19:12:55.080424 line        39         self.writers = set()
+IE_TRACE:             19:12:55.080442 line        40         self.closing = False
+IE_TRACE:             19:12:55.080460 line        41         IOLoop._ioloop_for_asyncio[asyncio_loop] = self
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.080559 line        42         super(BaseAsyncIOLoop, self).initialize(**kwargs)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabe30>
+IE_TRACE:                 Starting var:.. make_current = None
+IE_TRACE:                 19:12:55.080584 call       354     def initialize(self, make_current=None):
+IE_TRACE:                 19:12:55.080614 line       355         if make_current is None:
+IE_TRACE:                 19:12:55.080631 line       356             if IOLoop.current(instance=False) is None:
+IE_TRACE:                     Starting var:.. instance = False
+IE_TRACE:                     19:12:55.080648 call       255     def current(instance=True):
+IE_TRACE:                     19:12:55.080672 line       275         if asyncio is None:
+IE_TRACE:                     19:12:55.080688 line       282             try:
+IE_TRACE:                     19:12:55.080704 line       283                 loop = asyncio.get_event_loop()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                     New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:                     19:12:55.080886 line       288             try:
+IE_TRACE:                     19:12:55.080913 line       289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                     19:12:55.081037 exception  289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                     Exception:..... KeyError: <weakref at 0x72e0d0ee9f30; to '_UnixSelectorEventLoop' at 0x72e0d0f8bd10>
+IE_TRACE:                     19:12:55.081076 line       290             except KeyError:
+IE_TRACE:                     19:12:55.081095 line       291                 if instance:
+IE_TRACE:                     19:12:55.081114 line       295                     current = None
+IE_TRACE:                     New var:....... current = None
+IE_TRACE:                     19:12:55.081134 line       296         return current
+IE_TRACE:                     19:12:55.081158 return     296         return current
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 19:12:55.081184 line       357                 self.make_current()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabe30>
+IE_TRACE:                     19:12:55.081202 call       210     def make_current(self):
+IE_TRACE:                     19:12:55.081227 line       211         if not self.is_current:
+IE_TRACE:                     19:12:55.081242 line       212             try:
+IE_TRACE:                     19:12:55.081256 line       213                 self.old_asyncio = asyncio.get_event_loop()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     19:12:55.081431 line       216             self.is_current = True
+IE_TRACE:                     19:12:55.081450 line       217         asyncio.set_event_loop(self.asyncio_loop)
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     19:12:55.081804 return     217         asyncio.set_event_loop(self.asyncio_loop)
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 19:12:55.081829 return     357                 self.make_current()
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.081856 return      42         super(BaseAsyncIOLoop, self).initialize(**kwargs)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         19:12:55.081886 return     198             super(AsyncIOLoop, self).initialize(loop, **kwargs)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     19:12:55.081912 line       313         return instance
+IE_TRACE:     19:12:55.081942 return     313         return instance
+IE_TRACE:     Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabe30>
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: Modified var:.. loop = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabe30>
+IE_TRACE: 19:12:55.081974 line       149             loop.close()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabe30>
+IE_TRACE:     Starting var:.. all_fds = False
+IE_TRACE:     Starting var:.. __class__ = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     19:12:55.082006 call       205     def close(self, all_fds=False):
+IE_TRACE:     19:12:55.082041 line       206         if self.is_current:
+IE_TRACE:     19:12:55.082057 line       207             self.clear_current()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         19:12:55.082074 call       322     def clear_current():
+IE_TRACE:         19:12:55.082093 line       330         old = IOLoop.current(instance=False)
+IE_TRACE:             Starting var:.. instance = False
+IE_TRACE:             19:12:55.082106 call       255     def current(instance=True):
+IE_TRACE:             19:12:55.082131 line       275         if asyncio is None:
+IE_TRACE:             19:12:55.082145 line       282             try:
+IE_TRACE:             19:12:55.082159 line       283                 loop = asyncio.get_event_loop()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:             19:12:55.082322 line       288             try:
+IE_TRACE:             19:12:55.082347 line       289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             19:12:55.082432 return     289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:             Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabe30>
+IE_TRACE:         New var:....... old = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabe30>
+IE_TRACE:         19:12:55.082458 line       331         if old is not None:
+IE_TRACE:         19:12:55.082475 line       332             old._clear_current_hook()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabe30>
+IE_TRACE:             19:12:55.082488 call       219     def _clear_current_hook(self):
+IE_TRACE:             19:12:55.082510 line       220         if self.is_current:
+IE_TRACE:             19:12:55.082523 line       221             asyncio.set_event_loop(self.old_asyncio)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.082852 line       222             self.is_current = False
+IE_TRACE:             19:12:55.082869 return     222             self.is_current = False
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         19:12:55.082887 line       333         if asyncio is None:
+IE_TRACE:         19:12:55.082905 return     333         if asyncio is None:
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:     19:12:55.082922 line       208         super(AsyncIOLoop, self).close(all_fds=all_fds)
+IE_TRACE:         Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0fabe30>
+IE_TRACE:         Starting var:.. all_fds = False
+IE_TRACE:         19:12:55.082944 call        44     def close(self, all_fds=False):
+IE_TRACE:         19:12:55.082968 line        45         self.closing = True
+IE_TRACE:         19:12:55.082984 line        46         for fd in list(self.handlers):
+IE_TRACE:         19:12:55.082999 line        51         self.asyncio_loop.close()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         19:12:55.085806 return      51         self.asyncio_loop.close()
+IE_TRACE:         Return value:.. None
+IE_TRACE:     19:12:55.085833 return     208         super(AsyncIOLoop, self).close(all_fds=all_fds)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: 19:12:55.085856 line       146         for i in range(10):
+IE_TRACE: Modified var:.. i = 6
+IE_TRACE: 19:12:55.085881 line       148             loop = AsyncIOLoop()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     Starting var:.. args = ()
+IE_TRACE:     Starting var:.. kwargs = {}
+IE_TRACE:     Starting var:.. __class__ = <class 'tornado.util.Configurable'>
+IE_TRACE:     19:12:55.085906 call       295     def __new__(cls, *args, **kwargs):
+IE_TRACE:     19:12:55.085946 line       296         base = cls.configurable_base()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.085966 call       344     def configurable_base(cls):
+IE_TRACE:         19:12:55.085992 line       345         return IOLoop
+IE_TRACE:         19:12:55.086005 return     345         return IOLoop
+IE_TRACE:         Return value:.. <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     New var:....... base = <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     19:12:55.086027 line       297         init_kwargs = {}
+IE_TRACE:     New var:....... init_kwargs = {}
+IE_TRACE:     19:12:55.086066 line       298         if cls is base:
+IE_TRACE:     19:12:55.086098 line       303             impl = cls
+IE_TRACE:     New var:....... impl = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     19:12:55.086119 line       304         init_kwargs.update(kwargs)
+IE_TRACE:     19:12:55.086149 line       305         if impl.configurable_base() is not base:
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.086172 call       344     def configurable_base(cls):
+IE_TRACE:         19:12:55.086197 line       345         return IOLoop
+IE_TRACE:         19:12:55.086210 return     345         return IOLoop
+IE_TRACE:         Return value:.. <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     19:12:55.086231 line       308         instance = super(Configurable, cls).__new__(impl)
+IE_TRACE:     New var:....... instance = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec290>
+IE_TRACE:     19:12:55.086258 line       312         instance.initialize(*args, **init_kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec290>
+IE_TRACE:         Starting var:.. kwargs = {}
+IE_TRACE:         Starting var:.. __class__ = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.086288 call       194     def initialize(self, **kwargs):
+IE_TRACE:         19:12:55.086323 line       195         self.is_current = False
+IE_TRACE:         19:12:55.086340 line       196         loop = asyncio.new_event_loop()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:         19:12:55.091306 line       197         try:
+IE_TRACE:         19:12:55.091335 line       198             super(AsyncIOLoop, self).initialize(loop, **kwargs)
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec290>
+IE_TRACE:             Starting var:.. asyncio_loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             Starting var:.. __class__ = <class 'tornado.platform.asyncio.BaseAsyncIOLoop'>
+IE_TRACE:             19:12:55.091355 call        33     def initialize(self, asyncio_loop, **kwargs):
+IE_TRACE:             19:12:55.091392 line        34         self.asyncio_loop = asyncio_loop
+IE_TRACE:             19:12:55.091411 line        36         self.handlers = {}
+IE_TRACE:             19:12:55.091431 line        38         self.readers = set()
+IE_TRACE:             19:12:55.091449 line        39         self.writers = set()
+IE_TRACE:             19:12:55.091468 line        40         self.closing = False
+IE_TRACE:             19:12:55.091486 line        41         IOLoop._ioloop_for_asyncio[asyncio_loop] = self
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.091585 line        42         super(BaseAsyncIOLoop, self).initialize(**kwargs)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec290>
+IE_TRACE:                 Starting var:.. make_current = None
+IE_TRACE:                 19:12:55.091610 call       354     def initialize(self, make_current=None):
+IE_TRACE:                 19:12:55.091642 line       355         if make_current is None:
+IE_TRACE:                 19:12:55.091659 line       356             if IOLoop.current(instance=False) is None:
+IE_TRACE:                     Starting var:.. instance = False
+IE_TRACE:                     19:12:55.091677 call       255     def current(instance=True):
+IE_TRACE:                     19:12:55.091701 line       275         if asyncio is None:
+IE_TRACE:                     19:12:55.091719 line       282             try:
+IE_TRACE:                     19:12:55.091734 line       283                 loop = asyncio.get_event_loop()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                     New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:                     19:12:55.091918 line       288             try:
+IE_TRACE:                     19:12:55.091946 line       289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                     19:12:55.092070 exception  289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                     Exception:..... KeyError: <weakref at 0x72e0d0ee9bc0; to '_UnixSelectorEventLoop' at 0x72e0d0f8bd10>
+IE_TRACE:                     19:12:55.092107 line       290             except KeyError:
+IE_TRACE:                     19:12:55.092131 line       291                 if instance:
+IE_TRACE:                     19:12:55.092149 line       295                     current = None
+IE_TRACE:                     New var:....... current = None
+IE_TRACE:                     19:12:55.092166 line       296         return current
+IE_TRACE:                     19:12:55.092191 return     296         return current
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 19:12:55.092216 line       357                 self.make_current()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec290>
+IE_TRACE:                     19:12:55.092235 call       210     def make_current(self):
+IE_TRACE:                     19:12:55.092260 line       211         if not self.is_current:
+IE_TRACE:                     19:12:55.092275 line       212             try:
+IE_TRACE:                     19:12:55.092290 line       213                 self.old_asyncio = asyncio.get_event_loop()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     19:12:55.092465 line       216             self.is_current = True
+IE_TRACE:                     19:12:55.092485 line       217         asyncio.set_event_loop(self.asyncio_loop)
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     19:12:55.092842 return     217         asyncio.set_event_loop(self.asyncio_loop)
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 19:12:55.092867 return     357                 self.make_current()
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.092894 return      42         super(BaseAsyncIOLoop, self).initialize(**kwargs)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         19:12:55.092925 return     198             super(AsyncIOLoop, self).initialize(loop, **kwargs)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     19:12:55.092950 line       313         return instance
+IE_TRACE:     19:12:55.092981 return     313         return instance
+IE_TRACE:     Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec290>
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: Modified var:.. loop = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec290>
+IE_TRACE: 19:12:55.093013 line       149             loop.close()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec290>
+IE_TRACE:     Starting var:.. all_fds = False
+IE_TRACE:     Starting var:.. __class__ = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     19:12:55.093045 call       205     def close(self, all_fds=False):
+IE_TRACE:     19:12:55.093080 line       206         if self.is_current:
+IE_TRACE:     19:12:55.093096 line       207             self.clear_current()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         19:12:55.093112 call       322     def clear_current():
+IE_TRACE:         19:12:55.093135 line       330         old = IOLoop.current(instance=False)
+IE_TRACE:             Starting var:.. instance = False
+IE_TRACE:             19:12:55.093148 call       255     def current(instance=True):
+IE_TRACE:             19:12:55.093169 line       275         if asyncio is None:
+IE_TRACE:             19:12:55.093184 line       282             try:
+IE_TRACE:             19:12:55.093198 line       283                 loop = asyncio.get_event_loop()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:             19:12:55.093360 line       288             try:
+IE_TRACE:             19:12:55.093386 line       289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             19:12:55.093471 return     289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:             Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec290>
+IE_TRACE:         New var:....... old = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec290>
+IE_TRACE:         19:12:55.093497 line       331         if old is not None:
+IE_TRACE:         19:12:55.093514 line       332             old._clear_current_hook()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec290>
+IE_TRACE:             19:12:55.093527 call       219     def _clear_current_hook(self):
+IE_TRACE:             19:12:55.093549 line       220         if self.is_current:
+IE_TRACE:             19:12:55.093562 line       221             asyncio.set_event_loop(self.old_asyncio)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.093887 line       222             self.is_current = False
+IE_TRACE:             19:12:55.093905 return     222             self.is_current = False
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         19:12:55.093923 line       333         if asyncio is None:
+IE_TRACE:         19:12:55.093940 return     333         if asyncio is None:
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:     19:12:55.093958 line       208         super(AsyncIOLoop, self).close(all_fds=all_fds)
+IE_TRACE:         Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec290>
+IE_TRACE:         Starting var:.. all_fds = False
+IE_TRACE:         19:12:55.093980 call        44     def close(self, all_fds=False):
+IE_TRACE:         19:12:55.094005 line        45         self.closing = True
+IE_TRACE:         19:12:55.094021 line        46         for fd in list(self.handlers):
+IE_TRACE:         19:12:55.094036 line        51         self.asyncio_loop.close()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         19:12:55.096824 return      51         self.asyncio_loop.close()
+IE_TRACE:         Return value:.. None
+IE_TRACE:     19:12:55.096851 return     208         super(AsyncIOLoop, self).close(all_fds=all_fds)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: 19:12:55.096874 line       146         for i in range(10):
+IE_TRACE: Modified var:.. i = 7
+IE_TRACE: 19:12:55.096900 line       148             loop = AsyncIOLoop()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     Starting var:.. args = ()
+IE_TRACE:     Starting var:.. kwargs = {}
+IE_TRACE:     Starting var:.. __class__ = <class 'tornado.util.Configurable'>
+IE_TRACE:     19:12:55.096926 call       295     def __new__(cls, *args, **kwargs):
+IE_TRACE:     19:12:55.096969 line       296         base = cls.configurable_base()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.096989 call       344     def configurable_base(cls):
+IE_TRACE:         19:12:55.097014 line       345         return IOLoop
+IE_TRACE:         19:12:55.097028 return     345         return IOLoop
+IE_TRACE:         Return value:.. <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     New var:....... base = <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     19:12:55.097047 line       297         init_kwargs = {}
+IE_TRACE:     New var:....... init_kwargs = {}
+IE_TRACE:     19:12:55.097077 line       298         if cls is base:
+IE_TRACE:     19:12:55.097104 line       303             impl = cls
+IE_TRACE:     New var:....... impl = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     19:12:55.097124 line       304         init_kwargs.update(kwargs)
+IE_TRACE:     19:12:55.097161 line       305         if impl.configurable_base() is not base:
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.097184 call       344     def configurable_base(cls):
+IE_TRACE:         19:12:55.097207 line       345         return IOLoop
+IE_TRACE:         19:12:55.097220 return     345         return IOLoop
+IE_TRACE:         Return value:.. <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     19:12:55.097239 line       308         instance = super(Configurable, cls).__new__(impl)
+IE_TRACE:     New var:....... instance = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec2c0>
+IE_TRACE:     19:12:55.097267 line       312         instance.initialize(*args, **init_kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec2c0>
+IE_TRACE:         Starting var:.. kwargs = {}
+IE_TRACE:         Starting var:.. __class__ = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.097296 call       194     def initialize(self, **kwargs):
+IE_TRACE:         19:12:55.097331 line       195         self.is_current = False
+IE_TRACE:         19:12:55.097349 line       196         loop = asyncio.new_event_loop()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:         19:12:55.102477 line       197         try:
+IE_TRACE:         19:12:55.102507 line       198             super(AsyncIOLoop, self).initialize(loop, **kwargs)
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec2c0>
+IE_TRACE:             Starting var:.. asyncio_loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             Starting var:.. __class__ = <class 'tornado.platform.asyncio.BaseAsyncIOLoop'>
+IE_TRACE:             19:12:55.102529 call        33     def initialize(self, asyncio_loop, **kwargs):
+IE_TRACE:             19:12:55.102567 line        34         self.asyncio_loop = asyncio_loop
+IE_TRACE:             19:12:55.102587 line        36         self.handlers = {}
+IE_TRACE:             19:12:55.102605 line        38         self.readers = set()
+IE_TRACE:             19:12:55.102624 line        39         self.writers = set()
+IE_TRACE:             19:12:55.102642 line        40         self.closing = False
+IE_TRACE:             19:12:55.102660 line        41         IOLoop._ioloop_for_asyncio[asyncio_loop] = self
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.102760 line        42         super(BaseAsyncIOLoop, self).initialize(**kwargs)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec2c0>
+IE_TRACE:                 Starting var:.. make_current = None
+IE_TRACE:                 19:12:55.102785 call       354     def initialize(self, make_current=None):
+IE_TRACE:                 19:12:55.102817 line       355         if make_current is None:
+IE_TRACE:                 19:12:55.102834 line       356             if IOLoop.current(instance=False) is None:
+IE_TRACE:                     Starting var:.. instance = False
+IE_TRACE:                     19:12:55.102854 call       255     def current(instance=True):
+IE_TRACE:                     19:12:55.102879 line       275         if asyncio is None:
+IE_TRACE:                     19:12:55.102903 line       282             try:
+IE_TRACE:                     19:12:55.102921 line       283                 loop = asyncio.get_event_loop()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                     New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:                     19:12:55.103111 line       288             try:
+IE_TRACE:                     19:12:55.103145 line       289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                     19:12:55.103275 exception  289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                     Exception:..... KeyError: <weakref at 0x72e0d0ee9b20; to '_UnixSelectorEventLoop' at 0x72e0d0f8bd10>
+IE_TRACE:                     19:12:55.103318 line       290             except KeyError:
+IE_TRACE:                     19:12:55.103338 line       291                 if instance:
+IE_TRACE:                     19:12:55.103356 line       295                     current = None
+IE_TRACE:                     New var:....... current = None
+IE_TRACE:                     19:12:55.103374 line       296         return current
+IE_TRACE:                     19:12:55.103398 return     296         return current
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 19:12:55.103425 line       357                 self.make_current()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec2c0>
+IE_TRACE:                     19:12:55.103443 call       210     def make_current(self):
+IE_TRACE:                     19:12:55.103468 line       211         if not self.is_current:
+IE_TRACE:                     19:12:55.103483 line       212             try:
+IE_TRACE:                     19:12:55.103498 line       213                 self.old_asyncio = asyncio.get_event_loop()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     19:12:55.103675 line       216             self.is_current = True
+IE_TRACE:                     19:12:55.103695 line       217         asyncio.set_event_loop(self.asyncio_loop)
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     19:12:55.104072 return     217         asyncio.set_event_loop(self.asyncio_loop)
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 19:12:55.104098 return     357                 self.make_current()
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.104127 return      42         super(BaseAsyncIOLoop, self).initialize(**kwargs)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         19:12:55.104165 return     198             super(AsyncIOLoop, self).initialize(loop, **kwargs)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     19:12:55.104191 line       313         return instance
+IE_TRACE:     19:12:55.104222 return     313         return instance
+IE_TRACE:     Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec2c0>
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: Modified var:.. loop = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec2c0>
+IE_TRACE: 19:12:55.104252 line       149             loop.close()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec2c0>
+IE_TRACE:     Starting var:.. all_fds = False
+IE_TRACE:     Starting var:.. __class__ = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     19:12:55.104285 call       205     def close(self, all_fds=False):
+IE_TRACE:     19:12:55.104320 line       206         if self.is_current:
+IE_TRACE:     19:12:55.104337 line       207             self.clear_current()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         19:12:55.104353 call       322     def clear_current():
+IE_TRACE:         19:12:55.104372 line       330         old = IOLoop.current(instance=False)
+IE_TRACE:             Starting var:.. instance = False
+IE_TRACE:             19:12:55.104385 call       255     def current(instance=True):
+IE_TRACE:             19:12:55.104406 line       275         if asyncio is None:
+IE_TRACE:             19:12:55.104421 line       282             try:
+IE_TRACE:             19:12:55.104435 line       283                 loop = asyncio.get_event_loop()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:             19:12:55.104598 line       288             try:
+IE_TRACE:             19:12:55.104623 line       289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             19:12:55.104708 return     289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:             Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec2c0>
+IE_TRACE:         New var:....... old = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec2c0>
+IE_TRACE:         19:12:55.104735 line       331         if old is not None:
+IE_TRACE:         19:12:55.104752 line       332             old._clear_current_hook()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec2c0>
+IE_TRACE:             19:12:55.104765 call       219     def _clear_current_hook(self):
+IE_TRACE:             19:12:55.104788 line       220         if self.is_current:
+IE_TRACE:             19:12:55.104801 line       221             asyncio.set_event_loop(self.old_asyncio)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.105125 line       222             self.is_current = False
+IE_TRACE:             19:12:55.105150 return     222             self.is_current = False
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         19:12:55.105169 line       333         if asyncio is None:
+IE_TRACE:         19:12:55.105187 return     333         if asyncio is None:
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:     19:12:55.105205 line       208         super(AsyncIOLoop, self).close(all_fds=all_fds)
+IE_TRACE:         Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec2c0>
+IE_TRACE:         Starting var:.. all_fds = False
+IE_TRACE:         19:12:55.105227 call        44     def close(self, all_fds=False):
+IE_TRACE:         19:12:55.105251 line        45         self.closing = True
+IE_TRACE:         19:12:55.105267 line        46         for fd in list(self.handlers):
+IE_TRACE:         19:12:55.105282 line        51         self.asyncio_loop.close()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         19:12:55.108104 return      51         self.asyncio_loop.close()
+IE_TRACE:         Return value:.. None
+IE_TRACE:     19:12:55.108134 return     208         super(AsyncIOLoop, self).close(all_fds=all_fds)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: 19:12:55.108157 line       146         for i in range(10):
+IE_TRACE: Modified var:.. i = 8
+IE_TRACE: 19:12:55.108184 line       148             loop = AsyncIOLoop()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     Starting var:.. args = ()
+IE_TRACE:     Starting var:.. kwargs = {}
+IE_TRACE:     Starting var:.. __class__ = <class 'tornado.util.Configurable'>
+IE_TRACE:     19:12:55.108208 call       295     def __new__(cls, *args, **kwargs):
+IE_TRACE:     19:12:55.108250 line       296         base = cls.configurable_base()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.108270 call       344     def configurable_base(cls):
+IE_TRACE:         19:12:55.108295 line       345         return IOLoop
+IE_TRACE:         19:12:55.108308 return     345         return IOLoop
+IE_TRACE:         Return value:.. <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     New var:....... base = <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     19:12:55.108327 line       297         init_kwargs = {}
+IE_TRACE:     New var:....... init_kwargs = {}
+IE_TRACE:     19:12:55.108357 line       298         if cls is base:
+IE_TRACE:     19:12:55.108382 line       303             impl = cls
+IE_TRACE:     New var:....... impl = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     19:12:55.108403 line       304         init_kwargs.update(kwargs)
+IE_TRACE:     19:12:55.108430 line       305         if impl.configurable_base() is not base:
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.108451 call       344     def configurable_base(cls):
+IE_TRACE:         19:12:55.108474 line       345         return IOLoop
+IE_TRACE:         19:12:55.108487 return     345         return IOLoop
+IE_TRACE:         Return value:.. <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     19:12:55.108506 line       308         instance = super(Configurable, cls).__new__(impl)
+IE_TRACE:     New var:....... instance = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec1d0>
+IE_TRACE:     19:12:55.108533 line       312         instance.initialize(*args, **init_kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec1d0>
+IE_TRACE:         Starting var:.. kwargs = {}
+IE_TRACE:         Starting var:.. __class__ = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.108562 call       194     def initialize(self, **kwargs):
+IE_TRACE:         19:12:55.108598 line       195         self.is_current = False
+IE_TRACE:         19:12:55.108615 line       196         loop = asyncio.new_event_loop()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:         19:12:55.113570 line       197         try:
+IE_TRACE:         19:12:55.113600 line       198             super(AsyncIOLoop, self).initialize(loop, **kwargs)
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec1d0>
+IE_TRACE:             Starting var:.. asyncio_loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             Starting var:.. __class__ = <class 'tornado.platform.asyncio.BaseAsyncIOLoop'>
+IE_TRACE:             19:12:55.113620 call        33     def initialize(self, asyncio_loop, **kwargs):
+IE_TRACE:             19:12:55.113657 line        34         self.asyncio_loop = asyncio_loop
+IE_TRACE:             19:12:55.113676 line        36         self.handlers = {}
+IE_TRACE:             19:12:55.113694 line        38         self.readers = set()
+IE_TRACE:             19:12:55.113712 line        39         self.writers = set()
+IE_TRACE:             19:12:55.113730 line        40         self.closing = False
+IE_TRACE:             19:12:55.113748 line        41         IOLoop._ioloop_for_asyncio[asyncio_loop] = self
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.113846 line        42         super(BaseAsyncIOLoop, self).initialize(**kwargs)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec1d0>
+IE_TRACE:                 Starting var:.. make_current = None
+IE_TRACE:                 19:12:55.113871 call       354     def initialize(self, make_current=None):
+IE_TRACE:                 19:12:55.113901 line       355         if make_current is None:
+IE_TRACE:                 19:12:55.113918 line       356             if IOLoop.current(instance=False) is None:
+IE_TRACE:                     Starting var:.. instance = False
+IE_TRACE:                     19:12:55.113937 call       255     def current(instance=True):
+IE_TRACE:                     19:12:55.113961 line       275         if asyncio is None:
+IE_TRACE:                     19:12:55.113978 line       282             try:
+IE_TRACE:                     19:12:55.113993 line       283                 loop = asyncio.get_event_loop()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                     New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:                     19:12:55.114182 line       288             try:
+IE_TRACE:                     19:12:55.114210 line       289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                     19:12:55.114334 exception  289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                     Exception:..... KeyError: <weakref at 0x72e0d0ee9d00; to '_UnixSelectorEventLoop' at 0x72e0d0f8bd10>
+IE_TRACE:                     19:12:55.114372 line       290             except KeyError:
+IE_TRACE:                     19:12:55.114391 line       291                 if instance:
+IE_TRACE:                     19:12:55.114408 line       295                     current = None
+IE_TRACE:                     New var:....... current = None
+IE_TRACE:                     19:12:55.114426 line       296         return current
+IE_TRACE:                     19:12:55.114450 return     296         return current
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 19:12:55.114476 line       357                 self.make_current()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec1d0>
+IE_TRACE:                     19:12:55.114494 call       210     def make_current(self):
+IE_TRACE:                     19:12:55.114519 line       211         if not self.is_current:
+IE_TRACE:                     19:12:55.114535 line       212             try:
+IE_TRACE:                     19:12:55.114549 line       213                 self.old_asyncio = asyncio.get_event_loop()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     19:12:55.114723 line       216             self.is_current = True
+IE_TRACE:                     19:12:55.114743 line       217         asyncio.set_event_loop(self.asyncio_loop)
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     19:12:55.115099 return     217         asyncio.set_event_loop(self.asyncio_loop)
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 19:12:55.115125 return     357                 self.make_current()
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.115155 return      42         super(BaseAsyncIOLoop, self).initialize(**kwargs)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         19:12:55.115186 return     198             super(AsyncIOLoop, self).initialize(loop, **kwargs)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     19:12:55.115211 line       313         return instance
+IE_TRACE:     19:12:55.115242 return     313         return instance
+IE_TRACE:     Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec1d0>
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: Modified var:.. loop = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec1d0>
+IE_TRACE: 19:12:55.115273 line       149             loop.close()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec1d0>
+IE_TRACE:     Starting var:.. all_fds = False
+IE_TRACE:     Starting var:.. __class__ = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     19:12:55.115307 call       205     def close(self, all_fds=False):
+IE_TRACE:     19:12:55.115341 line       206         if self.is_current:
+IE_TRACE:     19:12:55.115357 line       207             self.clear_current()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         19:12:55.115374 call       322     def clear_current():
+IE_TRACE:         19:12:55.115393 line       330         old = IOLoop.current(instance=False)
+IE_TRACE:             Starting var:.. instance = False
+IE_TRACE:             19:12:55.115406 call       255     def current(instance=True):
+IE_TRACE:             19:12:55.115427 line       275         if asyncio is None:
+IE_TRACE:             19:12:55.115441 line       282             try:
+IE_TRACE:             19:12:55.115454 line       283                 loop = asyncio.get_event_loop()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:             19:12:55.115616 line       288             try:
+IE_TRACE:             19:12:55.115641 line       289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             19:12:55.115727 return     289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:             Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec1d0>
+IE_TRACE:         New var:....... old = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec1d0>
+IE_TRACE:         19:12:55.115753 line       331         if old is not None:
+IE_TRACE:         19:12:55.115770 line       332             old._clear_current_hook()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec1d0>
+IE_TRACE:             19:12:55.115783 call       219     def _clear_current_hook(self):
+IE_TRACE:             19:12:55.115805 line       220         if self.is_current:
+IE_TRACE:             19:12:55.115818 line       221             asyncio.set_event_loop(self.old_asyncio)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.116144 line       222             self.is_current = False
+IE_TRACE:             19:12:55.116163 return     222             self.is_current = False
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         19:12:55.116182 line       333         if asyncio is None:
+IE_TRACE:         19:12:55.116200 return     333         if asyncio is None:
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:     19:12:55.116218 line       208         super(AsyncIOLoop, self).close(all_fds=all_fds)
+IE_TRACE:         Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec1d0>
+IE_TRACE:         Starting var:.. all_fds = False
+IE_TRACE:         19:12:55.116241 call        44     def close(self, all_fds=False):
+IE_TRACE:         19:12:55.116266 line        45         self.closing = True
+IE_TRACE:         19:12:55.116281 line        46         for fd in list(self.handlers):
+IE_TRACE:         19:12:55.116296 line        51         self.asyncio_loop.close()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         19:12:55.119101 return      51         self.asyncio_loop.close()
+IE_TRACE:         Return value:.. None
+IE_TRACE:     19:12:55.119133 return     208         super(AsyncIOLoop, self).close(all_fds=all_fds)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: 19:12:55.119155 line       146         for i in range(10):
+IE_TRACE: Modified var:.. i = 9
+IE_TRACE: 19:12:55.119180 line       148             loop = AsyncIOLoop()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     Starting var:.. args = ()
+IE_TRACE:     Starting var:.. kwargs = {}
+IE_TRACE:     Starting var:.. __class__ = <class 'tornado.util.Configurable'>
+IE_TRACE:     19:12:55.119205 call       295     def __new__(cls, *args, **kwargs):
+IE_TRACE:     19:12:55.119248 line       296         base = cls.configurable_base()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.119268 call       344     def configurable_base(cls):
+IE_TRACE:         19:12:55.119293 line       345         return IOLoop
+IE_TRACE:         19:12:55.119307 return     345         return IOLoop
+IE_TRACE:         Return value:.. <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     New var:....... base = <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     19:12:55.119326 line       297         init_kwargs = {}
+IE_TRACE:     New var:....... init_kwargs = {}
+IE_TRACE:     19:12:55.119357 line       298         if cls is base:
+IE_TRACE:     19:12:55.119383 line       303             impl = cls
+IE_TRACE:     New var:....... impl = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     19:12:55.119403 line       304         init_kwargs.update(kwargs)
+IE_TRACE:     19:12:55.119431 line       305         if impl.configurable_base() is not base:
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. cls = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.119453 call       344     def configurable_base(cls):
+IE_TRACE:         19:12:55.119476 line       345         return IOLoop
+IE_TRACE:         19:12:55.119489 return     345         return IOLoop
+IE_TRACE:         Return value:.. <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     19:12:55.119509 line       308         instance = super(Configurable, cls).__new__(impl)
+IE_TRACE:     New var:....... instance = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec590>
+IE_TRACE:     19:12:55.119537 line       312         instance.initialize(*args, **init_kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec590>
+IE_TRACE:         Starting var:.. kwargs = {}
+IE_TRACE:         Starting var:.. __class__ = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:         19:12:55.119565 call       194     def initialize(self, **kwargs):
+IE_TRACE:         19:12:55.119601 line       195         self.is_current = False
+IE_TRACE:         19:12:55.119618 line       196         loop = asyncio.new_event_loop()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:         19:12:55.124606 line       197         try:
+IE_TRACE:         19:12:55.124637 line       198             super(AsyncIOLoop, self).initialize(loop, **kwargs)
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec590>
+IE_TRACE:             Starting var:.. asyncio_loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             Starting var:.. __class__ = <class 'tornado.platform.asyncio.BaseAsyncIOLoop'>
+IE_TRACE:             19:12:55.124658 call        33     def initialize(self, asyncio_loop, **kwargs):
+IE_TRACE:             19:12:55.124695 line        34         self.asyncio_loop = asyncio_loop
+IE_TRACE:             19:12:55.124715 line        36         self.handlers = {}
+IE_TRACE:             19:12:55.124734 line        38         self.readers = set()
+IE_TRACE:             19:12:55.124753 line        39         self.writers = set()
+IE_TRACE:             19:12:55.124771 line        40         self.closing = False
+IE_TRACE:             19:12:55.124789 line        41         IOLoop._ioloop_for_asyncio[asyncio_loop] = self
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.124889 line        42         super(BaseAsyncIOLoop, self).initialize(**kwargs)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec590>
+IE_TRACE:                 Starting var:.. make_current = None
+IE_TRACE:                 19:12:55.124916 call       354     def initialize(self, make_current=None):
+IE_TRACE:                 19:12:55.124947 line       355         if make_current is None:
+IE_TRACE:                 19:12:55.124964 line       356             if IOLoop.current(instance=False) is None:
+IE_TRACE:                     Starting var:.. instance = False
+IE_TRACE:                     19:12:55.124981 call       255     def current(instance=True):
+IE_TRACE:                     19:12:55.125007 line       275         if asyncio is None:
+IE_TRACE:                     19:12:55.125024 line       282             try:
+IE_TRACE:                     19:12:55.125040 line       283                 loop = asyncio.get_event_loop()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                     New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:                     19:12:55.125230 line       288             try:
+IE_TRACE:                     19:12:55.125258 line       289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                     19:12:55.125385 exception  289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:                     Exception:..... KeyError: <weakref at 0x72e0d0ee97b0; to '_UnixSelectorEventLoop' at 0x72e0d0f8bd10>
+IE_TRACE:                     19:12:55.125424 line       290             except KeyError:
+IE_TRACE:                     19:12:55.125444 line       291                 if instance:
+IE_TRACE:                     19:12:55.125461 line       295                     current = None
+IE_TRACE:                     New var:....... current = None
+IE_TRACE:                     19:12:55.125479 line       296         return current
+IE_TRACE:                     19:12:55.125503 return     296         return current
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 19:12:55.125530 line       357                 self.make_current()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec590>
+IE_TRACE:                     19:12:55.125548 call       210     def make_current(self):
+IE_TRACE:                     19:12:55.125573 line       211         if not self.is_current:
+IE_TRACE:                     19:12:55.125589 line       212             try:
+IE_TRACE:                     19:12:55.125604 line       213                 self.old_asyncio = asyncio.get_event_loop()
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     19:12:55.125779 line       216             self.is_current = True
+IE_TRACE:                     19:12:55.125798 line       217         asyncio.set_event_loop(self.asyncio_loop)
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:                     19:12:55.126196 return     217         asyncio.set_event_loop(self.asyncio_loop)
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 19:12:55.126222 return     357                 self.make_current()
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.126250 return      42         super(BaseAsyncIOLoop, self).initialize(**kwargs)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         19:12:55.126282 return     198             super(AsyncIOLoop, self).initialize(loop, **kwargs)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     19:12:55.126307 line       313         return instance
+IE_TRACE:     19:12:55.126338 return     313         return instance
+IE_TRACE:     Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec590>
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: Modified var:.. loop = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec590>
+IE_TRACE: 19:12:55.126368 line       149             loop.close()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:     Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec590>
+IE_TRACE:     Starting var:.. all_fds = False
+IE_TRACE:     Starting var:.. __class__ = <class 'tornado.platform.asyncio.AsyncIOLoop'>
+IE_TRACE:     19:12:55.126401 call       205     def close(self, all_fds=False):
+IE_TRACE:     19:12:55.126436 line       206         if self.is_current:
+IE_TRACE:     19:12:55.126452 line       207             self.clear_current()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         19:12:55.126470 call       322     def clear_current():
+IE_TRACE:         19:12:55.126489 line       330         old = IOLoop.current(instance=False)
+IE_TRACE:             Starting var:.. instance = False
+IE_TRACE:             19:12:55.126503 call       255     def current(instance=True):
+IE_TRACE:             19:12:55.126524 line       275         if asyncio is None:
+IE_TRACE:             19:12:55.126538 line       282             try:
+IE_TRACE:             19:12:55.126552 line       283                 loop = asyncio.get_event_loop()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             New var:....... loop = <_UnixSelectorEventLoop running=False closed=False debug=False>
+IE_TRACE:             19:12:55.126716 line       288             try:
+IE_TRACE:             19:12:55.126742 line       289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             19:12:55.126828 return     289                 return IOLoop._ioloop_for_asyncio[loop]
+IE_TRACE:             Return value:.. <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec590>
+IE_TRACE:         New var:....... old = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec590>
+IE_TRACE:         19:12:55.126855 line       331         if old is not None:
+IE_TRACE:         19:12:55.126872 line       332             old._clear_current_hook()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec590>
+IE_TRACE:             19:12:55.126885 call       219     def _clear_current_hook(self):
+IE_TRACE:             19:12:55.126907 line       220         if self.is_current:
+IE_TRACE:             19:12:55.126920 line       221             asyncio.set_event_loop(self.old_asyncio)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:             19:12:55.127290 line       222             self.is_current = False
+IE_TRACE:             19:12:55.127308 return     222             self.is_current = False
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         19:12:55.127327 line       333         if asyncio is None:
+IE_TRACE:         19:12:55.127344 return     333         if asyncio is None:
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:     19:12:55.127362 line       208         super(AsyncIOLoop, self).close(all_fds=all_fds)
+IE_TRACE:         Starting var:.. self = <tornado.platform.asyncio.AsyncIOLoop object at 0x72e0d0eec590>
+IE_TRACE:         Starting var:.. all_fds = False
+IE_TRACE:         19:12:55.127384 call        44     def close(self, all_fds=False):
+IE_TRACE:         19:12:55.127409 line        45         self.closing = True
+IE_TRACE:         19:12:55.127424 line        46         for fd in list(self.handlers):
+IE_TRACE:         19:12:55.127440 line        51         self.asyncio_loop.close()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/asyncio.py
+IE_TRACE:         19:12:55.130356 return      51         self.asyncio_loop.close()
+IE_TRACE:         Return value:.. None
+IE_TRACE:     19:12:55.130383 return     208         super(AsyncIOLoop, self).close(all_fds=all_fds)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: 19:12:55.130404 line       146         for i in range(10):
+IE_TRACE: 19:12:55.130430 line       150         new_count = len(IOLoop._ioloop_for_asyncio) - orig_count
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: New var:....... new_count = 10
+IE_TRACE: 19:12:55.130527 line       151         self.assertEqual(new_count, 0)
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: 19:12:55.131846 exception  151         self.assertEqual(new_count, 0)
+IE_TRACE: Exception:..... AssertionError: 10 != 0
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.113968
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: Starting var:.. self = <tornado.test.asyncio_test.LeakTest testMethod=test_ioloop_close_leak>
+IE_TRACE: 19:12:55.132600 call       139     def tearDown(self):
+IE_TRACE: 19:12:55.132649 line       140         asyncio.get_event_loop().close()
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: 19:12:55.135810 line       141         asyncio.set_event_loop_policy(self.orig_policy)
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py
+IE_TRACE: 19:12:55.135905 return     141         asyncio.set_event_loop_policy(self.orig_policy)
+IE_TRACE: Return value:.. None
+IE_TRACE: Elapsed time: 00:00:00.003407
+======================================================================
+FAIL: test_ioloop_close_leak (tornado.test.asyncio_test.LeakTest.test_ioloop_close_leak)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/test/asyncio_test.py", line 151, in test_ioloop_close_leak
+    self.assertEqual(new_count, 0)
+AssertionError: 10 != 0
+
+----------------------------------------------------------------------
+Ran 1 test in 0.137s
+
+FAILED (failures=1)
+
+
+Exit code: 1

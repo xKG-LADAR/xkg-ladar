@@ -1,0 +1,609 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_format_filtering [label="test_format_filtering
+test_YoutubeDL.py:308" fillcolor=white shape=box style=filled]
+	_make_result [label="_make_result
+test_YoutubeDL.py:38" fillcolor=white shape=box style=filled]
+	info_dict [label="info_dict
+(11 writes, 10 distinct)
+{'formats': [{'format_id': 'A', 'filesize': 500, 'width': 1000, 'url': 'http://_/', 'ext': 'unknown'}, {'format_id': 'B'…
+{'formats': [{'format_id': 'A', 'filesize': 500, 'width': 1000, 'url': 'http://_/', 'ext': 'unknown'}, {'format_id': 'B'…
+{'formats': [{'format_id': 'A', 'filesize': 500, 'width': 1000, 'url': 'http://_/', 'ext': 'unknown'}, {'format_id': 'B'…
+{'formats': [{'format_id': 'A', 'filesize': 500, 'width': 1000, 'url': 'http://_/', 'ext': 'unknown'}, {'format_id': 'B'…
+{'formats': [{'format_id': 'A', 'filesize': 500, 'width': 1000, 'url': 'http://_/', 'ext': 'unknown'}, {'format_id': 'B'…
+{'formats': [{'format_id': 'A', 'filesize': 500, 'width': 1000, 'url': 'http://_/', 'ext': 'unknown', 'format': 'A - ?x1…
+  …+4 more values" shape=ellipse]
+	__init__ [label="__init__
+execafterdownload.py:11" fillcolor=white shape=box style=filled]
+	get_params [label="get_params
+helper.py:21" fillcolor=white shape=box style=filled]
+	b [label="b
+(10 writes)
+'parameters.json'" shape=ellipse]
+	PARAMETERS_FILE [label="PARAMETERS_FILE
+(10 writes)
+'/path/to/BugsInPy/workspace/youtube-dl/test/parameters.json'" shape=ellipse]
+	pf [label="pf
+(10 writes)
+<_io.TextIOWrapper name='/path/to/BugsInPy/workspace/youtube-dl/test/parameters.json' mode='r' encoding='utf-8…" shape=ellipse]
+	parameters [label="parameters
+(10 writes)
+dict(len=41)" shape=ellipse]
+	params [label="params
+(10 writes)
+dict(len=41)" shape=ellipse]
+	_setup_opener [label="_setup_opener
+YoutubeDL.py:1908" fillcolor=white shape=box style=filled]
+	timeout_val [label="timeout_val
+(10 writes)
+20" shape=ellipse]
+	opts_cookiefile [label="opts_cookiefile
+(10 writes)
+None" shape=ellipse]
+	opts_proxy [label="opts_proxy
+(10 writes)
+None" shape=ellipse]
+	cookie_processor [label="cookie_processor
+(10 writes, 10 distinct)
+<urllib.request.HTTPCookieProcessor object at 0x7c762b8431a0>
+<urllib.request.HTTPCookieProcessor object at 0x7c762c7539e0>
+<urllib.request.HTTPCookieProcessor object at 0x7c762b6b1460>
+<urllib.request.HTTPCookieProcessor object at 0x7c762b68bfb0>
+<urllib.request.HTTPCookieProcessor object at 0x7c762bc60260>
+<urllib.request.HTTPCookieProcessor object at 0x7c762b688710>
+  …+4 more values" shape=ellipse]
+	proxies [label="proxies
+(10 writes)
+{}" shape=ellipse]
+	proxy_handler [label="proxy_handler
+(10 writes, 9 distinct)
+<youtube_dl.utils.PerRequestProxyHandler object at 0x7c762b779850>
+<youtube_dl.utils.PerRequestProxyHandler object at 0x7c762b843a10>
+<youtube_dl.utils.PerRequestProxyHandler object at 0x7c762b841490>
+<youtube_dl.utils.PerRequestProxyHandler object at 0x7c762b68b860>
+<youtube_dl.utils.PerRequestProxyHandler object at 0x7c762b840d10>
+<youtube_dl.utils.PerRequestProxyHandler object at 0x7c762b68b9b0>
+  …+3 more values" shape=ellipse]
+	debuglevel [label="debuglevel
+(10 writes)
+0" shape=ellipse]
+	make_HTTPS_handler [label="make_HTTPS_handler
+utils.py:443" fillcolor=white shape=box style=filled]
+	opts_no_check_certificate [label="opts_no_check_certificate
+(10 writes)
+False" shape=ellipse]
+	context [label="context
+(10 writes, 10 distinct)
+<ssl.SSLContext object at 0x7c762b62d850>
+<ssl.SSLContext object at 0x7c762b3f8f50>
+<ssl.SSLContext object at 0x7c762b3f93d0>
+<ssl.SSLContext object at 0x7c762b3f8450>
+<ssl.SSLContext object at 0x7c762b3f9850>
+<ssl.SSLContext object at 0x7c762b3f90d0>
+  …+4 more values" shape=ellipse]
+	https_handler [label="https_handler
+(10 writes, 10 distinct)
+<youtube_dl.utils.YoutubeDLHTTPSHandler object at 0x7c762b689520>
+<youtube_dl.utils.YoutubeDLHTTPSHandler object at 0x7c762bcb0710>
+<youtube_dl.utils.YoutubeDLHTTPSHandler object at 0x7c762b68bfe0>
+<youtube_dl.utils.YoutubeDLHTTPSHandler object at 0x7c762b68bce0>
+<youtube_dl.utils.YoutubeDLHTTPSHandler object at 0x7c762b6b16a0>
+<youtube_dl.utils.YoutubeDLHTTPSHandler object at 0x7c762bb5fc20>
+  …+4 more values" shape=ellipse]
+	ydlh [label="ydlh
+(10 writes, 10 distinct)
+<youtube_dl.utils.YoutubeDLHandler object at 0x7c762b843a70>
+<youtube_dl.utils.YoutubeDLHandler object at 0x7c762b68b770>
+<youtube_dl.utils.YoutubeDLHandler object at 0x7c762bde4290>
+<youtube_dl.utils.YoutubeDLHandler object at 0x7c762b80be00>
+<youtube_dl.utils.YoutubeDLHandler object at 0x7c762b68a0c0>
+<youtube_dl.utils.YoutubeDLHandler object at 0x7c762b843ce0>
+  …+4 more values" shape=ellipse]
+	opener [label="opener
+(10 writes, 10 distinct)
+<urllib.request.OpenerDirector object at 0x7c762b8425a0>
+<urllib.request.OpenerDirector object at 0x7c762c753b60>
+<urllib.request.OpenerDirector object at 0x7c762b841370>
+<urllib.request.OpenerDirector object at 0x7c762b68bd40>
+<urllib.request.OpenerDirector object at 0x7c762b6b07a0>
+<urllib.request.OpenerDirector object at 0x7c762b68bc50>
+  …+4 more values" shape=ellipse]
+	ydl [label="ydl
+(10 writes, 8 distinct)
+<test.test_YoutubeDL.YDL object at 0x7c762c9e6d50>
+<test.test_YoutubeDL.YDL object at 0x7c762b80b860>
+<test.test_YoutubeDL.YDL object at 0x7c762b68bcb0>
+<test.test_YoutubeDL.YDL object at 0x7c762b7e4e90>
+<test.test_YoutubeDL.YDL object at 0x7c762c8b20f0>
+<test.test_YoutubeDL.YDL object at 0x7c762bc63530>
+  …+2 more values" shape=ellipse]
+	process_ie_result [label="process_ie_result
+Take the result of the ie(may be modified) and resolve …
+YoutubeDL.py:692" fillcolor=white shape=box style=filled]
+	result_type [label="result_type
+(10 writes)
+'video'" shape=ellipse]
+	add_extra_info [label="add_extra_info
+Set the keys from extra_info in info dict if they are m…
+YoutubeDL.py:626" fillcolor=white shape=box style=filled]
+	process_video_result [label="process_video_result
+YoutubeDL.py:1148" fillcolor=white shape=box style=filled]
+	thumbnails [label="thumbnails
+(10 writes)
+None" shape=ellipse]
+	thumbnail [label="thumbnail
+(10 writes)
+None" shape=ellipse]
+	process_subtitles [label="process_subtitles
+Select the requested subtitles and their format
+YoutubeDL.py:1288" fillcolor=white shape=box style=filled]
+	available_subs [label="available_subs
+(10 writes)
+{}" shape=ellipse]
+	format_resolution [label="format_resolution
+YoutubeDL.py:1710" fillcolor=white shape=box style=filled]
+	_calc_headers [label="_calc_headers
+YoutubeDL.py:1130" fillcolor=white shape=box style=filled]
+	_calc_cookies [label="_calc_cookies
+YoutubeDL.py:1143" fillcolor=white shape=box style=filled]
+	req_format [label="req_format
+(10 writes, 10 distinct)
+'best[filesize<3000]'
+'best[filesize<=3000]'
+'best[filesize <= ? 3000]'
+'best [filesize = 1000] [width>450]'
+'best [filesize = 1000] [width!=450]'
+'[filesize>?1]'
+  …+4 more values" shape=ellipse]
+	build_format_selector [label="build_format_selector
+YoutubeDL.py:913" fillcolor=white shape=box style=filled]
+	syntax_error [label="syntax_error
+(10 writes, 9 distinct)
+<function YoutubeDL.build_format_selector.<locals>.syntax_error at 0x7c762b6ff420>
+<function YoutubeDL.build_format_selector.<locals>.syntax_error at 0x7c762b6ffce0>
+<function YoutubeDL.build_format_selector.<locals>.syntax_error at 0x7c762b3c8cc0>
+<function YoutubeDL.build_format_selector.<locals>.syntax_error at 0x7c762b3c9760>
+<function YoutubeDL.build_format_selector.<locals>.syntax_error at 0x7c762b6ffd80>
+<function YoutubeDL.build_format_selector.<locals>.syntax_error at 0x7c762b3ca0c0>
+  …+3 more values" shape=ellipse]
+	PICKFIRST [label="PICKFIRST
+(10 writes)
+'PICKFIRST'" shape=ellipse]
+	MERGE [label="MERGE
+(10 writes)
+'MERGE'" shape=ellipse]
+	SINGLE [label="SINGLE
+(10 writes)
+'SINGLE'" shape=ellipse]
+	GROUP [label="GROUP
+(10 writes)
+'GROUP'" shape=ellipse]
+	FormatSelector [label="FormatSelector
+(10 writes)
+<class 'youtube_dl.YoutubeDL.FormatSelector'>" shape=ellipse]
+	_parse_filter [label="_parse_filter
+(10 writes, 9 distinct)
+<function YoutubeDL.build_format_selector.<locals>._parse_filter at 0x7c762b6ff740>
+<function YoutubeDL.build_format_selector.<locals>._parse_filter at 0x7c762b3c8720>
+<function YoutubeDL.build_format_selector.<locals>._parse_filter at 0x7c762b3c8d60>
+<function YoutubeDL.build_format_selector.<locals>._parse_filter at 0x7c762b3c9800>
+<function YoutubeDL.build_format_selector.<locals>._parse_filter at 0x7c762b3c9bc0>
+<function YoutubeDL.build_format_selector.<locals>._parse_filter at 0x7c762b3ca160>
+  …+3 more values" shape=ellipse]
+	_parse_format_selection [label="_parse_format_selection
+(10 writes, 10 distinct)
+<function YoutubeDL.build_format_selector.<locals>._parse_format_selection at 0x7c762b6ffba0>
+<function YoutubeDL.build_format_selector.<locals>._parse_format_selection at 0x7c762b3c8220>
+<function YoutubeDL.build_format_selector.<locals>._parse_format_selection at 0x7c762b3c8c20>
+<function YoutubeDL.build_format_selector.<locals>._parse_format_selection at 0x7c762b3c8f40>
+<function YoutubeDL.build_format_selector.<locals>._parse_format_selection at 0x7c762b3c98a0>
+<function YoutubeDL.build_format_selector.<locals>._parse_format_selection at 0x7c762b3c8680>
+  …+4 more values" shape=ellipse]
+	_build_selector_function [label="_build_selector_function
+(10 writes, 10 distinct)
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function at 0x7c762b6ffc40>
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function at 0x7c762b3c85e0>
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function at 0x7c762b3c8ea0>
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function at 0x7c762b3c8a40>
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function at 0x7c762b3c9300>
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function at 0x7c762b3c8ae0>
+  …+4 more values" shape=ellipse]
+	stream [label="stream
+(10 writes, 9 distinct)
+<_io.BytesIO object at 0x7c762b3c4540>
+<_io.BytesIO object at 0x7c762b400900>
+<_io.BytesIO object at 0x7c762b403060>
+<_io.BytesIO object at 0x7c762b403790>
+<_io.BytesIO object at 0x7c762b414b80>
+<_io.BytesIO object at 0x7c762b419080>
+  …+3 more values" shape=ellipse]
+	tokens [label="tokens
+(10 writes, 10 distinct)
+[TokenInfo(type=67 (ENCODING), string='utf-8', start=(0, 0), end=(0, 0), line=''), TokenInfo(type=1 (NAME), string='best…
+[TokenInfo(type=67 (ENCODING), string='utf-8', start=(0, 0), end=(0, 0), line=''), TokenInfo(type=1 (NAME), string='best…
+[TokenInfo(type=67 (ENCODING), string='utf-8', start=(0, 0), end=(0, 0), line=''), TokenInfo(type=1 (NAME), string='best…
+[TokenInfo(type=67 (ENCODING), string='utf-8', start=(0, 0), end=(0, 0), line=''), TokenInfo(type=1 (NAME), string='best…
+[TokenInfo(type=67 (ENCODING), string='utf-8', start=(0, 0), end=(0, 0), line=''), TokenInfo(type=1 (NAME), string='best…
+[TokenInfo(type=67 (ENCODING), string='utf-8', start=(0, 0), end=(0, 0), line=''), TokenInfo(type=55 (OP), string='[', s…
+  …+4 more values" shape=ellipse]
+	__module__ [label="__module__
+(10 writes)
+'youtube_dl.YoutubeDL'" shape=ellipse]
+	__qualname__ [label="__qualname__
+(10 writes)
+'YoutubeDL.build_format_selector.<locals>.TokenIterator'" shape=ellipse]
+	__iter__ [label="__iter__
+(10 writes, 10 distinct)
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__iter__ at 0x7c762b3c80e0>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__iter__ at 0x7c762b3c8b80>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__iter__ at 0x7c762b3c9580>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__iter__ at 0x7c762b3c8220>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__iter__ at 0x7c762b3c9f80>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__iter__ at 0x7c762b3c89a0>
+  …+4 more values" shape=ellipse]
+	__next__ [label="__next__
+(10 writes, 10 distinct)
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x7c762b3c8040>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x7c762b3c8ae0>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x7c762b3c94e0>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x7c762b3c8860>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x7c762b3c9ee0>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x7c762b3c82c0>
+  …+4 more values" shape=ellipse]
+	next [label="next
+(10 writes, 10 distinct)
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x7c762b3c8040>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x7c762b3c8ae0>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x7c762b3c94e0>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x7c762b3c8860>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x7c762b3c9ee0>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x7c762b3c82c0>
+  …+4 more values" shape=ellipse]
+	restore_last_token [label="restore_last_token
+(10 writes, 10 distinct)
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.restore_last_token at 0x7c762b3c84a0>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.restore_last_token at 0x7c762b3c8f40>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.restore_last_token at 0x7c762b3c9940>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.restore_last_token at 0x7c762b3c9620>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.restore_last_token at 0x7c762b3c8540>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.restore_last_token at 0x7c762b3ca340>
+  …+4 more values" shape=ellipse]
+	TokenIterator [label="TokenIterator
+(10 writes)
+<class 'youtube_dl.YoutubeDL.YoutubeDL.build_format_selector.<locals>.TokenIterator'>" shape=ellipse]
+	format_filter [label="format_filter
+(13 writes, 12 distinct)
+'filesize<3000'
+'filesize<=3000'
+'filesize<=?3000'
+'filesize=1000'
+'width>450'
+'width!=450'
+  …+6 more values" shape=ellipse]
+	parsed_selector [label="parsed_selector
+(10 writes, 10 distinct)
+[FormatSelector(type='SINGLE', selector='best', filters=['filesize<3000'])]
+[FormatSelector(type='SINGLE', selector='best', filters=['filesize<=3000'])]
+[FormatSelector(type='SINGLE', selector='best', filters=['filesize<=?3000'])]
+[FormatSelector(type='SINGLE', selector='best', filters=['filesize=1000', 'width>450'])]
+[FormatSelector(type='SINGLE', selector='best', filters=['filesize=1000', 'width!=450'])]
+[FormatSelector(type='SINGLE', selector='best', filters=['filesize>?1'])]
+  …+4 more values" shape=ellipse]
+	format_spec [label="format_spec
+(10 writes, 2 distinct)
+'best'
+'all'" shape=ellipse]
+	_build_format_filter [label="_build_format_filter
+Returns a function to filter the formats according to t…
+YoutubeDL.py:856" fillcolor=white shape=box style=filled]
+	OPERATORS [label="OPERATORS
+(13 writes)
+{'<': <built-in function lt>, '<=': <built-in function le>, '>': <built-in function gt>, '>=': <built-in function ge>, '…" shape=ellipse]
+	operator_rex [label="operator_rex
+(13 writes)
+re.compile('(?x)\\s*\n            (?P<key>width|height|tbr|abr|vbr|asr|filesize|fps)\n            \\s*(?P<op><|<=|>|>=|=…" shape=ellipse]
+	comparison_value [label="comparison_value
+(14 writes, 10 distinct)
+3000
+1000
+450
+1
+None
+1000000
+  …+4 more values" shape=ellipse]
+	op [label="op
+(13 writes, 6 distinct)
+<built-in function lt>
+<built-in function le>
+<built-in function eq>
+<built-in function gt>
+<built-in function ne>
+<built-in function ge>" shape=ellipse]
+	filters [label="filters
+(10 writes, 10 distinct)
+[<function YoutubeDL._build_format_filter.<locals>._filter at 0x7c762b3c8360>]
+[<function YoutubeDL._build_format_filter.<locals>._filter at 0x7c762b3c91c0>]
+[<function YoutubeDL._build_format_filter.<locals>._filter at 0x7c762b3c9bc0>]
+[<function YoutubeDL._build_format_filter.<locals>._filter at 0x7c762b3c99e0>, <function YoutubeDL._build_format_filter.…
+[<function YoutubeDL._build_format_filter.<locals>._filter at 0x7c762b3c9c60>, <function YoutubeDL._build_format_filter.…
+[<function YoutubeDL._build_format_filter.<locals>._filter at 0x7c762b3ca5c0>]
+  …+4 more values" shape=ellipse]
+	final_selector [label="final_selector
+(10 writes, 10 distinct)
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x7c762b3c8720>
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x7c762b3c8e00>
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x7c762b3c9800>
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x7c762b3c9a80>
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x7c762b3c9bc0>
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x7c762b3ca200>
+  …+4 more values" shape=ellipse]
+	s [label="s
+(10 writes, 10 distinct)
+FormatSelector(type='SINGLE', selector='best', filters=['filesize<3000'])
+FormatSelector(type='SINGLE', selector='best', filters=['filesize<=3000'])
+FormatSelector(type='SINGLE', selector='best', filters=['filesize<=?3000'])
+FormatSelector(type='SINGLE', selector='best', filters=['filesize=1000', 'width>450'])
+FormatSelector(type='SINGLE', selector='best', filters=['filesize=1000', 'width!=450'])
+FormatSelector(type='SINGLE', selector='best', filters=['filesize>?1'])
+  …+4 more values" shape=ellipse]
+	fs [label="fs
+(10 writes, 10 distinct)
+[<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x7c762b3c8720>]
+[<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x7c762b3c8e00>]
+[<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x7c762b3c9800>]
+[<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x7c762b3c9a80>]
+[<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x7c762b3c9bc0>]
+[<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x7c762b3ca200>]
+  …+4 more values" shape=ellipse]
+	format_selector [label="format_selector
+(10 writes, 10 distinct)
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.selector_function at 0x7c762b3c8860…
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.selector_function at 0x7c762b3c8d60…
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.selector_function at 0x7c762b3c8680…
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.selector_function at 0x7c762b3c8720…
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.selector_function at 0x7c762b3c9620…
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.selector_function at 0x7c762b3ca160…
+  …+4 more values" shape=ellipse]
+	format_idx [label="format_idx
+(9 writes)
+-1" shape=ellipse]
+	audiovideo_formats [label="audiovideo_formats
+(9 writes, 4 distinct)
+[{'format_id': 'A', 'filesize': 500, 'width': 1000, 'url': 'http://_/', 'ext': 'unknown', 'format': 'A - ?x1000', 'http_…
+[{'format_id': 'B', 'filesize': 1000, 'width': 500, 'url': 'http://_/', 'ext': 'unknown', 'format': 'B - ?x500', 'http_h…
+[{'format_id': 'B', 'filesize': 1000, 'width': 500, 'url': 'http://_/', 'ext': 'unknown', 'format': 'B - ?x500', 'http_h…
+[]" shape=ellipse]
+	formats_to_download [label="formats_to_download
+(9 writes, 7 distinct)
+[{'format_id': 'D', 'filesize': 2000, 'width': 600, 'url': 'http://_/', 'ext': 'unknown', 'format': 'D - ?x600', 'http_h…
+[{'format_id': 'E', 'filesize': 3000, 'url': 'http://_/', 'ext': 'unknown', 'format': 'E - unknown', 'http_headers': {'U…
+[{'format_id': 'F', 'url': 'http://_/', 'ext': 'unknown', 'format': 'F - unknown', 'http_headers': {'User-Agent': 'Mozil…
+[{'format_id': 'B', 'filesize': 1000, 'width': 500, 'url': 'http://_/', 'ext': 'unknown', 'format': 'B - ?x500', 'http_h…
+[{'format_id': 'C', 'filesize': 1000, 'width': 400, 'url': 'http://_/', 'ext': 'unknown', 'format': 'C - ?x400', 'http_h…
+[{'format_id': 'G', 'filesize': 1000000, 'url': 'http://_/', 'ext': 'unknown', 'format': 'G - unknown', 'http_headers': …
+  …+1 more values" shape=ellipse]
+	new_info [label="new_info
+(10 writes, 2 distinct)
+{'formats': [{'format_id': 'A', 'filesize': 500, 'width': 1000, 'url': 'http://_/', 'ext': 'unknown', 'format': 'A - ?x1…
+{'formats': [{'format_id': 'A', 'filesize': 500, 'width': 1000, 'url': 'http://_/', 'ext': 'unknown', 'format': 'A - ?x1…" shape=ellipse]
+	process_info [label="process_info
+test_YoutubeDL.py:31" fillcolor=white shape=box style=filled]
+	ie_result [label="ie_result
+{'formats': [{'format_id': 'A', 'filesize': 500, 'width': 1000, 'url': 'http://_/', 'ext': 'unknown', 'format': 'A - ?x1…" shape=ellipse]
+	downloaded [label="downloaded
+{'formats': [{'format_id': 'A', 'filesize': 500, 'width': 1000, 'url': 'http://_/', 'ext': 'unknown', 'format': 'A - ?x1…" shape=ellipse]
+	ERROR__ValueError [label="ValueError
+invalid literal for int() with base 10: '1M'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	parse_filesize [label="parse_filesize
+utils.py:1156" fillcolor=white shape=box style=filled]
+	_UNIT_TABLE [label="_UNIT_TABLE
+(3 writes)
+dict(len=34)" shape=ellipse]
+	u [label="u
+(6 writes, 2 distinct)
+'B'
+'Yb'" shape=ellipse]
+	units_re [label="units_re
+(3 writes)
+'B|b|KiB|KB|kB|Kb|MiB|MB|mB|Mb|GiB|GB|gB|Gb|TiB|TB|tB|Tb|PiB|PB|pB|Pb|EiB|EB|eB|Eb|ZiB|ZB|zB|Zb|YiB|YB|yB|Yb'" shape=ellipse]
+	num_str [label="num_str
+(2 writes)
+'1'" shape=ellipse]
+	mult [label="mult
+(2 writes, 2 distinct)
+1000000
+1048576" shape=ellipse]
+	to_screen [label="to_screen
+test_YoutubeDL.py:34" fillcolor=white shape=box style=filled]
+	info [label="info
+{'formats': [{'format_id': 'A', 'filesize': 500, 'width': 1000, 'url': 'http://_/', 'ext': 'unknown', 'format': 'A - ?x1…" shape=ellipse]
+	downloaded_ids [label="downloaded_ids
+['B', 'C', 'D']" shape=ellipse]
+	ERROR__IndexError [label="IndexError
+list index out of range" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_format_filtering
+	}
+	{
+		rank=same
+		_make_result
+		__init__
+		process_ie_result
+	}
+	{
+		rank=same
+		add_extra_info
+		process_video_result
+		format_resolution
+		_calc_headers
+		build_format_selector
+		process_info
+		parse_filesize
+		to_screen
+	}
+	{
+		rank=same
+		get_params
+		process_subtitles
+		_calc_cookies
+	}
+	{
+		rank=same
+		_setup_opener
+		_build_format_filter
+	}
+	{
+		rank=same
+		make_HTTPS_handler
+	}
+	test_format_filtering -> test_format_filtering [label="loops(×7)" color=purple style=dashed]
+	test_format_filtering -> _make_result [label="calls [#1]" color=blue penwidth=1.1]
+	test_format_filtering -> info_dict [label="writes×2" color=black]
+	test_format_filtering -> __init__ [label="calls×10 [#2]" color=blue penwidth=2.0]
+	test_format_filtering -> ydl [label="writes×10" color=black]
+	test_format_filtering -> process_ie_result [label="calls×10 [#12]" color=blue penwidth=2.0]
+	test_format_filtering -> downloaded [label=writes color=black]
+	test_format_filtering -> info [label=writes color=black]
+	test_format_filtering -> downloaded_ids [label=writes color=black]
+	test_format_filtering -> ERROR__IndexError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	info_dict -> add_extra_info [label="passed to" color=green style=dashed]
+	info_dict -> process_video_result [label="passed to" color=green style=dashed]
+	info_dict -> _calc_headers [label="passed to" color=green style=dashed]
+	info_dict -> _calc_cookies [label="passed to" color=green style=dashed]
+	info_dict -> process_info [label="passed to" color=green style=dashed]
+	__init__ -> __init__ [label="calls×30 [#3]" color=blue penwidth=4.0]
+	__init__ -> get_params [label="calls×10 [#4]" color=blue penwidth=2.0]
+	__init__ -> params [label="writes×10" color=black]
+	__init__ -> _setup_opener [label="calls×10 [#7]" color=blue penwidth=2.0]
+	get_params -> b [label="writes×10" color=black]
+	get_params -> PARAMETERS_FILE [label="writes×10" color=black]
+	get_params -> pf [label="writes×10" color=black]
+	get_params -> parameters [label="writes×10" color=black]
+	params -> __init__ [label="passed to" color=green style=dashed]
+	params -> make_HTTPS_handler [label="passed to" color=green style=dashed]
+	_setup_opener -> timeout_val [label="writes×10" color=black]
+	_setup_opener -> opts_cookiefile [label="writes×10" color=black]
+	_setup_opener -> opts_proxy [label="writes×10" color=black]
+	_setup_opener -> cookie_processor [label="writes×10" color=black]
+	_setup_opener -> proxies [label="writes×10" color=black]
+	_setup_opener -> __init__ [label="calls×20 [#8]" color=blue penwidth=3.0]
+	_setup_opener -> proxy_handler [label="writes×10" color=black]
+	_setup_opener -> debuglevel [label="writes×10" color=black]
+	_setup_opener -> make_HTTPS_handler [label="calls×10 [#9]" color=blue penwidth=2.0]
+	_setup_opener -> https_handler [label="writes×10" color=black]
+	_setup_opener -> ydlh [label="writes×10" color=black]
+	_setup_opener -> opener [label="writes×10" color=black]
+	proxies -> __init__ [label="passed to" color=green style=dashed]
+	make_HTTPS_handler -> opts_no_check_certificate [label="writes×10" color=black]
+	make_HTTPS_handler -> context [label="writes×10" color=black]
+	make_HTTPS_handler -> __init__ [label="calls×10 [#10]" color=blue penwidth=2.0]
+	ydl -> __init__ [label="passed to" color=green style=dashed]
+	process_ie_result -> result_type [label="writes×10" color=black]
+	process_ie_result -> add_extra_info [label="calls×10 [#13]" color=blue penwidth=2.0]
+	process_ie_result -> process_video_result [label="calls×10 [#14]" color=blue penwidth=2.0]
+	process_ie_result -> process_ie_result [label="loops(×404)" color=purple style=dashed]
+	process_ie_result -> format_resolution [label="calls×4 [#16]" color=blue penwidth=1.4]
+	process_ie_result -> info_dict [label="writes×5" color=black]
+	process_ie_result -> _calc_headers [label="calls×22 [#17]" color=blue penwidth=3.2]
+	process_ie_result -> req_format [label="writes×10" color=black]
+	process_ie_result -> build_format_selector [label="calls×10 [#28]" color=blue penwidth=2.0]
+	process_ie_result -> __next__ [label="calls×36 [#40]" color=blue penwidth=4.6]
+	process_ie_result -> format_filter [label="writes×13" color=black]
+	process_ie_result -> parsed_selector [label="writes×10" color=black]
+	process_ie_result -> _build_selector_function [label="calls×10 [#43]" color=blue penwidth=2.0]
+	process_ie_result -> format_selector [label="writes×10" color=black]
+	process_ie_result -> audiovideo_formats [label="writes×6" color=black]
+	process_ie_result -> formats_to_download [label="writes×9" color=black]
+	process_ie_result -> new_info [label="writes×10" color=black]
+	process_ie_result -> process_info [label="calls×10 [#53]" color=blue penwidth=2.0]
+	process_ie_result -> ie_result [label=writes color=black]
+	process_ie_result -> _parse_filter [label="calls×3 [#174]" color=blue penwidth=1.3]
+	process_ie_result -> u [label="writes×3" color=black]
+	process_ie_result -> units_re [label="writes×3" color=black]
+	process_ie_result -> comparison_value [label="writes×3" color=black]
+	process_ie_result -> parse_filesize [label="calls [#327]" color=blue penwidth=1.1]
+	process_ie_result -> num_str [label="writes×2" color=black]
+	process_ie_result -> mult [label="writes×2" color=black]
+	process_ie_result -> op [label="writes×2" color=black]
+	process_ie_result -> filters [label="writes×2" color=black]
+	process_ie_result -> final_selector [label="writes×2" color=black]
+	process_ie_result -> s [label="writes×2" color=black]
+	process_ie_result -> fs [label="writes×2" color=black]
+	process_ie_result -> to_screen [label="calls [#432]" color=blue penwidth=1.1]
+	process_ie_result -> ERROR__IndexError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	process_video_result -> info_dict [label="writes×4" color=black]
+	process_video_result -> thumbnails [label="writes×10" color=black]
+	process_video_result -> thumbnail [label="writes×10" color=black]
+	process_video_result -> process_subtitles [label="calls×10 [#15]" color=blue penwidth=2.0]
+	process_subtitles -> available_subs [label="writes×10" color=black]
+	_calc_headers -> _calc_cookies [label="calls×22 [#18]" color=blue penwidth=3.2]
+	build_format_selector -> syntax_error [label="writes×10" color=black]
+	build_format_selector -> PICKFIRST [label="writes×10" color=black]
+	build_format_selector -> MERGE [label="writes×10" color=black]
+	build_format_selector -> SINGLE [label="writes×10" color=black]
+	build_format_selector -> GROUP [label="writes×10" color=black]
+	build_format_selector -> FormatSelector [label="writes×10" color=black]
+	build_format_selector -> _parse_filter [label="writes×10" color=black]
+	build_format_selector -> _parse_format_selection [label="writes×10" color=black]
+	build_format_selector -> _build_selector_function [label="writes×10" color=black]
+	build_format_selector -> stream [label="writes×10" color=black]
+	build_format_selector -> tokens [label="writes×10" color=black]
+	build_format_selector -> __module__ [label="writes×10" color=black]
+	build_format_selector -> __qualname__ [label="writes×10" color=black]
+	build_format_selector -> __init__ [label="writes×10" color=black]
+	build_format_selector -> __iter__ [label="writes×10" color=black]
+	build_format_selector -> __next__ [label="writes×10" color=black]
+	build_format_selector -> next [label="writes×10" color=black]
+	build_format_selector -> restore_last_token [label="writes×10" color=black]
+	build_format_selector -> TokenIterator [label="writes×10" color=black]
+	syntax_error -> _parse_format_selection [label="passed to" color=green style=dashed]
+	PICKFIRST -> _parse_format_selection [label="passed to" color=green style=dashed]
+	PICKFIRST -> _build_selector_function [label="passed to" color=green style=dashed]
+	MERGE -> _parse_format_selection [label="passed to" color=green style=dashed]
+	MERGE -> _build_selector_function [label="passed to" color=green style=dashed]
+	SINGLE -> _parse_format_selection [label="passed to" color=green style=dashed]
+	SINGLE -> _build_selector_function [label="passed to" color=green style=dashed]
+	GROUP -> _parse_format_selection [label="passed to" color=green style=dashed]
+	GROUP -> _build_selector_function [label="passed to" color=green style=dashed]
+	FormatSelector -> _parse_format_selection [label="passed to" color=green style=dashed]
+	_parse_filter -> _parse_format_selection [label="passed to" color=green style=dashed]
+	_parse_filter -> __iter__ [label="calls×13 [#37]" color=blue penwidth=2.3]
+	_parse_filter -> __next__ [label="calls×26 [#38]" color=blue penwidth=3.6]
+	_parse_format_selection -> _parse_format_selection [label="passed to" color=green style=dashed]
+	_parse_format_selection -> __iter__ [label="calls×10 [#32]" color=blue penwidth=2.0]
+	_parse_format_selection -> __next__ [label="calls×27 [#33]" color=blue penwidth=3.7]
+	_parse_format_selection -> _parse_filter [label="calls×10 [#36]" color=blue penwidth=2.0]
+	_build_selector_function -> _build_selector_function [label="passed to" color=green style=dashed]
+	_build_selector_function -> format_spec [label="writes×10" color=black]
+	_build_selector_function -> _build_format_filter [label="calls×13 [#45]" color=blue penwidth=2.3]
+	_build_selector_function -> filters [label="writes×8" color=black]
+	_build_selector_function -> final_selector [label="writes×8" color=black]
+	_build_selector_function -> s [label="writes×8" color=black]
+	_build_selector_function -> fs [label="writes×8" color=black]
+	tokens -> __init__ [label="passed to" color=green style=dashed]
+	tokens -> _parse_format_selection [label="passed to" color=green style=dashed]
+	tokens -> _parse_filter [label="passed to" color=green style=dashed]
+	format_spec -> process_info [label="passed to" color=green style=dashed]
+	format_spec -> build_format_selector [label="passed to" color=green style=dashed]
+	format_spec -> to_screen [label="passed to" color=green style=dashed]
+	_build_format_filter -> OPERATORS [label="writes×13" color=black]
+	_build_format_filter -> operator_rex [label="writes×13" color=black]
+	_build_format_filter -> comparison_value [label="writes×11" color=black]
+	_build_format_filter -> op [label="writes×11" color=black]
+	_build_format_filter -> ERROR__ValueError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	_build_format_filter -> parse_filesize [label="calls×2 [#326]" color=blue penwidth=1.2]
+	filters -> final_selector [label="passed to" color=green style=dashed]
+	filters -> __next__ [label="passed to" color=green style=dashed]
+	filters -> _parse_filter [label="passed to" color=green style=dashed]
+	s -> __init__ [label="passed to" color=green style=dashed]
+	s -> parse_filesize [label="passed to" color=green style=dashed]
+	fs -> process_info [label="passed to" color=green style=dashed]
+	fs -> to_screen [label="passed to" color=green style=dashed]
+	format_idx -> process_info [label="passed to" color=green style=dashed]
+	audiovideo_formats -> process_info [label="passed to" color=green style=dashed]
+	ie_result -> process_ie_result [label="passed to" color=green style=dashed]
+	parse_filesize -> _UNIT_TABLE [label="writes×3" color=black]
+	parse_filesize -> u [label="writes×3" color=black]
+	u -> parse_filesize [label="passed to" color=green style=dashed]
+}

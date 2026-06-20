@@ -1,0 +1,107 @@
+Cleared: /path/to/results/youtube-dl/bug37
+Running: python -m unittest -q test.test_utils.TestUtil.test_uppercase_escpae
+Workdir: /path/to/BugsInPy/workspace/youtube-dl
+PYTHONPATH: /path/to/BugsInPy/workspace/youtube-dl
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py:847: SyntaxWarning: invalid escape sequence '\d'
+  match = re.match('(now|today)(?P<sign>[+-])(?P<time>\d+)(?P<unit>day|week|month|year)(s)?', date_str)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/francetv.py:163: SyntaxWarning: invalid escape sequence '\.'
+  '\.fr/\?id-video=([^"/&]+)'),
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/youtube.py:1777: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = u'https?://www\.youtube\.com/feed/history|:ythistory'
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/ign.py:78: SyntaxWarning: invalid escape sequence '\.'
+  '<param name="flashvars" value="[^"]*?url=(https?://www\.ign\.com/videos/.*?)["&]',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/ivi.py:60: SyntaxWarning: invalid escape sequence '\s'
+  m = re.search('(?s)<a href="#" id="view-comments" class="action-button dim gradient">\s*Комментарии:\s*(?P<commentcount>\d+)\s*</a>', html)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/jukebox.py:42: SyntaxWarning: invalid escape sequence '\/'
+  video_url = unescapeHTML(video_url).replace('\/', '/')
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/jukebox.py:47: SyntaxWarning: invalid escape sequence '\/'
+  youtube_url = unescapeHTML(youtube_url).replace('\/', '/')
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/novamov.py:16: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = r'http://(?:(?:www\.)?%(host)s/video/|(?:(?:embed|www)\.)%(host)s/embed\.php\?(?:.*?&)?v=)(?P<videoid>[a-z\d]{13})' % {'host': 'novamov\.com'}
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nowvideo.py:10: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = r'http://(?:(?:www\.)?%(host)s/video/|(?:(?:embed|www)\.)%(host)s/embed\.php\?(?:.*?&)?v=)(?P<videoid>[a-z\d]{13})' % {'host': 'nowvideo\.(?:ch|sx|eu)'}
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/rts.py:33: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.image'
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/rts.py:48: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.image'
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/rts.py:63: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.image'
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/rts.py:79: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.image'
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/ted.py:48: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.+\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vimeo.py:213: SyntaxWarning: invalid escape sequence '\w'
+  m_variable_name = re.search('(\w)\.video\.id', webpage)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/wdr.py:119: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = 'http://(?:www\.)?wdrmaus\.de/(?:[^/]+/){,2}(?P<id>[^/?#]+)(?:/index\.php5|(?<!index)\.php5|/(?:$|[?#]))'
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/wdr.py:126: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http://.+\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/wdr.py:136: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http://.+\.jpg',
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Starting var:.. self = <test.test_utils.TestUtil testMethod=test_uppercase_escpae>
+IE_TRACE: 15:23:28.200089 call       286     def test_uppercase_escpae(self):
+IE_TRACE: 15:23:28.200354 line       287         self.assertEqual(uppercase_escape(u'aä'), u'aä')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = 'aä'
+IE_TRACE:     15:23:28.200400 call      1265 def uppercase_escape(s):
+IE_TRACE:     15:23:28.200548 line      1266     return re.sub(
+IE_TRACE:     15:23:28.200577 line      1267         r'\\U[0-9a-fA-F]{8}',
+IE_TRACE:     15:23:28.200596 line      1268         lambda m: m.group(0).decode('unicode-escape'), s)
+IE_TRACE:     15:23:28.200612 line      1266     return re.sub(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:23:28.242336 return    1266     return re.sub(
+IE_TRACE:     Return value:.. 'aä'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:23:28.243089 line       288         self.assertEqual(uppercase_escape(u'\\U0001d550'), u'𝕐')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = '\\U0001d550'
+IE_TRACE:     15:23:28.243118 call      1265 def uppercase_escape(s):
+IE_TRACE:     15:23:28.243141 line      1266     return re.sub(
+IE_TRACE:     15:23:28.243153 line      1267         r'\\U[0-9a-fA-F]{8}',
+IE_TRACE:     15:23:28.243165 line      1268         lambda m: m.group(0).decode('unicode-escape'), s)
+IE_TRACE:     15:23:28.243177 line      1266     return re.sub(
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(0, 10), match='\\U0001d550'>
+IE_TRACE:             15:23:28.243355 call      1268         lambda m: m.group(0).decode('unicode-escape'), s)
+IE_TRACE:             15:23:28.243380 line      1268         lambda m: m.group(0).decode('unicode-escape'), s)
+IE_TRACE:             15:23:28.243395 exception 1268         lambda m: m.group(0).decode('unicode-escape'), s)
+IE_TRACE:             Exception:..... AttributeError: 'str' object has no attribute 'decode'. Did you mean: 'encode'?
+IE_TRACE:             Call ended by exception
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:23:28.244519 exception 1266     return re.sub(
+IE_TRACE:     Exception:..... AttributeError: 'str' object has no attribute 'decode'. Did you mean: 'encode'?
+IE_TRACE:     Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:23:28.245020 exception  288         self.assertEqual(uppercase_escape(u'\\U0001d550'), u'𝕐')
+IE_TRACE: Exception:..... AttributeError: 'str' object has no attribute 'decode'. Did you mean: 'encode'?
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.045623
+======================================================================
+ERROR: test_uppercase_escpae (test.test_utils.TestUtil.test_uppercase_escpae)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py", line 288, in test_uppercase_escpae
+    self.assertEqual(uppercase_escape(u'\\U0001d550'), u'𝕐')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py", line 1266, in uppercase_escape
+    return re.sub(
+           ^^^^^^^
+  File "/usr/lib/python3.12/re/__init__.py", line 186, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py", line 1268, in <lambda>
+    lambda m: m.group(0).decode('unicode-escape'), s)
+              ^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'decode'. Did you mean: 'encode'?
+
+----------------------------------------------------------------------
+Ran 1 test in 0.047s
+
+FAILED (errors=1)
+
+
+Exit code: 1

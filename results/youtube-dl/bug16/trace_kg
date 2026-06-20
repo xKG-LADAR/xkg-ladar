@@ -1,0 +1,84 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_dfxp2srt [label="test_dfxp2srt
+test_utils.py:1057" fillcolor=white shape=box style=filled]
+	dfxp_data [label="dfxp_data
+bytes(len=726)" shape=ellipse]
+	srt_data [label="srt_data
+'1\n00:00:00,000 --> 00:00:01,000\nThe following line contains Chinese characters and special symbols\n\n2\n00:00:01,000…" shape=ellipse]
+	dfxp2srt [label="dfxp2srt
+utils.py:2574" fillcolor=white shape=box style=filled]
+	LEGACY_NAMESPACES [label="LEGACY_NAMESPACES
+(('http://www.w3.org/ns/ttml', ['http://www.w3.org/2004/11/ttaf1', 'http://www.w3.org/2006/04/ttaf1', 'http://www.w3.org…" shape=ellipse]
+	SUPPORTED_STYLING [label="SUPPORTED_STYLING
+['color', 'fontFamily', 'fontSize', 'fontStyle', 'fontWeight', 'textDecoration']" shape=ellipse]
+	_x [label="_x
+functools.partial(<function xpath_with_ns at 0x7ba15d9d6700>, ns_map={'ttml': 'http://www.w3.org/ns/ttml', 'tts': 'http:…" shape=ellipse]
+	styles [label="styles
+{}" shape=ellipse]
+	default_style [label="default_style
+{}" shape=ellipse]
+	__module__ [label="__module__
+'youtube_dl.utils'" shape=ellipse]
+	__qualname__ [label="__qualname__
+'dfxp2srt.<locals>.TTMLPElementParser'" shape=ellipse]
+	_out [label="_out
+''" shape=ellipse]
+	_unclosed_elements [label="_unclosed_elements
+[]" shape=ellipse]
+	_applied_styles [label="_applied_styles
+[]" shape=ellipse]
+	start [label="start
+<function dfxp2srt.<locals>.TTMLPElementParser.start at 0x7ba15d032700>" shape=ellipse]
+	end [label="end
+<function dfxp2srt.<locals>.TTMLPElementParser.end at 0x7ba15d0327a0>" shape=ellipse]
+	data [label="data
+<function dfxp2srt.<locals>.TTMLPElementParser.data at 0x7ba15d032840>" shape=ellipse]
+	close [label="close
+<function dfxp2srt.<locals>.TTMLPElementParser.close at 0x7ba15d0328e0>" shape=ellipse]
+	TTMLPElementParser [label="TTMLPElementParser
+<class 'youtube_dl.utils.dfxp2srt.<locals>.TTMLPElementParser'>" shape=ellipse]
+	parse_node [label="parse_node
+<function dfxp2srt.<locals>.parse_node at 0x7ba15d032660>" shape=ellipse]
+	k [label="k
+'http://www.w3.org/ns/ttml'" shape=ellipse]
+	v [label="v
+['http://www.w3.org/2004/11/ttaf1', 'http://www.w3.org/2006/04/ttaf1', 'http://www.w3.org/2006/10/ttaf1']" shape=ellipse]
+	ns [label="ns
+'http://www.w3.org/2004/11/ttaf1'" shape=ellipse]
+	ERROR__TypeError [label="TypeError
+a bytes-like object is required, not 'str'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_dfxp2srt
+	}
+	{
+		rank=same
+		dfxp2srt
+	}
+	test_dfxp2srt -> dfxp_data [label=writes color=black]
+	test_dfxp2srt -> srt_data [label=writes color=black]
+	test_dfxp2srt -> dfxp2srt [label="calls [#1]" color=blue penwidth=1.1]
+	test_dfxp2srt -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	dfxp_data -> dfxp2srt [label="passed to" color=green style=dashed]
+	dfxp2srt -> LEGACY_NAMESPACES [label=writes color=black]
+	dfxp2srt -> SUPPORTED_STYLING [label=writes color=black]
+	dfxp2srt -> _x [label=writes color=black]
+	dfxp2srt -> styles [label=writes color=black]
+	dfxp2srt -> default_style [label=writes color=black]
+	dfxp2srt -> __module__ [label=writes color=black]
+	dfxp2srt -> __qualname__ [label=writes color=black]
+	dfxp2srt -> _out [label=writes color=black]
+	dfxp2srt -> _unclosed_elements [label=writes color=black]
+	dfxp2srt -> _applied_styles [label=writes color=black]
+	dfxp2srt -> start [label=writes color=black]
+	dfxp2srt -> end [label=writes color=black]
+	dfxp2srt -> data [label=writes color=black]
+	dfxp2srt -> close [label=writes color=black]
+	dfxp2srt -> TTMLPElementParser [label=writes color=black]
+	dfxp2srt -> parse_node [label=writes color=black]
+	dfxp2srt -> k [label=writes color=black]
+	dfxp2srt -> v [label=writes color=black]
+	dfxp2srt -> ns [label=writes color=black]
+	dfxp2srt -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+}

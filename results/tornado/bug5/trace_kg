@@ -1,0 +1,58 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_clock_backwards [label="test_clock_backwards
+ioloop_test.py:836" fillcolor=white shape=box style=filled]
+	__init__ [label="__init__
+stack_context_test.py:18" fillcolor=white shape=box style=filled]
+	pc [label="pc
+<tornado.ioloop.PeriodicCallback object at 0x7d045415e6f0>" shape=ellipse]
+	simulate_calls [label="simulate_calls
+Simulate a series of calls to the PeriodicCallback.
+ioloop_test.py:797" fillcolor=white shape=box style=filled]
+	calls [label="calls
+(4 writes, 4 distinct)
+[]
+[1010.0]
+[1010.0, 1010.0, 1010.0, 1010.0]
+[1010.0, 1010.0, 1010.0, 1010.0, 1010.0]" shape=ellipse]
+	now [label="now
+(4 writes, 3 distinct)
+1000
+1008.0
+1010.0" shape=ellipse]
+	d [label="d
+(3 writes, 3 distinct)
+-2
+-1
+0" shape=ellipse]
+	_update_next [label="_update_next
+ioloop.py:1219" fillcolor=white shape=box style=filled]
+	callback_time_sec [label="callback_time_sec
+10.0" shape=ellipse]
+	ERROR__AssertionError [label="AssertionError
+Lists differ: [1010.0, 1010.0, 1010.0, 1010.0, 1010.0] != [1010, 1020, 1030, 1040, 1050]" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_clock_backwards
+	}
+	{
+		rank=same
+		__init__
+		simulate_calls
+	}
+	{
+		rank=same
+		_update_next
+	}
+	test_clock_backwards -> __init__ [label="calls [#1]" color=blue penwidth=1.1]
+	test_clock_backwards -> pc [label=writes color=black]
+	test_clock_backwards -> simulate_calls [label="calls [#2]" color=blue penwidth=1.1]
+	test_clock_backwards -> ERROR__AssertionError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	pc -> simulate_calls [label="passed to" color=green style=dashed]
+	simulate_calls -> calls [label="writes×4" color=black]
+	simulate_calls -> now [label="writes×4" color=black]
+	simulate_calls -> d [label="writes×3" color=black]
+	simulate_calls -> _update_next [label="calls×3 [#3]" color=blue penwidth=1.3]
+	simulate_calls -> simulate_calls [label="loops(×7)" color=purple style=dashed]
+	_update_next -> callback_time_sec [label=writes color=black]
+}

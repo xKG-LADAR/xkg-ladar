@@ -1,0 +1,415 @@
+Cleared: /path/to/results/youtube-dl/bug28
+Running: python -m unittest -q test.test_utils.TestUtil.test_unescape_html
+Workdir: /path/to/BugsInPy/workspace/youtube-dl
+PYTHONPATH: /path/to/BugsInPy/workspace/youtube-dl
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py:369: SyntaxWarning: invalid escape sequence '\s'
+  path_part if path_part in ['.', '..'] else re.sub('(?:[/<>:"\\|\\\\?\\*]|[\s.]$)', '#', path_part)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py:941: SyntaxWarning: invalid escape sequence '\d'
+  match = re.match('(now|today)(?P<sign>[+-])(?P<time>\d+)(?P<unit>day|week|month|year)(s)?', date_str)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/adobetv.py:24: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/generic.py:216: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/generic.py:231: SyntaxWarning: invalid escape sequence '\.'
+  'description': 're:^Chris Ziegler takes a look at the\.*',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/generic.py:459: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/generic.py:669: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/generic.py:834: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/generic.py:847: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/generic.py:860: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/generic.py:872: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.png$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/generic.py:941: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/generic.py:992: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpe?g$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/generic.py:1002: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpe?g$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/youtube.py:1964: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = 'https?://www\.youtube\.com/feed/history|:ythistory'
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nbc.py:252: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/smotri.py:85: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/smotri.py:121: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/udn.py:23: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/pornhub.py:150: SyntaxWarning: invalid escape sequence '\.'
+  for video_url in set(re.findall('href="/?(view_video\.php\?viewkey=\d+[^"]*)"', webpage))
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vimeo.py:313: SyntaxWarning: invalid escape sequence '\w'
+  m_variable_name = re.search('(\w)\.video\.id', webpage)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vimeo.py:613: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/dailymotion.py:62: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?:.*\.(?:jpg|png)$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/atresplayer.py:33: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/bilibili.py:31: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.+\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/byutv.py:19: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$'
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/ceskatelevize.py:28: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/ceskatelevize.py:42: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/ceskatelevize.py:69: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/clipfish.py:37: SyntaxWarning: invalid escape sequence '\s'
+  '(?s)videoObject\s*=\s*({.+?});', webpage, 'video object')),
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/cliphunter.py:33: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/collegerama.py:24: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/crunchyroll.py:109: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/dbtv.py:26: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/dcn.py:25: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/dramafever.py:79: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/dumpert.py:22: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/escapist.py:49: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/escapist.py:61: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/hearthisat.py:29: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/instagram.py:65: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/iprima.py:39: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http:.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/ivi.py:62: SyntaxWarning: invalid escape sequence '\s'
+  m = re.search('(?s)<a href="#" id="view-comments" class="action-button dim gradient">\s*Комментарии:\s*(?P<commentcount>\d+)\s*</a>', html)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/lynda.py:73: SyntaxWarning: invalid escape sequence '\s'
+  if all(not re.search(p, login_page) for p in ('isLoggedIn\s*:\s*true', r'logout\.aspx', r'>Log out<')):
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/metacafe.py:134: SyntaxWarning: invalid escape sequence '\w'
+  m_external = re.match('^(\w{2})-(.*)$', video_id)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/minhateca.py:24: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/mixcloud.py:27: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/moevideo.py:35: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/moevideo.py:50: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/movieclips.py:20: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/movshare.py:10: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = NovaMovIE._VALID_URL_TEMPLATE % {'host': 'movshare\.(?:net|sx|ag)'}
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/novamov.py:23: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = _VALID_URL_TEMPLATE % {'host': 'novamov\.com'}
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/myvideo.py:162: SyntaxWarning: invalid escape sequence '\('
+  video_swfobj = self._search_regex('swfobject.embedSWF\(\'(.+?)\'', webpage, 'swfobj')
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/ndr.py:305: SyntaxWarning: invalid escape sequence '\d'
+  'title': 're:^NDR Fernsehen Niedersachsen \d{4}-\d{2}-\d{2} \d{2}:\d{2}$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/ndr.py:370: SyntaxWarning: invalid escape sequence '\d'
+  'title': 're:^N-JOY Weltweit \d{4}-\d{2}-\d{2} \d{2}:\d{2}$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nosvideo.py:22: SyntaxWarning: invalid escape sequence '\?'
+  '(?:embed/|\?v=)(?P<id>[A-Za-z0-9]{12})/?'
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nosvideo.py:32: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nowness.py:59: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nowness.py:70: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nowness.py:82: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nowtv.py:85: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nowtv.py:103: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nowtv.py:121: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nowtv.py:139: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nowtv.py:157: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nowtv.py:175: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/nowvideo.py:10: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = NovaMovIE._VALID_URL_TEMPLATE % {'host': 'nowvideo\.(?:to|ch|ec|sx|eu|at|ag|co|li)'}
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/pbs.py:78: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/pbs.py:94: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/pbs.py:118: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/pbs.py:133: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/pbs.py:152: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/pbs.py:168: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/pbs.py:316: SyntaxWarning: invalid escape sequence '\s'
+  info['title'] = alt_title + ' - ' + re.sub(r'^' + alt_title + '[\s\-:]+', '', info['title'])
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/pladform.py:35: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/pornhd.py:25: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/promptfile.py:26: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/qqmusic.py:31: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/qqmusic.py:44: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/qqmusic.py:56: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/rutube.py:77: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = 'https?://rutube\.ru/video/embed/(?P<id>[0-9]+)'
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/spankwire.py:88: SyntaxWarning: invalid escape sequence '\.'
+  if webpage.find('flashvars\.encrypted = "true"') != -1:
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/spiegel.py:96: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = 'https?://www\.spiegel\.de/(?!video/)[^?#]*?-(?P<id>[0-9]+)\.html'
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/sportdeutschland.py:25: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/sportdeutschland.py:26: SyntaxWarning: invalid escape sequence '\.'
+  'description': 're:Die Badminton-WM 2014 aus Kopenhagen bei Sportdeutschland\.TV',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/sportdeutschland.py:43: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/tapely.py:29: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.png$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/theplatform.py:137: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/theplatform.py:252: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/tubitv.py:28: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.png$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/twitch.py:207: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/twitch.py:227: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/twitter.py:28: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/twitter.py:39: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/twitter.py:146: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/twitter.py:160: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.png',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vessel.py:26: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/viddler.py:27: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/videomega.py:19: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/videoweed.py:10: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = NovaMovIE._VALID_URL_TEMPLATE % {'host': 'videoweed\.(?:es|com)'}
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vodlocker.py:21: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/voicerepublic.py:28: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.(?:png|jpg)$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/wdr.py:212: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = 'http://(?:www\.)?wdrmaus\.de/(?:[^/]+/){,2}(?P<id>[^/?#]+)(?:/index\.php5|(?<!index)\.php5|/(?:$|[?#]))'
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/wdr.py:219: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http://.+\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/wdr.py:229: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^http://.+\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/xfileshare.py:35: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/xfileshare.py:47: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/xfileshare.py:57: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/xfileshare.py:66: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/xfileshare.py:77: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:http://.*\.jpg',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/xvideos.py:57: SyntaxWarning: invalid escape sequence '\('
+  'mobileReplacePlayerDivTwoQual\(([^)]+)\)',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/youku.py:91: SyntaxWarning: invalid escape sequence '\:'
+  'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ/\:._-1234567890')
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/youporn.py:27: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/youporn.py:46: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https?://.*\.jpg$',
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Starting var:.. self = <test.test_utils.TestUtil testMethod=test_unescape_html>
+IE_TRACE: 15:16:25.716373 call       212     def test_unescape_html(self):
+IE_TRACE: 15:16:25.716718 line       213         self.assertEqual(unescapeHTML('%20;'), '%20;')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = '%20;'
+IE_TRACE:     15:16:25.716764 call       405 def unescapeHTML(s):
+IE_TRACE:     15:16:25.717047 line       406     if s is None:
+IE_TRACE:     15:16:25.717072 line       408     assert type(s) == compat_str
+IE_TRACE:     15:16:25.717091 line       410     return re.sub(
+IE_TRACE:     15:16:25.717107 line       411         r'&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+IE_TRACE:     15:16:25.717122 line       410     return re.sub(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:25.748971 return     410     return re.sub(
+IE_TRACE:     Return value:.. '%20;'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:16:25.749818 line       214         self.assertEqual(unescapeHTML('&#x2F;'), '/')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = '&#x2F;'
+IE_TRACE:     15:16:25.749844 call       405 def unescapeHTML(s):
+IE_TRACE:     15:16:25.749867 line       406     if s is None:
+IE_TRACE:     15:16:25.749879 line       408     assert type(s) == compat_str
+IE_TRACE:     15:16:25.749893 line       410     return re.sub(
+IE_TRACE:     15:16:25.749906 line       411         r'&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+IE_TRACE:     15:16:25.749918 line       410     return re.sub(
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(0, 6), match='&#x2F;'>
+IE_TRACE:             15:16:25.750099 call       411         r'&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+IE_TRACE:             15:16:25.750127 line       411         r'&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+IE_TRACE:                 Starting var:.. entity = '#x2F'
+IE_TRACE:                 15:16:25.750150 call       385 def _htmlentity_transform(entity):
+IE_TRACE:                 15:16:25.750170 line       388     if entity in compat_html_entities.name2codepoint:
+IE_TRACE:                 15:16:25.750189 line       391     mobj = re.match(r'#(x[0-9a-fA-F]+|[0-9]+)', entity)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:                 New var:....... mobj = <re.Match object; span=(0, 4), match='#x2F'>
+IE_TRACE:                 15:16:25.762235 line       392     if mobj is not None:
+IE_TRACE:                 15:16:25.762262 line       393         numstr = mobj.group(1)
+IE_TRACE:                 New var:....... numstr = 'x2F'
+IE_TRACE:                 15:16:25.762279 line       394         if numstr.startswith('x'):
+IE_TRACE:                 15:16:25.762301 line       395             base = 16
+IE_TRACE:                 New var:....... base = 16
+IE_TRACE:                 15:16:25.762318 line       396             numstr = '0%s' % numstr
+IE_TRACE:                 Modified var:.. numstr = '0x2F'
+IE_TRACE:                 15:16:25.762343 line       399         return compat_chr(int(numstr, base))
+IE_TRACE:                 15:16:25.762368 return     399         return compat_chr(int(numstr, base))
+IE_TRACE:                 Return value:.. '/'
+IE_TRACE:             15:16:25.762392 return     411         r'&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+IE_TRACE:             Return value:.. '/'
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:25.762443 return     410     return re.sub(
+IE_TRACE:     Return value:.. '/'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:16:25.763035 line       215         self.assertEqual(unescapeHTML('&#47;'), '/')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = '&#47;'
+IE_TRACE:     15:16:25.763059 call       405 def unescapeHTML(s):
+IE_TRACE:     15:16:25.763081 line       406     if s is None:
+IE_TRACE:     15:16:25.763093 line       408     assert type(s) == compat_str
+IE_TRACE:     15:16:25.763106 line       410     return re.sub(
+IE_TRACE:     15:16:25.763117 line       411         r'&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+IE_TRACE:     15:16:25.763129 line       410     return re.sub(
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(0, 5), match='&#47;'>
+IE_TRACE:             15:16:25.763301 call       411         r'&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+IE_TRACE:             15:16:25.763323 line       411         r'&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+IE_TRACE:                 Starting var:.. entity = '#47'
+IE_TRACE:                 15:16:25.763337 call       385 def _htmlentity_transform(entity):
+IE_TRACE:                 15:16:25.763355 line       388     if entity in compat_html_entities.name2codepoint:
+IE_TRACE:                 15:16:25.763370 line       391     mobj = re.match(r'#(x[0-9a-fA-F]+|[0-9]+)', entity)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:                 New var:....... mobj = <re.Match object; span=(0, 3), match='#47'>
+IE_TRACE:                 15:16:25.763556 line       392     if mobj is not None:
+IE_TRACE:                 15:16:25.763583 line       393         numstr = mobj.group(1)
+IE_TRACE:                 New var:....... numstr = '47'
+IE_TRACE:                 15:16:25.763599 line       394         if numstr.startswith('x'):
+IE_TRACE:                 15:16:25.763620 line       398             base = 10
+IE_TRACE:                 New var:....... base = 10
+IE_TRACE:                 15:16:25.763636 line       399         return compat_chr(int(numstr, base))
+IE_TRACE:                 15:16:25.763660 return     399         return compat_chr(int(numstr, base))
+IE_TRACE:                 Return value:.. '/'
+IE_TRACE:             15:16:25.763683 return     411         r'&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+IE_TRACE:             Return value:.. '/'
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:25.763731 return     410     return re.sub(
+IE_TRACE:     Return value:.. '/'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:16:25.764289 line       216         self.assertEqual(unescapeHTML('&eacute;'), 'é')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = '&eacute;'
+IE_TRACE:     15:16:25.764311 call       405 def unescapeHTML(s):
+IE_TRACE:     15:16:25.764333 line       406     if s is None:
+IE_TRACE:     15:16:25.764345 line       408     assert type(s) == compat_str
+IE_TRACE:     15:16:25.764357 line       410     return re.sub(
+IE_TRACE:     15:16:25.764369 line       411         r'&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+IE_TRACE:     15:16:25.764381 line       410     return re.sub(
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(0, 8), match='&eacute;'>
+IE_TRACE:             15:16:25.764548 call       411         r'&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+IE_TRACE:             15:16:25.764573 line       411         r'&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+IE_TRACE:                 Starting var:.. entity = 'eacute'
+IE_TRACE:                 15:16:25.764586 call       385 def _htmlentity_transform(entity):
+IE_TRACE:                 15:16:25.764604 line       388     if entity in compat_html_entities.name2codepoint:
+IE_TRACE:                 15:16:25.764619 line       389         return compat_chr(compat_html_entities.name2codepoint[entity])
+IE_TRACE:                 15:16:25.764633 return     389         return compat_chr(compat_html_entities.name2codepoint[entity])
+IE_TRACE:                 Return value:.. 'é'
+IE_TRACE:             15:16:25.764654 return     411         r'&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+IE_TRACE:             Return value:.. 'é'
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:25.764703 return     410     return re.sub(
+IE_TRACE:     Return value:.. 'é'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:16:25.765259 line       217         self.assertEqual(unescapeHTML('&#2013266066;'), '&#2013266066;')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. s = '&#2013266066;'
+IE_TRACE:     15:16:25.765279 call       405 def unescapeHTML(s):
+IE_TRACE:     15:16:25.765304 line       406     if s is None:
+IE_TRACE:     15:16:25.765316 line       408     assert type(s) == compat_str
+IE_TRACE:     15:16:25.765328 line       410     return re.sub(
+IE_TRACE:     15:16:25.765340 line       411         r'&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+IE_TRACE:     15:16:25.765351 line       410     return re.sub(
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             Starting var:.. m = <re.Match object; span=(0, 13), match='&#2013266066;'>
+IE_TRACE:             15:16:25.765519 call       411         r'&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+IE_TRACE:             15:16:25.765541 line       411         r'&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+IE_TRACE:                 Starting var:.. entity = '#2013266066'
+IE_TRACE:                 15:16:25.765555 call       385 def _htmlentity_transform(entity):
+IE_TRACE:                 15:16:25.765582 line       388     if entity in compat_html_entities.name2codepoint:
+IE_TRACE:                 15:16:25.765599 line       391     mobj = re.match(r'#(x[0-9a-fA-F]+|[0-9]+)', entity)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:                 New var:....... mobj = <re.Match object; span=(0, 11), match='#2013266066'>
+IE_TRACE:                 15:16:25.765790 line       392     if mobj is not None:
+IE_TRACE:                 15:16:25.765814 line       393         numstr = mobj.group(1)
+IE_TRACE:                 New var:....... numstr = '2013266066'
+IE_TRACE:                 15:16:25.765830 line       394         if numstr.startswith('x'):
+IE_TRACE:                 15:16:25.765852 line       398             base = 10
+IE_TRACE:                 New var:....... base = 10
+IE_TRACE:                 15:16:25.765868 line       399         return compat_chr(int(numstr, base))
+IE_TRACE:                 15:16:25.765892 exception  399         return compat_chr(int(numstr, base))
+IE_TRACE:                 Exception:..... ValueError: chr() arg not in range(0x110000)
+IE_TRACE:                 Call ended by exception
+IE_TRACE:             15:16:25.765968 exception  411         r'&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+IE_TRACE:             Exception:..... ValueError: chr() arg not in range(0x110000)
+IE_TRACE:             Call ended by exception
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:16:25.766065 exception  410     return re.sub(
+IE_TRACE:     Exception:..... ValueError: chr() arg not in range(0x110000)
+IE_TRACE:     Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:16:25.766106 exception  217         self.assertEqual(unescapeHTML('&#2013266066;'), '&#2013266066;')
+IE_TRACE: Exception:..... ValueError: chr() arg not in range(0x110000)
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.049988
+======================================================================
+ERROR: test_unescape_html (test.test_utils.TestUtil.test_unescape_html)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py", line 217, in test_unescape_html
+    self.assertEqual(unescapeHTML('&#2013266066;'), '&#2013266066;')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py", line 410, in unescapeHTML
+    return re.sub(
+           ^^^^^^^
+  File "/usr/lib/python3.12/re/__init__.py", line 186, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py", line 411, in <lambda>
+    r'&([^;]+);', lambda m: _htmlentity_transform(m.group(1)), s)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py", line 399, in _htmlentity_transform
+    return compat_chr(int(numstr, base))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: chr() arg not in range(0x110000)
+
+----------------------------------------------------------------------
+Ran 1 test in 0.051s
+
+FAILED (errors=1)
+
+
+Exit code: 1

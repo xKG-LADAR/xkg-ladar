@@ -1,0 +1,123 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_canonicalize_url_unicode_query_string [label="test_canonicalize_url_unicode_query_string
+test_utils_url.py:136" fillcolor=white shape=box style=filled]
+	canonicalize_url [label="canonicalize_url
+Canonicalize the given url by applying the following pr…
+url.py:41" fillcolor=white shape=box style=filled]
+	parse_url [label="parse_url
+Return urlparsed url from the given argument (which cou…
+url.py:79" fillcolor=white shape=box style=filled]
+	to_native_str [label="to_native_str
+Return str representation of `text`
+python.py:125" fillcolor=white shape=box style=filled]
+	to_unicode [label="to_unicode
+Return the unicode representation of a bytes object `te…
+python.py:99" fillcolor=white shape=box style=filled]
+	scheme [label="scheme
+(2 writes)
+'http'" shape=ellipse]
+	netloc [label="netloc
+(4 writes, 2 distinct)
+'www.example.com'
+''" shape=ellipse]
+	path [label="path
+(6 writes, 2 distinct)
+'/résumé'
+'/r%C3%A9sum%C3%A9'" shape=ellipse]
+	params [label="params
+(2 writes)
+''" shape=ellipse]
+	query [label="query
+(6 writes, 3 distinct)
+'q=résumé'
+'q=r%C3%A9sum%C3%A9'
+''" shape=ellipse]
+	fragment [label="fragment
+(2 writes)
+''" shape=ellipse]
+	keyvals [label="keyvals
+(2 writes)
+[('q', 'résumé')]" shape=ellipse]
+	_unquotepath [label="_unquotepath
+url.py:73" fillcolor=white shape=box style=filled]
+	reserved [label="reserved
+(4 writes, 2 distinct)
+'2f'
+'3F'" shape=ellipse]
+	safe_url_string [label=safe_url_string fillcolor=white shape=box style=filled]
+	decoded [label="decoded
+(2 writes)
+'/résumé'" shape=ellipse]
+	_strip [label=_strip fillcolor=white shape=box style=filled]
+	parts [label="parts
+(2 writes)
+SplitResult(scheme='', netloc='', path='/résumé', query='', fragment='')" shape=ellipse]
+	username [label="username
+(2 writes)
+None" shape=ellipse]
+	password [label="password
+(2 writes)
+None" shape=ellipse]
+	hostname [label="hostname
+(2 writes)
+None" shape=ellipse]
+	port [label="port
+(2 writes)
+None" shape=ellipse]
+	netloc_bytes [label="netloc_bytes
+(2 writes)
+b''" shape=ellipse]
+	ERROR__AssertionError [label="AssertionError
+'http://www.example.com/r%C3%A9sum%C3%A9?q=r%C3%A9sum%C3%A9' != 'http://www.example.com/r%C3%A9sum%C3%A9?q=r%E9sum%E9'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_canonicalize_url_unicode_query_string
+	}
+	{
+		rank=same
+		canonicalize_url
+	}
+	{
+		rank=same
+		parse_url
+		_unquotepath
+		safe_url_string
+	}
+	{
+		rank=same
+		to_native_str
+		to_unicode
+		_strip
+	}
+	test_canonicalize_url_unicode_query_string -> canonicalize_url [label="calls×2 [#1]" color=blue penwidth=1.2]
+	test_canonicalize_url_unicode_query_string -> ERROR__AssertionError [label=raises color=orange penwidth=2 style=dashed]
+	canonicalize_url -> parse_url [label="calls×2 [#2]" color=blue penwidth=1.2]
+	canonicalize_url -> scheme [label="writes×2" color=black]
+	canonicalize_url -> netloc [label="writes×2" color=black]
+	canonicalize_url -> path [label="writes×4" color=black]
+	canonicalize_url -> params [label="writes×2" color=black]
+	canonicalize_url -> query [label="writes×4" color=black]
+	canonicalize_url -> fragment [label="writes×2" color=black]
+	canonicalize_url -> keyvals [label="writes×2" color=black]
+	canonicalize_url -> _unquotepath [label="calls×2 [#5]" color=blue penwidth=1.2]
+	canonicalize_url -> canonicalize_url [label="loops(×8)" color=purple style=dashed]
+	canonicalize_url -> reserved [label="writes×2" color=black]
+	canonicalize_url -> safe_url_string [label="calls×2 [#6]" color=blue penwidth=1.2]
+	parse_url -> to_native_str [label="calls×2 [#3]" color=blue penwidth=1.2]
+	to_native_str -> to_unicode [label="calls×2 [#4]" color=blue penwidth=1.2]
+	path -> _unquotepath [label="passed to" color=green style=dashed]
+	_unquotepath -> reserved [label="writes×2" color=black]
+	safe_url_string -> to_unicode [label="calls×2 [#7]" color=blue penwidth=1.2]
+	safe_url_string -> decoded [label="writes×2" color=black]
+	safe_url_string -> _strip [label="calls×2 [#8]" color=blue penwidth=1.2]
+	safe_url_string -> parts [label="writes×2" color=black]
+	safe_url_string -> username [label="writes×2" color=black]
+	safe_url_string -> password [label="writes×2" color=black]
+	safe_url_string -> hostname [label="writes×2" color=black]
+	safe_url_string -> port [label="writes×2" color=black]
+	safe_url_string -> netloc_bytes [label="writes×2" color=black]
+	safe_url_string -> netloc [label="writes×2" color=black]
+	safe_url_string -> path [label="writes×2" color=black]
+	safe_url_string -> query [label="writes×2" color=black]
+}

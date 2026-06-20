@@ -1,0 +1,395 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_alpha [label="test_alpha
+test_version.py:259" fillcolor=white shape=box style=filled]
+	__init__ [label="__init__
+import_fixture.py:7" fillcolor=white shape=box style=filled]
+	__eq__ [label="__eq__
+host.py:40" fillcolor=white shape=box style=filled]
+	__ne__ [label="__ne__
+host.py:45" fillcolor=white shape=box style=filled]
+	__lt__ [label="__lt__
+version.py:65" fillcolor=white shape=box style=filled]
+	__gt__ [label="__gt__
+version.py:75" fillcolor=white shape=box style=filled]
+	raises [label=raises fillcolor=white shape=box style=filled]
+	__tracebackhide__ [label="__tracebackhide__
+(3 writes)
+True" shape=ellipse]
+	expected_exceptions [label="expected_exceptions
+(<class 'ValueError'>,)" shape=ellipse]
+	e [label="e
+<class 'ValueError'>" shape=ellipse]
+	_parse_exc [label=_parse_exc fillcolor=white shape=box style=filled]
+	__enter__ [label="__enter__
+test_encrypt.py:31" fillcolor=white shape=box style=filled]
+	for_later [label=for_later fillcolor=white shape=box style=filled]
+	check_ispytest [label=check_ispytest fillcolor=white shape=box style=filled]
+	ERROR__ValueError [label=ValueError fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	__exit__ [label="__exit__
+test_encrypt.py:35" fillcolor=white shape=box style=filled]
+	matches [label="matches
+parsing.py:314" fillcolor=white shape=box style=filled]
+	_check_type [label="_check_type
+[closure inside _check_size_and_type]
+openssl_privatekey.py:551" fillcolor=white shape=box style=filled]
+	_check_raw_type [label=_check_raw_type fillcolor=white shape=box style=filled]
+	_check_match [label=_check_match fillcolor=white shape=box style=filled]
+	_check_check [label=_check_check fillcolor=white shape=box style=filled]
+	exc_info [label="exc_info
+(<class 'ValueError'>, ValueError(), <traceback object at 0x71e5cc1cc880>)" shape=ellipse]
+	fill_unfilled [label=fill_unfilled fillcolor=white shape=box style=filled]
+	__le__ [label="__le__
+version.py:78" fillcolor=white shape=box style=filled]
+	__ge__ [label="__ge__
+version.py:81" fillcolor=white shape=box style=filled]
+	_call_reprcompare [label=_call_reprcompare fillcolor=white shape=box style=filled]
+	i [label="i
+0" shape=ellipse]
+	res [label="res
+(2 writes, 2 distinct)
+True
+None" shape=ellipse]
+	expl [label="expl
+'%(py4)s\n{%(py4)s = %(py0)s(%(py2)s)\n} > %(py10)s\n{%(py10)s = %(py6)s(%(py8)s)\n}'" shape=ellipse]
+	done [label="done
+False" shape=ellipse]
+	callbinrepr [label=callbinrepr fillcolor=white shape=box style=filled]
+	__getattr__ [label="__getattr__
+callback_debug.py:22" fillcolor=white shape=box style=filled]
+	hook [label="hook
+<HookCaller 'pytest_assertrepr_compare'>" shape=ellipse]
+	__call__ [label="__call__
+singleton.py:21" fillcolor=white shape=box style=filled]
+	is_historic [label=is_historic fillcolor=white shape=box style=filled]
+	_verify_all_args_are_provided [label=_verify_all_args_are_provided fillcolor=white shape=box style=filled]
+	argname [label="argname
+(6 writes, 4 distinct)
+'config'
+'right'
+'op'
+'left'" shape=ellipse]
+	firstresult [label="firstresult
+False" shape=ellipse]
+	_hookexec [label=_hookexec fillcolor=white shape=box style=filled]
+	_multicall [label=_multicall fillcolor=white shape=box style=filled]
+	results [label="results
+[]" shape=ellipse]
+	exception [label="exception
+None" shape=ellipse]
+	teardowns [label="teardowns
+[]" shape=ellipse]
+	hook_impl [label="hook_impl
+<HookImpl plugin_name='assertion', plugin=<module '_pytest.assertion' from '/path/to/.venv/lib/python3.12/site…" shape=ellipse]
+	args [label="args
+[<_pytest.config.Config object at 0x71e5ce27c6b0>, '>', 'a', 'a']" shape=ellipse]
+	pytest_assertrepr_compare [label=pytest_assertrepr_compare fillcolor=white shape=box style=filled]
+	assertrepr_compare [label=assertrepr_compare fillcolor=white shape=box style=filled]
+	get_verbosity [label=get_verbosity fillcolor=white shape=box style=filled]
+	getoption [label=getoption fillcolor=white shape=box style=filled]
+	val [label="val
+(6 writes, 2 distinct)
+0
+'auto'" shape=ellipse]
+	global_level [label="global_level
+(5 writes)
+0" shape=ellipse]
+	_verbosity_ini_name [label=_verbosity_ini_name fillcolor=white shape=box style=filled]
+	ini_name [label="ini_name
+(5 writes)
+'verbosity_assertions'" shape=ellipse]
+	getini [label=getini fillcolor=white shape=box style=filled]
+	canonical_name [label="canonical_name
+(5 writes)
+'verbosity_assertions'" shape=ellipse]
+	ERROR__KeyError [label="KeyError
+'verbosity_assertions'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	level [label="level
+(5 writes)
+'auto'" shape=ellipse]
+	verbose [label="verbose
+0" shape=ellipse]
+	maxsize [label="maxsize
+(5 writes, 2 distinct)
+31
+240" shape=ellipse]
+	saferepr [label=saferepr fillcolor=white shape=box style=filled]
+	repr [label=repr fillcolor=white shape=box style=filled]
+	s [label="s
+(10 writes, 3 distinct)
+\"'a'\"
+'where '
+'and   '" shape=ellipse]
+	left_repr [label="left_repr
+\"'a'\"" shape=ellipse]
+	right_repr [label="right_repr
+\"'a'\"" shape=ellipse]
+	summary [label="summary
+\"'a' > 'a'\"" shape=ellipse]
+	get_terminal_writer [label=get_terminal_writer fillcolor=white shape=box style=filled]
+	get_plugin [label=get_plugin fillcolor=white shape=box style=filled]
+	terminalreporter [label="terminalreporter
+<_pytest.terminal.TerminalReporter object at 0x71e5cdde2cc0>" shape=ellipse]
+	highlighter [label="highlighter
+<bound method TerminalWriter._highlight of <_pytest._io.terminalwriter.TerminalWriter object at 0x71e5cd4b9460>>" shape=ellipse]
+	explanation [label="explanation
+None" shape=ellipse]
+	isset [label=isset fillcolor=white shape=box style=filled]
+	result [label="result
+(6 writes, 5 distinct)
+[]
+[\"assert not 'a'\"]
+[\"assert not 'a'\", \" +  where 'a' = _Alpha('a')\"]
+[\"assert not 'a' > 'a'\", \" +  where 'a' = _Alpha('a')\"]
+[\"assert not 'a' > 'a'\", \" +  where 'a' = _Alpha('a')\", \" +  and   'a' = _Alpha('a')\"]" shape=ellipse]
+	hook_result [label="hook_result
+[]" shape=ellipse]
+	custom [label="custom
+None" shape=ellipse]
+	_should_repr_global_name [label=_should_repr_global_name fillcolor=white shape=box style=filled]
+	_saferepr [label=_saferepr fillcolor=white shape=box style=filled]
+	_get_maxsize_for_saferepr [label=_get_maxsize_for_saferepr fillcolor=white shape=box style=filled]
+	verbosity [label="verbosity
+(4 writes)
+0" shape=ellipse]
+	_ellipsize [label=_ellipsize fillcolor=white shape=box style=filled]
+	repr_instance [label=repr_instance fillcolor=white shape=box style=filled]
+	__repr__ [label="__repr__
+collections.py:31" fillcolor=white shape=box style=filled]
+	format_explanation [label=format_explanation fillcolor=white shape=box style=filled]
+	_split_explanation [label=_split_explanation fillcolor=white shape=box style=filled]
+	raw_lines [label="raw_lines
+[\"assert not 'a'\", \"{'a' = _Alpha('a')\", \"} > 'a'\", \"{'a' = _Alpha('a')\", '}']" shape=ellipse]
+	lines [label="lines
+(4 writes, 3 distinct)
+[\"assert not 'a'\"]
+[\"assert not 'a'\", \"{'a' = _Alpha('a')\"]
+[\"assert not 'a'\", \"{'a' = _Alpha('a')\", \"} > 'a'\", \"{'a' = _Alpha('a')\", '}']" shape=ellipse]
+	values [label="values
+(2 writes, 2 distinct)
+\"{'a' = _Alpha('a')\"
+'}'" shape=ellipse]
+	_format_lines [label=_format_lines fillcolor=white shape=box style=filled]
+	stack [label="stack
+(5 writes, 3 distinct)
+[0]
+[0, 1]
+[0, 2]" shape=ellipse]
+	stackcnt [label="stackcnt
+(7 writes, 5 distinct)
+[0]
+[1]
+[1, 0]
+[2]
+[2, 0]" shape=ellipse]
+	line [label="line
+(4 writes, 3 distinct)
+\"{'a' = _Alpha('a')\"
+\"} > 'a'\"
+'}'" shape=ellipse]
+	ERROR__AssertionError [label="AssertionError
+assert not 'a' > 'a'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_alpha
+	}
+	{
+		rank=same
+		__init__
+		__eq__
+		__ne__
+		__lt__
+		__gt__
+		raises
+		__enter__
+		__exit__
+		__le__
+		__ge__
+		_call_reprcompare
+		_should_repr_global_name
+		_saferepr
+		format_explanation
+	}
+	{
+		rank=same
+		for_later
+		matches
+		fill_unfilled
+		callbinrepr
+		_hookexec
+		saferepr
+		_get_maxsize_for_saferepr
+		_split_explanation
+		_format_lines
+	}
+	{
+		rank=same
+		_parse_exc
+		_check_type
+		_check_match
+		_check_check
+		__getattr__
+		__call__
+		_multicall
+		get_verbosity
+		repr
+	}
+	{
+		rank=same
+		check_ispytest
+		_check_raw_type
+		is_historic
+		_verify_all_args_are_provided
+		pytest_assertrepr_compare
+		getoption
+		_verbosity_ini_name
+		getini
+		_ellipsize
+		repr_instance
+	}
+	{
+		rank=same
+		assertrepr_compare
+		__repr__
+	}
+	{
+		rank=same
+		get_terminal_writer
+		isset
+	}
+	{
+		rank=same
+		get_plugin
+	}
+	test_alpha -> __init__ [label="calls×30 [#1]" color=blue penwidth=4.0]
+	test_alpha -> __eq__ [label="calls×3 [#3]" color=blue penwidth=1.3]
+	test_alpha -> __ne__ [label="calls×3 [#8]" color=blue penwidth=1.3]
+	test_alpha -> __lt__ [label="calls×4 [#15]" color=blue penwidth=1.4]
+	test_alpha -> __gt__ [label="calls×2 [#20]" color=blue penwidth=1.2]
+	test_alpha -> raises [label="calls [#22]" color=blue penwidth=1.1]
+	test_alpha -> __enter__ [label="calls [#26]" color=blue penwidth=1.1]
+	test_alpha -> ERROR__ValueError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	test_alpha -> __exit__ [label="calls [#32]" color=blue penwidth=1.1]
+	test_alpha -> __le__ [label="calls×3 [#41]" color=blue penwidth=1.3]
+	test_alpha -> __ge__ [label="calls×2 [#50]" color=blue penwidth=1.2]
+	test_alpha -> _call_reprcompare [label="calls [#77]" color=blue penwidth=1.1]
+	test_alpha -> _should_repr_global_name [label="calls×2 [#100]" color=blue penwidth=1.2]
+	test_alpha -> _saferepr [label="calls×4 [#101]" color=blue penwidth=1.4]
+	test_alpha -> format_explanation [label="calls [#148]" color=blue penwidth=1.1]
+	test_alpha -> ERROR__AssertionError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	__init__ -> __init__ [label="calls [#24]" color=blue penwidth=1.1]
+	__init__ -> expected_exceptions [label=writes color=black]
+	__init__ -> e [label=writes color=black]
+	__init__ -> _parse_exc [label="calls [#25]" color=blue penwidth=1.1]
+	__init__ -> check_ispytest [label="calls [#29]" color=blue penwidth=1.1]
+	__ne__ -> __eq__ [label="calls×3 [#9]" color=blue penwidth=1.3]
+	__lt__ -> ERROR__ValueError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	__gt__ -> __lt__ [label="calls×4 [#21]" color=blue penwidth=1.4]
+	raises -> __tracebackhide__ [label=writes color=black]
+	raises -> __init__ [label="calls [#23]" color=blue penwidth=1.1]
+	e -> __enter__ [label="passed to" color=green style=dashed]
+	e -> _check_match [label="passed to" color=green style=dashed]
+	__enter__ -> for_later [label="calls [#27]" color=blue penwidth=1.1]
+	for_later -> __init__ [label="calls [#28]" color=blue penwidth=1.1]
+	__exit__ -> __tracebackhide__ [label=writes color=black]
+	__exit__ -> matches [label="calls [#33]" color=blue penwidth=1.1]
+	__exit__ -> exc_info [label=writes color=black]
+	__exit__ -> fill_unfilled [label="calls [#38]" color=blue penwidth=1.1]
+	matches -> _check_type [label="calls [#34]" color=blue penwidth=1.1]
+	matches -> _check_match [label="calls [#36]" color=blue penwidth=1.1]
+	matches -> _check_check [label="calls [#37]" color=blue penwidth=1.1]
+	_check_type -> _check_raw_type [label="calls [#35]" color=blue penwidth=1.1]
+	exc_info -> fill_unfilled [label="passed to" color=green style=dashed]
+	__le__ -> __lt__ [label="calls×3 [#42]" color=blue penwidth=1.3]
+	__le__ -> __eq__ [label="calls×2 [#43]" color=blue penwidth=1.2]
+	__ge__ -> __gt__ [label="calls×2 [#51]" color=blue penwidth=1.2]
+	_call_reprcompare -> i [label=writes color=black]
+	_call_reprcompare -> res [label=writes color=black]
+	_call_reprcompare -> expl [label=writes color=black]
+	_call_reprcompare -> done [label=writes color=black]
+	_call_reprcompare -> callbinrepr [label="calls [#78]" color=blue penwidth=1.1]
+	_call_reprcompare -> _call_reprcompare [label="loops(×4)" color=purple style=dashed]
+	_call_reprcompare -> argname [label=writes color=black]
+	_call_reprcompare -> firstresult [label=writes color=black]
+	_call_reprcompare -> _hookexec [label="calls [#83]" color=blue penwidth=1.1]
+	_call_reprcompare -> hook_result [label=writes color=black]
+	_call_reprcompare -> custom [label=writes color=black]
+	callbinrepr -> __getattr__ [label="calls [#79]" color=blue penwidth=1.1]
+	callbinrepr -> __call__ [label="calls [#80]" color=blue penwidth=1.1]
+	__getattr__ -> hook [label=writes color=black]
+	__call__ -> is_historic [label="calls [#81]" color=blue penwidth=1.1]
+	__call__ -> _verify_all_args_are_provided [label="calls [#82]" color=blue penwidth=1.1]
+	_verify_all_args_are_provided -> argname [label=writes color=black]
+	firstresult -> _hookexec [label="passed to" color=green style=dashed]
+	firstresult -> _multicall [label="passed to" color=green style=dashed]
+	_hookexec -> _multicall [label="calls [#84]" color=blue penwidth=1.1]
+	_multicall -> __tracebackhide__ [label=writes color=black]
+	_multicall -> results [label=writes color=black]
+	_multicall -> exception [label=writes color=black]
+	_multicall -> teardowns [label=writes color=black]
+	_multicall -> hook_impl [label=writes color=black]
+	_multicall -> argname [label="writes×4" color=black]
+	_multicall -> args [label=writes color=black]
+	_multicall -> pytest_assertrepr_compare [label="calls [#85]" color=blue penwidth=1.1]
+	_multicall -> res [label=writes color=black]
+	_multicall -> result [label=writes color=black]
+	pytest_assertrepr_compare -> assertrepr_compare [label="calls [#86]" color=blue penwidth=1.1]
+	assertrepr_compare -> get_verbosity [label="calls [#87]" color=blue penwidth=1.1]
+	assertrepr_compare -> verbose [label=writes color=black]
+	assertrepr_compare -> maxsize [label=writes color=black]
+	assertrepr_compare -> saferepr [label="calls×2 [#91]" color=blue penwidth=1.2]
+	assertrepr_compare -> left_repr [label=writes color=black]
+	assertrepr_compare -> right_repr [label=writes color=black]
+	assertrepr_compare -> summary [label=writes color=black]
+	assertrepr_compare -> get_terminal_writer [label="calls [#97]" color=blue penwidth=1.1]
+	assertrepr_compare -> highlighter [label=writes color=black]
+	assertrepr_compare -> explanation [label=writes color=black]
+	assertrepr_compare -> isset [label="calls [#99]" color=blue penwidth=1.1]
+	get_verbosity -> getoption [label="calls×5 [#88]" color=blue penwidth=1.5]
+	get_verbosity -> global_level [label="writes×5" color=black]
+	get_verbosity -> _verbosity_ini_name [label="calls×5 [#89]" color=blue penwidth=1.5]
+	get_verbosity -> ini_name [label="writes×5" color=black]
+	get_verbosity -> getini [label="calls×5 [#90]" color=blue penwidth=1.5]
+	get_verbosity -> level [label="writes×5" color=black]
+	getoption -> val [label="writes×5" color=black]
+	getini -> canonical_name [label="writes×5" color=black]
+	getini -> ERROR__KeyError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	getini -> val [label=writes color=black]
+	level -> repr_instance [label="passed to" color=green style=dashed]
+	maxsize -> saferepr [label="passed to" color=green style=dashed]
+	maxsize -> __init__ [label="passed to" color=green style=dashed]
+	maxsize -> _ellipsize [label="passed to" color=green style=dashed]
+	saferepr -> __init__ [label="calls×6 [#92]" color=blue penwidth=1.6]
+	saferepr -> repr [label="calls×6 [#93]" color=blue penwidth=1.6]
+	repr -> s [label="writes×6" color=black]
+	repr -> _ellipsize [label="calls×4 [#110]" color=blue penwidth=1.4]
+	repr -> repr_instance [label="calls×2 [#120]" color=blue penwidth=1.2]
+	s -> _ellipsize [label="passed to" color=green style=dashed]
+	get_terminal_writer -> get_plugin [label="calls [#98]" color=blue penwidth=1.1]
+	get_terminal_writer -> terminalreporter [label=writes color=black]
+	explanation -> format_explanation [label="passed to" color=green style=dashed]
+	explanation -> _split_explanation [label="passed to" color=green style=dashed]
+	_saferepr -> _get_maxsize_for_saferepr [label="calls×4 [#102]" color=blue penwidth=1.4]
+	_saferepr -> maxsize [label="writes×4" color=black]
+	_saferepr -> saferepr [label="calls×4 [#107]" color=blue penwidth=1.4]
+	_get_maxsize_for_saferepr -> get_verbosity [label="calls×4 [#103]" color=blue penwidth=1.4]
+	_get_maxsize_for_saferepr -> verbosity [label="writes×4" color=black]
+	repr_instance -> __repr__ [label="calls×2 [#121]" color=blue penwidth=1.2]
+	repr_instance -> s [label="writes×2" color=black]
+	repr_instance -> _ellipsize [label="calls×2 [#122]" color=blue penwidth=1.2]
+	format_explanation -> _split_explanation [label="calls [#149]" color=blue penwidth=1.1]
+	format_explanation -> format_explanation [label="loops(×4)" color=purple style=dashed]
+	format_explanation -> values [label=writes color=black]
+	format_explanation -> lines [label="writes×2" color=black]
+	format_explanation -> _format_lines [label="calls [#150]" color=blue penwidth=1.1]
+	format_explanation -> result [label=writes color=black]
+	_split_explanation -> raw_lines [label=writes color=black]
+	_split_explanation -> lines [label="writes×2" color=black]
+	_split_explanation -> values [label=writes color=black]
+	lines -> _format_lines [label="passed to" color=green style=dashed]
+	_format_lines -> result [label="writes×4" color=black]
+	_format_lines -> stack [label="writes×5" color=black]
+	_format_lines -> stackcnt [label="writes×7" color=black]
+	_format_lines -> line [label="writes×4" color=black]
+	_format_lines -> s [label="writes×2" color=black]
+}

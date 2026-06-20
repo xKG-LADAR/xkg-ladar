@@ -1,0 +1,443 @@
+Cleared: /path/to/results/scrapy/bug36
+Running: python -m unittest -q tests.test_utils_misc.__init__.UtilsMiscTestCase.test_create_instance
+Workdir: /path/to/BugsInPy/workspace/scrapy
+PYTHONPATH: /path/to/BugsInPy/workspace/scrapy::
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE: Starting var:.. self = <tests.test_utils_misc.__init__.UtilsMiscTestCase testMethod=test_create_instance>
+IE_TRACE: 12:42:40.927652 call        83     def test_create_instance(self):
+IE_TRACE: 12:42:40.927829 line        84         settings = mock.MagicMock()
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE: New var:....... settings = <MagicMock id='125879150736688'>
+IE_TRACE: 12:42:40.943383 line        85         crawler = mock.MagicMock(spec_set=['settings'])
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE: New var:....... crawler = <MagicMock id='125879150739328'>
+IE_TRACE: 12:42:40.973871 line        86         args = (True, 100.)
+IE_TRACE: New var:....... args = (True, 100.0)
+IE_TRACE: 12:42:40.973908 line        87         kwargs = {'key': 'val'}
+IE_TRACE: New var:....... kwargs = {'key': 'val'}
+IE_TRACE: 12:42:40.973938 line        89         def _test_with_settings(mock, settings):
+IE_TRACE: New var:....... _test_with_settings = <function UtilsMiscTestCase.test_create_instance.<locals>._test_with_settings at 0x727c861263e0>
+IE_TRACE: 12:42:40.973965 line       100         def _test_with_crawler(mock, settings, crawler):
+IE_TRACE: New var:....... _test_with_crawler = <function UtilsMiscTestCase.test_create_instance.<locals>._test_with_crawler at 0x727c861265c0>
+IE_TRACE: 12:42:40.973994 line       121             ['__qualname__'],
+IE_TRACE: 12:42:40.974022 line       122             ['__qualname__', 'from_settings'],
+IE_TRACE: 12:42:40.974045 line       123             ['__qualname__', 'from_crawler'],
+IE_TRACE: 12:42:40.974068 line       124             ['__qualname__', 'from_settings', 'from_crawler'],
+IE_TRACE: 12:42:40.974091 line       120         spec_sets = (
+IE_TRACE: New var:....... spec_sets = (['__qualname__'], ['__qualname__', 'from_settings'], ['__qualname__', 'from_crawler'], ['__qualname__', 'from_settings', 'from_crawler'])
+IE_TRACE: 12:42:40.974114 line       126         for specs in spec_sets:
+IE_TRACE: New var:....... specs = ['__qualname__']
+IE_TRACE: 12:42:40.974143 line       127             m = mock.MagicMock(spec_set=specs)
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE: New var:....... m = <MagicMock id='125879182011872'>
+IE_TRACE: 12:42:41.003164 line       128             _test_with_settings(m, settings)
+IE_TRACE:     Starting var:.. mock = <MagicMock id='125879182011872'>
+IE_TRACE:     Starting var:.. settings = <MagicMock id='125879150736688'>
+IE_TRACE:     Starting var:.. args = (True, 100.0)
+IE_TRACE:     Starting var:.. kwargs = {'key': 'val'}
+IE_TRACE:     Starting var:.. self = <tests.test_utils_misc.__init__.UtilsMiscTestCase testMethod=test_create_instance>
+IE_TRACE:     12:42:41.003234 call        89         def _test_with_settings(mock, settings):
+IE_TRACE:     12:42:41.003278 line        90             create_instance(mock, settings, None, *args, **kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         Starting var:.. objcls = <MagicMock id='125879182011872'>
+IE_TRACE:         Starting var:.. settings = <MagicMock id='125879150736688'>
+IE_TRACE:         Starting var:.. crawler = None
+IE_TRACE:         Starting var:.. args = (True, 100.0)
+IE_TRACE:         Starting var:.. kwargs = {'key': 'val'}
+IE_TRACE:         12:42:41.003307 call       128 def create_instance(objcls, settings, crawler, *args, **kwargs):
+IE_TRACE:         12:42:41.003472 line       141     if settings is None:
+IE_TRACE:         12:42:41.003496 line       145     if crawler and hasattr(objcls, 'from_crawler'):
+IE_TRACE:         12:42:41.003518 line       147     elif hasattr(objcls, 'from_settings'):
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         12:42:41.003722 line       150         return objcls(*args, **kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         12:42:41.020053 return     150         return objcls(*args, **kwargs)
+IE_TRACE:         Return value:.. <MagicMock name='mock()' id='125879153630896'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.020093 line        91             if hasattr(mock, 'from_crawler'):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.020300 line        93             if hasattr(mock, 'from_settings'):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.020465 line        98                 mock.assert_called_once_with(*args, **kwargs)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.024926 return      98                 mock.assert_called_once_with(*args, **kwargs)
+IE_TRACE:     Return value:.. None
+IE_TRACE: 12:42:41.024966 line       129             m.reset_mock()
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE: 12:42:41.029048 line       130             _test_with_crawler(m, settings, crawler)
+IE_TRACE:     Starting var:.. mock = <MagicMock id='125879182011872'>
+IE_TRACE:     Starting var:.. settings = <MagicMock id='125879150736688'>
+IE_TRACE:     Starting var:.. crawler = <MagicMock id='125879150739328'>
+IE_TRACE:     Starting var:.. args = (True, 100.0)
+IE_TRACE:     Starting var:.. kwargs = {'key': 'val'}
+IE_TRACE:     Starting var:.. self = <tests.test_utils_misc.__init__.UtilsMiscTestCase testMethod=test_create_instance>
+IE_TRACE:     12:42:41.029097 call       100         def _test_with_crawler(mock, settings, crawler):
+IE_TRACE:     12:42:41.029144 line       101             create_instance(mock, settings, crawler, *args, **kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         Starting var:.. objcls = <MagicMock id='125879182011872'>
+IE_TRACE:         Starting var:.. settings = <MagicMock id='125879150736688'>
+IE_TRACE:         Starting var:.. crawler = <MagicMock id='125879150739328'>
+IE_TRACE:         Starting var:.. args = (True, 100.0)
+IE_TRACE:         Starting var:.. kwargs = {'key': 'val'}
+IE_TRACE:         12:42:41.029173 call       128 def create_instance(objcls, settings, crawler, *args, **kwargs):
+IE_TRACE:         12:42:41.029221 line       141     if settings is None:
+IE_TRACE:         12:42:41.029244 line       145     if crawler and hasattr(objcls, 'from_crawler'):
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         12:42:41.029448 line       147     elif hasattr(objcls, 'from_settings'):
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         12:42:41.029621 line       150         return objcls(*args, **kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         12:42:41.051749 return     150         return objcls(*args, **kwargs)
+IE_TRACE:         Return value:.. <MagicMock name='mock()' id='125879153630896'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.051790 line       102             if hasattr(mock, 'from_crawler'):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.051997 line       108             elif hasattr(mock, 'from_settings'):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.052172 line       113                 mock.assert_called_once_with(*args, **kwargs)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.056466 return     113                 mock.assert_called_once_with(*args, **kwargs)
+IE_TRACE:     Return value:.. None
+IE_TRACE: 12:42:41.056509 line       126         for specs in spec_sets:
+IE_TRACE: Modified var:.. specs = ['__qualname__', 'from_settings']
+IE_TRACE: 12:42:41.056545 line       127             m = mock.MagicMock(spec_set=specs)
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE: Modified var:.. m = <MagicMock id='125879151114912'>
+IE_TRACE: 12:42:41.080732 line       128             _test_with_settings(m, settings)
+IE_TRACE:     Starting var:.. mock = <MagicMock id='125879151114912'>
+IE_TRACE:     Starting var:.. settings = <MagicMock id='125879150736688'>
+IE_TRACE:     Starting var:.. args = (True, 100.0)
+IE_TRACE:     Starting var:.. kwargs = {'key': 'val'}
+IE_TRACE:     Starting var:.. self = <tests.test_utils_misc.__init__.UtilsMiscTestCase testMethod=test_create_instance>
+IE_TRACE:     12:42:41.080783 call        89         def _test_with_settings(mock, settings):
+IE_TRACE:     12:42:41.080817 line        90             create_instance(mock, settings, None, *args, **kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         Starting var:.. objcls = <MagicMock id='125879151114912'>
+IE_TRACE:         Starting var:.. settings = <MagicMock id='125879150736688'>
+IE_TRACE:         Starting var:.. crawler = None
+IE_TRACE:         Starting var:.. args = (True, 100.0)
+IE_TRACE:         Starting var:.. kwargs = {'key': 'val'}
+IE_TRACE:         12:42:41.080838 call       128 def create_instance(objcls, settings, crawler, *args, **kwargs):
+IE_TRACE:         12:42:41.080873 line       141     if settings is None:
+IE_TRACE:         12:42:41.080890 line       145     if crawler and hasattr(objcls, 'from_crawler'):
+IE_TRACE:         12:42:41.080906 line       147     elif hasattr(objcls, 'from_settings'):
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         12:42:41.093902 line       148         return objcls.from_settings(settings, *args, **kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         12:42:41.112182 return     148         return objcls.from_settings(settings, *args, **kwargs)
+IE_TRACE:         Return value:.. <MagicMock name='mock.from_settings()' id='125879151497184'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.112217 line        91             if hasattr(mock, 'from_crawler'):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.112390 line        93             if hasattr(mock, 'from_settings'):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.112741 line        94                 mock.from_settings.assert_called_once_with(settings, *args,
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.113054 line        95                                                            **kwargs)
+IE_TRACE:     12:42:41.113075 line        94                 mock.from_settings.assert_called_once_with(settings, *args,
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.118405 line        96                 self.assertEqual(mock.call_count, 0)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.119153 return      96                 self.assertEqual(mock.call_count, 0)
+IE_TRACE:     Return value:.. None
+IE_TRACE: 12:42:41.119191 line       129             m.reset_mock()
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE: 12:42:41.127777 line       130             _test_with_crawler(m, settings, crawler)
+IE_TRACE:     Starting var:.. mock = <MagicMock id='125879151114912'>
+IE_TRACE:     Starting var:.. settings = <MagicMock id='125879150736688'>
+IE_TRACE:     Starting var:.. crawler = <MagicMock id='125879150739328'>
+IE_TRACE:     Starting var:.. args = (True, 100.0)
+IE_TRACE:     Starting var:.. kwargs = {'key': 'val'}
+IE_TRACE:     Starting var:.. self = <tests.test_utils_misc.__init__.UtilsMiscTestCase testMethod=test_create_instance>
+IE_TRACE:     12:42:41.127862 call       100         def _test_with_crawler(mock, settings, crawler):
+IE_TRACE:     12:42:41.127932 line       101             create_instance(mock, settings, crawler, *args, **kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         Starting var:.. objcls = <MagicMock id='125879151114912'>
+IE_TRACE:         Starting var:.. settings = <MagicMock id='125879150736688'>
+IE_TRACE:         Starting var:.. crawler = <MagicMock id='125879150739328'>
+IE_TRACE:         Starting var:.. args = (True, 100.0)
+IE_TRACE:         Starting var:.. kwargs = {'key': 'val'}
+IE_TRACE:         12:42:41.127975 call       128 def create_instance(objcls, settings, crawler, *args, **kwargs):
+IE_TRACE:         12:42:41.128041 line       141     if settings is None:
+IE_TRACE:         12:42:41.128074 line       145     if crawler and hasattr(objcls, 'from_crawler'):
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         12:42:41.128499 line       147     elif hasattr(objcls, 'from_settings'):
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         12:42:41.129118 line       148         return objcls.from_settings(settings, *args, **kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         12:42:41.151608 return     148         return objcls.from_settings(settings, *args, **kwargs)
+IE_TRACE:         Return value:.. <MagicMock name='mock.from_settings()' id='125879151497184'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.151668 line       102             if hasattr(mock, 'from_crawler'):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.151972 line       108             elif hasattr(mock, 'from_settings'):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.152519 line       109                 mock.from_settings.assert_called_once_with(settings, *args,
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.153029 line       110                                                            **kwargs)
+IE_TRACE:     12:42:41.153072 line       109                 mock.from_settings.assert_called_once_with(settings, *args,
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.159638 line       111                 self.assertEqual(mock.call_count, 0)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.160275 return     111                 self.assertEqual(mock.call_count, 0)
+IE_TRACE:     Return value:.. None
+IE_TRACE: 12:42:41.160328 line       126         for specs in spec_sets:
+IE_TRACE: Modified var:.. specs = ['__qualname__', 'from_crawler']
+IE_TRACE: 12:42:41.160383 line       127             m = mock.MagicMock(spec_set=specs)
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE: Modified var:.. m = <MagicMock id='125879151501408'>
+IE_TRACE: 12:42:41.201575 line       128             _test_with_settings(m, settings)
+IE_TRACE:     Starting var:.. mock = <MagicMock id='125879151501408'>
+IE_TRACE:     Starting var:.. settings = <MagicMock id='125879150736688'>
+IE_TRACE:     Starting var:.. args = (True, 100.0)
+IE_TRACE:     Starting var:.. kwargs = {'key': 'val'}
+IE_TRACE:     Starting var:.. self = <tests.test_utils_misc.__init__.UtilsMiscTestCase testMethod=test_create_instance>
+IE_TRACE:     12:42:41.201658 call        89         def _test_with_settings(mock, settings):
+IE_TRACE:     12:42:41.201719 line        90             create_instance(mock, settings, None, *args, **kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         Starting var:.. objcls = <MagicMock id='125879151501408'>
+IE_TRACE:         Starting var:.. settings = <MagicMock id='125879150736688'>
+IE_TRACE:         Starting var:.. crawler = None
+IE_TRACE:         Starting var:.. args = (True, 100.0)
+IE_TRACE:         Starting var:.. kwargs = {'key': 'val'}
+IE_TRACE:         12:42:41.201757 call       128 def create_instance(objcls, settings, crawler, *args, **kwargs):
+IE_TRACE:         12:42:41.201822 line       141     if settings is None:
+IE_TRACE:         12:42:41.201855 line       145     if crawler and hasattr(objcls, 'from_crawler'):
+IE_TRACE:         12:42:41.201886 line       147     elif hasattr(objcls, 'from_settings'):
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         12:42:41.202166 line       150         return objcls(*args, **kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         12:42:41.222772 return     150         return objcls(*args, **kwargs)
+IE_TRACE:         Return value:.. <MagicMock name='mock()' id='125879151503424'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.222803 line        91             if hasattr(mock, 'from_crawler'):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.236096 line        92                 self.assertEqual(mock.from_crawler.call_count, 0)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.236717 line        93             if hasattr(mock, 'from_settings'):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.236872 line        98                 mock.assert_called_once_with(*args, **kwargs)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.242076 return      98                 mock.assert_called_once_with(*args, **kwargs)
+IE_TRACE:     Return value:.. None
+IE_TRACE: 12:42:41.242113 line       129             m.reset_mock()
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE: 12:42:41.246857 line       130             _test_with_crawler(m, settings, crawler)
+IE_TRACE:     Starting var:.. mock = <MagicMock id='125879151501408'>
+IE_TRACE:     Starting var:.. settings = <MagicMock id='125879150736688'>
+IE_TRACE:     Starting var:.. crawler = <MagicMock id='125879150739328'>
+IE_TRACE:     Starting var:.. args = (True, 100.0)
+IE_TRACE:     Starting var:.. kwargs = {'key': 'val'}
+IE_TRACE:     Starting var:.. self = <tests.test_utils_misc.__init__.UtilsMiscTestCase testMethod=test_create_instance>
+IE_TRACE:     12:42:41.246891 call       100         def _test_with_crawler(mock, settings, crawler):
+IE_TRACE:     12:42:41.246928 line       101             create_instance(mock, settings, crawler, *args, **kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         Starting var:.. objcls = <MagicMock id='125879151501408'>
+IE_TRACE:         Starting var:.. settings = <MagicMock id='125879150736688'>
+IE_TRACE:         Starting var:.. crawler = <MagicMock id='125879150739328'>
+IE_TRACE:         Starting var:.. args = (True, 100.0)
+IE_TRACE:         Starting var:.. kwargs = {'key': 'val'}
+IE_TRACE:         12:42:41.246951 call       128 def create_instance(objcls, settings, crawler, *args, **kwargs):
+IE_TRACE:         12:42:41.246987 line       141     if settings is None:
+IE_TRACE:         12:42:41.247005 line       145     if crawler and hasattr(objcls, 'from_crawler'):
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         12:42:41.247294 line       146         return objcls.from_crawler(crawler, *args, **kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         12:42:41.263752 return     146         return objcls.from_crawler(crawler, *args, **kwargs)
+IE_TRACE:         Return value:.. <MagicMock name='mock.from_crawler()' id='125879151115584'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.263784 line       102             if hasattr(mock, 'from_crawler'):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.264076 line       103                 mock.from_crawler.assert_called_once_with(crawler, *args,
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.264356 line       104                                                           **kwargs)
+IE_TRACE:     12:42:41.264378 line       103                 mock.from_crawler.assert_called_once_with(crawler, *args,
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.267842 line       105                 if hasattr(mock, 'from_settings'):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.268008 line       107                 self.assertEqual(mock.call_count, 0)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.268347 return     107                 self.assertEqual(mock.call_count, 0)
+IE_TRACE:     Return value:.. None
+IE_TRACE: 12:42:41.268374 line       126         for specs in spec_sets:
+IE_TRACE: Modified var:.. specs = ['__qualname__', 'from_settings', 'from_crawler']
+IE_TRACE: 12:42:41.268402 line       127             m = mock.MagicMock(spec_set=specs)
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE: Modified var:.. m = <MagicMock id='125879151509376'>
+IE_TRACE: 12:42:41.292108 line       128             _test_with_settings(m, settings)
+IE_TRACE:     Starting var:.. mock = <MagicMock id='125879151509376'>
+IE_TRACE:     Starting var:.. settings = <MagicMock id='125879150736688'>
+IE_TRACE:     Starting var:.. args = (True, 100.0)
+IE_TRACE:     Starting var:.. kwargs = {'key': 'val'}
+IE_TRACE:     Starting var:.. self = <tests.test_utils_misc.__init__.UtilsMiscTestCase testMethod=test_create_instance>
+IE_TRACE:     12:42:41.292179 call        89         def _test_with_settings(mock, settings):
+IE_TRACE:     12:42:41.292228 line        90             create_instance(mock, settings, None, *args, **kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         Starting var:.. objcls = <MagicMock id='125879151509376'>
+IE_TRACE:         Starting var:.. settings = <MagicMock id='125879150736688'>
+IE_TRACE:         Starting var:.. crawler = None
+IE_TRACE:         Starting var:.. args = (True, 100.0)
+IE_TRACE:         Starting var:.. kwargs = {'key': 'val'}
+IE_TRACE:         12:42:41.292256 call       128 def create_instance(objcls, settings, crawler, *args, **kwargs):
+IE_TRACE:         12:42:41.292305 line       141     if settings is None:
+IE_TRACE:         12:42:41.292328 line       145     if crawler and hasattr(objcls, 'from_crawler'):
+IE_TRACE:         12:42:41.292351 line       147     elif hasattr(objcls, 'from_settings'):
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         12:42:41.305699 line       148         return objcls.from_settings(settings, *args, **kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         12:42:41.321527 return     148         return objcls.from_settings(settings, *args, **kwargs)
+IE_TRACE:         Return value:.. <MagicMock name='mock.from_settings()' id='125879151500592'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.321555 line        91             if hasattr(mock, 'from_crawler'):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.334279 line        92                 self.assertEqual(mock.from_crawler.call_count, 0)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.334844 line        93             if hasattr(mock, 'from_settings'):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.335107 line        94                 mock.from_settings.assert_called_once_with(settings, *args,
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.335364 line        95                                                            **kwargs)
+IE_TRACE:     12:42:41.335383 line        94                 mock.from_settings.assert_called_once_with(settings, *args,
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.338694 line        96                 self.assertEqual(mock.call_count, 0)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.339011 return      96                 self.assertEqual(mock.call_count, 0)
+IE_TRACE:     Return value:.. None
+IE_TRACE: 12:42:41.339035 line       129             m.reset_mock()
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE: 12:42:41.346635 line       130             _test_with_crawler(m, settings, crawler)
+IE_TRACE:     Starting var:.. mock = <MagicMock id='125879151509376'>
+IE_TRACE:     Starting var:.. settings = <MagicMock id='125879150736688'>
+IE_TRACE:     Starting var:.. crawler = <MagicMock id='125879150739328'>
+IE_TRACE:     Starting var:.. args = (True, 100.0)
+IE_TRACE:     Starting var:.. kwargs = {'key': 'val'}
+IE_TRACE:     Starting var:.. self = <tests.test_utils_misc.__init__.UtilsMiscTestCase testMethod=test_create_instance>
+IE_TRACE:     12:42:41.346698 call       100         def _test_with_crawler(mock, settings, crawler):
+IE_TRACE:     12:42:41.346748 line       101             create_instance(mock, settings, crawler, *args, **kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         Starting var:.. objcls = <MagicMock id='125879151509376'>
+IE_TRACE:         Starting var:.. settings = <MagicMock id='125879150736688'>
+IE_TRACE:         Starting var:.. crawler = <MagicMock id='125879150739328'>
+IE_TRACE:         Starting var:.. args = (True, 100.0)
+IE_TRACE:         Starting var:.. kwargs = {'key': 'val'}
+IE_TRACE:         12:42:41.346779 call       128 def create_instance(objcls, settings, crawler, *args, **kwargs):
+IE_TRACE:         12:42:41.346828 line       141     if settings is None:
+IE_TRACE:         12:42:41.346853 line       145     if crawler and hasattr(objcls, 'from_crawler'):
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         12:42:41.347264 line       146         return objcls.from_crawler(crawler, *args, **kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:         12:42:41.366777 return     146         return objcls.from_crawler(crawler, *args, **kwargs)
+IE_TRACE:         Return value:.. <MagicMock name='mock.from_crawler()' id='125879151703872'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.366809 line       102             if hasattr(mock, 'from_crawler'):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.367099 line       103                 mock.from_crawler.assert_called_once_with(crawler, *args,
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.367372 line       104                                                           **kwargs)
+IE_TRACE:     12:42:41.367394 line       103                 mock.from_crawler.assert_called_once_with(crawler, *args,
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.370878 line       105                 if hasattr(mock, 'from_settings'):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.371162 line       106                     self.assertEqual(mock.from_settings.call_count, 0)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.371736 line       107                 self.assertEqual(mock.call_count, 0)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE:     12:42:41.372053 return     107                 self.assertEqual(mock.call_count, 0)
+IE_TRACE:     Return value:.. None
+IE_TRACE: 12:42:41.372079 line       126         for specs in spec_sets:
+IE_TRACE: 12:42:41.372107 line       133         m = mock.MagicMock(spec_set=['__qualname__', 'from_settings'])
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE: Modified var:.. m = <MagicMock id='125879151506688'>
+IE_TRACE: 12:42:41.394427 line       134         create_instance(m, None, crawler, *args, **kwargs)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:     Starting var:.. objcls = <MagicMock id='125879151506688'>
+IE_TRACE:     Starting var:.. settings = None
+IE_TRACE:     Starting var:.. crawler = <MagicMock id='125879150739328'>
+IE_TRACE:     Starting var:.. args = (True, 100.0)
+IE_TRACE:     Starting var:.. kwargs = {'key': 'val'}
+IE_TRACE:     12:42:41.394465 call       128 def create_instance(objcls, settings, crawler, *args, **kwargs):
+IE_TRACE:     12:42:41.394501 line       141     if settings is None:
+IE_TRACE:     12:42:41.394518 line       142         if crawler is None:
+IE_TRACE:     12:42:41.394533 line       144         settings = crawler.settings
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:     Modified var:.. settings = <MagicMock name='mock.settings' id='125879152734960'>
+IE_TRACE:     12:42:41.407987 line       145     if crawler and hasattr(objcls, 'from_crawler'):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:     12:42:41.408142 line       147     elif hasattr(objcls, 'from_settings'):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:     12:42:41.421517 line       148         return objcls.from_settings(settings, *args, **kwargs)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:     12:42:41.446721 return     148         return objcls.from_settings(settings, *args, **kwargs)
+IE_TRACE:     Return value:.. <MagicMock name='mock.from_settings()' id='125879149664576'>
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE: 12:42:41.446751 line       135         m.from_settings.assert_called_once_with(crawler.settings, *args,
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE: 12:42:41.447289 line       136                                                 **kwargs)
+IE_TRACE: 12:42:41.447320 line       135         m.from_settings.assert_called_once_with(crawler.settings, *args,
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE: 12:42:41.452561 line       138         with self.assertRaises(ValueError):
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE: 12:42:41.453632 line       139             create_instance(m, None, None)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:     Starting var:.. objcls = <MagicMock id='125879151506688'>
+IE_TRACE:     Starting var:.. settings = None
+IE_TRACE:     Starting var:.. crawler = None
+IE_TRACE:     Starting var:.. args = ()
+IE_TRACE:     Starting var:.. kwargs = {}
+IE_TRACE:     12:42:41.453693 call       128 def create_instance(objcls, settings, crawler, *args, **kwargs):
+IE_TRACE:     12:42:41.453754 line       141     if settings is None:
+IE_TRACE:     12:42:41.453781 line       142         if crawler is None:
+IE_TRACE:     12:42:41.453806 line       143             raise ValueError("Specify at least one of settings and crawler.")
+IE_TRACE:     12:42:41.453833 exception  143             raise ValueError("Specify at least one of settings and crawler.")
+IE_TRACE:     Exception:..... ValueError: Specify at least one of settings and crawler.
+IE_TRACE:     Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE: 12:42:41.453937 exception  139             create_instance(m, None, None)
+IE_TRACE: Exception:..... ValueError: Specify at least one of settings and crawler.
+IE_TRACE: 12:42:41.454013 line       138         with self.assertRaises(ValueError):
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE: 12:42:41.456403 line       141         m.from_settings.return_value = None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE: 12:42:41.457095 line       142         with self.assertRaises(TypeError):
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE: 12:42:41.457600 line       143             create_instance(m, settings, None)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:     Starting var:.. objcls = <MagicMock id='125879151506688'>
+IE_TRACE:     Starting var:.. settings = <MagicMock id='125879150736688'>
+IE_TRACE:     Starting var:.. crawler = None
+IE_TRACE:     Starting var:.. args = ()
+IE_TRACE:     Starting var:.. kwargs = {}
+IE_TRACE:     12:42:41.457630 call       128 def create_instance(objcls, settings, crawler, *args, **kwargs):
+IE_TRACE:     12:42:41.457662 line       141     if settings is None:
+IE_TRACE:     12:42:41.457677 line       145     if crawler and hasattr(objcls, 'from_crawler'):
+IE_TRACE:     12:42:41.457691 line       147     elif hasattr(objcls, 'from_settings'):
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:     12:42:41.457950 line       148         return objcls.from_settings(settings, *args, **kwargs)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/misc.py
+IE_TRACE:     12:42:41.468708 return     148         return objcls.from_settings(settings, *args, **kwargs)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE: 12:42:41.468732 line       142         with self.assertRaises(TypeError):
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py
+IE_TRACE: 12:42:41.469071 exception  142         with self.assertRaises(TypeError):
+IE_TRACE: Exception:..... AssertionError: TypeError not raised
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.541635
+======================================================================
+FAIL: test_create_instance (tests.test_utils_misc.__init__.UtilsMiscTestCase.test_create_instance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/tests/test_utils_misc/__init__.py", line 142, in test_create_instance
+    with self.assertRaises(TypeError):
+AssertionError: TypeError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.542s
+
+FAILED (failures=1)
+
+
+Exit code: 1

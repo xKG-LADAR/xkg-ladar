@@ -1,0 +1,122 @@
+Cleared: /path/to/results/youtube-dl/bug43
+Running: python -m unittest -q test.test_utils.TestUtil.test_url_basename
+Workdir: /path/to/BugsInPy/workspace/youtube-dl
+PYTHONPATH: /path/to/BugsInPy/workspace/youtube-dl
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py:789: SyntaxWarning: invalid escape sequence '\d'
+  match = re.match('(now|today)(?P<sign>[+-])(?P<time>\d+)(?P<unit>day|week|month|year)(s)?', date_str)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/francetv.py:160: SyntaxWarning: invalid escape sequence '\.'
+  '\.fr/\?id-video=([^"/&]+)'),
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/myvideo.py:169: SyntaxWarning: invalid escape sequence '\('
+  video_swfobj = self._search_regex('swfobject.embedSWF\(\'(.+?)\'', webpage, u'swfobj')
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/smotri.py:305: SyntaxWarning: invalid escape sequence '\.'
+  u'window\.broadcast_control\.addFlashVar\\(\'file\', \'([^\']+)\'\\);',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/spankwire.py:46: SyntaxWarning: invalid escape sequence '\.'
+  if webpage.find('flashvars\.encrypted = "true"') != -1:
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/vimeo.py:155: SyntaxWarning: invalid escape sequence '\w'
+  m_variable_name = re.search('(\w)\.video\.id', webpage)
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/youtube.py:1881: SyntaxWarning: invalid escape sequence '\.'
+  _VALID_URL = u'https?://www\.youtube\.com/feed/history|:ythistory'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Starting var:.. self = <test.test_utils.TestUtil testMethod=test_url_basename>
+IE_TRACE: 17:44:52.369163 call       188     def test_url_basename(self):
+IE_TRACE: 17:44:52.369346 line       189         self.assertEqual(url_basename(u'http://foo.de/'), u'')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. url = 'http://foo.de/'
+IE_TRACE:     17:44:52.369379 call      1089 def url_basename(url):
+IE_TRACE:     17:44:52.369485 line      1090     m = re.match(r'(?:https?:|)//[^/]+/(?:[^/?#]+/)?([^/?#]+)/?(?:[?#]|$)', url)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = None
+IE_TRACE:     17:44:52.495483 line      1091     if not m:
+IE_TRACE:     17:44:52.495502 line      1092         return u''
+IE_TRACE:     17:44:52.495512 return    1092         return u''
+IE_TRACE:     Return value:.. ''
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 17:44:52.496096 line       190         self.assertEqual(url_basename(u'http://foo.de/bar/baz'), u'baz')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. url = 'http://foo.de/bar/baz'
+IE_TRACE:     17:44:52.496113 call      1089 def url_basename(url):
+IE_TRACE:     17:44:52.496131 line      1090     m = re.match(r'(?:https?:|)//[^/]+/(?:[^/?#]+/)?([^/?#]+)/?(?:[?#]|$)', url)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = <re.Match object; span=(0, 21), match='http://foo.de/bar/baz'>
+IE_TRACE:     17:44:52.496280 line      1091     if not m:
+IE_TRACE:     17:44:52.496298 line      1093     return m.group(1)
+IE_TRACE:     17:44:52.496309 return    1093     return m.group(1)
+IE_TRACE:     Return value:.. 'baz'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 17:44:52.496740 line       191         self.assertEqual(url_basename(u'http://foo.de/bar/baz?x=y'), u'baz')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. url = 'http://foo.de/bar/baz?x=y'
+IE_TRACE:     17:44:52.496756 call      1089 def url_basename(url):
+IE_TRACE:     17:44:52.496773 line      1090     m = re.match(r'(?:https?:|)//[^/]+/(?:[^/?#]+/)?([^/?#]+)/?(?:[?#]|$)', url)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = <re.Match object; span=(0, 22), match='http://foo.de/bar/baz?'>
+IE_TRACE:     17:44:52.496909 line      1091     if not m:
+IE_TRACE:     17:44:52.496926 line      1093     return m.group(1)
+IE_TRACE:     17:44:52.496937 return    1093     return m.group(1)
+IE_TRACE:     Return value:.. 'baz'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 17:44:52.497346 line       192         self.assertEqual(url_basename(u'http://foo.de/bar/baz#x=y'), u'baz')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. url = 'http://foo.de/bar/baz#x=y'
+IE_TRACE:     17:44:52.497361 call      1089 def url_basename(url):
+IE_TRACE:     17:44:52.497377 line      1090     m = re.match(r'(?:https?:|)//[^/]+/(?:[^/?#]+/)?([^/?#]+)/?(?:[?#]|$)', url)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = <re.Match object; span=(0, 22), match='http://foo.de/bar/baz#'>
+IE_TRACE:     17:44:52.497508 line      1091     if not m:
+IE_TRACE:     17:44:52.497525 line      1093     return m.group(1)
+IE_TRACE:     17:44:52.497535 return    1093     return m.group(1)
+IE_TRACE:     Return value:.. 'baz'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 17:44:52.497957 line       193         self.assertEqual(url_basename(u'http://foo.de/bar/baz/'), u'baz')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. url = 'http://foo.de/bar/baz/'
+IE_TRACE:     17:44:52.497971 call      1089 def url_basename(url):
+IE_TRACE:     17:44:52.497987 line      1090     m = re.match(r'(?:https?:|)//[^/]+/(?:[^/?#]+/)?([^/?#]+)/?(?:[?#]|$)', url)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = <re.Match object; span=(0, 22), match='http://foo.de/bar/baz/'>
+IE_TRACE:     17:44:52.498118 line      1091     if not m:
+IE_TRACE:     17:44:52.498134 line      1093     return m.group(1)
+IE_TRACE:     17:44:52.498145 return    1093     return m.group(1)
+IE_TRACE:     Return value:.. 'baz'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 17:44:52.498550 line       194         self.assertEqual(
+IE_TRACE: 17:44:52.498563 line       195             url_basename(u'http://media.w3.org/2010/05/sintel/trailer.mp4'),
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. url = 'http://media.w3.org/2010/05/sintel/trailer.mp4'
+IE_TRACE:     17:44:52.498573 call      1089 def url_basename(url):
+IE_TRACE:     17:44:52.498589 line      1090     m = re.match(r'(?:https?:|)//[^/]+/(?:[^/?#]+/)?([^/?#]+)/?(?:[?#]|$)', url)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     New var:....... m = None
+IE_TRACE:     17:44:52.498721 line      1091     if not m:
+IE_TRACE:     17:44:52.498737 line      1092         return u''
+IE_TRACE:     17:44:52.498747 return    1092         return u''
+IE_TRACE:     Return value:.. ''
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 17:44:52.498761 line       196             u'trailer.mp4')
+IE_TRACE: 17:44:52.498773 line       194         self.assertEqual(
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 17:44:52.503161 exception  194         self.assertEqual(
+IE_TRACE: Exception:..... AssertionError: '' != 'trailer.mp4'
++ trailer.mp4
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.134178
+======================================================================
+FAIL: test_url_basename (test.test_utils.TestUtil.test_url_basename)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py", line 194, in test_url_basename
+    self.assertEqual(
+AssertionError: '' != 'trailer.mp4'
++ trailer.mp4
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.135s
+
+FAILED (failures=1)
+
+
+Exit code: 1

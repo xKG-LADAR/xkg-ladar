@@ -1,0 +1,274 @@
+Cleared: /path/to/results/scrapy/bug17
+Running: python -m unittest -q tests.test_utils_response.ResponseUtilsTest.test_response_status_message
+Workdir: /path/to/BugsInPy/workspace/scrapy
+PYTHONPATH: /path/to/BugsInPy/workspace/scrapy::
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_response.py
+IE_TRACE: Starting var:.. self = <tests.test_utils_response.ResponseUtilsTest testMethod=test_response_status_message>
+IE_TRACE: 12:35:14.681876 call        86     def test_response_status_message(self):
+IE_TRACE: 12:35:14.682308 line        87         self.assertEqual(response_status_message(200), '200 OK')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/response.py
+IE_TRACE:     Starting var:.. status = 200
+IE_TRACE:     12:35:14.682349 call        48 def response_status_message(status):
+IE_TRACE:     12:35:14.682419 line        57     return '%s %s' % (status, to_native_str(http.RESPONSES.get(int(status))))
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/twisted/python/deprecate.py
+IE_TRACE:         Starting var:.. self = <_ModuleProxy module=<module 'twisted.web.http' from '/path/to/.venv/lib/python3.12/site-packages/twisted/web/http.py'>>
+IE_TRACE:         Starting var:.. name = 'RESPONSES'
+IE_TRACE:         12:35:14.682443 call       468     def __getattribute__(self, name):
+IE_TRACE:         12:35:14.682951 line       477         state = _InternalState(self)
+IE_TRACE:             Starting var:.. self = <twisted.python.deprecate._InternalState object at 0x7e940fc73980>
+IE_TRACE:             Starting var:.. proxy = <_ModuleProxy module=<module 'twisted.web.http' from '/path/to/.venv/lib/python3.12/site-packages/twisted/web/http.py'>>
+IE_TRACE:             12:35:14.682982 call       408     def __init__(self, proxy):
+IE_TRACE:             12:35:14.683020 line       409         object.__setattr__(self, "proxy", proxy)
+IE_TRACE:             12:35:14.683047 return     409         object.__setattr__(self, "proxy", proxy)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         New var:....... state = <twisted.python.deprecate._InternalState object at 0x7e940fc73980>
+IE_TRACE:         12:35:14.683081 line       478         if state._lastWasPath:
+IE_TRACE:             Starting var:.. self = <twisted.python.deprecate._InternalState object at 0x7e940fc73980>
+IE_TRACE:             Starting var:.. name = '_lastWasPath'
+IE_TRACE:             12:35:14.683111 call       411     def __getattribute__(self, name):
+IE_TRACE:             12:35:14.683133 line       412         return object.__getattribute__(object.__getattribute__(self, "proxy"), name)
+IE_TRACE:             12:35:14.683148 return     412         return object.__getattribute__(object.__getattribute__(self, "proxy"), name)
+IE_TRACE:             Return value:.. False
+IE_TRACE:         12:35:14.683170 line       481             deprecatedAttribute = state._deprecatedAttributes.get(name)
+IE_TRACE:             Starting var:.. self = <twisted.python.deprecate._InternalState object at 0x7e940fc73980>
+IE_TRACE:             Starting var:.. name = '_deprecatedAttributes'
+IE_TRACE:             12:35:14.683201 call       411     def __getattribute__(self, name):
+IE_TRACE:             12:35:14.683224 line       412         return object.__getattribute__(object.__getattribute__(self, "proxy"), name)
+IE_TRACE:             12:35:14.683237 return     412         return object.__getattribute__(object.__getattribute__(self, "proxy"), name)
+IE_TRACE:             Return value:.. {'HTTPClient': <twisted.python.deprecate._DeprecatedAttribute object at 0x7e940fd29b80>}
+IE_TRACE:         New var:....... deprecatedAttribute = None
+IE_TRACE:         12:35:14.683260 line       483         if deprecatedAttribute is not None:
+IE_TRACE:         12:35:14.683289 line       490             value = getattr(state._module, name)
+IE_TRACE:             Starting var:.. self = <twisted.python.deprecate._InternalState object at 0x7e940fc73980>
+IE_TRACE:             Starting var:.. name = '_module'
+IE_TRACE:             12:35:14.683314 call       411     def __getattribute__(self, name):
+IE_TRACE:             12:35:14.683333 line       412         return object.__getattribute__(object.__getattribute__(self, "proxy"), name)
+IE_TRACE:             12:35:14.683346 return     412         return object.__getattribute__(object.__getattribute__(self, "proxy"), name)
+IE_TRACE:             Return value:.. <module 'twisted.web.http' from '/path/to/.venv/lib/python3.12/site-packages/twisted/web/http.py'>
+IE_TRACE:         New var:....... value = dict(len=45)
+IE_TRACE:         12:35:14.683365 line       491         if name == "__path__":
+IE_TRACE:         12:35:14.683399 line       494             state._lastWasPath = False
+IE_TRACE:             Starting var:.. self = <twisted.python.deprecate._InternalState object at 0x7e940fc73980>
+IE_TRACE:             Starting var:.. name = '_lastWasPath'
+IE_TRACE:             Starting var:.. value = False
+IE_TRACE:             12:35:14.683427 call       414     def __setattr__(self, name, value):
+IE_TRACE:             12:35:14.683456 line       415         return object.__setattr__(object.__getattribute__(self, "proxy"), name, value)
+IE_TRACE:             12:35:14.683472 return     415         return object.__setattr__(object.__getattribute__(self, "proxy"), name, value)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         12:35:14.683493 line       495         return value
+IE_TRACE:         12:35:14.683520 return     495         return value
+IE_TRACE:         Return value:.. dict(len=45)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/python.py
+IE_TRACE:         Starting var:.. text = b'OK'
+IE_TRACE:         Starting var:.. encoding = None
+IE_TRACE:         Starting var:.. errors = 'strict'
+IE_TRACE:         12:35:14.683555 call       125 def to_native_str(text, encoding=None, errors='strict'):
+IE_TRACE:         12:35:14.683628 line       128     if six.PY2:
+IE_TRACE:         12:35:14.683644 line       131         return to_unicode(text, encoding, errors)
+IE_TRACE:             Starting var:.. text = b'OK'
+IE_TRACE:             Starting var:.. encoding = None
+IE_TRACE:             Starting var:.. errors = 'strict'
+IE_TRACE:             12:35:14.683660 call        99 def to_unicode(text, encoding=None, errors='strict'):
+IE_TRACE:             12:35:14.683684 line       102     if isinstance(text, six.text_type):
+IE_TRACE:             12:35:14.683697 line       104     if not isinstance(text, (bytes, six.text_type)):
+IE_TRACE:             12:35:14.683709 line       107     if encoding is None:
+IE_TRACE:             12:35:14.683722 line       108         encoding = 'utf-8'
+IE_TRACE:             Modified var:.. encoding = 'utf-8'
+IE_TRACE:             12:35:14.683734 line       109     return text.decode(encoding, errors)
+IE_TRACE:             12:35:14.683751 return     109     return text.decode(encoding, errors)
+IE_TRACE:             Return value:.. 'OK'
+IE_TRACE:         12:35:14.683769 return     131         return to_unicode(text, encoding, errors)
+IE_TRACE:         Return value:.. 'OK'
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/response.py
+IE_TRACE:     12:35:14.683787 return      57     return '%s %s' % (status, to_native_str(http.RESPONSES.get(int(status))))
+IE_TRACE:     Return value:.. '200 OK'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_response.py
+IE_TRACE: 12:35:14.684407 line        88         self.assertEqual(response_status_message(404), '404 Not Found')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/response.py
+IE_TRACE:     Starting var:.. status = 404
+IE_TRACE:     12:35:14.684425 call        48 def response_status_message(status):
+IE_TRACE:     12:35:14.684444 line        57     return '%s %s' % (status, to_native_str(http.RESPONSES.get(int(status))))
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/twisted/python/deprecate.py
+IE_TRACE:         Starting var:.. self = <_ModuleProxy module=<module 'twisted.web.http' from '/path/to/.venv/lib/python3.12/site-packages/twisted/web/http.py'>>
+IE_TRACE:         Starting var:.. name = 'RESPONSES'
+IE_TRACE:         12:35:14.684456 call       468     def __getattribute__(self, name):
+IE_TRACE:         12:35:14.684492 line       477         state = _InternalState(self)
+IE_TRACE:             Starting var:.. self = <twisted.python.deprecate._InternalState object at 0x7e940fcb1640>
+IE_TRACE:             Starting var:.. proxy = <_ModuleProxy module=<module 'twisted.web.http' from '/path/to/.venv/lib/python3.12/site-packages/twisted/web/http.py'>>
+IE_TRACE:             12:35:14.684514 call       408     def __init__(self, proxy):
+IE_TRACE:             12:35:14.684548 line       409         object.__setattr__(self, "proxy", proxy)
+IE_TRACE:             12:35:14.684572 return     409         object.__setattr__(self, "proxy", proxy)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         New var:....... state = <twisted.python.deprecate._InternalState object at 0x7e940fcb1640>
+IE_TRACE:         12:35:14.684598 line       478         if state._lastWasPath:
+IE_TRACE:             Starting var:.. self = <twisted.python.deprecate._InternalState object at 0x7e940fcb1640>
+IE_TRACE:             Starting var:.. name = '_lastWasPath'
+IE_TRACE:             12:35:14.684625 call       411     def __getattribute__(self, name):
+IE_TRACE:             12:35:14.684644 line       412         return object.__getattribute__(object.__getattribute__(self, "proxy"), name)
+IE_TRACE:             12:35:14.684657 return     412         return object.__getattribute__(object.__getattribute__(self, "proxy"), name)
+IE_TRACE:             Return value:.. False
+IE_TRACE:         12:35:14.684675 line       481             deprecatedAttribute = state._deprecatedAttributes.get(name)
+IE_TRACE:             Starting var:.. self = <twisted.python.deprecate._InternalState object at 0x7e940fcb1640>
+IE_TRACE:             Starting var:.. name = '_deprecatedAttributes'
+IE_TRACE:             12:35:14.684698 call       411     def __getattribute__(self, name):
+IE_TRACE:             12:35:14.684718 line       412         return object.__getattribute__(object.__getattribute__(self, "proxy"), name)
+IE_TRACE:             12:35:14.684730 return     412         return object.__getattribute__(object.__getattribute__(self, "proxy"), name)
+IE_TRACE:             Return value:.. {'HTTPClient': <twisted.python.deprecate._DeprecatedAttribute object at 0x7e940fd29b80>}
+IE_TRACE:         New var:....... deprecatedAttribute = None
+IE_TRACE:         12:35:14.684749 line       483         if deprecatedAttribute is not None:
+IE_TRACE:         12:35:14.684776 line       490             value = getattr(state._module, name)
+IE_TRACE:             Starting var:.. self = <twisted.python.deprecate._InternalState object at 0x7e940fcb1640>
+IE_TRACE:             Starting var:.. name = '_module'
+IE_TRACE:             12:35:14.684799 call       411     def __getattribute__(self, name):
+IE_TRACE:             12:35:14.684819 line       412         return object.__getattribute__(object.__getattribute__(self, "proxy"), name)
+IE_TRACE:             12:35:14.684832 return     412         return object.__getattribute__(object.__getattribute__(self, "proxy"), name)
+IE_TRACE:             Return value:.. <module 'twisted.web.http' from '/path/to/.venv/lib/python3.12/site-packages/twisted/web/http.py'>
+IE_TRACE:         New var:....... value = dict(len=45)
+IE_TRACE:         12:35:14.684850 line       491         if name == "__path__":
+IE_TRACE:         12:35:14.684878 line       494             state._lastWasPath = False
+IE_TRACE:             Starting var:.. self = <twisted.python.deprecate._InternalState object at 0x7e940fcb1640>
+IE_TRACE:             Starting var:.. name = '_lastWasPath'
+IE_TRACE:             Starting var:.. value = False
+IE_TRACE:             12:35:14.684902 call       414     def __setattr__(self, name, value):
+IE_TRACE:             12:35:14.684927 line       415         return object.__setattr__(object.__getattribute__(self, "proxy"), name, value)
+IE_TRACE:             12:35:14.684942 return     415         return object.__setattr__(object.__getattribute__(self, "proxy"), name, value)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         12:35:14.684961 line       495         return value
+IE_TRACE:         12:35:14.684985 return     495         return value
+IE_TRACE:         Return value:.. dict(len=45)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/python.py
+IE_TRACE:         Starting var:.. text = b'Not Found'
+IE_TRACE:         Starting var:.. encoding = None
+IE_TRACE:         Starting var:.. errors = 'strict'
+IE_TRACE:         12:35:14.685016 call       125 def to_native_str(text, encoding=None, errors='strict'):
+IE_TRACE:         12:35:14.685044 line       128     if six.PY2:
+IE_TRACE:         12:35:14.685058 line       131         return to_unicode(text, encoding, errors)
+IE_TRACE:             Starting var:.. text = b'Not Found'
+IE_TRACE:             Starting var:.. encoding = None
+IE_TRACE:             Starting var:.. errors = 'strict'
+IE_TRACE:             12:35:14.685071 call        99 def to_unicode(text, encoding=None, errors='strict'):
+IE_TRACE:             12:35:14.685094 line       102     if isinstance(text, six.text_type):
+IE_TRACE:             12:35:14.685107 line       104     if not isinstance(text, (bytes, six.text_type)):
+IE_TRACE:             12:35:14.685119 line       107     if encoding is None:
+IE_TRACE:             12:35:14.685132 line       108         encoding = 'utf-8'
+IE_TRACE:             Modified var:.. encoding = 'utf-8'
+IE_TRACE:             12:35:14.685144 line       109     return text.decode(encoding, errors)
+IE_TRACE:             12:35:14.685160 return     109     return text.decode(encoding, errors)
+IE_TRACE:             Return value:.. 'Not Found'
+IE_TRACE:         12:35:14.685177 return     131         return to_unicode(text, encoding, errors)
+IE_TRACE:         Return value:.. 'Not Found'
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/response.py
+IE_TRACE:     12:35:14.685197 return      57     return '%s %s' % (status, to_native_str(http.RESPONSES.get(int(status))))
+IE_TRACE:     Return value:.. '404 Not Found'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_response.py
+IE_TRACE: 12:35:14.685667 line        89         self.assertEqual(response_status_message(573), "573 Unknown Status")
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/response.py
+IE_TRACE:     Starting var:.. status = 573
+IE_TRACE:     12:35:14.685684 call        48 def response_status_message(status):
+IE_TRACE:     12:35:14.685702 line        57     return '%s %s' % (status, to_native_str(http.RESPONSES.get(int(status))))
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/twisted/python/deprecate.py
+IE_TRACE:         Starting var:.. self = <_ModuleProxy module=<module 'twisted.web.http' from '/path/to/.venv/lib/python3.12/site-packages/twisted/web/http.py'>>
+IE_TRACE:         Starting var:.. name = 'RESPONSES'
+IE_TRACE:         12:35:14.685713 call       468     def __getattribute__(self, name):
+IE_TRACE:         12:35:14.685746 line       477         state = _InternalState(self)
+IE_TRACE:             Starting var:.. self = <twisted.python.deprecate._InternalState object at 0x7e940fcb1940>
+IE_TRACE:             Starting var:.. proxy = <_ModuleProxy module=<module 'twisted.web.http' from '/path/to/.venv/lib/python3.12/site-packages/twisted/web/http.py'>>
+IE_TRACE:             12:35:14.685768 call       408     def __init__(self, proxy):
+IE_TRACE:             12:35:14.685799 line       409         object.__setattr__(self, "proxy", proxy)
+IE_TRACE:             12:35:14.685822 return     409         object.__setattr__(self, "proxy", proxy)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         New var:....... state = <twisted.python.deprecate._InternalState object at 0x7e940fcb1940>
+IE_TRACE:         12:35:14.685848 line       478         if state._lastWasPath:
+IE_TRACE:             Starting var:.. self = <twisted.python.deprecate._InternalState object at 0x7e940fcb1940>
+IE_TRACE:             Starting var:.. name = '_lastWasPath'
+IE_TRACE:             12:35:14.685873 call       411     def __getattribute__(self, name):
+IE_TRACE:             12:35:14.685892 line       412         return object.__getattribute__(object.__getattribute__(self, "proxy"), name)
+IE_TRACE:             12:35:14.685905 return     412         return object.__getattribute__(object.__getattribute__(self, "proxy"), name)
+IE_TRACE:             Return value:.. False
+IE_TRACE:         12:35:14.685923 line       481             deprecatedAttribute = state._deprecatedAttributes.get(name)
+IE_TRACE:             Starting var:.. self = <twisted.python.deprecate._InternalState object at 0x7e940fcb1940>
+IE_TRACE:             Starting var:.. name = '_deprecatedAttributes'
+IE_TRACE:             12:35:14.685946 call       411     def __getattribute__(self, name):
+IE_TRACE:             12:35:14.685965 line       412         return object.__getattribute__(object.__getattribute__(self, "proxy"), name)
+IE_TRACE:             12:35:14.685977 return     412         return object.__getattribute__(object.__getattribute__(self, "proxy"), name)
+IE_TRACE:             Return value:.. {'HTTPClient': <twisted.python.deprecate._DeprecatedAttribute object at 0x7e940fd29b80>}
+IE_TRACE:         New var:....... deprecatedAttribute = None
+IE_TRACE:         12:35:14.685996 line       483         if deprecatedAttribute is not None:
+IE_TRACE:         12:35:14.686022 line       490             value = getattr(state._module, name)
+IE_TRACE:             Starting var:.. self = <twisted.python.deprecate._InternalState object at 0x7e940fcb1940>
+IE_TRACE:             Starting var:.. name = '_module'
+IE_TRACE:             12:35:14.686045 call       411     def __getattribute__(self, name):
+IE_TRACE:             12:35:14.686064 line       412         return object.__getattribute__(object.__getattribute__(self, "proxy"), name)
+IE_TRACE:             12:35:14.686077 return     412         return object.__getattribute__(object.__getattribute__(self, "proxy"), name)
+IE_TRACE:             Return value:.. <module 'twisted.web.http' from '/path/to/.venv/lib/python3.12/site-packages/twisted/web/http.py'>
+IE_TRACE:         New var:....... value = dict(len=45)
+IE_TRACE:         12:35:14.686094 line       491         if name == "__path__":
+IE_TRACE:         12:35:14.686122 line       494             state._lastWasPath = False
+IE_TRACE:             Starting var:.. self = <twisted.python.deprecate._InternalState object at 0x7e940fcb1940>
+IE_TRACE:             Starting var:.. name = '_lastWasPath'
+IE_TRACE:             Starting var:.. value = False
+IE_TRACE:             12:35:14.686146 call       414     def __setattr__(self, name, value):
+IE_TRACE:             12:35:14.686170 line       415         return object.__setattr__(object.__getattribute__(self, "proxy"), name, value)
+IE_TRACE:             12:35:14.686184 return     415         return object.__setattr__(object.__getattribute__(self, "proxy"), name, value)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         12:35:14.686206 line       495         return value
+IE_TRACE:         12:35:14.686230 return     495         return value
+IE_TRACE:         Return value:.. dict(len=45)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/python.py
+IE_TRACE:         Starting var:.. text = None
+IE_TRACE:         Starting var:.. encoding = None
+IE_TRACE:         Starting var:.. errors = 'strict'
+IE_TRACE:         12:35:14.686260 call       125 def to_native_str(text, encoding=None, errors='strict'):
+IE_TRACE:         12:35:14.686287 line       128     if six.PY2:
+IE_TRACE:         12:35:14.686300 line       131         return to_unicode(text, encoding, errors)
+IE_TRACE:             Starting var:.. text = None
+IE_TRACE:             Starting var:.. encoding = None
+IE_TRACE:             Starting var:.. errors = 'strict'
+IE_TRACE:             12:35:14.686312 call        99 def to_unicode(text, encoding=None, errors='strict'):
+IE_TRACE:             12:35:14.686335 line       102     if isinstance(text, six.text_type):
+IE_TRACE:             12:35:14.686347 line       104     if not isinstance(text, (bytes, six.text_type)):
+IE_TRACE:             12:35:14.686360 line       105         raise TypeError('to_unicode must receive a bytes, str or unicode '
+IE_TRACE:             12:35:14.686372 line       106                         'object, got %s' % type(text).__name__)
+IE_TRACE:             12:35:14.686384 line       105         raise TypeError('to_unicode must receive a bytes, str or unicode '
+IE_TRACE:             12:35:14.686399 exception  105         raise TypeError('to_unicode must receive a bytes, str or unicode '
+IE_TRACE:             Exception:..... TypeError: to_unicode must receive a bytes, str or unicode object, got NoneType
+IE_TRACE:             Call ended by exception
+IE_TRACE:         12:35:14.686505 exception  131         return to_unicode(text, encoding, errors)
+IE_TRACE:         Exception:..... TypeError: to_unicode must receive a bytes, str or unicode object, got NoneType
+IE_TRACE:         Call ended by exception
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/response.py
+IE_TRACE:     12:35:14.686546 exception   57     return '%s %s' % (status, to_native_str(http.RESPONSES.get(int(status))))
+IE_TRACE:     Exception:..... TypeError: to_unicode must receive a bytes, str or unicode object, got NoneType
+IE_TRACE:     Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_response.py
+IE_TRACE: 12:35:14.686582 exception   89         self.assertEqual(response_status_message(573), "573 Unknown Status")
+IE_TRACE: Exception:..... TypeError: to_unicode must receive a bytes, str or unicode object, got NoneType
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.004903
+======================================================================
+ERROR: test_response_status_message (tests.test_utils_response.ResponseUtilsTest.test_response_status_message)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/tests/test_utils_response.py", line 89, in test_response_status_message
+    self.assertEqual(response_status_message(573), "573 Unknown Status")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/scrapy/utils/response.py", line 57, in response_status_message
+    return '%s %s' % (status, to_native_str(http.RESPONSES.get(int(status))))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/scrapy/utils/python.py", line 131, in to_native_str
+    return to_unicode(text, encoding, errors)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/scrapy/utils/python.py", line 105, in to_unicode
+    raise TypeError('to_unicode must receive a bytes, str or unicode '
+TypeError: to_unicode must receive a bytes, str or unicode object, got NoneType
+
+----------------------------------------------------------------------
+Ran 1 test in 0.005s
+
+FAILED (errors=1)
+
+
+Exit code: 1

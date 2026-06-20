@@ -1,0 +1,434 @@
+Cleared: /path/to/results/tornado/bug16
+Running: python -m unittest -q tornado.test.gen_test.WaitIteratorTest.test_no_ref
+Workdir: /path/to/BugsInPy/workspace/tornado
+PYTHONPATH: /path/to/BugsInPy/workspace/tornado::
+/path/to/BugsInPy/workspace/tornado/tornado/web.py:1657: SyntaxWarning: invalid escape sequence '\.'
+  """A collection of request handlers that make up a web application.
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/gen_test.py
+IE_TRACE: Starting var:.. self = <tornado.test.gen_test.WaitIteratorTest testMethod=test_no_ref>
+IE_TRACE: 19:18:12.805587 call      1258     def test_no_ref(self):
+IE_TRACE: 19:18:12.805857 line      1263         yield gen.with_timeout(datetime.timedelta(seconds=0.1),
+IE_TRACE: 19:18:12.805901 line      1264                                gen.WaitIterator(gen.sleep(0)).next())
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/gen.py
+IE_TRACE:     Starting var:.. duration = 0
+IE_TRACE:     19:18:12.805933 call       760 def sleep(duration):
+IE_TRACE:     19:18:12.806057 line       774     f = Future()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/concurrent.py
+IE_TRACE:         Starting var:.. self = <tornado.concurrent.Future object at 0x7f4ba2026db0>
+IE_TRACE:         19:18:12.806082 call       163     def __init__(self):
+IE_TRACE:         19:18:12.806176 line       164         self._done = False
+IE_TRACE:         19:18:12.806194 line       165         self._result = None
+IE_TRACE:         19:18:12.806210 line       166         self._exc_info = None
+IE_TRACE:         19:18:12.806225 line       168         self._log_traceback = False   # Used for Python >= 3.4
+IE_TRACE:         19:18:12.806238 line       169         self._tb_logger = None        # Used for Python <= 3.3
+IE_TRACE:         19:18:12.806252 line       171         self._callbacks = []
+IE_TRACE:         19:18:12.806267 return     171         self._callbacks = []
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/gen.py
+IE_TRACE:     New var:....... f = <tornado.concurrent.Future object at 0x7f4ba2026db0>
+IE_TRACE:     19:18:12.806294 line       775     IOLoop.current().call_later(duration, lambda: f.set_result(None))
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. instance = True
+IE_TRACE:         19:18:12.806329 call       189     def current(instance=True):
+IE_TRACE:         19:18:12.806439 line       207         current = getattr(IOLoop._current, "instance", None)
+IE_TRACE:         New var:....... current = <tornado.platform.epoll.EPollIOLoop object at 0x7f4ba2c790a0>
+IE_TRACE:         19:18:12.806457 line       208         if current is None and instance:
+IE_TRACE:         19:18:12.806481 line       210         return current
+IE_TRACE:         19:18:12.806498 return     210         return current
+IE_TRACE:         Return value:.. <tornado.platform.epoll.EPollIOLoop object at 0x7f4ba2c790a0>
+IE_TRACE:         Starting var:.. self = <tornado.platform.epoll.EPollIOLoop object at 0x7f4ba2c790a0>
+IE_TRACE:         Starting var:.. delay = 0
+IE_TRACE:         Starting var:.. callback = <function sleep.<locals>.<lambda> at 0x7f4ba203a8e0>
+IE_TRACE:         Starting var:.. args = ()
+IE_TRACE:         Starting var:.. kwargs = {}
+IE_TRACE:         19:18:12.806528 call       496     def call_later(self, delay, callback, *args, **kwargs):
+IE_TRACE:         19:18:12.806581 line       507         return self.call_at(self.time() + delay, callback, *args, **kwargs)
+IE_TRACE:             Starting var:.. self = <tornado.platform.epoll.EPollIOLoop object at 0x7f4ba2c790a0>
+IE_TRACE:             19:18:12.806607 call       891     def time(self):
+IE_TRACE:             19:18:12.806628 line       892         return self.time_func()
+IE_TRACE:             19:18:12.806642 return     892         return self.time_func()
+IE_TRACE:             Return value:.. 1779889692.8066401
+IE_TRACE:             Starting var:.. self = <tornado.platform.epoll.EPollIOLoop object at 0x7f4ba2c790a0>
+IE_TRACE:             Starting var:.. deadline = 1779889692.8066401
+IE_TRACE:             Starting var:.. callback = <function sleep.<locals>.<lambda> at 0x7f4ba203a8e0>
+IE_TRACE:             Starting var:.. args = ()
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             19:18:12.806675 call       894     def call_at(self, deadline, callback, *args, **kwargs):
+IE_TRACE:             19:18:12.806722 line       895         timeout = _Timeout(
+IE_TRACE:             19:18:12.806745 line       896             deadline,
+IE_TRACE:             19:18:12.806767 line       897             functools.partial(stack_context.wrap(callback), *args, **kwargs),
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/stack_context.py
+IE_TRACE:                 Starting var:.. fn = <function sleep.<locals>.<lambda> at 0x7f4ba203a8e0>
+IE_TRACE:                 19:18:12.806798 call       253 def wrap(fn):
+IE_TRACE:                 19:18:12.806874 line       262     if fn is None or hasattr(fn, '_wrapped'):
+IE_TRACE:                 19:18:12.806892 line       267     cap_contexts = [_state.contexts]
+IE_TRACE:                 New var:....... cap_contexts = [((), <tornado.stack_context.ExceptionStackContext object at 0x7f4ba2c159a0>)]
+IE_TRACE:                 19:18:12.806909 line       269     if not cap_contexts[0][0] and not cap_contexts[0][1]:
+IE_TRACE:                 19:18:12.806935 line       281     def wrapped(*args, **kwargs):
+IE_TRACE:                 New var:....... wrapped = <function wrap.<locals>.wrapped at 0x7f4ba203a660>
+IE_TRACE:                 19:18:12.806953 line       348     wrapped._wrapped = True
+IE_TRACE:                 19:18:12.806978 line       349     return wrapped
+IE_TRACE:                 19:18:12.806997 return     349     return wrapped
+IE_TRACE:                 Return value:.. <function wrap.<locals>.wrapped at 0x7f4ba203a660>
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             19:18:12.807024 line       898             self)
+IE_TRACE:             19:18:12.807052 line       895         timeout = _Timeout(
+IE_TRACE:                 Starting var:.. self = <tornado.ioloop._Timeout object at 0x7f4ba2166d40>
+IE_TRACE:                 Starting var:.. deadline = 1779889692.8066401
+IE_TRACE:                 Starting var:.. callback = functools.partial(<function wrap.<locals>.wrapped at 0x7f4ba203a660>)
+IE_TRACE:                 Starting var:.. io_loop = <tornado.platform.epoll.EPollIOLoop object at 0x7f4ba2c790a0>
+IE_TRACE:                 19:18:12.807079 call       952     def __init__(self, deadline, callback, io_loop):
+IE_TRACE:                 19:18:12.807123 line       953         if not isinstance(deadline, numbers.Real):
+IE_TRACE:                     Source path:... <frozen abc>
+IE_TRACE:                     Starting var:.. cls = <class 'numbers.Real'>
+IE_TRACE:                     Starting var:.. instance = 1779889692.8066401
+IE_TRACE:                     19:18:12.807154 call       117 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:18:12.807215 line       119 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Starting var:.. cls = <class 'numbers.Real'>
+IE_TRACE:                         Starting var:.. subclass = <class 'float'>
+IE_TRACE:                         19:18:12.807235 call       121 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:18:12.807262 line       123 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:18:12.807280 return     123 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Return value:.. True
+IE_TRACE:                     19:18:12.807304 return     119 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. True
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 19:18:12.807328 line       955         self.deadline = deadline
+IE_TRACE:                 19:18:12.807354 line       956         self.callback = callback
+IE_TRACE:                 19:18:12.807374 line       957         self.tiebreaker = next(io_loop._timeout_counter)
+IE_TRACE:                 19:18:12.807393 return     957         self.tiebreaker = next(io_loop._timeout_counter)
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             New var:....... timeout = <tornado.ioloop._Timeout object at 0x7f4ba2166d40>
+IE_TRACE:             19:18:12.807420 line       899         heapq.heappush(self._timeouts, timeout)
+IE_TRACE:                 Starting var:.. self = <tornado.ioloop._Timeout object at 0x7f4ba2166d40>
+IE_TRACE:                 Starting var:.. other = <tornado.ioloop._Timeout object at 0x7f4ba2032c40>
+IE_TRACE:                 19:18:12.807451 call       963     def __lt__(self, other):
+IE_TRACE:                 19:18:12.807476 line       964         return ((self.deadline, self.tiebreaker) <
+IE_TRACE:                 19:18:12.807492 line       965                 (other.deadline, other.tiebreaker))
+IE_TRACE:                 19:18:12.807507 line       964         return ((self.deadline, self.tiebreaker) <
+IE_TRACE:                 19:18:12.807522 return     964         return ((self.deadline, self.tiebreaker) <
+IE_TRACE:                 Return value:.. True
+IE_TRACE:             19:18:12.807544 line       900         return timeout
+IE_TRACE:             19:18:12.807566 return     900         return timeout
+IE_TRACE:             Return value:.. <tornado.ioloop._Timeout object at 0x7f4ba2166d40>
+IE_TRACE:         19:18:12.807597 return     507         return self.call_at(self.time() + delay, callback, *args, **kwargs)
+IE_TRACE:         Return value:.. <tornado.ioloop._Timeout object at 0x7f4ba2166d40>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/gen.py
+IE_TRACE:     19:18:12.807625 line       776     return f
+IE_TRACE:     19:18:12.807648 return     776     return f
+IE_TRACE:     Return value:.. <tornado.concurrent.Future object at 0x7f4ba2026db0>
+IE_TRACE:     Starting var:.. self = <tornado.gen.WaitIterator object at 0x7f4ba2027830>
+IE_TRACE:     Starting var:.. args = (<tornado.concurrent.Future object at 0x7f4ba2026db0>,)
+IE_TRACE:     Starting var:.. kwargs = {}
+IE_TRACE:     19:18:12.807680 call       323     def __init__(self, *args, **kwargs):
+IE_TRACE:     19:18:12.807714 line       324         if args and kwargs:
+IE_TRACE:     19:18:12.807732 line       328         if kwargs:
+IE_TRACE:     19:18:12.807749 line       332             self._unfinished = dict((f, i) for (i, f) in enumerate(args))
+IE_TRACE:         Starting var:.. .0 = <enumerate object at 0x7f4ba1f05440>
+IE_TRACE:         19:18:12.807771 call       332             self._unfinished = dict((f, i) for (i, f) in enumerate(args))
+IE_TRACE:         19:18:12.807793 line       332             self._unfinished = dict((f, i) for (i, f) in enumerate(args))
+IE_TRACE:         New var:....... i = 0
+IE_TRACE:         New var:....... f = <tornado.concurrent.Future object at 0x7f4ba2026db0>
+IE_TRACE:         19:18:12.807808 return     332             self._unfinished = dict((f, i) for (i, f) in enumerate(args))
+IE_TRACE:         Return value:.. (<tornado.concurrent.Future object at 0x7f4ba2026db0>, 0)
+IE_TRACE:         Starting var:.. .0 = <enumerate object at 0x7f4ba1f05440>
+IE_TRACE:         Starting var:.. i = 0
+IE_TRACE:         Starting var:.. f = <tornado.concurrent.Future object at 0x7f4ba2026db0>
+IE_TRACE:         19:18:12.807843 call       332             self._unfinished = dict((f, i) for (i, f) in enumerate(args))
+IE_TRACE:         19:18:12.807873 line       332             self._unfinished = dict((f, i) for (i, f) in enumerate(args))
+IE_TRACE:         19:18:12.807890 return     332             self._unfinished = dict((f, i) for (i, f) in enumerate(args))
+IE_TRACE:         Return value:.. None
+IE_TRACE:     19:18:12.807915 line       333             futures = args
+IE_TRACE:     New var:....... futures = (<tornado.concurrent.Future object at 0x7f4ba2026db0>,)
+IE_TRACE:     19:18:12.807933 line       335         self._finished = collections.deque()
+IE_TRACE:     19:18:12.807959 line       336         self.current_index = self.current_future = None
+IE_TRACE:     19:18:12.807978 line       337         self._running_future = None
+IE_TRACE:     19:18:12.807997 line       339         self_ref = weakref.ref(self)
+IE_TRACE:     New var:....... self_ref = <weakref at 0x7f4ba1f05440; to 'WaitIterator' at 0x7f4ba2027830>
+IE_TRACE:     19:18:12.808015 line       340         for future in futures:
+IE_TRACE:     New var:....... future = <tornado.concurrent.Future object at 0x7f4ba2026db0>
+IE_TRACE:     19:18:12.808042 line       341             future.add_done_callback(functools.partial(
+IE_TRACE:     19:18:12.808069 line       342                 self._done_callback, self_ref))
+IE_TRACE:     19:18:12.808091 line       341             future.add_done_callback(functools.partial(
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/concurrent.py
+IE_TRACE:         Starting var:.. self = <tornado.concurrent.Future object at 0x7f4ba2026db0>
+IE_TRACE:         Starting var:.. fn = functools.partial(<function WaitIterator._done_callback at 0x7f4ba289ed40>, <weakref at 0x7f4ba1f05440; to 'WaitIterator' at 0x7f4ba2027830>)
+IE_TRACE:         19:18:12.808116 call       226     def add_done_callback(self, fn):
+IE_TRACE:         19:18:12.808185 line       234         if self._done:
+IE_TRACE:         19:18:12.808202 line       237             self._callbacks.append(fn)
+IE_TRACE:         19:18:12.808220 return     237             self._callbacks.append(fn)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/gen.py
+IE_TRACE:     19:18:12.808243 line       340         for future in futures:
+IE_TRACE:     19:18:12.808270 return     340         for future in futures:
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = <tornado.gen.WaitIterator object at 0x7f4ba2027830>
+IE_TRACE:     19:18:12.808302 call       352     def next(self):
+IE_TRACE:     19:18:12.808320 line       358         self._running_future = TracebackFuture()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/concurrent.py
+IE_TRACE:         Starting var:.. self = <tornado.concurrent.Future object at 0x7f4ba2028860>
+IE_TRACE:         19:18:12.808334 call       163     def __init__(self):
+IE_TRACE:         19:18:12.808356 line       164         self._done = False
+IE_TRACE:         19:18:12.808369 line       165         self._result = None
+IE_TRACE:         19:18:12.808381 line       166         self._exc_info = None
+IE_TRACE:         19:18:12.808393 line       168         self._log_traceback = False   # Used for Python >= 3.4
+IE_TRACE:         19:18:12.808405 line       169         self._tb_logger = None        # Used for Python <= 3.3
+IE_TRACE:         19:18:12.808418 line       171         self._callbacks = []
+IE_TRACE:         19:18:12.808430 return     171         self._callbacks = []
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/gen.py
+IE_TRACE:     19:18:12.808449 line       360         if self._finished:
+IE_TRACE:     19:18:12.808466 line       363         return self._running_future
+IE_TRACE:     19:18:12.808478 return     363         return self._running_future
+IE_TRACE:     Return value:.. <tornado.concurrent.Future object at 0x7f4ba2028860>
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/gen_test.py
+IE_TRACE: 19:18:12.808497 line      1263         yield gen.with_timeout(datetime.timedelta(seconds=0.1),
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/gen.py
+IE_TRACE:     Starting var:.. timeout = datetime.timedelta(microseconds=100000)
+IE_TRACE:     Starting var:.. future = <tornado.concurrent.Future object at 0x7f4ba2028860>
+IE_TRACE:     Starting var:.. io_loop = None
+IE_TRACE:     Starting var:.. quiet_exceptions = ()
+IE_TRACE:     19:18:12.808527 call       699 def with_timeout(timeout, future, io_loop=None, quiet_exceptions=()):
+IE_TRACE:     19:18:12.808574 line       727     result = Future()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/concurrent.py
+IE_TRACE:         Starting var:.. self = <tornado.concurrent.Future object at 0x7f4ba2029430>
+IE_TRACE:         19:18:12.808595 call       163     def __init__(self):
+IE_TRACE:         19:18:12.808618 line       164         self._done = False
+IE_TRACE:         19:18:12.808632 line       165         self._result = None
+IE_TRACE:         19:18:12.808645 line       166         self._exc_info = None
+IE_TRACE:         19:18:12.808659 line       168         self._log_traceback = False   # Used for Python >= 3.4
+IE_TRACE:         19:18:12.808671 line       169         self._tb_logger = None        # Used for Python <= 3.3
+IE_TRACE:         19:18:12.808684 line       171         self._callbacks = []
+IE_TRACE:         19:18:12.808698 return     171         self._callbacks = []
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/gen.py
+IE_TRACE:     New var:....... result = <tornado.concurrent.Future object at 0x7f4ba2029430>
+IE_TRACE:     19:18:12.808717 line       728     chain_future(future, result)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/concurrent.py
+IE_TRACE:         Starting var:.. a = <tornado.concurrent.Future object at 0x7f4ba2028860>
+IE_TRACE:         Starting var:.. b = <tornado.concurrent.Future object at 0x7f4ba2029430>
+IE_TRACE:         19:18:12.808752 call       467 def chain_future(a, b):
+IE_TRACE:         19:18:12.808783 line       473     def copy(future):
+IE_TRACE:         New var:....... copy = <function chain_future.<locals>.copy at 0x7f4ba203a840>
+IE_TRACE:         19:18:12.808800 line       484     a.add_done_callback(copy)
+IE_TRACE:             Starting var:.. self = <tornado.concurrent.Future object at 0x7f4ba2028860>
+IE_TRACE:             Starting var:.. fn = <function chain_future.<locals>.copy at 0x7f4ba203a840>
+IE_TRACE:             19:18:12.808823 call       226     def add_done_callback(self, fn):
+IE_TRACE:             19:18:12.808848 line       234         if self._done:
+IE_TRACE:             19:18:12.808865 line       237             self._callbacks.append(fn)
+IE_TRACE:             19:18:12.808881 return     237             self._callbacks.append(fn)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         19:18:12.808902 return     484     a.add_done_callback(copy)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/gen.py
+IE_TRACE:     19:18:12.808925 line       729     if io_loop is None:
+IE_TRACE:     19:18:12.808951 line       730         io_loop = IOLoop.current()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. instance = True
+IE_TRACE:         19:18:12.808974 call       189     def current(instance=True):
+IE_TRACE:         19:18:12.809002 line       207         current = getattr(IOLoop._current, "instance", None)
+IE_TRACE:         New var:....... current = <tornado.platform.epoll.EPollIOLoop object at 0x7f4ba2c790a0>
+IE_TRACE:         19:18:12.809017 line       208         if current is None and instance:
+IE_TRACE:         19:18:12.809038 line       210         return current
+IE_TRACE:         19:18:12.809053 return     210         return current
+IE_TRACE:         Return value:.. <tornado.platform.epoll.EPollIOLoop object at 0x7f4ba2c790a0>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/gen.py
+IE_TRACE:     Modified var:.. io_loop = <tornado.platform.epoll.EPollIOLoop object at 0x7f4ba2c790a0>
+IE_TRACE:     19:18:12.809075 line       732     def error_callback(future):
+IE_TRACE:     New var:....... error_callback = <function with_timeout.<locals>.error_callback at 0x7f4ba203a700>
+IE_TRACE:     19:18:12.809106 line       740     def timeout_callback():
+IE_TRACE:     New var:....... timeout_callback = <function with_timeout.<locals>.timeout_callback at 0x7f4ba203a7a0>
+IE_TRACE:     19:18:12.809138 line       744     timeout_handle = io_loop.add_timeout(
+IE_TRACE:     19:18:12.809168 line       745         timeout, timeout_callback)
+IE_TRACE:     19:18:12.809192 line       744     timeout_handle = io_loop.add_timeout(
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. self = <tornado.platform.epoll.EPollIOLoop object at 0x7f4ba2c790a0>
+IE_TRACE:         Starting var:.. deadline = datetime.timedelta(microseconds=100000)
+IE_TRACE:         Starting var:.. callback = <function with_timeout.<locals>.timeout_callback at 0x7f4ba203a7a0>
+IE_TRACE:         Starting var:.. args = ()
+IE_TRACE:         Starting var:.. kwargs = {}
+IE_TRACE:         19:18:12.809222 call       462     def add_timeout(self, deadline, callback, *args, **kwargs):
+IE_TRACE:         19:18:12.809270 line       488         if isinstance(deadline, numbers.Real):
+IE_TRACE:             Source path:... <frozen abc>
+IE_TRACE:             Starting var:.. cls = <class 'numbers.Real'>
+IE_TRACE:             Starting var:.. instance = datetime.timedelta(microseconds=100000)
+IE_TRACE:             19:18:12.809291 call       117 SOURCE IS UNAVAILABLE
+IE_TRACE:             19:18:12.809324 line       119 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Starting var:.. cls = <class 'numbers.Real'>
+IE_TRACE:                 Starting var:.. subclass = <class 'datetime.timedelta'>
+IE_TRACE:                 19:18:12.809342 call       121 SOURCE IS UNAVAILABLE
+IE_TRACE:                 19:18:12.809369 line       123 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Starting var:.. cls = <class 'numbers.Rational'>
+IE_TRACE:                     Starting var:.. subclass = <class 'datetime.timedelta'>
+IE_TRACE:                     19:18:12.809391 call       121 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:18:12.809417 line       123 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Starting var:.. cls = <class 'numbers.Integral'>
+IE_TRACE:                         Starting var:.. subclass = <class 'datetime.timedelta'>
+IE_TRACE:                         19:18:12.809436 call       121 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:18:12.809462 line       123 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:18:12.809482 return     123 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Return value:.. False
+IE_TRACE:                     19:18:12.809506 return     123 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. False
+IE_TRACE:                 19:18:12.809527 return     123 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Return value:.. False
+IE_TRACE:             19:18:12.809549 return     119 SOURCE IS UNAVAILABLE
+IE_TRACE:             Return value:.. False
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         19:18:12.809571 line       490         elif isinstance(deadline, datetime.timedelta):
+IE_TRACE:         19:18:12.809597 line       491             return self.call_at(self.time() + timedelta_to_seconds(deadline),
+IE_TRACE:             Starting var:.. self = <tornado.platform.epoll.EPollIOLoop object at 0x7f4ba2c790a0>
+IE_TRACE:             19:18:12.809619 call       891     def time(self):
+IE_TRACE:             19:18:12.809639 line       892         return self.time_func()
+IE_TRACE:             19:18:12.809653 return     892         return self.time_func()
+IE_TRACE:             Return value:.. 1779889692.8096502
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:             Starting var:.. td = datetime.timedelta(microseconds=100000)
+IE_TRACE:             19:18:12.809679 call       324 def timedelta_to_seconds(td):
+IE_TRACE:             19:18:12.809765 line       326     return (td.microseconds + (td.seconds + td.days * 24 * 3600) * 10 ** 6) / float(10 ** 6)
+IE_TRACE:             19:18:12.809784 return     326     return (td.microseconds + (td.seconds + td.days * 24 * 3600) * 10 ** 6) / float(10 ** 6)
+IE_TRACE:             Return value:.. 0.1
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         19:18:12.809807 line       492                                 callback, *args, **kwargs)
+IE_TRACE:         19:18:12.809834 line       491             return self.call_at(self.time() + timedelta_to_seconds(deadline),
+IE_TRACE:     [CONDENSED] 1 identical loop iterations skipped (3 total iterations, showing first and last)
+IE_TRACE:         19:18:12.809894 line       492                                 callback, *args, **kwargs)
+IE_TRACE:         19:18:12.809913 line       491             return self.call_at(self.time() + timedelta_to_seconds(deadline),
+IE_TRACE:             Starting var:.. self = <tornado.platform.epoll.EPollIOLoop object at 0x7f4ba2c790a0>
+IE_TRACE:             Starting var:.. deadline = 1779889692.90965
+IE_TRACE:             Starting var:.. callback = <function with_timeout.<locals>.timeout_callback at 0x7f4ba203a7a0>
+IE_TRACE:             Starting var:.. args = ()
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             19:18:12.809934 call       894     def call_at(self, deadline, callback, *args, **kwargs):
+IE_TRACE:             19:18:12.809978 line       895         timeout = _Timeout(
+IE_TRACE:             19:18:12.809999 line       896             deadline,
+IE_TRACE:             19:18:12.810019 line       897             functools.partial(stack_context.wrap(callback), *args, **kwargs),
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/stack_context.py
+IE_TRACE:                 Starting var:.. fn = <function with_timeout.<locals>.timeout_callback at 0x7f4ba203a7a0>
+IE_TRACE:                 19:18:12.810044 call       253 def wrap(fn):
+IE_TRACE:                 19:18:12.810071 line       262     if fn is None or hasattr(fn, '_wrapped'):
+IE_TRACE:                 19:18:12.810088 line       267     cap_contexts = [_state.contexts]
+IE_TRACE:                 New var:....... cap_contexts = [((), <tornado.stack_context.ExceptionStackContext object at 0x7f4ba2c159a0>)]
+IE_TRACE:                 19:18:12.810105 line       269     if not cap_contexts[0][0] and not cap_contexts[0][1]:
+IE_TRACE:                 19:18:12.810135 line       281     def wrapped(*args, **kwargs):
+IE_TRACE:                 New var:....... wrapped = <function wrap.<locals>.wrapped at 0x7f4ba203aa20>
+IE_TRACE:                 19:18:12.810153 line       348     wrapped._wrapped = True
+IE_TRACE:                 19:18:12.810178 line       349     return wrapped
+IE_TRACE:                 19:18:12.810198 return     349     return wrapped
+IE_TRACE:                 Return value:.. <function wrap.<locals>.wrapped at 0x7f4ba203aa20>
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             19:18:12.810225 line       898             self)
+IE_TRACE:             19:18:12.810251 line       895         timeout = _Timeout(
+IE_TRACE:                 Starting var:.. self = <tornado.ioloop._Timeout object at 0x7f4ba2032bc0>
+IE_TRACE:                 Starting var:.. deadline = 1779889692.90965
+IE_TRACE:                 Starting var:.. callback = functools.partial(<function wrap.<locals>.wrapped at 0x7f4ba203aa20>)
+IE_TRACE:                 Starting var:.. io_loop = <tornado.platform.epoll.EPollIOLoop object at 0x7f4ba2c790a0>
+IE_TRACE:                 19:18:12.810273 call       952     def __init__(self, deadline, callback, io_loop):
+IE_TRACE:                 19:18:12.810311 line       953         if not isinstance(deadline, numbers.Real):
+IE_TRACE:                     Source path:... <frozen abc>
+IE_TRACE:                     Starting var:.. cls = <class 'numbers.Real'>
+IE_TRACE:                     Starting var:.. instance = 1779889692.90965
+IE_TRACE:                     19:18:12.810333 call       117 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:18:12.810364 line       119 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Starting var:.. cls = <class 'numbers.Real'>
+IE_TRACE:                         Starting var:.. subclass = <class 'float'>
+IE_TRACE:                         19:18:12.810383 call       121 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:18:12.810408 line       123 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:18:12.810426 return     123 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Return value:.. True
+IE_TRACE:                     19:18:12.810450 return     119 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. True
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:                 19:18:12.810472 line       955         self.deadline = deadline
+IE_TRACE:                 19:18:12.810498 line       956         self.callback = callback
+IE_TRACE:                 19:18:12.810518 line       957         self.tiebreaker = next(io_loop._timeout_counter)
+IE_TRACE:                 19:18:12.810538 return     957         self.tiebreaker = next(io_loop._timeout_counter)
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             New var:....... timeout = <tornado.ioloop._Timeout object at 0x7f4ba2032bc0>
+IE_TRACE:             19:18:12.810564 line       899         heapq.heappush(self._timeouts, timeout)
+IE_TRACE:                 Starting var:.. self = <tornado.ioloop._Timeout object at 0x7f4ba2032bc0>
+IE_TRACE:                 Starting var:.. other = <tornado.ioloop._Timeout object at 0x7f4ba2166d40>
+IE_TRACE:                 19:18:12.810593 call       963     def __lt__(self, other):
+IE_TRACE:                 19:18:12.810618 line       964         return ((self.deadline, self.tiebreaker) <
+IE_TRACE:                 19:18:12.810634 line       965                 (other.deadline, other.tiebreaker))
+IE_TRACE:                 19:18:12.810650 line       964         return ((self.deadline, self.tiebreaker) <
+IE_TRACE:                 19:18:12.810666 return     964         return ((self.deadline, self.tiebreaker) <
+IE_TRACE:                 Return value:.. False
+IE_TRACE:             19:18:12.810688 line       900         return timeout
+IE_TRACE:             19:18:12.810711 return     900         return timeout
+IE_TRACE:             Return value:.. <tornado.ioloop._Timeout object at 0x7f4ba2032bc0>
+IE_TRACE:         19:18:12.810739 return     491             return self.call_at(self.time() + timedelta_to_seconds(deadline),
+IE_TRACE:         Return value:.. <tornado.ioloop._Timeout object at 0x7f4ba2032bc0>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/gen.py
+IE_TRACE:     New var:....... timeout_handle = <tornado.ioloop._Timeout object at 0x7f4ba2032bc0>
+IE_TRACE:     19:18:12.810767 line       746     if isinstance(future, Future):
+IE_TRACE:     19:18:12.810803 line       750         future.add_done_callback(
+IE_TRACE:     19:18:12.810829 line       751             lambda future: io_loop.remove_timeout(timeout_handle))
+IE_TRACE:     19:18:12.810855 line       750         future.add_done_callback(
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/concurrent.py
+IE_TRACE:         Starting var:.. self = <tornado.concurrent.Future object at 0x7f4ba2028860>
+IE_TRACE:         Starting var:.. fn = <function with_timeout.<locals>.<lambda> at 0x7f4ba203a980>
+IE_TRACE:         19:18:12.810881 call       226     def add_done_callback(self, fn):
+IE_TRACE:         19:18:12.810910 line       234         if self._done:
+IE_TRACE:         19:18:12.810925 line       237             self._callbacks.append(fn)
+IE_TRACE:         19:18:12.810941 return     237             self._callbacks.append(fn)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/gen.py
+IE_TRACE:     19:18:12.810962 line       757     return result
+IE_TRACE:     19:18:12.810992 return     757     return result
+IE_TRACE:     Return value:.. <tornado.concurrent.Future object at 0x7f4ba2029430>
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/gen_test.py
+IE_TRACE: 19:18:12.811022 return    1263         yield gen.with_timeout(datetime.timedelta(seconds=0.1),
+IE_TRACE: Return value:.. <tornado.concurrent.Future object at 0x7f4ba2029430>
+IE_TRACE: Elapsed time: 00:00:00.005750
+/path/to/BugsInPy/workspace/tornado/tornado/gen.py:881: DeprecationWarning: the (type, exc, tb) signature of throw() is deprecated, use the single-arg signature instead.
+  yielded = self.gen.throw(*exc_info)
+IE_TRACE: Starting var:.. self = <tornado.test.gen_test.WaitIteratorTest testMethod=test_no_ref>
+IE_TRACE: 19:18:12.911356 call      1263         yield gen.with_timeout(datetime.timedelta(seconds=0.1),
+IE_TRACE: 19:18:12.911502 exception 1263         yield gen.with_timeout(datetime.timedelta(seconds=0.1),
+IE_TRACE: Exception:..... tornado.gen.TimeoutError: Timeout
+IE_TRACE: 19:18:12.911662 return    1263         yield gen.with_timeout(datetime.timedelta(seconds=0.1),
+IE_TRACE: Return value:.. None
+IE_TRACE: Elapsed time: 00:00:00.000552
+======================================================================
+ERROR: test_no_ref (tornado.test.gen_test.WaitIteratorTest.test_no_ref)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/BugsInPy/workspace/tornado/tornado/testing.py", line 120, in __call__
+    result = self.orig_method(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/testing.py", line 499, in post_coroutine
+    return self.io_loop.run_sync(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/ioloop.py", line 445, in run_sync
+    return future_cell[0].result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/concurrent.py", line 211, in result
+    raise_exc_info(self._exc_info)
+  File "<string>", line 3, in raise_exc_info
+  File "/path/to/BugsInPy/workspace/tornado/tornado/gen.py", line 881, in run
+    yielded = self.gen.throw(*exc_info)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 329, in generator_wrapper
+    outgoing = method(incoming)
+               ^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/test/gen_test.py", line 1263, in test_no_ref
+    yield gen.with_timeout(datetime.timedelta(seconds=0.1),
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 333, in generator_wrapper
+    method, incoming = gen.send, (yield outgoing)
+                                  ^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/gen.py", line 875, in run
+    value = future.result()
+            ^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/concurrent.py", line 211, in result
+    raise_exc_info(self._exc_info)
+  File "<string>", line 3, in raise_exc_info
+tornado.gen.TimeoutError: Timeout
+
+----------------------------------------------------------------------
+Ran 1 test in 0.108s
+
+FAILED (errors=1)
+
+
+Exit code: 1

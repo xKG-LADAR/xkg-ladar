@@ -1,0 +1,789 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_format_selection_string_ops [label="test_format_selection_string_ops
+test_YoutubeDL.py:245" fillcolor=white shape=box style=filled]
+	formats [label="formats
+(12 writes, 9 distinct)
+[{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4'}, {'format_id': 'zxc-cxz', 'ext': 'webm', '…
+[{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4', 'format': 'abc-cba - unknown'}, {'format_i…
+[{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4', 'format': 'abc-cba - unknown', 'protocol':…
+[{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4', 'format': 'abc-cba - unknown', 'protocol':…
+[{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4', 'format': 'abc-cba - unknown', 'protocol':…
+[{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4', 'format': 'abc-cba - unknown', 'protocol':…
+  …+3 more values" shape=ellipse]
+	_make_result [label="_make_result
+test_YoutubeDL.py:40" fillcolor=white shape=box style=filled]
+	res [label="res
+(7 writes, 3 distinct)
+{'formats': [{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4'}, {'format_id': 'zxc-cxz', 'ext…
+'unknown'
+{'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0', 'Accept-Charset': 'ISO-8859-1,utf…" shape=ellipse]
+	__init__ [label="__init__
+metadatafromtitle.py:9" fillcolor=white shape=box style=filled]
+	get_params [label="get_params
+helper.py:25" fillcolor=white shape=box style=filled]
+	sep [label="sep
+(12 writes)
+'/'" shape=ellipse]
+	i [label="i
+(12 writes, 3 distinct)
+54
+0
+1" shape=ellipse]
+	head [label="head
+(8 writes, 2 distinct)
+'/path/to/BugsInPy/workspace/youtube-dl/test/'
+'/path/to/BugsInPy/workspace/youtube-dl/test'" shape=ellipse]
+	path [label="path
+(8 writes, 3 distinct)
+'/path/to/BugsInPy/workspace/youtube-dl/test'
+'/path/to/BugsInPy/workspace/youtube-dl/test/parameters.json'
+'/path/to/BugsInPy/workspace/youtube-dl/test/local_parameters.json'" shape=ellipse]
+	b [label="b
+(4 writes, 2 distinct)
+'parameters.json'
+'local_parameters.json'" shape=ellipse]
+	PARAMETERS_FILE [label="PARAMETERS_FILE
+(2 writes)
+'/path/to/BugsInPy/workspace/youtube-dl/test/parameters.json'" shape=ellipse]
+	LOCAL_PARAMETERS_FILE [label="LOCAL_PARAMETERS_FILE
+(2 writes)
+'/path/to/BugsInPy/workspace/youtube-dl/test/local_parameters.json'" shape=ellipse]
+	pf [label="pf
+(2 writes)
+<_io.TextIOWrapper name='/path/to/BugsInPy/workspace/youtube-dl/test/parameters.json' mode='r' encoding='utf-8…" shape=ellipse]
+	parameters [label="parameters
+(2 writes)
+dict(len=41)" shape=ellipse]
+	ERROR__FileNotFoundError [label="FileNotFoundError
+[Errno 2] No such file or directory: '/path/to/BugsInPy/workspace/youtube-dl/test/local_parameters.json'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	params [label="params
+(2 writes)
+dict(len=41)" shape=ellipse]
+	check_deprecated [label="check_deprecated
+(2 writes, 2 distinct)
+<function YoutubeDL.__init__.<locals>.check_deprecated at 0x798f79ce6660>
+<function YoutubeDL.__init__.<locals>.check_deprecated at 0x798f79ce7ba0>" shape=ellipse]
+	_setup_opener [label="_setup_opener
+YoutubeDL.py:2293" fillcolor=white shape=box style=filled]
+	timeout_val [label="timeout_val
+(2 writes)
+20" shape=ellipse]
+	opts_cookiefile [label="opts_cookiefile
+(2 writes)
+None" shape=ellipse]
+	opts_proxy [label="opts_proxy
+(2 writes)
+None" shape=ellipse]
+	cookie_processor [label="cookie_processor
+(2 writes, 2 distinct)
+<youtube_dl.utils.YoutubeDLCookieProcessor object at 0x798f79f0cc80>
+<youtube_dl.utils.YoutubeDLCookieProcessor object at 0x798f79de32c0>" shape=ellipse]
+	proxies [label="proxies
+(2 writes)
+{}" shape=ellipse]
+	proxy_handler [label="proxy_handler
+(2 writes, 2 distinct)
+<youtube_dl.utils.PerRequestProxyHandler object at 0x798f79f13230>
+<youtube_dl.utils.PerRequestProxyHandler object at 0x798f7a46b170>" shape=ellipse]
+	debuglevel [label="debuglevel
+(2 writes)
+0" shape=ellipse]
+	make_HTTPS_handler [label="make_HTTPS_handler
+utils.py:697" fillcolor=white shape=box style=filled]
+	opts_no_check_certificate [label="opts_no_check_certificate
+(2 writes)
+False" shape=ellipse]
+	context [label="context
+(2 writes, 2 distinct)
+<ssl.SSLContext object at 0x798f79ba29d0>
+<ssl.SSLContext object at 0x798f79a8ca50>" shape=ellipse]
+	https_handler [label="https_handler
+(2 writes, 2 distinct)
+<youtube_dl.utils.YoutubeDLHTTPSHandler object at 0x798f79f0ef60>
+<youtube_dl.utils.YoutubeDLHTTPSHandler object at 0x798f79f13ce0>" shape=ellipse]
+	ydlh [label="ydlh
+(2 writes, 2 distinct)
+<youtube_dl.utils.YoutubeDLHandler object at 0x798f79f10fe0>
+<youtube_dl.utils.YoutubeDLHandler object at 0x798f79de2270>" shape=ellipse]
+	data_handler [label="data_handler
+(2 writes, 2 distinct)
+<urllib.request.DataHandler object at 0x798f79e3bc20>
+<urllib.request.DataHandler object at 0x798f79f13080>" shape=ellipse]
+	file_handler [label="file_handler
+(2 writes, 2 distinct)
+<urllib.request.FileHandler object at 0x798f79efdfd0>
+<urllib.request.FileHandler object at 0x798f79de3140>" shape=ellipse]
+	file_open [label="file_open
+(2 writes, 2 distinct)
+<function YoutubeDL._setup_opener.<locals>.file_open at 0x798f79ce7c40>
+<function YoutubeDL._setup_opener.<locals>.file_open at 0x798f79ce7ce0>" shape=ellipse]
+	opener [label="opener
+(2 writes, 2 distinct)
+<urllib.request.OpenerDirector object at 0x798f7a0d4bc0>
+<urllib.request.OpenerDirector object at 0x798f79e395e0>" shape=ellipse]
+	register_socks_protocols [label="register_socks_protocols
+utils.py:72" fillcolor=white shape=box style=filled]
+	scheme [label="scheme
+(4 writes, 2 distinct)
+'socks'
+'socks5'" shape=ellipse]
+	ydl [label="ydl
+(2 writes, 2 distinct)
+<test.test_YoutubeDL.YDL object at 0x798f7b257d40>
+<test.test_YoutubeDL.YDL object at 0x798f7a779520>" shape=ellipse]
+	process_ie_result [label="process_ie_result
+Take the result of the ie(may be modified) and resolve …
+YoutubeDL.py:837" fillcolor=white shape=box style=filled]
+	result_type [label="result_type
+(2 writes)
+'video'" shape=ellipse]
+	add_extra_info [label="add_extra_info
+Set the keys from extra_info in info dict if they are m…
+YoutubeDL.py:762" fillcolor=white shape=box style=filled]
+	process_video_result [label="process_video_result
+YoutubeDL.py:1407" fillcolor=white shape=box style=filled]
+	report_force_conversion [label="report_force_conversion
+(2 writes, 2 distinct)
+<function YoutubeDL.process_video_result.<locals>.report_force_conversion at 0x798f79ce6660>
+<function YoutubeDL.process_video_result.<locals>.report_force_conversion at 0x798f79ce7ba0>" shape=ellipse]
+	sanitize_string_field [label="sanitize_string_field
+(2 writes, 2 distinct)
+<function YoutubeDL.process_video_result.<locals>.sanitize_string_field at 0x798f79ce7ba0>
+<function YoutubeDL.process_video_result.<locals>.sanitize_string_field at 0x798f79be8c20>" shape=ellipse]
+	sanitize_numeric_fields [label="sanitize_numeric_fields
+(2 writes, 2 distinct)
+<function YoutubeDL.process_video_result.<locals>.sanitize_numeric_fields at 0x798f79ce7b00>
+<function YoutubeDL.process_video_result.<locals>.sanitize_numeric_fields at 0x798f79be96c0>" shape=ellipse]
+	numeric_field [label="numeric_field
+(12 writes, 2 distinct)
+'tbr'
+'upload_month'" shape=ellipse]
+	thumbnails [label="thumbnails
+(2 writes)
+None" shape=ellipse]
+	thumbnail [label="thumbnail
+(2 writes)
+None" shape=ellipse]
+	cc_kind [label="cc_kind
+(4 writes, 2 distinct)
+'subtitles'
+'automatic_captions'" shape=ellipse]
+	cc [label="cc
+(2 writes)
+None" shape=ellipse]
+	automatic_captions [label="automatic_captions
+(2 writes)
+None" shape=ellipse]
+	subtitles [label="subtitles
+(2 writes)
+None" shape=ellipse]
+	process_subtitles [label="process_subtitles
+Select the requested subtitles and their format
+YoutubeDL.py:1644" fillcolor=white shape=box style=filled]
+	available_subs [label="available_subs
+(2 writes)
+{}" shape=ellipse]
+	is_wellformed [label="is_wellformed
+(2 writes, 2 distinct)
+<function YoutubeDL.process_video_result.<locals>.is_wellformed at 0x798f79ce7ce0>
+<function YoutubeDL.process_video_result.<locals>.is_wellformed at 0x798f79be85e0>" shape=ellipse]
+	url [label="url
+(6 writes)
+'http://localhost/sample.mp4'" shape=ellipse]
+	sanitize_url [label="sanitize_url
+utils.py:542" fillcolor=white shape=box style=filled]
+	COMMON_TYPOS [label="COMMON_TYPOS
+(8 writes)
+(('^httpss://', 'https://'), ('^rmtp([es]?)://', 'rtmp\\1://'))" shape=ellipse]
+	format_id [label="format_id
+(8 writes, 2 distinct)
+'abc-cba'
+'zxc-cxz'" shape=ellipse]
+	ambiguous_formats [label="ambiguous_formats
+(7 writes, 6 distinct)
+[{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4'}]
+[{'format_id': 'zxc-cxz', 'ext': 'webm', 'url': 'http://localhost/sample.mp4'}]
+[{'format_id': 'zxc-cxz', 'ext': 'webm', 'url': 'http://localhost/sample.mp4', 'format': 'zxc-cxz - unknown'}]
+[{'format_id': 'zxc-cxz', 'ext': 'webm', 'url': 'http://localhost/sample.mp4', 'format': 'zxc-cxz - unknown', 'protocol'…
+[{'format_id': 'zxc-cxz', 'ext': 'webm', 'url': 'http://localhost/sample.mp4', 'format': 'zxc-cxz - unknown', 'protocol'…
+[{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4', 'format': 'abc-cba - unknown', 'protocol':…" shape=ellipse]
+	format_resolution [label="format_resolution
+YoutubeDL.py:2102" fillcolor=white shape=box style=filled]
+	determine_protocol [label="determine_protocol
+utils.py:2583" fillcolor=white shape=box style=filled]
+	protocol [label="protocol
+(2 writes)
+None" shape=ellipse]
+	determine_ext [label="determine_ext
+utils.py:1296" fillcolor=white shape=box style=filled]
+	guess [label="guess
+(2 writes)
+'mp4'" shape=ellipse]
+	ext [label="ext
+(2 writes)
+'mp4'" shape=ellipse]
+	full_format_info [label="full_format_info
+(9 writes, 7 distinct)
+{'formats': [{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4', 'format': 'abc-cba - unknown',…
+{'formats': [{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4', 'format': 'abc-cba - unknown',…
+{'formats': [{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4', 'format': 'abc-cba - unknown',…
+{'formats': [{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4', 'format': 'abc-cba - unknown',…
+{'formats': [{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4', 'format': 'abc-cba - unknown',…
+{'formats': [{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4', 'format': 'abc-cba - unknown',…
+  …+1 more values" shape=ellipse]
+	_calc_headers [label="_calc_headers
+YoutubeDL.py:1384" fillcolor=white shape=box style=filled]
+	add_headers [label="add_headers
+(4 writes, 2 distinct)
+None
+{'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0', 'Accept-Charset': 'ISO-8859-1,utf…" shape=ellipse]
+	_calc_cookies [label="_calc_cookies
+YoutubeDL.py:1402" fillcolor=white shape=box style=filled]
+	sanitized_Request [label="sanitized_Request
+utils.py:560" fillcolor=white shape=box style=filled]
+	pr [label="pr
+(4 writes, 4 distinct)
+<urllib.request.Request object at 0x798f79eff3e0>
+<urllib.request.Request object at 0x798f7a6a6a20>
+<urllib.request.Request object at 0x798f7a553230>
+<urllib.request.Request object at 0x798f79de3ad0>" shape=ellipse]
+	cookies [label="cookies
+(4 writes)
+None" shape=ellipse]
+	x_forwarded_for_ip [label="x_forwarded_for_ip
+(4 writes)
+None" shape=ellipse]
+	req_format [label="req_format
+(2 writes, 2 distinct)
+'[format_id=abc-cba]'
+'[format_id!=abc-cba]'" shape=ellipse]
+	build_format_selector [label="build_format_selector
+YoutubeDL.py:1119" fillcolor=white shape=box style=filled]
+	syntax_error [label="syntax_error
+(2 writes, 2 distinct)
+<function YoutubeDL.build_format_selector.<locals>.syntax_error at 0x798f79be8400>
+<function YoutubeDL.build_format_selector.<locals>.syntax_error at 0x798f79be9760>" shape=ellipse]
+	PICKFIRST [label="PICKFIRST
+(2 writes)
+'PICKFIRST'" shape=ellipse]
+	MERGE [label="MERGE
+(2 writes)
+'MERGE'" shape=ellipse]
+	SINGLE [label="SINGLE
+(2 writes)
+'SINGLE'" shape=ellipse]
+	GROUP [label="GROUP
+(2 writes)
+'GROUP'" shape=ellipse]
+	FormatSelector [label="FormatSelector
+(2 writes)
+<class 'youtube_dl.YoutubeDL.FormatSelector'>" shape=ellipse]
+	_parse_filter [label="_parse_filter
+(2 writes, 2 distinct)
+<function YoutubeDL.build_format_selector.<locals>._parse_filter at 0x798f79be84a0>
+<function YoutubeDL.build_format_selector.<locals>._parse_filter at 0x798f79be9580>" shape=ellipse]
+	_remove_unused_ops [label="_remove_unused_ops
+(2 writes, 2 distinct)
+<function YoutubeDL.build_format_selector.<locals>._remove_unused_ops at 0x798f79be8900>
+<function YoutubeDL.build_format_selector.<locals>._remove_unused_ops at 0x798f79be8d60>" shape=ellipse]
+	_parse_format_selection [label="_parse_format_selection
+(2 writes, 2 distinct)
+<function YoutubeDL.build_format_selector.<locals>._parse_format_selection at 0x798f79be89a0>
+<function YoutubeDL.build_format_selector.<locals>._parse_format_selection at 0x798f79be8e00>" shape=ellipse]
+	_build_selector_function [label="_build_selector_function
+(2 writes, 2 distinct)
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function at 0x798f79be8ae0>
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function at 0x798f79be93a0>" shape=ellipse]
+	stream [label="stream
+(2 writes, 2 distinct)
+<_io.BytesIO object at 0x798f79a52f70>
+<_io.BytesIO object at 0x798f79a88630>" shape=ellipse]
+	ALLOWED_OPS [label="ALLOWED_OPS
+(2 writes)
+('/', '+', ',', '(', ')')" shape=ellipse]
+	last_string [label="last_string
+(2 writes)
+None" shape=ellipse]
+	last_start [label="last_start
+(2 writes)
+None" shape=ellipse]
+	last_end [label="last_end
+(2 writes)
+None" shape=ellipse]
+	last_line [label="last_line
+(2 writes)
+None" shape=ellipse]
+	end [label="end
+(12 writes, 7 distinct)
+(0, 0)
+(1, 1)
+(1, 10)
+(1, 19)
+(1, 20)
+(2, 0)
+  …+1 more values" shape=ellipse]
+	line [label="line
+(6 writes, 3 distinct)
+''
+'[format_id=abc-cba]'
+'[format_id!=abc-cba]'" shape=ellipse]
+	tokens [label="tokens
+(2 writes, 2 distinct)
+[(55, '[', (1, 0), (1, 1), '[format_id=abc-cba]'), (1, 'format_id', (1, 1), (1, 10), '[format_id=abc-cba]'), (55, '=', (…
+[(55, '[', (1, 0), (1, 1), '[format_id!=abc-cba]'), (1, 'format_id', (1, 1), (1, 10), '[format_id!=abc-cba]'), (55, '!='…" shape=ellipse]
+	__module__ [label="__module__
+(2 writes)
+'youtube_dl.YoutubeDL'" shape=ellipse]
+	__qualname__ [label="__qualname__
+(2 writes)
+'YoutubeDL.build_format_selector.<locals>.TokenIterator'" shape=ellipse]
+	__iter__ [label="__iter__
+(2 writes, 2 distinct)
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__iter__ at 0x798f79be8ea0>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__iter__ at 0x798f79be9b20>" shape=ellipse]
+	__next__ [label="__next__
+(2 writes, 2 distinct)
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x798f79be8f40>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x798f79be9bc0>" shape=ellipse]
+	next [label="next
+(2 writes, 2 distinct)
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x798f79be8f40>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.__next__ at 0x798f79be9bc0>" shape=ellipse]
+	restore_last_token [label="restore_last_token
+(2 writes, 2 distinct)
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.restore_last_token at 0x798f79be9300>
+<function YoutubeDL.build_format_selector.<locals>.TokenIterator.restore_last_token at 0x798f79be9f80>" shape=ellipse]
+	TokenIterator [label="TokenIterator
+(2 writes)
+<class 'youtube_dl.YoutubeDL.YoutubeDL.build_format_selector.<locals>.TokenIterator'>" shape=ellipse]
+	selectors [label="selectors
+(4 writes, 3 distinct)
+[]
+[FormatSelector(type='SINGLE', selector='best', filters=['format_id=abc-cba'])]
+[FormatSelector(type='SINGLE', selector='best', filters=['format_id!=abc-cba'])]" shape=ellipse]
+	current_selector [label="current_selector
+(6 writes, 4 distinct)
+None
+FormatSelector(type='SINGLE', selector='best', filters=[])
+FormatSelector(type='SINGLE', selector='best', filters=['format_id=abc-cba'])
+FormatSelector(type='SINGLE', selector='best', filters=['format_id!=abc-cba'])" shape=ellipse]
+	value [label="value
+(8 writes, 8 distinct)
+(55, '[', (1, 0), (1, 1), '[format_id=abc-cba]')
+(1, 'format_id', (1, 1), (1, 10), '[format_id=abc-cba]')
+(1, 'cba', (1, 15), (1, 18), '[format_id=abc-cba]')
+(55, ']', (1, 18), (1, 19), '[format_id=abc-cba]')
+(55, '[', (1, 0), (1, 1), '[format_id!=abc-cba]')
+(1, 'format_id', (1, 1), (1, 10), '[format_id!=abc-cba]')
+  …+2 more values" shape=ellipse]
+	_ [label="_
+(4 writes, 2 distinct)
+'[format_id=abc-cba]'
+'[format_id!=abc-cba]'" shape=ellipse]
+	filter_parts [label="filter_parts
+(6 writes, 4 distinct)
+[]
+['format_id']
+['format_id', '=', 'abc', '-', 'cba']
+['format_id', '!=', 'abc', '-', 'cba']" shape=ellipse]
+	format_filter [label="format_filter
+(2 writes, 2 distinct)
+'format_id=abc-cba'
+'format_id!=abc-cba'" shape=ellipse]
+	ERROR__StopIteration [label=StopIteration fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	parsed_selector [label="parsed_selector
+(2 writes, 2 distinct)
+[FormatSelector(type='SINGLE', selector='best', filters=['format_id=abc-cba'])]
+[FormatSelector(type='SINGLE', selector='best', filters=['format_id!=abc-cba'])]" shape=ellipse]
+	format_spec [label="format_spec
+(2 writes)
+'best'" shape=ellipse]
+	selector_function [label="selector_function
+(4 writes, 4 distinct)
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.selector_function at 0x798f79be9620…
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.selector_function at 0x798f79be96c0…
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.selector_function at 0x798f79bea2a0…
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.selector_function at 0x798f79bea340…" shape=ellipse]
+	_build_format_filter [label="_build_format_filter
+Returns a function to filter the formats according to t…
+YoutubeDL.py:1032" fillcolor=white shape=box style=filled]
+	OPERATORS [label="OPERATORS
+(2 writes)
+{'<': <built-in function lt>, '<=': <built-in function le>, '>': <built-in function gt>, '>=': <built-in function ge>, '…" shape=ellipse]
+	operator_rex [label="operator_rex
+(2 writes)
+re.compile('(?x)\\s*\n            (?P<key>width|height|tbr|abr|vbr|asr|filesize|filesize_approx|fps)\n            \\s*(?…" shape=ellipse]
+	m [label="m
+(4 writes, 3 distinct)
+None
+<re.Match object; span=(0, 17), match='format_id=abc-cba'>
+<re.Match object; span=(0, 18), match='format_id!=abc-cba'>" shape=ellipse]
+	STR_OPERATORS [label="STR_OPERATORS
+(2 writes, 2 distinct)
+{'=': <built-in function eq>, '^=': <function YoutubeDL._build_format_filter.<locals>.<lambda> at 0x798f79be94e0>, '$=':…
+{'=': <built-in function eq>, '^=': <function YoutubeDL._build_format_filter.<locals>.<lambda> at 0x798f79bea160>, '$=':…" shape=ellipse]
+	str_operator_rex [label="str_operator_rex
+(2 writes)
+re.compile('(?x)\n                \\s*(?P<key>ext|acodec|vcodec|container|protocol|format_id)\n                \\s*(?P<n…" shape=ellipse]
+	comparison_value [label="comparison_value
+(2 writes)
+'abc-cba'" shape=ellipse]
+	str_op [label="str_op
+(2 writes)
+<built-in function eq>" shape=ellipse]
+	op [label="op
+(2 writes, 2 distinct)
+<built-in function eq>
+<function YoutubeDL._build_format_filter.<locals>.<lambda> at 0x798f79bea020>" shape=ellipse]
+	_filter [label="_filter
+(4 writes, 2 distinct)
+<function YoutubeDL._build_format_filter.<locals>._filter at 0x798f79be8c20>
+<function YoutubeDL._build_format_filter.<locals>._filter at 0x798f79be98a0>" shape=ellipse]
+	f [label="f
+(9 writes, 5 distinct)
+'format_id=abc-cba'
+{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4', 'format': 'abc-cba - unknown', 'protocol': …
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x798f79be9580>
+'format_id!=abc-cba'
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x798f79bea200>" shape=ellipse]
+	filters [label="filters
+(2 writes, 2 distinct)
+[<function YoutubeDL._build_format_filter.<locals>._filter at 0x798f79be8c20>]
+[<function YoutubeDL._build_format_filter.<locals>._filter at 0x798f79be98a0>]" shape=ellipse]
+	final_selector [label="final_selector
+(2 writes, 2 distinct)
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x798f79be9580>
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x798f79bea200>" shape=ellipse]
+	s [label="s
+(2 writes, 2 distinct)
+FormatSelector(type='SINGLE', selector='best', filters=['format_id=abc-cba'])
+FormatSelector(type='SINGLE', selector='best', filters=['format_id!=abc-cba'])" shape=ellipse]
+	fs [label="fs
+(2 writes, 2 distinct)
+[<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x798f79be9580>]
+[<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.final_selector at 0x798f79bea200>]" shape=ellipse]
+	format_selector [label="format_selector
+(2 writes, 2 distinct)
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.selector_function at 0x798f79be96c0…
+<function YoutubeDL.build_format_selector.<locals>._build_selector_function.<locals>.selector_function at 0x798f79bea340…" shape=ellipse]
+	ERROR__GeneratorExit [label=GeneratorExit fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	incomplete_formats [label="incomplete_formats
+(2 writes)
+False" shape=ellipse]
+	ctx [label="ctx
+(2 writes)
+{'formats': [{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4', 'format': 'abc-cba - unknown',…" shape=ellipse]
+	ctx_copy [label="ctx_copy
+(4 writes, 3 distinct)
+{'formats': [{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4', 'format': 'abc-cba - unknown',…
+{'formats': [{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4', 'format': 'abc-cba - unknown',…
+{'formats': [], 'incomplete_formats': False}" shape=ellipse]
+	actual_value [label="actual_value
+(4 writes, 2 distinct)
+'abc-cba'
+'zxc-cxz'" shape=ellipse]
+	format_idx [label="format_idx
+-1" shape=ellipse]
+	audiovideo_formats [label="audiovideo_formats
+[{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4', 'format': 'abc-cba - unknown', 'protocol':…" shape=ellipse]
+	formats_to_download [label="formats_to_download
+(2 writes, 2 distinct)
+[{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4', 'format': 'abc-cba - unknown', 'protocol':…
+[]" shape=ellipse]
+	new_info [label="new_info
+(2 writes, 2 distinct)
+{'formats': [{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4', 'format': 'abc-cba - unknown',…
+{'formats': [{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4', 'format': 'abc-cba - unknown',…" shape=ellipse]
+	process_info [label="process_info
+test_YoutubeDL.py:33" fillcolor=white shape=box style=filled]
+	ie_result [label="ie_result
+(2 writes, 2 distinct)
+{'formats': [{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4', 'format': 'abc-cba - unknown',…
+{'formats': [{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4', 'format': 'abc-cba - unknown',…" shape=ellipse]
+	downloaded [label="downloaded
+{'formats': [{'format_id': 'abc-cba', 'ext': 'mp4', 'url': 'http://localhost/sample.mp4', 'format': 'abc-cba - unknown',…" shape=ellipse]
+	"ERROR__youtube_dl.utils.ExtractorError" [label="youtube_dl.utils.ExtractorError
+requested format not available" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_format_selection_string_ops
+	}
+	{
+		rank=same
+		_make_result
+		__init__
+		process_ie_result
+	}
+	{
+		rank=same
+		add_extra_info
+		process_video_result
+		process_subtitles
+		sanitize_url
+		format_resolution
+		determine_protocol
+		_calc_headers
+		build_format_selector
+		process_info
+	}
+	{
+		rank=same
+		get_params
+		determine_ext
+		_calc_cookies
+	}
+	{
+		rank=same
+		_setup_opener
+		register_socks_protocols
+		sanitized_Request
+		_build_format_filter
+	}
+	{
+		rank=same
+		make_HTTPS_handler
+	}
+	test_format_selection_string_ops -> formats [label="writes×2" color=black]
+	test_format_selection_string_ops -> _make_result [label="calls [#1]" color=blue penwidth=1.1]
+	test_format_selection_string_ops -> __init__ [label="calls×2 [#2]" color=blue penwidth=1.2]
+	test_format_selection_string_ops -> ydl [label="writes×2" color=black]
+	test_format_selection_string_ops -> process_ie_result [label="calls×2 [#18]" color=blue penwidth=1.2]
+	test_format_selection_string_ops -> downloaded [label=writes color=black]
+	test_format_selection_string_ops -> "ERROR__youtube_dl.utils.ExtractorError" [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	formats -> _make_result [label="passed to" color=green style=dashed]
+	formats -> process_info [label="passed to" color=green style=dashed]
+	_make_result -> res [label=writes color=black]
+	__init__ -> __init__ [label="calls×6 [#3]" color=blue penwidth=1.6]
+	__init__ -> get_params [label="calls×2 [#4]" color=blue penwidth=1.2]
+	__init__ -> params [label="writes×2" color=black]
+	__init__ -> check_deprecated [label="writes×2" color=black]
+	__init__ -> _setup_opener [label="calls×2 [#11]" color=blue penwidth=1.2]
+	__init__ -> register_socks_protocols [label="calls×2 [#17]" color=blue penwidth=1.2]
+	__init__ -> scheme [label="writes×2" color=black]
+	get_params -> sep [label="writes×12" color=black]
+	get_params -> i [label="writes×4" color=black]
+	get_params -> head [label="writes×8" color=black]
+	get_params -> path [label="writes×8" color=black]
+	get_params -> b [label="writes×4" color=black]
+	get_params -> PARAMETERS_FILE [label="writes×2" color=black]
+	get_params -> LOCAL_PARAMETERS_FILE [label="writes×2" color=black]
+	get_params -> pf [label="writes×2" color=black]
+	get_params -> parameters [label="writes×2" color=black]
+	get_params -> ERROR__FileNotFoundError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	path -> __init__ [label="passed to" color=green style=dashed]
+	params -> __init__ [label="passed to" color=green style=dashed]
+	params -> make_HTTPS_handler [label="passed to" color=green style=dashed]
+	_setup_opener -> timeout_val [label="writes×2" color=black]
+	_setup_opener -> opts_cookiefile [label="writes×2" color=black]
+	_setup_opener -> opts_proxy [label="writes×2" color=black]
+	_setup_opener -> __init__ [label="calls×6 [#12]" color=blue penwidth=1.6]
+	_setup_opener -> cookie_processor [label="writes×2" color=black]
+	_setup_opener -> proxies [label="writes×2" color=black]
+	_setup_opener -> proxy_handler [label="writes×2" color=black]
+	_setup_opener -> debuglevel [label="writes×2" color=black]
+	_setup_opener -> make_HTTPS_handler [label="calls×2 [#14]" color=blue penwidth=1.2]
+	_setup_opener -> https_handler [label="writes×2" color=black]
+	_setup_opener -> ydlh [label="writes×2" color=black]
+	_setup_opener -> data_handler [label="writes×2" color=black]
+	_setup_opener -> file_handler [label="writes×2" color=black]
+	_setup_opener -> file_open [label="writes×2" color=black]
+	_setup_opener -> opener [label="writes×2" color=black]
+	proxies -> __init__ [label="passed to" color=green style=dashed]
+	make_HTTPS_handler -> opts_no_check_certificate [label="writes×2" color=black]
+	make_HTTPS_handler -> context [label="writes×2" color=black]
+	make_HTTPS_handler -> __init__ [label="calls×2 [#15]" color=blue penwidth=1.2]
+	register_socks_protocols -> scheme [label="writes×2" color=black]
+	ydl -> __init__ [label="passed to" color=green style=dashed]
+	process_ie_result -> result_type [label="writes×2" color=black]
+	process_ie_result -> add_extra_info [label="calls×2 [#19]" color=blue penwidth=1.2]
+	process_ie_result -> process_video_result [label="calls×2 [#20]" color=blue penwidth=1.2]
+	process_ie_result -> process_ie_result [label="loops(×208)" color=purple style=dashed]
+	process_ie_result -> numeric_field [label="writes×6" color=black]
+	process_ie_result -> thumbnails [label="writes×2" color=black]
+	process_ie_result -> thumbnail [label="writes×2" color=black]
+	process_ie_result -> cc_kind [label="writes×4" color=black]
+	process_ie_result -> cc [label="writes×2" color=black]
+	process_ie_result -> automatic_captions [label="writes×2" color=black]
+	process_ie_result -> subtitles [label="writes×2" color=black]
+	process_ie_result -> process_subtitles [label="calls×2 [#23]" color=blue penwidth=1.2]
+	process_ie_result -> formats [label="writes×8" color=black]
+	process_ie_result -> is_wellformed [label="writes×2" color=black]
+	process_ie_result -> i [label="writes×8" color=black]
+	process_ie_result -> sanitize_string_field [label="calls×4 [#26]" color=blue penwidth=1.4]
+	process_ie_result -> sanitize_numeric_fields [label="calls×4 [#27]" color=blue penwidth=1.4]
+	process_ie_result -> sanitize_url [label="calls×4 [#28]" color=blue penwidth=1.4]
+	process_ie_result -> format_id [label="writes×8" color=black]
+	process_ie_result -> ambiguous_formats [label="writes×7" color=black]
+	process_ie_result -> format_resolution [label="calls×2 [#32]" color=blue penwidth=1.2]
+	process_ie_result -> determine_protocol [label="calls×2 [#33]" color=blue penwidth=1.2]
+	process_ie_result -> full_format_info [label="writes×9" color=black]
+	process_ie_result -> _calc_headers [label="calls×4 [#35]" color=blue penwidth=1.4]
+	process_ie_result -> req_format [label="writes×2" color=black]
+	process_ie_result -> build_format_selector [label="calls×2 [#46]" color=blue penwidth=1.2]
+	process_ie_result -> end [label="writes×6" color=black]
+	process_ie_result -> line [label="writes×2" color=black]
+	process_ie_result -> tokens [label="writes×2" color=black]
+	process_ie_result -> __module__ [label="writes×2" color=black]
+	process_ie_result -> __qualname__ [label="writes×2" color=black]
+	process_ie_result -> __init__ [label="writes×2" color=black]
+	process_ie_result -> __iter__ [label="writes×2" color=black]
+	process_ie_result -> __next__ [label="writes×2" color=black]
+	process_ie_result -> next [label="writes×2" color=black]
+	process_ie_result -> restore_last_token [label="writes×2" color=black]
+	process_ie_result -> TokenIterator [label="writes×2" color=black]
+	process_ie_result -> _parse_format_selection [label="calls×2 [#50]" color=blue penwidth=1.2]
+	process_ie_result -> value [label="writes×2" color=black]
+	process_ie_result -> filter_parts [label="writes×2" color=black]
+	process_ie_result -> format_filter [label="writes×2" color=black]
+	process_ie_result -> current_selector [label="writes×2" color=black]
+	process_ie_result -> ERROR__StopIteration [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	process_ie_result -> selectors [label="writes×2" color=black]
+	process_ie_result -> parsed_selector [label="writes×2" color=black]
+	process_ie_result -> _build_selector_function [label="calls×2 [#59]" color=blue penwidth=1.2]
+	process_ie_result -> format_selector [label="writes×2" color=black]
+	process_ie_result -> f [label="writes×4" color=black]
+	process_ie_result -> ERROR__GeneratorExit [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	process_ie_result -> incomplete_formats [label="writes×2" color=black]
+	process_ie_result -> ctx [label="writes×2" color=black]
+	process_ie_result -> selector_function [label="calls×2 [#62]" color=blue penwidth=1.2]
+	process_ie_result -> formats_to_download [label="writes×2" color=black]
+	process_ie_result -> new_info [label="writes×2" color=black]
+	process_ie_result -> process_info [label="calls [#67]" color=blue penwidth=1.1]
+	process_ie_result -> ie_result [label="writes×2" color=black]
+	process_ie_result -> "ERROR__youtube_dl.utils.ExtractorError" [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	process_video_result -> report_force_conversion [label="writes×2" color=black]
+	process_video_result -> sanitize_string_field [label="writes×2" color=black]
+	process_video_result -> sanitize_numeric_fields [label="writes×2" color=black]
+	report_force_conversion -> sanitize_string_field [label="passed to" color=green style=dashed]
+	report_force_conversion -> sanitize_numeric_fields [label="passed to" color=green style=dashed]
+	sanitize_string_field -> is_wellformed [label="passed to" color=green style=dashed]
+	sanitize_numeric_fields -> numeric_field [label="writes×6" color=black]
+	automatic_captions -> process_subtitles [label="passed to" color=green style=dashed]
+	process_subtitles -> available_subs [label="writes×2" color=black]
+	is_wellformed -> url [label="writes×4" color=black]
+	url -> sanitize_url [label="passed to" color=green style=dashed]
+	url -> determine_ext [label="passed to" color=green style=dashed]
+	url -> sanitized_Request [label="passed to" color=green style=dashed]
+	sanitize_url -> COMMON_TYPOS [label="writes×8" color=black]
+	format_resolution -> res [label="writes×2" color=black]
+	determine_protocol -> protocol [label="writes×2" color=black]
+	determine_protocol -> url [label="writes×2" color=black]
+	determine_protocol -> determine_ext [label="calls×2 [#34]" color=blue penwidth=1.2]
+	determine_protocol -> ext [label="writes×2" color=black]
+	determine_ext -> guess [label="writes×2" color=black]
+	_calc_headers -> res [label="writes×4" color=black]
+	_calc_headers -> add_headers [label="writes×4" color=black]
+	_calc_headers -> _calc_cookies [label="calls×4 [#36]" color=blue penwidth=1.4]
+	_calc_headers -> cookies [label="writes×4" color=black]
+	_calc_headers -> x_forwarded_for_ip [label="writes×4" color=black]
+	_calc_cookies -> sanitized_Request [label="calls×4 [#37]" color=blue penwidth=1.4]
+	_calc_cookies -> pr [label="writes×4" color=black]
+	sanitized_Request -> sanitize_url [label="calls×4 [#38]" color=blue penwidth=1.4]
+	build_format_selector -> syntax_error [label="writes×2" color=black]
+	build_format_selector -> PICKFIRST [label="writes×2" color=black]
+	build_format_selector -> MERGE [label="writes×2" color=black]
+	build_format_selector -> SINGLE [label="writes×2" color=black]
+	build_format_selector -> GROUP [label="writes×2" color=black]
+	build_format_selector -> FormatSelector [label="writes×2" color=black]
+	build_format_selector -> _parse_filter [label="writes×2" color=black]
+	build_format_selector -> _remove_unused_ops [label="writes×2" color=black]
+	build_format_selector -> _parse_format_selection [label="writes×2" color=black]
+	build_format_selector -> _build_selector_function [label="writes×2" color=black]
+	build_format_selector -> stream [label="writes×2" color=black]
+	build_format_selector -> end [label="writes×2" color=black]
+	syntax_error -> _parse_format_selection [label="passed to" color=green style=dashed]
+	PICKFIRST -> _parse_format_selection [label="passed to" color=green style=dashed]
+	PICKFIRST -> _build_selector_function [label="passed to" color=green style=dashed]
+	MERGE -> _parse_format_selection [label="passed to" color=green style=dashed]
+	MERGE -> _build_selector_function [label="passed to" color=green style=dashed]
+	SINGLE -> _parse_format_selection [label="passed to" color=green style=dashed]
+	SINGLE -> _build_selector_function [label="passed to" color=green style=dashed]
+	GROUP -> _parse_format_selection [label="passed to" color=green style=dashed]
+	GROUP -> _build_selector_function [label="passed to" color=green style=dashed]
+	FormatSelector -> _parse_format_selection [label="passed to" color=green style=dashed]
+	_parse_filter -> _parse_format_selection [label="passed to" color=green style=dashed]
+	_parse_filter -> filter_parts [label="writes×4" color=black]
+	_parse_filter -> __iter__ [label="calls×2 [#54]" color=blue penwidth=1.2]
+	_parse_filter -> __next__ [label="calls×4 [#55]" color=blue penwidth=1.4]
+	_parse_filter -> _ [label="writes×2" color=black]
+	_remove_unused_ops -> ALLOWED_OPS [label="writes×2" color=black]
+	_remove_unused_ops -> last_string [label="writes×2" color=black]
+	_remove_unused_ops -> last_start [label="writes×2" color=black]
+	_remove_unused_ops -> last_end [label="writes×2" color=black]
+	_remove_unused_ops -> last_line [label="writes×2" color=black]
+	_remove_unused_ops -> end [label="writes×4" color=black]
+	_remove_unused_ops -> line [label="writes×4" color=black]
+	_parse_format_selection -> _parse_format_selection [label="passed to" color=green style=dashed]
+	_parse_format_selection -> selectors [label="writes×2" color=black]
+	_parse_format_selection -> current_selector [label="writes×4" color=black]
+	_parse_format_selection -> __iter__ [label="calls×2 [#51]" color=blue penwidth=1.2]
+	_parse_format_selection -> __next__ [label="calls×2 [#52]" color=blue penwidth=1.2]
+	_parse_format_selection -> _ [label="writes×2" color=black]
+	_parse_format_selection -> _parse_filter [label="calls×2 [#53]" color=blue penwidth=1.2]
+	_build_selector_function -> _build_selector_function [label="passed to" color=green style=dashed]
+	_build_selector_function -> format_spec [label="writes×2" color=black]
+	_build_selector_function -> selector_function [label="writes×4" color=black]
+	_build_selector_function -> _build_format_filter [label="calls×2 [#61]" color=blue penwidth=1.2]
+	_build_selector_function -> f [label="writes×2" color=black]
+	_build_selector_function -> filters [label="writes×2" color=black]
+	_build_selector_function -> final_selector [label="writes×2" color=black]
+	_build_selector_function -> s [label="writes×2" color=black]
+	_build_selector_function -> fs [label="writes×2" color=black]
+	ALLOWED_OPS -> __init__ [label="passed to" color=green style=dashed]
+	last_string -> __init__ [label="passed to" color=green style=dashed]
+	last_start -> __init__ [label="passed to" color=green style=dashed]
+	last_end -> __init__ [label="passed to" color=green style=dashed]
+	last_line -> __init__ [label="passed to" color=green style=dashed]
+	end -> __init__ [label="passed to" color=green style=dashed]
+	line -> __init__ [label="passed to" color=green style=dashed]
+	tokens -> __init__ [label="passed to" color=green style=dashed]
+	tokens -> _parse_format_selection [label="passed to" color=green style=dashed]
+	tokens -> _parse_filter [label="passed to" color=green style=dashed]
+	tokens -> _remove_unused_ops [label="passed to" color=green style=dashed]
+	__next__ -> value [label="writes×6" color=black]
+	__next__ -> ERROR__StopIteration [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	value -> _filter [label="passed to" color=green style=dashed]
+	value -> selector_function [label="passed to" color=green style=dashed]
+	format_spec -> selector_function [label="passed to" color=green style=dashed]
+	format_spec -> process_info [label="passed to" color=green style=dashed]
+	format_spec -> build_format_selector [label="passed to" color=green style=dashed]
+	selector_function -> f [label="writes×3" color=black]
+	selector_function -> final_selector [label="passed to" color=green style=dashed]
+	selector_function -> selector_function [label="calls×2 [#66]" color=blue penwidth=1.2]
+	selector_function -> formats [label="writes×2" color=black]
+	selector_function -> format_idx [label=writes color=black]
+	selector_function -> audiovideo_formats [label=writes color=black]
+	_build_format_filter -> OPERATORS [label="writes×2" color=black]
+	_build_format_filter -> operator_rex [label="writes×2" color=black]
+	_build_format_filter -> m [label="writes×4" color=black]
+	_build_format_filter -> STR_OPERATORS [label="writes×2" color=black]
+	_build_format_filter -> str_operator_rex [label="writes×2" color=black]
+	_build_format_filter -> comparison_value [label="writes×2" color=black]
+	_build_format_filter -> str_op [label="writes×2" color=black]
+	_build_format_filter -> op [label="writes×2" color=black]
+	_build_format_filter -> _filter [label="writes×2" color=black]
+	m -> _filter [label="passed to" color=green style=dashed]
+	comparison_value -> _filter [label="passed to" color=green style=dashed]
+	str_op -> _filter [label="passed to" color=green style=dashed]
+	str_op -> selector_function [label="passed to" color=green style=dashed]
+	op -> _filter [label="passed to" color=green style=dashed]
+	_filter -> actual_value [label="writes×4" color=black]
+	f -> selector_function [label="passed to" color=green style=dashed]
+	f -> _filter [label="passed to" color=green style=dashed]
+	f -> process_info [label="passed to" color=green style=dashed]
+	f -> is_wellformed [label="passed to" color=green style=dashed]
+	filters -> final_selector [label="passed to" color=green style=dashed]
+	filters -> _parse_filter [label="passed to" color=green style=dashed]
+	final_selector -> ctx_copy [label="writes×4" color=black]
+	final_selector -> _filter [label="writes×2" color=black]
+	s -> __init__ [label="passed to" color=green style=dashed]
+	fs -> selector_function [label="passed to" color=green style=dashed]
+	fs -> process_info [label="passed to" color=green style=dashed]
+	ctx -> selector_function [label="passed to" color=green style=dashed]
+	ctx -> final_selector [label="passed to" color=green style=dashed]
+	ctx -> process_info [label="passed to" color=green style=dashed]
+	format_idx -> process_info [label="passed to" color=green style=dashed]
+	audiovideo_formats -> process_info [label="passed to" color=green style=dashed]
+	ie_result -> process_ie_result [label="passed to" color=green style=dashed]
+}

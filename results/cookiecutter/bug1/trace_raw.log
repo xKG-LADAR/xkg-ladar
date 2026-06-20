@@ -1,0 +1,84 @@
+Cleared: /path/to/results/cookiecutter/bug1
+  Rewriting test cmd: 'tox tests/test_generate_context.py::test_generate_context_decodes_non_ascii_chars' -> 'python -m pytest -o addopts= tests/test_generate_context.py::test_generate_context_decodes_non_ascii_chars'
+Running: python -m pytest -o addopts= tests/test_generate_context.py::test_generate_context_decodes_non_ascii_chars
+Workdir: /path/to/BugsInPy/workspace/cookiecutter
+PYTHONPATH: /path/to/BugsInPy/workspace/cookiecutter/build/lib:/path/to/BugsInPy/workspace/cookiecutter::
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.0.2, pluggy-1.6.0
+rootdir: /path/to/BugsInPy/workspace/cookiecutter
+configfile: setup.cfg
+plugins: cov-7.1.0, anyio-4.12.1
+collected 1 item
+
+tests/test_generate_context.py F                                         [100%]
+
+=================================== FAILURES ===================================
+________________ test_generate_context_decodes_non_ascii_chars _________________
+
+    @pysnooper.snoop(prefix='IE_TRACE: ', depth=10, color=False, max_variable_length=500, custom_repr=((object, _btp_repr),))
+    def test_generate_context_decodes_non_ascii_chars():
+        """Verify `generate_context` correctly decodes non-ascii chars."""
+        expected_context = {'non_ascii': OrderedDict([('full_name', 'éèà'),])}
+    
+>       generated_context = generate.generate_context(
+            context_file='tests/test-generate-context/non_ascii.json'
+        )
+
+tests/test_generate_context.py:118: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+context_file = 'tests/test-generate-context/non_ascii.json'
+default_context = None, extra_context = None
+
+    def generate_context(
+        context_file='cookiecutter.json', default_context=None, extra_context=None
+    ):
+        """Generate the context for a Cookiecutter project template.
+    
+        Loads the JSON file as a Python object, with key being the JSON filename.
+    
+        :param context_file: JSON file containing key/value pairs for populating
+            the cookiecutter's variables.
+        :param default_context: Dictionary containing config to take into account.
+        :param extra_context: Dictionary containing configuration overrides
+        """
+        context = OrderedDict([])
+    
+        try:
+>           with open(context_file) as file_handle:
+                 ^^^^^^^^^^^^^^^^^^
+E           FileNotFoundError: [Errno 2] No such file or directory: 'tests/test-generate-context/non_ascii.json'
+
+cookiecutter/generate.py:85: FileNotFoundError
+----------------------------- Captured stderr call -----------------------------
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/cookiecutter/tests/test_generate_context.py
+IE_TRACE: 12:43:58.896380 call       114 def test_generate_context_decodes_non_ascii_chars():
+IE_TRACE: 12:43:58.896780 line       116     expected_context = {'non_ascii': OrderedDict([('full_name', 'éèà'),])}
+IE_TRACE: New var:....... expected_context = {'non_ascii': OrderedDict({'full_name': 'éèà'})}
+IE_TRACE: 12:43:58.896799 line       118     generated_context = generate.generate_context(
+IE_TRACE: 12:43:58.896834 line       119         context_file='tests/test-generate-context/non_ascii.json'
+IE_TRACE: 12:43:58.896849 line       118     generated_context = generate.generate_context(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/cookiecutter/cookiecutter/generate.py
+IE_TRACE:     Starting var:.. context_file = 'tests/test-generate-context/non_ascii.json'
+IE_TRACE:     Starting var:.. default_context = None
+IE_TRACE:     Starting var:.. extra_context = None
+IE_TRACE:     12:43:58.896870 call        70 def generate_context(
+IE_TRACE:     12:43:58.896974 line        82     context = OrderedDict([])
+IE_TRACE:     New var:....... context = OrderedDict()
+IE_TRACE:     12:43:58.896991 line        84     try:
+IE_TRACE:     12:43:58.897011 line        85         with open(context_file) as file_handle:
+IE_TRACE:     12:43:58.897031 exception   85         with open(context_file) as file_handle:
+IE_TRACE:     Exception:..... FileNotFoundError: [Errno 2] No such file or directory: 'tests/test-generate-context/non_ascii.json'
+IE_TRACE:     12:43:58.897117 line        87     except ValueError as e:
+IE_TRACE:     Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/cookiecutter/tests/test_generate_context.py
+IE_TRACE: 12:43:58.897152 exception  118     generated_context = generate.generate_context(
+IE_TRACE: Exception:..... FileNotFoundError: [Errno 2] No such file or directory: 'tests/test-generate-context/non_ascii.json'
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.001001
+=========================== short test summary info ============================
+FAILED tests/test_generate_context.py::test_generate_context_decodes_non_ascii_chars
+============================== 1 failed in 0.03s ===============================
+
+
+Exit code: 1

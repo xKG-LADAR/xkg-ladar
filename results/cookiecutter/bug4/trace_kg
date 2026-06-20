@@ -1,0 +1,50 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_run_failing_hook [label="test_run_failing_hook
+Test correct exception raise if hook exit code is not z…
+test_hooks.py:170" fillcolor=white shape=box style=filled]
+	sep [label="sep
+(2 writes)
+'/'" shape=ellipse]
+	path [label="path
+(4 writes, 4 distinct)
+'/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks'
+'/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+'/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks'
+'/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/input{{hooks}}'" shape=ellipse]
+	b [label="b
+(2 writes, 2 distinct)
+'pre_gen_project.py'
+'input{{hooks}}'" shape=ellipse]
+	hook_path [label="hook_path
+'/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'" shape=ellipse]
+	tests_dir [label="tests_dir
+'/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/input{{hooks}}'" shape=ellipse]
+	f [label="f
+<_io.TextIOWrapper name='/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py' m…" shape=ellipse]
+	work_in [label="work_in
+Context manager version of os.chdir.
+utils.py:49" fillcolor=white shape=box style=filled]
+	curdir [label="curdir
+'/path/to/BugsInPy/workspace/cookiecutter'" shape=ellipse]
+	ERROR__AttributeError [label="AttributeError
+module 'cookiecutter.exceptions' has no attribute 'FailedHookException'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_run_failing_hook
+	}
+	{
+		rank=same
+		work_in
+	}
+	test_run_failing_hook -> sep [label="writes×2" color=black]
+	test_run_failing_hook -> path [label="writes×4" color=black]
+	test_run_failing_hook -> b [label="writes×2" color=black]
+	test_run_failing_hook -> hook_path [label=writes color=black]
+	test_run_failing_hook -> tests_dir [label=writes color=black]
+	test_run_failing_hook -> f [label=writes color=black]
+	test_run_failing_hook -> work_in [label="calls [#1]" color=blue penwidth=1.1]
+	test_run_failing_hook -> ERROR__AttributeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	path -> work_in [label="passed to" color=green style=dashed]
+	work_in -> curdir [label=writes color=black]
+}

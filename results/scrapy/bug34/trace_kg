@@ -1,0 +1,108 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_metaclass_with_fields_attribute [label="test_metaclass_with_fields_attribute
+test_item.py:126" fillcolor=white shape=box style=filled]
+	__module__ [label="__module__
+'tests.test_item'" shape=ellipse]
+	__qualname__ [label="__qualname__
+'ItemTest.test_metaclass_with_fields_attribute.<locals>.TestItem'" shape=ellipse]
+	fields [label="fields
+(2 writes, 2 distinct)
+{'new': {'default': 'X'}}
+{}" shape=ellipse]
+	__new__ [label="__new__
+lxmldocument.py:23" fillcolor=white shape=box style=filled]
+	base [label="base
+<class 'scrapy.item.Item'>" shape=ellipse]
+	new_bases [label="new_bases
+(<class 'scrapy.item.Item'>,)" shape=ellipse]
+	cls [label="cls
+(2 writes, 2 distinct)
+<class 'tests.test_item.ItemTest.test_metaclass_with_fields_attribute.<locals>.TestItem'>
+<class 'tests.test_item.TestItem'>" shape=ellipse]
+	_class [label="_class
+<class 'tests.test_item.ItemTest.test_metaclass_with_fields_attribute.<locals>.TestItem'>" shape=ellipse]
+	new_attrs [label="new_attrs
+(5 writes, 5 distinct)
+{}
+{'__module__': 'tests.test_item'}
+{'__module__': 'tests.test_item', 'fields': {'new': {'default': 'X'}}}
+{'__module__': 'tests.test_item', 'fields': {}}
+{'__module__': 'tests.test_item', 'fields': {}, '_class': <class 'tests.test_item.ItemTest.test_metaclass_with_fields_at…" shape=ellipse]
+	n [label="n
+(4 writes, 4 distinct)
+'__abstractmethods__'
+'__module__'
+'__ne__'
+'fields'" shape=ellipse]
+	v [label="v
+(5 writes, 5 distinct)
+frozenset()
+'tests.test_item'
+<slot wrapper '__ne__' of 'object' objects>
+{'new': {'default': 'X'}}
+'New'" shape=ellipse]
+	TestItem [label="TestItem
+<class 'tests.test_item.TestItem'>" shape=ellipse]
+	obj [label="obj
+REPR FAILED" shape=ellipse]
+	__init__ [label="__init__
+extensions.py:5" fillcolor=white shape=box style=filled]
+	__setattr__ [label="__setattr__
+item.py:72" fillcolor=white shape=box style=filled]
+	self [label="self
+(2 writes)
+{}" shape=ellipse]
+	iteritems [label="iteritems
+headers.py:72" fillcolor=white shape=box style=filled]
+	k [label="k
+'new'" shape=ellipse]
+	__setitem__ [label="__setitem__
+datatypes.py:53" fillcolor=white shape=box style=filled]
+	ERROR__KeyError [label="KeyError
+'TestItem does not support field: new'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_metaclass_with_fields_attribute
+	}
+	{
+		rank=same
+		__new__
+		__init__
+	}
+	{
+		rank=same
+		__setattr__
+		iteritems
+		__setitem__
+	}
+	test_metaclass_with_fields_attribute -> __module__ [label=writes color=black]
+	test_metaclass_with_fields_attribute -> __qualname__ [label=writes color=black]
+	test_metaclass_with_fields_attribute -> fields [label=writes color=black]
+	test_metaclass_with_fields_attribute -> __new__ [label="calls×2 [#1]" color=blue penwidth=1.2]
+	test_metaclass_with_fields_attribute -> TestItem [label=writes color=black]
+	test_metaclass_with_fields_attribute -> __init__ [label="calls [#3]" color=blue penwidth=1.1]
+	test_metaclass_with_fields_attribute -> ERROR__KeyError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	__new__ -> base [label=writes color=black]
+	__new__ -> new_bases [label=writes color=black]
+	__new__ -> cls [label="writes×2" color=black]
+	__new__ -> _class [label=writes color=black]
+	__new__ -> fields [label=writes color=black]
+	__new__ -> new_attrs [label="writes×5" color=black]
+	__new__ -> n [label="writes×4" color=black]
+	__new__ -> v [label="writes×4" color=black]
+	__new__ -> __new__ [label="loops(×30)" color=purple style=dashed]
+	__new__ -> obj [label=writes color=black]
+	base -> __new__ [label="passed to" color=green style=dashed]
+	cls -> __new__ [label="passed to" color=green style=dashed]
+	__init__ -> __setattr__ [label="calls [#4]" color=blue penwidth=1.1]
+	__init__ -> self [label=writes color=black]
+	__init__ -> iteritems [label="calls [#5]" color=blue penwidth=1.1]
+	__init__ -> k [label=writes color=black]
+	__init__ -> v [label=writes color=black]
+	__init__ -> __setitem__ [label="calls [#6]" color=blue penwidth=1.1]
+	__init__ -> ERROR__KeyError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	__setattr__ -> self [label=writes color=black]
+	self -> __setitem__ [label="passed to" color=green style=dashed]
+	__setitem__ -> ERROR__KeyError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+}

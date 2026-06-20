@@ -1,0 +1,45 @@
+YOUTUBE-DL EVALUATION SUMMARY
+Total: 43  Passed: 33  (76.7%)
+bug 1: PASS  
+bug 2: FAIL  
+bug 3: PASS  
+bug 4: PASS  
+bug 5: FAIL  
+bug 6: PASS  
+bug 7: PASS  
+bug 8: PASS  
+bug 9: FAIL  
+bug10: PASS  
+bug11: PASS  
+bug12: PASS  
+bug13: PASS  
+bug14: PASS  
+bug15: FAIL  
+bug16: PASS  
+bug17: PASS  
+bug18: PASS  
+bug19: PASS  
+bug20: PASS  
+bug21: PASS  
+bug22: PASS  
+bug23: PASS  
+bug24: PASS  
+bug25: PASS  
+bug26: PASS  
+bug27: PASS  
+bug28: PASS  
+bug29: FAIL  
+bug30: PASS  
+bug31: FAIL  
+bug32: PASS  
+bug33: PASS  
+bug34: PASS  
+bug35: PASS  
+bug36: PASS  
+bug37: PASS  
+bug38: FAIL  KG empty (trace produced no data)
+bug39: FAIL  KG empty (trace produced no data)
+bug40: FAIL  KG empty (trace produced no data)
+bug41: PASS  
+bug42: FAIL  KG empty (trace produced no data)
+bug43: PASS  

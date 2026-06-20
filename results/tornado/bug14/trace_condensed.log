@@ -1,0 +1,914 @@
+Cleared: /path/to/results/tornado/bug14
+Running: python -m unittest -q tornado.test.ioloop_test.TestIOLoopCurrent.test_force_current
+Workdir: /path/to/BugsInPy/workspace/tornado
+PYTHONPATH: /path/to/BugsInPy/workspace/tornado::
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/ioloop_test.py
+IE_TRACE: Starting var:.. self = <tornado.test.ioloop_test.TestIOLoopCurrent testMethod=test_force_current>
+IE_TRACE: 19:17:07.073312 call       414     def setUp(self):
+IE_TRACE: 19:17:07.073583 line       415         self.io_loop = None
+IE_TRACE: 19:17:07.073618 line       416         IOLoop.clear_current()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:     19:17:07.073649 call       228     def clear_current():
+IE_TRACE:     19:17:07.073813 line       229         IOLoop._current.instance = None
+IE_TRACE:     19:17:07.073833 return     229         IOLoop._current.instance = None
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/ioloop_test.py
+IE_TRACE: 19:17:07.073860 return     416         IOLoop.clear_current()
+IE_TRACE: Return value:.. None
+IE_TRACE: Elapsed time: 00:00:00.000780
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/ioloop_test.py
+IE_TRACE: Starting var:.. self = <tornado.test.ioloop_test.TestIOLoopCurrent testMethod=test_force_current>
+IE_TRACE: 19:17:07.074020 call       447     def test_force_current(self):
+IE_TRACE: 19:17:07.074059 line       448         self.io_loop = IOLoop(make_current=True)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     Starting var:.. cls = <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     Starting var:.. args = ()
+IE_TRACE:     Starting var:.. kwargs = {'make_current': True}
+IE_TRACE:     Starting var:.. __class__ = <class 'tornado.util.Configurable'>
+IE_TRACE:     19:17:07.074086 call       207     def __new__(cls, *args, **kwargs):
+IE_TRACE:     19:17:07.074219 line       208         base = cls.configurable_base()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:         Starting var:.. cls = <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:         19:17:07.074250 call       232     def configurable_base(cls):
+IE_TRACE:         19:17:07.074280 line       233         return IOLoop
+IE_TRACE:         19:17:07.074297 return     233         return IOLoop
+IE_TRACE:         Return value:.. <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     New var:....... base = <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:     19:17:07.074328 line       209         init_kwargs = {}
+IE_TRACE:     New var:....... init_kwargs = {}
+IE_TRACE:     19:17:07.074373 line       210         if cls is base:
+IE_TRACE:     19:17:07.074402 line       211             impl = cls.configured_class()
+IE_TRACE:         Starting var:.. cls = <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:         19:17:07.074430 call       264     def configured_class(cls):
+IE_TRACE:         19:17:07.074453 line       266         base = cls.configurable_base()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             Starting var:.. cls = <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:             19:17:07.074469 call       232     def configurable_base(cls):
+IE_TRACE:             19:17:07.074494 line       233         return IOLoop
+IE_TRACE:             19:17:07.074507 return     233         return IOLoop
+IE_TRACE:             Return value:.. <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:         New var:....... base = <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:         19:17:07.074527 line       267         if cls.__impl_class is None:
+IE_TRACE:         19:17:07.074554 line       268             base.__impl_class = cls.configurable_default()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             Starting var:.. cls = <class 'tornado.ioloop.IOLoop'>
+IE_TRACE:             19:17:07.074575 call       236     def configurable_default(cls):
+IE_TRACE:             19:17:07.074601 line       237         if hasattr(select, "epoll"):
+IE_TRACE:             19:17:07.074617 line       238             from tornado.platform.epoll import EPollIOLoop
+IE_TRACE:                 Source path:... <frozen importlib._bootstrap>
+IE_TRACE:                 Starting var:.. name = 'tornado.platform.epoll'
+IE_TRACE:                 Starting var:.. import_ = <built-in function __import__>
+IE_TRACE:                 19:17:07.074643 call      1349 SOURCE IS UNAVAILABLE
+IE_TRACE:                 19:17:07.074711 line      1354 SOURCE IS UNAVAILABLE
+IE_TRACE:                 New var:....... module = <object object at 0x775736178060>
+IE_TRACE:                 19:17:07.074733 line      1355 SOURCE IS UNAVAILABLE
+IE_TRACE:                 19:17:07.074760 line      1357 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Starting var:.. self = <_frozen_importlib._ModuleLockManager object at 0x77573578b080>
+IE_TRACE:                     Starting var:.. name = 'tornado.platform.epoll'
+IE_TRACE:                     19:17:07.074784 call       412 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.074813 line       413 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.074831 line       414 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.074848 return     414 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                     Starting var:.. self = <_frozen_importlib._ModuleLockManager object at 0x77573578b080>
+IE_TRACE:                     19:17:07.074877 call       416 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.074898 line       417 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Starting var:.. name = 'tornado.platform.epoll'
+IE_TRACE:                         19:17:07.074920 call       426 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.074944 line       432 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.074961 line       433 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.074977 line       434 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.074992 line       435 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.075008 exception  435 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Exception:..... KeyError: 'tornado.platform.epoll'
+IE_TRACE:                         19:17:07.075112 line       436 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.075137 line       437 SOURCE IS UNAVAILABLE
+IE_TRACE:                         New var:....... lock = None
+IE_TRACE:                         19:17:07.075154 line       439 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.075177 line       440 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.075194 line       443 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. self = REPR FAILED
+IE_TRACE:                             Starting var:.. name = 'tornado.platform.epoll'
+IE_TRACE:                             19:17:07.075214 call       232 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.075250 line       253 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.075271 line       254 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.075291 line       257 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Modified var:.. self = _ModuleLock('tornado.platform.epoll') at 131216442963392
+IE_TRACE:                             19:17:07.075309 line       261 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.075332 line       272 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.075350 line       286 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.075368 return     286 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         Modified var:.. lock = _ModuleLock('tornado.platform.epoll') at 131216442963392
+IE_TRACE:                         19:17:07.075392 line       445 SOURCE IS UNAVAILABLE
+IE_TRACE:                         New var:....... cb = <function _get_module_lock.<locals>.cb at 0x775735803600>
+IE_TRACE:                         19:17:07.075416 line       456 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.075443 line       458 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.075463 line       460 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.075482 return     460 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Return value:.. _ModuleLock('tornado.platform.epoll') at 131216442963392
+IE_TRACE:                     19:17:07.075509 line       418 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Starting var:.. self = _ModuleLock('tornado.platform.epoll') at 131216442963392
+IE_TRACE:                         19:17:07.075534 call       304 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.075558 line       310 SOURCE IS UNAVAILABLE
+IE_TRACE:                         New var:....... tid = 131216463036544
+IE_TRACE:                         19:17:07.075575 line       311 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. self = <_frozen_importlib._BlockingOnManager object at 0x77573578baa0>
+IE_TRACE:                             Starting var:.. thread_id = 131216463036544
+IE_TRACE:                             Starting var:.. lock = _ModuleLock('tornado.platform.epoll') at 131216442963392
+IE_TRACE:                             19:17:07.075600 call       158 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.075635 line       159 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.075655 line       160 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.075674 return     160 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                             Starting var:.. self = <_frozen_importlib._BlockingOnManager object at 0x77573578baa0>
+IE_TRACE:                             19:17:07.075702 call       162 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.075723 line       170 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. self = <_frozen_importlib._WeakValueDictionary object at 0x77573619b2c0>
+IE_TRACE:                                 Starting var:.. key = 131216463036544
+IE_TRACE:                                 Starting var:.. default = []
+IE_TRACE:                                 19:17:07.075744 call       124 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.075782 line       125 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.075803 line       126 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.075823 exception  126 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Exception:..... KeyError: 131216463036544
+IE_TRACE:                                 19:17:07.075865 line       127 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.075887 line       128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 New var:....... o = None
+IE_TRACE:                                 19:17:07.075908 line       129 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.075935 line       130 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.075957 line       132 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. type = <class '_frozen_importlib._WeakValueDictionary.__init__.<locals>.KeyedRef'>
+IE_TRACE:                                     Starting var:.. ob = []
+IE_TRACE:                                     Starting var:.. key = 131216463036544
+IE_TRACE:                                     Starting var:.. __class__ = <class '_frozen_importlib._WeakValueDictionary.__init__.<locals>.KeyedRef'>
+IE_TRACE:                                     19:17:07.075982 call        74 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.076024 line        75 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... self = <weakref at 0x775735109d20; to '_List' at 0x77573510ed50>
+IE_TRACE:                                     19:17:07.076048 line        76 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.076078 line        77 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.076102 return      77 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. <weakref at 0x775735109d20; to '_List' at 0x77573510ed50>
+IE_TRACE:                                     Starting var:.. self = <weakref at 0x775735109d20; to '_List' at 0x77573510ed50>
+IE_TRACE:                                     Starting var:.. ob = []
+IE_TRACE:                                     Starting var:.. key = 131216463036544
+IE_TRACE:                                     Starting var:.. __class__ = <class '_frozen_importlib._WeakValueDictionary.__init__.<locals>.KeyedRef'>
+IE_TRACE:                                     19:17:07.076140 call        79 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.076181 line        80 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.076204 return      80 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 19:17:07.076232 line       133 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.076254 return     133 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. []
+IE_TRACE:                             19:17:07.076281 line       171 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.076298 return     171 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         19:17:07.076321 line       312 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.076339 line       316 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.076358 line       317 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.076378 line       324 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.076396 line       325 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.076413 line       326 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.076429 line       316 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.076446 line       311 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. self = <_frozen_importlib._BlockingOnManager object at 0x77573578baa0>
+IE_TRACE:                             Starting var:.. args = (None, None, None)
+IE_TRACE:                             Starting var:.. kwargs = {}
+IE_TRACE:                             19:17:07.076464 call       173 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.076499 line       175 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.076519 return     175 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                             Starting var:.. wr = <weakref at 0x775735109d20; dead>
+IE_TRACE:                             Starting var:.. self_weakref = <weakref at 0x7757361a8770; to '_WeakValueDictionary' at 0x77573619b2c0>
+IE_TRACE:                             19:17:07.076548 call        82 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.076581 line        86 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... self = <_frozen_importlib._WeakValueDictionary object at 0x77573619b2c0>
+IE_TRACE:                             19:17:07.076601 line        87 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.076627 line        88 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.076646 line        91 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.076666 return      91 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         19:17:07.076693 return     311 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Return value:.. True
+IE_TRACE:                     19:17:07.076720 return     418 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 19:17:07.076742 line      1358 SOURCE IS UNAVAILABLE
+IE_TRACE:                 19:17:07.076764 line      1359 SOURCE IS UNAVAILABLE
+IE_TRACE:                 19:17:07.076783 line      1360 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Starting var:.. name = 'tornado.platform.epoll'
+IE_TRACE:                     Starting var:.. import_ = <built-in function __import__>
+IE_TRACE:                     19:17:07.076815 call      1304 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.076850 line      1305 SOURCE IS UNAVAILABLE
+IE_TRACE:                     New var:....... path = None
+IE_TRACE:                     19:17:07.076869 line      1306 SOURCE IS UNAVAILABLE
+IE_TRACE:                     New var:....... parent = 'tornado.platform'
+IE_TRACE:                     19:17:07.076896 line      1307 SOURCE IS UNAVAILABLE
+IE_TRACE:                     New var:....... parent_spec = None
+IE_TRACE:                     19:17:07.076922 line      1308 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.076951 line      1309 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.076975 line      1312 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.076999 line      1314 SOURCE IS UNAVAILABLE
+IE_TRACE:                     New var:....... parent_module = <module 'tornado.platform' from '/path/to/BugsInPy/workspace/tornado/tornado/platform/__init__.py'>
+IE_TRACE:                     19:17:07.077021 line      1315 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.077072 line      1316 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Modified var:.. path = ['/path/to/BugsInPy/workspace/tornado/tornado/platform']
+IE_TRACE:                     19:17:07.077099 line      1320 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Modified var:.. parent_spec = ModuleSpec(name='tornado.platform', loader=<_frozen_importlib_external.SourceFileLoader object at 0x775735cf6a20>, origin='/path/to/BugsInPy/workspace/tornado/tornado/platform/__init__.py', submodule_search_locations=['/path/to/BugsInPy/workspace/tornado/tornado/platform'])
+IE_TRACE:                     19:17:07.077137 line      1321 SOURCE IS UNAVAILABLE
+IE_TRACE:                     New var:....... child = 'epoll'
+IE_TRACE:                     19:17:07.077180 line      1322 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Starting var:.. name = 'tornado.platform.epoll'
+IE_TRACE:                         Starting var:.. path = ['/path/to/BugsInPy/workspace/tornado/tornado/platform']
+IE_TRACE:                         Starting var:.. target = None
+IE_TRACE:                         19:17:07.077226 call      1240 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.077265 line      1242 SOURCE IS UNAVAILABLE
+IE_TRACE:                         New var:....... meta_path = [<_distutils_hack.DistutilsMetaFinder object at 0x775735f70470>, <class '_frozen_importlib.BuiltinImporter'>, <class '_frozen_importlib.FrozenImporter'>, <class '_frozen_importlib_external.PathFinder'>, <class '__editable___cookiecutter_2_0_0_finder._EditableFinder'>]
+IE_TRACE:                         19:17:07.077286 line      1243 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.077319 line      1248 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.077343 line      1254 SOURCE IS UNAVAILABLE
+IE_TRACE:                         New var:....... is_reload = False
+IE_TRACE:                         19:17:07.077367 line      1255 SOURCE IS UNAVAILABLE
+IE_TRACE:                         New var:....... finder = <_distutils_hack.DistutilsMetaFinder object at 0x775735f70470>
+IE_TRACE:                         19:17:07.077399 line      1256 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. self = <_frozen_importlib._ImportLockContext object at 0x7757357904d0>
+IE_TRACE:                             19:17:07.077435 call      1222 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.077458 line      1224 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.077475 return    1224 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         19:17:07.077498 line      1257 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.077525 line      1258 SOURCE IS UNAVAILABLE
+IE_TRACE:                         New var:....... find_spec = <bound method DistutilsMetaFinder.find_spec of <_distutils_hack.DistutilsMetaFinder object at 0x775735f70470>>
+IE_TRACE:                         19:17:07.077551 line      1262 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Source path:... /path/to/.venv/lib/python3.12/site-packages/_distutils_hack/__init__.py
+IE_TRACE:                             Starting var:.. self = <_distutils_hack.DistutilsMetaFinder object at 0x775735f70470>
+IE_TRACE:                             Starting var:.. fullname = 'tornado.platform.epoll'
+IE_TRACE:                             Starting var:.. path = ['/path/to/BugsInPy/workspace/tornado/tornado/platform']
+IE_TRACE:                             Starting var:.. target = None
+IE_TRACE:                             19:17:07.077589 call       101     def find_spec(self, fullname, path, target=None):
+IE_TRACE:                             19:17:07.077706 line       104         if path is not None and not fullname.startswith('test.'):
+IE_TRACE:                             19:17:07.077733 line       105             return None
+IE_TRACE:                             19:17:07.077757 return     105             return None
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         Source path:... <frozen importlib._bootstrap>
+IE_TRACE:                         New var:....... spec = None
+IE_TRACE:                         19:17:07.077788 line      1256 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. self = <_frozen_importlib._ImportLockContext object at 0x7757357904d0>
+IE_TRACE:                             Starting var:.. exc_type = None
+IE_TRACE:                             Starting var:.. exc_value = None
+IE_TRACE:                             Starting var:.. exc_traceback = None
+IE_TRACE:                             19:17:07.077831 call      1226 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.077872 line      1228 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.077894 return    1228 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         19:17:07.077921 line      1263 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.077953 line      1255 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Modified var:.. finder = <class '_frozen_importlib.BuiltinImporter'>
+IE_TRACE:                         19:17:07.077981 line      1256 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. self = <_frozen_importlib._ImportLockContext object at 0x775735790d10>
+IE_TRACE:                             19:17:07.078016 call      1222 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.078038 line      1224 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.078055 return    1224 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         19:17:07.078078 line      1257 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.078107 line      1258 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Modified var:.. find_spec = <bound method BuiltinImporter.find_spec of <class '_frozen_importlib.BuiltinImporter'>>
+IE_TRACE:                         19:17:07.078141 line      1262 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. cls = <class '_frozen_importlib.BuiltinImporter'>
+IE_TRACE:                             Starting var:.. fullname = 'tornado.platform.epoll'
+IE_TRACE:                             Starting var:.. path = ['/path/to/BugsInPy/workspace/tornado/tornado/platform']
+IE_TRACE:                             Starting var:.. target = None
+IE_TRACE:                             19:17:07.078176 call       982 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.078216 line       984 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.078239 line       987 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.078260 return     987 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         19:17:07.078287 line      1256 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. self = <_frozen_importlib._ImportLockContext object at 0x775735790d10>
+IE_TRACE:                             Starting var:.. exc_type = None
+IE_TRACE:                             Starting var:.. exc_value = None
+IE_TRACE:                             Starting var:.. exc_traceback = None
+IE_TRACE:                             19:17:07.078316 call      1226 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.078354 line      1228 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.078375 return    1228 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         19:17:07.078402 line      1263 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.078430 line      1255 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Modified var:.. finder = <class '_frozen_importlib.FrozenImporter'>
+IE_TRACE:                         19:17:07.078458 line      1256 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. self = <_frozen_importlib._ImportLockContext object at 0x775735791190>
+IE_TRACE:                             19:17:07.078492 call      1222 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.078512 line      1224 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.078529 return    1224 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         19:17:07.078551 line      1257 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.078579 line      1258 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Modified var:.. find_spec = <bound method FrozenImporter.find_spec of <class '_frozen_importlib.FrozenImporter'>>
+IE_TRACE:                         19:17:07.078607 line      1262 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. cls = <class '_frozen_importlib.FrozenImporter'>
+IE_TRACE:                             Starting var:.. fullname = 'tornado.platform.epoll'
+IE_TRACE:                             Starting var:.. path = ['/path/to/BugsInPy/workspace/tornado/tornado/platform']
+IE_TRACE:                             Starting var:.. target = None
+IE_TRACE:                             19:17:07.078647 call      1128 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.078688 line      1130 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. f = <built-in function find_frozen>
+IE_TRACE:                                 Starting var:.. args = ('tornado.platform.epoll',)
+IE_TRACE:                                 Starting var:.. kwds = {}
+IE_TRACE:                                 19:17:07.078713 call       480 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.078748 line       488 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.078770 return     488 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. None
+IE_TRACE:                             New var:....... info = None
+IE_TRACE:                             19:17:07.078797 line      1131 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.078827 line      1132 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.078852 return    1132 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         19:17:07.078882 line      1256 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. self = <_frozen_importlib._ImportLockContext object at 0x775735791190>
+IE_TRACE:                             Starting var:.. exc_type = None
+IE_TRACE:                             Starting var:.. exc_value = None
+IE_TRACE:                             Starting var:.. exc_traceback = None
+IE_TRACE:                             19:17:07.078912 call      1226 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.078949 line      1228 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.078969 return    1228 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         19:17:07.078996 line      1263 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.079025 line      1255 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Modified var:.. finder = <class '_frozen_importlib_external.PathFinder'>
+IE_TRACE:                         19:17:07.079053 line      1256 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. self = <_frozen_importlib._ImportLockContext object at 0x7757357910d0>
+IE_TRACE:                             19:17:07.079087 call      1222 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.079108 line      1224 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.079125 return    1224 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         19:17:07.079150 line      1257 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.079178 line      1258 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Modified var:.. find_spec = <bound method PathFinder.find_spec of <class '_frozen_importlib_external.PathFinder'>>
+IE_TRACE:                         19:17:07.079206 line      1262 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Source path:... <frozen importlib._bootstrap_external>
+IE_TRACE:                             Starting var:.. cls = <class '_frozen_importlib_external.PathFinder'>
+IE_TRACE:                             Starting var:.. fullname = 'tornado.platform.epoll'
+IE_TRACE:                             Starting var:.. path = ['/path/to/BugsInPy/workspace/tornado/tornado/platform']
+IE_TRACE:                             Starting var:.. target = None
+IE_TRACE:                             19:17:07.079243 call      1520 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.079306 line      1526 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.079329 line      1528 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. cls = <class '_frozen_importlib_external.PathFinder'>
+IE_TRACE:                                 Starting var:.. fullname = 'tornado.platform.epoll'
+IE_TRACE:                                 Starting var:.. path = ['/path/to/BugsInPy/workspace/tornado/tornado/platform']
+IE_TRACE:                                 Starting var:.. target = None
+IE_TRACE:                                 19:17:07.079357 call      1491 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.079398 line      1496 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 New var:....... namespace_path = []
+IE_TRACE:                                 19:17:07.079422 line      1497 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 New var:....... entry = '/path/to/BugsInPy/workspace/tornado/tornado/platform'
+IE_TRACE:                                 19:17:07.079451 line      1498 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.079482 line      1500 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. cls = <class '_frozen_importlib_external.PathFinder'>
+IE_TRACE:                                     Starting var:.. path = '/path/to/BugsInPy/workspace/tornado/tornado/platform'
+IE_TRACE:                                     19:17:07.079512 call      1469 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.079542 line      1477 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.079562 line      1484 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.079582 line      1485 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... finder = FileFinder('/path/to/BugsInPy/workspace/tornado/tornado/platform')
+IE_TRACE:                                     19:17:07.079601 line      1489 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.079630 return    1489 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. FileFinder('/path/to/BugsInPy/workspace/tornado/tornado/platform')
+IE_TRACE:                                 New var:....... finder = FileFinder('/path/to/BugsInPy/workspace/tornado/tornado/platform')
+IE_TRACE:                                 19:17:07.079659 line      1501 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.079692 line      1502 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. self = FileFinder('/path/to/BugsInPy/workspace/tornado/tornado/platform')
+IE_TRACE:                                     Starting var:.. fullname = 'tornado.platform.epoll'
+IE_TRACE:                                     Starting var:.. target = None
+IE_TRACE:                                     19:17:07.079734 call      1593 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.079775 line      1598 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... is_namespace = False
+IE_TRACE:                                     19:17:07.079799 line      1599 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... tail_module = 'epoll'
+IE_TRACE:                                     19:17:07.079831 line      1600 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.079863 line      1601 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... mtime = 1779889626.781145
+IE_TRACE:                                     19:17:07.079905 line      1604 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.079950 line      1608 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.079987 line      1612 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... cache = {'epoll.py', 'twisted.py', 'windows.py', 'common.py', 'asyncio.py', 'select.py', 'posix.py', '__init__.py', 'caresresolver.py', 'auto.py', 'kqueue.py', '__pycache__', 'interface.py'}
+IE_TRACE:                                     19:17:07.080015 line      1613 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... cache_module = 'epoll'
+IE_TRACE:                                     19:17:07.080055 line      1615 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.080092 line      1627 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... suffix = '.cpython-312-x86_64-linux-gnu.so'
+IE_TRACE:                                     New var:....... loader_class = <class '_frozen_importlib_external.ExtensionFileLoader'>
+IE_TRACE:                                     19:17:07.080125 line      1628 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.080174 line      1629 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... full_path = '/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.cpython-312-x86_64-linux-gnu.so'
+IE_TRACE:                                     19:17:07.080223 line      1632 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.080277 line      1633 SOURCE IS UNAVAILABLE
+IE_TRACE:     [CONDENSED] 2 identical loop iterations skipped (4 total iterations, showing first and last)
+IE_TRACE:                                     19:17:07.080720 line      1627 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Modified var:.. suffix = '.py'
+IE_TRACE:                                     Modified var:.. loader_class = <class '_frozen_importlib_external.SourceFileLoader'>
+IE_TRACE:                                     19:17:07.080755 line      1628 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.080799 line      1629 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Modified var:.. full_path = '/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py'
+IE_TRACE:                                     19:17:07.080843 line      1632 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.080891 line      1633 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.080927 line      1634 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.080993 line      1635 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.081028 line      1636 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.081063 line      1635 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.081175 return    1635 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. ModuleSpec(name='tornado.platform.epoll', loader=<_frozen_importlib_external.SourceFileLoader object at 0x775735791400>, origin='/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py')
+IE_TRACE:                                 New var:....... spec = ModuleSpec(name='tornado.platform.epoll', loader=<_frozen_importlib_external.SourceFileLoader object at 0x775735791400>, origin='/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py')
+IE_TRACE:                                 19:17:07.081224 line      1503 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.081261 line      1505 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.081294 line      1506 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.081324 return    1506 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. ModuleSpec(name='tornado.platform.epoll', loader=<_frozen_importlib_external.SourceFileLoader object at 0x775735791400>, origin='/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py')
+IE_TRACE:                             New var:....... spec = ModuleSpec(name='tornado.platform.epoll', loader=<_frozen_importlib_external.SourceFileLoader object at 0x775735791400>, origin='/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py')
+IE_TRACE:                             19:17:07.081361 line      1529 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.081391 line      1531 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.081415 line      1542 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.081439 return    1542 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. ModuleSpec(name='tornado.platform.epoll', loader=<_frozen_importlib_external.SourceFileLoader object at 0x775735791400>, origin='/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py')
+IE_TRACE:                         Source path:... <frozen importlib._bootstrap>
+IE_TRACE:                         Modified var:.. spec = ModuleSpec(name='tornado.platform.epoll', loader=<_frozen_importlib_external.SourceFileLoader object at 0x775735791400>, origin='/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py')
+IE_TRACE:                         19:17:07.081470 line      1256 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. self = <_frozen_importlib._ImportLockContext object at 0x7757357910d0>
+IE_TRACE:                             Starting var:.. exc_type = None
+IE_TRACE:                             Starting var:.. exc_value = None
+IE_TRACE:                             Starting var:.. exc_traceback = None
+IE_TRACE:                             19:17:07.081513 call      1226 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.081552 line      1228 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.081573 return    1228 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         19:17:07.081601 line      1263 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.081632 line      1265 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.081662 line      1280 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.081692 return    1280 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Return value:.. ModuleSpec(name='tornado.platform.epoll', loader=<_frozen_importlib_external.SourceFileLoader object at 0x775735791400>, origin='/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py')
+IE_TRACE:                     New var:....... spec = ModuleSpec(name='tornado.platform.epoll', loader=<_frozen_importlib_external.SourceFileLoader object at 0x775735791400>, origin='/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py')
+IE_TRACE:                     19:17:07.081729 line      1323 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.081770 line      1326 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.081803 line      1329 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.081835 line      1330 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.081865 line      1331 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Starting var:.. spec = ModuleSpec(name='tornado.platform.epoll', loader=<_frozen_importlib_external.SourceFileLoader object at 0x775735791400>, origin='/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py')
+IE_TRACE:                         19:17:07.081907 call       911 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.081934 line       913 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.081953 line       915 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.081972 line       921 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. spec = ModuleSpec(name='tornado.platform.epoll', loader=<_frozen_importlib_external.SourceFileLoader object at 0x775735791400>, origin='/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py')
+IE_TRACE:                             19:17:07.081994 call       806 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.082018 line       809 SOURCE IS UNAVAILABLE
+IE_TRACE:                             New var:....... module = None
+IE_TRACE:                             19:17:07.082037 line       810 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.082061 line       813 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Source path:... <frozen importlib._bootstrap_external>
+IE_TRACE:                                 Starting var:.. self = <_frozen_importlib_external.SourceFileLoader object at 0x775735791400>
+IE_TRACE:                                 Starting var:.. spec = ModuleSpec(name='tornado.platform.epoll', loader=<_frozen_importlib_external.SourceFileLoader object at 0x775735791400>, origin='/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py')
+IE_TRACE:                                 19:17:07.082082 call       986 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.082118 line       986 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.082141 return     986 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. None
+IE_TRACE:                             Source path:... <frozen importlib._bootstrap>
+IE_TRACE:                             19:17:07.082168 line       817 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.082192 line       818 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. name = 'tornado.platform.epoll'
+IE_TRACE:                                 19:17:07.082213 call        48 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.082236 line        49 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.082254 return      49 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. <module 'tornado.platform.epoll'>
+IE_TRACE:                             Modified var:.. module = <module 'tornado.platform.epoll'>
+IE_TRACE:                             19:17:07.082283 line       819 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. spec = ModuleSpec(name='tornado.platform.epoll', loader=<_frozen_importlib_external.SourceFileLoader object at 0x775735791400>, origin='/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py')
+IE_TRACE:                                 Starting var:.. module = <module 'tornado.platform.epoll'>
+IE_TRACE:                                 Starting var:.. override = False
+IE_TRACE:                                 19:17:07.082322 call       733 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.082364 line       737 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.082390 line       743 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.082415 line       744 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 New var:....... loader = <_frozen_importlib_external.SourceFileLoader object at 0x775735791400>
+IE_TRACE:                                 19:17:07.082440 line       745 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.082472 line       766 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.082498 line       767 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Modified var:.. module = <module 'tornado.platform.epoll' (<_frozen_importlib_external.SourceFileLoader object at 0x775735791400>)>
+IE_TRACE:                                 19:17:07.082525 line       771 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.082557 line       772 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.082583 line       773 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. self = ModuleSpec(name='tornado.platform.epoll', loader=<_frozen_importlib_external.SourceFileLoader object at 0x775735791400>, origin='/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py')
+IE_TRACE:                                     19:17:07.082612 call       645 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.082637 line       648 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.082657 line       649 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.082677 return     649 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. 'tornado.platform'
+IE_TRACE:                                 19:17:07.082703 line       777 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.082735 line       778 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Modified var:.. module = <module 'tornado.platform.epoll' from '/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py'>
+IE_TRACE:                                 19:17:07.082762 line       782 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.082793 line       783 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.082819 line       790 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. self = ModuleSpec(name='tornado.platform.epoll', loader=<_frozen_importlib_external.SourceFileLoader object at 0x775735791400>, origin='/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py')
+IE_TRACE:                                     19:17:07.082845 call       653 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.082869 line       655 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.082889 return     655 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. True
+IE_TRACE:                                 19:17:07.082915 line       791 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.082942 line       792 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.082967 line       793 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.082992 line       797 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.083017 line       798 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. self = ModuleSpec(name='tornado.platform.epoll', loader=<_frozen_importlib_external.SourceFileLoader object at 0x775735791400>, origin='/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py')
+IE_TRACE:                                     19:17:07.083044 call       632 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.083069 line       634 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.083089 line       635 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.083108 line       636 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.083139 line       638 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.083244 line       639 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.083266 return     639 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. '/path/to/BugsInPy/workspace/tornado/tornado/platform/__pycache__/epoll.cpython-312.pyc'
+IE_TRACE:                                 19:17:07.083292 line       799 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.083320 line       800 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. self = ModuleSpec(name='tornado.platform.epoll', loader=<_frozen_importlib_external.SourceFileLoader object at 0x775735791400>, origin='/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py')
+IE_TRACE:                                     19:17:07.083347 call       632 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.083371 line       634 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.083391 line       639 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.083410 return     639 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. '/path/to/BugsInPy/workspace/tornado/tornado/platform/__pycache__/epoll.cpython-312.pyc'
+IE_TRACE:                                 19:17:07.083435 line       803 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.083461 return     803 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. <module 'tornado.platform.epoll' from '/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py'>
+IE_TRACE:                             Modified var:.. module = <module 'tornado.platform.epoll' from '/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py'>
+IE_TRACE:                             19:17:07.083494 line       820 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.083520 return     820 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. <module 'tornado.platform.epoll' from '/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py'>
+IE_TRACE:                         New var:....... module = <module 'tornado.platform.epoll' from '/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py'>
+IE_TRACE:                         19:17:07.083548 line       926 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.083573 line       927 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.083594 line       928 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.083614 line       929 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.083634 line       930 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.083654 line       935 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Source path:... <frozen importlib._bootstrap_external>
+IE_TRACE:                             Starting var:.. self = <_frozen_importlib_external.SourceFileLoader object at 0x775735791400>
+IE_TRACE:                             Starting var:.. module = <module 'tornado.platform.epoll' from '/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py'>
+IE_TRACE:                             19:17:07.083677 call       989 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.083712 line       991 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. self = <_frozen_importlib_external.SourceFileLoader object at 0x775735791400>
+IE_TRACE:                                 Starting var:.. fullname = 'tornado.platform.epoll'
+IE_TRACE:                                 19:17:07.083751 call      1062 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.083788 line      1069 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. self = <_frozen_importlib_external.SourceFileLoader object at 0x775735791400>
+IE_TRACE:                                     Starting var:.. name = 'tornado.platform.epoll'
+IE_TRACE:                                     Starting var:.. args = ()
+IE_TRACE:                                     Starting var:.. kwargs = {}
+IE_TRACE:                                     Starting var:.. method = <function FileLoader.get_filename at 0x7757361a6ca0>
+IE_TRACE:                                     19:17:07.083813 call       643 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.083864 line       644 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.083890 line       646 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.083915 line       649 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.083948 return     649 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. '/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py'
+IE_TRACE:                                 New var:....... source_path = '/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py'
+IE_TRACE:                                 19:17:07.083980 line      1070 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 New var:....... source_mtime = None
+IE_TRACE:                                 19:17:07.084009 line      1071 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 New var:....... source_bytes = None
+IE_TRACE:                                 19:17:07.084039 line      1072 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 New var:....... source_hash = None
+IE_TRACE:                                 19:17:07.084070 line      1073 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 New var:....... hash_based = False
+IE_TRACE:                                 19:17:07.084103 line      1074 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 New var:....... check_source = True
+IE_TRACE:                                 19:17:07.084140 line      1075 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.084175 line      1076 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. path = '/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py'
+IE_TRACE:                                     Starting var:.. debug_override = None
+IE_TRACE:                                     Starting var:.. optimization = None
+IE_TRACE:                                     19:17:07.084207 call       482 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.084248 line       500 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.084273 line       507 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.084298 line       508 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... head = '/path/to/BugsInPy/workspace/tornado/tornado/platform'
+IE_TRACE:                                     New var:....... tail = 'epoll.py'
+IE_TRACE:                                     19:17:07.084351 line       509 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... base = 'epoll'
+IE_TRACE:                                     New var:....... sep = '.'
+IE_TRACE:                                     New var:....... rest = 'py'
+IE_TRACE:                                     19:17:07.084388 line       510 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... tag = 'cpython-312'
+IE_TRACE:                                     19:17:07.084434 line       511 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.084470 line       513 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... almost_filename = 'epoll.cpython-312'
+IE_TRACE:                                     19:17:07.084503 line       514 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.084541 line       515 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.084574 line       516 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Modified var:.. optimization = ''
+IE_TRACE:                                     19:17:07.084606 line       519 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.084643 line       520 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.084675 line       524 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... filename = 'epoll.cpython-312.pyc'
+IE_TRACE:                                     19:17:07.084708 line       525 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.084747 line       549 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.084791 return     549 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. '/path/to/BugsInPy/workspace/tornado/tornado/platform/__pycache__/epoll.cpython-312.pyc'
+IE_TRACE:                                 New var:....... bytecode_path = '/path/to/BugsInPy/workspace/tornado/tornado/platform/__pycache__/epoll.cpython-312.pyc'
+IE_TRACE:                                 19:17:07.084833 line      1080 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.084871 line      1081 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. self = <_frozen_importlib_external.SourceFileLoader object at 0x775735791400>
+IE_TRACE:                                     Starting var:.. path = '/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py'
+IE_TRACE:                                     19:17:07.084905 call      1202 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.084935 line      1204 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... st = os.stat_result(st_mode=33204, st_ino=3560424, st_dev=66309, st_nlink=1, st_uid=1000, st_gid=1000, st_size=934, st_atime=1779889513, st_mtime=1779889513, st_ctime=1779889513)
+IE_TRACE:                                     19:17:07.084967 line      1205 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.085000 return    1205 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. {'mtime': 1779889513.9638515, 'size': 934}
+IE_TRACE:                                 New var:....... st = {'mtime': 1779889513.9638515, 'size': 934}
+IE_TRACE:                                 19:17:07.085034 line      1085 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Modified var:.. source_mtime = 1779889513
+IE_TRACE:                                 19:17:07.085073 line      1086 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.085112 line      1087 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. self = <_frozen_importlib_external.SourceFileLoader object at 0x775735791400>
+IE_TRACE:                                     Starting var:.. path = '/path/to/BugsInPy/workspace/tornado/tornado/platform/__pycache__/epoll.cpython-312.pyc'
+IE_TRACE:                                     19:17:07.085151 call      1183 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.085183 line      1185 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.085205 line      1186 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... file = <_io.BufferedReader name='/path/to/BugsInPy/workspace/tornado/tornado/platform/__pycache__/epoll.cpython-312.pyc'>
+IE_TRACE:                                     19:17:07.085238 line      1187 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.085273 line      1186 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.085299 return    1186 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. bytes(len=943)
+IE_TRACE:                                 New var:....... data = bytes(len=943)
+IE_TRACE:                                 19:17:07.085331 line      1092 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.085374 line      1093 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.085410 line      1091 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 New var:....... exc_details = {'name': 'tornado.platform.epoll', 'path': '/path/to/BugsInPy/workspace/tornado/tornado/platform/__pycache__/epoll.cpython-312.pyc'}
+IE_TRACE:                                 19:17:07.085446 line      1095 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.085488 line      1096 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. data = bytes(len=943)
+IE_TRACE:                                     Starting var:.. name = 'tornado.platform.epoll'
+IE_TRACE:                                     Starting var:.. exc_details = {'name': 'tornado.platform.epoll', 'path': '/path/to/BugsInPy/workspace/tornado/tornado/platform/__pycache__/epoll.cpython-312.pyc'}
+IE_TRACE:                                     19:17:07.085532 call       666 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.085570 line       682 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... magic = b'\xcb\r\r\n'
+IE_TRACE:                                     19:17:07.085594 line       683 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.085624 line       687 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.085648 line       691 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... flags = 0
+IE_TRACE:                                     19:17:07.085684 line       693 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.085715 line       696 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.085741 return     696 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. 0
+IE_TRACE:                                 New var:....... flags = 0
+IE_TRACE:                                 19:17:07.085773 line      1097 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 New var:....... bytes_data = <memory at 0x775735769780>
+IE_TRACE:                                 19:17:07.085818 line      1098 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.085863 line      1099 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.085903 line      1112 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.085941 line      1113 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.085980 line      1114 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.086019 line      1115 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.086058 line      1116 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.086096 line      1117 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.086138 line      1112 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. data = bytes(len=943)
+IE_TRACE:                                     Starting var:.. source_mtime = 1779889513
+IE_TRACE:                                     Starting var:.. source_size = 934
+IE_TRACE:                                     Starting var:.. name = 'tornado.platform.epoll'
+IE_TRACE:                                     Starting var:.. exc_details = {'name': 'tornado.platform.epoll', 'path': '/path/to/BugsInPy/workspace/tornado/tornado/platform/__pycache__/epoll.cpython-312.pyc'}
+IE_TRACE:                                     19:17:07.086182 call       699 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.086231 line       718 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.086268 line       722 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.086294 line       723 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.086328 return     723 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 19:17:07.086360 line      1122 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.086400 line      1123 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.086439 line      1122 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Source path:... <frozen importlib._bootstrap>
+IE_TRACE:                                     Starting var:.. message = '{} matches {}'
+IE_TRACE:                                     Starting var:.. verbosity = 1
+IE_TRACE:                                     Starting var:.. args = ('/path/to/BugsInPy/workspace/tornado/tornado/platform/__pycache__/epoll.cpython-312.pyc', '/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py')
+IE_TRACE:                                     19:17:07.086479 call       491 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.086521 line       493 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.086544 return     493 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 Source path:... <frozen importlib._bootstrap_external>
+IE_TRACE:                                 19:17:07.086572 line      1124 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.086617 line      1125 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.086656 line      1126 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.086695 line      1124 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. data = <memory at 0x775735769780>
+IE_TRACE:                                     Starting var:.. name = 'tornado.platform.epoll'
+IE_TRACE:                                     Starting var:.. bytecode_path = '/path/to/BugsInPy/workspace/tornado/tornado/platform/__pycache__/epoll.cpython-312.pyc'
+IE_TRACE:                                     Starting var:.. source_path = '/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py'
+IE_TRACE:                                     19:17:07.086738 call       751 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.086780 line       753 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... code = <code object <module> at 0x775735736cd0, file "/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py", line 1>
+IE_TRACE:                                     19:17:07.086819 line       754 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.086851 line       755 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.086886 line       756 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.086912 line       757 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.086937 line       758 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     19:17:07.086962 return     758 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. <code object <module> at 0x775735736cd0, file "/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py", line 1>
+IE_TRACE:                                 19:17:07.086994 return    1124 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. <code object <module> at 0x775735736cd0, file "/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py", line 1>
+IE_TRACE:                             New var:....... code = <code object <module> at 0x775735736cd0, file "/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py", line 1>
+IE_TRACE:                             19:17:07.087042 line       992 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.087070 line       995 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Source path:... <frozen importlib._bootstrap>
+IE_TRACE:                                 Starting var:.. f = <built-in function exec>
+IE_TRACE:                                 Starting var:.. args = (<code object <module> at 0x775735736cd0, file "/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py", line 1>, {'__name__': 'tornado.platform.epoll', '__doc__': None, '__package__': 'tornado.platform', '__loader__': <_frozen_imp.../workspace/tornado/tornado/platform/epoll.py'), '__file__': '/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py', '__cached__': '/path/to/BugsInPy/workspace/tornado/tornado/platform/__pycache__/epoll.cpython-312.pyc'})
+IE_TRACE:                                 Starting var:.. kwds = {}
+IE_TRACE:                                 19:17:07.087093 call       480 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 19:17:07.087147 line       488 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py
+IE_TRACE:                                     Starting var:.. __name__ = 'tornado.platform.epoll'
+IE_TRACE:                                     Starting var:.. __doc__ = None
+IE_TRACE:                                     Starting var:.. __package__ = 'tornado.platform'
+IE_TRACE:                                     Starting var:.. __loader__ = <_frozen_importlib_external.SourceFileLoader object at 0x775735791400>
+IE_TRACE:                                     Starting var:.. __spec__ = ModuleSpec(name='tornado.platform.epoll', loader=<_frozen_importlib_external.SourceFileLoader object at 0x775735791400>, origin='/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py')
+IE_TRACE:                                     Starting var:.. __file__ = '/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py'
+IE_TRACE:                                     Starting var:.. __cached__ = '/path/to/BugsInPy/workspace/tornado/tornado/platform/__pycache__/epoll.cpython-312.pyc'
+IE_TRACE:                                     Starting var:.. __builtins__ = dict(len=157)
+IE_TRACE:                                     19:17:07.087180 call         0         super(EPollIOLoop, self).initialize(impl=select.epoll(), **kwargs)
+IE_TRACE:                                     19:17:07.087290 line        16 """EPoll-based IOLoop implementation for Linux systems."""
+IE_TRACE:                                     Modified var:.. __doc__ = 'EPoll-based IOLoop implementation for Linux systems.'
+IE_TRACE:                                     19:17:07.087323 line        17 from __future__ import absolute_import, division, print_function, with_statement
+IE_TRACE:                                     New var:....... absolute_import = _Feature((2, 5, 0, 'alpha', 1), (3, 0, 0, 'alpha', 0), 262144)
+IE_TRACE:                                     New var:....... division = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 131072)
+IE_TRACE:                                     New var:....... print_function = _Feature((2, 6, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 1048576)
+IE_TRACE:                                     New var:....... with_statement = _Feature((2, 5, 0, 'alpha', 1), (2, 6, 0, 'alpha', 0), 524288)
+IE_TRACE:                                     19:17:07.087360 line        19 import select
+IE_TRACE:                                     New var:....... select = <module 'select' (built-in)>
+IE_TRACE:                                     19:17:07.087432 line        21 from tornado.ioloop import PollIOLoop
+IE_TRACE:                                     New var:....... PollIOLoop = <class 'tornado.ioloop.PollIOLoop'>
+IE_TRACE:                                     19:17:07.087483 line        24 class EPollIOLoop(PollIOLoop):
+IE_TRACE:                                     New var:....... EPollIOLoop = <class 'tornado.platform.epoll.EPollIOLoop'>
+IE_TRACE:                                     19:17:07.087567 return      24 class EPollIOLoop(PollIOLoop):
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 Source path:... <frozen importlib._bootstrap>
+IE_TRACE:                                 Modified var:.. args = (<code object <module> at 0x775735736cd0, file "/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py", line 1>, {'__name__': 'tornado.platform.epoll', '__doc__': 'EPoll-based IOLoop implementation for Linux systems.', '__package_... 0), 1048576), 'with_statement': _Feature((2, 5, 0, 'alpha', 1), (2, 6, 0, 'alpha', 0), 524288), 'select': <module 'select' (built-in)>, 'PollIOLoop': <class 'tornado.ioloop.PollIOLoop'>, 'EPollIOLoop': <class 'tornado.platform.epoll.EPollIOLoop'>})
+IE_TRACE:                                 19:17:07.087625 return     488 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. None
+IE_TRACE:                             Source path:... <frozen importlib._bootstrap_external>
+IE_TRACE:                             19:17:07.087874 return     995 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         Source path:... <frozen importlib._bootstrap>
+IE_TRACE:                         19:17:07.087913 line       946 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.087942 line       947 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.087964 line       948 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. message = 'import {!r} # {!r}'
+IE_TRACE:                             Starting var:.. verbosity = 1
+IE_TRACE:                             Starting var:.. args = ('tornado.platform.epoll', <_frozen_importlib_external.SourceFileLoader object at 0x775735791400>)
+IE_TRACE:                             19:17:07.087986 call       491 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.088023 line       493 SOURCE IS UNAVAILABLE
+IE_TRACE:                             19:17:07.088045 return     493 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         19:17:07.088072 line       950 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.088093 line       952 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.088113 return     952 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Return value:.. <module 'tornado.platform.epoll' from '/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py'>
+IE_TRACE:                     New var:....... module = <module 'tornado.platform.epoll' from '/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py'>
+IE_TRACE:                     19:17:07.088146 line      1333 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.088190 line      1334 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.088225 line      1335 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.088258 line      1337 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.088291 line      1338 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.088323 line      1339 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.088355 line      1343 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.088387 return    1343 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. <module 'tornado.platform.epoll' from '/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py'>
+IE_TRACE:                 19:17:07.088427 line      1357 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Starting var:.. self = <_frozen_importlib._ModuleLockManager object at 0x77573578b080>
+IE_TRACE:                     Starting var:.. args = (None, None, None)
+IE_TRACE:                     Starting var:.. kwargs = {}
+IE_TRACE:                     19:17:07.088449 call       420 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.088483 line       421 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Starting var:.. self = _ModuleLock('tornado.platform.epoll') at 131216442963392
+IE_TRACE:                         19:17:07.088507 call       372 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.088531 line       373 SOURCE IS UNAVAILABLE
+IE_TRACE:                         New var:....... tid = 131216463036544
+IE_TRACE:                         19:17:07.088547 line       374 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.088570 line       375 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.088588 line       377 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.088605 line       378 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.088621 line       379 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.088638 line       380 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.088655 line       381 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.088671 line       374 SOURCE IS UNAVAILABLE
+IE_TRACE:                         19:17:07.088688 return     374 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Return value:.. None
+IE_TRACE:                     19:17:07.088712 return     421 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                     Starting var:.. ref = <weakref at 0x77573510ecf0; dead>
+IE_TRACE:                     Starting var:.. name = 'tornado.platform.epoll'
+IE_TRACE:                     19:17:07.088742 call       445 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.088772 line       446 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.088790 line       447 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.088807 line       451 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.088824 line       452 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.088840 line       454 SOURCE IS UNAVAILABLE
+IE_TRACE:                     19:17:07.088856 return     454 SOURCE IS UNAVAILABLE
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 19:17:07.088880 return    1357 SOURCE IS UNAVAILABLE
+IE_TRACE:                 Return value:.. <module 'tornado.platform.epoll' from '/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py'>
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             New var:....... EPollIOLoop = <class 'tornado.platform.epoll.EPollIOLoop'>
+IE_TRACE:             19:17:07.088909 line       239             return EPollIOLoop
+IE_TRACE:             19:17:07.088937 return     239             return EPollIOLoop
+IE_TRACE:             Return value:.. <class 'tornado.platform.epoll.EPollIOLoop'>
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:         19:17:07.088962 line       269         return base.__impl_class
+IE_TRACE:         19:17:07.088984 return     269         return base.__impl_class
+IE_TRACE:         Return value:.. <class 'tornado.platform.epoll.EPollIOLoop'>
+IE_TRACE:     New var:....... impl = <class 'tornado.platform.epoll.EPollIOLoop'>
+IE_TRACE:     19:17:07.089006 line       212             if base.__impl_kwargs:
+IE_TRACE:     19:17:07.089038 line       216         init_kwargs.update(kwargs)
+IE_TRACE:     Modified var:.. init_kwargs = {'make_current': True}
+IE_TRACE:     19:17:07.089063 line       217         instance = super(Configurable, cls).__new__(impl)
+IE_TRACE:     New var:....... instance = <tornado.platform.epoll.EPollIOLoop object at 0x775735c13080>
+IE_TRACE:     19:17:07.089092 line       221         instance.initialize(*args, **init_kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py
+IE_TRACE:         Starting var:.. self = <tornado.platform.epoll.EPollIOLoop object at 0x775735c13080>
+IE_TRACE:         Starting var:.. kwargs = {'make_current': True}
+IE_TRACE:         Starting var:.. __class__ = <class 'tornado.platform.epoll.EPollIOLoop'>
+IE_TRACE:         19:17:07.089125 call        25     def initialize(self, **kwargs):
+IE_TRACE:         19:17:07.089186 line        26         super(EPollIOLoop, self).initialize(impl=select.epoll(), **kwargs)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/tornado/tornado/ioloop.py
+IE_TRACE:             Starting var:.. self = <tornado.platform.epoll.EPollIOLoop object at 0x775735c13080>
+IE_TRACE:             Starting var:.. impl = <select.epoll object at 0x7757357c1110>
+IE_TRACE:             Starting var:.. time_func = None
+IE_TRACE:             Starting var:.. kwargs = {'make_current': True}
+IE_TRACE:             Starting var:.. __class__ = <class 'tornado.ioloop.PollIOLoop'>
+IE_TRACE:             19:17:07.089220 call       663     def initialize(self, impl, time_func=None, **kwargs):
+IE_TRACE:             19:17:07.089273 line       664         super(PollIOLoop, self).initialize(**kwargs)
+IE_TRACE:                 Starting var:.. self = <tornado.platform.epoll.EPollIOLoop object at 0x775735c13080>
+IE_TRACE:                 Starting var:.. make_current = True
+IE_TRACE:                 19:17:07.089301 call       247     def initialize(self, make_current=None):
+IE_TRACE:                 19:17:07.089329 line       248         if make_current is None:
+IE_TRACE:                 19:17:07.089347 line       251         elif make_current:
+IE_TRACE:                 19:17:07.089364 line       252             if IOLoop.current(instance=False) is None:
+IE_TRACE:                     Starting var:.. instance = False
+IE_TRACE:                     19:17:07.089384 call       189     def current(instance=True):
+IE_TRACE:                     19:17:07.089409 line       207         current = getattr(IOLoop._current, "instance", None)
+IE_TRACE:                     New var:....... current = None
+IE_TRACE:                     19:17:07.089426 line       208         if current is None and instance:
+IE_TRACE:                     19:17:07.089447 line       210         return current
+IE_TRACE:                     19:17:07.089463 return     210         return current
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 19:17:07.089488 line       253                 raise RuntimeError("current IOLoop already exists")
+IE_TRACE:                 19:17:07.089507 exception  253                 raise RuntimeError("current IOLoop already exists")
+IE_TRACE:                 Exception:..... RuntimeError: current IOLoop already exists
+IE_TRACE:                 Call ended by exception
+IE_TRACE:             19:17:07.089570 exception  664         super(PollIOLoop, self).initialize(**kwargs)
+IE_TRACE:             Exception:..... RuntimeError: current IOLoop already exists
+IE_TRACE:             Call ended by exception
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py
+IE_TRACE:         19:17:07.089632 exception   26         super(EPollIOLoop, self).initialize(impl=select.epoll(), **kwargs)
+IE_TRACE:         Exception:..... RuntimeError: current IOLoop already exists
+IE_TRACE:         Call ended by exception
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/util.py
+IE_TRACE:     19:17:07.089687 exception  221         instance.initialize(*args, **init_kwargs)
+IE_TRACE:     Exception:..... RuntimeError: current IOLoop already exists
+IE_TRACE:     Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/ioloop_test.py
+IE_TRACE: 19:17:07.089756 exception  448         self.io_loop = IOLoop(make_current=True)
+IE_TRACE: Exception:..... RuntimeError: current IOLoop already exists
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.015867
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/ioloop_test.py
+IE_TRACE: Starting var:.. self = <tornado.test.ioloop_test.TestIOLoopCurrent testMethod=test_force_current>
+IE_TRACE: 19:17:07.090639 call       419     def tearDown(self):
+IE_TRACE: 19:17:07.090713 line       420         if self.io_loop is not None:
+IE_TRACE: 19:17:07.090733 return     420         if self.io_loop is not None:
+IE_TRACE: Return value:.. None
+IE_TRACE: Elapsed time: 00:00:00.000198
+======================================================================
+ERROR: test_force_current (tornado.test.ioloop_test.TestIOLoopCurrent.test_force_current)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/test/ioloop_test.py", line 448, in test_force_current
+    self.io_loop = IOLoop(make_current=True)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/util.py", line 221, in __new__
+    instance.initialize(*args, **init_kwargs)
+  File "/path/to/BugsInPy/workspace/tornado/tornado/platform/epoll.py", line 26, in initialize
+    super(EPollIOLoop, self).initialize(impl=select.epoll(), **kwargs)
+  File "/path/to/BugsInPy/workspace/tornado/tornado/ioloop.py", line 664, in initialize
+    super(PollIOLoop, self).initialize(**kwargs)
+  File "/path/to/BugsInPy/workspace/tornado/tornado/ioloop.py", line 253, in initialize
+    raise RuntimeError("current IOLoop already exists")
+RuntimeError: current IOLoop already exists
+
+----------------------------------------------------------------------
+Ran 1 test in 0.018s
+
+FAILED (errors=1)
+
+
+Exit code: 1

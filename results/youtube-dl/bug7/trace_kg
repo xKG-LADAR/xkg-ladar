@@ -1,0 +1,48 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_js_to_json_realworld [label="test_js_to_json_realworld
+test_utils.py:485" fillcolor=white shape=box style=filled]
+	inp [label="inp
+(3 writes, 3 distinct)
+\"{\n            'clip':{'provider':'pseudo'}\n        }\"
+\"{\n            'playlist':[{'controls':{'all':null}}]\n        }\"
+'\"The CW\\\'s \\\'Crazy Ex-Girlfriend\\\'\"'" shape=ellipse]
+	js_to_json [label="js_to_json
+utils.py:1698" fillcolor=white shape=box style=filled]
+	fix_kv [label="fix_kv
+(4 writes, 2 distinct)
+<function js_to_json.<locals>.fix_kv at 0x74711294e480>
+<function js_to_json.<locals>.fix_kv at 0x74711294e980>" shape=ellipse]
+	v [label="v
+(14 writes, 10 distinct)
+\"'clip'\"
+'clip'
+\"'pseudo'\"
+'pseudo'
+\"'playlist'\"
+'playlist'
+  …+4 more values" shape=ellipse]
+	res [label="res
+(4 writes, 3 distinct)
+'{\n            \"clip\":{\"provider\":\"pseudo\"}\n        }'
+'{\n            \"playlist\":[{\"controls\":{\"all\":null}}]\n        }'
+'\"The CW\\\'s \\\'Crazy Ex-Girlfriend\\\'\"'" shape=ellipse]
+	ERROR__AssertionError [label="AssertionError
+'\"The CW\\\'s \\\'Crazy Ex-Girlfriend\\\'\"' != '\"The CW\'s \'Crazy Ex-Girlfriend\'\"'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_js_to_json_realworld
+	}
+	{
+		rank=same
+		js_to_json
+	}
+	test_js_to_json_realworld -> inp [label="writes×3" color=black]
+	test_js_to_json_realworld -> js_to_json [label="calls×4 [#1]" color=blue penwidth=1.4]
+	test_js_to_json_realworld -> ERROR__AssertionError [label=raises color=orange penwidth=2 style=dashed]
+	js_to_json -> fix_kv [label="writes×4" color=black]
+	js_to_json -> js_to_json [label="loops(×9)" color=purple style=dashed]
+	js_to_json -> v [label="writes×6" color=black]
+	js_to_json -> res [label="writes×4" color=black]
+	fix_kv -> v [label="writes×8" color=black]
+}

@@ -1,0 +1,33 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_send_single_values_to_and_cc [label="test_send_single_values_to_and_cc
+test_mail.py:31" fillcolor=white shape=box style=filled]
+	__init__ [label="__init__
+extensions.py:5" fillcolor=white shape=box style=filled]
+	mailsender [label="mailsender
+<scrapy.mail.MailSender object at 0x7e5b8c533200>" shape=ellipse]
+	send [label="send
+mail.py:47" fillcolor=white shape=box style=filled]
+	msg [label="msg
+<email.mime.nonmultipart.MIMENonMultipart object at 0x7e5b8c533ad0>" shape=ellipse]
+	rcpts [label="rcpts
+'test@scrapy.org'" shape=ellipse]
+	ERROR__AttributeError [label="AttributeError
+'str' object has no attribute 'extend'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_send_single_values_to_and_cc
+	}
+	{
+		rank=same
+		__init__
+		send
+	}
+	test_send_single_values_to_and_cc -> __init__ [label="calls [#1]" color=blue penwidth=1.1]
+	test_send_single_values_to_and_cc -> mailsender [label=writes color=black]
+	test_send_single_values_to_and_cc -> send [label="calls [#2]" color=blue penwidth=1.1]
+	test_send_single_values_to_and_cc -> ERROR__AttributeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	send -> msg [label=writes color=black]
+	send -> rcpts [label=writes color=black]
+	send -> ERROR__AttributeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+}

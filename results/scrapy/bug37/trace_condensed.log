@@ -1,0 +1,476 @@
+Cleared: /path/to/results/scrapy/bug37
+Running: python -m unittest -q tests.test_http_request.RequestTest.test_url_no_scheme
+Workdir: /path/to/BugsInPy/workspace/scrapy
+PYTHONPATH: /path/to/BugsInPy/workspace/scrapy::
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_http_request.py
+IE_TRACE: Starting var:.. self = <tests.test_http_request.RequestTest testMethod=test_url_no_scheme>
+IE_TRACE: 12:42:57.523338 call        57     def test_url_no_scheme(self):
+IE_TRACE: 12:42:57.523645 line        58         self.assertRaises(ValueError, self.request_class, 'foo')
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/trackref.py
+IE_TRACE:             Starting var:.. cls = <class 'scrapy.http.request.Request'>
+IE_TRACE:             Starting var:.. args = ('foo',)
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             12:42:57.524541 call        30     def __new__(cls, *args, **kwargs):
+IE_TRACE:             12:42:57.524610 line        31         obj = object.__new__(cls)
+IE_TRACE:             New var:....... obj = REPR FAILED
+IE_TRACE:             12:42:57.524626 line        32         live_refs[cls][obj] = time()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/trackref.py
+IE_TRACE:             12:42:57.524978 line        33         return obj
+IE_TRACE:             12:42:57.525001 return      33         return obj
+IE_TRACE:             Return value:.. REPR FAILED
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/request/__init__.py
+IE_TRACE:             Starting var:.. self = REPR FAILED
+IE_TRACE:             Starting var:.. url = 'foo'
+IE_TRACE:             Starting var:.. callback = None
+IE_TRACE:             Starting var:.. method = 'GET'
+IE_TRACE:             Starting var:.. headers = None
+IE_TRACE:             Starting var:.. body = None
+IE_TRACE:             Starting var:.. cookies = None
+IE_TRACE:             Starting var:.. meta = None
+IE_TRACE:             Starting var:.. encoding = 'utf-8'
+IE_TRACE:             Starting var:.. priority = 0
+IE_TRACE:             Starting var:.. dont_filter = False
+IE_TRACE:             Starting var:.. errback = None
+IE_TRACE:             Starting var:.. flags = None
+IE_TRACE:             Starting var:.. cb_kwargs = None
+IE_TRACE:             12:42:57.525035 call        20     def __init__(self, url, callback=None, method='GET', headers=None, body=None,
+IE_TRACE:             12:42:57.525168 line        24         self._encoding = encoding  # this one has to be set first
+IE_TRACE:             12:42:57.525205 line        25         self.method = str(method).upper()
+IE_TRACE:             12:42:57.525233 line        26         self._set_url(url)
+IE_TRACE:                 Starting var:.. self = REPR FAILED
+IE_TRACE:                 Starting var:.. url = 'foo'
+IE_TRACE:                 12:42:57.525265 call        62     def _set_url(self, url):
+IE_TRACE:                 12:42:57.525292 line        63         if not isinstance(url, six.string_types):
+IE_TRACE:                 12:42:57.525308 line        66         s = safe_url_string(url, self.encoding)
+IE_TRACE:                     Starting var:.. self = REPR FAILED
+IE_TRACE:                     12:42:57.525326 call        86     def encoding(self):
+IE_TRACE:                     12:42:57.525349 line        87         return self._encoding
+IE_TRACE:                     12:42:57.525364 return      87         return self._encoding
+IE_TRACE:                     Return value:.. 'utf-8'
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     Starting var:.. url = 'foo'
+IE_TRACE:                     Starting var:.. encoding = 'utf-8'
+IE_TRACE:                     Starting var:.. path_encoding = 'utf8'
+IE_TRACE:                     Starting var:.. quote_path = True
+IE_TRACE:                     12:42:57.525398 call        90 def safe_url_string(  # pylint: disable=too-many-locals
+IE_TRACE:                     12:42:57.525532 line       139     decoded = to_unicode(url, encoding=encoding, errors="percentencode")
+IE_TRACE:                         Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/util.py
+IE_TRACE:                         Starting var:.. text = 'foo'
+IE_TRACE:                         Starting var:.. encoding = 'utf-8'
+IE_TRACE:                         Starting var:.. errors = 'percentencode'
+IE_TRACE:                         12:42:57.525558 call         4 def to_unicode(
+IE_TRACE:                         12:42:57.525615 line         9     if isinstance(text, str):
+IE_TRACE:                         12:42:57.525633 line        10         return text
+IE_TRACE:                         12:42:57.525650 return      10         return text
+IE_TRACE:                         Return value:.. 'foo'
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     New var:....... decoded = 'foo'
+IE_TRACE:                     12:42:57.525674 line       140     parts = urlsplit(_strip(decoded))
+IE_TRACE:                         Starting var:.. url = 'foo'
+IE_TRACE:                         12:42:57.525708 call        84 def _strip(url: str) -> str:
+IE_TRACE:                         12:42:57.525728 line        85     return url.strip(_C0_CONTROL_OR_SPACE).translate(
+IE_TRACE:                         12:42:57.525743 line        86         _ASCII_TAB_OR_NEWLINE_TRANSLATION_TABLE
+IE_TRACE:                         12:42:57.525756 line        85     return url.strip(_C0_CONTROL_OR_SPACE).translate(
+IE_TRACE:                         12:42:57.525771 return      85     return url.strip(_C0_CONTROL_OR_SPACE).translate(
+IE_TRACE:                         Return value:.. 'foo'
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     New var:....... parts = SplitResult(scheme='', netloc='', path='foo', query='', fragment='')
+IE_TRACE:                     12:42:57.527026 line       143         parts.username,
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     12:42:57.527317 line       144         parts.password,
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     12:42:57.527583 line       145         parts.hostname,
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     12:42:57.527975 line       146         parts.port,
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     12:42:57.528384 line       142     username, password, hostname, port = (
+IE_TRACE:                     New var:....... username = None
+IE_TRACE:                     New var:....... password = None
+IE_TRACE:                     New var:....... hostname = None
+IE_TRACE:                     New var:....... port = None
+IE_TRACE:                     12:42:57.528412 line       148     netloc_bytes = b""
+IE_TRACE:                     New var:....... netloc_bytes = b''
+IE_TRACE:                     12:42:57.528457 line       149     if username is not None or password is not None:
+IE_TRACE:                     12:42:57.528490 line       158     if hostname is not None:
+IE_TRACE:                     12:42:57.528517 line       170     if port is not None:
+IE_TRACE:                     12:42:57.528543 line       174     netloc = netloc_bytes.decode()
+IE_TRACE:                     New var:....... netloc = ''
+IE_TRACE:                     12:42:57.528568 line       177     if quote_path:
+IE_TRACE:                     12:42:57.528600 line       178         path = quote(parts.path.encode(path_encoding), _PATH_SAFEST_CHARS)
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     New var:....... path = 'foo'
+IE_TRACE:                     12:42:57.530814 line       182     if parts.scheme in _SPECIAL_SCHEMES:
+IE_TRACE:                     12:42:57.530856 line       185         query = quote(parts.query.encode(encoding), _QUERY_SAFEST_CHARS)
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     New var:....... query = ''
+IE_TRACE:                     12:42:57.531131 line       187     return urlunsplit(
+IE_TRACE:                     12:42:57.531172 line       189             parts.scheme,
+IE_TRACE:                     12:42:57.531205 line       190             netloc,
+IE_TRACE:                     12:42:57.531234 line       191             path,
+IE_TRACE:                     12:42:57.531262 line       192             query,
+IE_TRACE:                     12:42:57.531291 line       193             quote(parts.fragment.encode(encoding), _FRAGMENT_SAFEST_CHARS),
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     12:42:57.531560 line       188         (
+IE_TRACE:                     12:42:57.531595 line       187     return urlunsplit(
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     12:42:57.532189 return     187     return urlunsplit(
+IE_TRACE:                     Return value:.. 'foo'
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/request/__init__.py
+IE_TRACE:                 New var:....... s = 'foo'
+IE_TRACE:                 12:42:57.532242 line        67         self._url = escape_ajax(s)
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:                     Starting var:.. url = 'foo'
+IE_TRACE:                     12:42:57.532274 call        48 def escape_ajax(url):
+IE_TRACE:                     12:42:57.532337 line        71     defrag, frag = urldefrag(url)
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:                     New var:....... defrag = 'foo'
+IE_TRACE:                     New var:....... frag = ''
+IE_TRACE:                     12:42:57.532777 line        72     if not frag.startswith('!'):
+IE_TRACE:                     12:42:57.532809 line        73         return url
+IE_TRACE:                     12:42:57.532825 return      73         return url
+IE_TRACE:                     Return value:.. 'foo'
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/request/__init__.py
+IE_TRACE:                 Modified var:.. self = <GET foo>
+IE_TRACE:                 12:42:57.532847 line        69         if ':' not in self._url:
+IE_TRACE:                 12:42:57.532874 line        70             raise ValueError('Missing scheme in request url: %s' % self._url)
+IE_TRACE:                 12:42:57.532891 exception   70             raise ValueError('Missing scheme in request url: %s' % self._url)
+IE_TRACE:                 Exception:..... ValueError: Missing scheme in request url: foo
+IE_TRACE:                 Call ended by exception
+IE_TRACE:             Modified var:.. self = <GET foo>
+IE_TRACE:             12:42:57.532992 exception   26         self._set_url(url)
+IE_TRACE:             Exception:..... ValueError: Missing scheme in request url: foo
+IE_TRACE:             Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_http_request.py
+IE_TRACE: 12:42:57.534227 line        59         self.assertRaises(ValueError, self.request_class, '/foo/')
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/trackref.py
+IE_TRACE:             Starting var:.. cls = <class 'scrapy.http.request.Request'>
+IE_TRACE:             Starting var:.. args = ('/foo/',)
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             12:42:57.534909 call        30     def __new__(cls, *args, **kwargs):
+IE_TRACE:             12:42:57.534945 line        31         obj = object.__new__(cls)
+IE_TRACE:             New var:....... obj = REPR FAILED
+IE_TRACE:             12:42:57.534962 line        32         live_refs[cls][obj] = time()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/trackref.py
+IE_TRACE:             12:42:57.535072 line        33         return obj
+IE_TRACE:             12:42:57.535095 return      33         return obj
+IE_TRACE:             Return value:.. REPR FAILED
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/request/__init__.py
+IE_TRACE:             Starting var:.. self = REPR FAILED
+IE_TRACE:             Starting var:.. url = '/foo/'
+IE_TRACE:             Starting var:.. callback = None
+IE_TRACE:             Starting var:.. method = 'GET'
+IE_TRACE:             Starting var:.. headers = None
+IE_TRACE:             Starting var:.. body = None
+IE_TRACE:             Starting var:.. cookies = None
+IE_TRACE:             Starting var:.. meta = None
+IE_TRACE:             Starting var:.. encoding = 'utf-8'
+IE_TRACE:             Starting var:.. priority = 0
+IE_TRACE:             Starting var:.. dont_filter = False
+IE_TRACE:             Starting var:.. errback = None
+IE_TRACE:             Starting var:.. flags = None
+IE_TRACE:             Starting var:.. cb_kwargs = None
+IE_TRACE:             12:42:57.535121 call        20     def __init__(self, url, callback=None, method='GET', headers=None, body=None,
+IE_TRACE:             12:42:57.535362 line        24         self._encoding = encoding  # this one has to be set first
+IE_TRACE:             12:42:57.535533 line        25         self.method = str(method).upper()
+IE_TRACE:             12:42:57.535632 line        26         self._set_url(url)
+IE_TRACE:                 Starting var:.. self = REPR FAILED
+IE_TRACE:                 Starting var:.. url = '/foo/'
+IE_TRACE:                 12:42:57.535718 call        62     def _set_url(self, url):
+IE_TRACE:                 12:42:57.535790 line        63         if not isinstance(url, six.string_types):
+IE_TRACE:                 12:42:57.535835 line        66         s = safe_url_string(url, self.encoding)
+IE_TRACE:                     Starting var:.. self = REPR FAILED
+IE_TRACE:                     12:42:57.535877 call        86     def encoding(self):
+IE_TRACE:                     12:42:57.535928 line        87         return self._encoding
+IE_TRACE:                     12:42:57.535962 return      87         return self._encoding
+IE_TRACE:                     Return value:.. 'utf-8'
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     Starting var:.. url = '/foo/'
+IE_TRACE:                     Starting var:.. encoding = 'utf-8'
+IE_TRACE:                     Starting var:.. path_encoding = 'utf8'
+IE_TRACE:                     Starting var:.. quote_path = True
+IE_TRACE:                     12:42:57.536019 call        90 def safe_url_string(  # pylint: disable=too-many-locals
+IE_TRACE:                     12:42:57.536118 line       139     decoded = to_unicode(url, encoding=encoding, errors="percentencode")
+IE_TRACE:                         Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/util.py
+IE_TRACE:                         Starting var:.. text = '/foo/'
+IE_TRACE:                         Starting var:.. encoding = 'utf-8'
+IE_TRACE:                         Starting var:.. errors = 'percentencode'
+IE_TRACE:                         12:42:57.536170 call         4 def to_unicode(
+IE_TRACE:                         12:42:57.536258 line         9     if isinstance(text, str):
+IE_TRACE:                         12:42:57.536285 line        10         return text
+IE_TRACE:                         12:42:57.536302 return      10         return text
+IE_TRACE:                         Return value:.. '/foo/'
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     New var:....... decoded = '/foo/'
+IE_TRACE:                     12:42:57.536325 line       140     parts = urlsplit(_strip(decoded))
+IE_TRACE:                         Starting var:.. url = '/foo/'
+IE_TRACE:                         12:42:57.536360 call        84 def _strip(url: str) -> str:
+IE_TRACE:                         12:42:57.536380 line        85     return url.strip(_C0_CONTROL_OR_SPACE).translate(
+IE_TRACE:                         12:42:57.536395 line        86         _ASCII_TAB_OR_NEWLINE_TRANSLATION_TABLE
+IE_TRACE:                         12:42:57.536409 line        85     return url.strip(_C0_CONTROL_OR_SPACE).translate(
+IE_TRACE:                         12:42:57.536424 return      85     return url.strip(_C0_CONTROL_OR_SPACE).translate(
+IE_TRACE:                         Return value:.. '/foo/'
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     New var:....... parts = SplitResult(scheme='', netloc='', path='/foo/', query='', fragment='')
+IE_TRACE:                     12:42:57.537505 line       143         parts.username,
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     12:42:57.537793 line       144         parts.password,
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     12:42:57.538061 line       145         parts.hostname,
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     12:42:57.538455 line       146         parts.port,
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     12:42:57.538837 line       142     username, password, hostname, port = (
+IE_TRACE:                     New var:....... username = None
+IE_TRACE:                     New var:....... password = None
+IE_TRACE:                     New var:....... hostname = None
+IE_TRACE:                     New var:....... port = None
+IE_TRACE:                     12:42:57.538866 line       148     netloc_bytes = b""
+IE_TRACE:                     New var:....... netloc_bytes = b''
+IE_TRACE:                     12:42:57.538912 line       149     if username is not None or password is not None:
+IE_TRACE:                     12:42:57.538945 line       158     if hostname is not None:
+IE_TRACE:                     12:42:57.538972 line       170     if port is not None:
+IE_TRACE:                     12:42:57.538999 line       174     netloc = netloc_bytes.decode()
+IE_TRACE:                     New var:....... netloc = ''
+IE_TRACE:                     12:42:57.539025 line       177     if quote_path:
+IE_TRACE:                     12:42:57.539058 line       178         path = quote(parts.path.encode(path_encoding), _PATH_SAFEST_CHARS)
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     New var:....... path = '/foo/'
+IE_TRACE:                     12:42:57.541278 line       182     if parts.scheme in _SPECIAL_SCHEMES:
+IE_TRACE:                     12:42:57.541320 line       185         query = quote(parts.query.encode(encoding), _QUERY_SAFEST_CHARS)
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     New var:....... query = ''
+IE_TRACE:                     12:42:57.541595 line       187     return urlunsplit(
+IE_TRACE:                     12:42:57.541637 line       189             parts.scheme,
+IE_TRACE:                     12:42:57.541667 line       190             netloc,
+IE_TRACE:                     12:42:57.541695 line       191             path,
+IE_TRACE:                     12:42:57.541724 line       192             query,
+IE_TRACE:                     12:42:57.541753 line       193             quote(parts.fragment.encode(encoding), _FRAGMENT_SAFEST_CHARS),
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     12:42:57.542023 line       188         (
+IE_TRACE:                     12:42:57.542058 line       187     return urlunsplit(
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     12:42:57.542652 return     187     return urlunsplit(
+IE_TRACE:                     Return value:.. '/foo/'
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/request/__init__.py
+IE_TRACE:                 New var:....... s = '/foo/'
+IE_TRACE:                 12:42:57.542696 line        67         self._url = escape_ajax(s)
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:                     Starting var:.. url = '/foo/'
+IE_TRACE:                     12:42:57.542727 call        48 def escape_ajax(url):
+IE_TRACE:                     12:42:57.542753 line        71     defrag, frag = urldefrag(url)
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:                     New var:....... defrag = '/foo/'
+IE_TRACE:                     New var:....... frag = ''
+IE_TRACE:                     12:42:57.543175 line        72     if not frag.startswith('!'):
+IE_TRACE:                     12:42:57.543210 line        73         return url
+IE_TRACE:                     12:42:57.543226 return      73         return url
+IE_TRACE:                     Return value:.. '/foo/'
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/request/__init__.py
+IE_TRACE:                 Modified var:.. self = <GET /foo/>
+IE_TRACE:                 12:42:57.543248 line        69         if ':' not in self._url:
+IE_TRACE:                 12:42:57.543275 line        70             raise ValueError('Missing scheme in request url: %s' % self._url)
+IE_TRACE:                 12:42:57.543292 exception   70             raise ValueError('Missing scheme in request url: %s' % self._url)
+IE_TRACE:                 Exception:..... ValueError: Missing scheme in request url: /foo/
+IE_TRACE:                 Call ended by exception
+IE_TRACE:             Modified var:.. self = <GET /foo/>
+IE_TRACE:             12:42:57.543347 exception   26         self._set_url(url)
+IE_TRACE:             Exception:..... ValueError: Missing scheme in request url: /foo/
+IE_TRACE:             Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_http_request.py
+IE_TRACE: 12:42:57.544246 line        60         self.assertRaises(ValueError, self.request_class, '/foo:bar')
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/trackref.py
+IE_TRACE:             Starting var:.. cls = <class 'scrapy.http.request.Request'>
+IE_TRACE:             Starting var:.. args = ('/foo:bar',)
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             12:42:57.544909 call        30     def __new__(cls, *args, **kwargs):
+IE_TRACE:             12:42:57.544946 line        31         obj = object.__new__(cls)
+IE_TRACE:             New var:....... obj = REPR FAILED
+IE_TRACE:             12:42:57.544961 line        32         live_refs[cls][obj] = time()
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/trackref.py
+IE_TRACE:             12:42:57.545067 line        33         return obj
+IE_TRACE:             12:42:57.545090 return      33         return obj
+IE_TRACE:             Return value:.. REPR FAILED
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/request/__init__.py
+IE_TRACE:             Starting var:.. self = REPR FAILED
+IE_TRACE:             Starting var:.. url = '/foo:bar'
+IE_TRACE:             Starting var:.. callback = None
+IE_TRACE:             Starting var:.. method = 'GET'
+IE_TRACE:             Starting var:.. headers = None
+IE_TRACE:             Starting var:.. body = None
+IE_TRACE:             Starting var:.. cookies = None
+IE_TRACE:             Starting var:.. meta = None
+IE_TRACE:             Starting var:.. encoding = 'utf-8'
+IE_TRACE:             Starting var:.. priority = 0
+IE_TRACE:             Starting var:.. dont_filter = False
+IE_TRACE:             Starting var:.. errback = None
+IE_TRACE:             Starting var:.. flags = None
+IE_TRACE:             Starting var:.. cb_kwargs = None
+IE_TRACE:             12:42:57.545116 call        20     def __init__(self, url, callback=None, method='GET', headers=None, body=None,
+IE_TRACE:             12:42:57.545223 line        24         self._encoding = encoding  # this one has to be set first
+IE_TRACE:             12:42:57.545252 line        25         self.method = str(method).upper()
+IE_TRACE:             12:42:57.545280 line        26         self._set_url(url)
+IE_TRACE:                 Starting var:.. self = REPR FAILED
+IE_TRACE:                 Starting var:.. url = '/foo:bar'
+IE_TRACE:                 12:42:57.545310 call        62     def _set_url(self, url):
+IE_TRACE:                 12:42:57.545336 line        63         if not isinstance(url, six.string_types):
+IE_TRACE:                 12:42:57.545353 line        66         s = safe_url_string(url, self.encoding)
+IE_TRACE:                     Starting var:.. self = REPR FAILED
+IE_TRACE:                     12:42:57.545369 call        86     def encoding(self):
+IE_TRACE:                     12:42:57.545391 line        87         return self._encoding
+IE_TRACE:                     12:42:57.545405 return      87         return self._encoding
+IE_TRACE:                     Return value:.. 'utf-8'
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     Starting var:.. url = '/foo:bar'
+IE_TRACE:                     Starting var:.. encoding = 'utf-8'
+IE_TRACE:                     Starting var:.. path_encoding = 'utf8'
+IE_TRACE:                     Starting var:.. quote_path = True
+IE_TRACE:                     12:42:57.545428 call        90 def safe_url_string(  # pylint: disable=too-many-locals
+IE_TRACE:                     12:42:57.545474 line       139     decoded = to_unicode(url, encoding=encoding, errors="percentencode")
+IE_TRACE:                         Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/util.py
+IE_TRACE:                         Starting var:.. text = '/foo:bar'
+IE_TRACE:                         Starting var:.. encoding = 'utf-8'
+IE_TRACE:                         Starting var:.. errors = 'percentencode'
+IE_TRACE:                         12:42:57.545495 call         4 def to_unicode(
+IE_TRACE:                         12:42:57.545532 line         9     if isinstance(text, str):
+IE_TRACE:                         12:42:57.545549 line        10         return text
+IE_TRACE:                         12:42:57.545566 return      10         return text
+IE_TRACE:                         Return value:.. '/foo:bar'
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     New var:....... decoded = '/foo:bar'
+IE_TRACE:                     12:42:57.545588 line       140     parts = urlsplit(_strip(decoded))
+IE_TRACE:                         Starting var:.. url = '/foo:bar'
+IE_TRACE:                         12:42:57.545621 call        84 def _strip(url: str) -> str:
+IE_TRACE:                         12:42:57.545641 line        85     return url.strip(_C0_CONTROL_OR_SPACE).translate(
+IE_TRACE:                         12:42:57.545655 line        86         _ASCII_TAB_OR_NEWLINE_TRANSLATION_TABLE
+IE_TRACE:                         12:42:57.545669 line        85     return url.strip(_C0_CONTROL_OR_SPACE).translate(
+IE_TRACE:                         12:42:57.545685 return      85     return url.strip(_C0_CONTROL_OR_SPACE).translate(
+IE_TRACE:                         Return value:.. '/foo:bar'
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     New var:....... parts = SplitResult(scheme='', netloc='', path='/foo:bar', query='', fragment='')
+IE_TRACE:                     12:42:57.546756 line       143         parts.username,
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     12:42:57.547032 line       144         parts.password,
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     12:42:57.547297 line       145         parts.hostname,
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     12:42:57.547685 line       146         parts.port,
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     12:42:57.548062 line       142     username, password, hostname, port = (
+IE_TRACE:                     New var:....... username = None
+IE_TRACE:                     New var:....... password = None
+IE_TRACE:                     New var:....... hostname = None
+IE_TRACE:                     New var:....... port = None
+IE_TRACE:                     12:42:57.548095 line       148     netloc_bytes = b""
+IE_TRACE:                     New var:....... netloc_bytes = b''
+IE_TRACE:                     12:42:57.548159 line       149     if username is not None or password is not None:
+IE_TRACE:                     12:42:57.548206 line       158     if hostname is not None:
+IE_TRACE:                     12:42:57.548244 line       170     if port is not None:
+IE_TRACE:                     12:42:57.548282 line       174     netloc = netloc_bytes.decode()
+IE_TRACE:                     New var:....... netloc = ''
+IE_TRACE:                     12:42:57.548319 line       177     if quote_path:
+IE_TRACE:                     12:42:57.548363 line       178         path = quote(parts.path.encode(path_encoding), _PATH_SAFEST_CHARS)
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     New var:....... path = '/foo:bar'
+IE_TRACE:                     12:42:57.550368 line       182     if parts.scheme in _SPECIAL_SCHEMES:
+IE_TRACE:                     12:42:57.550406 line       185         query = quote(parts.query.encode(encoding), _QUERY_SAFEST_CHARS)
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     New var:....... query = ''
+IE_TRACE:                     12:42:57.550650 line       187     return urlunsplit(
+IE_TRACE:                     12:42:57.550685 line       189             parts.scheme,
+IE_TRACE:                     12:42:57.550715 line       190             netloc,
+IE_TRACE:                     12:42:57.550743 line       191             path,
+IE_TRACE:                     12:42:57.550771 line       192             query,
+IE_TRACE:                     12:42:57.550798 line       193             quote(parts.fragment.encode(encoding), _FRAGMENT_SAFEST_CHARS),
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     12:42:57.551037 line       188         (
+IE_TRACE:                     12:42:57.551069 line       187     return urlunsplit(
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                     12:42:57.551601 return     187     return urlunsplit(
+IE_TRACE:                     Return value:.. '/foo:bar'
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/request/__init__.py
+IE_TRACE:                 New var:....... s = '/foo:bar'
+IE_TRACE:                 12:42:57.551641 line        67         self._url = escape_ajax(s)
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:                     Starting var:.. url = '/foo:bar'
+IE_TRACE:                     12:42:57.551668 call        48 def escape_ajax(url):
+IE_TRACE:                     12:42:57.551688 line        71     defrag, frag = urldefrag(url)
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:                     New var:....... defrag = '/foo:bar'
+IE_TRACE:                     New var:....... frag = ''
+IE_TRACE:                     12:42:57.552052 line        72     if not frag.startswith('!'):
+IE_TRACE:                     12:42:57.552076 line        73         return url
+IE_TRACE:                     12:42:57.552090 return      73         return url
+IE_TRACE:                     Return value:.. '/foo:bar'
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/request/__init__.py
+IE_TRACE:                 Modified var:.. self = <GET /foo:bar>
+IE_TRACE:                 12:42:57.552109 line        69         if ':' not in self._url:
+IE_TRACE:                 12:42:57.552131 return      69         if ':' not in self._url:
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Modified var:.. self = <GET /foo:bar>
+IE_TRACE:             12:42:57.552151 line        27         self._set_body(body)
+IE_TRACE:                 Starting var:.. self = <GET /foo:bar>
+IE_TRACE:                 Starting var:.. body = None
+IE_TRACE:                 12:42:57.552186 call        77     def _set_body(self, body):
+IE_TRACE:                 12:42:57.552210 line        78         if body is None:
+IE_TRACE:                 12:42:57.552224 line        79             self._body = b''
+IE_TRACE:                 12:42:57.552237 return      79             self._body = b''
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             12:42:57.552255 line        28         assert isinstance(priority, int), "Request priority not an integer: %r" % priority
+IE_TRACE:             12:42:57.552282 line        29         self.priority = priority
+IE_TRACE:             12:42:57.552308 line        31         if callback is not None and not callable(callback):
+IE_TRACE:             12:42:57.552333 line        33         if errback is not None and not callable(errback):
+IE_TRACE:             12:42:57.552358 line        35         assert callback or not errback, "Cannot use errback without a callback"
+IE_TRACE:             12:42:57.552383 line        36         self.callback = callback
+IE_TRACE:             12:42:57.552408 line        37         self.errback = errback
+IE_TRACE:             12:42:57.552433 line        39         self.cookies = cookies or {}
+IE_TRACE:             12:42:57.552458 line        40         self.headers = Headers(headers or {}, encoding=encoding)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/headers.py
+IE_TRACE:                 Starting var:.. self = {}
+IE_TRACE:                 Starting var:.. seq = {}
+IE_TRACE:                 Starting var:.. encoding = 'utf-8'
+IE_TRACE:                 Starting var:.. __class__ = <class 'scrapy.http.headers.Headers'>
+IE_TRACE:                 12:42:57.552487 call        10     def __init__(self, seq=None, encoding='utf-8'):
+IE_TRACE:                 12:42:57.552571 line        11         self.encoding = encoding
+IE_TRACE:                 12:42:57.552588 line        12         super(Headers, self).__init__(seq)
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/datatypes.py
+IE_TRACE:                     Starting var:.. self = {}
+IE_TRACE:                     Starting var:.. seq = {}
+IE_TRACE:                     Starting var:.. __class__ = <class 'scrapy.utils.datatypes.CaselessDict'>
+IE_TRACE:                     12:42:57.552606 call       197     def __init__(self, seq=None):
+IE_TRACE:                     12:42:57.552673 line       198         super(CaselessDict, self).__init__()
+IE_TRACE:                     12:42:57.552689 line       199         if seq:
+IE_TRACE:                     12:42:57.552703 return     199         if seq:
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/headers.py
+IE_TRACE:                 12:42:57.552723 return      12         super(Headers, self).__init__(seq)
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/request/__init__.py
+IE_TRACE:             12:42:57.552747 line        41         self.dont_filter = dont_filter
+IE_TRACE:             12:42:57.552778 line        43         self._meta = dict(meta) if meta else None
+IE_TRACE:             12:42:57.552805 line        44         self._cb_kwargs = dict(cb_kwargs) if cb_kwargs else None
+IE_TRACE:             12:42:57.552831 line        45         self.flags = [] if flags is None else list(flags)
+IE_TRACE:             12:42:57.552857 return      45         self.flags = [] if flags is None else list(flags)
+IE_TRACE:             Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_http_request.py
+IE_TRACE: 12:42:57.553585 exception   60         self.assertRaises(ValueError, self.request_class, '/foo:bar')
+IE_TRACE: Exception:..... AssertionError: ValueError not raised by Request
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.030431
+======================================================================
+FAIL: test_url_no_scheme (tests.test_http_request.RequestTest.test_url_no_scheme)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/tests/test_http_request.py", line 60, in test_url_no_scheme
+    self.assertRaises(ValueError, self.request_class, '/foo:bar')
+AssertionError: ValueError not raised by Request
+
+----------------------------------------------------------------------
+Ran 1 test in 0.031s
+
+FAILED (failures=1)
+
+
+Exit code: 1

@@ -1,0 +1,423 @@
+Cleared: /path/to/results/scrapy/bug14
+Running: python -m unittest -q tests.test_utils_gz.GunzipTest.test_is_gzipped_case_insensitive
+Workdir: /path/to/BugsInPy/workspace/scrapy
+PYTHONPATH: /path/to/BugsInPy/workspace/scrapy::
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_gz.py
+IE_TRACE: Starting var:.. self = <tests.test_utils_gz.GunzipTest testMethod=test_is_gzipped_case_insensitive>
+IE_TRACE: 12:33:50.092955 call        50     def test_is_gzipped_case_insensitive(self):
+IE_TRACE: 12:33:50.093128 line        51         hdrs = Headers({"Content-Type": "Application/X-Gzip"})
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/headers.py
+IE_TRACE:     Starting var:.. self = {}
+IE_TRACE:     Starting var:.. seq = {'Content-Type': 'Application/X-Gzip'}
+IE_TRACE:     Starting var:.. encoding = 'utf-8'
+IE_TRACE:     Starting var:.. __class__ = <class 'scrapy.http.headers.Headers'>
+IE_TRACE:     12:33:50.093162 call        10     def __init__(self, seq=None, encoding='utf-8'):
+IE_TRACE:     12:33:50.093251 line        11         self.encoding = encoding
+IE_TRACE:     12:33:50.093273 line        12         super(Headers, self).__init__(seq)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/datatypes.py
+IE_TRACE:         Starting var:.. self = {}
+IE_TRACE:         Starting var:.. seq = {'Content-Type': 'Application/X-Gzip'}
+IE_TRACE:         Starting var:.. __class__ = <class 'scrapy.utils.datatypes.CaselessDict'>
+IE_TRACE:         12:33:50.093294 call       190     def __init__(self, seq=None):
+IE_TRACE:         12:33:50.093367 line       191         super(CaselessDict, self).__init__()
+IE_TRACE:         12:33:50.093386 line       192         if seq:
+IE_TRACE:         12:33:50.093401 line       193             self.update(seq)
+IE_TRACE:             Starting var:.. self = {}
+IE_TRACE:             Starting var:.. seq = {'Content-Type': 'Application/X-Gzip'}
+IE_TRACE:             Starting var:.. __class__ = <class 'scrapy.utils.datatypes.CaselessDict'>
+IE_TRACE:             12:33:50.093419 call       226     def update(self, seq):
+IE_TRACE:             12:33:50.093450 line       227         seq = seq.items() if isinstance(seq, dict) else seq
+IE_TRACE:             Modified var:.. seq = dict_items([('Content-Type', 'Application/X-Gzip')])
+IE_TRACE:             12:33:50.093465 line       228         iseq = ((self.normkey(k), self.normvalue(v)) for k, v in seq)
+IE_TRACE:             New var:....... iseq = <generator object CaselessDict.update.<locals>.<genexpr> at 0x74c178aff970>
+IE_TRACE:             12:33:50.093489 line       229         super(CaselessDict, self).update(iseq)
+IE_TRACE:                 Starting var:.. .0 = <dict_itemiterator object at 0x74c1789d5530>
+IE_TRACE:                 Starting var:.. self = {}
+IE_TRACE:                 12:33:50.093514 call       228         iseq = ((self.normkey(k), self.normvalue(v)) for k, v in seq)
+IE_TRACE:                 12:33:50.093540 line       228         iseq = ((self.normkey(k), self.normvalue(v)) for k, v in seq)
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/headers.py
+IE_TRACE:                     Starting var:.. self = {}
+IE_TRACE:                     Starting var:.. key = 'Content-Type'
+IE_TRACE:                     12:33:50.093557 call        14     def normkey(self, key):
+IE_TRACE:                     12:33:50.093584 line        16         return self._tobytes(key.title())
+IE_TRACE:                         Starting var:.. self = {}
+IE_TRACE:                         Starting var:.. x = 'Content-Type'
+IE_TRACE:                         12:33:50.093602 call        29     def _tobytes(self, x):
+IE_TRACE:                         12:33:50.093625 line        30         if isinstance(x, bytes):
+IE_TRACE:                         12:33:50.093638 line        32         elif isinstance(x, six.text_type):
+IE_TRACE:                         12:33:50.093651 line        33             return x.encode(self.encoding)
+IE_TRACE:                         12:33:50.093663 return      33             return x.encode(self.encoding)
+IE_TRACE:                         Return value:.. b'Content-Type'
+IE_TRACE:                     12:33:50.093684 return      16         return self._tobytes(key.title())
+IE_TRACE:                     Return value:.. b'Content-Type'
+IE_TRACE:                     Starting var:.. self = {}
+IE_TRACE:                     Starting var:.. value = 'Application/X-Gzip'
+IE_TRACE:                     12:33:50.093708 call        18     def normvalue(self, value):
+IE_TRACE:                     12:33:50.093729 line        20         if value is None:
+IE_TRACE:                     12:33:50.093742 line        22         elif isinstance(value, (six.text_type, bytes)):
+IE_TRACE:                     12:33:50.093755 line        23             value = [value]
+IE_TRACE:                     Modified var:.. value = ['Application/X-Gzip']
+IE_TRACE:                     12:33:50.093770 line        27         return [self._tobytes(x) for x in value]
+IE_TRACE:                         Starting var:.. self = {}
+IE_TRACE:                         Starting var:.. x = 'Application/X-Gzip'
+IE_TRACE:                         12:33:50.093788 call        29     def _tobytes(self, x):
+IE_TRACE:                         12:33:50.093809 line        30         if isinstance(x, bytes):
+IE_TRACE:                         12:33:50.093823 line        32         elif isinstance(x, six.text_type):
+IE_TRACE:                         12:33:50.093836 line        33             return x.encode(self.encoding)
+IE_TRACE:                         12:33:50.093849 return      33             return x.encode(self.encoding)
+IE_TRACE:                         Return value:.. b'Application/X-Gzip'
+IE_TRACE:                     New var:....... x = 'Application/X-Gzip'
+IE_TRACE:                     12:33:50.093867 line        27         return [self._tobytes(x) for x in value]
+IE_TRACE:                     12:33:50.093884 return      27         return [self._tobytes(x) for x in value]
+IE_TRACE:                     Return value:.. [b'Application/X-Gzip']
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/datatypes.py
+IE_TRACE:                 New var:....... k = 'Content-Type'
+IE_TRACE:                 New var:....... v = 'Application/X-Gzip'
+IE_TRACE:                 12:33:50.093903 return     228         iseq = ((self.normkey(k), self.normvalue(v)) for k, v in seq)
+IE_TRACE:                 Return value:.. (b'Content-Type', [b'Application/X-Gzip'])
+IE_TRACE:                 Starting var:.. .0 = <dict_itemiterator object at 0x74c1789d5530>
+IE_TRACE:                 Starting var:.. k = 'Content-Type'
+IE_TRACE:                 Starting var:.. v = 'Application/X-Gzip'
+IE_TRACE:                 Starting var:.. self = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE:                 12:33:50.093937 call       228         iseq = ((self.normkey(k), self.normvalue(v)) for k, v in seq)
+IE_TRACE:                 12:33:50.093967 line       228         iseq = ((self.normkey(k), self.normvalue(v)) for k, v in seq)
+IE_TRACE:                 12:33:50.093982 return     228         iseq = ((self.normkey(k), self.normvalue(v)) for k, v in seq)
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Modified var:.. self = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE:             12:33:50.094004 return     229         super(CaselessDict, self).update(iseq)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Modified var:.. self = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE:         12:33:50.094030 return     193             self.update(seq)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/headers.py
+IE_TRACE:     Modified var:.. self = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE:     12:33:50.094053 return      12         super(Headers, self).__init__(seq)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_gz.py
+IE_TRACE: New var:....... hdrs = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE: 12:33:50.094080 line        52         r1 = Response("http://www.example.com", headers=hdrs)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/trackref.py
+IE_TRACE:     Starting var:.. cls = <class 'scrapy.http.response.Response'>
+IE_TRACE:     Starting var:.. args = ('http://www.example.com',)
+IE_TRACE:     Starting var:.. kwargs = {'headers': {b'Content-Type': [b'Application/X-Gzip']}}
+IE_TRACE:     12:33:50.094108 call        30     def __new__(cls, *args, **kwargs):
+IE_TRACE:     12:33:50.094164 line        31         obj = object.__new__(cls)
+IE_TRACE:     New var:....... obj = REPR FAILED
+IE_TRACE:     12:33:50.094179 line        32         live_refs[cls][obj] = time()
+IE_TRACE:         Source path:... /usr/lib/python3.12/weakref.py
+IE_TRACE:         Starting var:.. self = <WeakKeyDictionary at 0x74c1789a3ce0>
+IE_TRACE:         Starting var:.. dict = None
+IE_TRACE:         12:33:50.094213 call       367     def __init__(self, dict=None):
+IE_TRACE:         12:33:50.094298 line       368         self.data = {}
+IE_TRACE:         12:33:50.094313 line       369         def remove(k, selfref=ref(self)):
+IE_TRACE:         New var:....... remove = <function WeakKeyDictionary.__init__.<locals>.remove at 0x74c1789cc2c0>
+IE_TRACE:         12:33:50.094327 line       379         self._remove = remove
+IE_TRACE:         12:33:50.094346 line       381         self._pending_removals = []
+IE_TRACE:         12:33:50.094363 line       382         self._iterating = set()
+IE_TRACE:         12:33:50.094378 line       383         self._dirty_len = False
+IE_TRACE:         12:33:50.094392 line       384         if dict is not None:
+IE_TRACE:         12:33:50.094405 return     384         if dict is not None:
+IE_TRACE:         Return value:.. None
+IE_TRACE:         Starting var:.. self = <WeakKeyDictionary at 0x74c1789a3ce0>
+IE_TRACE:         Starting var:.. key = REPR FAILED
+IE_TRACE:         Starting var:.. value = 1780556630.0942054
+IE_TRACE:         12:33:50.094425 call       427     def __setitem__(self, key, value):
+IE_TRACE:         12:33:50.094457 line       428         self.data[ref(key, self._remove)] = value
+IE_TRACE:         12:33:50.094474 return     428         self.data[ref(key, self._remove)] = value
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/trackref.py
+IE_TRACE:     12:33:50.094494 line        33         return obj
+IE_TRACE:     12:33:50.094515 return      33         return obj
+IE_TRACE:     Return value:.. REPR FAILED
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/response/__init__.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. url = 'http://www.example.com'
+IE_TRACE:     Starting var:.. status = 200
+IE_TRACE:     Starting var:.. headers = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE:     Starting var:.. body = b''
+IE_TRACE:     Starting var:.. flags = None
+IE_TRACE:     Starting var:.. request = None
+IE_TRACE:     12:33:50.094541 call        16     def __init__(self, url, status=200, headers=None, body=b'', flags=None, request=None):
+IE_TRACE:     12:33:50.094614 line        17         self.headers = Headers(headers or {})
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/headers.py
+IE_TRACE:         Starting var:.. self = {}
+IE_TRACE:         Starting var:.. seq = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE:         Starting var:.. encoding = 'utf-8'
+IE_TRACE:         Starting var:.. __class__ = <class 'scrapy.http.headers.Headers'>
+IE_TRACE:         12:33:50.094636 call        10     def __init__(self, seq=None, encoding='utf-8'):
+IE_TRACE:         12:33:50.094668 line        11         self.encoding = encoding
+IE_TRACE:         12:33:50.094683 line        12         super(Headers, self).__init__(seq)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/datatypes.py
+IE_TRACE:             Starting var:.. self = {}
+IE_TRACE:             Starting var:.. seq = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE:             Starting var:.. __class__ = <class 'scrapy.utils.datatypes.CaselessDict'>
+IE_TRACE:             12:33:50.094698 call       190     def __init__(self, seq=None):
+IE_TRACE:             12:33:50.094725 line       191         super(CaselessDict, self).__init__()
+IE_TRACE:             12:33:50.094738 line       192         if seq:
+IE_TRACE:             12:33:50.094751 line       193             self.update(seq)
+IE_TRACE:                 Starting var:.. self = {}
+IE_TRACE:                 Starting var:.. seq = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE:                 Starting var:.. __class__ = <class 'scrapy.utils.datatypes.CaselessDict'>
+IE_TRACE:                 12:33:50.094765 call       226     def update(self, seq):
+IE_TRACE:                 12:33:50.094789 line       227         seq = seq.items() if isinstance(seq, dict) else seq
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/headers.py
+IE_TRACE:                     Starting var:.. self = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE:                     12:33:50.094805 call        70     def items(self):
+IE_TRACE:                     12:33:50.094824 line        71         return list(self.iteritems())
+IE_TRACE:                         Starting var:.. self = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE:                         12:33:50.094838 call        73     def iteritems(self):
+IE_TRACE:                         12:33:50.094855 line        74         return ((k, self.getlist(k)) for k in self.keys())
+IE_TRACE:                         12:33:50.094868 return      74         return ((k, self.getlist(k)) for k in self.keys())
+IE_TRACE:                         Return value:.. <generator object Headers.iteritems.<locals>.<genexpr> at 0x74c17899de00>
+IE_TRACE:                         Starting var:.. .0 = <dict_keyiterator object at 0x74c1789dfb50>
+IE_TRACE:                         Starting var:.. self = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE:                         12:33:50.094888 call        74         return ((k, self.getlist(k)) for k in self.keys())
+IE_TRACE:                         12:33:50.094910 line        74         return ((k, self.getlist(k)) for k in self.keys())
+IE_TRACE:                             Starting var:.. self = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE:                             Starting var:.. key = b'Content-Type'
+IE_TRACE:                             Starting var:.. def_val = None
+IE_TRACE:                             Starting var:.. __class__ = <class 'scrapy.http.headers.Headers'>
+IE_TRACE:                             12:33:50.094928 call        51     def getlist(self, key, def_val=None):
+IE_TRACE:                             12:33:50.094959 line        52         try:
+IE_TRACE:                             12:33:50.094974 line        53             return super(Headers, self).__getitem__(key)
+IE_TRACE:                                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/datatypes.py
+IE_TRACE:                                 Starting var:.. self = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE:                                 Starting var:.. key = b'Content-Type'
+IE_TRACE:                                 12:33:50.094993 call       195     def __getitem__(self, key):
+IE_TRACE:                                 12:33:50.095017 line       196         return dict.__getitem__(self, self.normkey(key))
+IE_TRACE:                                     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/headers.py
+IE_TRACE:                                     Starting var:.. self = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE:                                     Starting var:.. key = b'Content-Type'
+IE_TRACE:                                     12:33:50.095031 call        14     def normkey(self, key):
+IE_TRACE:                                     12:33:50.095056 line        16         return self._tobytes(key.title())
+IE_TRACE:                                     12:33:50.095074 return      16         return self._tobytes(key.title())
+IE_TRACE:                                     Return value:.. b'Content-Type'
+IE_TRACE:                                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/datatypes.py
+IE_TRACE:                                 12:33:50.095093 return     196         return dict.__getitem__(self, self.normkey(key))
+IE_TRACE:                                 Return value:.. [b'Application/X-Gzip']
+IE_TRACE:                             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/headers.py
+IE_TRACE:                             12:33:50.095115 return      53             return super(Headers, self).__getitem__(key)
+IE_TRACE:                             Return value:.. [b'Application/X-Gzip']
+IE_TRACE:                         New var:....... k = b'Content-Type'
+IE_TRACE:                         12:33:50.095139 return      74         return ((k, self.getlist(k)) for k in self.keys())
+IE_TRACE:                         Return value:.. (b'Content-Type', [b'Application/X-Gzip'])
+IE_TRACE:                         Starting var:.. .0 = <dict_keyiterator object at 0x74c1789dfb50>
+IE_TRACE:                         Starting var:.. k = b'Content-Type'
+IE_TRACE:                         Starting var:.. self = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE:                         12:33:50.095162 call        74         return ((k, self.getlist(k)) for k in self.keys())
+IE_TRACE:                         12:33:50.095186 line        74         return ((k, self.getlist(k)) for k in self.keys())
+IE_TRACE:                         12:33:50.095206 return      74         return ((k, self.getlist(k)) for k in self.keys())
+IE_TRACE:                         Return value:.. None
+IE_TRACE:                     12:33:50.095226 return      71         return list(self.iteritems())
+IE_TRACE:                     Return value:.. [(b'Content-Type', [b'Application/X-Gzip'])]
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/datatypes.py
+IE_TRACE:                 Modified var:.. seq = [(b'Content-Type', [b'Application/X-Gzip'])]
+IE_TRACE:                 12:33:50.095243 line       228         iseq = ((self.normkey(k), self.normvalue(v)) for k, v in seq)
+IE_TRACE:                 New var:....... iseq = <generator object CaselessDict.update.<locals>.<genexpr> at 0x74c178aff970>
+IE_TRACE:                 12:33:50.095266 line       229         super(CaselessDict, self).update(iseq)
+IE_TRACE:                     Starting var:.. .0 = <list_iterator object at 0x74c1789e4a60>
+IE_TRACE:                     Starting var:.. self = {}
+IE_TRACE:                     12:33:50.095286 call       228         iseq = ((self.normkey(k), self.normvalue(v)) for k, v in seq)
+IE_TRACE:                     12:33:50.095307 line       228         iseq = ((self.normkey(k), self.normvalue(v)) for k, v in seq)
+IE_TRACE:                         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/headers.py
+IE_TRACE:                         Starting var:.. self = {}
+IE_TRACE:                         Starting var:.. key = b'Content-Type'
+IE_TRACE:                         12:33:50.095321 call        14     def normkey(self, key):
+IE_TRACE:                         12:33:50.095344 line        16         return self._tobytes(key.title())
+IE_TRACE:                             Starting var:.. self = {}
+IE_TRACE:                             Starting var:.. x = b'Content-Type'
+IE_TRACE:                             12:33:50.095357 call        29     def _tobytes(self, x):
+IE_TRACE:                             12:33:50.095377 line        30         if isinstance(x, bytes):
+IE_TRACE:                             12:33:50.095390 line        31             return x
+IE_TRACE:                             12:33:50.095402 return      31             return x
+IE_TRACE:                             Return value:.. b'Content-Type'
+IE_TRACE:                         12:33:50.095419 return      16         return self._tobytes(key.title())
+IE_TRACE:                         Return value:.. b'Content-Type'
+IE_TRACE:                         Starting var:.. self = {}
+IE_TRACE:                         Starting var:.. value = [b'Application/X-Gzip']
+IE_TRACE:                         12:33:50.095436 call        18     def normvalue(self, value):
+IE_TRACE:                         12:33:50.095455 line        20         if value is None:
+IE_TRACE:                         12:33:50.095468 line        22         elif isinstance(value, (six.text_type, bytes)):
+IE_TRACE:                         12:33:50.095481 line        24         elif not hasattr(value, '__iter__'):
+IE_TRACE:                         12:33:50.095493 line        27         return [self._tobytes(x) for x in value]
+IE_TRACE:                             Starting var:.. self = {}
+IE_TRACE:                             Starting var:.. x = b'Application/X-Gzip'
+IE_TRACE:                             12:33:50.095507 call        29     def _tobytes(self, x):
+IE_TRACE:                             12:33:50.095526 line        30         if isinstance(x, bytes):
+IE_TRACE:                             12:33:50.095539 line        31             return x
+IE_TRACE:                             12:33:50.095552 return      31             return x
+IE_TRACE:                             Return value:.. b'Application/X-Gzip'
+IE_TRACE:                         New var:....... x = b'Application/X-Gzip'
+IE_TRACE:                         12:33:50.095569 line        27         return [self._tobytes(x) for x in value]
+IE_TRACE:                         12:33:50.095586 return      27         return [self._tobytes(x) for x in value]
+IE_TRACE:                         Return value:.. [b'Application/X-Gzip']
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/datatypes.py
+IE_TRACE:                     New var:....... k = b'Content-Type'
+IE_TRACE:                     New var:....... v = [b'Application/X-Gzip']
+IE_TRACE:                     12:33:50.095603 return     228         iseq = ((self.normkey(k), self.normvalue(v)) for k, v in seq)
+IE_TRACE:                     Return value:.. (b'Content-Type', [b'Application/X-Gzip'])
+IE_TRACE:                     Starting var:.. .0 = <list_iterator object at 0x74c1789e4a60>
+IE_TRACE:                     Starting var:.. k = b'Content-Type'
+IE_TRACE:                     Starting var:.. v = [b'Application/X-Gzip']
+IE_TRACE:                     Starting var:.. self = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE:                     12:33:50.095635 call       228         iseq = ((self.normkey(k), self.normvalue(v)) for k, v in seq)
+IE_TRACE:                     12:33:50.095663 line       228         iseq = ((self.normkey(k), self.normvalue(v)) for k, v in seq)
+IE_TRACE:                     12:33:50.095678 return     228         iseq = ((self.normkey(k), self.normvalue(v)) for k, v in seq)
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 Modified var:.. self = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE:                 12:33:50.095698 return     229         super(CaselessDict, self).update(iseq)
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Modified var:.. self = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE:             12:33:50.095722 return     193             self.update(seq)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/headers.py
+IE_TRACE:         Modified var:.. self = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE:         12:33:50.095748 return      12         super(Headers, self).__init__(seq)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/response/__init__.py
+IE_TRACE:     12:33:50.095775 line        18         self.status = int(status)
+IE_TRACE:     12:33:50.095801 line        19         self._set_body(body)
+IE_TRACE:         Starting var:.. self = REPR FAILED
+IE_TRACE:         Starting var:.. body = b''
+IE_TRACE:         12:33:50.095824 call        49     def _set_body(self, body):
+IE_TRACE:         12:33:50.095845 line        50         if body is None:
+IE_TRACE:         12:33:50.095857 line        52         elif not isinstance(body, bytes):
+IE_TRACE:         12:33:50.095870 line        58             self._body = body
+IE_TRACE:         12:33:50.095882 return      58             self._body = body
+IE_TRACE:         Return value:.. None
+IE_TRACE:     12:33:50.095898 line        20         self._set_url(url)
+IE_TRACE:         Starting var:.. self = REPR FAILED
+IE_TRACE:         Starting var:.. url = 'http://www.example.com'
+IE_TRACE:         12:33:50.095919 call        37     def _set_url(self, url):
+IE_TRACE:         12:33:50.095938 line        38         if isinstance(url, str):
+IE_TRACE:         12:33:50.095951 line        39             self._url = url
+IE_TRACE:         Modified var:.. self = <200 http://www.example.com>
+IE_TRACE:         12:33:50.095962 return      39             self._url = url
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Modified var:.. self = <200 http://www.example.com>
+IE_TRACE:     12:33:50.095983 line        21         self.request = request
+IE_TRACE:     12:33:50.096005 line        22         self.flags = [] if flags is None else list(flags)
+IE_TRACE:     12:33:50.096022 return      22         self.flags = [] if flags is None else list(flags)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_gz.py
+IE_TRACE: New var:....... r1 = <200 http://www.example.com>
+IE_TRACE: 12:33:50.096045 line        53         self.assertTrue(is_gzipped(r1))
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/gz.py
+IE_TRACE:     Starting var:.. response = <200 http://www.example.com>
+IE_TRACE:     12:33:50.096071 call        54 def is_gzipped(response):
+IE_TRACE:     12:33:50.096113 line        56     ctype = response.headers.get('Content-Type', b'')
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/headers.py
+IE_TRACE:         Starting var:.. self = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE:         Starting var:.. key = 'Content-Type'
+IE_TRACE:         Starting var:.. def_val = b''
+IE_TRACE:         Starting var:.. __class__ = <class 'scrapy.http.headers.Headers'>
+IE_TRACE:         12:33:50.096127 call        45     def get(self, key, def_val=None):
+IE_TRACE:         12:33:50.096160 line        46         try:
+IE_TRACE:         12:33:50.096174 line        47             return super(Headers, self).get(key, def_val)[-1]
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/datatypes.py
+IE_TRACE:             Starting var:.. self = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE:             Starting var:.. key = 'Content-Type'
+IE_TRACE:             Starting var:.. def_val = b''
+IE_TRACE:             12:33:50.096190 call       220     def get(self, key, def_val=None):
+IE_TRACE:             12:33:50.096221 line       221         return dict.get(self, self.normkey(key), self.normvalue(def_val))
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/headers.py
+IE_TRACE:                 Starting var:.. self = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE:                 Starting var:.. key = 'Content-Type'
+IE_TRACE:                 12:33:50.096236 call        14     def normkey(self, key):
+IE_TRACE:                 12:33:50.096258 line        16         return self._tobytes(key.title())
+IE_TRACE:                     Starting var:.. self = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE:                     Starting var:.. x = 'Content-Type'
+IE_TRACE:                     12:33:50.096271 call        29     def _tobytes(self, x):
+IE_TRACE:                     12:33:50.096290 line        30         if isinstance(x, bytes):
+IE_TRACE:                     12:33:50.096302 line        32         elif isinstance(x, six.text_type):
+IE_TRACE:                     12:33:50.096314 line        33             return x.encode(self.encoding)
+IE_TRACE:                     12:33:50.096326 return      33             return x.encode(self.encoding)
+IE_TRACE:                     Return value:.. b'Content-Type'
+IE_TRACE:                 12:33:50.096343 return      16         return self._tobytes(key.title())
+IE_TRACE:                 Return value:.. b'Content-Type'
+IE_TRACE:                 Starting var:.. self = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE:                 Starting var:.. value = b''
+IE_TRACE:                 12:33:50.096360 call        18     def normvalue(self, value):
+IE_TRACE:                 12:33:50.096379 line        20         if value is None:
+IE_TRACE:                 12:33:50.096392 line        22         elif isinstance(value, (six.text_type, bytes)):
+IE_TRACE:                 12:33:50.096404 line        23             value = [value]
+IE_TRACE:                 Modified var:.. value = [b'']
+IE_TRACE:                 12:33:50.096416 line        27         return [self._tobytes(x) for x in value]
+IE_TRACE:                     Starting var:.. self = {b'Content-Type': [b'Application/X-Gzip']}
+IE_TRACE:                     Starting var:.. x = b''
+IE_TRACE:                     12:33:50.096433 call        29     def _tobytes(self, x):
+IE_TRACE:                     12:33:50.096451 line        30         if isinstance(x, bytes):
+IE_TRACE:                     12:33:50.096463 line        31             return x
+IE_TRACE:                     12:33:50.096475 return      31             return x
+IE_TRACE:                     Return value:.. b''
+IE_TRACE:                 New var:....... x = b''
+IE_TRACE:                 12:33:50.096492 line        27         return [self._tobytes(x) for x in value]
+IE_TRACE:                 12:33:50.096509 return      27         return [self._tobytes(x) for x in value]
+IE_TRACE:                 Return value:.. [b'']
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/datatypes.py
+IE_TRACE:             12:33:50.096526 return     221         return dict.get(self, self.normkey(key), self.normvalue(def_val))
+IE_TRACE:             Return value:.. [b'Application/X-Gzip']
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/headers.py
+IE_TRACE:         12:33:50.096548 return      47             return super(Headers, self).get(key, def_val)[-1]
+IE_TRACE:         Return value:.. b'Application/X-Gzip'
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/gz.py
+IE_TRACE:     New var:....... ctype = b'Application/X-Gzip'
+IE_TRACE:     12:33:50.096570 line        57     return ctype in (b'application/x-gzip', b'application/gzip')
+IE_TRACE:     12:33:50.096588 return      57     return ctype in (b'application/x-gzip', b'application/gzip')
+IE_TRACE:     Return value:.. False
+IE_TRACE:     Source path:... /usr/lib/python3.12/unittest/case.py
+IE_TRACE:     Starting var:.. self = <tests.test_utils_gz.GunzipTest testMethod=test_is_gzipped_case_insensitive>
+IE_TRACE:     Starting var:.. expr = False
+IE_TRACE:     Starting var:.. msg = None
+IE_TRACE:     12:33:50.096607 call       723     def assertTrue(self, expr, msg=None):
+IE_TRACE:     12:33:50.096737 line       725         if not expr:
+IE_TRACE:     12:33:50.096752 line       726             msg = self._formatMessage(msg, "%s is not true" % safe_repr(expr))
+IE_TRACE:         Source path:... /usr/lib/python3.12/unittest/util.py
+IE_TRACE:         Starting var:.. obj = False
+IE_TRACE:         Starting var:.. short = False
+IE_TRACE:         12:33:50.096770 call        45 def safe_repr(obj, short=False):
+IE_TRACE:         12:33:50.096822 line        46     try:
+IE_TRACE:         12:33:50.096834 line        47         result = repr(obj)
+IE_TRACE:         New var:....... result = 'False'
+IE_TRACE:         12:33:50.096845 line        50     if not short or len(result) < _MAX_LENGTH:
+IE_TRACE:         12:33:50.096862 line        51         return result
+IE_TRACE:         12:33:50.096875 return      51         return result
+IE_TRACE:         Return value:.. 'False'
+IE_TRACE:         Source path:... /usr/lib/python3.12/unittest/case.py
+IE_TRACE:         Starting var:.. self = <tests.test_utils_gz.GunzipTest testMethod=test_is_gzipped_case_insensitive>
+IE_TRACE:         Starting var:.. msg = None
+IE_TRACE:         Starting var:.. standardMsg = 'False is not true'
+IE_TRACE:         12:33:50.096897 call       729     def _formatMessage(self, msg, standardMsg):
+IE_TRACE:         12:33:50.096926 line       739         if not self.longMessage:
+IE_TRACE:         12:33:50.096939 line       741         if msg is None:
+IE_TRACE:         12:33:50.096952 line       742             return standardMsg
+IE_TRACE:         12:33:50.096965 return     742             return standardMsg
+IE_TRACE:         Return value:.. 'False is not true'
+IE_TRACE:     Modified var:.. msg = 'False is not true'
+IE_TRACE:     12:33:50.096983 line       727             raise self.failureException(msg)
+IE_TRACE:     12:33:50.097000 exception  727             raise self.failureException(msg)
+IE_TRACE:     Exception:..... AssertionError: False is not true
+IE_TRACE:     Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_gz.py
+IE_TRACE: 12:33:50.097094 exception   53         self.assertTrue(is_gzipped(r1))
+IE_TRACE: Exception:..... AssertionError: False is not true
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.004329
+======================================================================
+FAIL: test_is_gzipped_case_insensitive (tests.test_utils_gz.GunzipTest.test_is_gzipped_case_insensitive)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/tests/test_utils_gz.py", line 53, in test_is_gzipped_case_insensitive
+    self.assertTrue(is_gzipped(r1))
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 1 test in 0.005s
+
+FAILED (failures=1)
+
+
+Exit code: 1

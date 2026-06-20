@@ -1,0 +1,266 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	setUp [label="setUp
+test_spidermiddleware_referer.py:10" fillcolor=white shape=box style=filled]
+	__new__ [label="__new__
+item.py:27" fillcolor=white shape=box style=filled]
+	obj [label="obj
+REPR FAILED" shape=ellipse]
+	__init__ [label="__init__
+extensions.py:5" fillcolor=white shape=box style=filled]
+	_set_url [label="_set_url
+text.py:30" fillcolor=white shape=box style=filled]
+	encoding [label="encoding
+text.py:54" fillcolor=white shape=box style=filled]
+	to_native_str [label="to_native_str
+Return str representation of `text`
+python.py:125" fillcolor=white shape=box style=filled]
+	to_unicode [label="to_unicode
+Return the unicode representation of a bytes object `te…
+python.py:99" fillcolor=white shape=box style=filled]
+	safe_url_string [label=safe_url_string fillcolor=white shape=box style=filled]
+	decoded [label="decoded
+'http://www.example.com/page.html'" shape=ellipse]
+	_strip [label=_strip fillcolor=white shape=box style=filled]
+	parts [label="parts
+SplitResult(scheme='http', netloc='www.example.com', path='/page.html', query='', fragment='')" shape=ellipse]
+	username [label="username
+None" shape=ellipse]
+	password [label="password
+None" shape=ellipse]
+	hostname [label="hostname
+'www.example.com'" shape=ellipse]
+	port [label="port
+None" shape=ellipse]
+	netloc_bytes [label="netloc_bytes
+(2 writes, 2 distinct)
+b''
+b'www.example.com'" shape=ellipse]
+	find_spec [label=find_spec fillcolor=white shape=box style=filled]
+	spec [label="spec
+(5 writes, 2 distinct)
+None
+ModuleSpec(name='encodings.idna', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7ec89cc284a0>, origin=…" shape=ellipse]
+	finder [label="finder
+(4 writes, 4 distinct)
+<class '_frozen_importlib.BuiltinImporter'>
+<class '_frozen_importlib.FrozenImporter'>
+<class '_frozen_importlib_external.PathFinder'>
+FileFinder('/usr/lib/python3.12/encodings')" shape=ellipse]
+	info [label="info
+None" shape=ellipse]
+	namespace_path [label="namespace_path
+[]" shape=ellipse]
+	entry [label="entry
+'/usr/lib/python3.12/encodings'" shape=ellipse]
+	module [label="module
+(7 writes, 4 distinct)
+None
+<module 'encodings.idna'>
+<module 'encodings.idna' (<_frozen_importlib_external.SourceFileLoader object at 0x7ec89cc284a0>)>
+<module 'encodings.idna' from '/usr/lib/python3.12/encodings/idna.py'>" shape=ellipse]
+	loader [label="loader
+<_frozen_importlib_external.SourceFileLoader object at 0x7ec89cc284a0>" shape=ellipse]
+	source_path [label="source_path
+'/usr/lib/python3.12/encodings/idna.py'" shape=ellipse]
+	source_mtime [label="source_mtime
+(2 writes, 2 distinct)
+None
+1772540118" shape=ellipse]
+	source_bytes [label="source_bytes
+None" shape=ellipse]
+	source_hash [label="source_hash
+None" shape=ellipse]
+	hash_based [label="hash_based
+False" shape=ellipse]
+	check_source [label="check_source
+True" shape=ellipse]
+	bytecode_path [label="bytecode_path
+'/usr/lib/python3.12/encodings/__pycache__/idna.cpython-312.pyc'" shape=ellipse]
+	st [label="st
+{'mtime': 1772540118.0, 'size': 9710}" shape=ellipse]
+	data [label="data
+bytes(len=9916)" shape=ellipse]
+	exc_details [label="exc_details
+{'name': 'encodings.idna', 'path': '/usr/lib/python3.12/encodings/__pycache__/idna.cpython-312.pyc'}" shape=ellipse]
+	flags [label="flags
+0" shape=ellipse]
+	bytes_data [label="bytes_data
+<memory at 0x7ec89cd8cb80>" shape=ellipse]
+	code [label="code
+<code object <module> at 0x2484e980, file \"/usr/lib/python3.12/encodings/idna.py\", line 1>" shape=ellipse]
+	args [label="args
+(<code object <module> at 0x2484e980, file \"/usr/lib/python3.12/encodings/idna.py\", line 1>, {'__name__': 'encodings.idn…" shape=ellipse]
+	tid [label="tid
+139400142835840" shape=ellipse]
+	netloc [label="netloc
+'www.example.com'" shape=ellipse]
+	path [label="path
+'/page.html'" shape=ellipse]
+	query [label="query
+''" shape=ellipse]
+	escape_ajax [label="escape_ajax
+Return the crawleable url according to:
+url.py:88" fillcolor=white shape=box style=filled]
+	defrag [label="defrag
+'http://www.example.com/page.html'" shape=ellipse]
+	frag [label="frag
+''" shape=ellipse]
+	self [label="self
+(5 writes, 2 distinct)
+<GET http://www.example.com/page.html>
+{b'Content-Type': [b'text/html']}" shape=ellipse]
+	_set_body [label="_set_body
+text.py:39" fillcolor=white shape=box style=filled]
+	update [label="update
+memusage.py:75" fillcolor=white shape=box style=filled]
+	seq [label="seq
+dict_items([('Content-Type', 'text/html')])" shape=ellipse]
+	iseq [label="iseq
+<generator object CaselessDict.update.<locals>.<genexpr> at 0x7ec89cdd0b80>" shape=ellipse]
+	normkey [label="normkey
+Normalize key to bytes
+headers.py:13" fillcolor=white shape=box style=filled]
+	_tobytes [label="_tobytes
+headers.py:28" fillcolor=white shape=box style=filled]
+	normvalue [label="normvalue
+Normalize values to bytes
+headers.py:17" fillcolor=white shape=box style=filled]
+	value [label="value
+['text/html']" shape=ellipse]
+	x [label="x
+'text/html'" shape=ellipse]
+	k [label="k
+'Content-Type'" shape=ellipse]
+	v [label="v
+'text/html'" shape=ellipse]
+	test_get_full_url [label="test_get_full_url
+test_http_cookies.py:20" fillcolor=white shape=box style=filled]
+	get_full_url [label="get_full_url
+cookies.py:122" fillcolor=white shape=box style=filled]
+	_get_url [label="_get_url
+__init__.py:34" fillcolor=white shape=box style=filled]
+	ERROR__AttributeError [label="AttributeError
+'WrappedRequest' object has no attribute 'full_url'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		setUp
+		test_get_full_url
+	}
+	{
+		rank=same
+		__new__
+		__init__
+		get_full_url
+		_get_url
+	}
+	{
+		rank=same
+		_set_url
+		_set_body
+	}
+	{
+		rank=same
+		encoding
+		to_native_str
+		safe_url_string
+		escape_ajax
+	}
+	{
+		rank=same
+		to_unicode
+		_strip
+		find_spec
+		update
+	}
+	{
+		rank=same
+		normkey
+		normvalue
+	}
+	{
+		rank=same
+		_tobytes
+	}
+	setUp -> __new__ [label="calls [#1]" color=blue penwidth=1.1]
+	setUp -> __init__ [label="calls×2 [#2]" color=blue penwidth=1.2]
+	__new__ -> obj [label=writes color=black]
+	__init__ -> _set_url [label="calls [#3]" color=blue penwidth=1.1]
+	__init__ -> self [label="writes×3" color=black]
+	__init__ -> _set_body [label="calls [#12]" color=blue penwidth=1.1]
+	__init__ -> __init__ [label="calls×2 [#13]" color=blue penwidth=1.2]
+	__init__ -> update [label="calls [#15]" color=blue penwidth=1.1]
+	_set_url -> encoding [label="calls [#4]" color=blue penwidth=1.1]
+	_set_url -> to_native_str [label="calls [#5]" color=blue penwidth=1.1]
+	_set_url -> safe_url_string [label="calls [#7]" color=blue penwidth=1.1]
+	_set_url -> escape_ajax [label="calls [#11]" color=blue penwidth=1.1]
+	_set_url -> self [label=writes color=black]
+	to_native_str -> to_unicode [label="calls [#6]" color=blue penwidth=1.1]
+	safe_url_string -> to_unicode [label="calls [#8]" color=blue penwidth=1.1]
+	safe_url_string -> decoded [label=writes color=black]
+	safe_url_string -> _strip [label="calls [#9]" color=blue penwidth=1.1]
+	safe_url_string -> parts [label=writes color=black]
+	safe_url_string -> username [label=writes color=black]
+	safe_url_string -> password [label=writes color=black]
+	safe_url_string -> hostname [label=writes color=black]
+	safe_url_string -> port [label=writes color=black]
+	safe_url_string -> netloc_bytes [label="writes×2" color=black]
+	safe_url_string -> find_spec [label="calls [#10]" color=blue penwidth=1.1]
+	safe_url_string -> spec [label="writes×5" color=black]
+	safe_url_string -> finder [label="writes×4" color=black]
+	safe_url_string -> info [label=writes color=black]
+	safe_url_string -> namespace_path [label=writes color=black]
+	safe_url_string -> entry [label=writes color=black]
+	safe_url_string -> module [label="writes×7" color=black]
+	safe_url_string -> loader [label=writes color=black]
+	safe_url_string -> source_path [label=writes color=black]
+	safe_url_string -> source_mtime [label="writes×2" color=black]
+	safe_url_string -> source_bytes [label=writes color=black]
+	safe_url_string -> source_hash [label=writes color=black]
+	safe_url_string -> hash_based [label=writes color=black]
+	safe_url_string -> check_source [label=writes color=black]
+	safe_url_string -> bytecode_path [label=writes color=black]
+	safe_url_string -> st [label=writes color=black]
+	safe_url_string -> data [label=writes color=black]
+	safe_url_string -> exc_details [label=writes color=black]
+	safe_url_string -> flags [label=writes color=black]
+	safe_url_string -> bytes_data [label=writes color=black]
+	safe_url_string -> code [label=writes color=black]
+	safe_url_string -> args [label=writes color=black]
+	safe_url_string -> tid [label=writes color=black]
+	safe_url_string -> netloc [label=writes color=black]
+	safe_url_string -> path [label=writes color=black]
+	safe_url_string -> query [label=writes color=black]
+	spec -> escape_ajax [label="passed to" color=green style=dashed]
+	module -> escape_ajax [label="passed to" color=green style=dashed]
+	args -> escape_ajax [label="passed to" color=green style=dashed]
+	path -> escape_ajax [label="passed to" color=green style=dashed]
+	escape_ajax -> defrag [label=writes color=black]
+	escape_ajax -> frag [label=writes color=black]
+	self -> _set_body [label="passed to" color=green style=dashed]
+	self -> __init__ [label="passed to" color=green style=dashed]
+	self -> update [label="passed to" color=green style=dashed]
+	self -> normkey [label="passed to" color=green style=dashed]
+	self -> _tobytes [label="passed to" color=green style=dashed]
+	self -> normvalue [label="passed to" color=green style=dashed]
+	self -> test_get_full_url [label="passed to" color=green style=dashed]
+	self -> get_full_url [label="passed to" color=green style=dashed]
+	self -> _get_url [label="passed to" color=green style=dashed]
+	update -> seq [label=writes color=black]
+	update -> iseq [label=writes color=black]
+	update -> normkey [label="calls [#16]" color=blue penwidth=1.1]
+	update -> normvalue [label="calls [#18]" color=blue penwidth=1.1]
+	update -> k [label=writes color=black]
+	update -> v [label=writes color=black]
+	update -> self [label=writes color=black]
+	normkey -> _tobytes [label="calls [#17]" color=blue penwidth=1.1]
+	normvalue -> value [label=writes color=black]
+	normvalue -> _tobytes [label="calls [#19]" color=blue penwidth=1.1]
+	normvalue -> x [label=writes color=black]
+	k -> __init__ [label="passed to" color=green style=dashed]
+	v -> __init__ [label="passed to" color=green style=dashed]
+	test_get_full_url -> get_full_url [label="calls [#21]" color=blue penwidth=1.1]
+	test_get_full_url -> _get_url [label="calls [#23]" color=blue penwidth=1.1]
+	test_get_full_url -> ERROR__AttributeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	get_full_url -> _get_url [label="calls [#22]" color=blue penwidth=1.1]
+}

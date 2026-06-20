@@ -1,0 +1,196 @@
+Cleared: /path/to/results/cookiecutter/bug4
+  Rewriting test cmd: 'tox tests/test_hooks.py::TestExternalHooks::test_run_failing_hook' -> 'python -m pytest -o addopts= tests/test_hooks.py::TestExternalHooks::test_run_failing_hook'
+Running: python -m pytest -o addopts= tests/test_hooks.py::TestExternalHooks::test_run_failing_hook
+Workdir: /path/to/BugsInPy/workspace/cookiecutter
+PYTHONPATH: /path/to/BugsInPy/workspace/cookiecutter/build/lib:/path/to/BugsInPy/workspace/cookiecutter::
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.0.2, pluggy-1.6.0
+rootdir: /path/to/BugsInPy/workspace/cookiecutter
+plugins: cov-7.1.0, anyio-4.12.1
+collected 1 item
+
+tests/test_hooks.py F                                                    [100%]
+
+=================================== FAILURES ===================================
+___________________ TestExternalHooks.test_run_failing_hook ____________________
+
+self = <tests.test_hooks.TestExternalHooks object at 0x721d48af7ce0>
+
+    @pysnooper.snoop(prefix='IE_TRACE: ', depth=10, color=False, max_variable_length=500, custom_repr=((object, _btp_repr),))
+    def test_run_failing_hook(self):
+        hook_path = os.path.join(self.hooks_path, 'pre_gen_project.py')
+        tests_dir = os.path.join(self.repo_path, 'input{{hooks}}')
+    
+        with open(hook_path, 'w') as f:
+            f.write("#!/usr/bin/env python\n")
+            f.write("import sys; sys.exit(1)\n")
+    
+        with utils.work_in(self.repo_path):
+>           with pytest.raises(exceptions.FailedHookException) as excinfo:
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'cookiecutter.exceptions' has no attribute 'FailedHookException'
+
+tests/test_hooks.py:183: AttributeError
+----------------------------- Captured stderr call -----------------------------
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/cookiecutter/tests/test_hooks.py
+IE_TRACE: Starting var:.. self = <tests.test_hooks.TestExternalHooks object at 0x721d48af7ce0>
+IE_TRACE: 12:45:11.802662 call       174     def test_run_failing_hook(self):
+IE_TRACE: 12:45:11.803036 line       175         hook_path = os.path.join(self.hooks_path, 'pre_gen_project.py')
+IE_TRACE:     Source path:... <frozen posixpath>
+IE_TRACE:     Starting var:.. a = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks'
+IE_TRACE:     Starting var:.. p = ('pre_gen_project.py',)
+IE_TRACE:     12:45:11.803064 call        71 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:45:11.803113 line        76 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:45:11.803128 line        77 SOURCE IS UNAVAILABLE
+IE_TRACE:         Starting var:.. path = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks'
+IE_TRACE:         12:45:11.803142 call        41 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:45:11.803157 line        42 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:45:11.803167 line        45 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:45:11.803176 return      45 SOURCE IS UNAVAILABLE
+IE_TRACE:         Return value:.. '/'
+IE_TRACE:     New var:....... sep = '/'
+IE_TRACE:     12:45:11.803199 line        78 SOURCE IS UNAVAILABLE
+IE_TRACE:     New var:....... path = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks'
+IE_TRACE:     12:45:11.803216 line        79 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:45:11.803233 line        80 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:45:11.803246 line        82 SOURCE IS UNAVAILABLE
+IE_TRACE:     New var:....... b = 'pre_gen_project.py'
+IE_TRACE:     12:45:11.803259 line        83 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:45:11.803274 line        85 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:45:11.803286 line        88 SOURCE IS UNAVAILABLE
+IE_TRACE:     Modified var:.. path = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE:     12:45:11.803298 line        82 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:45:11.803313 line        92 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:45:11.803325 return      92 SOURCE IS UNAVAILABLE
+IE_TRACE:     Return value:.. '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/cookiecutter/tests/test_hooks.py
+IE_TRACE: New var:....... hook_path = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py'
+IE_TRACE: 12:45:11.803342 line       176         tests_dir = os.path.join(self.repo_path, 'input{{hooks}}')
+IE_TRACE:     Source path:... <frozen posixpath>
+IE_TRACE:     Starting var:.. a = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks'
+IE_TRACE:     Starting var:.. p = ('input{{hooks}}',)
+IE_TRACE:     12:45:11.803363 call        71 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:45:11.803382 line        76 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:45:11.803392 line        77 SOURCE IS UNAVAILABLE
+IE_TRACE:         Starting var:.. path = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks'
+IE_TRACE:         12:45:11.803402 call        41 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:45:11.803413 line        42 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:45:11.803421 line        45 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:45:11.803430 return      45 SOURCE IS UNAVAILABLE
+IE_TRACE:         Return value:.. '/'
+IE_TRACE:     New var:....... sep = '/'
+IE_TRACE:     12:45:11.803443 line        78 SOURCE IS UNAVAILABLE
+IE_TRACE:     New var:....... path = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks'
+IE_TRACE:     12:45:11.803456 line        79 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:45:11.803469 line        80 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:45:11.803480 line        82 SOURCE IS UNAVAILABLE
+IE_TRACE:     New var:....... b = 'input{{hooks}}'
+IE_TRACE:     12:45:11.803490 line        83 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:45:11.803505 line        85 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:45:11.803519 line        88 SOURCE IS UNAVAILABLE
+IE_TRACE:     Modified var:.. path = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/input{{hooks}}'
+IE_TRACE:     12:45:11.803530 line        82 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:45:11.803544 line        92 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:45:11.803555 return      92 SOURCE IS UNAVAILABLE
+IE_TRACE:     Return value:.. '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/input{{hooks}}'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/cookiecutter/tests/test_hooks.py
+IE_TRACE: New var:....... tests_dir = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/input{{hooks}}'
+IE_TRACE: 12:45:11.803573 line       178         with open(hook_path, 'w') as f:
+IE_TRACE:     Source path:... <frozen codecs>
+IE_TRACE:     Starting var:.. self = <encodings.utf_8.IncrementalEncoder object at 0x721d48b34800>
+IE_TRACE:     Starting var:.. errors = 'strict'
+IE_TRACE:     12:45:11.803608 call       186 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:45:11.803637 line       194 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:45:11.803647 line       195 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:45:11.803655 return     195 SOURCE IS UNAVAILABLE
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/cookiecutter/tests/test_hooks.py
+IE_TRACE: New var:....... f = <_io.TextIOWrapper name='/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks/hooks/pre_gen_project.py' mode='w' encoding='UTF-8'>
+IE_TRACE: 12:45:11.803670 line       179             f.write("#!/usr/bin/env python\n")
+IE_TRACE: 12:45:11.803691 line       180             f.write("import sys; sys.exit(1)\n")
+IE_TRACE: 12:45:11.803704 line       178         with open(hook_path, 'w') as f:
+IE_TRACE: 12:45:11.803748 line       182         with utils.work_in(self.repo_path):
+IE_TRACE:     Source path:... /usr/lib/python3.12/contextlib.py
+IE_TRACE:     Starting var:.. args = ('/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks',)
+IE_TRACE:     Starting var:.. kwds = {}
+IE_TRACE:     Starting var:.. func = <function work_in at 0x721d48db2e80>
+IE_TRACE:     12:45:11.803769 call       300     def helper(*args, **kwds):
+IE_TRACE:     12:45:11.803883 line       301         return _GeneratorContextManager(func, args, kwds)
+IE_TRACE:         Starting var:.. self = <contextlib._GeneratorContextManager object at 0x721d48af4d40>
+IE_TRACE:         Starting var:.. func = <function work_in at 0x721d48db2e80>
+IE_TRACE:         Starting var:.. args = ('/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks',)
+IE_TRACE:         Starting var:.. kwds = {}
+IE_TRACE:         12:45:11.803898 call       104     def __init__(self, func, args, kwds):
+IE_TRACE:         12:45:11.803922 line       105         self.gen = func(*args, **kwds)
+IE_TRACE:         12:45:11.803934 line       106         self.func, self.args, self.kwds = func, args, kwds
+IE_TRACE:         12:45:11.803945 line       108         doc = getattr(func, "__doc__", None)
+IE_TRACE:         New var:....... doc = '\n    Context manager version of os.chdir. When exited, returns to the working\n    directory prior to entering.\n    '
+IE_TRACE:         12:45:11.803957 line       109         if doc is None:
+IE_TRACE:         12:45:11.803972 line       111         self.__doc__ = doc
+IE_TRACE:         12:45:11.803984 return     111         self.__doc__ = doc
+IE_TRACE:         Return value:.. None
+IE_TRACE:     12:45:11.804001 return     301         return _GeneratorContextManager(func, args, kwds)
+IE_TRACE:     Return value:.. <contextlib._GeneratorContextManager object at 0x721d48af4d40>
+IE_TRACE:     Starting var:.. self = <contextlib._GeneratorContextManager object at 0x721d48af4d40>
+IE_TRACE:     12:45:11.804018 call       132     def __enter__(self):
+IE_TRACE:     12:45:11.804029 line       135         del self.args, self.kwds, self.func
+IE_TRACE:     12:45:11.804038 line       136         try:
+IE_TRACE:     12:45:11.804048 line       137             return next(self.gen)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/cookiecutter/cookiecutter/utils.py
+IE_TRACE:         Starting var:.. dirname = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks'
+IE_TRACE:         12:45:11.804058 call        58 def work_in(dirname=None):
+IE_TRACE:         12:45:11.804101 line        63     curdir = os.getcwd()
+IE_TRACE:         New var:....... curdir = '/path/to/BugsInPy/workspace/cookiecutter'
+IE_TRACE:         12:45:11.804112 line        64     try:
+IE_TRACE:         12:45:11.804124 line        65         if dirname is not None:
+IE_TRACE:         12:45:11.804133 line        66             os.chdir(dirname)
+IE_TRACE:         12:45:11.804145 line        67         yield
+IE_TRACE:         12:45:11.804154 return      67         yield
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /usr/lib/python3.12/contextlib.py
+IE_TRACE:     12:45:11.804167 return     137             return next(self.gen)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/cookiecutter/tests/test_hooks.py
+IE_TRACE: 12:45:11.804182 line       183             with pytest.raises(exceptions.FailedHookException) as excinfo:
+IE_TRACE: 12:45:11.804206 exception  183             with pytest.raises(exceptions.FailedHookException) as excinfo:
+IE_TRACE: Exception:..... AttributeError: module 'cookiecutter.exceptions' has no attribute 'FailedHookException'
+IE_TRACE: 12:45:11.804636 line       182         with utils.work_in(self.repo_path):
+IE_TRACE:     Source path:... /usr/lib/python3.12/contextlib.py
+IE_TRACE:     Starting var:.. self = <contextlib._GeneratorContextManager object at 0x721d48af4d40>
+IE_TRACE:     Starting var:.. typ = <class 'AttributeError'>
+IE_TRACE:     Starting var:.. value = AttributeError("module 'cookiecutter.exceptions' has no attribute 'FailedHookException'")
+IE_TRACE:     Starting var:.. traceback = <traceback object at 0x721d48c167c0>
+IE_TRACE:     12:45:11.804659 call       141     def __exit__(self, typ, value, traceback):
+IE_TRACE:     12:45:11.804690 line       142         if typ is None:
+IE_TRACE:     12:45:11.804704 line       153             if value is None:
+IE_TRACE:     12:45:11.804716 line       157             try:
+IE_TRACE:     12:45:11.804727 line       158                 self.gen.throw(value)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/cookiecutter/cookiecutter/utils.py
+IE_TRACE:         Starting var:.. dirname = '/path/to/BugsInPy/workspace/cookiecutter/tests/test-hooks'
+IE_TRACE:         Starting var:.. curdir = '/path/to/BugsInPy/workspace/cookiecutter'
+IE_TRACE:         12:45:11.804740 call        67         yield
+IE_TRACE:         12:45:11.804760 exception   67         yield
+IE_TRACE:         Exception:..... AttributeError: module 'cookiecutter.exceptions' has no attribute 'FailedHookException'
+IE_TRACE:         12:45:11.805102 line        69         os.chdir(curdir)
+IE_TRACE:         Call ended by exception
+IE_TRACE:     Source path:... /usr/lib/python3.12/contextlib.py
+IE_TRACE:     12:45:11.805128 exception  158                 self.gen.throw(value)
+IE_TRACE:     Exception:..... AttributeError: module 'cookiecutter.exceptions' has no attribute 'FailedHookException'
+IE_TRACE:     12:45:11.805470 line       159             except StopIteration as exc:
+IE_TRACE:     12:45:11.805484 line       164             except RuntimeError as exc:
+IE_TRACE:     12:45:11.805496 line       182             except BaseException as exc:
+IE_TRACE:     New var:....... exc = AttributeError("module 'cookiecutter.exceptions' has no attribute 'FailedHookException'")
+IE_TRACE:     12:45:11.805508 line       189                 if exc is not value:
+IE_TRACE:     12:45:11.805524 line       191                 exc.__traceback__ = traceback
+IE_TRACE:     12:45:11.805538 line       192                 return False
+IE_TRACE:     12:45:11.805551 return     192                 return False
+IE_TRACE:     Return value:.. False
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/cookiecutter/tests/test_hooks.py
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.003069
+=========================== short test summary info ============================
+FAILED tests/test_hooks.py::TestExternalHooks::test_run_failing_hook - Attrib...
+============================== 1 failed in 0.03s ===============================
+
+
+Exit code: 1

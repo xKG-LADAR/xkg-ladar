@@ -1,0 +1,58 @@
+[
+  {
+    "project": "cookiecutter",
+    "bug_id": 1,
+    "has_diagnosis": true,
+    "has_kg": true,
+    "kg_has_content": true,
+    "has_diff": true,
+    "diff_parseable": true,
+    "checkout_ok": true,
+    "diff_applied": false,
+    "test_passed": false,
+    "test_output_snippet": "",
+    "error": "failed to apply diff to tests/test-generate-context/non_ascii.json"
+  },
+  {
+    "project": "cookiecutter",
+    "bug_id": 2,
+    "has_diagnosis": true,
+    "has_kg": true,
+    "kg_has_content": true,
+    "has_diff": true,
+    "diff_parseable": true,
+    "checkout_ok": true,
+    "diff_applied": true,
+    "test_passed": true,
+    "test_output_snippet": "============================= test session starts ==============================\nplatform linux -- Python 3.12.3, pytest-9.0.2, pluggy-1.6.0\nrootdir: /path/to/BugsInPy/workspace/cookiecutter\nconfigfile: setup.cfg\nplugins: httpbin-2.1.0, cov-7.1.0, anyio-4.12.1\ncollected 1 item\n\ntests/test_hooks.py .                                                    [100%]\n\n============================== 1 passed in 0.02s ===============================\n\n",
+    "error": null
+  },
+  {
+    "project": "cookiecutter",
+    "bug_id": 3,
+    "has_diagnosis": false,
+    "has_kg": true,
+    "kg_has_content": false,
+    "has_diff": false,
+    "diff_parseable": false,
+    "checkout_ok": false,
+    "diff_applied": false,
+    "test_passed": false,
+    "test_output_snippet": "",
+    "error": "KG empty (trace produced no data)"
+  },
+  {
+    "project": "cookiecutter",
+    "bug_id": 4,
+    "has_diagnosis": true,
+    "has_kg": true,
+    "kg_has_content": true,
+    "has_diff": true,
+    "diff_parseable": true,
+    "checkout_ok": true,
+    "diff_applied": true,
+    "test_passed": false,
+    "test_output_snippet": "xit(1)\\n\")\n    \n        with utils.work_in(self.repo_path):\n>           with pytest.raises(exceptions.FailedHookException) as excinfo:\nE           Failed: DID NOT RAISE <class 'cookiecutter.exceptions.FailedHookException'>\n\ntests/test_hooks.py:180: Failed\n=========================== short test summary info ============================\nFAILED tests/test_hooks.py::TestExternalHooks::test_run_failing_hook - Failed...\n============================== 1 failed in 0.05s ===============================\n\n",
+    "error": null
+  }
+]

@@ -1,0 +1,79 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_match_str [label="test_match_str
+test_utils.py:1048" fillcolor=white shape=box style=filled]
+	match_str [label="match_str
+Filter a dictionary with a simple string syntax. Return…
+utils.py:2593" fillcolor=white shape=box style=filled]
+	_match_one [label="_match_one
+utils.py:2523" fillcolor=white shape=box style=filled]
+	ERROR__ValueError [label="ValueError
+Operator > does not support string values!" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	UNARY_OPERATORS [label="UNARY_OPERATORS
+(9 writes, 2 distinct)
+{'': <function _match_one.<locals>.<lambda> at 0x7f7f35929e40>, '!': <function _match_one.<locals>.<lambda> at 0x7f7f359…
+{'': <function _match_one.<locals>.<lambda> at 0x7f7f35929ee0>, '!': <function _match_one.<locals>.<lambda> at 0x7f7f359…" shape=ellipse]
+	parse_filesize [label="parse_filesize
+utils.py:1605" fillcolor=white shape=box style=filled]
+	_UNIT_TABLE [label="_UNIT_TABLE
+(4 writes)
+dict(len=59)" shape=ellipse]
+	lookup_unit_table [label="lookup_unit_table
+utils.py:1594" fillcolor=white shape=box style=filled]
+	u [label="u
+(12 writes, 3 distinct)
+'B'
+'yottabytes'
+'yobibytes'" shape=ellipse]
+	units_re [label="units_re
+(4 writes)
+'B|b|bytes|KiB|KB|kB|Kb|kb|kilobytes|kibibytes|MiB|MB|mB|Mb|mb|megabytes|mebibytes|GiB|GB|gB|Gb|gb|gigabytes|gibibytes|T…" shape=ellipse]
+	num_str [label="num_str
+(2 writes, 2 distinct)
+'1'
+'2'" shape=ellipse]
+	mult [label="mult
+(2 writes)
+1000" shape=ellipse]
+	quote [label="quote
+(4 writes)
+None" shape=ellipse]
+	ERROR__AssertionError [label="AssertionError
+True is not false" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_match_str
+	}
+	{
+		rank=same
+		match_str
+	}
+	{
+		rank=same
+		_match_one
+		parse_filesize
+	}
+	{
+		rank=same
+		lookup_unit_table
+	}
+	test_match_str -> match_str [label="calls×23 [#1]" color=blue penwidth=3.3]
+	test_match_str -> ERROR__AssertionError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	match_str -> _match_one [label="calls×30 [#2]" color=blue penwidth=4.0]
+	match_str -> ERROR__ValueError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	match_str -> match_str [label="loops(×120)" color=purple style=dashed]
+	match_str -> u [label="writes×8" color=black]
+	match_str -> units_re [label="writes×4" color=black]
+	match_str -> parse_filesize [label="calls×2 [#23]" color=blue penwidth=1.2]
+	match_str -> num_str [label="writes×2" color=black]
+	match_str -> mult [label="writes×2" color=black]
+	_match_one -> ERROR__ValueError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	_match_one -> UNARY_OPERATORS [label="writes×9" color=black]
+	_match_one -> parse_filesize [label="calls×2 [#21]" color=blue penwidth=1.2]
+	_match_one -> quote [label="writes×4" color=black]
+	parse_filesize -> _UNIT_TABLE [label="writes×4" color=black]
+	parse_filesize -> lookup_unit_table [label="calls×4 [#22]" color=blue penwidth=1.4]
+	lookup_unit_table -> u [label="writes×4" color=black]
+	u -> parse_filesize [label="passed to" color=green style=dashed]
+	u -> match_str [label="passed to" color=green style=dashed]
+}

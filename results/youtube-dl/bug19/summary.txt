@@ -1,0 +1,22 @@
+Project : youtube-dl
+Bug ID  : 19
+Version : 0 (buggy)
+Workdir : /path/to/BugsInPy/workspace/youtube-dl
+Output  : /path/to/results/youtube-dl/bug19
+
+STEP 0: bugsinpy-checkout
+  RESULT: OK
+STEP 0.1: compile
+  RESULT: OK
+STEP 0.5: auto-decorate test functions
+  Modified 1 file(s)
+STEP 1: run_trace.py
+  Raw trace: 66460399 chars
+STEP 2: trace_condense.py
+  Condensed trace: /path/to/results/youtube-dl/bug19/trace_condensed.log
+STEP 3: build_trace_kg.py
+  KG output: /path/to/results/youtube-dl/bug19/trace_kg
+STEP 4: debug_agent.py
+  Diagnosis: /path/to/results/youtube-dl/bug19/diagnosis.md
+
+PIPELINE COMPLETE - all steps succeeded.

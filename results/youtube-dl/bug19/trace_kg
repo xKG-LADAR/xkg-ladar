@@ -1,0 +1,92 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_prepare_filename [label="test_prepare_filename
+test_YoutubeDL.py:527" fillcolor=white shape=box style=filled]
+	info [label="info
+{'id': '1234', 'ext': 'mp4', 'width': None, 'height': 1080, 'title1': '$PATH', 'title2': '%PATH%'}" shape=ellipse]
+	fname [label="fname
+<function TestYoutubeDL.test_prepare_filename.<locals>.fname at 0x7fc57682b2e0>" shape=ellipse]
+	__init__ [label="__init__
+metadatafromtitle.py:9" fillcolor=white shape=box style=filled]
+	_setup_opener [label="_setup_opener
+YoutubeDL.py:2206" fillcolor=white shape=box style=filled]
+	make_HTTPS_handler [label="make_HTTPS_handler
+utils.py:681" fillcolor=white shape=box style=filled]
+	print_debug_header [label="print_debug_header
+YoutubeDL.py:2139" fillcolor=white shape=box style=filled]
+	add_default_info_extractors [label="add_default_info_extractors
+Add the InfoExtractors returned by gen_extractors to th…
+YoutubeDL.py:453" fillcolor=white shape=box style=filled]
+	gen_extractor_classes [label="gen_extractor_classes
+Return a list of supported extractors.
+__init__.py:19" fillcolor=white shape=box style=filled]
+	add_info_extractor [label="add_info_extractor
+Add an InfoExtractor object to the end of the list.
+YoutubeDL.py:434" fillcolor=white shape=box style=filled]
+	register_socks_protocols [label="register_socks_protocols
+utils.py:71" fillcolor=white shape=box style=filled]
+	prepare_filename [label="prepare_filename
+Generate the output filename.
+YoutubeDL.py:611" fillcolor=white shape=box style=filled]
+	sanitize_filename [label="sanitize_filename
+Sanitizes a string so it could be used as part of a fil…
+utils.py:479" fillcolor=white shape=box style=filled]
+	expand_path [label="expand_path
+Expand shell variables and ~
+utils.py:548" fillcolor=white shape=box style=filled]
+	sanitize_path [label="sanitize_path
+Sanitizes and normalizes path on Windows
+utils.py:520" fillcolor=white shape=box style=filled]
+	re [label="re
+<module 're' from '/usr/lib/python3.12/re/__init__.py'>" shape=ellipse]
+	ERROR__AssertionError [label="AssertionError
+'Hello /path/to/.venv/bin:/home/shashw[354 chars]ipts' != 'Hello $PATH'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_prepare_filename
+	}
+	{
+		rank=same
+		__init__
+		add_info_extractor
+		register_socks_protocols
+		prepare_filename
+		sanitize_filename
+		expand_path
+		sanitize_path
+	}
+	{
+		rank=same
+		_setup_opener
+		print_debug_header
+		add_default_info_extractors
+	}
+	{
+		rank=same
+		make_HTTPS_handler
+		gen_extractor_classes
+	}
+	test_prepare_filename -> info [label=writes color=black]
+	test_prepare_filename -> fname [label=writes color=black]
+	test_prepare_filename -> ERROR__AssertionError [label=raises color=orange penwidth=2 style=dashed]
+	info -> fname [label="passed to" color=green style=dashed]
+	fname -> __init__ [label="calls×19 [#2]" color=blue penwidth=2.9]
+	fname -> fname [label="loops(×20957)" color=purple style=dashed]
+	fname -> add_info_extractor [label="calls×19 [#18]" color=blue penwidth=2.9]
+	fname -> register_socks_protocols [label="calls×19 [#19]" color=blue penwidth=2.9]
+	fname -> prepare_filename [label="calls×19 [#20]" color=blue penwidth=2.9]
+	fname -> sanitize_filename [label="calls×76 [#24]" color=blue penwidth=5.0]
+	fname -> expand_path [label="calls×19 [#36]" color=blue penwidth=2.9]
+	fname -> sanitize_path [label="calls×19 [#37]" color=blue penwidth=2.9]
+	__init__ -> __init__ [label="calls×19 [#3]" color=blue penwidth=2.9]
+	__init__ -> _setup_opener [label="calls×19 [#8]" color=blue penwidth=2.9]
+	__init__ -> print_debug_header [label="calls×19 [#14]" color=blue penwidth=2.9]
+	__init__ -> add_default_info_extractors [label="calls×19 [#15]" color=blue penwidth=2.9]
+	_setup_opener -> __init__ [label="calls×57 [#9]" color=blue penwidth=5.0]
+	_setup_opener -> make_HTTPS_handler [label="calls×19 [#11]" color=blue penwidth=2.9]
+	make_HTTPS_handler -> __init__ [label="calls×19 [#12]" color=blue penwidth=2.9]
+	add_default_info_extractors -> gen_extractor_classes [label="calls×19 [#16]" color=blue penwidth=2.9]
+	add_default_info_extractors -> add_info_extractor [label="calls×19 [#17]" color=blue penwidth=2.9]
+	prepare_filename -> sanitize_filename [label="calls×19 [#21]" color=blue penwidth=2.9]
+	expand_path -> re [label=writes color=black]
+}

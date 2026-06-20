@@ -1,0 +1,95 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	setUp [label="setUp
+test_spidermiddleware_referer.py:10" fillcolor=white shape=box style=filled]
+	self [label="self
+(2 writes, 2 distinct)
+KeysView(environ({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '/home/shas…
+environ({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '<redacted>', 'V…" shape=ellipse]
+	keys [label="keys
+list(len=81)" shape=ellipse]
+	key [label="key
+(3 writes, 3 distinct)
+b'GJS_DEBUG_TOPICS'
+b'ftp_proxy'
+b'http_proxy'" shape=ellipse]
+	ERROR__StopIteration [label=StopIteration fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	value [label="value
+(3 writes, 3 distinct)
+b'JS ERROR;JS LOG'
+b''
+bytes(len=28)" shape=ellipse]
+	test_proxy_auth [label="test_proxy_auth
+test_downloadermiddleware_httpproxy.py:54" fillcolor=white shape=box style=filled]
+	__init__ [label="__init__
+extensions.py:5" fillcolor=white shape=box style=filled]
+	type [label="type
+'http'" shape=ellipse]
+	url [label="url
+'https://user:pass@proxy:3128'" shape=ellipse]
+	_get_proxy [label="_get_proxy
+httpproxy.py:25" fillcolor=white shape=box style=filled]
+	proxy_type [label="proxy_type
+'https'" shape=ellipse]
+	user [label="user
+'user'" shape=ellipse]
+	password [label="password
+'pass'" shape=ellipse]
+	hostport [label="hostport
+'proxy:3128'" shape=ellipse]
+	proxy_url [label="proxy_url
+'https://proxy:3128'" shape=ellipse]
+	user_pass [label="user_pass
+'user:pass'" shape=ellipse]
+	ERROR__TypeError [label="TypeError
+a bytes-like object is required, not 'str'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	tearDown [label="tearDown
+test_closespider.py:14" fillcolor=white shape=box style=filled]
+	{
+		rank=same
+		setUp
+		test_proxy_auth
+	}
+	{
+		rank=same
+		__init__
+		tearDown
+	}
+	{
+		rank=same
+		_get_proxy
+	}
+	setUp -> self [label=writes color=black]
+	setUp -> keys [label=writes color=black]
+	setUp -> key [label="writes×2" color=black]
+	setUp -> setUp [label="loops(×162)" color=purple style=dashed]
+	setUp -> ERROR__StopIteration [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	setUp -> value [label="writes×2" color=black]
+	self -> test_proxy_auth [label="passed to" color=green style=dashed]
+	self -> __init__ [label="passed to" color=green style=dashed]
+	self -> _get_proxy [label="passed to" color=green style=dashed]
+	self -> tearDown [label="passed to" color=green style=dashed]
+	keys -> test_proxy_auth [label="passed to" color=green style=dashed]
+	key -> test_proxy_auth [label="passed to" color=green style=dashed]
+	key -> __init__ [label="passed to" color=green style=dashed]
+	value -> test_proxy_auth [label="passed to" color=green style=dashed]
+	value -> __init__ [label="passed to" color=green style=dashed]
+	test_proxy_auth -> key [label=writes color=black]
+	test_proxy_auth -> value [label=writes color=black]
+	test_proxy_auth -> self [label=writes color=black]
+	test_proxy_auth -> __init__ [label="calls [#1]" color=blue penwidth=1.1]
+	test_proxy_auth -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	test_proxy_auth -> tearDown [label="calls [#3]" color=blue penwidth=1.1]
+	__init__ -> type [label=writes color=black]
+	__init__ -> url [label=writes color=black]
+	__init__ -> _get_proxy [label="calls [#2]" color=blue penwidth=1.1]
+	__init__ -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	url -> _get_proxy [label="passed to" color=green style=dashed]
+	_get_proxy -> proxy_type [label=writes color=black]
+	_get_proxy -> user [label=writes color=black]
+	_get_proxy -> password [label=writes color=black]
+	_get_proxy -> hostport [label=writes color=black]
+	_get_proxy -> proxy_url [label=writes color=black]
+	_get_proxy -> user_pass [label=writes color=black]
+	_get_proxy -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+}

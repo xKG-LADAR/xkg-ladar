@@ -1,0 +1,75 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_new_method_propagates_classcell [label="test_new_method_propagates_classcell
+test_item.py:258" fillcolor=white shape=box style=filled]
+	new_mock [label="new_mock
+<Mock id='131495796998064'>" shape=ellipse]
+	base [label="base
+(2 writes, 2 distinct)
+<class 'abc.ABCMeta'>
+<class 'scrapy.item.Item'>" shape=ellipse]
+	__module__ [label="__module__
+'tests.test_item'" shape=ellipse]
+	__qualname__ [label="__qualname__
+'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'" shape=ellipse]
+	f [label="f
+<function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>" shape=ellipse]
+	__classcell__ [label="__classcell__
+<cell at 0x7798404ad840: empty>" shape=ellipse]
+	__new__ [label="__new__
+item.py:27" fillcolor=white shape=box style=filled]
+	new_bases [label="new_bases
+(<class 'scrapy.item.Item'>,)" shape=ellipse]
+	attrs [label="attrs
+{'__module__': 'tests.test_item', '__qualname__': 'ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem', '…" shape=ellipse]
+	_class [label="_class
+<class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'>" shape=ellipse]
+	fields [label="fields
+{}" shape=ellipse]
+	new_attrs [label="new_attrs
+(5 writes, 5 distinct)
+{}
+{'__module__': 'tests.test_item'}
+{'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at …
+{'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at …
+{'__module__': 'tests.test_item', 'f': <function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at …" shape=ellipse]
+	n [label="n
+(4 writes, 4 distinct)
+'__abstractmethods__'
+'__module__'
+'__ne__'
+'f'" shape=ellipse]
+	v [label="v
+(4 writes, 4 distinct)
+frozenset()
+'tests.test_item'
+<slot wrapper '__ne__' of 'object' objects>
+<function ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem.f at 0x7798404b4ae0>" shape=ellipse]
+	ERROR__TypeError [label="TypeError
+__class__ set to <class 'tests.test_item.ItemMetaTest.test_new_method_propagates_classcell.<locals>.MyItem'> defining 'MyItem' as <class 'tests.test_item.MyItem'>" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_new_method_propagates_classcell
+	}
+	{
+		rank=same
+		__new__
+	}
+	test_new_method_propagates_classcell -> new_mock [label=writes color=black]
+	test_new_method_propagates_classcell -> base [label=writes color=black]
+	test_new_method_propagates_classcell -> __module__ [label=writes color=black]
+	test_new_method_propagates_classcell -> __qualname__ [label=writes color=black]
+	test_new_method_propagates_classcell -> f [label=writes color=black]
+	test_new_method_propagates_classcell -> __classcell__ [label=writes color=black]
+	test_new_method_propagates_classcell -> __new__ [label="calls [#1]" color=blue penwidth=1.1]
+	test_new_method_propagates_classcell -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	__new__ -> base [label=writes color=black]
+	__new__ -> new_bases [label=writes color=black]
+	__new__ -> attrs [label=writes color=black]
+	__new__ -> _class [label=writes color=black]
+	__new__ -> fields [label=writes color=black]
+	__new__ -> new_attrs [label="writes×5" color=black]
+	__new__ -> n [label="writes×4" color=black]
+	__new__ -> v [label="writes×4" color=black]
+	__new__ -> __new__ [label="loops(×30)" color=purple style=dashed]
+}

@@ -1,0 +1,938 @@
+Cleared: /path/to/results/scrapy/bug4
+Running: python -m unittest -q tests.test_contracts.ContractsManagerTest.test_errback
+Workdir: /path/to/BugsInPy/workspace/scrapy
+PYTHONPATH: /path/to/BugsInPy/workspace/scrapy::
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_contracts.py
+IE_TRACE: Starting var:.. self = <tests.test_contracts.ContractsManagerTest testMethod=test_errback>
+IE_TRACE: 12:29:59.567419 call       110     def setUp(self):
+IE_TRACE: 12:29:59.567610 line       111         self.conman = ContractsManager(self.contracts)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:     Starting var:.. self = <scrapy.contracts.ContractsManager object at 0x75a8fb3338f0>
+IE_TRACE:     Starting var:.. contracts = [<class 'scrapy.contracts.default.UrlContract'>, <class 'scrapy.contracts.default.ReturnsContract'>, <class 'scrapy.contracts.default.ScrapesContract'>]
+IE_TRACE:     12:29:59.567643 call        14     def __init__(self, contracts):
+IE_TRACE:     12:29:59.567720 line        15         for contract in contracts:
+IE_TRACE:     New var:....... contract = <class 'scrapy.contracts.default.UrlContract'>
+IE_TRACE:     12:29:59.567740 line        16             self.contracts[contract.name] = contract
+IE_TRACE:     [CONDENSED] 1 identical loop iterations skipped (3 total iterations, showing first and last)
+IE_TRACE:     12:29:59.567799 line        15         for contract in contracts:
+IE_TRACE:     Modified var:.. contract = <class 'scrapy.contracts.default.ScrapesContract'>
+IE_TRACE:     12:29:59.567813 line        16             self.contracts[contract.name] = contract
+IE_TRACE:     12:29:59.567829 line        15         for contract in contracts:
+IE_TRACE:     12:29:59.567842 return      15         for contract in contracts:
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_contracts.py
+IE_TRACE: 12:29:59.567865 line       112         self.results = TextTestResult(stream=None, descriptions=False, verbosity=0)
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_contracts.py
+IE_TRACE: 12:29:59.568477 return     112         self.results = TextTestResult(stream=None, descriptions=False, verbosity=0)
+IE_TRACE: Return value:.. None
+IE_TRACE: Elapsed time: 00:00:00.001268
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_contracts.py
+IE_TRACE: Starting var:.. self = <tests.test_contracts.ContractsManagerTest testMethod=test_errback>
+IE_TRACE: 12:29:59.568659 call       195     def test_errback(self):
+IE_TRACE: 12:29:59.568691 line       196         spider = TestSpider()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/trackref.py
+IE_TRACE:     Starting var:.. cls = <class 'tests.test_contracts.TestSpider'>
+IE_TRACE:     Starting var:.. args = ()
+IE_TRACE:     Starting var:.. kwargs = {}
+IE_TRACE:     12:29:59.568708 call        30     def __new__(cls, *args, **kwargs):
+IE_TRACE:     12:29:59.568769 line        31         obj = object.__new__(cls)
+IE_TRACE:     New var:....... obj = <TestSpider 'demo_spider' at 0x75a8fb370680>
+IE_TRACE:     12:29:59.568785 line        32         live_refs[cls][obj] = time()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/trackref.py
+IE_TRACE:     12:29:59.569089 line        33         return obj
+IE_TRACE:     12:29:59.569109 return      33         return obj
+IE_TRACE:     Return value:.. <TestSpider 'demo_spider' at 0x75a8fb370680>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/spiders/__init__.py
+IE_TRACE:     Starting var:.. self = <TestSpider 'demo_spider' at 0x75a8fb370680>
+IE_TRACE:     Starting var:.. name = None
+IE_TRACE:     Starting var:.. kwargs = {}
+IE_TRACE:     12:29:59.569134 call        26     def __init__(self, name=None, **kwargs):
+IE_TRACE:     12:29:59.569190 line        27         if name is not None:
+IE_TRACE:     12:29:59.569210 line        29         elif not getattr(self, 'name', None):
+IE_TRACE:     12:29:59.569223 line        31         self.__dict__.update(kwargs)
+IE_TRACE:     12:29:59.569236 line        32         if not hasattr(self, 'start_urls'):
+IE_TRACE:     12:29:59.569249 line        33             self.start_urls = []
+IE_TRACE:     12:29:59.569262 return      33             self.start_urls = []
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_contracts.py
+IE_TRACE: New var:....... spider = <TestSpider 'demo_spider' at 0x75a8fb370680>
+IE_TRACE: 12:29:59.569279 line       197         response = ResponseMock()
+IE_TRACE: New var:....... response = <tests.test_contracts.ResponseMock object at 0x75a8fb371130>
+IE_TRACE: 12:29:59.569302 line       199         try:
+IE_TRACE: 12:29:59.569321 line       200             raise HttpError(response, 'Ignoring non-200 response')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/spidermiddlewares/httperror.py
+IE_TRACE:     Starting var:.. self = HttpError(<tests.test_contracts.ResponseMock object at 0x75a8fb371130>, 'Ignoring non-200 response')
+IE_TRACE:     Starting var:.. response = <tests.test_contracts.ResponseMock object at 0x75a8fb371130>
+IE_TRACE:     Starting var:.. args = ('Ignoring non-200 response',)
+IE_TRACE:     Starting var:.. kwargs = {}
+IE_TRACE:     Starting var:.. __class__ = <class 'scrapy.spidermiddlewares.httperror.HttpError'>
+IE_TRACE:     12:29:59.569338 call        16     def __init__(self, response, *args, **kwargs):
+IE_TRACE:     12:29:59.569396 line        17         self.response = response
+IE_TRACE:     12:29:59.569413 line        18         super(HttpError, self).__init__(*args, **kwargs)
+IE_TRACE:     Modified var:.. self = HttpError('Ignoring non-200 response')
+IE_TRACE:     12:29:59.569430 return      18         super(HttpError, self).__init__(*args, **kwargs)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_contracts.py
+IE_TRACE: 12:29:59.569455 exception  200             raise HttpError(response, 'Ignoring non-200 response')
+IE_TRACE: Exception:..... scrapy.spidermiddlewares.httperror.HttpError: Ignoring non-200 response
+IE_TRACE: 12:29:59.569564 line       201         except HttpError:
+IE_TRACE: 12:29:59.569581 line       202             failure_mock = failure.Failure()
+IE_TRACE:     Source path:... /path/to/.venv/lib/python3.12/site-packages/twisted/python/failure.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. exc_value = None
+IE_TRACE:     Starting var:.. exc_type = None
+IE_TRACE:     Starting var:.. exc_tb = None
+IE_TRACE:     Starting var:.. captureVars = False
+IE_TRACE:     12:29:59.569602 call       255     def __init__(self, exc_value=None, exc_type=None, exc_tb=None, captureVars=False):
+IE_TRACE:     12:29:59.569710 line       280         count = count + 1
+IE_TRACE:     12:29:59.569730 line       281         self.count = count
+IE_TRACE:     12:29:59.569747 line       282         self.type = self.value = tb = None
+IE_TRACE:     New var:....... tb = None
+IE_TRACE:     12:29:59.569764 line       283         self.captureVars = captureVars
+IE_TRACE:     12:29:59.569786 line       285         if exc_value is None:
+IE_TRACE:     12:29:59.569803 line       286             self.type, self.value, tb = sys.exc_info()
+IE_TRACE:     Modified var:.. self = <twisted.python.failure.Failure scrapy.spidermiddlewares.httperror.HttpError: Ignoring non-200 response>
+IE_TRACE:     Modified var:.. tb = <traceback object at 0x75a8fb365180>
+IE_TRACE:     12:29:59.569822 line       287             if self.type is None:
+IE_TRACE:     12:29:59.569853 line       300         if isinstance(self.value, Failure):
+IE_TRACE:     12:29:59.569872 line       304         if tb is None:
+IE_TRACE:     12:29:59.569890 line       310         self.tb = tb
+IE_TRACE:     12:29:59.569907 return     310         self.tb = tb
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_contracts.py
+IE_TRACE: New var:....... failure_mock = <twisted.python.failure.Failure scrapy.spidermiddlewares.httperror.HttpError: Ignoring non-200 response>
+IE_TRACE: 12:29:59.569930 line       204         request = self.conman.from_method(spider.returns_request, self.results)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:     Starting var:.. self = <scrapy.contracts.ContractsManager object at 0x75a8fb3338f0>
+IE_TRACE:     Starting var:.. method = <bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>
+IE_TRACE:     Starting var:.. results = <unittest.runner.TextTestResult run=0 errors=0 failures=0>
+IE_TRACE:     12:29:59.569964 call        48     def from_method(self, method, results):
+IE_TRACE:     12:29:59.569998 line        49         contracts = self.extract_contracts(method)
+IE_TRACE:         Starting var:.. self = <scrapy.contracts.ContractsManager object at 0x75a8fb3338f0>
+IE_TRACE:         Starting var:.. method = <bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>
+IE_TRACE:         12:29:59.570020 call        27     def extract_contracts(self, method):
+IE_TRACE:         12:29:59.570041 line        28         contracts = []
+IE_TRACE:         New var:....... contracts = []
+IE_TRACE:         12:29:59.570055 line        29         for line in method.__doc__.split('\n'):
+IE_TRACE:         New var:....... line = ' method which returns request'
+IE_TRACE:         12:29:59.570074 line        30             line = line.strip()
+IE_TRACE:         Modified var:.. line = 'method which returns request'
+IE_TRACE:         12:29:59.570094 line        32             if line.startswith('@'):
+IE_TRACE:         12:29:59.570113 line        29         for line in method.__doc__.split('\n'):
+IE_TRACE:         Modified var:.. line = '        @url http://scrapy.org'
+IE_TRACE:         12:29:59.570128 line        30             line = line.strip()
+IE_TRACE:         Modified var:.. line = '@url http://scrapy.org'
+IE_TRACE:         12:29:59.570147 line        32             if line.startswith('@'):
+IE_TRACE:         12:29:59.570165 line        33                 name, args = re.match(r'@(\w+)\s*(.*)', line).groups()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:         New var:....... name = 'url'
+IE_TRACE:         New var:....... args = 'http://scrapy.org'
+IE_TRACE:         12:29:59.605606 line        34                 args = re.split(r'\s+', args)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:         Modified var:.. args = ['http://scrapy.org']
+IE_TRACE:         12:29:59.625635 line        36                 contracts.append(self.contracts[name](method, *args))
+IE_TRACE:             Starting var:.. self = <scrapy.contracts.default.UrlContract object at 0x75a8fb373cb0>
+IE_TRACE:             Starting var:.. method = <bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>
+IE_TRACE:             Starting var:.. args = ('http://scrapy.org',)
+IE_TRACE:             12:29:59.625694 call        97     def __init__(self, method, *args):
+IE_TRACE:             12:29:59.625736 line        98         self.testcase_pre = _create_testcase(method, '@%s pre-hook' % self.name)
+IE_TRACE:                 Starting var:.. method = <bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>
+IE_TRACE:                 Starting var:.. desc = '@url pre-hook'
+IE_TRACE:                 12:29:59.625766 call       153 def _create_testcase(method, desc):
+IE_TRACE:                 12:29:59.625802 line       154     spider = method.__self__.name
+IE_TRACE:                 New var:....... spider = 'demo_spider'
+IE_TRACE:                 12:29:59.625824 line       156     class ContractTestCase(TestCase):
+IE_TRACE:                     12:29:59.625856 call       156     class ContractTestCase(TestCase):
+IE_TRACE:                     12:29:59.625874 line       156     class ContractTestCase(TestCase):
+IE_TRACE:                     New var:....... __module__ = 'scrapy.contracts'
+IE_TRACE:                     New var:....... __qualname__ = '_create_testcase.<locals>.ContractTestCase'
+IE_TRACE:                     12:29:59.625891 line       157         def __str__(_self):
+IE_TRACE:                     New var:....... __str__ = <function _create_testcase.<locals>.ContractTestCase.__str__ at 0x75a8fb352e80>
+IE_TRACE:                     12:29:59.625921 return     157         def __str__(_self):
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:                 New var:....... ContractTestCase = <class 'scrapy.contracts._create_testcase.<locals>.ContractTestCase'>
+IE_TRACE:                 12:29:59.626427 line       160     name = '%s_%s' % (spider, method.__name__)
+IE_TRACE:                 New var:....... name = 'demo_spider_returns_request'
+IE_TRACE:                 12:29:59.626475 line       161     setattr(ContractTestCase, name, lambda x: x)
+IE_TRACE:                 12:29:59.626512 line       162     return ContractTestCase(name)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:                 12:29:59.627529 return     162     return ContractTestCase(name)
+IE_TRACE:                 Return value:.. <scrapy.contracts._create_testcase.<locals>.ContractTestCase testMethod=demo_spider_returns_request>
+IE_TRACE:             12:29:59.627574 line        99         self.testcase_post = _create_testcase(method, '@%s post-hook' % self.name)
+IE_TRACE:                 Starting var:.. method = <bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>
+IE_TRACE:                 Starting var:.. desc = '@url post-hook'
+IE_TRACE:                 12:29:59.627601 call       153 def _create_testcase(method, desc):
+IE_TRACE:                 12:29:59.627634 line       154     spider = method.__self__.name
+IE_TRACE:                 New var:....... spider = 'demo_spider'
+IE_TRACE:                 12:29:59.627656 line       156     class ContractTestCase(TestCase):
+IE_TRACE:                     12:29:59.627687 call       156     class ContractTestCase(TestCase):
+IE_TRACE:                     12:29:59.627704 line       156     class ContractTestCase(TestCase):
+IE_TRACE:                     New var:....... __module__ = 'scrapy.contracts'
+IE_TRACE:                     New var:....... __qualname__ = '_create_testcase.<locals>.ContractTestCase'
+IE_TRACE:                     12:29:59.627719 line       157         def __str__(_self):
+IE_TRACE:                     New var:....... __str__ = <function _create_testcase.<locals>.ContractTestCase.__str__ at 0x75a8fb352f20>
+IE_TRACE:                     12:29:59.627750 return     157         def __str__(_self):
+IE_TRACE:                     Return value:.. None
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:                 New var:....... ContractTestCase = <class 'scrapy.contracts._create_testcase.<locals>.ContractTestCase'>
+IE_TRACE:                 12:29:59.627959 line       160     name = '%s_%s' % (spider, method.__name__)
+IE_TRACE:                 New var:....... name = 'demo_spider_returns_request'
+IE_TRACE:                 12:29:59.627997 line       161     setattr(ContractTestCase, name, lambda x: x)
+IE_TRACE:                 12:29:59.628028 line       162     return ContractTestCase(name)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:                 12:29:59.629013 return     162     return ContractTestCase(name)
+IE_TRACE:                 Return value:.. <scrapy.contracts._create_testcase.<locals>.ContractTestCase testMethod=demo_spider_returns_request>
+IE_TRACE:             12:29:59.629055 line       100         self.args = args
+IE_TRACE:             12:29:59.629079 return     100         self.args = args
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Modified var:.. contracts = [<scrapy.contracts.default.UrlContract object at 0x75a8fb373cb0>]
+IE_TRACE:         12:29:59.629109 line        29         for line in method.__doc__.split('\n'):
+IE_TRACE:         Modified var:.. line = '        @returns requests 1'
+IE_TRACE:         12:29:59.629147 line        30             line = line.strip()
+IE_TRACE:         Modified var:.. line = '@returns requests 1'
+IE_TRACE:         12:29:59.629181 line        32             if line.startswith('@'):
+IE_TRACE:         12:29:59.629350 line        33                 name, args = re.match(r'@(\w+)\s*(.*)', line).groups()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:         Modified var:.. name = 'returns'
+IE_TRACE:         Modified var:.. args = 'requests 1'
+IE_TRACE:         12:29:59.630035 line        34                 args = re.split(r'\s+', args)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:         Modified var:.. args = ['requests', '1']
+IE_TRACE:         12:29:59.630310 line        36                 contracts.append(self.contracts[name](method, *args))
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/default.py
+IE_TRACE:             Starting var:.. self = <scrapy.contracts.default.ReturnsContract object at 0x75a8fb373830>
+IE_TRACE:             Starting var:.. args = (<bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>, 'requests', '1')
+IE_TRACE:             Starting var:.. kwargs = {}
+IE_TRACE:             Starting var:.. __class__ = <class 'scrapy.contracts.default.ReturnsContract'>
+IE_TRACE:             12:29:59.630364 call        42     def __init__(self, *args, **kwargs):
+IE_TRACE:             12:29:59.630547 line        43         super(ReturnsContract, self).__init__(*args, **kwargs)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:                 Starting var:.. self = <scrapy.contracts.default.ReturnsContract object at 0x75a8fb373830>
+IE_TRACE:                 Starting var:.. method = <bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>
+IE_TRACE:                 Starting var:.. args = ('requests', '1')
+IE_TRACE:                 12:29:59.630578 call        97     def __init__(self, method, *args):
+IE_TRACE:                 12:29:59.630623 line        98         self.testcase_pre = _create_testcase(method, '@%s pre-hook' % self.name)
+IE_TRACE:                     Starting var:.. method = <bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>
+IE_TRACE:                     Starting var:.. desc = '@returns pre-hook'
+IE_TRACE:                     12:29:59.630650 call       153 def _create_testcase(method, desc):
+IE_TRACE:                     12:29:59.630690 line       154     spider = method.__self__.name
+IE_TRACE:                     New var:....... spider = 'demo_spider'
+IE_TRACE:                     12:29:59.630712 line       156     class ContractTestCase(TestCase):
+IE_TRACE:                         12:29:59.630742 call       156     class ContractTestCase(TestCase):
+IE_TRACE:                         12:29:59.630762 line       156     class ContractTestCase(TestCase):
+IE_TRACE:                         New var:....... __module__ = 'scrapy.contracts'
+IE_TRACE:                         New var:....... __qualname__ = '_create_testcase.<locals>.ContractTestCase'
+IE_TRACE:                         12:29:59.630779 line       157         def __str__(_self):
+IE_TRACE:                         New var:....... __str__ = <function _create_testcase.<locals>.ContractTestCase.__str__ at 0x75a8fb353100>
+IE_TRACE:                         12:29:59.630811 return     157         def __str__(_self):
+IE_TRACE:                         Return value:.. None
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:                     New var:....... ContractTestCase = <class 'scrapy.contracts._create_testcase.<locals>.ContractTestCase'>
+IE_TRACE:                     12:29:59.631032 line       160     name = '%s_%s' % (spider, method.__name__)
+IE_TRACE:                     New var:....... name = 'demo_spider_returns_request'
+IE_TRACE:                     12:29:59.631070 line       161     setattr(ContractTestCase, name, lambda x: x)
+IE_TRACE:                     12:29:59.631104 line       162     return ContractTestCase(name)
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:                     12:29:59.632086 return     162     return ContractTestCase(name)
+IE_TRACE:                     Return value:.. <scrapy.contracts._create_testcase.<locals>.ContractTestCase testMethod=demo_spider_returns_request>
+IE_TRACE:                 12:29:59.632127 line        99         self.testcase_post = _create_testcase(method, '@%s post-hook' % self.name)
+IE_TRACE:                     Starting var:.. method = <bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>
+IE_TRACE:                     Starting var:.. desc = '@returns post-hook'
+IE_TRACE:                     12:29:59.632152 call       153 def _create_testcase(method, desc):
+IE_TRACE:                     12:29:59.632185 line       154     spider = method.__self__.name
+IE_TRACE:                     New var:....... spider = 'demo_spider'
+IE_TRACE:                     12:29:59.632209 line       156     class ContractTestCase(TestCase):
+IE_TRACE:                         12:29:59.632237 call       156     class ContractTestCase(TestCase):
+IE_TRACE:                         12:29:59.632255 line       156     class ContractTestCase(TestCase):
+IE_TRACE:                         New var:....... __module__ = 'scrapy.contracts'
+IE_TRACE:                         New var:....... __qualname__ = '_create_testcase.<locals>.ContractTestCase'
+IE_TRACE:                         12:29:59.632271 line       157         def __str__(_self):
+IE_TRACE:                         New var:....... __str__ = <function _create_testcase.<locals>.ContractTestCase.__str__ at 0x75a8fb353240>
+IE_TRACE:                         12:29:59.632300 return     157         def __str__(_self):
+IE_TRACE:                         Return value:.. None
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:                     New var:....... ContractTestCase = <class 'scrapy.contracts._create_testcase.<locals>.ContractTestCase'>
+IE_TRACE:                     12:29:59.632492 line       160     name = '%s_%s' % (spider, method.__name__)
+IE_TRACE:                     New var:....... name = 'demo_spider_returns_request'
+IE_TRACE:                     12:29:59.632527 line       161     setattr(ContractTestCase, name, lambda x: x)
+IE_TRACE:                     12:29:59.632557 line       162     return ContractTestCase(name)
+IE_TRACE:                     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:                     12:29:59.633541 return     162     return ContractTestCase(name)
+IE_TRACE:                     Return value:.. <scrapy.contracts._create_testcase.<locals>.ContractTestCase testMethod=demo_spider_returns_request>
+IE_TRACE:                 12:29:59.633581 line       100         self.args = args
+IE_TRACE:                 12:29:59.633606 return     100         self.args = args
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/default.py
+IE_TRACE:             12:29:59.633636 line        45         assert len(self.args) in [1, 2, 3]
+IE_TRACE:             12:29:59.633668 line        46         self.obj_name = self.args[0] or None
+IE_TRACE:             12:29:59.633692 line        47         self.obj_type = self.objects[self.obj_name]
+IE_TRACE:             12:29:59.633716 line        49         try:
+IE_TRACE:             12:29:59.633740 line        50             self.min_bound = int(self.args[1])
+IE_TRACE:             12:29:59.633766 line        54         try:
+IE_TRACE:             12:29:59.633788 line        55             self.max_bound = int(self.args[2])
+IE_TRACE:             12:29:59.633812 exception   55             self.max_bound = int(self.args[2])
+IE_TRACE:             Exception:..... IndexError: tuple index out of range
+IE_TRACE:             12:29:59.633889 line        56         except IndexError:
+IE_TRACE:             12:29:59.633918 line        57             self.max_bound = float('inf')
+IE_TRACE:             12:29:59.633944 return      57             self.max_bound = float('inf')
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:         Modified var:.. contracts = [<scrapy.contracts.default.UrlContract object at 0x75a8fb373cb0>, <scrapy.contracts.default.ReturnsContract object at 0x75a8fb373830>]
+IE_TRACE:         12:29:59.633975 line        29         for line in method.__doc__.split('\n'):
+IE_TRACE:         Modified var:.. line = '        '
+IE_TRACE:         12:29:59.634017 line        30             line = line.strip()
+IE_TRACE:         Modified var:.. line = ''
+IE_TRACE:         12:29:59.634051 line        32             if line.startswith('@'):
+IE_TRACE:         12:29:59.634083 line        29         for line in method.__doc__.split('\n'):
+IE_TRACE:         12:29:59.634110 line        38         return contracts
+IE_TRACE:         12:29:59.634137 return      38         return contracts
+IE_TRACE:         Return value:.. [<scrapy.contracts.default.UrlContract object at 0x75a8fb373cb0>, <scrapy.contracts.default.ReturnsContract object at 0x75a8fb373830>]
+IE_TRACE:     New var:....... contracts = [<scrapy.contracts.default.UrlContract object at 0x75a8fb373cb0>, <scrapy.contracts.default.ReturnsContract object at 0x75a8fb373830>]
+IE_TRACE:     12:29:59.634173 line        50         if contracts:
+IE_TRACE:     12:29:59.634216 line        52             args, kwargs = get_spec(Request.__init__)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/python.py
+IE_TRACE:         Starting var:.. func = <function Request.__init__ at 0x75a8fcdaaa20>
+IE_TRACE:         12:29:59.634253 call       249 def get_spec(func):
+IE_TRACE:         12:29:59.634471 line       271     if inspect.isfunction(func) or inspect.ismethod(func):
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/python.py
+IE_TRACE:         12:29:59.634949 line       272         spec = _getargspec_py23(func)
+IE_TRACE:             Starting var:.. func = <function Request.__init__ at 0x75a8fcdaaa20>
+IE_TRACE:             12:29:59.634979 call       202 def _getargspec_py23(func):
+IE_TRACE:             12:29:59.635003 line       216     if six.PY2:
+IE_TRACE:             12:29:59.635022 line       219     return inspect.ArgSpec(*inspect.getfullargspec(func)[:4])
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/python.py
+IE_TRACE:             12:29:59.665469 return     219     return inspect.ArgSpec(*inspect.getfullargspec(func)[:4])
+IE_TRACE:             Return value:.. ArgSpec(args=['self', 'url', 'callback', 'method', 'headers', 'body', 'cookies', 'meta', 'encoding', 'priority', 'dont_filter', 'errback', 'flags'], varargs=None, keywords=None, defaults=(None, 'GET', None, None, None, None, 'utf-8', 0, False, None, None))
+IE_TRACE:         New var:....... spec = ArgSpec(args=['self', 'url', 'callback', 'method', 'headers', 'body', 'cookies', 'meta', 'encoding', 'priority', 'dont_filter', 'errback', 'flags'], varargs=None, keywords=None, defaults=(None, 'GET', None, None, None, None, 'utf-8', 0, False, None, None))
+IE_TRACE:         12:29:59.665491 line       278     defaults = spec.defaults or []
+IE_TRACE:         New var:....... defaults = (None, 'GET', None, None, None, None, 'utf-8', 0, False, None, None)
+IE_TRACE:         12:29:59.665510 line       280     firstdefault = len(spec.args) - len(defaults)
+IE_TRACE:         New var:....... firstdefault = 2
+IE_TRACE:         12:29:59.665530 line       281     args = spec.args[:firstdefault]
+IE_TRACE:         New var:....... args = ['self', 'url']
+IE_TRACE:         12:29:59.665549 line       282     kwargs = dict(zip(spec.args[firstdefault:], defaults))
+IE_TRACE:         New var:....... kwargs = {'callback': None, 'method': 'GET', 'headers': None, 'body': None, 'cookies': None, 'meta': None, 'encoding': 'utf-8', 'priority': 0, 'dont_filter': False, 'errback': None, 'flags': None}
+IE_TRACE:         12:29:59.665571 line       283     return args, kwargs
+IE_TRACE:         12:29:59.665593 return     283     return args, kwargs
+IE_TRACE:         Return value:.. (['self', 'url'], {'callback': None, 'method': 'GET', 'headers': None, 'body': None, 'cookies': None, 'meta': None, 'encoding': 'utf-8', 'priority': 0, 'dont_filter': False, 'errback': None, 'flags': None})
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:     New var:....... args = ['self', 'url']
+IE_TRACE:     New var:....... kwargs = {'callback': None, 'method': 'GET', 'headers': None, 'body': None, 'cookies': None, 'meta': None, 'encoding': 'utf-8', 'priority': 0, 'dont_filter': False, 'errback': None, 'flags': None}
+IE_TRACE:     12:29:59.665619 line        53             kwargs['callback'] = method
+IE_TRACE:     Modified var:.. kwargs = {'callback': <bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>, 'method': 'GET', 'headers': None, 'body': None, 'cookies': None, 'meta': None, 'encoding': 'utf-8', 'priority': 0, 'dont_filter': False, 'errback': None, 'flags': None}
+IE_TRACE:     12:29:59.665664 line        54             for contract in contracts:
+IE_TRACE:     New var:....... contract = <scrapy.contracts.default.UrlContract object at 0x75a8fb373cb0>
+IE_TRACE:     12:29:59.665687 line        55                 kwargs = contract.adjust_request_args(kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/default.py
+IE_TRACE:         Starting var:.. self = <scrapy.contracts.default.UrlContract object at 0x75a8fb373cb0>
+IE_TRACE:         Starting var:.. args = {'callback': <bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>, 'method': 'GET', 'headers': None, 'body': None, 'cookies': None, 'meta': None, 'encoding': 'utf-8', 'priority': 0, 'dont_filter': False, 'errback': None, 'flags': None}
+IE_TRACE:         12:29:59.665712 call        16     def adjust_request_args(self, args):
+IE_TRACE:         12:29:59.665734 line        17         args['url'] = self.args[0]
+IE_TRACE:         Modified var:.. args = {'callback': <bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>, 'method': 'GET', 'headers': None, 'body': None, 'cookies': None, 'meta': None, 'encoding': 'utf-8', 'priority': 0, 'dont_filter': False, 'errback': None, 'flags': None, 'url': 'http://scrapy.org'}
+IE_TRACE:         12:29:59.665747 line        18         return args
+IE_TRACE:         12:29:59.665763 return      18         return args
+IE_TRACE:         Return value:.. {'callback': <bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>, 'method': 'GET', 'headers': None, 'body': None, 'cookies': None, 'meta': None, 'encoding': 'utf-8', 'priority': 0, 'dont_filter': False, 'errback': None, 'flags': None, 'url': 'http://scrapy.org'}
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:     Modified var:.. kwargs = {'callback': <bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>, 'method': 'GET', 'headers': None, 'body': None, 'cookies': None, 'meta': None, 'encoding': 'utf-8', 'priority': 0, 'dont_filter': False, 'errback': None, 'flags': None, 'url': 'http://scrapy.org'}
+IE_TRACE:     12:29:59.665781 line        54             for contract in contracts:
+IE_TRACE:     Modified var:.. contract = <scrapy.contracts.default.ReturnsContract object at 0x75a8fb373830>
+IE_TRACE:     12:29:59.665811 line        55                 kwargs = contract.adjust_request_args(kwargs)
+IE_TRACE:         Starting var:.. self = <scrapy.contracts.default.ReturnsContract object at 0x75a8fb373830>
+IE_TRACE:         Starting var:.. args = {'callback': <bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>, 'method': 'GET', 'headers': None, 'body': None, 'cookies': None, 'meta': None, 'encoding': 'utf-8', 'priority': 0, 'dont_filter': False, 'errback': None, 'flags': None, 'url': 'http://scrapy.org'}
+IE_TRACE:         12:29:59.665834 call       149     def adjust_request_args(self, args):
+IE_TRACE:         12:29:59.665852 line       150         return args
+IE_TRACE:         12:29:59.665864 return     150         return args
+IE_TRACE:         Return value:.. {'callback': <bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>, 'method': 'GET', 'headers': None, 'body': None, 'cookies': None, 'meta': None, 'encoding': 'utf-8', 'priority': 0, 'dont_filter': False, 'errback': None, 'flags': None, 'url': 'http://scrapy.org'}
+IE_TRACE:     12:29:59.665881 line        54             for contract in contracts:
+IE_TRACE:     12:29:59.665899 line        58             args.remove('self')
+IE_TRACE:     Modified var:.. args = ['url']
+IE_TRACE:     12:29:59.665918 line        59             if set(args).issubset(set(kwargs)):
+IE_TRACE:     12:29:59.665943 line        60                 request = Request(**kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/trackref.py
+IE_TRACE:         Starting var:.. cls = <class 'scrapy.http.request.Request'>
+IE_TRACE:         Starting var:.. args = ()
+IE_TRACE:         Starting var:.. kwargs = {'callback': <bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>, 'method': 'GET', 'headers': None, 'body': None, 'cookies': None, 'meta': None, 'encoding': 'utf-8', 'priority': 0, 'dont_filter': False, 'errback': None, 'flags': None, 'url': 'http://scrapy.org'}
+IE_TRACE:         12:29:59.665966 call        30     def __new__(cls, *args, **kwargs):
+IE_TRACE:         12:29:59.665993 line        31         obj = object.__new__(cls)
+IE_TRACE:         New var:....... obj = REPR FAILED
+IE_TRACE:         12:29:59.666006 line        32         live_refs[cls][obj] = time()
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/trackref.py
+IE_TRACE:         12:29:59.666225 line        33         return obj
+IE_TRACE:         12:29:59.666243 return      33         return obj
+IE_TRACE:         Return value:.. REPR FAILED
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/request/__init__.py
+IE_TRACE:         Starting var:.. self = REPR FAILED
+IE_TRACE:         Starting var:.. url = 'http://scrapy.org'
+IE_TRACE:         Starting var:.. callback = <bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>
+IE_TRACE:         Starting var:.. method = 'GET'
+IE_TRACE:         Starting var:.. headers = None
+IE_TRACE:         Starting var:.. body = None
+IE_TRACE:         Starting var:.. cookies = None
+IE_TRACE:         Starting var:.. meta = None
+IE_TRACE:         Starting var:.. encoding = 'utf-8'
+IE_TRACE:         Starting var:.. priority = 0
+IE_TRACE:         Starting var:.. dont_filter = False
+IE_TRACE:         Starting var:.. errback = None
+IE_TRACE:         Starting var:.. flags = None
+IE_TRACE:         12:29:59.666270 call        19     def __init__(self, url, callback=None, method='GET', headers=None, body=None,
+IE_TRACE:         12:29:59.666429 line        23         self._encoding = encoding  # this one has to be set first
+IE_TRACE:         12:29:59.666454 line        24         self.method = str(method).upper()
+IE_TRACE:         12:29:59.666477 line        25         self._set_url(url)
+IE_TRACE:             Starting var:.. self = REPR FAILED
+IE_TRACE:             Starting var:.. url = 'http://scrapy.org'
+IE_TRACE:             12:29:59.666505 call        54     def _set_url(self, url):
+IE_TRACE:             12:29:59.666524 line        55         if not isinstance(url, six.string_types):
+IE_TRACE:             12:29:59.666537 line        58         s = safe_url_string(url, self.encoding)
+IE_TRACE:                 Starting var:.. self = REPR FAILED
+IE_TRACE:                 12:29:59.666550 call        78     def encoding(self):
+IE_TRACE:                 12:29:59.666566 line        79         return self._encoding
+IE_TRACE:                 12:29:59.666576 return      79         return self._encoding
+IE_TRACE:                 Return value:.. 'utf-8'
+IE_TRACE:                 Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                 Starting var:.. url = 'http://scrapy.org'
+IE_TRACE:                 Starting var:.. encoding = 'utf-8'
+IE_TRACE:                 Starting var:.. path_encoding = 'utf8'
+IE_TRACE:                 Starting var:.. quote_path = True
+IE_TRACE:                 12:29:59.666603 call        90 def safe_url_string(  # pylint: disable=too-many-locals
+IE_TRACE:                 12:29:59.666721 line       139     decoded = to_unicode(url, encoding=encoding, errors="percentencode")
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/util.py
+IE_TRACE:                     Starting var:.. text = 'http://scrapy.org'
+IE_TRACE:                     Starting var:.. encoding = 'utf-8'
+IE_TRACE:                     Starting var:.. errors = 'percentencode'
+IE_TRACE:                     12:29:59.666743 call         4 def to_unicode(
+IE_TRACE:                     12:29:59.666788 line         9     if isinstance(text, str):
+IE_TRACE:                     12:29:59.666802 line        10         return text
+IE_TRACE:                     12:29:59.666815 return      10         return text
+IE_TRACE:                     Return value:.. 'http://scrapy.org'
+IE_TRACE:                 Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                 New var:....... decoded = 'http://scrapy.org'
+IE_TRACE:                 12:29:59.666833 line       140     parts = urlsplit(_strip(decoded))
+IE_TRACE:                     Starting var:.. url = 'http://scrapy.org'
+IE_TRACE:                     12:29:59.666858 call        84 def _strip(url: str) -> str:
+IE_TRACE:                     12:29:59.666873 line        85     return url.strip(_C0_CONTROL_OR_SPACE).translate(
+IE_TRACE:                     12:29:59.666885 line        86         _ASCII_TAB_OR_NEWLINE_TRANSLATION_TABLE
+IE_TRACE:                     12:29:59.666896 line        85     return url.strip(_C0_CONTROL_OR_SPACE).translate(
+IE_TRACE:                     12:29:59.666908 return      85     return url.strip(_C0_CONTROL_OR_SPACE).translate(
+IE_TRACE:                     Return value:.. 'http://scrapy.org'
+IE_TRACE:                 Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                 New var:....... parts = SplitResult(scheme='http', netloc='scrapy.org', path='', query='', fragment='')
+IE_TRACE:                 12:29:59.668411 line       143         parts.username,
+IE_TRACE:                 Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                 12:29:59.668624 line       144         parts.password,
+IE_TRACE:                 Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                 12:29:59.668819 line       145         parts.hostname,
+IE_TRACE:                 Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                 12:29:59.669155 line       146         parts.port,
+IE_TRACE:                 Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                 12:29:59.669450 line       142     username, password, hostname, port = (
+IE_TRACE:                 New var:....... username = None
+IE_TRACE:                 New var:....... password = None
+IE_TRACE:                 New var:....... hostname = 'scrapy.org'
+IE_TRACE:                 New var:....... port = None
+IE_TRACE:                 12:29:59.669470 line       148     netloc_bytes = b""
+IE_TRACE:                 New var:....... netloc_bytes = b''
+IE_TRACE:                 12:29:59.669501 line       149     if username is not None or password is not None:
+IE_TRACE:                 12:29:59.669525 line       158     if hostname is not None:
+IE_TRACE:                 12:29:59.669546 line       159         if ":" in hostname:
+IE_TRACE:                 12:29:59.669566 line       164             try:
+IE_TRACE:                 12:29:59.669586 line       165                 netloc_bytes += hostname.encode("idna")
+IE_TRACE:                                     Source path:... /path/to/.venv/lib/python3.12/site-packages/_distutils_hack/__init__.py
+IE_TRACE:                                     Starting var:.. self = <_distutils_hack.DistutilsMetaFinder object at 0x75a8feb70470>
+IE_TRACE:                                     Starting var:.. fullname = 'encodings.idna'
+IE_TRACE:                                     Starting var:.. path = ['/usr/lib/python3.12/encodings']
+IE_TRACE:                                     Starting var:.. target = None
+IE_TRACE:                                     12:29:59.672178 call       101     def find_spec(self, fullname, path, target=None):
+IE_TRACE:                                     12:29:59.672254 line       104         if path is not None and not fullname.startswith('test.'):
+IE_TRACE:                                     12:29:59.672273 line       105             return None
+IE_TRACE:                                     12:29:59.672291 return     105             return None
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 Source path:... <frozen importlib._bootstrap>
+IE_TRACE:                                 New var:....... spec = None
+IE_TRACE:                                 12:29:59.672312 line      1256 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. self = <_frozen_importlib._ImportLockContext object at 0x75a8fb216150>
+IE_TRACE:                                     Starting var:.. exc_type = None
+IE_TRACE:                                     Starting var:.. exc_value = None
+IE_TRACE:                                     Starting var:.. exc_traceback = None
+IE_TRACE:                                     12:29:59.672343 call      1226 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.672371 line      1228 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.672388 return    1228 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 12:29:59.672408 line      1263 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.672430 line      1255 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Modified var:.. finder = <class '_frozen_importlib.BuiltinImporter'>
+IE_TRACE:                                 12:29:59.672451 line      1256 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. self = <_frozen_importlib._ImportLockContext object at 0x75a8fb3ee540>
+IE_TRACE:                                     12:29:59.672476 call      1222 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.672492 line      1224 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.672506 return    1224 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 12:29:59.672523 line      1257 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.672544 line      1258 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Modified var:.. find_spec = <bound method BuiltinImporter.find_spec of <class '_frozen_importlib.BuiltinImporter'>>
+IE_TRACE:                                 12:29:59.672565 line      1262 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. cls = <class '_frozen_importlib.BuiltinImporter'>
+IE_TRACE:                                     Starting var:.. fullname = 'encodings.idna'
+IE_TRACE:                                     Starting var:.. path = ['/usr/lib/python3.12/encodings']
+IE_TRACE:                                     Starting var:.. target = None
+IE_TRACE:                                     12:29:59.672590 call       982 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.672618 line       984 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.672636 line       987 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.672652 return     987 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 12:29:59.672672 line      1256 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. self = <_frozen_importlib._ImportLockContext object at 0x75a8fb3ee540>
+IE_TRACE:                                     Starting var:.. exc_type = None
+IE_TRACE:                                     Starting var:.. exc_value = None
+IE_TRACE:                                     Starting var:.. exc_traceback = None
+IE_TRACE:                                     12:29:59.672693 call      1226 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.672720 line      1228 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.672736 return    1228 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 12:29:59.672756 line      1263 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.672777 line      1255 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Modified var:.. finder = <class '_frozen_importlib.FrozenImporter'>
+IE_TRACE:                                 12:29:59.672798 line      1256 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. self = <_frozen_importlib._ImportLockContext object at 0x75a8fb3ee540>
+IE_TRACE:                                     12:29:59.672822 call      1222 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.672838 line      1224 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.672852 return    1224 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 12:29:59.672868 line      1257 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.672889 line      1258 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Modified var:.. find_spec = <bound method FrozenImporter.find_spec of <class '_frozen_importlib.FrozenImporter'>>
+IE_TRACE:                                 12:29:59.672910 line      1262 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. cls = <class '_frozen_importlib.FrozenImporter'>
+IE_TRACE:                                     Starting var:.. fullname = 'encodings.idna'
+IE_TRACE:                                     Starting var:.. path = ['/usr/lib/python3.12/encodings']
+IE_TRACE:                                     Starting var:.. target = None
+IE_TRACE:                                     12:29:59.672938 call      1128 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.672967 line      1130 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... info = None
+IE_TRACE:                                     12:29:59.672994 line      1131 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.673015 line      1132 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.673033 return    1132 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 12:29:59.673055 line      1256 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. self = <_frozen_importlib._ImportLockContext object at 0x75a8fb3ee540>
+IE_TRACE:                                     Starting var:.. exc_type = None
+IE_TRACE:                                     Starting var:.. exc_value = None
+IE_TRACE:                                     Starting var:.. exc_traceback = None
+IE_TRACE:                                     12:29:59.673076 call      1226 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.673103 line      1228 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.673119 return    1228 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 12:29:59.673139 line      1263 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.673160 line      1255 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Modified var:.. finder = <class '_frozen_importlib_external.PathFinder'>
+IE_TRACE:                                 12:29:59.673180 line      1256 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. self = <_frozen_importlib._ImportLockContext object at 0x75a8fb3ee540>
+IE_TRACE:                                     12:29:59.673206 call      1222 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.673222 line      1224 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.673236 return    1224 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 12:29:59.673252 line      1257 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.673273 line      1258 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Modified var:.. find_spec = <bound method PathFinder.find_spec of <class '_frozen_importlib_external.PathFinder'>>
+IE_TRACE:                                 12:29:59.673294 line      1262 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Source path:... <frozen importlib._bootstrap_external>
+IE_TRACE:                                     Starting var:.. cls = <class '_frozen_importlib_external.PathFinder'>
+IE_TRACE:                                     Starting var:.. fullname = 'encodings.idna'
+IE_TRACE:                                     Starting var:.. path = ['/usr/lib/python3.12/encodings']
+IE_TRACE:                                     Starting var:.. target = None
+IE_TRACE:                                     12:29:59.673320 call      1520 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.673361 line      1526 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.673379 line      1528 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... spec = ModuleSpec(name='encodings.idna', loader=<_frozen_importlib_external.SourceFileLoader object at 0x75a8fb216690>, origin='/usr/lib/python3.12/encodings/idna.py')
+IE_TRACE:                                     12:29:59.673607 line      1529 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.673633 line      1531 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.673652 line      1542 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.673671 return    1542 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. ModuleSpec(name='encodings.idna', loader=<_frozen_importlib_external.SourceFileLoader object at 0x75a8fb216690>, origin='/usr/lib/python3.12/encodings/idna.py')
+IE_TRACE:                                 Source path:... <frozen importlib._bootstrap>
+IE_TRACE:                                 Modified var:.. spec = ModuleSpec(name='encodings.idna', loader=<_frozen_importlib_external.SourceFileLoader object at 0x75a8fb216690>, origin='/usr/lib/python3.12/encodings/idna.py')
+IE_TRACE:                                 12:29:59.673695 line      1256 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. self = <_frozen_importlib._ImportLockContext object at 0x75a8fb3ee540>
+IE_TRACE:                                     Starting var:.. exc_type = None
+IE_TRACE:                                     Starting var:.. exc_value = None
+IE_TRACE:                                     Starting var:.. exc_traceback = None
+IE_TRACE:                                     12:29:59.673725 call      1226 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.673753 line      1228 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.673769 return    1228 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 12:29:59.673790 line      1263 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.673812 line      1265 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.673834 line      1280 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.673856 return    1280 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. ModuleSpec(name='encodings.idna', loader=<_frozen_importlib_external.SourceFileLoader object at 0x75a8fb216690>, origin='/usr/lib/python3.12/encodings/idna.py')
+IE_TRACE:                             New var:....... spec = ModuleSpec(name='encodings.idna', loader=<_frozen_importlib_external.SourceFileLoader object at 0x75a8fb216690>, origin='/usr/lib/python3.12/encodings/idna.py')
+IE_TRACE:                             12:29:59.673883 line      1323 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:29:59.673911 line      1326 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:29:59.673933 line      1329 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:29:59.673955 line      1330 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:29:59.673976 line      1331 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. spec = ModuleSpec(name='encodings.idna', loader=<_frozen_importlib_external.SourceFileLoader object at 0x75a8fb216690>, origin='/usr/lib/python3.12/encodings/idna.py')
+IE_TRACE:                                 12:29:59.674004 call       911 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.674023 line       913 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.674038 line       915 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.674053 line       921 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. spec = ModuleSpec(name='encodings.idna', loader=<_frozen_importlib_external.SourceFileLoader object at 0x75a8fb216690>, origin='/usr/lib/python3.12/encodings/idna.py')
+IE_TRACE:                                     12:29:59.674069 call       806 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.674087 line       809 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... module = None
+IE_TRACE:                                     12:29:59.674101 line       810 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.674120 line       813 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.674142 line       817 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.674157 line       818 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Modified var:.. module = <module 'encodings.idna'>
+IE_TRACE:                                     12:29:59.674180 line       819 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Modified var:.. module = <module 'encodings.idna' from '/usr/lib/python3.12/encodings/idna.py'>
+IE_TRACE:                                     12:29:59.674364 line       820 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.674410 return     820 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. <module 'encodings.idna' from '/usr/lib/python3.12/encodings/idna.py'>
+IE_TRACE:                                 New var:....... module = <module 'encodings.idna' from '/usr/lib/python3.12/encodings/idna.py'>
+IE_TRACE:                                 12:29:59.674439 line       926 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.674461 line       927 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.674477 line       928 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.674494 line       929 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.674510 line       930 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.674526 line       935 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Source path:... <frozen importlib._bootstrap_external>
+IE_TRACE:                                     Starting var:.. self = <_frozen_importlib_external.SourceFileLoader object at 0x75a8fb216690>
+IE_TRACE:                                     Starting var:.. module = <module 'encodings.idna' from '/usr/lib/python3.12/encodings/idna.py'>
+IE_TRACE:                                     12:29:59.674544 call       989 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.674572 line       991 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     New var:....... code = <code object <module> at 0x3188f170, file "/usr/lib/python3.12/encodings/idna.py", line 1>
+IE_TRACE:                                     12:29:59.674858 line       992 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.674886 line       995 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.677361 return     995 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 Source path:... <frozen importlib._bootstrap>
+IE_TRACE:                                 12:29:59.677403 line       946 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.677434 line       947 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.677452 line       948 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Starting var:.. message = 'import {!r} # {!r}'
+IE_TRACE:                                     Starting var:.. verbosity = 1
+IE_TRACE:                                     Starting var:.. args = ('encodings.idna', <_frozen_importlib_external.SourceFileLoader object at 0x75a8fb216690>)
+IE_TRACE:                                     12:29:59.677471 call       491 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.677502 line       493 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     12:29:59.677521 return     493 SOURCE IS UNAVAILABLE
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                 12:29:59.677544 line       950 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.677562 line       952 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.677578 return     952 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. <module 'encodings.idna' from '/usr/lib/python3.12/encodings/idna.py'>
+IE_TRACE:                             New var:....... module = <module 'encodings.idna' from '/usr/lib/python3.12/encodings/idna.py'>
+IE_TRACE:                             12:29:59.677600 line      1333 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:29:59.677632 line      1334 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:29:59.677657 line      1335 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:29:59.677681 line      1337 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:29:59.677704 line      1338 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:29:59.677728 line      1339 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:29:59.677752 line      1343 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:29:59.677775 return    1343 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. <module 'encodings.idna' from '/usr/lib/python3.12/encodings/idna.py'>
+IE_TRACE:                         12:29:59.677804 line      1357 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Starting var:.. self = <_frozen_importlib._ModuleLockManager object at 0x75a8fb2160f0>
+IE_TRACE:                             Starting var:.. args = (None, None, None)
+IE_TRACE:                             Starting var:.. kwargs = {}
+IE_TRACE:                             12:29:59.677820 call       420 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:29:59.677845 line       421 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Starting var:.. self = _ModuleLock('encodings.idna') at 129368628224144
+IE_TRACE:                                 12:29:59.677861 call       372 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.677881 line       373 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 New var:....... tid = 129368700076160
+IE_TRACE:                                 12:29:59.677895 line       374 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.677912 line       375 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.677926 line       377 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.677939 line       378 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.677953 line       379 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.677966 line       380 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.677979 line       381 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.677992 line       374 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 12:29:59.678005 return     374 SOURCE IS UNAVAILABLE
+IE_TRACE:                                 Return value:.. None
+IE_TRACE:                             12:29:59.678023 return     421 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                             Starting var:.. ref = <weakref at 0x75a8fb28aed0; dead>
+IE_TRACE:                             Starting var:.. name = 'encodings.idna'
+IE_TRACE:                             12:29:59.678044 call       445 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:29:59.678065 line       446 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:29:59.678079 line       447 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:29:59.678093 line       451 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:29:59.678106 line       452 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:29:59.678119 line       454 SOURCE IS UNAVAILABLE
+IE_TRACE:                             12:29:59.678132 return     454 SOURCE IS UNAVAILABLE
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         12:29:59.678151 return    1357 SOURCE IS UNAVAILABLE
+IE_TRACE:                         Return value:.. <module 'encodings.idna' from '/usr/lib/python3.12/encodings/idna.py'>
+IE_TRACE:                 Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                 Modified var:.. netloc_bytes = b'scrapy.org'
+IE_TRACE:                 12:29:59.679467 line       170     if port is not None:
+IE_TRACE:                 12:29:59.679497 line       174     netloc = netloc_bytes.decode()
+IE_TRACE:                 New var:....... netloc = 'scrapy.org'
+IE_TRACE:                 12:29:59.679519 line       177     if quote_path:
+IE_TRACE:                 12:29:59.679543 line       178         path = quote(parts.path.encode(path_encoding), _PATH_SAFEST_CHARS)
+IE_TRACE:                 Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                 New var:....... path = ''
+IE_TRACE:                 12:29:59.679750 line       182     if parts.scheme in _SPECIAL_SCHEMES:
+IE_TRACE:                 12:29:59.679780 line       183         query = quote(parts.query.encode(encoding), _SPECIAL_QUERY_SAFEST_CHARS)
+IE_TRACE:                 Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                 New var:....... query = ''
+IE_TRACE:                 12:29:59.679965 line       187     return urlunsplit(
+IE_TRACE:                 12:29:59.679993 line       189             parts.scheme,
+IE_TRACE:                 12:29:59.680015 line       190             netloc,
+IE_TRACE:                 12:29:59.680036 line       191             path,
+IE_TRACE:                 12:29:59.680057 line       192             query,
+IE_TRACE:                 12:29:59.680078 line       193             quote(parts.fragment.encode(encoding), _FRAGMENT_SAFEST_CHARS),
+IE_TRACE:                 Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                 12:29:59.680262 line       188         (
+IE_TRACE:                 12:29:59.680287 line       187     return urlunsplit(
+IE_TRACE:                 Source path:... /path/to/.venv/lib/python3.12/site-packages/w3lib/url.py
+IE_TRACE:                 12:29:59.680742 return     187     return urlunsplit(
+IE_TRACE:                 Return value:.. 'http://scrapy.org'
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/request/__init__.py
+IE_TRACE:             New var:....... s = 'http://scrapy.org'
+IE_TRACE:             12:29:59.680772 line        59         self._url = escape_ajax(s)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:                 Starting var:.. url = 'http://scrapy.org'
+IE_TRACE:                 12:29:59.680794 call        48 def escape_ajax(url):
+IE_TRACE:                 12:29:59.680841 line        71     defrag, frag = urldefrag(url)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/url.py
+IE_TRACE:                 New var:....... defrag = 'http://scrapy.org'
+IE_TRACE:                 New var:....... frag = ''
+IE_TRACE:                 12:29:59.681140 line        72     if not frag.startswith('!'):
+IE_TRACE:                 12:29:59.681160 line        73         return url
+IE_TRACE:                 12:29:59.681176 return      73         return url
+IE_TRACE:                 Return value:.. 'http://scrapy.org'
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/request/__init__.py
+IE_TRACE:             Modified var:.. self = <GET http://scrapy.org>
+IE_TRACE:             12:29:59.681199 line        61         if ':' not in self._url:
+IE_TRACE:             12:29:59.681217 return      61         if ':' not in self._url:
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Modified var:.. self = <GET http://scrapy.org>
+IE_TRACE:         12:29:59.681232 line        26         self._set_body(body)
+IE_TRACE:             Starting var:.. self = <GET http://scrapy.org>
+IE_TRACE:             Starting var:.. body = None
+IE_TRACE:             12:29:59.681261 call        69     def _set_body(self, body):
+IE_TRACE:             12:29:59.681278 line        70         if body is None:
+IE_TRACE:             12:29:59.681288 line        71             self._body = b''
+IE_TRACE:             12:29:59.681298 return      71             self._body = b''
+IE_TRACE:             Return value:.. None
+IE_TRACE:         12:29:59.681311 line        27         assert isinstance(priority, int), "Request priority not an integer: %r" % priority
+IE_TRACE:         12:29:59.681332 line        28         self.priority = priority
+IE_TRACE:         12:29:59.681352 line        30         if callback is not None and not callable(callback):
+IE_TRACE:         12:29:59.681375 line        32         if errback is not None and not callable(errback):
+IE_TRACE:         12:29:59.681394 line        34         assert callback or not errback, "Cannot use errback without a callback"
+IE_TRACE:         12:29:59.681414 line        35         self.callback = callback
+IE_TRACE:         12:29:59.681433 line        36         self.errback = errback
+IE_TRACE:         12:29:59.681452 line        38         self.cookies = cookies or {}
+IE_TRACE:         12:29:59.681471 line        39         self.headers = Headers(headers or {}, encoding=encoding)
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/headers.py
+IE_TRACE:             Starting var:.. self = {}
+IE_TRACE:             Starting var:.. seq = {}
+IE_TRACE:             Starting var:.. encoding = 'utf-8'
+IE_TRACE:             Starting var:.. __class__ = <class 'scrapy.http.headers.Headers'>
+IE_TRACE:             12:29:59.681494 call        10     def __init__(self, seq=None, encoding='utf-8'):
+IE_TRACE:             12:29:59.681549 line        11         self.encoding = encoding
+IE_TRACE:             12:29:59.681562 line        12         super(Headers, self).__init__(seq)
+IE_TRACE:                 Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/datatypes.py
+IE_TRACE:                 Starting var:.. self = {}
+IE_TRACE:                 Starting var:.. seq = {}
+IE_TRACE:                 Starting var:.. __class__ = <class 'scrapy.utils.datatypes.CaselessDict'>
+IE_TRACE:                 12:29:59.681576 call       191     def __init__(self, seq=None):
+IE_TRACE:                 12:29:59.681628 line       192         super(CaselessDict, self).__init__()
+IE_TRACE:                 12:29:59.681640 line       193         if seq:
+IE_TRACE:                 12:29:59.681651 return     193         if seq:
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/headers.py
+IE_TRACE:             12:29:59.681666 return      12         super(Headers, self).__init__(seq)
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/http/request/__init__.py
+IE_TRACE:         12:29:59.681684 line        40         self.dont_filter = dont_filter
+IE_TRACE:         12:29:59.681709 line        42         self._meta = dict(meta) if meta else None
+IE_TRACE:         12:29:59.681729 line        43         self.flags = [] if flags is None else list(flags)
+IE_TRACE:         12:29:59.681749 return      43         self.flags = [] if flags is None else list(flags)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:     New var:....... request = <GET http://scrapy.org>
+IE_TRACE:     12:29:59.681773 line        63                 for contract in reversed(contracts):
+IE_TRACE:     12:29:59.681803 line        64                     request = contract.add_pre_hook(request, results)
+IE_TRACE:         Starting var:.. self = <scrapy.contracts.default.ReturnsContract object at 0x75a8fb373830>
+IE_TRACE:         Starting var:.. request = <GET http://scrapy.org>
+IE_TRACE:         Starting var:.. results = <unittest.runner.TextTestResult run=0 errors=0 failures=0>
+IE_TRACE:         12:29:59.681826 call       102     def add_pre_hook(self, request, results):
+IE_TRACE:         12:29:59.681849 line       103         if hasattr(self, 'pre_process'):
+IE_TRACE:         12:29:59.681861 line       123         return request
+IE_TRACE:         12:29:59.681873 return     123         return request
+IE_TRACE:         Return value:.. <GET http://scrapy.org>
+IE_TRACE:     12:29:59.681888 line        63                 for contract in reversed(contracts):
+IE_TRACE:     Modified var:.. contract = <scrapy.contracts.default.UrlContract object at 0x75a8fb373cb0>
+IE_TRACE:     12:29:59.681906 line        64                     request = contract.add_pre_hook(request, results)
+IE_TRACE:         Starting var:.. self = <scrapy.contracts.default.UrlContract object at 0x75a8fb373cb0>
+IE_TRACE:         Starting var:.. request = <GET http://scrapy.org>
+IE_TRACE:         Starting var:.. results = <unittest.runner.TextTestResult run=0 errors=0 failures=0>
+IE_TRACE:         12:29:59.681928 call       102     def add_pre_hook(self, request, results):
+IE_TRACE:         12:29:59.681947 line       103         if hasattr(self, 'pre_process'):
+IE_TRACE:         12:29:59.681958 line       123         return request
+IE_TRACE:         12:29:59.681969 return     123         return request
+IE_TRACE:         Return value:.. <GET http://scrapy.org>
+IE_TRACE:     12:29:59.681984 line        63                 for contract in reversed(contracts):
+IE_TRACE:     12:29:59.682001 line        65                 for contract in contracts:
+IE_TRACE:     12:29:59.682018 line        66                     request = contract.add_post_hook(request, results)
+IE_TRACE:         Starting var:.. self = <scrapy.contracts.default.UrlContract object at 0x75a8fb373cb0>
+IE_TRACE:         Starting var:.. request = <GET http://scrapy.org>
+IE_TRACE:         Starting var:.. results = <unittest.runner.TextTestResult run=0 errors=0 failures=0>
+IE_TRACE:         12:29:59.682037 call       125     def add_post_hook(self, request, results):
+IE_TRACE:         12:29:59.682057 line       126         if hasattr(self, 'post_process'):
+IE_TRACE:         12:29:59.682069 line       147         return request
+IE_TRACE:         12:29:59.682081 return     147         return request
+IE_TRACE:         Return value:.. <GET http://scrapy.org>
+IE_TRACE:     12:29:59.682096 line        65                 for contract in contracts:
+IE_TRACE:     Modified var:.. contract = <scrapy.contracts.default.ReturnsContract object at 0x75a8fb373830>
+IE_TRACE:     12:29:59.682113 line        66                     request = contract.add_post_hook(request, results)
+IE_TRACE:         Starting var:.. self = <scrapy.contracts.default.ReturnsContract object at 0x75a8fb373830>
+IE_TRACE:         Starting var:.. request = <GET http://scrapy.org>
+IE_TRACE:         Starting var:.. results = <unittest.runner.TextTestResult run=0 errors=0 failures=0>
+IE_TRACE:         12:29:59.682134 call       125     def add_post_hook(self, request, results):
+IE_TRACE:         12:29:59.682153 line       126         if hasattr(self, 'post_process'):
+IE_TRACE:         12:29:59.682164 line       127             cb = request.callback
+IE_TRACE:         New var:....... cb = <bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>
+IE_TRACE:         12:29:59.682175 line       129             @wraps(cb)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:         12:29:59.683682 line       130             def wrapper(response):
+IE_TRACE:         12:29:59.683700 line       129             @wraps(cb)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:         12:29:59.684220 line       130             def wrapper(response):
+IE_TRACE:         New var:....... wrapper = <function TestSpider.returns_request at 0x75a8fb2a8f40>
+IE_TRACE:         12:29:59.684236 line       145             request.callback = wrapper
+IE_TRACE:         12:29:59.684254 line       147         return request
+IE_TRACE:         12:29:59.684268 return     147         return request
+IE_TRACE:         Return value:.. <GET http://scrapy.org>
+IE_TRACE:     12:29:59.684284 line        65                 for contract in contracts:
+IE_TRACE:     12:29:59.684304 line        68                 self._clean_req(request, method, results)
+IE_TRACE:         Starting var:.. self = <scrapy.contracts.ContractsManager object at 0x75a8fb3338f0>
+IE_TRACE:         Starting var:.. request = <GET http://scrapy.org>
+IE_TRACE:         Starting var:.. method = <bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>
+IE_TRACE:         Starting var:.. results = <unittest.runner.TextTestResult run=0 errors=0 failures=0>
+IE_TRACE:         12:29:59.684325 call        71     def _clean_req(self, request, method, results):
+IE_TRACE:         12:29:59.684350 line        74         cb = request.callback
+IE_TRACE:         New var:....... cb = <function TestSpider.returns_request at 0x75a8fb2a8f40>
+IE_TRACE:         12:29:59.684364 line        76         @wraps(cb)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:         12:29:59.684450 line        77         def cb_wrapper(response):
+IE_TRACE:         12:29:59.684467 line        76         @wraps(cb)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:         12:29:59.684951 line        77         def cb_wrapper(response):
+IE_TRACE:         New var:....... cb_wrapper = <function TestSpider.returns_request at 0x75a8fb2a8fe0>
+IE_TRACE:         12:29:59.684967 line        85         def eb_wrapper(failure):
+IE_TRACE:         New var:....... eb_wrapper = <function ContractsManager._clean_req.<locals>.eb_wrapper at 0x75a8fb2a9120>
+IE_TRACE:         12:29:59.684985 line        90         request.callback = cb_wrapper
+IE_TRACE:         12:29:59.685003 line        91         request.errback = eb_wrapper
+IE_TRACE:         12:29:59.685019 return      91         request.errback = eb_wrapper
+IE_TRACE:         Return value:.. None
+IE_TRACE:     12:29:59.685038 line        69                 return request
+IE_TRACE:     12:29:59.685056 return      69                 return request
+IE_TRACE:     Return value:.. <GET http://scrapy.org>
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_contracts.py
+IE_TRACE: New var:....... request = <GET http://scrapy.org>
+IE_TRACE: 12:29:59.685079 line       205         request.errback(failure_mock)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:     Starting var:.. failure = <twisted.python.failure.Failure scrapy.spidermiddlewares.httperror.HttpError: Ignoring non-200 response>
+IE_TRACE:     Starting var:.. method = <bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>
+IE_TRACE:     Starting var:.. results = <unittest.runner.TextTestResult run=0 errors=0 failures=0>
+IE_TRACE:     12:29:59.685116 call        85         def eb_wrapper(failure):
+IE_TRACE:     12:29:59.685142 line        86             case = _create_testcase(method, 'errback')
+IE_TRACE:         Starting var:.. method = <bound method TestSpider.returns_request of <TestSpider 'demo_spider' at 0x75a8fb370680>>
+IE_TRACE:         Starting var:.. desc = 'errback'
+IE_TRACE:         12:29:59.685158 call       153 def _create_testcase(method, desc):
+IE_TRACE:         12:29:59.685175 line       154     spider = method.__self__.name
+IE_TRACE:         New var:....... spider = 'demo_spider'
+IE_TRACE:         12:29:59.685186 line       156     class ContractTestCase(TestCase):
+IE_TRACE:             12:29:59.685202 call       156     class ContractTestCase(TestCase):
+IE_TRACE:             12:29:59.685210 line       156     class ContractTestCase(TestCase):
+IE_TRACE:             New var:....... __module__ = 'scrapy.contracts'
+IE_TRACE:             New var:....... __qualname__ = '_create_testcase.<locals>.ContractTestCase'
+IE_TRACE:             12:29:59.685218 line       157         def __str__(_self):
+IE_TRACE:             New var:....... __str__ = <function _create_testcase.<locals>.ContractTestCase.__str__ at 0x75a8fb2a91c0>
+IE_TRACE:             12:29:59.685233 return     157         def __str__(_self):
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:         New var:....... ContractTestCase = <class 'scrapy.contracts._create_testcase.<locals>.ContractTestCase'>
+IE_TRACE:         12:29:59.685341 line       160     name = '%s_%s' % (spider, method.__name__)
+IE_TRACE:         New var:....... name = 'demo_spider_returns_request'
+IE_TRACE:         12:29:59.685360 line       161     setattr(ContractTestCase, name, lambda x: x)
+IE_TRACE:         12:29:59.685377 line       162     return ContractTestCase(name)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:         12:29:59.685853 return     162     return ContractTestCase(name)
+IE_TRACE:         Return value:.. <scrapy.contracts._create_testcase.<locals>.ContractTestCase testMethod=demo_spider_returns_request>
+IE_TRACE:     New var:....... case = <scrapy.contracts._create_testcase.<locals>.ContractTestCase testMethod=demo_spider_returns_request>
+IE_TRACE:     12:29:59.685872 line        87             exc_info = failure.value, failure.type, failure.getTracebackObject()
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/twisted/python/failure.py
+IE_TRACE:         Starting var:.. self = <twisted.python.failure.Failure scrapy.spidermiddlewares.httperror.HttpError: Ignoring non-200 response>
+IE_TRACE:         12:29:59.685892 call       545     def getTracebackObject(self):
+IE_TRACE:         12:29:59.685908 line       555         if self.tb is not None:
+IE_TRACE:         12:29:59.685917 line       556             return self.tb
+IE_TRACE:         12:29:59.685926 return     556             return self.tb
+IE_TRACE:         Return value:.. <traceback object at 0x75a8fb365180>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:     New var:....... exc_info = (HttpError('Ignoring non-200 response'), <class 'scrapy.spidermiddlewares.httperror.HttpError'>, <traceback object at 0x75a8fb365180>)
+IE_TRACE:     12:29:59.685938 line        88             results.addError(case, exc_info)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py
+IE_TRACE:     12:29:59.687937 exception   88             results.addError(case, exc_info)
+IE_TRACE:     Exception:..... AttributeError: 'getset_descriptor' object has no attribute '__traceback__'
+IE_TRACE:     Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_contracts.py
+IE_TRACE: 12:29:59.688200 exception  205         request.errback(failure_mock)
+IE_TRACE: Exception:..... AttributeError: 'getset_descriptor' object has no attribute '__traceback__'
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.119891
+======================================================================
+ERROR: test_errback (tests.test_contracts.ContractsManagerTest.test_errback)
+test_errback
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/twisted/trial/_asynctest.py", line 173, in _deferSetUpAndRun
+    await self._run(
+  File "/path/to/.venv/lib/python3.12/site-packages/twisted/internet/defer.py", line 1185, in __iter__
+    result.raiseException()
+  File "/path/to/.venv/lib/python3.12/site-packages/twisted/python/failure.py", line 455, in raiseException
+    raise self.value.with_traceback(self.tb)
+  File "/path/to/.venv/lib/python3.12/site-packages/twisted/internet/defer.py", line 205, in maybeDeferred
+    result = f(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^
+  File "/path/to/.venv/lib/python3.12/site-packages/twisted/internet/utils.py", line 227, in runWithWarningsSuppressed
+    raise exc_info[1].with_traceback(exc_info[2])
+  File "/path/to/.venv/lib/python3.12/site-packages/twisted/internet/utils.py", line 223, in runWithWarningsSuppressed
+    result = f(*a, **kw)
+             ^^^^^^^^^^^
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/tests/test_contracts.py", line 205, in test_errback
+    request.errback(failure_mock)
+  File "/path/to/BugsInPy/workspace/scrapy/scrapy/contracts/__init__.py", line 88, in eb_wrapper
+    results.addError(case, exc_info)
+  File "/usr/lib/python3.12/unittest/runner.py", line 101, in addError
+    super(TextTestResult, self).addError(test, err)
+  File "/usr/lib/python3.12/unittest/result.py", line 17, in inner
+    return method(self, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/result.py", line 116, in addError
+    self.errors.append((test, self._exc_info_to_string(err, test)))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/result.py", line 188, in _exc_info_to_string
+    tb = self._clean_tracebacks(exctype, value, tb, test)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/result.py", line 231, in _clean_tracebacks
+    excs.append((type(c), c, c.__traceback__))
+                             ^^^^^^^^^^^^^^^
+AttributeError: 'getset_descriptor' object has no attribute '__traceback__'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.124s
+
+FAILED (errors=1)
+
+
+Exit code: 1

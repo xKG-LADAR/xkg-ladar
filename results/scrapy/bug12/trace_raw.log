@@ -1,0 +1,46 @@
+Cleared: /path/to/results/scrapy/bug12
+Running: python -m unittest -q tests.test_selector.SelectorTestCase.test_selector_bad_args
+Workdir: /path/to/BugsInPy/workspace/scrapy
+PYTHONPATH: /path/to/BugsInPy/workspace/scrapy::
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_selector.py
+IE_TRACE: Starting var:.. self = <tests.test_selector.SelectorTestCase testMethod=test_selector_bad_args>
+IE_TRACE: 12:32:58.122168 call       129     def test_selector_bad_args(self):
+IE_TRACE: 12:32:58.122405 line       130         with self.assertRaisesRegexp(ValueError, 'received both response and text'):
+IE_TRACE: 12:32:58.122445 exception  130         with self.assertRaisesRegexp(ValueError, 'received both response and text'):
+IE_TRACE: Exception:..... AttributeError: 'SelectorTestCase' object has no attribute 'assertRaisesRegexp'. Did you mean: 'assertRaisesRegex'?
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.003519
+======================================================================
+ERROR: test_selector_bad_args (tests.test_selector.SelectorTestCase.test_selector_bad_args)
+test_selector_bad_args
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/twisted/trial/_asynctest.py", line 173, in _deferSetUpAndRun
+    await self._run(
+  File "/path/to/.venv/lib/python3.12/site-packages/twisted/internet/defer.py", line 1185, in __iter__
+    result.raiseException()
+  File "/path/to/.venv/lib/python3.12/site-packages/twisted/python/failure.py", line 455, in raiseException
+    raise self.value.with_traceback(self.tb)
+  File "/path/to/.venv/lib/python3.12/site-packages/twisted/internet/defer.py", line 205, in maybeDeferred
+    result = f(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^
+  File "/path/to/.venv/lib/python3.12/site-packages/twisted/internet/utils.py", line 227, in runWithWarningsSuppressed
+    raise exc_info[1].with_traceback(exc_info[2])
+  File "/path/to/.venv/lib/python3.12/site-packages/twisted/internet/utils.py", line 223, in runWithWarningsSuppressed
+    result = f(*a, **kw)
+             ^^^^^^^^^^^
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/tests/test_selector.py", line 130, in test_selector_bad_args
+    with self.assertRaisesRegexp(ValueError, 'received both response and text'):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SelectorTestCase' object has no attribute 'assertRaisesRegexp'. Did you mean: 'assertRaisesRegex'?
+
+----------------------------------------------------------------------
+Ran 1 test in 0.007s
+
+FAILED (errors=1)
+
+
+Exit code: 1

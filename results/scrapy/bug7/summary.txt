@@ -1,0 +1,23 @@
+Project : scrapy
+Bug ID  : 7
+Version : 0 (buggy)
+Workdir : /path/to/BugsInPy/workspace/scrapy
+Output  : /path/to/results/scrapy/bug7
+
+STEP 0: bugsinpy-checkout
+  RESULT: OK
+STEP 0.15: py312-compat patched 55 files
+STEP 0.1: compile
+  RESULT: OK
+STEP 0.5: auto-decorate test functions
+  Modified 1 file(s)
+STEP 1: run_trace.py
+  Raw trace: 277998 chars
+STEP 2: trace_condense.py
+  Condensed trace: /path/to/results/scrapy/bug7/trace_condensed.log
+STEP 3: build_trace_kg.py
+  KG output: /path/to/results/scrapy/bug7/trace_kg
+STEP 4: debug_agent.py
+  Diagnosis: /path/to/results/scrapy/bug7/diagnosis.md
+
+PIPELINE COMPLETE - all steps succeeded.

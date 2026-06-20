@@ -1,0 +1,289 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_parse_iso8601 [label="test_parse_iso8601
+test_utils.py:291" fillcolor=white shape=box style=filled]
+	parse_iso8601 [label="parse_iso8601
+Return a UNIX timestamp from the given date
+utils.py:921" fillcolor=white shape=box style=filled]
+	m [label="m
+(4 writes, 4 distinct)
+<re.Match object; span=(19, 24), match='+0100'>
+<re.Match object; span=(19, 24), match='+0000'>
+<re.Match object; span=(19, 20), match='Z'>
+<re.Match object; span=(24, 25), match='Z'>" shape=ellipse]
+	date_str [label="date_str
+(4 writes, 3 distinct)
+'2014-03-23T23:04:26'
+'2014-03-23T22:04:26'
+'2014-03-23T22:04:26.1234'" shape=ellipse]
+	sign [label="sign
+(2 writes)
+1" shape=ellipse]
+	timezone [label="timezone
+(4 writes, 2 distinct)
+datetime.timedelta(seconds=3600)
+datetime.timedelta(0)" shape=ellipse]
+	date_format [label="date_format
+(4 writes)
+'%Y-%m-%dT%H:%M:%S'" shape=ellipse]
+	module [label="module
+(7 writes, 5 distinct)
+<object object at 0x767ad2104060>
+None
+<module '_strptime'>
+<module '_strptime' (<_frozen_importlib_external.SourceFileLoader object at 0x767ad08d7920>)>
+<module '_strptime' from '/usr/lib/python3.12/_strptime.py'>" shape=ellipse]
+	ERROR__KeyError [label="KeyError
+'_strptime'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	lock [label="lock
+(2 writes, 2 distinct)
+None
+_ModuleLock('_strptime') at 130269857020816" shape=ellipse]
+	self [label="self
+(3 writes, 3 distinct)
+_ModuleLock('_strptime') at 130269857020816
+<weakref at 0x767ad055f9a0; to '_List' at 0x767ad0556e40>
+<_frozen_importlib._WeakValueDictionary object at 0x767ad21272c0>" shape=ellipse]
+	cb [label="cb
+<function _get_module_lock.<locals>.cb at 0x767ad0570180>" shape=ellipse]
+	tid [label="tid
+130269882929280" shape=ellipse]
+	o [label="o
+None" shape=ellipse]
+	path [label="path
+(2 writes, 2 distinct)
+None
+['/path/to/BugsInPy/workspace/youtube-dl', '/path/to/BugsInPy/workspace/youtube-dl', '<redacted>" shape=ellipse]
+	parent [label="parent
+''" shape=ellipse]
+	parent_spec [label="parent_spec
+None" shape=ellipse]
+	meta_path [label="meta_path
+[<class '_frozen_importlib.BuiltinImporter'>, <class '_frozen_importlib.FrozenImporter'>, <class '_frozen_importlib_exte…" shape=ellipse]
+	is_reload [label="is_reload
+False" shape=ellipse]
+	finder [label="finder
+(11 writes, 6 distinct)
+<class '_frozen_importlib.BuiltinImporter'>
+<class '_frozen_importlib.FrozenImporter'>
+<class '_frozen_importlib_external.PathFinder'>
+FileFinder('/path/to/BugsInPy/workspace/youtube-dl')
+None
+FileFinder('/usr/lib/python3.12')" shape=ellipse]
+	find_spec [label="find_spec
+(3 writes, 3 distinct)
+<bound method BuiltinImporter.find_spec of <class '_frozen_importlib.BuiltinImporter'>>
+<bound method FrozenImporter.find_spec of <class '_frozen_importlib.FrozenImporter'>>
+<bound method PathFinder.find_spec of <class '_frozen_importlib_external.PathFinder'>>" shape=ellipse]
+	spec [label="spec
+(7 writes, 2 distinct)
+None
+ModuleSpec(name='_strptime', loader=<_frozen_importlib_external.SourceFileLoader object at 0x767ad08d7920>, origin='/usr…" shape=ellipse]
+	info [label="info
+None" shape=ellipse]
+	namespace_path [label="namespace_path
+[]" shape=ellipse]
+	entry [label="entry
+(3 writes, 3 distinct)
+'/path/to/BugsInPy/workspace/youtube-dl'
+'/usr/lib/python312.zip'
+'/usr/lib/python3.12'" shape=ellipse]
+	is_namespace [label="is_namespace
+(4 writes)
+False" shape=ellipse]
+	tail_module [label="tail_module
+(4 writes)
+'_strptime'" shape=ellipse]
+	mtime [label="mtime
+(4 writes, 2 distinct)
+1775123510.6153932
+1775119204.8377783" shape=ellipse]
+	cache [label="cache
+(4 writes, 2 distinct)
+set(len=23)
+set(len=202)" shape=ellipse]
+	cache_module [label="cache_module
+(4 writes)
+'_strptime'" shape=ellipse]
+	suffix [label="suffix
+(8 writes, 3 distinct)
+'.cpython-312-x86_64-linux-gnu.so'
+'.pyc'
+'.py'" shape=ellipse]
+	loader_class [label="loader_class
+(8 writes, 3 distinct)
+<class '_frozen_importlib_external.ExtensionFileLoader'>
+<class '_frozen_importlib_external.SourcelessFileLoader'>
+<class '_frozen_importlib_external.SourceFileLoader'>" shape=ellipse]
+	full_path [label="full_path
+(8 writes, 4 distinct)
+'/path/to/BugsInPy/workspace/youtube-dl/_strptime.cpython-312-x86_64-linux-gnu.so'
+'/path/to/BugsInPy/workspace/youtube-dl/_strptime.pyc'
+'/usr/lib/python3.12/_strptime.cpython-312-x86_64-linux-gnu.so'
+'/usr/lib/python3.12/_strptime.py'" shape=ellipse]
+	stat_info [label="stat_info
+os.stat_result(st_mode=33188, st_ino=527086, st_dev=66309, st_nlink=1, st_uid=0, st_gid=0, st_size=24615, st_atime=17751…" shape=ellipse]
+	loader [label="loader
+(2 writes)
+<_frozen_importlib_external.SourceFileLoader object at 0x767ad08d7920>" shape=ellipse]
+	head [label="head
+(2 writes)
+'/usr/lib/python3.12'" shape=ellipse]
+	tail [label="tail
+(2 writes)
+'_strptime.py'" shape=ellipse]
+	base [label="base
+(2 writes)
+'_strptime'" shape=ellipse]
+	sep [label="sep
+(2 writes)
+'.'" shape=ellipse]
+	rest [label="rest
+(2 writes)
+'py'" shape=ellipse]
+	tag [label="tag
+(2 writes)
+'cpython-312'" shape=ellipse]
+	almost_filename [label="almost_filename
+(2 writes)
+'_strptime.cpython-312'" shape=ellipse]
+	optimization [label="optimization
+(2 writes)
+''" shape=ellipse]
+	filename [label="filename
+(2 writes)
+'_strptime.cpython-312.pyc'" shape=ellipse]
+	source_path [label="source_path
+'/usr/lib/python3.12/_strptime.py'" shape=ellipse]
+	source_mtime [label="source_mtime
+(2 writes, 2 distinct)
+None
+1772540118" shape=ellipse]
+	source_bytes [label="source_bytes
+None" shape=ellipse]
+	source_hash [label="source_hash
+None" shape=ellipse]
+	hash_based [label="hash_based
+False" shape=ellipse]
+	check_source [label="check_source
+True" shape=ellipse]
+	p [label="p
+'/'" shape=ellipse]
+	i [label="i
+19" shape=ellipse]
+	bytecode_path [label="bytecode_path
+'/usr/lib/python3.12/__pycache__/_strptime.cpython-312.pyc'" shape=ellipse]
+	st [label="st
+(2 writes, 2 distinct)
+os.stat_result(st_mode=33188, st_ino=527086, st_dev=66309, st_nlink=1, st_uid=0, st_gid=0, st_size=24615, st_atime=17751…
+{'mtime': 1772540118.0, 'size': 24615}" shape=ellipse]
+	file [label="file
+<_io.BufferedReader name='/usr/lib/python3.12/__pycache__/_strptime.cpython-312.pyc'>" shape=ellipse]
+	data [label="data
+bytes(len=24116)" shape=ellipse]
+	exc_details [label="exc_details
+{'name': '_strptime', 'path': '/usr/lib/python3.12/__pycache__/_strptime.cpython-312.pyc'}" shape=ellipse]
+	magic [label="magic
+b'\xcb\r\r\n'" shape=ellipse]
+	flags [label="flags
+(2 writes)
+0" shape=ellipse]
+	bytes_data [label="bytes_data
+<memory at 0x767ad066a2c0>" shape=ellipse]
+	code [label="code
+(2 writes)
+<code object <module> at 0x767ad0867910, file \"/usr/lib/python3.12/_strptime.py\", line 1>" shape=ellipse]
+	dt [label="dt
+(3 writes)
+datetime.datetime(2014, 3, 23, 22, 4, 26)" shape=ellipse]
+	ERROR__ValueError [label="ValueError
+unconverted data remains: .1234" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_parse_iso8601
+	}
+	{
+		rank=same
+		parse_iso8601
+	}
+	test_parse_iso8601 -> parse_iso8601 [label="calls×4 [#1]" color=blue penwidth=1.4]
+	test_parse_iso8601 -> ERROR__ValueError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	parse_iso8601 -> m [label="writes×4" color=black]
+	parse_iso8601 -> date_str [label="writes×4" color=black]
+	parse_iso8601 -> sign [label="writes×2" color=black]
+	parse_iso8601 -> timezone [label="writes×4" color=black]
+	parse_iso8601 -> date_format [label="writes×4" color=black]
+	parse_iso8601 -> module [label="writes×7" color=black]
+	parse_iso8601 -> ERROR__KeyError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	parse_iso8601 -> lock [label="writes×2" color=black]
+	parse_iso8601 -> self [label="writes×3" color=black]
+	parse_iso8601 -> cb [label=writes color=black]
+	parse_iso8601 -> tid [label=writes color=black]
+	parse_iso8601 -> o [label=writes color=black]
+	parse_iso8601 -> path [label="writes×2" color=black]
+	parse_iso8601 -> parent [label=writes color=black]
+	parse_iso8601 -> parent_spec [label=writes color=black]
+	parse_iso8601 -> meta_path [label=writes color=black]
+	parse_iso8601 -> is_reload [label=writes color=black]
+	parse_iso8601 -> finder [label="writes×11" color=black]
+	parse_iso8601 -> find_spec [label="writes×3" color=black]
+	parse_iso8601 -> spec [label="writes×7" color=black]
+	parse_iso8601 -> info [label=writes color=black]
+	parse_iso8601 -> namespace_path [label=writes color=black]
+	parse_iso8601 -> entry [label="writes×3" color=black]
+	parse_iso8601 -> is_namespace [label="writes×4" color=black]
+	parse_iso8601 -> tail_module [label="writes×4" color=black]
+	parse_iso8601 -> mtime [label="writes×4" color=black]
+	parse_iso8601 -> cache [label="writes×4" color=black]
+	parse_iso8601 -> cache_module [label="writes×4" color=black]
+	parse_iso8601 -> suffix [label="writes×8" color=black]
+	parse_iso8601 -> loader_class [label="writes×8" color=black]
+	parse_iso8601 -> full_path [label="writes×8" color=black]
+	parse_iso8601 -> parse_iso8601 [label="loops(×22)" color=purple style=dashed]
+	parse_iso8601 -> stat_info [label=writes color=black]
+	parse_iso8601 -> loader [label="writes×2" color=black]
+	parse_iso8601 -> head [label="writes×2" color=black]
+	parse_iso8601 -> tail [label="writes×2" color=black]
+	parse_iso8601 -> base [label="writes×2" color=black]
+	parse_iso8601 -> sep [label="writes×2" color=black]
+	parse_iso8601 -> rest [label="writes×2" color=black]
+	parse_iso8601 -> tag [label="writes×2" color=black]
+	parse_iso8601 -> almost_filename [label="writes×2" color=black]
+	parse_iso8601 -> optimization [label="writes×2" color=black]
+	parse_iso8601 -> filename [label="writes×2" color=black]
+	parse_iso8601 -> source_path [label=writes color=black]
+	parse_iso8601 -> source_mtime [label="writes×2" color=black]
+	parse_iso8601 -> source_bytes [label=writes color=black]
+	parse_iso8601 -> source_hash [label=writes color=black]
+	parse_iso8601 -> hash_based [label=writes color=black]
+	parse_iso8601 -> check_source [label=writes color=black]
+	parse_iso8601 -> p [label=writes color=black]
+	parse_iso8601 -> i [label=writes color=black]
+	parse_iso8601 -> bytecode_path [label=writes color=black]
+	parse_iso8601 -> st [label="writes×2" color=black]
+	parse_iso8601 -> file [label=writes color=black]
+	parse_iso8601 -> data [label=writes color=black]
+	parse_iso8601 -> exc_details [label=writes color=black]
+	parse_iso8601 -> magic [label=writes color=black]
+	parse_iso8601 -> flags [label="writes×2" color=black]
+	parse_iso8601 -> bytes_data [label=writes color=black]
+	parse_iso8601 -> code [label="writes×2" color=black]
+	parse_iso8601 -> dt [label="writes×3" color=black]
+	parse_iso8601 -> ERROR__ValueError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	date_str -> parse_iso8601 [label="passed to" color=green style=dashed]
+	module -> parse_iso8601 [label="passed to" color=green style=dashed]
+	lock -> parse_iso8601 [label="passed to" color=green style=dashed]
+	self -> parse_iso8601 [label="passed to" color=green style=dashed]
+	path -> parse_iso8601 [label="passed to" color=green style=dashed]
+	spec -> parse_iso8601 [label="passed to" color=green style=dashed]
+	loader_class -> parse_iso8601 [label="passed to" color=green style=dashed]
+	loader -> parse_iso8601 [label="passed to" color=green style=dashed]
+	optimization -> parse_iso8601 [label="passed to" color=green style=dashed]
+	filename -> parse_iso8601 [label="passed to" color=green style=dashed]
+	source_path -> parse_iso8601 [label="passed to" color=green style=dashed]
+	source_mtime -> parse_iso8601 [label="passed to" color=green style=dashed]
+	p -> parse_iso8601 [label="passed to" color=green style=dashed]
+	bytecode_path -> parse_iso8601 [label="passed to" color=green style=dashed]
+	data -> parse_iso8601 [label="passed to" color=green style=dashed]
+	exc_details -> parse_iso8601 [label="passed to" color=green style=dashed]
+}

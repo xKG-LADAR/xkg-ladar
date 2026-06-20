@@ -1,0 +1,36 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_js_to_json [label="test_js_to_json
+test_utils.py:338" fillcolor=white shape=box style=filled]
+	inp [label="inp
+\"{\n                'clip':{'provider':'pseudo'}\n        }\"" shape=ellipse]
+	js_to_json [label="js_to_json
+utils.py:1579" fillcolor=white shape=box style=filled]
+	fix_kv [label="fix_kv
+<function js_to_json.<locals>.fix_kv at 0x749852a9ec00>" shape=ellipse]
+	key [label="key
+(2 writes, 2 distinct)
+\"'clip'\"
+'\"clip\"'" shape=ellipse]
+	value [label="value
+'{'" shape=ellipse]
+	res [label="res
+'{\n                \"clip\":{\'provider\':\'pseudo\'}\n        }'" shape=ellipse]
+	ERROR__AssertionError [label="AssertionError
+'{\n                \"clip\":{\'provider\':\'pseudo\'}\n        }' != '{\n                \"clip\":{\"provider\":\"pseudo\"}\n        }'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_js_to_json
+	}
+	{
+		rank=same
+		js_to_json
+	}
+	test_js_to_json -> inp [label=writes color=black]
+	test_js_to_json -> js_to_json [label="calls [#1]" color=blue penwidth=1.1]
+	test_js_to_json -> ERROR__AssertionError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	js_to_json -> fix_kv [label=writes color=black]
+	js_to_json -> res [label=writes color=black]
+	fix_kv -> key [label="writes×2" color=black]
+	fix_kv -> value [label=writes color=black]
+}

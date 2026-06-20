@@ -1,0 +1,23 @@
+Project : thefuck
+Bug ID  : 1
+Version : 0 (buggy)
+Workdir : /path/to/BugsInPy/workspace/thefuck
+Output  : /path/to/results/thefuck/bug1
+
+STEP 0: bugsinpy-checkout
+  RESULT: OK
+STEP 0.15: py312-compat patched 4 files
+STEP 0.1: compile
+  RESULT: OK
+STEP 0.5: auto-decorate test functions
+  Modified 1 file(s)
+STEP 1: run_trace.py
+  Raw trace: 355038 chars
+STEP 2: trace_condense.py
+  Condensed trace: /path/to/results/thefuck/bug1/trace_condensed.log
+STEP 3: build_trace_kg.py
+  KG output: /path/to/results/thefuck/bug1/trace_kg
+STEP 4: debug_agent.py
+  Diagnosis: /path/to/results/thefuck/bug1/diagnosis.md
+
+PIPELINE COMPLETE - all steps succeeded.

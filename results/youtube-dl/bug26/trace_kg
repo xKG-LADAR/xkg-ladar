@@ -1,0 +1,40 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_js_to_json_realworld [label="test_js_to_json_realworld
+test_utils.py:614" fillcolor=white shape=box style=filled]
+	inp [label="inp
+(6 writes, 6 distinct)
+\"{\n            'clip':{'provider':'pseudo'}\n        }\"
+\"{\n            'playlist':[{'controls':{'all':null}}]\n        }\"
+'\"The CW\\\'s \\\'Crazy Ex-Girlfriend\\\'\"'
+'\"SAND Number: SAND 2013-7800P\\nPresenter: Tom Russo\\nHabanero Software Training - Xyce Software\\nXyce, Sandia\\u0027…
+\"{\n            0:{src:'skipped', type: 'application/dash+xml'},\n            1:{src:'skipped', type: 'application/vnd.a…
+'{\"foo\":101}'" shape=ellipse]
+	js_to_json [label="js_to_json
+utils.py:1939" fillcolor=white shape=box style=filled]
+	fix_kv [label="fix_kv
+(7 writes, 2 distinct)
+<function js_to_json.<locals>.fix_kv at 0x770c93536700>
+<function js_to_json.<locals>.fix_kv at 0x770c93536ca0>" shape=ellipse]
+	json_code [label="json_code
+'\"SAND Number: SAND 2013-7800P\\nPresenter: Tom Russo\\nHabanero Software Training - Xyce Software\\nXyce, Sandia\\u0027…" shape=ellipse]
+	i [label="i
+1" shape=ellipse]
+	ERROR__AssertionError [label="AssertionError
+'{\"foo\":11}' != '{\"foo\":101}'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_js_to_json_realworld
+	}
+	{
+		rank=same
+		js_to_json
+	}
+	test_js_to_json_realworld -> inp [label="writes×6" color=black]
+	test_js_to_json_realworld -> js_to_json [label="calls×7 [#1]" color=blue penwidth=1.7]
+	test_js_to_json_realworld -> json_code [label=writes color=black]
+	test_js_to_json_realworld -> ERROR__AssertionError [label=raises color=orange penwidth=2 style=dashed]
+	js_to_json -> fix_kv [label="writes×7" color=black]
+	js_to_json -> js_to_json [label="loops(×19)" color=purple style=dashed]
+	fix_kv -> i [label=writes color=black]
+}

@@ -1,0 +1,19 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_urljoin [label="test_urljoin
+test_utils.py:459" fillcolor=white shape=box style=filled]
+	urljoin [label="urljoin
+utils.py:1750" fillcolor=white shape=box style=filled]
+	ERROR__AssertionError [label="AssertionError
+None != 'http://foo.de/a/b/c.txt'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_urljoin
+	}
+	{
+		rank=same
+		urljoin
+	}
+	test_urljoin -> urljoin [label="calls×2 [#1]" color=blue penwidth=1.2]
+	test_urljoin -> ERROR__AssertionError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+}

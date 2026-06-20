@@ -1,0 +1,59 @@
+Cleared: /path/to/results/scrapy/bug11
+Running: python -m unittest -q tests.test_utils_gz.GunzipTest.test_gunzip_illegal_eof
+Workdir: /path/to/BugsInPy/workspace/scrapy
+PYTHONPATH: /path/to/BugsInPy/workspace/scrapy::
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_gz.py
+IE_TRACE: Starting var:.. self = <tests.test_utils_gz.GunzipTest testMethod=test_gunzip_illegal_eof>
+IE_TRACE: 12:32:31.660552 call        75     def test_gunzip_illegal_eof(self):
+IE_TRACE: 12:32:31.660720 line        76         with open(join(SAMPLEDIR, 'unexpected-eof.gz'), 'rb') as f:
+IE_TRACE:     Source path:... <frozen posixpath>
+IE_TRACE:     Starting var:.. a = '/path/to/BugsInPy/workspace/scrapy/tests/sample_data/compressed'
+IE_TRACE:     Starting var:.. p = ('unexpected-eof.gz',)
+IE_TRACE:     12:32:31.660755 call        71 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:32:31.660817 line        76 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:32:31.660835 line        77 SOURCE IS UNAVAILABLE
+IE_TRACE:         Starting var:.. path = '/path/to/BugsInPy/workspace/scrapy/tests/sample_data/compressed'
+IE_TRACE:         12:32:31.660853 call        41 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:32:31.660870 line        42 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:32:31.660882 line        45 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:32:31.660892 return      45 SOURCE IS UNAVAILABLE
+IE_TRACE:         Return value:.. '/'
+IE_TRACE:     New var:....... sep = '/'
+IE_TRACE:     12:32:31.660910 line        78 SOURCE IS UNAVAILABLE
+IE_TRACE:     New var:....... path = '/path/to/BugsInPy/workspace/scrapy/tests/sample_data/compressed'
+IE_TRACE:     12:32:31.660929 line        79 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:32:31.660948 line        80 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:32:31.660963 line        82 SOURCE IS UNAVAILABLE
+IE_TRACE:     New var:....... b = 'unexpected-eof.gz'
+IE_TRACE:     12:32:31.660977 line        83 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:32:31.660997 line        85 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:32:31.661011 line        88 SOURCE IS UNAVAILABLE
+IE_TRACE:     Modified var:.. path = '/path/to/BugsInPy/workspace/scrapy/tests/sample_data/compressed/unexpected-eof.gz'
+IE_TRACE:     12:32:31.661026 line        82 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:32:31.661044 line        92 SOURCE IS UNAVAILABLE
+IE_TRACE:     12:32:31.661059 return      92 SOURCE IS UNAVAILABLE
+IE_TRACE:     Return value:.. '/path/to/BugsInPy/workspace/scrapy/tests/sample_data/compressed/unexpected-eof.gz'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_utils_gz.py
+IE_TRACE: 12:32:31.661084 exception   76         with open(join(SAMPLEDIR, 'unexpected-eof.gz'), 'rb') as f:
+IE_TRACE: Exception:..... FileNotFoundError: [Errno 2] No such file or directory: '/path/to/BugsInPy/workspace/scrapy/tests/sample_data/compressed/unexpected-eof.gz'
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.000766
+======================================================================
+ERROR: test_gunzip_illegal_eof (tests.test_utils_gz.GunzipTest.test_gunzip_illegal_eof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/tests/test_utils_gz.py", line 76, in test_gunzip_illegal_eof
+    with open(join(SAMPLEDIR, 'unexpected-eof.gz'), 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/path/to/BugsInPy/workspace/scrapy/tests/sample_data/compressed/unexpected-eof.gz'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (errors=1)
+
+
+Exit code: 1

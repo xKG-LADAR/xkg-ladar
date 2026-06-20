@@ -1,0 +1,20 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_uppercase_escpae [label="test_uppercase_escpae
+test_utils.py:286" fillcolor=white shape=box style=filled]
+	uppercase_escape [label="uppercase_escape
+utils.py:1265" fillcolor=white shape=box style=filled]
+	ERROR__AttributeError [label="AttributeError
+'str' object has no attribute 'decode'. Did you mean: 'encode'?" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_uppercase_escpae
+	}
+	{
+		rank=same
+		uppercase_escape
+	}
+	test_uppercase_escpae -> uppercase_escape [label="calls×2 [#1]" color=blue penwidth=1.2]
+	test_uppercase_escpae -> ERROR__AttributeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	uppercase_escape -> ERROR__AttributeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+}

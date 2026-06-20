@@ -1,0 +1,136 @@
+Cleared: /path/to/results/scrapy/bug22
+Running: python -m unittest -q tests.test_exporters.XmlItemExporterTest.test_nonstring_types_item
+Workdir: /path/to/BugsInPy/workspace/scrapy
+PYTHONPATH: /path/to/BugsInPy/workspace/scrapy::
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_exporters.py
+IE_TRACE: Starting var:.. self = <tests.test_exporters.XmlItemExporterTest testMethod=test_nonstring_types_item>
+IE_TRACE: 12:36:54.616413 call        34     def setUp(self):
+IE_TRACE: 12:36:54.616609 line        35         self.i = TestItem(name=u'John\xa3', age=u'22')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/trackref.py
+IE_TRACE:     Starting var:.. cls = <class 'tests.test_exporters.TestItem'>
+IE_TRACE:     Starting var:.. args = ()
+IE_TRACE:     Starting var:.. kwargs = {'name': 'John£', 'age': '22'}
+IE_TRACE:     12:36:54.616642 call        30     def __new__(cls, *args, **kwargs):
+IE_TRACE:     12:36:54.616721 line        31         obj = object.__new__(cls)
+IE_TRACE:     New var:....... obj = REPR FAILED
+IE_TRACE:     12:36:54.616744 line        32         live_refs[cls][obj] = time()
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/trackref.py
+IE_TRACE:     12:36:54.617086 line        33         return obj
+IE_TRACE:     12:36:54.617109 return      33         return obj
+IE_TRACE:     Return value:.. REPR FAILED
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/item.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. args = ()
+IE_TRACE:     Starting var:.. kwargs = {'name': 'John£', 'age': '22'}
+IE_TRACE:     12:36:54.617137 call        49     def __init__(self, *args, **kwargs):
+IE_TRACE:     12:36:54.617200 line        50         self._values = {}
+IE_TRACE:         Starting var:.. self = REPR FAILED
+IE_TRACE:         Starting var:.. name = '_values'
+IE_TRACE:         Starting var:.. value = {}
+IE_TRACE:         Starting var:.. __class__ = <class 'scrapy.item.DictItem'>
+IE_TRACE:         12:36:54.617219 call        73     def __setattr__(self, name, value):
+IE_TRACE:         12:36:54.617253 line        74         if not name.startswith('_'):
+IE_TRACE:         12:36:54.617269 line        77         super(DictItem, self).__setattr__(name, value)
+IE_TRACE:         Modified var:.. self = {}
+IE_TRACE:         12:36:54.617286 return      77         super(DictItem, self).__setattr__(name, value)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Modified var:.. self = {}
+IE_TRACE:     12:36:54.617359 line        51         if args or kwargs:  # avoid creating dict for most common case
+IE_TRACE:     12:36:54.617387 line        52             for k, v in six.iteritems(dict(*args, **kwargs)):
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/six.py
+IE_TRACE:         Starting var:.. d = {'name': 'John£', 'age': '22'}
+IE_TRACE:         Starting var:.. kw = {}
+IE_TRACE:         12:36:54.617411 call       588     def iteritems(d, **kw):
+IE_TRACE:         12:36:54.617514 line       589         return iter(d.items(**kw))
+IE_TRACE:         12:36:54.617529 return     589         return iter(d.items(**kw))
+IE_TRACE:         Return value:.. <dict_itemiterator object at 0x7dea23c3a610>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/item.py
+IE_TRACE:     New var:....... k = 'name'
+IE_TRACE:     New var:....... v = 'John£'
+IE_TRACE:     12:36:54.617549 line        53                 self[k] = v
+IE_TRACE:         Starting var:.. self = {}
+IE_TRACE:         Starting var:.. key = 'name'
+IE_TRACE:         Starting var:.. value = 'John£'
+IE_TRACE:         12:36:54.617589 call        58     def __setitem__(self, key, value):
+IE_TRACE:         12:36:54.617619 line        59         if key in self.fields:
+IE_TRACE:         12:36:54.617636 line        60             self._values[key] = value
+IE_TRACE:         Modified var:.. self = {'name': 'John£'}
+IE_TRACE:         12:36:54.617652 return      60             self._values[key] = value
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Modified var:.. self = {'name': 'John£'}
+IE_TRACE:     12:36:54.617693 line        52             for k, v in six.iteritems(dict(*args, **kwargs)):
+IE_TRACE:     Modified var:.. k = 'age'
+IE_TRACE:     Modified var:.. v = '22'
+IE_TRACE:     12:36:54.617725 line        53                 self[k] = v
+IE_TRACE:         Starting var:.. self = {'name': 'John£'}
+IE_TRACE:         Starting var:.. key = 'age'
+IE_TRACE:         Starting var:.. value = '22'
+IE_TRACE:         12:36:54.617757 call        58     def __setitem__(self, key, value):
+IE_TRACE:         12:36:54.617788 line        59         if key in self.fields:
+IE_TRACE:         12:36:54.617807 line        60             self._values[key] = value
+IE_TRACE:         Modified var:.. self = {'age': '22', 'name': 'John£'}
+IE_TRACE:         12:36:54.617825 return      60             self._values[key] = value
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Modified var:.. self = {'age': '22', 'name': 'John£'}
+IE_TRACE:     12:36:54.617863 line        52             for k, v in six.iteritems(dict(*args, **kwargs)):
+IE_TRACE:     12:36:54.617891 return      52             for k, v in six.iteritems(dict(*args, **kwargs)):
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_exporters.py
+IE_TRACE: 12:36:54.617920 line        36         self.output = BytesIO()
+IE_TRACE: 12:36:54.617939 line        37         self.ie = self._get_exporter()
+IE_TRACE:     Starting var:.. self = <tests.test_exporters.XmlItemExporterTest testMethod=test_nonstring_types_item>
+IE_TRACE:     Starting var:.. kwargs = {}
+IE_TRACE:     12:36:54.617953 call       311     def _get_exporter(self, **kwargs):
+IE_TRACE:     12:36:54.617976 line       312         return XmlItemExporter(self.output, **kwargs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/exporters.py
+IE_TRACE:         Starting var:.. self = <scrapy.exporters.XmlItemExporter object at 0x7dea23e0dd60>
+IE_TRACE:         Starting var:.. file = <_io.BytesIO object at 0x7dea23c3a700>
+IE_TRACE:         Starting var:.. kwargs = {}
+IE_TRACE:         12:36:54.617991 call       120     def __init__(self, file, **kwargs):
+IE_TRACE:         12:36:54.618060 line       121         self.item_element = kwargs.pop('item_element', 'item')
+IE_TRACE:         12:36:54.618077 line       122         self.root_element = kwargs.pop('root_element', 'items')
+IE_TRACE:         12:36:54.618090 line       123         self._configure(kwargs)
+IE_TRACE:             Starting var:.. self = <scrapy.exporters.XmlItemExporter object at 0x7dea23e0dd60>
+IE_TRACE:             Starting var:.. options = {}
+IE_TRACE:             Starting var:.. dont_fail = False
+IE_TRACE:             12:36:54.618107 call        32     def _configure(self, options, dont_fail=False):
+IE_TRACE:             12:36:54.618133 line        37         self.fields_to_export = options.pop('fields_to_export', None)
+IE_TRACE:             12:36:54.618149 line        38         self.export_empty_fields = options.pop('export_empty_fields', False)
+IE_TRACE:             12:36:54.618163 line        39         self.encoding = options.pop('encoding', 'utf-8')
+IE_TRACE:             12:36:54.618176 line        40         if not dont_fail and options:
+IE_TRACE:             12:36:54.618189 return      40         if not dont_fail and options:
+IE_TRACE:             Return value:.. None
+IE_TRACE:         12:36:54.618213 line       124         self.xg = XMLGenerator(file, encoding=self.encoding)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/exporters.py
+IE_TRACE:         12:36:54.619881 return     124         self.xg = XMLGenerator(file, encoding=self.encoding)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_exporters.py
+IE_TRACE:     12:36:54.619906 return     312         return XmlItemExporter(self.output, **kwargs)
+IE_TRACE:     Return value:.. <scrapy.exporters.XmlItemExporter object at 0x7dea23e0dd60>
+IE_TRACE: 12:36:54.619929 return      37         self.ie = self._get_exporter()
+IE_TRACE: Return value:.. None
+IE_TRACE: Elapsed time: 00:00:00.003671
+======================================================================
+ERROR: test_nonstring_types_item (tests.test_exporters.XmlItemExporterTest.test_nonstring_types_item)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/BugsInPy/workspace/scrapy/tests/test_exporters.py", line 386, in test_nonstring_types_item
+    self.assertExportResult(item,
+  File "/path/to/BugsInPy/workspace/scrapy/tests/test_exporters.py", line 331, in assertExportResult
+    ie.export_item(item)
+  File "/path/to/BugsInPy/workspace/scrapy/scrapy/exporters.py", line 133, in export_item
+    self._export_xml_field(name, value)
+  File "/path/to/BugsInPy/workspace/scrapy/scrapy/exporters.py", line 149, in _export_xml_field
+    self._xg_characters(serialized_value)
+  File "/path/to/BugsInPy/workspace/scrapy/scrapy/exporters.py", line 160, in _xg_characters
+    serialized_value = serialized_value.decode(self.encoding)
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'bool' object has no attribute 'decode'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.005s
+
+FAILED (errors=1)
+
+
+Exit code: 1

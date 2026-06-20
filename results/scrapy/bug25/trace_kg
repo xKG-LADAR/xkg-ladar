@@ -1,0 +1,330 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_html_base_form_action [label="test_html_base_form_action
+test_http_request.py:808" fillcolor=white shape=box style=filled]
+	_buildresponse [label="_buildresponse
+test_http_request.py:827" fillcolor=white shape=box style=filled]
+	kwargs [label="kwargs
+(5 writes, 4 distinct)
+{'url': 'http://a.com/', 'body': '\n            <html>\n                <head>\n                    <base href=\"http://b…
+{'url': 'http://a.com/', 'body': '\n            <html>\n                <head>\n                    <base href=\"http://b…
+{'encoding': 'utf-8'}
+{'url': 'http://a.com/test_form', 'method': 'GET', 'encoding': 'utf-8'}" shape=ellipse]
+	__new__ [label="__new__
+item.py:27" fillcolor=white shape=box style=filled]
+	obj [label="obj
+(2 writes)
+REPR FAILED" shape=ellipse]
+	__init__ [label="__init__
+extensions.py:5" fillcolor=white shape=box style=filled]
+	_set_body [label="_set_body
+text.py:39" fillcolor=white shape=box style=filled]
+	_set_url [label="_set_url
+text.py:30" fillcolor=white shape=box style=filled]
+	encoding [label="encoding
+text.py:54" fillcolor=white shape=box style=filled]
+	_declared_encoding [label="_declared_encoding
+text.py:57" fillcolor=white shape=box style=filled]
+	to_native_str [label="to_native_str
+Return str representation of `text`
+python.py:125" fillcolor=white shape=box style=filled]
+	to_unicode [label="to_unicode
+Return the unicode representation of a bytes object `te…
+python.py:99" fillcolor=white shape=box style=filled]
+	self [label="self
+(6 writes, 2 distinct)
+<200 http://a.com/>
+<GET http://a.com/test_form>" shape=ellipse]
+	response [label="response
+<200 http://a.com/>" shape=ellipse]
+	from_response [label="from_response
+form.py:36" fillcolor=white shape=box style=filled]
+	_get_form [label="_get_form
+Find the form element
+form.py:59" fillcolor=white shape=box style=filled]
+	body_as_unicode [label="body_as_unicode
+Return body as unicode
+text.py:61" fillcolor=white shape=box style=filled]
+	benc [label="benc
+'utf-8'" shape=ellipse]
+	charset [label="charset
+'charset=utf-8'" shape=ellipse]
+	_get_body [label="_get_body
+__init__.py:46" fillcolor=white shape=box style=filled]
+	html_to_unicode [label=html_to_unicode fillcolor=white shape=box style=filled]
+	read_bom [label=read_bom fillcolor=white shape=box style=filled]
+	bom_enc [label="bom_enc
+None" shape=ellipse]
+	bom [label="bom
+None" shape=ellipse]
+	http_content_type_encoding [label=http_content_type_encoding fillcolor=white shape=box style=filled]
+	match [label="match
+<re.Match object; span=(0, 13), match='charset=utf-8'>" shape=ellipse]
+	resolve_encoding [label=resolve_encoding fillcolor=white shape=box style=filled]
+	_c18n_encoding [label=_c18n_encoding fillcolor=white shape=box style=filled]
+	normed [label="normed
+'utf_8'" shape=ellipse]
+	c18n_encoding [label="c18n_encoding
+'utf_8'" shape=ellipse]
+	translated [label="translated
+'utf_8'" shape=ellipse]
+	enc [label="enc
+'utf-8'" shape=ellipse]
+	text [label="text
+'\n            <html>\n                <head>\n                    <base href=\"http://b.com/\">\n                </head>\…" shape=ellipse]
+	_get_url [label="_get_url
+__init__.py:34" fillcolor=white shape=box style=filled]
+	create_root_node [label=create_root_node fillcolor=white shape=box style=filled]
+	body [label="body
+bytes(len=242)" shape=ellipse]
+	classes [label="classes
+{'form': <class 'lxml.html.FormElement'>, 'textarea': <class 'lxml.html.TextareaElement'>, 'select': <class 'lxml.html.S…" shape=ellipse]
+	parser [label="parser
+<lxml.html.HTMLParser object at 0x73a8602a5ff0>" shape=ellipse]
+	lookup [label=lookup fillcolor=white shape=box style=filled]
+	root [label="root
+(2 writes)
+<Element html at 0x73a8600a9450>" shape=ellipse]
+	forms [label="forms
+[<Element form at 0x73a8600a9630>]" shape=ellipse]
+	form [label="form
+(2 writes)
+<Element form at 0x73a8600a9630>" shape=ellipse]
+	_get_inputs [label="_get_inputs
+form.py:102" fillcolor=white shape=box style=filled]
+	formdata [label="formdata
+(3 writes, 2 distinct)
+{}
+[]" shape=ellipse]
+	inputs [label="inputs
+[]" shape=ellipse]
+	values [label="values
+[]" shape=ellipse]
+	_get_clickable [label="_get_clickable
+Returns the clickable element specified in clickdata,
+form.py:148" fillcolor=white shape=box style=filled]
+	clickables [label="clickables
+[]" shape=ellipse]
+	clickable [label="clickable
+None" shape=ellipse]
+	_get_form_url [label="_get_form_url
+form.py:46" fillcolor=white shape=box style=filled]
+	action [label=action fillcolor=white shape=box style=filled]
+	base_url [label=base_url fillcolor=white shape=box style=filled]
+	url [label="url
+'http://a.com/test_form'" shape=ellipse]
+	method [label="method
+[closure inside test_get_func_args]
+test_utils_python.py:187" fillcolor=white shape=box style=filled]
+	safe_url_string [label=safe_url_string fillcolor=white shape=box style=filled]
+	decoded [label="decoded
+'http://a.com/test_form'" shape=ellipse]
+	_strip [label=_strip fillcolor=white shape=box style=filled]
+	parts [label="parts
+SplitResult(scheme='http', netloc='a.com', path='/test_form', query='', fragment='')" shape=ellipse]
+	username [label="username
+None" shape=ellipse]
+	password [label="password
+None" shape=ellipse]
+	hostname [label="hostname
+'a.com'" shape=ellipse]
+	port [label="port
+None" shape=ellipse]
+	netloc_bytes [label="netloc_bytes
+(2 writes, 2 distinct)
+b''
+b'a.com'" shape=ellipse]
+	netloc [label="netloc
+'a.com'" shape=ellipse]
+	path [label="path
+'/test_form'" shape=ellipse]
+	query [label="query
+''" shape=ellipse]
+	escape_ajax [label="escape_ajax
+Return the crawleable url according to:
+url.py:87" fillcolor=white shape=box style=filled]
+	defrag [label="defrag
+'http://a.com/test_form'" shape=ellipse]
+	frag [label="frag
+''" shape=ellipse]
+	req [label="req
+<GET http://a.com/test_form>" shape=ellipse]
+	ERROR__AssertionError [label="AssertionError
+'http://a.com/test_form' != 'http://b.com/test_form'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_html_base_form_action
+	}
+	{
+		rank=same
+		_buildresponse
+		from_response
+		_get_url
+	}
+	{
+		rank=same
+		__new__
+		__init__
+		encoding
+		_get_form
+		_get_inputs
+		_get_form_url
+		method
+	}
+	{
+		rank=same
+		_declared_encoding
+		body_as_unicode
+		create_root_node
+		lookup
+		_get_clickable
+		action
+	}
+	{
+		rank=same
+		_set_body
+		_set_url
+		_get_body
+		html_to_unicode
+		base_url
+	}
+	{
+		rank=same
+		to_native_str
+		to_unicode
+		read_bom
+		http_content_type_encoding
+		safe_url_string
+		escape_ajax
+	}
+	{
+		rank=same
+		resolve_encoding
+		_strip
+	}
+	{
+		rank=same
+		_c18n_encoding
+	}
+	test_html_base_form_action -> _buildresponse [label="calls [#1]" color=blue penwidth=1.1]
+	test_html_base_form_action -> response [label=writes color=black]
+	test_html_base_form_action -> from_response [label="calls [#13]" color=blue penwidth=1.1]
+	test_html_base_form_action -> req [label=writes color=black]
+	test_html_base_form_action -> _get_url [label="calls [#54]" color=blue penwidth=1.1]
+	test_html_base_form_action -> ERROR__AssertionError [label=raises color=orange penwidth=2 style=dashed]
+	_buildresponse -> kwargs [label="writes×2" color=black]
+	_buildresponse -> __new__ [label="calls [#2]" color=blue penwidth=1.1]
+	_buildresponse -> __init__ [label="calls [#3]" color=blue penwidth=1.1]
+	kwargs -> __new__ [label="passed to" color=green style=dashed]
+	kwargs -> __init__ [label="passed to" color=green style=dashed]
+	kwargs -> from_response [label="passed to" color=green style=dashed]
+	__new__ -> obj [label="writes×2" color=black]
+	__init__ -> kwargs [label="writes×2" color=black]
+	__init__ -> __init__ [label="calls×7 [#4]" color=blue penwidth=1.7]
+	__init__ -> _set_body [label="calls×2 [#7]" color=blue penwidth=1.2]
+	__init__ -> _set_url [label="calls×2 [#8]" color=blue penwidth=1.2]
+	__init__ -> self [label="writes×4" color=black]
+	__init__ -> classes [label=writes color=black]
+	__init__ -> formdata [label=writes color=black]
+	_set_url -> encoding [label="calls×2 [#9]" color=blue penwidth=1.2]
+	_set_url -> to_native_str [label="calls×2 [#11]" color=blue penwidth=1.2]
+	_set_url -> self [label="writes×2" color=black]
+	_set_url -> safe_url_string [label="calls [#47]" color=blue penwidth=1.1]
+	_set_url -> escape_ajax [label="calls [#50]" color=blue penwidth=1.1]
+	encoding -> _declared_encoding [label="calls×3 [#10]" color=blue penwidth=1.3]
+	to_native_str -> to_unicode [label="calls×2 [#12]" color=blue penwidth=1.2]
+	self -> encoding [label="passed to" color=green style=dashed]
+	self -> _declared_encoding [label="passed to" color=green style=dashed]
+	self -> body_as_unicode [label="passed to" color=green style=dashed]
+	self -> _get_body [label="passed to" color=green style=dashed]
+	self -> _get_url [label="passed to" color=green style=dashed]
+	self -> __init__ [label="passed to" color=green style=dashed]
+	self -> lookup [label="passed to" color=green style=dashed]
+	self -> action [label="passed to" color=green style=dashed]
+	self -> base_url [label="passed to" color=green style=dashed]
+	self -> method [label="passed to" color=green style=dashed]
+	self -> _set_url [label="passed to" color=green style=dashed]
+	self -> _set_body [label="passed to" color=green style=dashed]
+	response -> from_response [label="passed to" color=green style=dashed]
+	response -> _get_form [label="passed to" color=green style=dashed]
+	response -> _get_inputs [label="passed to" color=green style=dashed]
+	from_response -> encoding [label="calls [#14]" color=blue penwidth=1.1]
+	from_response -> kwargs [label=writes color=black]
+	from_response -> _get_form [label="calls [#16]" color=blue penwidth=1.1]
+	from_response -> form [label=writes color=black]
+	from_response -> _get_inputs [label="calls [#33]" color=blue penwidth=1.1]
+	from_response -> formdata [label=writes color=black]
+	from_response -> _get_form_url [label="calls [#35]" color=blue penwidth=1.1]
+	from_response -> url [label=writes color=black]
+	from_response -> method [label="calls [#39]" color=blue penwidth=1.1]
+	from_response -> __new__ [label="calls [#40]" color=blue penwidth=1.1]
+	from_response -> __init__ [label="calls [#41]" color=blue penwidth=1.1]
+	_get_form -> body_as_unicode [label="calls [#17]" color=blue penwidth=1.1]
+	_get_form -> text [label=writes color=black]
+	_get_form -> _get_url [label="calls [#27]" color=blue penwidth=1.1]
+	_get_form -> create_root_node [label="calls [#28]" color=blue penwidth=1.1]
+	_get_form -> root [label=writes color=black]
+	_get_form -> lookup [label="calls [#32]" color=blue penwidth=1.1]
+	_get_form -> forms [label=writes color=black]
+	_get_form -> form [label=writes color=black]
+	body_as_unicode -> encoding [label="calls [#18]" color=blue penwidth=1.1]
+	body_as_unicode -> benc [label=writes color=black]
+	body_as_unicode -> charset [label=writes color=black]
+	body_as_unicode -> _get_body [label="calls [#20]" color=blue penwidth=1.1]
+	body_as_unicode -> html_to_unicode [label="calls [#21]" color=blue penwidth=1.1]
+	html_to_unicode -> read_bom [label="calls [#22]" color=blue penwidth=1.1]
+	html_to_unicode -> bom_enc [label=writes color=black]
+	html_to_unicode -> bom [label=writes color=black]
+	html_to_unicode -> http_content_type_encoding [label="calls [#23]" color=blue penwidth=1.1]
+	html_to_unicode -> enc [label=writes color=black]
+	html_to_unicode -> to_unicode [label="calls [#26]" color=blue penwidth=1.1]
+	http_content_type_encoding -> match [label=writes color=black]
+	http_content_type_encoding -> resolve_encoding [label="calls [#24]" color=blue penwidth=1.1]
+	resolve_encoding -> _c18n_encoding [label="calls [#25]" color=blue penwidth=1.1]
+	resolve_encoding -> c18n_encoding [label=writes color=black]
+	resolve_encoding -> translated [label=writes color=black]
+	_c18n_encoding -> normed [label=writes color=black]
+	text -> create_root_node [label="passed to" color=green style=dashed]
+	text -> to_native_str [label="passed to" color=green style=dashed]
+	text -> to_unicode [label="passed to" color=green style=dashed]
+	create_root_node -> body [label=writes color=black]
+	create_root_node -> __init__ [label="calls [#29]" color=blue penwidth=1.1]
+	create_root_node -> parser [label=writes color=black]
+	create_root_node -> lookup [label="calls [#31]" color=blue penwidth=1.1]
+	create_root_node -> root [label=writes color=black]
+	body -> __init__ [label="passed to" color=green style=dashed]
+	body -> _set_body [label="passed to" color=green style=dashed]
+	form -> _get_inputs [label="passed to" color=green style=dashed]
+	form -> _get_clickable [label="passed to" color=green style=dashed]
+	form -> _get_form_url [label="passed to" color=green style=dashed]
+	_get_inputs -> formdata [label=writes color=black]
+	_get_inputs -> inputs [label=writes color=black]
+	_get_inputs -> values [label=writes color=black]
+	_get_inputs -> _get_clickable [label="calls [#34]" color=blue penwidth=1.1]
+	_get_inputs -> clickable [label=writes color=black]
+	_get_clickable -> clickables [label=writes color=black]
+	_get_form_url -> action [label="calls [#36]" color=blue penwidth=1.1]
+	action -> base_url [label="calls [#37]" color=blue penwidth=1.1]
+	action -> action [label=writes color=black]
+	base_url -> lookup [label="calls [#38]" color=blue penwidth=1.1]
+	url -> __init__ [label="passed to" color=green style=dashed]
+	url -> _set_url [label="passed to" color=green style=dashed]
+	url -> safe_url_string [label="passed to" color=green style=dashed]
+	url -> _strip [label="passed to" color=green style=dashed]
+	url -> escape_ajax [label="passed to" color=green style=dashed]
+	method -> __init__ [label="passed to" color=green style=dashed]
+	safe_url_string -> to_unicode [label="calls [#48]" color=blue penwidth=1.1]
+	safe_url_string -> decoded [label=writes color=black]
+	safe_url_string -> _strip [label="calls [#49]" color=blue penwidth=1.1]
+	safe_url_string -> parts [label=writes color=black]
+	safe_url_string -> username [label=writes color=black]
+	safe_url_string -> password [label=writes color=black]
+	safe_url_string -> hostname [label=writes color=black]
+	safe_url_string -> port [label=writes color=black]
+	safe_url_string -> netloc_bytes [label="writes×2" color=black]
+	safe_url_string -> netloc [label=writes color=black]
+	safe_url_string -> path [label=writes color=black]
+	safe_url_string -> query [label=writes color=black]
+	escape_ajax -> defrag [label=writes color=black]
+	escape_ajax -> frag [label=writes color=black]
+}

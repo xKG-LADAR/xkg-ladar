@@ -1,0 +1,58 @@
+[
+  {
+    "project": "thefuck",
+    "bug_id": 1,
+    "has_diagnosis": true,
+    "has_kg": true,
+    "kg_has_content": true,
+    "has_diff": true,
+    "diff_parseable": true,
+    "checkout_ok": true,
+    "diff_applied": true,
+    "test_passed": true,
+    "test_output_snippet": "============================= test session starts ==============================\nplatform linux -- Python 3.12.3, pytest-9.0.2, pluggy-1.6.0\nrootdir: /path/to/BugsInPy/workspace/thefuck\nplugins: httpbin-2.1.0, cov-7.1.0, anyio-4.12.1\ncollected 2 items\n\ntests/rules/test_pip_unknown_command.py ..                               [100%]\n\n============================== 2 passed in 0.04s ===============================\n\n",
+    "error": null
+  },
+  {
+    "project": "thefuck",
+    "bug_id": 2,
+    "has_diagnosis": false,
+    "has_kg": true,
+    "kg_has_content": false,
+    "has_diff": false,
+    "diff_parseable": false,
+    "checkout_ok": false,
+    "diff_applied": false,
+    "test_passed": false,
+    "test_output_snippet": "",
+    "error": "KG empty (trace produced no data)"
+  },
+  {
+    "project": "thefuck",
+    "bug_id": 3,
+    "has_diagnosis": false,
+    "has_kg": true,
+    "kg_has_content": false,
+    "has_diff": false,
+    "diff_parseable": false,
+    "checkout_ok": false,
+    "diff_applied": false,
+    "test_passed": false,
+    "test_output_snippet": "",
+    "error": "KG empty (trace produced no data)"
+  },
+  {
+    "project": "thefuck",
+    "bug_id": 4,
+    "has_diagnosis": false,
+    "has_kg": true,
+    "kg_has_content": false,
+    "has_diff": false,
+    "diff_parseable": false,
+    "checkout_ok": false,
+    "diff_applied": false,
+    "test_passed": false,
+    "test_output_snippet": "",
+    "error": "KG empty (trace produced no data)"
+  }
+]

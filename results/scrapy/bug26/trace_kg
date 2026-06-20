@@ -1,0 +1,169 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_getcomposite [label="test_getcomposite
+__init__.py:257" fillcolor=white shape=box style=filled]
+	__init__ [label="__init__
+extensions.py:5" fillcolor=white shape=box style=filled]
+	update [label="update
+memusage.py:75" fillcolor=white shape=box style=filled]
+	_assert_mutability [label="_assert_mutability
+__init__.py:336" fillcolor=white shape=box style=filled]
+	__subclasscheck__ [label="__subclasscheck__
+[closure inside create_deprecated_class]
+deprecate.py:81" fillcolor=white shape=box style=filled]
+	mro [label="mro
+(2 writes, 2 distinct)
+(<class 'dict'>, <class 'object'>)
+(<class 'int'>, <class 'object'>)" shape=ellipse]
+	c [label="c
+(2 writes, 2 distinct)
+<class 'dict'>
+<class 'object'>" shape=ellipse]
+	iteritems [label="iteritems
+headers.py:72" fillcolor=white shape=box style=filled]
+	name [label="name
+(14 writes, 7 distinct)
+1
+3
+'TEST_BASE'
+'TEST'
+'HASNOBASE'
+2
+  …+1 more values" shape=ellipse]
+	set [label="set
+Sets value if priority is higher or equal than current …
+__init__.py:50" fillcolor=white shape=box style=filled]
+	get_settings_priority [label="get_settings_priority
+Small helper function that looks up a given string prio…
+__init__.py:23" fillcolor=white shape=box style=filled]
+	priority [label="priority
+(9 writes, 2 distinct)
+0
+20" shape=ellipse]
+	__contains__ [label="__contains__
+__init__.py:101" fillcolor=white shape=box style=filled]
+	maxpriority [label="maxpriority
+Return the numerical value of the highest priority pres…
+__init__.py:225" fillcolor=white shape=box style=filled]
+	__len__ [label="__len__
+cookies.py:68" fillcolor=white shape=box style=filled]
+	__iter__ [label="__iter__
+sitemap.py:20" fillcolor=white shape=box style=filled]
+	getpriority [label="getpriority
+Return the current numerical priority value of a settin…
+__init__.py:212" fillcolor=white shape=box style=filled]
+	prio [label="prio
+(12 writes, 3 distinct)
+None
+0
+20" shape=ellipse]
+	s [label="s
+(2 writes, 2 distinct)
+<BaseSettings {'TEST_BASE': <SettingsAttribute value={1: 1, 2: 2} priority=20>, 'TEST': <SettingsAttribute value=<BaseSe…
+<BaseSettings {'TEST_BASE': <SettingsAttribute value={1: 1, 2: 2} priority=20>, 'TEST': <SettingsAttribute value=<BaseSe…" shape=ellipse]
+	__getitem__ [label="__getitem__
+headers.py:38" fillcolor=white shape=box style=filled]
+	_getcomposite [label="_getcomposite
+__init__.py:198" fillcolor=white shape=box style=filled]
+	basename [label="basename
+'TEST_BASE'" shape=ellipse]
+	compsett [label="compsett
+(2 writes, 2 distinct)
+<BaseSettings {1: <SettingsAttribute value=1 priority=0>, 2: <SettingsAttribute value=2 priority=0>}>
+<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 2: <SettingsAttribute value=2 priority=0>, 3: <SettingsAttrib…" shape=ellipse]
+	key [label="key
+(3 writes, 3 distinct)
+1
+3
+4" shape=ellipse]
+	cs [label="cs
+<BaseSettings {1: <SettingsAttribute value=10 priority=0>, 2: <SettingsAttribute value=2 priority=0>, 3: <SettingsAttrib…" shape=ellipse]
+	ERROR__AssertionError [label="AssertionError
+4 != 3" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_getcomposite
+	}
+	{
+		rank=same
+		__init__
+		set
+		__len__
+		__getitem__
+		_getcomposite
+	}
+	{
+		rank=same
+		update
+		_assert_mutability
+		__subclasscheck__
+		iteritems
+		get_settings_priority
+		__contains__
+	}
+	{
+		rank=same
+		__iter__
+		getpriority
+	}
+	{
+		rank=same
+		maxpriority
+	}
+	test_getcomposite -> __init__ [label="calls×3 [#1]" color=blue penwidth=1.3]
+	test_getcomposite -> s [label="writes×2" color=black]
+	test_getcomposite -> __getitem__ [label="calls [#57]" color=blue penwidth=1.1]
+	test_getcomposite -> set [label="calls [#59]" color=blue penwidth=1.1]
+	test_getcomposite -> _getcomposite [label="calls [#64]" color=blue penwidth=1.1]
+	test_getcomposite -> cs [label=writes color=black]
+	test_getcomposite -> __len__ [label="calls [#115]" color=blue penwidth=1.1]
+	test_getcomposite -> ERROR__AssertionError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	__init__ -> update [label="calls×4 [#2]" color=blue penwidth=1.4]
+	__init__ -> __init__ [label="loops(×6)" color=purple style=dashed]
+	__init__ -> __subclasscheck__ [label="calls×2 [#4]" color=blue penwidth=1.2]
+	__init__ -> iteritems [label="calls [#5]" color=blue penwidth=1.1]
+	__init__ -> name [label="writes×2" color=black]
+	__init__ -> set [label="calls×2 [#6]" color=blue penwidth=1.2]
+	__init__ -> maxpriority [label="calls×2 [#40]" color=blue penwidth=1.2]
+	update -> _assert_mutability [label="calls×5 [#3]" color=blue penwidth=1.5]
+	update -> iteritems [label="calls×4 [#20]" color=blue penwidth=1.4]
+	update -> name [label="writes×9" color=black]
+	update -> set [label="calls×9 [#21]" color=blue penwidth=1.9]
+	update -> __iter__ [label="calls [#87]" color=blue penwidth=1.1]
+	update -> key [label="writes×3" color=black]
+	update -> __getitem__ [label="calls×3 [#88]" color=blue penwidth=1.3]
+	update -> getpriority [label="calls×3 [#90]" color=blue penwidth=1.3]
+	__subclasscheck__ -> mro [label="writes×2" color=black]
+	__subclasscheck__ -> c [label="writes×2" color=black]
+	c -> iteritems [label="passed to" color=green style=dashed]
+	name -> set [label="passed to" color=green style=dashed]
+	name -> __contains__ [label="passed to" color=green style=dashed]
+	name -> getpriority [label="passed to" color=green style=dashed]
+	name -> __getitem__ [label="passed to" color=green style=dashed]
+	name -> _getcomposite [label="passed to" color=green style=dashed]
+	set -> _assert_mutability [label="calls×12 [#7]" color=blue penwidth=2.2]
+	set -> get_settings_priority [label="calls×12 [#8]" color=blue penwidth=2.2]
+	set -> priority [label="writes×9" color=black]
+	set -> __contains__ [label="calls×12 [#9]" color=blue penwidth=2.2]
+	set -> __init__ [label="calls×11 [#10]" color=blue penwidth=2.1]
+	set -> set [label="calls [#96]" color=blue penwidth=1.1]
+	priority -> __init__ [label="passed to" color=green style=dashed]
+	priority -> set [label="passed to" color=green style=dashed]
+	priority -> get_settings_priority [label="passed to" color=green style=dashed]
+	priority -> update [label="passed to" color=green style=dashed]
+	maxpriority -> __len__ [label="calls×2 [#41]" color=blue penwidth=1.2]
+	maxpriority -> __iter__ [label="calls×2 [#42]" color=blue penwidth=1.2]
+	maxpriority -> getpriority [label="calls×3 [#43]" color=blue penwidth=1.3]
+	maxpriority -> name [label="writes×3" color=black]
+	getpriority -> prio [label="writes×12" color=black]
+	getpriority -> __contains__ [label="calls×6 [#44]" color=blue penwidth=1.6]
+	__getitem__ -> __contains__ [label="calls×6 [#58]" color=blue penwidth=1.6]
+	_getcomposite -> basename [label=writes color=black]
+	_getcomposite -> __contains__ [label="calls [#65]" color=blue penwidth=1.1]
+	_getcomposite -> __getitem__ [label="calls×2 [#66]" color=blue penwidth=1.2]
+	_getcomposite -> __init__ [label="calls [#68]" color=blue penwidth=1.1]
+	_getcomposite -> compsett [label="writes×2" color=black]
+	_getcomposite -> update [label="calls [#84]" color=blue penwidth=1.1]
+	key -> __getitem__ [label="passed to" color=green style=dashed]
+	key -> __len__ [label="passed to" color=green style=dashed]
+}

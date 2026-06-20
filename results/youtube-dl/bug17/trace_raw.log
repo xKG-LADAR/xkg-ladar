@@ -1,0 +1,537 @@
+Cleared: /path/to/results/youtube-dl/bug17
+Running: python -m unittest -q test.test_utils.TestUtil.test_cli_bool_option
+Workdir: /path/to/BugsInPy/workspace/youtube-dl
+PYTHONPATH: /path/to/BugsInPy/workspace/youtube-dl
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE: 15:05:16.313299 call      1163     def test_cli_bool_option(self):
+IE_TRACE: 15:05:16.313724 line      1164         self.assertEqual(
+IE_TRACE: 15:05:16.313761 line      1165             cli_bool_option(
+IE_TRACE: 15:05:16.313784 line      1166                 {'nocheckcertificate': True}, '--no-check-certificate', 'nocheckcertificate'),
+IE_TRACE: 15:05:16.313801 line      1165             cli_bool_option(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. params = {'nocheckcertificate': True}
+IE_TRACE:     Starting var:.. command_option = '--no-check-certificate'
+IE_TRACE:     Starting var:.. param = 'nocheckcertificate'
+IE_TRACE:     Starting var:.. true_value = 'true'
+IE_TRACE:     Starting var:.. false_value = 'false'
+IE_TRACE:     Starting var:.. separator = None
+IE_TRACE:     15:05:16.313826 call      2734 def cli_bool_option(params, command_option, param, true_value='true', false_value='false', separator=None):
+IE_TRACE:     15:05:16.314244 line      2735     param = params.get(param)
+IE_TRACE:     Modified var:.. param = True
+IE_TRACE:     15:05:16.314275 line      2736     assert isinstance(param, bool)
+IE_TRACE:     15:05:16.314307 line      2737     if separator:
+IE_TRACE:     15:05:16.314330 line      2739     return [command_option, true_value if param else false_value]
+IE_TRACE:     15:05:16.314352 return    2739     return [command_option, true_value if param else false_value]
+IE_TRACE:     Return value:.. ['--no-check-certificate', 'true']
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.314385 line      1167             ['--no-check-certificate', 'true'])
+IE_TRACE: 15:05:16.314409 line      1164         self.assertEqual(
+IE_TRACE:     Source path:... /usr/lib/python3.12/unittest/case.py
+IE_TRACE:     Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE:     Starting var:.. first = ['--no-check-certificate', 'true']
+IE_TRACE:     Starting var:.. second = ['--no-check-certificate', 'true']
+IE_TRACE:     Starting var:.. msg = None
+IE_TRACE:     15:05:16.314429 call       880     def assertEqual(self, first, second, msg=None):
+IE_TRACE:     15:05:16.314595 line       884         assertion_func = self._getAssertEqualityFunc(first, second)
+IE_TRACE:         Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE:         Starting var:.. first = ['--no-check-certificate', 'true']
+IE_TRACE:         Starting var:.. second = ['--no-check-certificate', 'true']
+IE_TRACE:         15:05:16.314624 call       847     def _getAssertEqualityFunc(self, first, second):
+IE_TRACE:         15:05:16.314659 line       864         if type(first) is type(second):
+IE_TRACE:         15:05:16.314678 line       865             asserter = self._type_equality_funcs.get(type(first))
+IE_TRACE:         New var:....... asserter = 'assertListEqual'
+IE_TRACE:         15:05:16.314697 line       866             if asserter is not None:
+IE_TRACE:         15:05:16.314723 line       867                 if isinstance(asserter, str):
+IE_TRACE:         15:05:16.314741 line       868                     asserter = getattr(self, asserter)
+IE_TRACE:         Modified var:.. asserter = <bound method TestCase.assertListEqual of <test.test_utils.TestUtil testMethod=test_cli_bool_option>>
+IE_TRACE:         15:05:16.314760 line       869                 return asserter
+IE_TRACE:         15:05:16.314786 return     869                 return asserter
+IE_TRACE:         Return value:.. <bound method TestCase.assertListEqual of <test.test_utils.TestUtil testMethod=test_cli_bool_option>>
+IE_TRACE:     New var:....... assertion_func = <bound method TestCase.assertListEqual of <test.test_utils.TestUtil testMethod=test_cli_bool_option>>
+IE_TRACE:     15:05:16.314815 line       885         assertion_func(first, second, msg=msg)
+IE_TRACE:         Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE:         Starting var:.. list1 = ['--no-check-certificate', 'true']
+IE_TRACE:         Starting var:.. list2 = ['--no-check-certificate', 'true']
+IE_TRACE:         Starting var:.. msg = None
+IE_TRACE:         15:05:16.314846 call      1081     def assertListEqual(self, list1, list2, msg=None):
+IE_TRACE:         15:05:16.314882 line      1091         self.assertSequenceEqual(list1, list2, msg, seq_type=list)
+IE_TRACE:             Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE:             Starting var:.. seq1 = ['--no-check-certificate', 'true']
+IE_TRACE:             Starting var:.. seq2 = ['--no-check-certificate', 'true']
+IE_TRACE:             Starting var:.. msg = None
+IE_TRACE:             Starting var:.. seq_type = <class 'list'>
+IE_TRACE:             15:05:16.314933 call       976     def assertSequenceEqual(self, seq1, seq2, msg=None, seq_type=None):
+IE_TRACE:             15:05:16.314989 line       990         if seq_type is not None:
+IE_TRACE:             15:05:16.315016 line       991             seq_type_name = seq_type.__name__
+IE_TRACE:             New var:....... seq_type_name = 'list'
+IE_TRACE:             15:05:16.315041 line       992             if not isinstance(seq1, seq_type):
+IE_TRACE:             15:05:16.315073 line       995             if not isinstance(seq2, seq_type):
+IE_TRACE:             15:05:16.315098 line      1001         differing = None
+IE_TRACE:             New var:....... differing = None
+IE_TRACE:             15:05:16.315123 line      1002         try:
+IE_TRACE:             15:05:16.315154 line      1003             len1 = len(seq1)
+IE_TRACE:             New var:....... len1 = 2
+IE_TRACE:             15:05:16.315180 line      1008         if differing is None:
+IE_TRACE:             15:05:16.315213 line      1009             try:
+IE_TRACE:             15:05:16.315240 line      1010                 len2 = len(seq2)
+IE_TRACE:             New var:....... len2 = 2
+IE_TRACE:             15:05:16.315266 line      1015         if differing is None:
+IE_TRACE:             15:05:16.315299 line      1016             if seq1 == seq2:
+IE_TRACE:             15:05:16.315327 line      1017                 return
+IE_TRACE:             15:05:16.315354 return    1017                 return
+IE_TRACE:             Return value:.. None
+IE_TRACE:         15:05:16.315392 return    1091         self.assertSequenceEqual(list1, list2, msg, seq_type=list)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     15:05:16.315419 return     885         assertion_func(first, second, msg=msg)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.315446 line      1168         self.assertEqual(
+IE_TRACE: 15:05:16.315467 line      1169             cli_bool_option(
+IE_TRACE: 15:05:16.315481 line      1170                 {'nocheckcertificate': True}, '--no-check-certificate', 'nocheckcertificate', separator='='),
+IE_TRACE: 15:05:16.315494 line      1169             cli_bool_option(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. params = {'nocheckcertificate': True}
+IE_TRACE:     Starting var:.. command_option = '--no-check-certificate'
+IE_TRACE:     Starting var:.. param = 'nocheckcertificate'
+IE_TRACE:     Starting var:.. true_value = 'true'
+IE_TRACE:     Starting var:.. false_value = 'false'
+IE_TRACE:     Starting var:.. separator = '='
+IE_TRACE:     15:05:16.315508 call      2734 def cli_bool_option(params, command_option, param, true_value='true', false_value='false', separator=None):
+IE_TRACE:     15:05:16.315560 line      2735     param = params.get(param)
+IE_TRACE:     Modified var:.. param = True
+IE_TRACE:     15:05:16.315586 line      2736     assert isinstance(param, bool)
+IE_TRACE:     15:05:16.315612 line      2737     if separator:
+IE_TRACE:     15:05:16.315632 line      2738         return [command_option + separator + (true_value if param else false_value)]
+IE_TRACE:     15:05:16.315652 return    2738         return [command_option + separator + (true_value if param else false_value)]
+IE_TRACE:     Return value:.. ['--no-check-certificate=true']
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.315678 line      1171             ['--no-check-certificate=true'])
+IE_TRACE: 15:05:16.315697 line      1168         self.assertEqual(
+IE_TRACE:     Source path:... /usr/lib/python3.12/unittest/case.py
+IE_TRACE:     Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE:     Starting var:.. first = ['--no-check-certificate=true']
+IE_TRACE:     Starting var:.. second = ['--no-check-certificate=true']
+IE_TRACE:     Starting var:.. msg = None
+IE_TRACE:     15:05:16.315710 call       880     def assertEqual(self, first, second, msg=None):
+IE_TRACE:     15:05:16.315751 line       884         assertion_func = self._getAssertEqualityFunc(first, second)
+IE_TRACE:         Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE:         Starting var:.. first = ['--no-check-certificate=true']
+IE_TRACE:         Starting var:.. second = ['--no-check-certificate=true']
+IE_TRACE:         15:05:16.315770 call       847     def _getAssertEqualityFunc(self, first, second):
+IE_TRACE:         15:05:16.315802 line       864         if type(first) is type(second):
+IE_TRACE:         15:05:16.315820 line       865             asserter = self._type_equality_funcs.get(type(first))
+IE_TRACE:         New var:....... asserter = 'assertListEqual'
+IE_TRACE:         15:05:16.315837 line       866             if asserter is not None:
+IE_TRACE:         15:05:16.315860 line       867                 if isinstance(asserter, str):
+IE_TRACE:         15:05:16.315877 line       868                     asserter = getattr(self, asserter)
+IE_TRACE:         Modified var:.. asserter = <bound method TestCase.assertListEqual of <test.test_utils.TestUtil testMethod=test_cli_bool_option>>
+IE_TRACE:         15:05:16.315895 line       869                 return asserter
+IE_TRACE:         15:05:16.315917 return     869                 return asserter
+IE_TRACE:         Return value:.. <bound method TestCase.assertListEqual of <test.test_utils.TestUtil testMethod=test_cli_bool_option>>
+IE_TRACE:     New var:....... assertion_func = <bound method TestCase.assertListEqual of <test.test_utils.TestUtil testMethod=test_cli_bool_option>>
+IE_TRACE:     15:05:16.315943 line       885         assertion_func(first, second, msg=msg)
+IE_TRACE:         Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE:         Starting var:.. list1 = ['--no-check-certificate=true']
+IE_TRACE:         Starting var:.. list2 = ['--no-check-certificate=true']
+IE_TRACE:         Starting var:.. msg = None
+IE_TRACE:         15:05:16.315969 call      1081     def assertListEqual(self, list1, list2, msg=None):
+IE_TRACE:         15:05:16.316003 line      1091         self.assertSequenceEqual(list1, list2, msg, seq_type=list)
+IE_TRACE:             Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE:             Starting var:.. seq1 = ['--no-check-certificate=true']
+IE_TRACE:             Starting var:.. seq2 = ['--no-check-certificate=true']
+IE_TRACE:             Starting var:.. msg = None
+IE_TRACE:             Starting var:.. seq_type = <class 'list'>
+IE_TRACE:             15:05:16.316025 call       976     def assertSequenceEqual(self, seq1, seq2, msg=None, seq_type=None):
+IE_TRACE:             15:05:16.316071 line       990         if seq_type is not None:
+IE_TRACE:             15:05:16.316095 line       991             seq_type_name = seq_type.__name__
+IE_TRACE:             New var:....... seq_type_name = 'list'
+IE_TRACE:             15:05:16.316118 line       992             if not isinstance(seq1, seq_type):
+IE_TRACE:             15:05:16.316147 line       995             if not isinstance(seq2, seq_type):
+IE_TRACE:             15:05:16.316171 line      1001         differing = None
+IE_TRACE:             New var:....... differing = None
+IE_TRACE:             15:05:16.316196 line      1002         try:
+IE_TRACE:             15:05:16.316226 line      1003             len1 = len(seq1)
+IE_TRACE:             New var:....... len1 = 1
+IE_TRACE:             15:05:16.316251 line      1008         if differing is None:
+IE_TRACE:             15:05:16.316282 line      1009             try:
+IE_TRACE:             15:05:16.316308 line      1010                 len2 = len(seq2)
+IE_TRACE:             New var:....... len2 = 1
+IE_TRACE:             15:05:16.316334 line      1015         if differing is None:
+IE_TRACE:             15:05:16.316366 line      1016             if seq1 == seq2:
+IE_TRACE:             15:05:16.316394 line      1017                 return
+IE_TRACE:             15:05:16.316421 return    1017                 return
+IE_TRACE:             Return value:.. None
+IE_TRACE:         15:05:16.316454 return    1091         self.assertSequenceEqual(list1, list2, msg, seq_type=list)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     15:05:16.316478 return     885         assertion_func(first, second, msg=msg)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.316503 line      1172         self.assertEqual(
+IE_TRACE: 15:05:16.316521 line      1173             cli_bool_option(
+IE_TRACE: 15:05:16.316534 line      1174                 {'nocheckcertificate': True}, '--check-certificate', 'nocheckcertificate', 'false', 'true'),
+IE_TRACE: 15:05:16.316546 line      1173             cli_bool_option(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. params = {'nocheckcertificate': True}
+IE_TRACE:     Starting var:.. command_option = '--check-certificate'
+IE_TRACE:     Starting var:.. param = 'nocheckcertificate'
+IE_TRACE:     Starting var:.. true_value = 'false'
+IE_TRACE:     Starting var:.. false_value = 'true'
+IE_TRACE:     Starting var:.. separator = None
+IE_TRACE:     15:05:16.316560 call      2734 def cli_bool_option(params, command_option, param, true_value='true', false_value='false', separator=None):
+IE_TRACE:     15:05:16.316614 line      2735     param = params.get(param)
+IE_TRACE:     Modified var:.. param = True
+IE_TRACE:     15:05:16.316634 line      2736     assert isinstance(param, bool)
+IE_TRACE:     15:05:16.316658 line      2737     if separator:
+IE_TRACE:     15:05:16.316679 line      2739     return [command_option, true_value if param else false_value]
+IE_TRACE:     15:05:16.316698 return    2739     return [command_option, true_value if param else false_value]
+IE_TRACE:     Return value:.. ['--check-certificate', 'false']
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.316723 line      1175             ['--check-certificate', 'false'])
+IE_TRACE: 15:05:16.316741 line      1172         self.assertEqual(
+IE_TRACE:     Source path:... /usr/lib/python3.12/unittest/case.py
+IE_TRACE:     Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE:     Starting var:.. first = ['--check-certificate', 'false']
+IE_TRACE:     Starting var:.. second = ['--check-certificate', 'false']
+IE_TRACE:     Starting var:.. msg = None
+IE_TRACE:     15:05:16.316754 call       880     def assertEqual(self, first, second, msg=None):
+IE_TRACE:     15:05:16.316794 line       884         assertion_func = self._getAssertEqualityFunc(first, second)
+IE_TRACE:         Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE:         Starting var:.. first = ['--check-certificate', 'false']
+IE_TRACE:         Starting var:.. second = ['--check-certificate', 'false']
+IE_TRACE:         15:05:16.316813 call       847     def _getAssertEqualityFunc(self, first, second):
+IE_TRACE:         15:05:16.316842 line       864         if type(first) is type(second):
+IE_TRACE:         15:05:16.316859 line       865             asserter = self._type_equality_funcs.get(type(first))
+IE_TRACE:         New var:....... asserter = 'assertListEqual'
+IE_TRACE:         15:05:16.316876 line       866             if asserter is not None:
+IE_TRACE:         15:05:16.316898 line       867                 if isinstance(asserter, str):
+IE_TRACE:         15:05:16.316915 line       868                     asserter = getattr(self, asserter)
+IE_TRACE:         Modified var:.. asserter = <bound method TestCase.assertListEqual of <test.test_utils.TestUtil testMethod=test_cli_bool_option>>
+IE_TRACE:         15:05:16.316933 line       869                 return asserter
+IE_TRACE:         15:05:16.316955 return     869                 return asserter
+IE_TRACE:         Return value:.. <bound method TestCase.assertListEqual of <test.test_utils.TestUtil testMethod=test_cli_bool_option>>
+IE_TRACE:     New var:....... assertion_func = <bound method TestCase.assertListEqual of <test.test_utils.TestUtil testMethod=test_cli_bool_option>>
+IE_TRACE:     15:05:16.316981 line       885         assertion_func(first, second, msg=msg)
+IE_TRACE:         Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE:         Starting var:.. list1 = ['--check-certificate', 'false']
+IE_TRACE:         Starting var:.. list2 = ['--check-certificate', 'false']
+IE_TRACE:         Starting var:.. msg = None
+IE_TRACE:         15:05:16.317006 call      1081     def assertListEqual(self, list1, list2, msg=None):
+IE_TRACE:         15:05:16.317040 line      1091         self.assertSequenceEqual(list1, list2, msg, seq_type=list)
+IE_TRACE:             Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE:             Starting var:.. seq1 = ['--check-certificate', 'false']
+IE_TRACE:             Starting var:.. seq2 = ['--check-certificate', 'false']
+IE_TRACE:             Starting var:.. msg = None
+IE_TRACE:             Starting var:.. seq_type = <class 'list'>
+IE_TRACE:             15:05:16.317061 call       976     def assertSequenceEqual(self, seq1, seq2, msg=None, seq_type=None):
+IE_TRACE:             15:05:16.317106 line       990         if seq_type is not None:
+IE_TRACE:             15:05:16.317130 line       991             seq_type_name = seq_type.__name__
+IE_TRACE:             New var:....... seq_type_name = 'list'
+IE_TRACE:             15:05:16.317153 line       992             if not isinstance(seq1, seq_type):
+IE_TRACE:             15:05:16.317181 line       995             if not isinstance(seq2, seq_type):
+IE_TRACE:             15:05:16.317206 line      1001         differing = None
+IE_TRACE:             New var:....... differing = None
+IE_TRACE:             15:05:16.317230 line      1002         try:
+IE_TRACE:             15:05:16.317259 line      1003             len1 = len(seq1)
+IE_TRACE:             New var:....... len1 = 2
+IE_TRACE:             15:05:16.317285 line      1008         if differing is None:
+IE_TRACE:             15:05:16.317316 line      1009             try:
+IE_TRACE:             15:05:16.317344 line      1010                 len2 = len(seq2)
+IE_TRACE:             New var:....... len2 = 2
+IE_TRACE:             15:05:16.317372 line      1015         if differing is None:
+IE_TRACE:             15:05:16.317404 line      1016             if seq1 == seq2:
+IE_TRACE:             15:05:16.317432 line      1017                 return
+IE_TRACE:             15:05:16.317459 return    1017                 return
+IE_TRACE:             Return value:.. None
+IE_TRACE:         15:05:16.317492 return    1091         self.assertSequenceEqual(list1, list2, msg, seq_type=list)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     15:05:16.317515 return     885         assertion_func(first, second, msg=msg)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.317541 line      1176         self.assertEqual(
+IE_TRACE: 15:05:16.317559 line      1177             cli_bool_option(
+IE_TRACE: 15:05:16.317575 line      1178                 {'nocheckcertificate': True}, '--check-certificate', 'nocheckcertificate', 'false', 'true', '='),
+IE_TRACE: 15:05:16.317587 line      1177             cli_bool_option(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. params = {'nocheckcertificate': True}
+IE_TRACE:     Starting var:.. command_option = '--check-certificate'
+IE_TRACE:     Starting var:.. param = 'nocheckcertificate'
+IE_TRACE:     Starting var:.. true_value = 'false'
+IE_TRACE:     Starting var:.. false_value = 'true'
+IE_TRACE:     Starting var:.. separator = '='
+IE_TRACE:     15:05:16.317601 call      2734 def cli_bool_option(params, command_option, param, true_value='true', false_value='false', separator=None):
+IE_TRACE:     15:05:16.317652 line      2735     param = params.get(param)
+IE_TRACE:     Modified var:.. param = True
+IE_TRACE:     15:05:16.317672 line      2736     assert isinstance(param, bool)
+IE_TRACE:     15:05:16.317697 line      2737     if separator:
+IE_TRACE:     15:05:16.317716 line      2738         return [command_option + separator + (true_value if param else false_value)]
+IE_TRACE:     15:05:16.317736 return    2738         return [command_option + separator + (true_value if param else false_value)]
+IE_TRACE:     Return value:.. ['--check-certificate=false']
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.317761 line      1179             ['--check-certificate=false'])
+IE_TRACE: 15:05:16.317780 line      1176         self.assertEqual(
+IE_TRACE:     Source path:... /usr/lib/python3.12/unittest/case.py
+IE_TRACE:     Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE:     Starting var:.. first = ['--check-certificate=false']
+IE_TRACE:     Starting var:.. second = ['--check-certificate=false']
+IE_TRACE:     Starting var:.. msg = None
+IE_TRACE:     15:05:16.317793 call       880     def assertEqual(self, first, second, msg=None):
+IE_TRACE:     15:05:16.317832 line       884         assertion_func = self._getAssertEqualityFunc(first, second)
+IE_TRACE:         Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE:         Starting var:.. first = ['--check-certificate=false']
+IE_TRACE:         Starting var:.. second = ['--check-certificate=false']
+IE_TRACE:         15:05:16.317851 call       847     def _getAssertEqualityFunc(self, first, second):
+IE_TRACE:         15:05:16.317880 line       864         if type(first) is type(second):
+IE_TRACE:         15:05:16.317896 line       865             asserter = self._type_equality_funcs.get(type(first))
+IE_TRACE:         New var:....... asserter = 'assertListEqual'
+IE_TRACE:         15:05:16.317913 line       866             if asserter is not None:
+IE_TRACE:         15:05:16.317935 line       867                 if isinstance(asserter, str):
+IE_TRACE:         15:05:16.317952 line       868                     asserter = getattr(self, asserter)
+IE_TRACE:         Modified var:.. asserter = <bound method TestCase.assertListEqual of <test.test_utils.TestUtil testMethod=test_cli_bool_option>>
+IE_TRACE:         15:05:16.317970 line       869                 return asserter
+IE_TRACE:         15:05:16.317992 return     869                 return asserter
+IE_TRACE:         Return value:.. <bound method TestCase.assertListEqual of <test.test_utils.TestUtil testMethod=test_cli_bool_option>>
+IE_TRACE:     New var:....... assertion_func = <bound method TestCase.assertListEqual of <test.test_utils.TestUtil testMethod=test_cli_bool_option>>
+IE_TRACE:     15:05:16.318016 line       885         assertion_func(first, second, msg=msg)
+IE_TRACE:         Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE:         Starting var:.. list1 = ['--check-certificate=false']
+IE_TRACE:         Starting var:.. list2 = ['--check-certificate=false']
+IE_TRACE:         Starting var:.. msg = None
+IE_TRACE:         15:05:16.318040 call      1081     def assertListEqual(self, list1, list2, msg=None):
+IE_TRACE:         15:05:16.318074 line      1091         self.assertSequenceEqual(list1, list2, msg, seq_type=list)
+IE_TRACE:             Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE:             Starting var:.. seq1 = ['--check-certificate=false']
+IE_TRACE:             Starting var:.. seq2 = ['--check-certificate=false']
+IE_TRACE:             Starting var:.. msg = None
+IE_TRACE:             Starting var:.. seq_type = <class 'list'>
+IE_TRACE:             15:05:16.318093 call       976     def assertSequenceEqual(self, seq1, seq2, msg=None, seq_type=None):
+IE_TRACE:             15:05:16.318138 line       990         if seq_type is not None:
+IE_TRACE:             15:05:16.318161 line       991             seq_type_name = seq_type.__name__
+IE_TRACE:             New var:....... seq_type_name = 'list'
+IE_TRACE:             15:05:16.318184 line       992             if not isinstance(seq1, seq_type):
+IE_TRACE:             15:05:16.318213 line       995             if not isinstance(seq2, seq_type):
+IE_TRACE:             15:05:16.318237 line      1001         differing = None
+IE_TRACE:             New var:....... differing = None
+IE_TRACE:             15:05:16.318261 line      1002         try:
+IE_TRACE:             15:05:16.318291 line      1003             len1 = len(seq1)
+IE_TRACE:             New var:....... len1 = 1
+IE_TRACE:             15:05:16.318316 line      1008         if differing is None:
+IE_TRACE:             15:05:16.318347 line      1009             try:
+IE_TRACE:             15:05:16.318373 line      1010                 len2 = len(seq2)
+IE_TRACE:             New var:....... len2 = 1
+IE_TRACE:             15:05:16.318399 line      1015         if differing is None:
+IE_TRACE:             15:05:16.318430 line      1016             if seq1 == seq2:
+IE_TRACE:             15:05:16.318458 line      1017                 return
+IE_TRACE:             15:05:16.318485 return    1017                 return
+IE_TRACE:             Return value:.. None
+IE_TRACE:         15:05:16.318516 return    1091         self.assertSequenceEqual(list1, list2, msg, seq_type=list)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     15:05:16.318539 return     885         assertion_func(first, second, msg=msg)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.318564 line      1180         self.assertEqual(
+IE_TRACE: 15:05:16.318585 line      1181             cli_bool_option(
+IE_TRACE: 15:05:16.318598 line      1182                 {'nocheckcertificate': False}, '--check-certificate', 'nocheckcertificate', 'false', 'true'),
+IE_TRACE: 15:05:16.318610 line      1181             cli_bool_option(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. params = {'nocheckcertificate': False}
+IE_TRACE:     Starting var:.. command_option = '--check-certificate'
+IE_TRACE:     Starting var:.. param = 'nocheckcertificate'
+IE_TRACE:     Starting var:.. true_value = 'false'
+IE_TRACE:     Starting var:.. false_value = 'true'
+IE_TRACE:     Starting var:.. separator = None
+IE_TRACE:     15:05:16.318623 call      2734 def cli_bool_option(params, command_option, param, true_value='true', false_value='false', separator=None):
+IE_TRACE:     15:05:16.318674 line      2735     param = params.get(param)
+IE_TRACE:     Modified var:.. param = False
+IE_TRACE:     15:05:16.318694 line      2736     assert isinstance(param, bool)
+IE_TRACE:     15:05:16.318718 line      2737     if separator:
+IE_TRACE:     15:05:16.318737 line      2739     return [command_option, true_value if param else false_value]
+IE_TRACE:     15:05:16.318757 return    2739     return [command_option, true_value if param else false_value]
+IE_TRACE:     Return value:.. ['--check-certificate', 'true']
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.318782 line      1183             ['--check-certificate', 'true'])
+IE_TRACE: 15:05:16.318799 line      1180         self.assertEqual(
+IE_TRACE:     Source path:... /usr/lib/python3.12/unittest/case.py
+IE_TRACE:     Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE:     Starting var:.. first = ['--check-certificate', 'true']
+IE_TRACE:     Starting var:.. second = ['--check-certificate', 'true']
+IE_TRACE:     Starting var:.. msg = None
+IE_TRACE:     15:05:16.318812 call       880     def assertEqual(self, first, second, msg=None):
+IE_TRACE:     15:05:16.318851 line       884         assertion_func = self._getAssertEqualityFunc(first, second)
+IE_TRACE:         Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE:         Starting var:.. first = ['--check-certificate', 'true']
+IE_TRACE:         Starting var:.. second = ['--check-certificate', 'true']
+IE_TRACE:         15:05:16.318870 call       847     def _getAssertEqualityFunc(self, first, second):
+IE_TRACE:         15:05:16.318899 line       864         if type(first) is type(second):
+IE_TRACE:         15:05:16.318915 line       865             asserter = self._type_equality_funcs.get(type(first))
+IE_TRACE:         New var:....... asserter = 'assertListEqual'
+IE_TRACE:         15:05:16.318932 line       866             if asserter is not None:
+IE_TRACE:         15:05:16.318954 line       867                 if isinstance(asserter, str):
+IE_TRACE:         15:05:16.318971 line       868                     asserter = getattr(self, asserter)
+IE_TRACE:         Modified var:.. asserter = <bound method TestCase.assertListEqual of <test.test_utils.TestUtil testMethod=test_cli_bool_option>>
+IE_TRACE:         15:05:16.318988 line       869                 return asserter
+IE_TRACE:         15:05:16.319010 return     869                 return asserter
+IE_TRACE:         Return value:.. <bound method TestCase.assertListEqual of <test.test_utils.TestUtil testMethod=test_cli_bool_option>>
+IE_TRACE:     New var:....... assertion_func = <bound method TestCase.assertListEqual of <test.test_utils.TestUtil testMethod=test_cli_bool_option>>
+IE_TRACE:     15:05:16.319034 line       885         assertion_func(first, second, msg=msg)
+IE_TRACE:         Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE:         Starting var:.. list1 = ['--check-certificate', 'true']
+IE_TRACE:         Starting var:.. list2 = ['--check-certificate', 'true']
+IE_TRACE:         Starting var:.. msg = None
+IE_TRACE:         15:05:16.319058 call      1081     def assertListEqual(self, list1, list2, msg=None):
+IE_TRACE:         15:05:16.319091 line      1091         self.assertSequenceEqual(list1, list2, msg, seq_type=list)
+IE_TRACE:             Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE:             Starting var:.. seq1 = ['--check-certificate', 'true']
+IE_TRACE:             Starting var:.. seq2 = ['--check-certificate', 'true']
+IE_TRACE:             Starting var:.. msg = None
+IE_TRACE:             Starting var:.. seq_type = <class 'list'>
+IE_TRACE:             15:05:16.319111 call       976     def assertSequenceEqual(self, seq1, seq2, msg=None, seq_type=None):
+IE_TRACE:             15:05:16.319156 line       990         if seq_type is not None:
+IE_TRACE:             15:05:16.319179 line       991             seq_type_name = seq_type.__name__
+IE_TRACE:             New var:....... seq_type_name = 'list'
+IE_TRACE:             15:05:16.319203 line       992             if not isinstance(seq1, seq_type):
+IE_TRACE:             15:05:16.319231 line       995             if not isinstance(seq2, seq_type):
+IE_TRACE:             15:05:16.319256 line      1001         differing = None
+IE_TRACE:             New var:....... differing = None
+IE_TRACE:             15:05:16.319280 line      1002         try:
+IE_TRACE:             15:05:16.319309 line      1003             len1 = len(seq1)
+IE_TRACE:             New var:....... len1 = 2
+IE_TRACE:             15:05:16.319335 line      1008         if differing is None:
+IE_TRACE:             15:05:16.319366 line      1009             try:
+IE_TRACE:             15:05:16.319391 line      1010                 len2 = len(seq2)
+IE_TRACE:             New var:....... len2 = 2
+IE_TRACE:             15:05:16.319417 line      1015         if differing is None:
+IE_TRACE:             15:05:16.319449 line      1016             if seq1 == seq2:
+IE_TRACE:             15:05:16.319476 line      1017                 return
+IE_TRACE:             15:05:16.319503 return    1017                 return
+IE_TRACE:             Return value:.. None
+IE_TRACE:         15:05:16.319535 return    1091         self.assertSequenceEqual(list1, list2, msg, seq_type=list)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     15:05:16.319558 return     885         assertion_func(first, second, msg=msg)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.319586 line      1184         self.assertEqual(
+IE_TRACE: 15:05:16.319604 line      1185             cli_bool_option(
+IE_TRACE: 15:05:16.319617 line      1186                 {'nocheckcertificate': False}, '--check-certificate', 'nocheckcertificate', 'false', 'true', '='),
+IE_TRACE: 15:05:16.319629 line      1185             cli_bool_option(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. params = {'nocheckcertificate': False}
+IE_TRACE:     Starting var:.. command_option = '--check-certificate'
+IE_TRACE:     Starting var:.. param = 'nocheckcertificate'
+IE_TRACE:     Starting var:.. true_value = 'false'
+IE_TRACE:     Starting var:.. false_value = 'true'
+IE_TRACE:     Starting var:.. separator = '='
+IE_TRACE:     15:05:16.319642 call      2734 def cli_bool_option(params, command_option, param, true_value='true', false_value='false', separator=None):
+IE_TRACE:     15:05:16.319693 line      2735     param = params.get(param)
+IE_TRACE:     Modified var:.. param = False
+IE_TRACE:     15:05:16.319713 line      2736     assert isinstance(param, bool)
+IE_TRACE:     15:05:16.319737 line      2737     if separator:
+IE_TRACE:     15:05:16.319756 line      2738         return [command_option + separator + (true_value if param else false_value)]
+IE_TRACE:     15:05:16.319775 return    2738         return [command_option + separator + (true_value if param else false_value)]
+IE_TRACE:     Return value:.. ['--check-certificate=true']
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.319800 line      1187             ['--check-certificate=true'])
+IE_TRACE: 15:05:16.319818 line      1184         self.assertEqual(
+IE_TRACE:     Source path:... /usr/lib/python3.12/unittest/case.py
+IE_TRACE:     Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE:     Starting var:.. first = ['--check-certificate=true']
+IE_TRACE:     Starting var:.. second = ['--check-certificate=true']
+IE_TRACE:     Starting var:.. msg = None
+IE_TRACE:     15:05:16.319831 call       880     def assertEqual(self, first, second, msg=None):
+IE_TRACE:     15:05:16.319870 line       884         assertion_func = self._getAssertEqualityFunc(first, second)
+IE_TRACE:         Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE:         Starting var:.. first = ['--check-certificate=true']
+IE_TRACE:         Starting var:.. second = ['--check-certificate=true']
+IE_TRACE:         15:05:16.319888 call       847     def _getAssertEqualityFunc(self, first, second):
+IE_TRACE:         15:05:16.319917 line       864         if type(first) is type(second):
+IE_TRACE:         15:05:16.319934 line       865             asserter = self._type_equality_funcs.get(type(first))
+IE_TRACE:         New var:....... asserter = 'assertListEqual'
+IE_TRACE:         15:05:16.319950 line       866             if asserter is not None:
+IE_TRACE:         15:05:16.319971 line       867                 if isinstance(asserter, str):
+IE_TRACE:         15:05:16.319988 line       868                     asserter = getattr(self, asserter)
+IE_TRACE:         Modified var:.. asserter = <bound method TestCase.assertListEqual of <test.test_utils.TestUtil testMethod=test_cli_bool_option>>
+IE_TRACE:         15:05:16.320005 line       869                 return asserter
+IE_TRACE:         15:05:16.320027 return     869                 return asserter
+IE_TRACE:         Return value:.. <bound method TestCase.assertListEqual of <test.test_utils.TestUtil testMethod=test_cli_bool_option>>
+IE_TRACE:     New var:....... assertion_func = <bound method TestCase.assertListEqual of <test.test_utils.TestUtil testMethod=test_cli_bool_option>>
+IE_TRACE:     15:05:16.320052 line       885         assertion_func(first, second, msg=msg)
+IE_TRACE:         Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE:         Starting var:.. list1 = ['--check-certificate=true']
+IE_TRACE:         Starting var:.. list2 = ['--check-certificate=true']
+IE_TRACE:         Starting var:.. msg = None
+IE_TRACE:         15:05:16.320076 call      1081     def assertListEqual(self, list1, list2, msg=None):
+IE_TRACE:         15:05:16.320110 line      1091         self.assertSequenceEqual(list1, list2, msg, seq_type=list)
+IE_TRACE:             Starting var:.. self = <test.test_utils.TestUtil testMethod=test_cli_bool_option>
+IE_TRACE:             Starting var:.. seq1 = ['--check-certificate=true']
+IE_TRACE:             Starting var:.. seq2 = ['--check-certificate=true']
+IE_TRACE:             Starting var:.. msg = None
+IE_TRACE:             Starting var:.. seq_type = <class 'list'>
+IE_TRACE:             15:05:16.320130 call       976     def assertSequenceEqual(self, seq1, seq2, msg=None, seq_type=None):
+IE_TRACE:             15:05:16.320174 line       990         if seq_type is not None:
+IE_TRACE:             15:05:16.320198 line       991             seq_type_name = seq_type.__name__
+IE_TRACE:             New var:....... seq_type_name = 'list'
+IE_TRACE:             15:05:16.320221 line       992             if not isinstance(seq1, seq_type):
+IE_TRACE:             15:05:16.320249 line       995             if not isinstance(seq2, seq_type):
+IE_TRACE:             15:05:16.320274 line      1001         differing = None
+IE_TRACE:             New var:....... differing = None
+IE_TRACE:             15:05:16.320298 line      1002         try:
+IE_TRACE:             15:05:16.320328 line      1003             len1 = len(seq1)
+IE_TRACE:             New var:....... len1 = 1
+IE_TRACE:             15:05:16.320353 line      1008         if differing is None:
+IE_TRACE:             15:05:16.320383 line      1009             try:
+IE_TRACE:             15:05:16.320409 line      1010                 len2 = len(seq2)
+IE_TRACE:             New var:....... len2 = 1
+IE_TRACE:             15:05:16.320435 line      1015         if differing is None:
+IE_TRACE:             15:05:16.320468 line      1016             if seq1 == seq2:
+IE_TRACE:             15:05:16.320496 line      1017                 return
+IE_TRACE:             15:05:16.320523 return    1017                 return
+IE_TRACE:             Return value:.. None
+IE_TRACE:         15:05:16.320555 return    1091         self.assertSequenceEqual(list1, list2, msg, seq_type=list)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     15:05:16.320612 return     885         assertion_func(first, second, msg=msg)
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.320637 line      1188         self.assertEqual(
+IE_TRACE: 15:05:16.320655 line      1189             cli_bool_option(
+IE_TRACE: 15:05:16.320668 line      1190                 {}, '--check-certificate', 'nocheckcertificate', 'false', 'true', '='),
+IE_TRACE: 15:05:16.320680 line      1189             cli_bool_option(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. params = {}
+IE_TRACE:     Starting var:.. command_option = '--check-certificate'
+IE_TRACE:     Starting var:.. param = 'nocheckcertificate'
+IE_TRACE:     Starting var:.. true_value = 'false'
+IE_TRACE:     Starting var:.. false_value = 'true'
+IE_TRACE:     Starting var:.. separator = '='
+IE_TRACE:     15:05:16.320693 call      2734 def cli_bool_option(params, command_option, param, true_value='true', false_value='false', separator=None):
+IE_TRACE:     15:05:16.320743 line      2735     param = params.get(param)
+IE_TRACE:     Modified var:.. param = None
+IE_TRACE:     15:05:16.320763 line      2736     assert isinstance(param, bool)
+IE_TRACE:     15:05:16.320788 exception 2736     assert isinstance(param, bool)
+IE_TRACE:     Exception:..... AssertionError
+IE_TRACE:     Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:05:16.320919 exception 1189             cli_bool_option(
+IE_TRACE: Exception:..... AssertionError
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.007869
+======================================================================
+FAIL: test_cli_bool_option (test.test_utils.TestUtil.test_cli_bool_option)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py", line 1189, in test_cli_bool_option
+    cli_bool_option(
+  File "/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py", line 2736, in cli_bool_option
+    assert isinstance(param, bool)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+----------------------------------------------------------------------
+Ran 1 test in 0.009s
+
+FAILED (failures=1)
+
+
+Exit code: 1

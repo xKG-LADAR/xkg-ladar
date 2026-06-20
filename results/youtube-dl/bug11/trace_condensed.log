@@ -1,0 +1,71 @@
+Cleared: /path/to/results/youtube-dl/bug11
+Running: python -m unittest -q test.test_utils.TestUtil.test_str_to_int
+Workdir: /path/to/BugsInPy/workspace/youtube-dl
+PYTHONPATH: /path/to/BugsInPy/workspace/youtube-dl
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Starting var:.. self = <test.test_utils.TestUtil testMethod=test_str_to_int>
+IE_TRACE: 15:03:12.214954 call       502     def test_str_to_int(self):
+IE_TRACE: 15:03:12.215218 line       503         self.assertEqual(str_to_int('123,456'), 123456)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. int_str = '123,456'
+IE_TRACE:     15:03:12.215246 call      3520 def str_to_int(int_str):
+IE_TRACE:     15:03:12.215618 line      3522     if int_str is None:
+IE_TRACE:     15:03:12.215632 line      3524     int_str = re.sub(r'[,\.\+]', '', int_str)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Modified var:.. int_str = '123456'
+IE_TRACE:     15:03:12.230892 line      3525     return int(int_str)
+IE_TRACE:     15:03:12.230909 return    3525     return int(int_str)
+IE_TRACE:     Return value:.. 123456
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:03:12.231273 line       504         self.assertEqual(str_to_int('123.456'), 123456)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. int_str = '123.456'
+IE_TRACE:     15:03:12.231289 call      3520 def str_to_int(int_str):
+IE_TRACE:     15:03:12.231304 line      3522     if int_str is None:
+IE_TRACE:     15:03:12.231312 line      3524     int_str = re.sub(r'[,\.\+]', '', int_str)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Modified var:.. int_str = '123456'
+IE_TRACE:     15:03:12.231445 line      3525     return int(int_str)
+IE_TRACE:     15:03:12.231459 return    3525     return int(int_str)
+IE_TRACE:     Return value:.. 123456
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:03:12.231669 line       505         self.assertEqual(str_to_int(523), 523)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. int_str = 523
+IE_TRACE:     15:03:12.231681 call      3520 def str_to_int(int_str):
+IE_TRACE:     15:03:12.231694 line      3522     if int_str is None:
+IE_TRACE:     15:03:12.231702 line      3524     int_str = re.sub(r'[,\.\+]', '', int_str)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     15:03:12.231871 exception 3524     int_str = re.sub(r'[,\.\+]', '', int_str)
+IE_TRACE:     Exception:..... TypeError: expected string or bytes-like object, got 'int'
+IE_TRACE:     Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:03:12.231900 exception  505         self.assertEqual(str_to_int(523), 523)
+IE_TRACE: Exception:..... TypeError: expected string or bytes-like object, got 'int'
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.017101
+======================================================================
+ERROR: test_str_to_int (test.test_utils.TestUtil.test_str_to_int)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py", line 505, in test_str_to_int
+    self.assertEqual(str_to_int(523), 523)
+                     ^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py", line 3524, in str_to_int
+    int_str = re.sub(r'[,\.\+]', '', int_str)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/re/__init__.py", line 186, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'int'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.018s
+
+FAILED (errors=1)
+
+
+Exit code: 1

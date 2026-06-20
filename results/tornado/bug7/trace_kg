@@ -1,0 +1,37 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_run_in_executor_native [label="test_run_in_executor_native
+ioloop_test.py:631" fillcolor=white shape=box style=filled]
+	event1 [label="event1
+<threading.Event at 0x7f74d8196f00: unset>" shape=ellipse]
+	event2 [label="event2
+<threading.Event at 0x7f74d8197ec0: unset>" shape=ellipse]
+	sync_func [label="sync_func
+<function TestIOLoopFutures.test_run_in_executor_native.<locals>.sync_func at 0x7f74d802e200>" shape=ellipse]
+	exec_test [label="exec_test
+Execute ``s`` in a given context and return the result …
+util.py:75" fillcolor=white shape=box style=filled]
+	global_namespace [label="global_namespace
+dict(len=61)" shape=ellipse]
+	local_namespace [label="local_namespace
+(2 writes, 2 distinct)
+{}
+{'async_wrapper': <function async_wrapper at 0x7f74d802e7a0>}" shape=ellipse]
+	namespace [label="namespace
+{'async_wrapper': <function async_wrapper at 0x7f74d802e7a0>}" shape=ellipse]
+	{
+		rank=same
+		test_run_in_executor_native
+	}
+	{
+		rank=same
+		exec_test
+	}
+	test_run_in_executor_native -> event1 [label=writes color=black]
+	test_run_in_executor_native -> event2 [label=writes color=black]
+	test_run_in_executor_native -> sync_func [label=writes color=black]
+	test_run_in_executor_native -> exec_test [label="calls [#1]" color=blue penwidth=1.1]
+	test_run_in_executor_native -> namespace [label=writes color=black]
+	exec_test -> global_namespace [label=writes color=black]
+	exec_test -> local_namespace [label="writes×2" color=black]
+}

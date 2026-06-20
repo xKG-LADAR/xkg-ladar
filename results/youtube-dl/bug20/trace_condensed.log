@@ -1,0 +1,180 @@
+Cleared: /path/to/results/youtube-dl/bug20
+Running: python -m unittest -q test.test_utils.TestUtil.test_get_element_by_attribute
+Workdir: /path/to/BugsInPy/workspace/youtube-dl
+PYTHONPATH: /path/to/BugsInPy/workspace/youtube-dl
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Starting var:.. self = <test.test_utils.TestUtil testMethod=test_get_element_by_attribute>
+IE_TRACE: 15:06:02.829585 call      1225     def test_get_element_by_attribute(self):
+IE_TRACE: 15:06:02.829986 line      1226         html = '''
+IE_TRACE: New var:....... html = '\n            <span class="foo bar">nice</span>\n        '
+IE_TRACE: 15:06:02.830023 line      1230         self.assertEqual(get_element_by_attribute('class', 'foo bar', html), 'nice')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. attribute = 'class'
+IE_TRACE:     Starting var:.. value = 'foo bar'
+IE_TRACE:     Starting var:.. html = '\n            <span class="foo bar">nice</span>\n        '
+IE_TRACE:     Starting var:.. escape_value = True
+IE_TRACE:     15:06:02.830063 call       348 def get_element_by_attribute(attribute, value, html, escape_value=True):
+IE_TRACE:     15:06:02.830476 line       349     retval = get_elements_by_attribute(attribute, value, html, escape_value)
+IE_TRACE:         Starting var:.. attribute = 'class'
+IE_TRACE:         Starting var:.. value = 'foo bar'
+IE_TRACE:         Starting var:.. html = '\n            <span class="foo bar">nice</span>\n        '
+IE_TRACE:         Starting var:.. escape_value = True
+IE_TRACE:         15:06:02.830513 call       360 def get_elements_by_attribute(attribute, value, html, escape_value=True):
+IE_TRACE:         15:06:02.830558 line       363     value = re.escape(value) if escape_value else value
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:         Modified var:.. value = 'foo\\ bar'
+IE_TRACE:         15:06:02.830745 line       365     retlist = []
+IE_TRACE:         New var:....... retlist = []
+IE_TRACE:         15:06:02.830779 line       366     for m in re.finditer(r'''(?xs)
+IE_TRACE:         15:06:02.830809 line       374     ''' % (re.escape(attribute), value), html):
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:         15:06:02.830908 line       366     for m in re.finditer(r'''(?xs)
+IE_TRACE:         15:06:02.830934 line       374     ''' % (re.escape(attribute), value), html):
+IE_TRACE:         15:06:02.830953 line       366     for m in re.finditer(r'''(?xs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:         New var:....... m = <re.Match object; span=(13, 46), match='<span class="foo bar">nice</span>'>
+IE_TRACE:         15:06:03.117471 line       375         res = m.group('content')
+IE_TRACE:         New var:....... res = 'nice'
+IE_TRACE:         15:06:03.117502 line       377         if res.startswith('"') or res.startswith("'"):
+IE_TRACE:         15:06:03.117521 line       380         retlist.append(unescapeHTML(res))
+IE_TRACE:             Starting var:.. s = 'nice'
+IE_TRACE:             15:06:03.117540 call       593 def unescapeHTML(s):
+IE_TRACE:             15:06:03.117553 line       594     if s is None:
+IE_TRACE:             15:06:03.117561 line       596     assert type(s) == compat_str
+IE_TRACE:             15:06:03.117573 line       598     return re.sub(
+IE_TRACE:             15:06:03.117582 line       599         r'&([^;]+;)', lambda m: _htmlentity_transform(m.group(1)), s)
+IE_TRACE:             15:06:03.117590 line       598     return re.sub(
+IE_TRACE:             Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:             15:06:03.127702 return     598     return re.sub(
+IE_TRACE:             Return value:.. 'nice'
+IE_TRACE:         Modified var:.. retlist = ['nice']
+IE_TRACE:         15:06:03.127718 line       366     for m in re.finditer(r'''(?xs)
+IE_TRACE:         15:06:03.127738 line       382     return retlist
+IE_TRACE:         15:06:03.127752 return     382     return retlist
+IE_TRACE:         Return value:.. ['nice']
+IE_TRACE:     New var:....... retval = ['nice']
+IE_TRACE:     15:06:03.127770 line       350     return retval[0] if retval else None
+IE_TRACE:     15:06:03.127789 return     350     return retval[0] if retval else None
+IE_TRACE:     Return value:.. 'nice'
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:06:03.128370 line      1231         self.assertEqual(get_element_by_attribute('class', 'foo', html), None)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. attribute = 'class'
+IE_TRACE:     Starting var:.. value = 'foo'
+IE_TRACE:     Starting var:.. html = '\n            <span class="foo bar">nice</span>\n        '
+IE_TRACE:     Starting var:.. escape_value = True
+IE_TRACE:     15:06:03.128387 call       348 def get_element_by_attribute(attribute, value, html, escape_value=True):
+IE_TRACE:     15:06:03.128413 line       349     retval = get_elements_by_attribute(attribute, value, html, escape_value)
+IE_TRACE:         Starting var:.. attribute = 'class'
+IE_TRACE:         Starting var:.. value = 'foo'
+IE_TRACE:         Starting var:.. html = '\n            <span class="foo bar">nice</span>\n        '
+IE_TRACE:         Starting var:.. escape_value = True
+IE_TRACE:         15:06:03.128425 call       360 def get_elements_by_attribute(attribute, value, html, escape_value=True):
+IE_TRACE:         15:06:03.128447 line       363     value = re.escape(value) if escape_value else value
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:         15:06:03.128506 line       365     retlist = []
+IE_TRACE:         New var:....... retlist = []
+IE_TRACE:         15:06:03.128521 line       366     for m in re.finditer(r'''(?xs)
+IE_TRACE:         15:06:03.128536 line       374     ''' % (re.escape(attribute), value), html):
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:         15:06:03.128594 line       366     for m in re.finditer(r'''(?xs)
+IE_TRACE:         15:06:03.128608 line       374     ''' % (re.escape(attribute), value), html):
+IE_TRACE:         15:06:03.128619 line       366     for m in re.finditer(r'''(?xs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:         15:06:03.351414 line       382     return retlist
+IE_TRACE:         15:06:03.351433 return     382     return retlist
+IE_TRACE:         Return value:.. []
+IE_TRACE:     New var:....... retval = []
+IE_TRACE:     15:06:03.351450 line       350     return retval[0] if retval else None
+IE_TRACE:     15:06:03.351467 return     350     return retval[0] if retval else None
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:06:03.351699 line      1232         self.assertEqual(get_element_by_attribute('class', 'no-such-foo', html), None)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. attribute = 'class'
+IE_TRACE:     Starting var:.. value = 'no-such-foo'
+IE_TRACE:     Starting var:.. html = '\n            <span class="foo bar">nice</span>\n        '
+IE_TRACE:     Starting var:.. escape_value = True
+IE_TRACE:     15:06:03.351715 call       348 def get_element_by_attribute(attribute, value, html, escape_value=True):
+IE_TRACE:     15:06:03.351741 line       349     retval = get_elements_by_attribute(attribute, value, html, escape_value)
+IE_TRACE:         Starting var:.. attribute = 'class'
+IE_TRACE:         Starting var:.. value = 'no-such-foo'
+IE_TRACE:         Starting var:.. html = '\n            <span class="foo bar">nice</span>\n        '
+IE_TRACE:         Starting var:.. escape_value = True
+IE_TRACE:         15:06:03.351754 call       360 def get_elements_by_attribute(attribute, value, html, escape_value=True):
+IE_TRACE:         15:06:03.351775 line       363     value = re.escape(value) if escape_value else value
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:         Modified var:.. value = 'no\\-such\\-foo'
+IE_TRACE:         15:06:03.351835 line       365     retlist = []
+IE_TRACE:         New var:....... retlist = []
+IE_TRACE:         15:06:03.351854 line       366     for m in re.finditer(r'''(?xs)
+IE_TRACE:         15:06:03.351870 line       374     ''' % (re.escape(attribute), value), html):
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:         15:06:03.351924 line       366     for m in re.finditer(r'''(?xs)
+IE_TRACE:         15:06:03.351939 line       374     ''' % (re.escape(attribute), value), html):
+IE_TRACE:         15:06:03.351951 line       366     for m in re.finditer(r'''(?xs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:         15:06:03.665554 line       382     return retlist
+IE_TRACE:         15:06:03.665576 return     382     return retlist
+IE_TRACE:         Return value:.. []
+IE_TRACE:     New var:....... retval = []
+IE_TRACE:     15:06:03.665593 line       350     return retval[0] if retval else None
+IE_TRACE:     15:06:03.665608 return     350     return retval[0] if retval else None
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:06:03.665829 line      1234         html = '''
+IE_TRACE: Modified var:.. html = '\n            <div itemprop="author" itemscope>foo</div>\n        '
+IE_TRACE: 15:06:03.665844 line      1238         self.assertEqual(get_element_by_attribute('itemprop', 'author', html), 'foo')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. attribute = 'itemprop'
+IE_TRACE:     Starting var:.. value = 'author'
+IE_TRACE:     Starting var:.. html = '\n            <div itemprop="author" itemscope>foo</div>\n        '
+IE_TRACE:     Starting var:.. escape_value = True
+IE_TRACE:     15:06:03.665858 call       348 def get_element_by_attribute(attribute, value, html, escape_value=True):
+IE_TRACE:     15:06:03.665883 line       349     retval = get_elements_by_attribute(attribute, value, html, escape_value)
+IE_TRACE:         Starting var:.. attribute = 'itemprop'
+IE_TRACE:         Starting var:.. value = 'author'
+IE_TRACE:         Starting var:.. html = '\n            <div itemprop="author" itemscope>foo</div>\n        '
+IE_TRACE:         Starting var:.. escape_value = True
+IE_TRACE:         15:06:03.665894 call       360 def get_elements_by_attribute(attribute, value, html, escape_value=True):
+IE_TRACE:         15:06:03.665915 line       363     value = re.escape(value) if escape_value else value
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:         15:06:03.665972 line       365     retlist = []
+IE_TRACE:         New var:....... retlist = []
+IE_TRACE:         15:06:03.665986 line       366     for m in re.finditer(r'''(?xs)
+IE_TRACE:         15:06:03.666001 line       374     ''' % (re.escape(attribute), value), html):
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:         15:06:03.666054 line       366     for m in re.finditer(r'''(?xs)
+IE_TRACE:         15:06:03.666069 line       374     ''' % (re.escape(attribute), value), html):
+IE_TRACE:         15:06:03.666080 line       366     for m in re.finditer(r'''(?xs)
+IE_TRACE:         Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:         15:06:03.937486 line       382     return retlist
+IE_TRACE:         15:06:03.937505 return     382     return retlist
+IE_TRACE:         Return value:.. []
+IE_TRACE:     New var:....... retval = []
+IE_TRACE:     15:06:03.937521 line       350     return retval[0] if retval else None
+IE_TRACE:     15:06:03.937538 return     350     return retval[0] if retval else None
+IE_TRACE:     Return value:.. None
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:06:03.938250 exception 1238         self.assertEqual(get_element_by_attribute('itemprop', 'author', html), 'foo')
+IE_TRACE: Exception:..... AssertionError: None != 'foo'
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:01.108896
+======================================================================
+FAIL: test_get_element_by_attribute (test.test_utils.TestUtil.test_get_element_by_attribute)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py", line 1238, in test_get_element_by_attribute
+    self.assertEqual(get_element_by_attribute('itemprop', 'author', html), 'foo')
+AssertionError: None != 'foo'
+
+----------------------------------------------------------------------
+Ran 1 test in 1.110s
+
+FAILED (failures=1)
+
+
+Exit code: 1

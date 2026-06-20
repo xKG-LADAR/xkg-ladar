@@ -1,0 +1,6 @@
+THEFUCK EVALUATION SUMMARY
+Total: 4  Passed: 1  (25.0%)
+bug 1: PASS  
+bug 2: FAIL  KG empty (trace produced no data)
+bug 3: FAIL  KG empty (trace produced no data)
+bug 4: FAIL  KG empty (trace produced no data)

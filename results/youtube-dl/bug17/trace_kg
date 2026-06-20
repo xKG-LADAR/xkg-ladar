@@ -1,0 +1,26 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_cli_bool_option [label="test_cli_bool_option
+test_utils.py:1163" fillcolor=white shape=box style=filled]
+	cli_bool_option [label="cli_bool_option
+utils.py:2734" fillcolor=white shape=box style=filled]
+	param [label="param
+(7 writes, 3 distinct)
+True
+False
+None" shape=ellipse]
+	ERROR__AssertionError [label=AssertionError fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_cli_bool_option
+	}
+	{
+		rank=same
+		cli_bool_option
+	}
+	test_cli_bool_option -> cli_bool_option [label="calls×7 [#1]" color=blue penwidth=1.7]
+	test_cli_bool_option -> ERROR__AssertionError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	cli_bool_option -> param [label="writes×7" color=black]
+	cli_bool_option -> ERROR__AssertionError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	param -> cli_bool_option [label="passed to" color=green style=dashed]
+}

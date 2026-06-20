@@ -1,0 +1,19 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_parse_duration [label="test_parse_duration
+test_utils.py:206" fillcolor=white shape=box style=filled]
+	parse_duration [label="parse_duration
+utils.py:1201" fillcolor=white shape=box style=filled]
+	ERROR__AssertionError [label="AssertionError
+None != 180" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_parse_duration
+	}
+	{
+		rank=same
+		parse_duration
+	}
+	test_parse_duration -> parse_duration [label="calls×21 [#1]" color=blue penwidth=3.1]
+	test_parse_duration -> ERROR__AssertionError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+}

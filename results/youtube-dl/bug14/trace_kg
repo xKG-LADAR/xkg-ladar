@@ -1,0 +1,40 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_youtube_chapters [label="test_youtube_chapters
+test_youtube_chapters.py:269" fillcolor=white shape=box style=filled]
+	description [label="description
+'This is the absolute ULTIMATE experience of Queen\'s set at LIVE AID, this is the best video mixed to the absolutely su…" shape=ellipse]
+	duration [label="duration
+1477" shape=ellipse]
+	expected_chapters [label="expected_chapters
+[{'start_time': 36, 'end_time': 162, 'title': 'Bohemian Rhapsody'}, {'start_time': 162, 'end_time': 413, 'title': 'Radio…" shape=ellipse]
+	__init__ [label="__init__
+metadatafromtitle.py:9" fillcolor=white shape=box style=filled]
+	set_downloader [label="set_downloader
+Sets the downloader for this PP.
+common.py:37" fillcolor=white shape=box style=filled]
+	ie [label="ie
+<youtube_dl.extractor.youtube.YoutubeIE object at 0x7a446c936630>" shape=ellipse]
+	ERROR__AttributeError [label="AttributeError
+'YoutubeIE' object has no attribute '_extract_chapters_from_description'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_youtube_chapters
+	}
+	{
+		rank=same
+		__init__
+	}
+	{
+		rank=same
+		set_downloader
+	}
+	test_youtube_chapters -> description [label=writes color=black]
+	test_youtube_chapters -> duration [label=writes color=black]
+	test_youtube_chapters -> expected_chapters [label=writes color=black]
+	test_youtube_chapters -> __init__ [label="calls [#1]" color=blue penwidth=1.1]
+	test_youtube_chapters -> ie [label=writes color=black]
+	test_youtube_chapters -> ERROR__AttributeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	__init__ -> __init__ [label="calls [#2]" color=blue penwidth=1.1]
+	__init__ -> set_downloader [label="calls [#3]" color=blue penwidth=1.1]
+}

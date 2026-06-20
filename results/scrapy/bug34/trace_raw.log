@@ -1,0 +1,374 @@
+Cleared: /path/to/results/scrapy/bug34
+Running: python -m unittest -q tests.test_item.ItemTest.test_metaclass_with_fields_attribute
+Workdir: /path/to/BugsInPy/workspace/scrapy
+PYTHONPATH: /path/to/BugsInPy/workspace/scrapy::
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_item.py
+IE_TRACE: Starting var:.. self = <tests.test_item.ItemTest testMethod=test_metaclass_with_fields_attribute>
+IE_TRACE: 12:41:59.283897 call       126     def test_metaclass_with_fields_attribute(self):
+IE_TRACE: 12:41:59.284071 line       127         class TestItem(Item):
+IE_TRACE:     12:41:59.284105 call       127         class TestItem(Item):
+IE_TRACE:     12:41:59.284122 line       127         class TestItem(Item):
+IE_TRACE:     New var:....... __module__ = 'tests.test_item'
+IE_TRACE:     New var:....... __qualname__ = 'ItemTest.test_metaclass_with_fields_attribute.<locals>.TestItem'
+IE_TRACE:     12:41:59.284133 line       128             fields = {'new': Field(default='X')}
+IE_TRACE:     New var:....... fields = {'new': {'default': 'X'}}
+IE_TRACE:     12:41:59.284159 return     128             fields = {'new': Field(default='X')}
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/item.py
+IE_TRACE:     Starting var:.. mcs = <class 'scrapy.item.ItemMeta'>
+IE_TRACE:     Starting var:.. class_name = 'TestItem'
+IE_TRACE:     Starting var:.. bases = (<class 'scrapy.item.Item'>,)
+IE_TRACE:     Starting var:.. attrs = {'__module__': 'tests.test_item', '__qualname__': 'ItemTest.test_metaclass_with_fields_attribute.<locals>.TestItem', 'fields': {'new': {'default': 'X'}}}
+IE_TRACE:     Starting var:.. __class__ = <class 'scrapy.item.ItemMeta'>
+IE_TRACE:     12:41:59.284204 call        26     def __new__(mcs, class_name, bases, attrs):
+IE_TRACE:     12:41:59.284292 line        27         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         Starting var:.. .0 = <tuple_iterator object at 0x78050badf730>
+IE_TRACE:         12:41:59.284318 call        27         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         12:41:59.284337 line        27         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         New var:....... base = <class 'scrapy.item.Item'>
+IE_TRACE:         12:41:59.284351 return      27         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         Return value:.. <class 'scrapy.item.Item'>
+IE_TRACE:         Starting var:.. .0 = <tuple_iterator object at 0x78050badf730>
+IE_TRACE:         Starting var:.. base = <class 'scrapy.item.Item'>
+IE_TRACE:         12:41:59.284378 call        27         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         12:41:59.284400 line        27         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         12:41:59.284414 return      27         new_bases = tuple(base._class for base in bases if hasattr(base, '_class'))
+IE_TRACE:         Return value:.. None
+IE_TRACE:     New var:....... new_bases = (<class 'scrapy.item.Item'>,)
+IE_TRACE:     12:41:59.284433 line        28         _class = super(ItemMeta, mcs).__new__(mcs, 'x_' + class_name, new_bases, attrs)
+IE_TRACE:         Source path:... <frozen abc>
+IE_TRACE:         Starting var:.. mcls = <class 'scrapy.item.ItemMeta'>
+IE_TRACE:         Starting var:.. name = 'x_TestItem'
+IE_TRACE:         Starting var:.. bases = (<class 'scrapy.item.Item'>,)
+IE_TRACE:         Starting var:.. namespace = {'__module__': 'tests.test_item', '__qualname__': 'ItemTest.test_metaclass_with_fields_attribute.<locals>.TestItem', 'fields': {'new': {'default': 'X'}}}
+IE_TRACE:         Starting var:.. kwargs = {}
+IE_TRACE:         Starting var:.. __class__ = <class 'abc.ABCMeta'>
+IE_TRACE:         12:41:59.284463 call       105 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:41:59.284527 line       106 SOURCE IS UNAVAILABLE
+IE_TRACE:         New var:....... cls = <class 'tests.test_item.ItemTest.test_metaclass_with_fields_attribute.<locals>.TestItem'>
+IE_TRACE:         12:41:59.284558 line       107 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:41:59.284587 line       108 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:41:59.284607 return     108 SOURCE IS UNAVAILABLE
+IE_TRACE:         Return value:.. <class 'tests.test_item.ItemTest.test_metaclass_with_fields_attribute.<locals>.TestItem'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/item.py
+IE_TRACE:     New var:....... _class = <class 'tests.test_item.ItemTest.test_metaclass_with_fields_attribute.<locals>.TestItem'>
+IE_TRACE:     12:41:59.284632 line        30         fields = {}
+IE_TRACE:     New var:....... fields = {}
+IE_TRACE:     12:41:59.284663 line        31         new_attrs = {}
+IE_TRACE:     New var:....... new_attrs = {}
+IE_TRACE:     12:41:59.284691 line        32         for n in dir(_class):
+IE_TRACE:     New var:....... n = '__abstractmethods__'
+IE_TRACE:     12:41:59.284726 line        33             v = getattr(_class, n)
+IE_TRACE:     New var:....... v = frozenset()
+IE_TRACE:     12:41:59.284753 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.284781 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.284805 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__class__'
+IE_TRACE:     12:41:59.284830 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <class 'scrapy.item.ItemMeta'>
+IE_TRACE:     12:41:59.284858 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.284885 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.284907 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__delattr__'
+IE_TRACE:     12:41:59.284929 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__delattr__' of 'object' objects>
+IE_TRACE:     12:41:59.284958 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.284984 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.285007 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__dict__'
+IE_TRACE:     12:41:59.285029 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = mappingproxy({'__module__': 'tests.test_item', 'fields': {'new': {'default': 'X'}}, '__doc__': None, '__abstractmethods__': frozenset(), '_abc_impl': <_abc._abc_data object at 0x78050bad3280>})
+IE_TRACE:     12:41:59.285055 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.285085 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.285110 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__dir__'
+IE_TRACE:     12:41:59.285134 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <method '__dir__' of 'object' objects>
+IE_TRACE:     12:41:59.285162 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.285187 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.285214 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__doc__'
+IE_TRACE:     12:41:59.285236 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = None
+IE_TRACE:     12:41:59.285262 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.285289 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.285312 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__eq__'
+IE_TRACE:     12:41:59.285334 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__eq__' of 'object' objects>
+IE_TRACE:     12:41:59.285360 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.285386 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.285410 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__format__'
+IE_TRACE:     12:41:59.285433 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <method '__format__' of 'object' objects>
+IE_TRACE:     12:41:59.285459 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.285485 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.285508 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__ge__'
+IE_TRACE:     12:41:59.285530 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__ge__' of 'object' objects>
+IE_TRACE:     12:41:59.285556 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.285582 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.285606 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__getattribute__'
+IE_TRACE:     12:41:59.285629 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__getattribute__' of 'object' objects>
+IE_TRACE:     12:41:59.285655 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.285680 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.285703 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__getstate__'
+IE_TRACE:     12:41:59.285726 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <method '__getstate__' of 'object' objects>
+IE_TRACE:     12:41:59.285752 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.285777 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.285800 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__gt__'
+IE_TRACE:     12:41:59.285822 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__gt__' of 'object' objects>
+IE_TRACE:     12:41:59.285848 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.285874 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.285897 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__hash__'
+IE_TRACE:     12:41:59.285919 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__hash__' of 'object' objects>
+IE_TRACE:     12:41:59.285945 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.285970 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.285992 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__init__'
+IE_TRACE:     12:41:59.286015 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__init__' of 'object' objects>
+IE_TRACE:     12:41:59.286041 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.286066 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.286088 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__init_subclass__'
+IE_TRACE:     12:41:59.286110 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <built-in method __init_subclass__ of ItemMeta object at 0x1b4a6920>
+IE_TRACE:     12:41:59.286137 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.286162 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.286185 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__le__'
+IE_TRACE:     12:41:59.286213 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__le__' of 'object' objects>
+IE_TRACE:     12:41:59.286239 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.286265 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.286288 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__lt__'
+IE_TRACE:     12:41:59.286310 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__lt__' of 'object' objects>
+IE_TRACE:     12:41:59.286336 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.286361 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.286384 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__module__'
+IE_TRACE:     12:41:59.286406 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = 'tests.test_item'
+IE_TRACE:     12:41:59.286432 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.286457 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.286479 line        37                 new_attrs[n] = attrs[n]
+IE_TRACE:     Modified var:.. new_attrs = {'__module__': 'tests.test_item'}
+IE_TRACE:     12:41:59.286502 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__ne__'
+IE_TRACE:     12:41:59.286528 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__ne__' of 'object' objects>
+IE_TRACE:     12:41:59.286554 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.286580 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.286603 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__new__'
+IE_TRACE:     12:41:59.286625 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <built-in method __new__ of type object at 0xa44820>
+IE_TRACE:     12:41:59.286651 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.286677 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.286699 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__reduce__'
+IE_TRACE:     12:41:59.286722 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <method '__reduce__' of 'object' objects>
+IE_TRACE:     12:41:59.286748 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.286774 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.286797 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__reduce_ex__'
+IE_TRACE:     12:41:59.286819 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <method '__reduce_ex__' of 'object' objects>
+IE_TRACE:     12:41:59.286845 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.286871 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.286894 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__repr__'
+IE_TRACE:     12:41:59.286917 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__repr__' of 'object' objects>
+IE_TRACE:     12:41:59.286942 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.286968 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.286991 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__setattr__'
+IE_TRACE:     12:41:59.287013 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__setattr__' of 'object' objects>
+IE_TRACE:     12:41:59.287039 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.287065 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.287087 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__sizeof__'
+IE_TRACE:     12:41:59.287110 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <method '__sizeof__' of 'object' objects>
+IE_TRACE:     12:41:59.287137 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.287163 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.287186 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__str__'
+IE_TRACE:     12:41:59.287216 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <slot wrapper '__str__' of 'object' objects>
+IE_TRACE:     12:41:59.287242 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.287268 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.287291 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__subclasshook__'
+IE_TRACE:     12:41:59.287313 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <built-in method __subclasshook__ of ItemMeta object at 0x1b4a6920>
+IE_TRACE:     12:41:59.287339 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.287366 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.287388 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '__weakref__'
+IE_TRACE:     12:41:59.287411 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <attribute '__weakref__' of 'x_Item' objects>
+IE_TRACE:     12:41:59.287438 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.287464 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.287487 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = '_abc_impl'
+IE_TRACE:     12:41:59.287510 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = <_abc._abc_data object at 0x78050bad3280>
+IE_TRACE:     12:41:59.287536 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.287562 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.287585 line        32         for n in dir(_class):
+IE_TRACE:     Modified var:.. n = 'fields'
+IE_TRACE:     12:41:59.287607 line        33             v = getattr(_class, n)
+IE_TRACE:     Modified var:.. v = {'new': {'default': 'X'}}
+IE_TRACE:     12:41:59.287633 line        34             if isinstance(v, Field):
+IE_TRACE:     12:41:59.287659 line        36             elif n in attrs:
+IE_TRACE:     12:41:59.287682 line        37                 new_attrs[n] = attrs[n]
+IE_TRACE:     Modified var:.. new_attrs = {'__module__': 'tests.test_item', 'fields': {'new': {'default': 'X'}}}
+IE_TRACE:     12:41:59.287705 line        32         for n in dir(_class):
+IE_TRACE:     12:41:59.287732 line        39         new_attrs['fields'] = fields
+IE_TRACE:     Modified var:.. new_attrs = {'__module__': 'tests.test_item', 'fields': {}}
+IE_TRACE:     12:41:59.287755 line        40         new_attrs['_class'] = _class
+IE_TRACE:     Modified var:.. new_attrs = {'__module__': 'tests.test_item', 'fields': {}, '_class': <class 'tests.test_item.ItemTest.test_metaclass_with_fields_attribute.<locals>.TestItem'>}
+IE_TRACE:     12:41:59.287782 line        41         return super(ItemMeta, mcs).__new__(mcs, class_name, bases, new_attrs)
+IE_TRACE:         Source path:... <frozen abc>
+IE_TRACE:         Starting var:.. mcls = <class 'scrapy.item.ItemMeta'>
+IE_TRACE:         Starting var:.. name = 'TestItem'
+IE_TRACE:         Starting var:.. bases = (<class 'scrapy.item.Item'>,)
+IE_TRACE:         Starting var:.. namespace = {'__module__': 'tests.test_item', 'fields': {}, '_class': <class 'tests.test_item.ItemTest.test_metaclass_with_fields_attribute.<locals>.TestItem'>}
+IE_TRACE:         Starting var:.. kwargs = {}
+IE_TRACE:         Starting var:.. __class__ = <class 'abc.ABCMeta'>
+IE_TRACE:         12:41:59.287810 call       105 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:41:59.287854 line       106 SOURCE IS UNAVAILABLE
+IE_TRACE:         New var:....... cls = <class 'tests.test_item.TestItem'>
+IE_TRACE:         12:41:59.287895 line       107 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:41:59.287921 line       108 SOURCE IS UNAVAILABLE
+IE_TRACE:         12:41:59.287940 return     108 SOURCE IS UNAVAILABLE
+IE_TRACE:         Return value:.. <class 'tests.test_item.TestItem'>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/item.py
+IE_TRACE:     12:41:59.287965 return      41         return super(ItemMeta, mcs).__new__(mcs, class_name, bases, new_attrs)
+IE_TRACE:     Return value:.. <class 'tests.test_item.TestItem'>
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_item.py
+IE_TRACE: New var:....... TestItem = <class 'tests.test_item.TestItem'>
+IE_TRACE: 12:41:59.288000 line       130         item = TestItem(new=u'New')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/trackref.py
+IE_TRACE:     Starting var:.. cls = <class 'tests.test_item.TestItem'>
+IE_TRACE:     Starting var:.. args = ()
+IE_TRACE:     Starting var:.. kwargs = {'new': 'New'}
+IE_TRACE:     12:41:59.288027 call        28     def __new__(cls, *args, **kwargs):
+IE_TRACE:     12:41:59.288089 line        29         obj = object.__new__(cls)
+IE_TRACE:     New var:....... obj = REPR FAILED
+IE_TRACE:     12:41:59.288104 line        30         live_refs[cls][obj] = time()
+IE_TRACE:         Source path:... /usr/lib/python3.12/weakref.py
+IE_TRACE:         Starting var:.. self = <WeakKeyDictionary at 0x78050bad4980>
+IE_TRACE:         Starting var:.. dict = None
+IE_TRACE:         12:41:59.288135 call       367     def __init__(self, dict=None):
+IE_TRACE:         12:41:59.288251 line       368         self.data = {}
+IE_TRACE:         12:41:59.288267 line       369         def remove(k, selfref=ref(self)):
+IE_TRACE:         New var:....... remove = <function WeakKeyDictionary.__init__.<locals>.remove at 0x78050b92ccc0>
+IE_TRACE:         12:41:59.288281 line       379         self._remove = remove
+IE_TRACE:         12:41:59.288300 line       381         self._pending_removals = []
+IE_TRACE:         12:41:59.288314 line       382         self._iterating = set()
+IE_TRACE:         12:41:59.288327 line       383         self._dirty_len = False
+IE_TRACE:         12:41:59.288340 line       384         if dict is not None:
+IE_TRACE:         12:41:59.288353 return     384         if dict is not None:
+IE_TRACE:         Return value:.. None
+IE_TRACE:         Starting var:.. self = <WeakKeyDictionary at 0x78050bad4980>
+IE_TRACE:         Starting var:.. key = REPR FAILED
+IE_TRACE:         Starting var:.. value = 1780557119.2881293
+IE_TRACE:         12:41:59.288374 call       427     def __setitem__(self, key, value):
+IE_TRACE:         12:41:59.288409 line       428         self.data[ref(key, self._remove)] = value
+IE_TRACE:         12:41:59.288425 return     428         self.data[ref(key, self._remove)] = value
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/utils/trackref.py
+IE_TRACE:     12:41:59.288445 line        31         return obj
+IE_TRACE:     12:41:59.288466 return      31         return obj
+IE_TRACE:     Return value:.. REPR FAILED
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/item.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. args = ()
+IE_TRACE:     Starting var:.. kwargs = {'new': 'New'}
+IE_TRACE:     12:41:59.288491 call        48     def __init__(self, *args, **kwargs):
+IE_TRACE:     12:41:59.288521 line        49         self._values = {}
+IE_TRACE:         Starting var:.. self = REPR FAILED
+IE_TRACE:         Starting var:.. name = '_values'
+IE_TRACE:         Starting var:.. value = {}
+IE_TRACE:         Starting var:.. __class__ = <class 'scrapy.item.DictItem'>
+IE_TRACE:         12:41:59.288538 call        72     def __setattr__(self, name, value):
+IE_TRACE:         12:41:59.288568 line        73         if not name.startswith('_'):
+IE_TRACE:         12:41:59.288583 line        76         super(DictItem, self).__setattr__(name, value)
+IE_TRACE:         Modified var:.. self = {}
+IE_TRACE:         12:41:59.288599 return      76         super(DictItem, self).__setattr__(name, value)
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Modified var:.. self = {}
+IE_TRACE:     12:41:59.288670 line        50         if args or kwargs:  # avoid creating dict for most common case
+IE_TRACE:     12:41:59.288699 line        51             for k, v in six.iteritems(dict(*args, **kwargs)):
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/six.py
+IE_TRACE:         Starting var:.. d = {'new': 'New'}
+IE_TRACE:         Starting var:.. kw = {}
+IE_TRACE:         12:41:59.288721 call       588     def iteritems(d, **kw):
+IE_TRACE:         12:41:59.288820 line       589         return iter(d.items(**kw))
+IE_TRACE:         12:41:59.288834 return     589         return iter(d.items(**kw))
+IE_TRACE:         Return value:.. <dict_itemiterator object at 0x78050b94fab0>
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/scrapy/scrapy/item.py
+IE_TRACE:     New var:....... k = 'new'
+IE_TRACE:     New var:....... v = 'New'
+IE_TRACE:     12:41:59.288852 line        52                 self[k] = v
+IE_TRACE:         Starting var:.. self = {}
+IE_TRACE:         Starting var:.. key = 'new'
+IE_TRACE:         Starting var:.. value = 'New'
+IE_TRACE:         12:41:59.288886 call        57     def __setitem__(self, key, value):
+IE_TRACE:         12:41:59.288914 line        58         if key in self.fields:
+IE_TRACE:         12:41:59.288931 line        61             raise KeyError("%s does not support field: %s" %
+IE_TRACE:         12:41:59.288946 line        62                 (self.__class__.__name__, key))
+IE_TRACE:         12:41:59.288961 line        61             raise KeyError("%s does not support field: %s" %
+IE_TRACE:         12:41:59.288976 exception   61             raise KeyError("%s does not support field: %s" %
+IE_TRACE:         Exception:..... KeyError: 'TestItem does not support field: new'
+IE_TRACE:         Call ended by exception
+IE_TRACE:     12:41:59.289075 exception   52                 self[k] = v
+IE_TRACE:     Exception:..... KeyError: 'TestItem does not support field: new'
+IE_TRACE:     Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/scrapy/tests/test_item.py
+IE_TRACE: 12:41:59.289128 exception  130         item = TestItem(new=u'New')
+IE_TRACE: Exception:..... KeyError: 'TestItem does not support field: new'
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.005448
+======================================================================
+ERROR: test_metaclass_with_fields_attribute (tests.test_item.ItemTest.test_metaclass_with_fields_attribute)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/tests/test_item.py", line 130, in test_metaclass_with_fields_attribute
+    item = TestItem(new=u'New')
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/scrapy/scrapy/item.py", line 52, in __init__
+    self[k] = v
+    ~~~~^^^
+  File "/path/to/BugsInPy/workspace/scrapy/scrapy/item.py", line 61, in __setitem__
+    raise KeyError("%s does not support field: %s" %
+KeyError: 'TestItem does not support field: new'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.006s
+
+FAILED (errors=1)
+
+
+Exit code: 1

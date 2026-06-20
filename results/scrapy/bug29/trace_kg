@@ -1,0 +1,145 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_request_httprepr_for_non_http_request [label="test_request_httprepr_for_non_http_request
+test_utils_request.py:77" fillcolor=white shape=box style=filled]
+	__new__ [label="__new__
+lxmldocument.py:23" fillcolor=white shape=box style=filled]
+	obj [label="obj
+REPR FAILED" shape=ellipse]
+	__init__ [label="__init__
+extensions.py:5" fillcolor=white shape=box style=filled]
+	_set_url [label="_set_url
+text.py:30" fillcolor=white shape=box style=filled]
+	encoding [label="encoding
+text.py:54" fillcolor=white shape=box style=filled]
+	to_native_str [label="to_native_str
+Return str representation of `text`
+python.py:125" fillcolor=white shape=box style=filled]
+	to_unicode [label="to_unicode
+Return the unicode representation of a bytes object `te…
+python.py:99" fillcolor=white shape=box style=filled]
+	safe_url_string [label=safe_url_string fillcolor=white shape=box style=filled]
+	decoded [label="decoded
+'file:///tmp/foo.txt'" shape=ellipse]
+	_strip [label=_strip fillcolor=white shape=box style=filled]
+	parts [label="parts
+SplitResult(scheme='file', netloc='', path='/tmp/foo.txt', query='', fragment='')" shape=ellipse]
+	username [label="username
+None" shape=ellipse]
+	password [label="password
+None" shape=ellipse]
+	hostname [label="hostname
+None" shape=ellipse]
+	port [label="port
+None" shape=ellipse]
+	netloc_bytes [label="netloc_bytes
+b''" shape=ellipse]
+	netloc [label="netloc
+''" shape=ellipse]
+	path [label="path
+(2 writes)
+'/tmp/foo.txt'" shape=ellipse]
+	query [label="query
+''" shape=ellipse]
+	escape_ajax [label="escape_ajax
+Return the crawleable url according to:
+url.py:87" fillcolor=white shape=box style=filled]
+	defrag [label="defrag
+'file:///tmp/foo.txt'" shape=ellipse]
+	frag [label="frag
+''" shape=ellipse]
+	self [label="self
+(2 writes)
+<GET file:///tmp/foo.txt>" shape=ellipse]
+	_set_body [label="_set_body
+text.py:39" fillcolor=white shape=box style=filled]
+	request_httprepr [label="request_httprepr
+Return the raw HTTP representation (as bytes) of the gi…
+request.py:74" fillcolor=white shape=box style=filled]
+	urlparse_cached [label="urlparse_cached
+Return urlparse.urlparse caching the result, where the …
+httpobj.py:9" fillcolor=white shape=box style=filled]
+	_get_url [label="_get_url
+__init__.py:34" fillcolor=white shape=box style=filled]
+	parsed [label="parsed
+ParseResult(scheme='file', netloc='', path='/tmp/foo.txt', params='', query='', fragment='')" shape=ellipse]
+	to_bytes [label="to_bytes
+Return the binary representation of `text`. If `text`
+python.py:112" fillcolor=white shape=box style=filled]
+	s [label="s
+bytes(len=27)" shape=ellipse]
+	ERROR__TypeError [label="TypeError
+to_bytes must receive a unicode, str or bytes object, got NoneType" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_request_httprepr_for_non_http_request
+	}
+	{
+		rank=same
+		__new__
+		__init__
+		request_httprepr
+	}
+	{
+		rank=same
+		_set_url
+		_set_body
+		urlparse_cached
+		to_bytes
+	}
+	{
+		rank=same
+		encoding
+		to_native_str
+		safe_url_string
+		escape_ajax
+		_get_url
+	}
+	{
+		rank=same
+		to_unicode
+		_strip
+	}
+	test_request_httprepr_for_non_http_request -> __new__ [label="calls [#1]" color=blue penwidth=1.1]
+	test_request_httprepr_for_non_http_request -> __init__ [label="calls [#2]" color=blue penwidth=1.1]
+	test_request_httprepr_for_non_http_request -> request_httprepr [label="calls [#14]" color=blue penwidth=1.1]
+	test_request_httprepr_for_non_http_request -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	__new__ -> obj [label=writes color=black]
+	__init__ -> _set_url [label="calls [#3]" color=blue penwidth=1.1]
+	__init__ -> self [label=writes color=black]
+	__init__ -> _set_body [label="calls [#11]" color=blue penwidth=1.1]
+	__init__ -> __init__ [label="calls×2 [#12]" color=blue penwidth=1.2]
+	_set_url -> encoding [label="calls [#4]" color=blue penwidth=1.1]
+	_set_url -> to_native_str [label="calls [#5]" color=blue penwidth=1.1]
+	_set_url -> safe_url_string [label="calls [#7]" color=blue penwidth=1.1]
+	_set_url -> escape_ajax [label="calls [#10]" color=blue penwidth=1.1]
+	_set_url -> self [label=writes color=black]
+	encoding -> to_bytes [label="passed to" color=green style=dashed]
+	to_native_str -> to_unicode [label="calls [#6]" color=blue penwidth=1.1]
+	safe_url_string -> to_unicode [label="calls [#8]" color=blue penwidth=1.1]
+	safe_url_string -> decoded [label=writes color=black]
+	safe_url_string -> _strip [label="calls [#9]" color=blue penwidth=1.1]
+	safe_url_string -> parts [label=writes color=black]
+	safe_url_string -> username [label=writes color=black]
+	safe_url_string -> password [label=writes color=black]
+	safe_url_string -> hostname [label=writes color=black]
+	safe_url_string -> port [label=writes color=black]
+	safe_url_string -> netloc_bytes [label=writes color=black]
+	safe_url_string -> netloc [label=writes color=black]
+	safe_url_string -> path [label=writes color=black]
+	safe_url_string -> query [label=writes color=black]
+	escape_ajax -> defrag [label=writes color=black]
+	escape_ajax -> frag [label=writes color=black]
+	self -> _set_body [label="passed to" color=green style=dashed]
+	self -> __init__ [label="passed to" color=green style=dashed]
+	self -> _get_url [label="passed to" color=green style=dashed]
+	request_httprepr -> urlparse_cached [label="calls [#15]" color=blue penwidth=1.1]
+	request_httprepr -> parsed [label=writes color=black]
+	request_httprepr -> path [label=writes color=black]
+	request_httprepr -> to_bytes [label="calls×3 [#17]" color=blue penwidth=1.3]
+	request_httprepr -> s [label=writes color=black]
+	request_httprepr -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	urlparse_cached -> _get_url [label="calls [#16]" color=blue penwidth=1.1]
+	to_bytes -> encoding [label="writes×2" color=black]
+	to_bytes -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+}

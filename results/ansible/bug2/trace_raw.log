@@ -1,0 +1,1915 @@
+Cleared: /path/to/results/ansible/bug2
+  Rewriting test cmd: 'pytest test/units/utils/test_version.py::test_alpha' -> 'python -m pytest -o addopts= test/units/utils/test_version.py::test_alpha'
+Running: python -m pytest -o addopts= test/units/utils/test_version.py::test_alpha
+Workdir: /path/to/BugsInPy/workspace/ansible
+PYTHONPATH: /path/to/BugsInPy/workspace/ansible/build/lib:/path/to/BugsInPy/workspace/ansible/lib:/path/to/BugsInPy/workspace/ansible::
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.0.2, pluggy-1.6.0
+rootdir: /path/to/BugsInPy/workspace/ansible
+plugins: cov-7.1.0, anyio-4.12.1
+collected 1 item
+
+test/units/utils/test_version.py F                                       [100%]
+
+=================================== FAILURES ===================================
+__________________________________ test_alpha __________________________________
+
+    @pysnooper.snoop(prefix='IE_TRACE: ', depth=10, color=False, max_variable_length=500, custom_repr=((object, _btp_repr),))
+    def test_alpha():
+        assert _Alpha('a') == _Alpha('a')
+        assert _Alpha('a') == 'a'
+        assert _Alpha('a') != _Alpha('b')
+        assert _Alpha('a') != 1
+        assert _Alpha('a') < _Alpha('b')
+        assert _Alpha('a') < 'c'
+        assert _Alpha('a') > _Numeric(1)
+        with pytest.raises(ValueError):
+            _Alpha('a') < None
+        assert _Alpha('a') <= _Alpha('a')
+        assert _Alpha('a') <= _Alpha('b')
+        assert _Alpha('b') >= _Alpha('a')
+        assert _Alpha('b') >= _Alpha('b')
+    
+        # The following 3*6 tests check that all comparison operators perform
+        # as expected. DO NOT remove any of them, or reformulate them (to remove
+        # the explicit `not`)!
+    
+        assert _Alpha('a') == _Alpha('a')
+        assert not _Alpha('a') != _Alpha('a')  # pylint: disable=unneeded-not
+        assert not _Alpha('a') < _Alpha('a')  # pylint: disable=unneeded-not
+        assert _Alpha('a') <= _Alpha('a')
+>       assert not _Alpha('a') > _Alpha('a')  # pylint: disable=unneeded-not
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: assert not 'a' > 'a'
+E        +  where 'a' = _Alpha('a')
+E        +  and   'a' = _Alpha('a')
+
+test/units/utils/test_version.py:282: AssertionError
+----------------------------- Captured stderr call -----------------------------
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py
+IE_TRACE: 12:46:21.977893 call       259 def test_alpha():
+IE_TRACE: 12:46:21.978325 line       260     assert _Alpha('a') == _Alpha('a')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/ansible/lib/ansible/utils/version.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'a'
+IE_TRACE:     12:46:21.978358 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.978469 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'a'
+IE_TRACE:     12:46:21.978497 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'a'
+IE_TRACE:     12:46:21.978531 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.978559 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'a'
+IE_TRACE:     12:46:21.978580 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = 'a'
+IE_TRACE:     Starting var:.. other = 'a'
+IE_TRACE:     12:46:21.978610 call        54     def __eq__(self, other):
+IE_TRACE:     12:46:21.978636 line        55         if isinstance(other, _Alpha):
+IE_TRACE:     12:46:21.978656 line        56             return self.specifier == other.specifier
+IE_TRACE:     12:46:21.978676 return      56             return self.specifier == other.specifier
+IE_TRACE:     Return value:.. True
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py
+IE_TRACE: New var:....... @py_assert1 = None
+IE_TRACE: New var:....... @py_assert3 = None
+IE_TRACE: New var:....... @py_assert7 = None
+IE_TRACE: New var:....... @py_assert9 = None
+IE_TRACE: New var:....... @py_assert5 = None
+IE_TRACE: 12:46:21.978701 line       261     assert _Alpha('a') == 'a'
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/ansible/lib/ansible/utils/version.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'a'
+IE_TRACE:     12:46:21.978746 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.978776 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'a'
+IE_TRACE:     12:46:21.978796 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = 'a'
+IE_TRACE:     Starting var:.. other = 'a'
+IE_TRACE:     12:46:21.978822 call        54     def __eq__(self, other):
+IE_TRACE:     12:46:21.978847 line        55         if isinstance(other, _Alpha):
+IE_TRACE:     12:46:21.978867 line        57         elif isinstance(other, str):
+IE_TRACE:     12:46:21.978886 line        58             return self.specifier == other
+IE_TRACE:     12:46:21.978905 return      58             return self.specifier == other
+IE_TRACE:     Return value:.. True
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py
+IE_TRACE: New var:....... @py_assert6 = None
+IE_TRACE: 12:46:21.978928 line       262     assert _Alpha('a') != _Alpha('b')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/ansible/lib/ansible/utils/version.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'a'
+IE_TRACE:     12:46:21.978960 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.978989 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'a'
+IE_TRACE:     12:46:21.979009 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'b'
+IE_TRACE:     12:46:21.979035 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.979060 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'b'
+IE_TRACE:     12:46:21.979079 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = 'a'
+IE_TRACE:     Starting var:.. other = 'b'
+IE_TRACE:     12:46:21.979109 call        62     def __ne__(self, other):
+IE_TRACE:     12:46:21.979134 line        63         return not self.__eq__(other)
+IE_TRACE:         Starting var:.. self = 'a'
+IE_TRACE:         Starting var:.. other = 'b'
+IE_TRACE:         12:46:21.979155 call        54     def __eq__(self, other):
+IE_TRACE:         12:46:21.979180 line        55         if isinstance(other, _Alpha):
+IE_TRACE:         12:46:21.979204 line        56             return self.specifier == other.specifier
+IE_TRACE:         12:46:21.979224 return      56             return self.specifier == other.specifier
+IE_TRACE:         Return value:.. False
+IE_TRACE:     12:46:21.979247 return      63         return not self.__eq__(other)
+IE_TRACE:     Return value:.. True
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py
+IE_TRACE: 12:46:21.979269 line       263     assert _Alpha('a') != 1
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/ansible/lib/ansible/utils/version.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'a'
+IE_TRACE:     12:46:21.979297 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.979325 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'a'
+IE_TRACE:     12:46:21.979344 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = 'a'
+IE_TRACE:     Starting var:.. other = 1
+IE_TRACE:     12:46:21.979370 call        62     def __ne__(self, other):
+IE_TRACE:     12:46:21.979395 line        63         return not self.__eq__(other)
+IE_TRACE:         Starting var:.. self = 'a'
+IE_TRACE:         Starting var:.. other = 1
+IE_TRACE:         12:46:21.979415 call        54     def __eq__(self, other):
+IE_TRACE:         12:46:21.979439 line        55         if isinstance(other, _Alpha):
+IE_TRACE:         12:46:21.979458 line        57         elif isinstance(other, str):
+IE_TRACE:         12:46:21.979478 line        60         return False
+IE_TRACE:         12:46:21.979498 return      60         return False
+IE_TRACE:         Return value:.. False
+IE_TRACE:     12:46:21.979520 return      63         return not self.__eq__(other)
+IE_TRACE:     Return value:.. True
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py
+IE_TRACE: 12:46:21.979543 line       264     assert _Alpha('a') < _Alpha('b')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/ansible/lib/ansible/utils/version.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'a'
+IE_TRACE:     12:46:21.979570 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.979598 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'a'
+IE_TRACE:     12:46:21.979617 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'b'
+IE_TRACE:     12:46:21.979642 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.979667 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'b'
+IE_TRACE:     12:46:21.979686 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = 'a'
+IE_TRACE:     Starting var:.. other = 'b'
+IE_TRACE:     12:46:21.979713 call        65     def __lt__(self, other):
+IE_TRACE:     12:46:21.979738 line        66         if isinstance(other, _Alpha):
+IE_TRACE:     12:46:21.979757 line        67             return self.specifier < other.specifier
+IE_TRACE:     12:46:21.979776 return      67             return self.specifier < other.specifier
+IE_TRACE:     Return value:.. True
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py
+IE_TRACE: 12:46:21.979800 line       265     assert _Alpha('a') < 'c'
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/ansible/lib/ansible/utils/version.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'a'
+IE_TRACE:     12:46:21.979827 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.979855 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'a'
+IE_TRACE:     12:46:21.979874 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = 'a'
+IE_TRACE:     Starting var:.. other = 'c'
+IE_TRACE:     12:46:21.979899 call        65     def __lt__(self, other):
+IE_TRACE:     12:46:21.979923 line        66         if isinstance(other, _Alpha):
+IE_TRACE:     12:46:21.979942 line        68         elif isinstance(other, str):
+IE_TRACE:     12:46:21.979960 line        69             return self.specifier < other
+IE_TRACE:     12:46:21.979979 return      69             return self.specifier < other
+IE_TRACE:     Return value:.. True
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py
+IE_TRACE: 12:46:21.980001 line       266     assert _Alpha('a') > _Numeric(1)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/ansible/lib/ansible/utils/version.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'a'
+IE_TRACE:     12:46:21.980027 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.980055 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'a'
+IE_TRACE:     12:46:21.980074 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 1
+IE_TRACE:     12:46:21.980100 call        91     def __init__(self, specifier):
+IE_TRACE:     12:46:21.980125 line        92         self.specifier = int(specifier)
+IE_TRACE:     Modified var:.. self = 1
+IE_TRACE:     12:46:21.980145 return      92         self.specifier = int(specifier)
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = 'a'
+IE_TRACE:     Starting var:.. other = 1
+IE_TRACE:     12:46:21.980170 call        75     def __gt__(self, other):
+IE_TRACE:     12:46:21.980195 line        76         return not self.__lt__(other)
+IE_TRACE:         Starting var:.. self = 'a'
+IE_TRACE:         Starting var:.. other = 1
+IE_TRACE:         12:46:21.980217 call        65     def __lt__(self, other):
+IE_TRACE:         12:46:21.980241 line        66         if isinstance(other, _Alpha):
+IE_TRACE:         12:46:21.980260 line        68         elif isinstance(other, str):
+IE_TRACE:         12:46:21.980279 line        70         elif isinstance(other, _Numeric):
+IE_TRACE:         12:46:21.980297 line        71             return False
+IE_TRACE:         12:46:21.980316 return      71             return False
+IE_TRACE:         Return value:.. False
+IE_TRACE:     12:46:21.980338 return      76         return not self.__lt__(other)
+IE_TRACE:     Return value:.. True
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py
+IE_TRACE: 12:46:21.980361 line       267     with pytest.raises(ValueError):
+IE_TRACE:     Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/raises.py
+IE_TRACE:     Starting var:.. expected_exception = <class 'ValueError'>
+IE_TRACE:     Starting var:.. args = ()
+IE_TRACE:     Starting var:.. kwargs = {}
+IE_TRACE:     12:46:21.980398 call       104 def raises(
+IE_TRACE:     12:46:21.980537 line       273     __tracebackhide__ = True
+IE_TRACE:     New var:....... __tracebackhide__ = True
+IE_TRACE:     12:46:21.980561 line       275     if not args:
+IE_TRACE:     12:46:21.980587 line       276         if set(kwargs) - {"match", "check", "expected_exception"}:
+IE_TRACE:     12:46:21.980612 line       282         if expected_exception is None:
+IE_TRACE:     12:46:21.980633 line       284         return RaisesExc(expected_exception, **kwargs)
+IE_TRACE:         Starting var:.. self = REPR FAILED
+IE_TRACE:         Starting var:.. expected_exception = <class 'ValueError'>
+IE_TRACE:         Starting var:.. match = None
+IE_TRACE:         Starting var:.. check = None
+IE_TRACE:         Starting var:.. __class__ = <class '_pytest.raises.RaisesExc'>
+IE_TRACE:         12:46:21.980661 call       612     def __init__(
+IE_TRACE:         12:46:21.980706 line       622         super().__init__(match=match, check=check)
+IE_TRACE:             Starting var:.. self = REPR FAILED
+IE_TRACE:             Starting var:.. match = None
+IE_TRACE:             Starting var:.. check = None
+IE_TRACE:             12:46:21.980740 call       385     def __init__(
+IE_TRACE:             12:46:21.980772 line       391         if isinstance(match, str):
+IE_TRACE:             12:46:21.980796 line       410             self.match = match
+IE_TRACE:             12:46:21.980818 line       414         self.rawmatch: str | None = None
+IE_TRACE:             12:46:21.980840 line       415         if isinstance(match, str) or (
+IE_TRACE:             12:46:21.980861 line       416             isinstance(match, Pattern) and match.flags == _REGEX_NO_FLAGS
+IE_TRACE:             12:46:21.980884 line       428         self.check = check
+IE_TRACE:             12:46:21.980905 line       429         self._fail_reason: str | None = None
+IE_TRACE:             12:46:21.980927 line       432         self._nested: bool = False
+IE_TRACE:             12:46:21.980948 line       435         self.is_baseexception = False
+IE_TRACE:             12:46:21.980970 return     435         self.is_baseexception = False
+IE_TRACE:             Return value:.. None
+IE_TRACE:         12:46:21.980996 line       623         if isinstance(expected_exception, tuple):
+IE_TRACE:         12:46:21.981020 line       625         elif expected_exception is None:
+IE_TRACE:         12:46:21.981043 line       628             expected_exceptions = (expected_exception,)
+IE_TRACE:         New var:....... expected_exceptions = (<class 'ValueError'>,)
+IE_TRACE:         12:46:21.981066 line       630         if (expected_exceptions == ()) and match is None and check is None:
+IE_TRACE:         12:46:21.981094 line       633         self.expected_exceptions = tuple(
+IE_TRACE:         12:46:21.981119 line       635             for e in expected_exceptions
+IE_TRACE:         12:46:21.981143 line       633         self.expected_exceptions = tuple(
+IE_TRACE:             Starting var:.. .0 = <tuple_iterator object at 0x71e5cd2fb640>
+IE_TRACE:             Starting var:.. self = REPR FAILED
+IE_TRACE:             12:46:21.981169 call       633         self.expected_exceptions = tuple(
+IE_TRACE:             12:46:21.981202 line       633         self.expected_exceptions = tuple(
+IE_TRACE:             12:46:21.981224 line       635             for e in expected_exceptions
+IE_TRACE:             New var:....... e = <class 'ValueError'>
+IE_TRACE:             12:46:21.981245 line       634             self._parse_exc(e, expected="a BaseException type")
+IE_TRACE:                 Starting var:.. self = REPR FAILED
+IE_TRACE:                 Starting var:.. exc = <class 'ValueError'>
+IE_TRACE:                 Starting var:.. expected = 'a BaseException type'
+IE_TRACE:                 12:46:21.981339 call       437     def _parse_exc(
+IE_TRACE:                 12:46:21.981372 line       440         if isinstance(exc, type) and issubclass(exc, BaseException):
+IE_TRACE:                 12:46:21.981395 line       441             if not issubclass(exc, Exception):
+IE_TRACE:                 12:46:21.981418 line       443             return exc
+IE_TRACE:                 12:46:21.981440 return     443             return exc
+IE_TRACE:                 Return value:.. <class 'ValueError'>
+IE_TRACE:             12:46:21.981466 return     634             self._parse_exc(e, expected="a BaseException type")
+IE_TRACE:             Return value:.. <class 'ValueError'>
+IE_TRACE:             Starting var:.. .0 = <tuple_iterator object at 0x71e5cd2fb640>
+IE_TRACE:             Starting var:.. e = <class 'ValueError'>
+IE_TRACE:             Starting var:.. self = REPR FAILED
+IE_TRACE:             12:46:21.981493 call       634             self._parse_exc(e, expected="a BaseException type")
+IE_TRACE:             12:46:21.981525 line       633         self.expected_exceptions = tuple(
+IE_TRACE:             12:46:21.981547 return     633         self.expected_exceptions = tuple(
+IE_TRACE:             Return value:.. None
+IE_TRACE:         Modified var:.. self = RaisesExc(ValueError)
+IE_TRACE:         12:46:21.981573 line       638         self._just_propagate = False
+IE_TRACE:         12:46:21.981605 return     638         self._just_propagate = False
+IE_TRACE:         Return value:.. None
+IE_TRACE:     12:46:21.981635 return     284         return RaisesExc(expected_exception, **kwargs)
+IE_TRACE:     Return value:.. RaisesExc(ValueError)
+IE_TRACE:     Starting var:.. self = RaisesExc(ValueError)
+IE_TRACE:     12:46:21.981666 call       692     def __enter__(self) -> ExceptionInfo[BaseExcT_co_default]:
+IE_TRACE:     12:46:21.981688 line       693         self.excinfo: ExceptionInfo[BaseExcT_co_default] = ExceptionInfo.for_later()
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_code/code.py
+IE_TRACE:         Starting var:.. cls = <class '_pytest._code.code.ExceptionInfo'>
+IE_TRACE:         12:46:21.981710 call       586     def for_later(cls) -> ExceptionInfo[E]:
+IE_TRACE:         12:46:21.981820 line       588         return cls(None, _ispytest=True)
+IE_TRACE:             Starting var:.. self = REPR FAILED
+IE_TRACE:             Starting var:.. excinfo = None
+IE_TRACE:             Starting var:.. striptext = ''
+IE_TRACE:             Starting var:.. traceback = None
+IE_TRACE:             Starting var:.. _ispytest = True
+IE_TRACE:             12:46:21.981842 call       505     def __init__(
+IE_TRACE:             12:46:21.981885 line       513         check_ispytest(_ispytest)
+IE_TRACE:                 Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/deprecated.py
+IE_TRACE:                 Starting var:.. ispytest = True
+IE_TRACE:                 12:46:21.981911 call        97 def check_ispytest(ispytest: bool) -> None:
+IE_TRACE:                 12:46:21.981958 line        98     if not ispytest:
+IE_TRACE:                 12:46:21.981977 return      98     if not ispytest:
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_code/code.py
+IE_TRACE:             12:46:21.982000 line       514         self._excinfo = excinfo
+IE_TRACE:             Modified var:.. self = <ExceptionInfo for raises contextmanager>
+IE_TRACE:             12:46:21.982027 line       515         self._striptext = striptext
+IE_TRACE:             12:46:21.982052 line       516         self._traceback = traceback
+IE_TRACE:             12:46:21.982075 return     516         self._traceback = traceback
+IE_TRACE:             Return value:.. None
+IE_TRACE:         12:46:21.982100 return     588         return cls(None, _ispytest=True)
+IE_TRACE:         Return value:.. <ExceptionInfo for raises contextmanager>
+IE_TRACE:     Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/raises.py
+IE_TRACE:     12:46:21.982123 line       694         return self.excinfo
+IE_TRACE:     12:46:21.982146 return     694         return self.excinfo
+IE_TRACE:     Return value:.. <ExceptionInfo for raises contextmanager>
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py
+IE_TRACE: 12:46:21.982170 line       268         _Alpha('a') < None
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/ansible/lib/ansible/utils/version.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'a'
+IE_TRACE:     12:46:21.982202 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.982234 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'a'
+IE_TRACE:     12:46:21.982254 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = 'a'
+IE_TRACE:     Starting var:.. other = None
+IE_TRACE:     12:46:21.982282 call        65     def __lt__(self, other):
+IE_TRACE:     12:46:21.982307 line        66         if isinstance(other, _Alpha):
+IE_TRACE:     12:46:21.982326 line        68         elif isinstance(other, str):
+IE_TRACE:     12:46:21.982346 line        70         elif isinstance(other, _Numeric):
+IE_TRACE:     12:46:21.982365 line        73         raise ValueError
+IE_TRACE:     12:46:21.982384 exception   73         raise ValueError
+IE_TRACE:     Exception:..... ValueError
+IE_TRACE:     Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py
+IE_TRACE: 12:46:21.982502 exception  268         _Alpha('a') < None
+IE_TRACE: Exception:..... ValueError
+IE_TRACE: 12:46:21.982549 line       267     with pytest.raises(ValueError):
+IE_TRACE:     Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/raises.py
+IE_TRACE:     Starting var:.. self = RaisesExc(ValueError)
+IE_TRACE:     Starting var:.. exc_type = <class 'ValueError'>
+IE_TRACE:     Starting var:.. exc_val = ValueError()
+IE_TRACE:     Starting var:.. exc_tb = <traceback object at 0x71e5cc1cc880>
+IE_TRACE:     12:46:21.982578 call       697     def __exit__(
+IE_TRACE:     12:46:21.982620 line       703         __tracebackhide__ = True
+IE_TRACE:     New var:....... __tracebackhide__ = True
+IE_TRACE:     12:46:21.982644 line       704         if exc_type is None:
+IE_TRACE:     12:46:21.982670 line       712         assert self.excinfo is not None, (
+IE_TRACE:     12:46:21.982693 line       716         if not self.matches(exc_val):
+IE_TRACE:         Starting var:.. self = RaisesExc(ValueError)
+IE_TRACE:         Starting var:.. exception = ValueError()
+IE_TRACE:         12:46:21.982720 call       640     def matches(
+IE_TRACE:         12:46:21.982747 line       662         self._just_propagate = False
+IE_TRACE:         12:46:21.982767 line       663         if exception is None:
+IE_TRACE:         12:46:21.982787 line       666         if not self._check_type(exception):
+IE_TRACE:             Starting var:.. self = RaisesExc(ValueError)
+IE_TRACE:             Starting var:.. exception = ValueError()
+IE_TRACE:             12:46:21.982808 call       688     def _check_type(self, exception: BaseException) -> TypeGuard[BaseExcT_co_default]:
+IE_TRACE:             12:46:21.982833 line       689         self._fail_reason = _check_raw_type(self.expected_exceptions, exception)
+IE_TRACE:                 Starting var:.. expected_type = (<class 'ValueError'>,)
+IE_TRACE:                 Starting var:.. exception = ValueError()
+IE_TRACE:                 12:46:21.982857 call       341 def _check_raw_type(
+IE_TRACE:                 12:46:21.982884 line       345     if expected_type is None or expected_type == ():
+IE_TRACE:                 12:46:21.982905 line       348     if not isinstance(
+IE_TRACE:                 12:46:21.982925 line       349         exception,
+IE_TRACE:                 12:46:21.982945 line       350         expected_type,
+IE_TRACE:                 12:46:21.982965 line       348     if not isinstance(
+IE_TRACE:                 12:46:21.982985 line       361     return None
+IE_TRACE:                 12:46:21.983005 return     361     return None
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             12:46:21.983030 line       690         return self._fail_reason is None
+IE_TRACE:             12:46:21.983049 return     690         return self._fail_reason is None
+IE_TRACE:             Return value:.. True
+IE_TRACE:         12:46:21.983073 line       670         if not self._check_match(exception):
+IE_TRACE:             Starting var:.. self = RaisesExc(ValueError)
+IE_TRACE:             Starting var:.. e = ValueError()
+IE_TRACE:             12:46:21.983101 call       496     def _check_match(self, e: BaseException) -> bool:
+IE_TRACE:             12:46:21.983129 line       497         if self.match is None or re.search(
+IE_TRACE:             12:46:21.983150 line       503             return True
+IE_TRACE:             12:46:21.983170 return     503             return True
+IE_TRACE:             Return value:.. True
+IE_TRACE:         12:46:21.983198 line       673         return self._check_check(exception)
+IE_TRACE:             Starting var:.. self = RaisesExc(ValueError)
+IE_TRACE:             Starting var:.. exception = ValueError()
+IE_TRACE:             12:46:21.983221 call       481     def _check_check(
+IE_TRACE:             12:46:21.983247 line       485         if self.check is None:
+IE_TRACE:             12:46:21.983267 line       486             return True
+IE_TRACE:             12:46:21.983287 return     486             return True
+IE_TRACE:             Return value:.. True
+IE_TRACE:         12:46:21.983310 return     673         return self._check_check(exception)
+IE_TRACE:         Return value:.. True
+IE_TRACE:     12:46:21.983333 line       723         exc_info = cast(
+IE_TRACE:     12:46:21.983356 line       724             "tuple[type[BaseExcT_co_default], BaseExcT_co_default, types.TracebackType]",
+IE_TRACE:     12:46:21.983378 line       725             (exc_type, exc_val, exc_tb),
+IE_TRACE:     12:46:21.983401 line       723         exc_info = cast(
+IE_TRACE:         Source path:... /usr/lib/python3.12/typing.py
+IE_TRACE:         Starting var:.. typ = 'tuple[type[BaseExcT_co_default], BaseExcT_co_default, types.TracebackType]'
+IE_TRACE:         Starting var:.. val = (<class 'ValueError'>, ValueError(), <traceback object at 0x71e5cc1cc880>)
+IE_TRACE:         12:46:21.983424 call      2154 def cast(typ, val):
+IE_TRACE:         12:46:21.983603 line      2162     return val
+IE_TRACE:         12:46:21.983625 return    2162     return val
+IE_TRACE:         Return value:.. (<class 'ValueError'>, ValueError(), <traceback object at 0x71e5cc1cc880>)
+IE_TRACE:     Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/raises.py
+IE_TRACE:     New var:....... exc_info = (<class 'ValueError'>, ValueError(), <traceback object at 0x71e5cc1cc880>)
+IE_TRACE:     12:46:21.983651 line       727         self.excinfo.fill_unfilled(exc_info)
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_code/code.py
+IE_TRACE:         Starting var:.. self = <ExceptionInfo for raises contextmanager>
+IE_TRACE:         Starting var:.. exc_info = (<class 'ValueError'>, ValueError(), <traceback object at 0x71e5cc1cc880>)
+IE_TRACE:         12:46:21.983686 call       590     def fill_unfilled(self, exc_info: tuple[type[E], E, TracebackType]) -> None:
+IE_TRACE:         12:46:21.983716 line       592         assert self._excinfo is None, "ExceptionInfo was already filled"
+IE_TRACE:         12:46:21.983737 line       593         self._excinfo = exc_info
+IE_TRACE:         Modified var:.. self = <ExceptionInfo ValueError() tblen=2>
+IE_TRACE:         12:46:21.983757 return     593         self._excinfo = exc_info
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/raises.py
+IE_TRACE:     12:46:21.983821 line       728         return True
+IE_TRACE:     12:46:21.983849 return     728         return True
+IE_TRACE:     Return value:.. True
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py
+IE_TRACE: 12:46:21.983894 line       269     assert _Alpha('a') <= _Alpha('a')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/ansible/lib/ansible/utils/version.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'a'
+IE_TRACE:     12:46:21.983925 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.983955 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'a'
+IE_TRACE:     12:46:21.983977 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'a'
+IE_TRACE:     12:46:21.984003 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.984028 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'a'
+IE_TRACE:     12:46:21.984048 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = 'a'
+IE_TRACE:     Starting var:.. other = 'a'
+IE_TRACE:     12:46:21.984075 call        78     def __le__(self, other):
+IE_TRACE:     12:46:21.984099 line        79         return self.__lt__(other) or self.__eq__(other)
+IE_TRACE:         Starting var:.. self = 'a'
+IE_TRACE:         Starting var:.. other = 'a'
+IE_TRACE:         12:46:21.984119 call        65     def __lt__(self, other):
+IE_TRACE:         12:46:21.984143 line        66         if isinstance(other, _Alpha):
+IE_TRACE:         12:46:21.984162 line        67             return self.specifier < other.specifier
+IE_TRACE:         12:46:21.984181 return      67             return self.specifier < other.specifier
+IE_TRACE:         Return value:.. False
+IE_TRACE:         Starting var:.. self = 'a'
+IE_TRACE:         Starting var:.. other = 'a'
+IE_TRACE:         12:46:21.984242 call        54     def __eq__(self, other):
+IE_TRACE:         12:46:21.984268 line        55         if isinstance(other, _Alpha):
+IE_TRACE:         12:46:21.984287 line        56             return self.specifier == other.specifier
+IE_TRACE:         12:46:21.984306 return      56             return self.specifier == other.specifier
+IE_TRACE:         Return value:.. True
+IE_TRACE:     12:46:21.984328 line        79         return self.__lt__(other) or self.__eq__(other)
+IE_TRACE:     12:46:21.984347 return      79         return self.__lt__(other) or self.__eq__(other)
+IE_TRACE:     Return value:.. True
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py
+IE_TRACE: 12:46:21.984372 line       270     assert _Alpha('a') <= _Alpha('b')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/ansible/lib/ansible/utils/version.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'a'
+IE_TRACE:     12:46:21.984400 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.984428 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'a'
+IE_TRACE:     12:46:21.984447 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'b'
+IE_TRACE:     12:46:21.984473 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.984497 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'b'
+IE_TRACE:     12:46:21.984516 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = 'a'
+IE_TRACE:     Starting var:.. other = 'b'
+IE_TRACE:     12:46:21.984541 call        78     def __le__(self, other):
+IE_TRACE:     12:46:21.984565 line        79         return self.__lt__(other) or self.__eq__(other)
+IE_TRACE:         Starting var:.. self = 'a'
+IE_TRACE:         Starting var:.. other = 'b'
+IE_TRACE:         12:46:21.984584 call        65     def __lt__(self, other):
+IE_TRACE:         12:46:21.984609 line        66         if isinstance(other, _Alpha):
+IE_TRACE:         12:46:21.984627 line        67             return self.specifier < other.specifier
+IE_TRACE:         12:46:21.984647 return      67             return self.specifier < other.specifier
+IE_TRACE:         Return value:.. True
+IE_TRACE:     12:46:21.984669 return      79         return self.__lt__(other) or self.__eq__(other)
+IE_TRACE:     Return value:.. True
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py
+IE_TRACE: 12:46:21.984695 line       271     assert _Alpha('b') >= _Alpha('a')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/ansible/lib/ansible/utils/version.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'b'
+IE_TRACE:     12:46:21.984722 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.984750 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'b'
+IE_TRACE:     12:46:21.984769 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'a'
+IE_TRACE:     12:46:21.984794 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.984819 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'a'
+IE_TRACE:     12:46:21.984838 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = 'b'
+IE_TRACE:     Starting var:.. other = 'a'
+IE_TRACE:     12:46:21.984865 call        81     def __ge__(self, other):
+IE_TRACE:     12:46:21.984889 line        82         return self.__gt__(other) or self.__eq__(other)
+IE_TRACE:         Starting var:.. self = 'b'
+IE_TRACE:         Starting var:.. other = 'a'
+IE_TRACE:         12:46:21.984908 call        75     def __gt__(self, other):
+IE_TRACE:         12:46:21.984932 line        76         return not self.__lt__(other)
+IE_TRACE:             Starting var:.. self = 'b'
+IE_TRACE:             Starting var:.. other = 'a'
+IE_TRACE:             12:46:21.984951 call        65     def __lt__(self, other):
+IE_TRACE:             12:46:21.984975 line        66         if isinstance(other, _Alpha):
+IE_TRACE:             12:46:21.984994 line        67             return self.specifier < other.specifier
+IE_TRACE:             12:46:21.985014 return      67             return self.specifier < other.specifier
+IE_TRACE:             Return value:.. False
+IE_TRACE:         12:46:21.985037 return      76         return not self.__lt__(other)
+IE_TRACE:         Return value:.. True
+IE_TRACE:     12:46:21.985059 return      82         return self.__gt__(other) or self.__eq__(other)
+IE_TRACE:     Return value:.. True
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py
+IE_TRACE: 12:46:21.985085 line       272     assert _Alpha('b') >= _Alpha('b')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/ansible/lib/ansible/utils/version.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'b'
+IE_TRACE:     12:46:21.985112 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.985140 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'b'
+IE_TRACE:     12:46:21.985159 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'b'
+IE_TRACE:     12:46:21.985184 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.985211 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'b'
+IE_TRACE:     12:46:21.985230 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = 'b'
+IE_TRACE:     Starting var:.. other = 'b'
+IE_TRACE:     12:46:21.985255 call        81     def __ge__(self, other):
+IE_TRACE:     12:46:21.985279 line        82         return self.__gt__(other) or self.__eq__(other)
+IE_TRACE:         Starting var:.. self = 'b'
+IE_TRACE:         Starting var:.. other = 'b'
+IE_TRACE:         12:46:21.985297 call        75     def __gt__(self, other):
+IE_TRACE:         12:46:21.985321 line        76         return not self.__lt__(other)
+IE_TRACE:             Starting var:.. self = 'b'
+IE_TRACE:             Starting var:.. other = 'b'
+IE_TRACE:             12:46:21.985341 call        65     def __lt__(self, other):
+IE_TRACE:             12:46:21.985366 line        66         if isinstance(other, _Alpha):
+IE_TRACE:             12:46:21.985385 line        67             return self.specifier < other.specifier
+IE_TRACE:             12:46:21.985404 return      67             return self.specifier < other.specifier
+IE_TRACE:             Return value:.. False
+IE_TRACE:         12:46:21.985426 return      76         return not self.__lt__(other)
+IE_TRACE:         Return value:.. True
+IE_TRACE:     12:46:21.985448 return      82         return self.__gt__(other) or self.__eq__(other)
+IE_TRACE:     Return value:.. True
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py
+IE_TRACE: 12:46:21.985475 line       278     assert _Alpha('a') == _Alpha('a')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/ansible/lib/ansible/utils/version.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'a'
+IE_TRACE:     12:46:21.985502 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.985529 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'a'
+IE_TRACE:     12:46:21.985548 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'a'
+IE_TRACE:     12:46:21.985573 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.985597 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'a'
+IE_TRACE:     12:46:21.985616 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = 'a'
+IE_TRACE:     Starting var:.. other = 'a'
+IE_TRACE:     12:46:21.985641 call        54     def __eq__(self, other):
+IE_TRACE:     12:46:21.985665 line        55         if isinstance(other, _Alpha):
+IE_TRACE:     12:46:21.985684 line        56             return self.specifier == other.specifier
+IE_TRACE:     12:46:21.985702 return      56             return self.specifier == other.specifier
+IE_TRACE:     Return value:.. True
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py
+IE_TRACE: 12:46:21.985729 line       279     assert not _Alpha('a') != _Alpha('a')  # pylint: disable=unneeded-not
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/ansible/lib/ansible/utils/version.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'a'
+IE_TRACE:     12:46:21.985755 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.985782 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'a'
+IE_TRACE:     12:46:21.985801 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'a'
+IE_TRACE:     12:46:21.985825 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.985849 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'a'
+IE_TRACE:     12:46:21.985868 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = 'a'
+IE_TRACE:     Starting var:.. other = 'a'
+IE_TRACE:     12:46:21.985893 call        62     def __ne__(self, other):
+IE_TRACE:     12:46:21.985916 line        63         return not self.__eq__(other)
+IE_TRACE:         Starting var:.. self = 'a'
+IE_TRACE:         Starting var:.. other = 'a'
+IE_TRACE:         12:46:21.985935 call        54     def __eq__(self, other):
+IE_TRACE:         12:46:21.985959 line        55         if isinstance(other, _Alpha):
+IE_TRACE:         12:46:21.985978 line        56             return self.specifier == other.specifier
+IE_TRACE:         12:46:21.985997 return      56             return self.specifier == other.specifier
+IE_TRACE:         Return value:.. True
+IE_TRACE:     12:46:21.986019 return      63         return not self.__eq__(other)
+IE_TRACE:     Return value:.. False
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py
+IE_TRACE: New var:....... @py_assert13 = None
+IE_TRACE: 12:46:21.986047 line       280     assert not _Alpha('a') < _Alpha('a')  # pylint: disable=unneeded-not
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/ansible/lib/ansible/utils/version.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'a'
+IE_TRACE:     12:46:21.986079 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.986106 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'a'
+IE_TRACE:     12:46:21.986126 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'a'
+IE_TRACE:     12:46:21.986151 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.986175 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'a'
+IE_TRACE:     12:46:21.986196 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = 'a'
+IE_TRACE:     Starting var:.. other = 'a'
+IE_TRACE:     12:46:21.986221 call        65     def __lt__(self, other):
+IE_TRACE:     12:46:21.986246 line        66         if isinstance(other, _Alpha):
+IE_TRACE:     12:46:21.986265 line        67             return self.specifier < other.specifier
+IE_TRACE:     12:46:21.986283 return      67             return self.specifier < other.specifier
+IE_TRACE:     Return value:.. False
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py
+IE_TRACE: 12:46:21.986311 line       281     assert _Alpha('a') <= _Alpha('a')
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/ansible/lib/ansible/utils/version.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'a'
+IE_TRACE:     12:46:21.986339 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.986366 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'a'
+IE_TRACE:     12:46:21.986385 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'a'
+IE_TRACE:     12:46:21.986410 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.986435 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'a'
+IE_TRACE:     12:46:21.986454 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = 'a'
+IE_TRACE:     Starting var:.. other = 'a'
+IE_TRACE:     12:46:21.986479 call        78     def __le__(self, other):
+IE_TRACE:     12:46:21.986503 line        79         return self.__lt__(other) or self.__eq__(other)
+IE_TRACE:         Starting var:.. self = 'a'
+IE_TRACE:         Starting var:.. other = 'a'
+IE_TRACE:         12:46:21.986522 call        65     def __lt__(self, other):
+IE_TRACE:         12:46:21.986545 line        66         if isinstance(other, _Alpha):
+IE_TRACE:         12:46:21.986564 line        67             return self.specifier < other.specifier
+IE_TRACE:         12:46:21.986583 return      67             return self.specifier < other.specifier
+IE_TRACE:         Return value:.. False
+IE_TRACE:         Starting var:.. self = 'a'
+IE_TRACE:         Starting var:.. other = 'a'
+IE_TRACE:         12:46:21.986606 call        54     def __eq__(self, other):
+IE_TRACE:         12:46:21.986630 line        55         if isinstance(other, _Alpha):
+IE_TRACE:         12:46:21.986649 line        56             return self.specifier == other.specifier
+IE_TRACE:         12:46:21.986669 return      56             return self.specifier == other.specifier
+IE_TRACE:         Return value:.. True
+IE_TRACE:     12:46:21.986691 line        79         return self.__lt__(other) or self.__eq__(other)
+IE_TRACE:     12:46:21.986710 return      79         return self.__lt__(other) or self.__eq__(other)
+IE_TRACE:     Return value:.. True
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py
+IE_TRACE: 12:46:21.986737 line       282     assert not _Alpha('a') > _Alpha('a')  # pylint: disable=unneeded-not
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/ansible/lib/ansible/utils/version.py
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'a'
+IE_TRACE:     12:46:21.986764 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.986792 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'a'
+IE_TRACE:     12:46:21.986811 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = REPR FAILED
+IE_TRACE:     Starting var:.. specifier = 'a'
+IE_TRACE:     12:46:21.986835 call        48     def __init__(self, specifier):
+IE_TRACE:     12:46:21.986860 line        49         self.specifier = specifier
+IE_TRACE:     Modified var:.. self = 'a'
+IE_TRACE:     12:46:21.986879 return      49         self.specifier = specifier
+IE_TRACE:     Return value:.. None
+IE_TRACE:     Starting var:.. self = 'a'
+IE_TRACE:     Starting var:.. other = 'a'
+IE_TRACE:     12:46:21.986904 call        75     def __gt__(self, other):
+IE_TRACE:     12:46:21.986927 line        76         return not self.__lt__(other)
+IE_TRACE:         Starting var:.. self = 'a'
+IE_TRACE:         Starting var:.. other = 'a'
+IE_TRACE:         12:46:21.986946 call        65     def __lt__(self, other):
+IE_TRACE:         12:46:21.986970 line        66         if isinstance(other, _Alpha):
+IE_TRACE:         12:46:21.986989 line        67             return self.specifier < other.specifier
+IE_TRACE:         12:46:21.987008 return      67             return self.specifier < other.specifier
+IE_TRACE:         Return value:.. False
+IE_TRACE:     12:46:21.987029 return      76         return not self.__lt__(other)
+IE_TRACE:     Return value:.. True
+IE_TRACE:     Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py
+IE_TRACE:     Starting var:.. ops = ('>',)
+IE_TRACE:     Starting var:.. results = (True,)
+IE_TRACE:     Starting var:.. expls = ('%(py4)s\n{%(py4)s = %(py0)s(%(py2)s)\n} > %(py10)s\n{%(py10)s = %(py6)s(%(py8)s)\n}',)
+IE_TRACE:     Starting var:.. each_obj = ('a', 'a')
+IE_TRACE:     12:46:21.987056 call       493 def _call_reprcompare(
+IE_TRACE:     12:46:21.987171 line       499     for i, res, expl in zip(range(len(ops)), results, expls, strict=True):
+IE_TRACE:     New var:....... i = 0
+IE_TRACE:     New var:....... res = True
+IE_TRACE:     New var:....... expl = '%(py4)s\n{%(py4)s = %(py0)s(%(py2)s)\n} > %(py10)s\n{%(py10)s = %(py6)s(%(py8)s)\n}'
+IE_TRACE:     12:46:21.987207 line       500         try:
+IE_TRACE:     12:46:21.987253 line       501             done = not res
+IE_TRACE:     New var:....... done = False
+IE_TRACE:     12:46:21.987280 line       504         if done:
+IE_TRACE:     12:46:21.987309 line       499     for i, res, expl in zip(range(len(ops)), results, expls, strict=True):
+IE_TRACE:     12:46:21.987335 line       506     if util._reprcompare is not None:
+IE_TRACE:     12:46:21.987360 line       507         custom = util._reprcompare(ops[i], each_obj[i], each_obj[i + 1])
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/__init__.py
+IE_TRACE:         Starting var:.. op = '>'
+IE_TRACE:         Starting var:.. left = 'a'
+IE_TRACE:         Starting var:.. right = 'a'
+IE_TRACE:         Starting var:.. ihook = <_pytest.config.compat.PathAwareHookProxy object at 0x71e5cdf19af0>
+IE_TRACE:         Starting var:.. item = <Function test_alpha>
+IE_TRACE:         12:46:21.987392 call       152     def callbinrepr(op, left: object, right: object) -> str | None:
+IE_TRACE:         12:46:21.987477 line       167         hook_result = ihook.pytest_assertrepr_compare(
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/config/compat.py
+IE_TRACE:             Starting var:.. self = <_pytest.config.compat.PathAwareHookProxy object at 0x71e5cdf19af0>
+IE_TRACE:             Starting var:.. key = 'pytest_assertrepr_compare'
+IE_TRACE:             12:46:21.987508 call        49     def __getattr__(self, key: str) -> pluggy.HookCaller:
+IE_TRACE:             12:46:21.987558 line        50         hook: pluggy.HookCaller = getattr(self._hook_relay, key)
+IE_TRACE:             New var:....... hook = <HookCaller 'pytest_assertrepr_compare'>
+IE_TRACE:             12:46:21.987581 line        51         if key not in imply_paths_hooks:
+IE_TRACE:             12:46:21.987609 line        52             self.__dict__[key] = hook
+IE_TRACE:             12:46:21.987632 line        53             return hook
+IE_TRACE:             12:46:21.987654 return      53             return hook
+IE_TRACE:             Return value:.. <HookCaller 'pytest_assertrepr_compare'>
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/__init__.py
+IE_TRACE:         12:46:21.987681 line       168             config=item.config, op=op, left=left, right=right
+IE_TRACE:         12:46:21.987708 line       167         hook_result = ihook.pytest_assertrepr_compare(
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/pluggy/_hooks.py
+IE_TRACE:             Starting var:.. self = <HookCaller 'pytest_assertrepr_compare'>
+IE_TRACE:             Starting var:.. kwargs = {'config': <_pytest.config.Config object at 0x71e5ce27c6b0>, 'op': '>', 'left': 'a', 'right': 'a'}
+IE_TRACE:             12:46:21.987734 call       497     def __call__(self, **kwargs: object) -> Any:
+IE_TRACE:             12:46:21.987807 line       506         assert not self.is_historic(), (
+IE_TRACE:                 Starting var:.. self = <HookCaller 'pytest_assertrepr_compare'>
+IE_TRACE:                 12:46:21.987832 call       436     def is_historic(self) -> bool:
+IE_TRACE:                 12:46:21.987856 line       438         return self._call_history is not None
+IE_TRACE:                 12:46:21.987876 return     438         return self._call_history is not None
+IE_TRACE:                 Return value:.. False
+IE_TRACE:             12:46:21.987901 line       509         self._verify_all_args_are_provided(kwargs)
+IE_TRACE:                 Starting var:.. self = <HookCaller 'pytest_assertrepr_compare'>
+IE_TRACE:                 Starting var:.. kwargs = {'config': <_pytest.config.Config object at 0x71e5ce27c6b0>, 'op': '>', 'left': 'a', 'right': 'a'}
+IE_TRACE:                 12:46:21.987927 call       478     def _verify_all_args_are_provided(self, kwargs: Mapping[str, object]) -> None:
+IE_TRACE:                 12:46:21.987957 line       480         if self.spec:
+IE_TRACE:                 12:46:21.987979 line       481             for argname in self.spec.argnames:
+IE_TRACE:                 New var:....... argname = 'config'
+IE_TRACE:                 12:46:21.988001 line       482                 if argname not in kwargs:
+IE_TRACE:                 12:46:21.988027 line       481             for argname in self.spec.argnames:
+IE_TRACE:                 Modified var:.. argname = 'op'
+IE_TRACE:                 12:46:21.988050 line       482                 if argname not in kwargs:
+IE_TRACE:                 12:46:21.988075 line       481             for argname in self.spec.argnames:
+IE_TRACE:                 Modified var:.. argname = 'left'
+IE_TRACE:                 12:46:21.988099 line       482                 if argname not in kwargs:
+IE_TRACE:                 12:46:21.988125 line       481             for argname in self.spec.argnames:
+IE_TRACE:                 Modified var:.. argname = 'right'
+IE_TRACE:                 12:46:21.988147 line       482                 if argname not in kwargs:
+IE_TRACE:                 12:46:21.988174 line       481             for argname in self.spec.argnames:
+IE_TRACE:                 12:46:21.988198 return     481             for argname in self.spec.argnames:
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             12:46:21.988225 line       510         firstresult = self.spec.opts.get("firstresult", False) if self.spec else False
+IE_TRACE:             New var:....... firstresult = False
+IE_TRACE:             12:46:21.988247 line       512         return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+IE_TRACE:                 Source path:... /path/to/.venv/lib/python3.12/site-packages/pluggy/_manager.py
+IE_TRACE:                 Starting var:.. self = <_pytest.config.PytestPluginManager object at 0x71e5ce75ba40>
+IE_TRACE:                 Starting var:.. hook_name = 'pytest_assertrepr_compare'
+IE_TRACE:                 Starting var:.. methods = [<HookImpl plugin_name='assertion', plugin=<module '_pytest.assertion' from '/path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/__init__.py'>>]
+IE_TRACE:                 Starting var:.. kwargs = {'config': <_pytest.config.Config object at 0x71e5ce27c6b0>, 'op': '>', 'left': 'a', 'right': 'a'}
+IE_TRACE:                 Starting var:.. firstresult = False
+IE_TRACE:                 12:46:21.988275 call       111     def _hookexec(
+IE_TRACE:                 12:46:21.988370 line       120         return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/pluggy/_callers.py
+IE_TRACE:                     Starting var:.. hook_name = 'pytest_assertrepr_compare'
+IE_TRACE:                     Starting var:.. hook_impls = [<HookImpl plugin_name='assertion', plugin=<module '_pytest.assertion' from '/path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/__init__.py'>>]
+IE_TRACE:                     Starting var:.. caller_kwargs = {'config': <_pytest.config.Config object at 0x71e5ce27c6b0>, 'op': '>', 'left': 'a', 'right': 'a'}
+IE_TRACE:                     Starting var:.. firstresult = False
+IE_TRACE:                     12:46:21.988403 call        76 def _multicall(
+IE_TRACE:                     12:46:21.988470 line        87     __tracebackhide__ = True
+IE_TRACE:                     New var:....... __tracebackhide__ = True
+IE_TRACE:                     12:46:21.988499 line        88     results: list[object] = []
+IE_TRACE:                     New var:....... results = []
+IE_TRACE:                     12:46:21.988531 line        89     exception = None
+IE_TRACE:                     New var:....... exception = None
+IE_TRACE:                     12:46:21.988564 line        90     try:  # run impl and wrapper setup functions in a loop
+IE_TRACE:                     12:46:21.988597 line        91         teardowns: list[Teardown] = []
+IE_TRACE:                     New var:....... teardowns = []
+IE_TRACE:                     12:46:21.988627 line        92         try:
+IE_TRACE:                     12:46:21.988659 line        93             for hook_impl in reversed(hook_impls):
+IE_TRACE:                     New var:....... hook_impl = <HookImpl plugin_name='assertion', plugin=<module '_pytest.assertion' from '/path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/__init__.py'>>
+IE_TRACE:                     12:46:21.988690 line        94                 try:
+IE_TRACE:                     12:46:21.988727 line        95                     args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+IE_TRACE:                     New var:....... argname = 'config'
+IE_TRACE:                     12:46:21.988759 line        95                     args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+IE_TRACE:                     Modified var:.. argname = 'op'
+IE_TRACE:                     12:46:21.988795 line        95                     args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+IE_TRACE:                     Modified var:.. argname = 'left'
+IE_TRACE:                     12:46:21.988832 line        95                     args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+IE_TRACE:                     Modified var:.. argname = 'right'
+IE_TRACE:                     12:46:21.988866 line        95                     args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+IE_TRACE:                     New var:....... args = [<_pytest.config.Config object at 0x71e5ce27c6b0>, '>', 'a', 'a']
+IE_TRACE:                     12:46:21.988902 line       104                 if hook_impl.hookwrapper:
+IE_TRACE:                     12:46:21.988938 line       110                 elif hook_impl.wrapper:
+IE_TRACE:                     12:46:21.988971 line       121                     res = hook_impl.function(*args)
+IE_TRACE:                         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/__init__.py
+IE_TRACE:                         Starting var:.. config = <_pytest.config.Config object at 0x71e5ce27c6b0>
+IE_TRACE:                         Starting var:.. op = '>'
+IE_TRACE:                         Starting var:.. left = 'a'
+IE_TRACE:                         Starting var:.. right = 'a'
+IE_TRACE:                         12:46:21.989006 call       205 def pytest_assertrepr_compare(
+IE_TRACE:                         12:46:21.989046 line       208     return util.assertrepr_compare(config=config, op=op, left=left, right=right)
+IE_TRACE:                             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/util.py
+IE_TRACE:                             Starting var:.. config = <_pytest.config.Config object at 0x71e5ce27c6b0>
+IE_TRACE:                             Starting var:.. op = '>'
+IE_TRACE:                             Starting var:.. left = 'a'
+IE_TRACE:                             Starting var:.. right = 'a'
+IE_TRACE:                             Starting var:.. use_ascii = False
+IE_TRACE:                             12:46:21.989084 call       178 def assertrepr_compare(
+IE_TRACE:                             12:46:21.989171 line       182     verbose = config.get_verbosity(Config.VERBOSITY_ASSERTIONS)
+IE_TRACE:                                 Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/config/__init__.py
+IE_TRACE:                                 Starting var:.. self = <_pytest.config.Config object at 0x71e5ce27c6b0>
+IE_TRACE:                                 Starting var:.. verbosity_type = 'assertions'
+IE_TRACE:                                 12:46:21.989206 call      1916     def get_verbosity(self, verbosity_type: str | None = None) -> int:
+IE_TRACE:                                 12:46:21.989338 line      1955         global_level = self.getoption("verbose", default=0)
+IE_TRACE:                                     Starting var:.. self = <_pytest.config.Config object at 0x71e5ce27c6b0>
+IE_TRACE:                                     Starting var:.. name = 'verbose'
+IE_TRACE:                                     Starting var:.. default = 0
+IE_TRACE:                                     Starting var:.. skip = False
+IE_TRACE:                                     12:46:21.989370 call      1874     def getoption(self, name: str, default: Any = notset, skip: bool = False):
+IE_TRACE:                                     12:46:21.989409 line      1884         name = self._opt2dest.get(name, name)
+IE_TRACE:                                     12:46:21.989436 line      1885         try:
+IE_TRACE:                                     12:46:21.989463 line      1886             val = getattr(self.option, name)
+IE_TRACE:                                     New var:....... val = 0
+IE_TRACE:                                     12:46:21.989489 line      1887             if val is None and skip:
+IE_TRACE:                                     12:46:21.989519 line      1889             return val
+IE_TRACE:                                     12:46:21.989547 return    1889             return val
+IE_TRACE:                                     Return value:.. 0
+IE_TRACE:                                 New var:....... global_level = 0
+IE_TRACE:                                 12:46:21.989578 line      1956         assert isinstance(global_level, int)
+IE_TRACE:                                 12:46:21.989606 line      1957         if verbosity_type is None:
+IE_TRACE:                                 12:46:21.989631 line      1960         ini_name = Config._verbosity_ini_name(verbosity_type)
+IE_TRACE:                                     Starting var:.. verbosity_type = 'assertions'
+IE_TRACE:                                     12:46:21.989657 call      1971     def _verbosity_ini_name(verbosity_type: str) -> str:
+IE_TRACE:                                     12:46:21.989685 line      1972         return f"verbosity_{verbosity_type}"
+IE_TRACE:                                     12:46:21.989709 return    1972         return f"verbosity_{verbosity_type}"
+IE_TRACE:                                     Return value:.. 'verbosity_assertions'
+IE_TRACE:                                 New var:....... ini_name = 'verbosity_assertions'
+IE_TRACE:                                 12:46:21.989736 line      1961         if ini_name not in self._parser._inidict:
+IE_TRACE:                                 12:46:21.989765 line      1964         level = self.getini(ini_name)
+IE_TRACE:                                     Starting var:.. self = <_pytest.config.Config object at 0x71e5ce27c6b0>
+IE_TRACE:                                     Starting var:.. name = 'verbosity_assertions'
+IE_TRACE:                                     12:46:21.989794 call      1627     def getini(self, name: str) -> Any:
+IE_TRACE:                                     12:46:21.989824 line      1657         canonical_name = self._parser._ini_aliases.get(name, name)
+IE_TRACE:                                     New var:....... canonical_name = 'verbosity_assertions'
+IE_TRACE:                                     12:46:21.989849 line      1658         try:
+IE_TRACE:                                     12:46:21.989876 line      1659             return self._inicache[canonical_name]
+IE_TRACE:                                     12:46:21.989901 exception 1659             return self._inicache[canonical_name]
+IE_TRACE:                                     Exception:..... KeyError: 'verbosity_assertions'
+IE_TRACE:                                     12:46:21.989949 line      1660         except KeyError:
+IE_TRACE:                                     12:46:21.989976 line      1661             pass
+IE_TRACE:                                     12:46:21.990001 line      1662         self._inicache[canonical_name] = val = self._getini(canonical_name)
+IE_TRACE:                                     New var:....... val = 'auto'
+IE_TRACE:                                     12:46:21.990042 line      1663         return val
+IE_TRACE:                                     12:46:21.990071 return    1663         return val
+IE_TRACE:                                     Return value:.. 'auto'
+IE_TRACE:                                 New var:....... level = 'auto'
+IE_TRACE:                                 12:46:21.990100 line      1965         if level == Config._VERBOSITY_INI_DEFAULT:
+IE_TRACE:                                 12:46:21.990129 line      1966             return global_level
+IE_TRACE:                                 12:46:21.990155 return    1966             return global_level
+IE_TRACE:                                 Return value:.. 0
+IE_TRACE:                             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/util.py
+IE_TRACE:                             New var:....... verbose = 0
+IE_TRACE:                             12:46:21.990185 line       187         isinstance(left, str)
+IE_TRACE:                             12:46:21.990226 line       186     use_ascii = (
+IE_TRACE:                             12:46:21.990254 line       192     if verbose > 1:
+IE_TRACE:                             12:46:21.990283 line       199             80 - 15 - len(op) - 2
+IE_TRACE:                             12:46:21.990310 line       200         ) // 2  # 15 chars indentation, 1 space around op
+IE_TRACE:                             12:46:21.990338 line       198         maxsize = (
+IE_TRACE:                             New var:....... maxsize = 31
+IE_TRACE:                             12:46:21.990365 line       202         left_repr = saferepr(left, maxsize=maxsize, use_ascii=use_ascii)
+IE_TRACE:                                 Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:                                 Starting var:.. obj = 'a'
+IE_TRACE:                                 Starting var:.. maxsize = 31
+IE_TRACE:                                 Starting var:.. use_ascii = False
+IE_TRACE:                                 12:46:21.990398 call        99 def saferepr(
+IE_TRACE:                                 12:46:21.990457 line       111     return SafeRepr(maxsize, use_ascii).repr(obj)
+IE_TRACE:                                     Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cc2612e0>
+IE_TRACE:                                     Starting var:.. maxsize = 31
+IE_TRACE:                                     Starting var:.. use_ascii = False
+IE_TRACE:                                     Starting var:.. __class__ = <class '_pytest._io.saferepr.SafeRepr'>
+IE_TRACE:                                     12:46:21.990484 call        42     def __init__(self, maxsize: int | None, use_ascii: bool = False) -> None:
+IE_TRACE:                                     12:46:21.990521 line        49         super().__init__()
+IE_TRACE:                                     12:46:21.990556 line        53         self.maxstring = maxsize if maxsize is not None else 1_000_000_000
+IE_TRACE:                                     12:46:21.990582 line        54         self.maxsize = maxsize
+IE_TRACE:                                     12:46:21.990607 line        55         self.use_ascii = use_ascii
+IE_TRACE:                                     12:46:21.990632 return      55         self.use_ascii = use_ascii
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                     Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cc2612e0>
+IE_TRACE:                                     Starting var:.. x = 'a'
+IE_TRACE:                                     Starting var:.. __class__ = <class '_pytest._io.saferepr.SafeRepr'>
+IE_TRACE:                                     12:46:21.990663 call        57     def repr(self, x: object) -> str:
+IE_TRACE:                                     12:46:21.990697 line        58         try:
+IE_TRACE:                                     12:46:21.990722 line        59             if self.use_ascii:
+IE_TRACE:                                     12:46:21.990747 line        62                 s = super().repr(x)
+IE_TRACE:                                     New var:....... s = "'a'"
+IE_TRACE:                                     12:46:21.990803 line        67         if self.maxsize is not None:
+IE_TRACE:                                     12:46:21.990832 line        68             s = _ellipsize(s, self.maxsize)
+IE_TRACE:                                     12:46:21.990864 line        69         return s
+IE_TRACE:                                     12:46:21.990890 return      69         return s
+IE_TRACE:                                     Return value:.. "'a'"
+IE_TRACE:                                 12:46:21.990920 return     111     return SafeRepr(maxsize, use_ascii).repr(obj)
+IE_TRACE:                                 Return value:.. "'a'"
+IE_TRACE:                             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/util.py
+IE_TRACE:                             New var:....... left_repr = "'a'"
+IE_TRACE:                             12:46:21.990948 line       203         right_repr = saferepr(right, maxsize=maxsize, use_ascii=use_ascii)
+IE_TRACE:                                 Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:                                 Starting var:.. obj = 'a'
+IE_TRACE:                                 Starting var:.. maxsize = 31
+IE_TRACE:                                 Starting var:.. use_ascii = False
+IE_TRACE:                                 12:46:21.990987 call        99 def saferepr(
+IE_TRACE:                                 12:46:21.991021 line       111     return SafeRepr(maxsize, use_ascii).repr(obj)
+IE_TRACE:                                     Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cc261010>
+IE_TRACE:                                     Starting var:.. maxsize = 31
+IE_TRACE:                                     Starting var:.. use_ascii = False
+IE_TRACE:                                     Starting var:.. __class__ = <class '_pytest._io.saferepr.SafeRepr'>
+IE_TRACE:                                     12:46:21.991046 call        42     def __init__(self, maxsize: int | None, use_ascii: bool = False) -> None:
+IE_TRACE:                                     12:46:21.991082 line        49         super().__init__()
+IE_TRACE:                                     12:46:21.991113 line        53         self.maxstring = maxsize if maxsize is not None else 1_000_000_000
+IE_TRACE:                                     12:46:21.991138 line        54         self.maxsize = maxsize
+IE_TRACE:                                     12:46:21.991163 line        55         self.use_ascii = use_ascii
+IE_TRACE:                                     12:46:21.991188 return      55         self.use_ascii = use_ascii
+IE_TRACE:                                     Return value:.. None
+IE_TRACE:                                     Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cc261010>
+IE_TRACE:                                     Starting var:.. x = 'a'
+IE_TRACE:                                     Starting var:.. __class__ = <class '_pytest._io.saferepr.SafeRepr'>
+IE_TRACE:                                     12:46:21.991221 call        57     def repr(self, x: object) -> str:
+IE_TRACE:                                     12:46:21.991254 line        58         try:
+IE_TRACE:                                     12:46:21.991279 line        59             if self.use_ascii:
+IE_TRACE:                                     12:46:21.991304 line        62                 s = super().repr(x)
+IE_TRACE:                                     New var:....... s = "'a'"
+IE_TRACE:                                     12:46:21.991356 line        67         if self.maxsize is not None:
+IE_TRACE:                                     12:46:21.991384 line        68             s = _ellipsize(s, self.maxsize)
+IE_TRACE:                                     12:46:21.991415 line        69         return s
+IE_TRACE:                                     12:46:21.991441 return      69         return s
+IE_TRACE:                                     Return value:.. "'a'"
+IE_TRACE:                                 12:46:21.991470 return     111     return SafeRepr(maxsize, use_ascii).repr(obj)
+IE_TRACE:                                 Return value:.. "'a'"
+IE_TRACE:                             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/util.py
+IE_TRACE:                             New var:....... right_repr = "'a'"
+IE_TRACE:                             12:46:21.991498 line       205     summary = f"{left_repr} {op} {right_repr}"
+IE_TRACE:                             New var:....... summary = "'a' > 'a'"
+IE_TRACE:                             12:46:21.991536 line       206     highlighter = config.get_terminal_writer()._highlight
+IE_TRACE:                                 Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/config/__init__.py
+IE_TRACE:                                 Starting var:.. self = <_pytest.config.Config object at 0x71e5ce27c6b0>
+IE_TRACE:                                 12:46:21.991572 call      1175     def get_terminal_writer(self) -> TerminalWriter:
+IE_TRACE:                                 12:46:21.991602 line      1176         terminalreporter: TerminalReporter | None = self.pluginmanager.get_plugin(
+IE_TRACE:                                 12:46:21.991626 line      1177             "terminalreporter"
+IE_TRACE:                                 12:46:21.991649 line      1176         terminalreporter: TerminalReporter | None = self.pluginmanager.get_plugin(
+IE_TRACE:                                     Source path:... /path/to/.venv/lib/python3.12/site-packages/pluggy/_manager.py
+IE_TRACE:                                     Starting var:.. self = <_pytest.config.PytestPluginManager object at 0x71e5ce75ba40>
+IE_TRACE:                                     Starting var:.. name = 'terminalreporter'
+IE_TRACE:                                     12:46:21.991673 call       312     def get_plugin(self, name: str) -> Any | None:
+IE_TRACE:                                     12:46:21.991706 line       314         return self._name2plugin.get(name)
+IE_TRACE:                                     12:46:21.991730 return     314         return self._name2plugin.get(name)
+IE_TRACE:                                     Return value:.. <_pytest.terminal.TerminalReporter object at 0x71e5cdde2cc0>
+IE_TRACE:                                 Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/config/__init__.py
+IE_TRACE:                                 New var:....... terminalreporter = <_pytest.terminal.TerminalReporter object at 0x71e5cdde2cc0>
+IE_TRACE:                                 12:46:21.991759 line      1179         assert terminalreporter is not None
+IE_TRACE:                                 12:46:21.991788 line      1180         return terminalreporter._tw
+IE_TRACE:                                 12:46:21.991812 return    1180         return terminalreporter._tw
+IE_TRACE:                                 Return value:.. <_pytest._io.terminalwriter.TerminalWriter object at 0x71e5cd4b9460>
+IE_TRACE:                             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/util.py
+IE_TRACE:                             New var:....... highlighter = <bound method TerminalWriter._highlight of <_pytest._io.terminalwriter.TerminalWriter object at 0x71e5cd4b9460>>
+IE_TRACE:                             12:46:21.991841 line       208     explanation = None
+IE_TRACE:                             New var:....... explanation = None
+IE_TRACE:                             12:46:21.991881 line       209     try:
+IE_TRACE:                             12:46:21.991917 line       210         if op == "==":
+IE_TRACE:                             12:46:21.991950 line       212         elif op == "not in":
+IE_TRACE:                             12:46:21.991981 line       215         elif op == "!=":
+IE_TRACE:                             12:46:21.992013 line       218         elif op == ">=":
+IE_TRACE:                             12:46:21.992045 line       221         elif op == "<=":
+IE_TRACE:                             12:46:21.992076 line       224         elif op == ">":
+IE_TRACE:                             12:46:21.992108 line       225             if isset(left) and isset(right):
+IE_TRACE:                                 Starting var:.. x = 'a'
+IE_TRACE:                                 12:46:21.992141 call       133 def isset(x: Any) -> bool:
+IE_TRACE:                                 12:46:21.992166 line       134     return isinstance(x, set | frozenset)
+IE_TRACE:                                 12:46:21.992191 return     134     return isinstance(x, set | frozenset)
+IE_TRACE:                                 Return value:.. False
+IE_TRACE:                             12:46:21.992220 line       240     if not explanation:
+IE_TRACE:                             12:46:21.992252 line       241         return None
+IE_TRACE:                             12:46:21.992284 return     241         return None
+IE_TRACE:                             Return value:.. None
+IE_TRACE:                         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/__init__.py
+IE_TRACE:                         12:46:21.992321 return     208     return util.assertrepr_compare(config=config, op=op, left=left, right=right)
+IE_TRACE:                         Return value:.. None
+IE_TRACE:                     Source path:... /path/to/.venv/lib/python3.12/site-packages/pluggy/_callers.py
+IE_TRACE:                     New var:....... res = None
+IE_TRACE:                     12:46:21.992352 line       122                     if res is not None:
+IE_TRACE:                     12:46:21.992399 line        93             for hook_impl in reversed(hook_impls):
+IE_TRACE:                     12:46:21.992435 line       129         if firstresult:  # first result hooks return a single value
+IE_TRACE:                     12:46:21.992470 line       132             result = results
+IE_TRACE:                     New var:....... result = []
+IE_TRACE:                     12:46:21.992505 line       135         for teardown in reversed(teardowns):
+IE_TRACE:                     12:46:21.992544 line       166     if exception is not None:
+IE_TRACE:                     12:46:21.992578 line       169         return result
+IE_TRACE:                     12:46:21.992613 return     169         return result
+IE_TRACE:                     Return value:.. []
+IE_TRACE:                 Source path:... /path/to/.venv/lib/python3.12/site-packages/pluggy/_manager.py
+IE_TRACE:                 12:46:21.992651 return     120         return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+IE_TRACE:                 Return value:.. []
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/pluggy/_hooks.py
+IE_TRACE:             12:46:21.992686 return     512         return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+IE_TRACE:             Return value:.. []
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/__init__.py
+IE_TRACE:         New var:....... hook_result = []
+IE_TRACE:         12:46:21.992716 line       170         for new_expl in hook_result:
+IE_TRACE:         12:46:21.992751 line       178         return None
+IE_TRACE:         12:46:21.992777 return     178         return None
+IE_TRACE:         Return value:.. None
+IE_TRACE:     Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py
+IE_TRACE:     New var:....... custom = None
+IE_TRACE:     12:46:21.992805 line       508         if custom is not None:
+IE_TRACE:     12:46:21.992841 line       510     return expl
+IE_TRACE:     12:46:21.992869 return     510     return expl
+IE_TRACE:     Return value:.. '%(py4)s\n{%(py4)s = %(py0)s(%(py2)s)\n} > %(py10)s\n{%(py10)s = %(py6)s(%(py8)s)\n}'
+IE_TRACE:     Starting var:.. obj = <class 'ansible.utils.version._Alpha'>
+IE_TRACE:     12:46:21.992904 call       477 def _should_repr_global_name(obj: object) -> bool:
+IE_TRACE:     12:46:21.992927 line       478     if callable(obj):
+IE_TRACE:     12:46:21.992947 line       480         return isinstance(obj, FixtureFunctionDefinition)
+IE_TRACE:     12:46:21.992966 return     480         return isinstance(obj, FixtureFunctionDefinition)
+IE_TRACE:     Return value:.. False
+IE_TRACE:     Starting var:.. obj = 'a'
+IE_TRACE:     12:46:21.992999 call       422 def _saferepr(obj: object) -> str:
+IE_TRACE:     12:46:21.993022 line       432     if isinstance(obj, types.MethodType):
+IE_TRACE:     12:46:21.993041 line       436     maxsize = _get_maxsize_for_saferepr(util._config)
+IE_TRACE:         Starting var:.. config = <_pytest.config.Config object at 0x71e5ce27c6b0>
+IE_TRACE:         12:46:21.993062 call       442 def _get_maxsize_for_saferepr(config: Config | None) -> int | None:
+IE_TRACE:         12:46:21.993085 line       444     if config is None:
+IE_TRACE:         12:46:21.993105 line       447         verbosity = config.get_verbosity(Config.VERBOSITY_ASSERTIONS)
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/config/__init__.py
+IE_TRACE:             Starting var:.. self = <_pytest.config.Config object at 0x71e5ce27c6b0>
+IE_TRACE:             Starting var:.. verbosity_type = 'assertions'
+IE_TRACE:             12:46:21.993126 call      1916     def get_verbosity(self, verbosity_type: str | None = None) -> int:
+IE_TRACE:             12:46:21.993155 line      1955         global_level = self.getoption("verbose", default=0)
+IE_TRACE:                 Starting var:.. self = <_pytest.config.Config object at 0x71e5ce27c6b0>
+IE_TRACE:                 Starting var:.. name = 'verbose'
+IE_TRACE:                 Starting var:.. default = 0
+IE_TRACE:                 Starting var:.. skip = False
+IE_TRACE:                 12:46:21.993177 call      1874     def getoption(self, name: str, default: Any = notset, skip: bool = False):
+IE_TRACE:                 12:46:21.993212 line      1884         name = self._opt2dest.get(name, name)
+IE_TRACE:                 12:46:21.993236 line      1885         try:
+IE_TRACE:                 12:46:21.993258 line      1886             val = getattr(self.option, name)
+IE_TRACE:                 New var:....... val = 0
+IE_TRACE:                 12:46:21.993281 line      1887             if val is None and skip:
+IE_TRACE:                 12:46:21.993307 line      1889             return val
+IE_TRACE:                 12:46:21.993330 return    1889             return val
+IE_TRACE:                 Return value:.. 0
+IE_TRACE:             New var:....... global_level = 0
+IE_TRACE:             12:46:21.993356 line      1956         assert isinstance(global_level, int)
+IE_TRACE:             12:46:21.993380 line      1957         if verbosity_type is None:
+IE_TRACE:             12:46:21.993401 line      1960         ini_name = Config._verbosity_ini_name(verbosity_type)
+IE_TRACE:                 Starting var:.. verbosity_type = 'assertions'
+IE_TRACE:                 12:46:21.993422 call      1971     def _verbosity_ini_name(verbosity_type: str) -> str:
+IE_TRACE:                 12:46:21.993445 line      1972         return f"verbosity_{verbosity_type}"
+IE_TRACE:                 12:46:21.993465 return    1972         return f"verbosity_{verbosity_type}"
+IE_TRACE:                 Return value:.. 'verbosity_assertions'
+IE_TRACE:             New var:....... ini_name = 'verbosity_assertions'
+IE_TRACE:             12:46:21.993487 line      1961         if ini_name not in self._parser._inidict:
+IE_TRACE:             12:46:21.993512 line      1964         level = self.getini(ini_name)
+IE_TRACE:                 Starting var:.. self = <_pytest.config.Config object at 0x71e5ce27c6b0>
+IE_TRACE:                 Starting var:.. name = 'verbosity_assertions'
+IE_TRACE:                 12:46:21.993534 call      1627     def getini(self, name: str) -> Any:
+IE_TRACE:                 12:46:21.993560 line      1657         canonical_name = self._parser._ini_aliases.get(name, name)
+IE_TRACE:                 New var:....... canonical_name = 'verbosity_assertions'
+IE_TRACE:                 12:46:21.993580 line      1658         try:
+IE_TRACE:                 12:46:21.993604 line      1659             return self._inicache[canonical_name]
+IE_TRACE:                 12:46:21.993625 return    1659             return self._inicache[canonical_name]
+IE_TRACE:                 Return value:.. 'auto'
+IE_TRACE:             New var:....... level = 'auto'
+IE_TRACE:             12:46:21.993649 line      1965         if level == Config._VERBOSITY_INI_DEFAULT:
+IE_TRACE:             12:46:21.993675 line      1966             return global_level
+IE_TRACE:             12:46:21.993697 return    1966             return global_level
+IE_TRACE:             Return value:.. 0
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py
+IE_TRACE:         New var:....... verbosity = 0
+IE_TRACE:         12:46:21.993723 line       448     if verbosity >= 2:
+IE_TRACE:         12:46:21.993749 line       450     if verbosity >= 1:
+IE_TRACE:         12:46:21.993768 line       452     return DEFAULT_REPR_MAX_SIZE
+IE_TRACE:         12:46:21.993788 return     452     return DEFAULT_REPR_MAX_SIZE
+IE_TRACE:         Return value:.. 240
+IE_TRACE:     New var:....... maxsize = 240
+IE_TRACE:     12:46:21.993810 line       437     if not maxsize:
+IE_TRACE:     12:46:21.993833 line       439     return saferepr(obj, maxsize=maxsize).replace("\n", "\\n")
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:         Starting var:.. obj = 'a'
+IE_TRACE:         Starting var:.. maxsize = 240
+IE_TRACE:         Starting var:.. use_ascii = False
+IE_TRACE:         12:46:21.993852 call        99 def saferepr(
+IE_TRACE:         12:46:21.993884 line       111     return SafeRepr(maxsize, use_ascii).repr(obj)
+IE_TRACE:             Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cd0d7590>
+IE_TRACE:             Starting var:.. maxsize = 240
+IE_TRACE:             Starting var:.. use_ascii = False
+IE_TRACE:             Starting var:.. __class__ = <class '_pytest._io.saferepr.SafeRepr'>
+IE_TRACE:             12:46:21.993905 call        42     def __init__(self, maxsize: int | None, use_ascii: bool = False) -> None:
+IE_TRACE:             12:46:21.993938 line        49         super().__init__()
+IE_TRACE:                 Source path:... /usr/lib/python3.12/reprlib.py
+IE_TRACE:                 Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cd0d7590>
+IE_TRACE:                 Starting var:.. maxlevel = 6
+IE_TRACE:                 Starting var:.. maxtuple = 6
+IE_TRACE:                 Starting var:.. maxlist = 6
+IE_TRACE:                 Starting var:.. maxarray = 5
+IE_TRACE:                 Starting var:.. maxdict = 4
+IE_TRACE:                 Starting var:.. maxset = 6
+IE_TRACE:                 Starting var:.. maxfrozenset = 6
+IE_TRACE:                 Starting var:.. maxdeque = 6
+IE_TRACE:                 Starting var:.. maxstring = 30
+IE_TRACE:                 Starting var:.. maxlong = 40
+IE_TRACE:                 Starting var:.. maxother = 30
+IE_TRACE:                 Starting var:.. fillvalue = '...'
+IE_TRACE:                 Starting var:.. indent = None
+IE_TRACE:                 12:46:21.993961 call        39     def __init__(
+IE_TRACE:                 12:46:21.994058 line        44         self.maxlevel = maxlevel
+IE_TRACE:                 12:46:21.994089 line        45         self.maxtuple = maxtuple
+IE_TRACE:                 12:46:21.994119 line        46         self.maxlist = maxlist
+IE_TRACE:                 12:46:21.994148 line        47         self.maxarray = maxarray
+IE_TRACE:                 12:46:21.994177 line        48         self.maxdict = maxdict
+IE_TRACE:                 12:46:21.994209 line        49         self.maxset = maxset
+IE_TRACE:                 12:46:21.994238 line        50         self.maxfrozenset = maxfrozenset
+IE_TRACE:                 12:46:21.994267 line        51         self.maxdeque = maxdeque
+IE_TRACE:                 12:46:21.994295 line        52         self.maxstring = maxstring
+IE_TRACE:                 12:46:21.994324 line        53         self.maxlong = maxlong
+IE_TRACE:                 12:46:21.994352 line        54         self.maxother = maxother
+IE_TRACE:                 12:46:21.994381 line        55         self.fillvalue = fillvalue
+IE_TRACE:                 12:46:21.994410 line        56         self.indent = indent
+IE_TRACE:                 12:46:21.994439 return      56         self.indent = indent
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:             12:46:21.994472 line        53         self.maxstring = maxsize if maxsize is not None else 1_000_000_000
+IE_TRACE:             12:46:21.994497 line        54         self.maxsize = maxsize
+IE_TRACE:             12:46:21.994518 line        55         self.use_ascii = use_ascii
+IE_TRACE:             12:46:21.994541 return      55         self.use_ascii = use_ascii
+IE_TRACE:             Return value:.. None
+IE_TRACE:             Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cd0d7590>
+IE_TRACE:             Starting var:.. x = 'a'
+IE_TRACE:             Starting var:.. __class__ = <class '_pytest._io.saferepr.SafeRepr'>
+IE_TRACE:             12:46:21.994566 call        57     def repr(self, x: object) -> str:
+IE_TRACE:             12:46:21.994596 line        58         try:
+IE_TRACE:             12:46:21.994617 line        59             if self.use_ascii:
+IE_TRACE:             12:46:21.994638 line        62                 s = super().repr(x)
+IE_TRACE:                 Source path:... /usr/lib/python3.12/reprlib.py
+IE_TRACE:                 Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cd0d7590>
+IE_TRACE:                 Starting var:.. x = 'a'
+IE_TRACE:                 12:46:21.994659 call        58     def repr(self, x):
+IE_TRACE:                 12:46:21.994687 line        59         return self.repr1(x, self.maxlevel)
+IE_TRACE:                     Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cd0d7590>
+IE_TRACE:                     Starting var:.. x = 'a'
+IE_TRACE:                     Starting var:.. level = 6
+IE_TRACE:                     12:46:21.994708 call        61     def repr1(self, x, level):
+IE_TRACE:                     12:46:21.994737 line        62         typename = type(x).__name__
+IE_TRACE:                     New var:....... typename = 'str'
+IE_TRACE:                     12:46:21.994759 line        63         if ' ' in typename:
+IE_TRACE:                     12:46:21.994784 line        66         if hasattr(self, 'repr_' + typename):
+IE_TRACE:                     12:46:21.994807 line        67             return getattr(self, 'repr_' + typename)(x, level)
+IE_TRACE:                         Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cd0d7590>
+IE_TRACE:                         Starting var:.. x = 'a'
+IE_TRACE:                         Starting var:.. level = 6
+IE_TRACE:                         12:46:21.994833 call       152     def repr_str(self, x, level):
+IE_TRACE:                         12:46:21.994863 line       153         s = builtins.repr(x[:self.maxstring])
+IE_TRACE:                         New var:....... s = "'a'"
+IE_TRACE:                         12:46:21.994887 line       154         if len(s) > self.maxstring:
+IE_TRACE:                         12:46:21.994912 line       159         return s
+IE_TRACE:                         12:46:21.994935 return     159         return s
+IE_TRACE:                         Return value:.. "'a'"
+IE_TRACE:                     12:46:21.994961 return      67             return getattr(self, 'repr_' + typename)(x, level)
+IE_TRACE:                     Return value:.. "'a'"
+IE_TRACE:                 12:46:21.994987 return      59         return self.repr1(x, self.maxlevel)
+IE_TRACE:                 Return value:.. "'a'"
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:             New var:....... s = "'a'"
+IE_TRACE:             12:46:21.995010 line        67         if self.maxsize is not None:
+IE_TRACE:             12:46:21.995037 line        68             s = _ellipsize(s, self.maxsize)
+IE_TRACE:                 Starting var:.. s = "'a'"
+IE_TRACE:                 Starting var:.. maxsize = 240
+IE_TRACE:                 12:46:21.995059 call        28 def _ellipsize(s: str, maxsize: int) -> str:
+IE_TRACE:                 12:46:21.995086 line        29     if len(s) > maxsize:
+IE_TRACE:                 12:46:21.995106 line        33     return s
+IE_TRACE:                 12:46:21.995126 return      33     return s
+IE_TRACE:                 Return value:.. "'a'"
+IE_TRACE:             12:46:21.995149 line        69         return s
+IE_TRACE:             12:46:21.995171 return      69         return s
+IE_TRACE:             Return value:.. "'a'"
+IE_TRACE:         12:46:21.995198 return     111     return SafeRepr(maxsize, use_ascii).repr(obj)
+IE_TRACE:         Return value:.. "'a'"
+IE_TRACE:     Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py
+IE_TRACE:     12:46:21.995224 return     439     return saferepr(obj, maxsize=maxsize).replace("\n", "\\n")
+IE_TRACE:     Return value:.. "'a'"
+IE_TRACE:     Starting var:.. obj = 'a'
+IE_TRACE:     12:46:21.995251 call       422 def _saferepr(obj: object) -> str:
+IE_TRACE:     12:46:21.995272 line       432     if isinstance(obj, types.MethodType):
+IE_TRACE:     12:46:21.995291 line       436     maxsize = _get_maxsize_for_saferepr(util._config)
+IE_TRACE:         Starting var:.. config = <_pytest.config.Config object at 0x71e5ce27c6b0>
+IE_TRACE:         12:46:21.995310 call       442 def _get_maxsize_for_saferepr(config: Config | None) -> int | None:
+IE_TRACE:         12:46:21.995332 line       444     if config is None:
+IE_TRACE:         12:46:21.995351 line       447         verbosity = config.get_verbosity(Config.VERBOSITY_ASSERTIONS)
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/config/__init__.py
+IE_TRACE:             Starting var:.. self = <_pytest.config.Config object at 0x71e5ce27c6b0>
+IE_TRACE:             Starting var:.. verbosity_type = 'assertions'
+IE_TRACE:             12:46:21.995370 call      1916     def get_verbosity(self, verbosity_type: str | None = None) -> int:
+IE_TRACE:             12:46:21.995399 line      1955         global_level = self.getoption("verbose", default=0)
+IE_TRACE:                 Starting var:.. self = <_pytest.config.Config object at 0x71e5ce27c6b0>
+IE_TRACE:                 Starting var:.. name = 'verbose'
+IE_TRACE:                 Starting var:.. default = 0
+IE_TRACE:                 Starting var:.. skip = False
+IE_TRACE:                 12:46:21.995420 call      1874     def getoption(self, name: str, default: Any = notset, skip: bool = False):
+IE_TRACE:                 12:46:21.995453 line      1884         name = self._opt2dest.get(name, name)
+IE_TRACE:                 12:46:21.995476 line      1885         try:
+IE_TRACE:                 12:46:21.995498 line      1886             val = getattr(self.option, name)
+IE_TRACE:                 New var:....... val = 0
+IE_TRACE:                 12:46:21.995520 line      1887             if val is None and skip:
+IE_TRACE:                 12:46:21.995546 line      1889             return val
+IE_TRACE:                 12:46:21.995568 return    1889             return val
+IE_TRACE:                 Return value:.. 0
+IE_TRACE:             New var:....... global_level = 0
+IE_TRACE:             12:46:21.995594 line      1956         assert isinstance(global_level, int)
+IE_TRACE:             12:46:21.995618 line      1957         if verbosity_type is None:
+IE_TRACE:             12:46:21.995639 line      1960         ini_name = Config._verbosity_ini_name(verbosity_type)
+IE_TRACE:                 Starting var:.. verbosity_type = 'assertions'
+IE_TRACE:                 12:46:21.995660 call      1971     def _verbosity_ini_name(verbosity_type: str) -> str:
+IE_TRACE:                 12:46:21.995682 line      1972         return f"verbosity_{verbosity_type}"
+IE_TRACE:                 12:46:21.995701 return    1972         return f"verbosity_{verbosity_type}"
+IE_TRACE:                 Return value:.. 'verbosity_assertions'
+IE_TRACE:             New var:....... ini_name = 'verbosity_assertions'
+IE_TRACE:             12:46:21.995724 line      1961         if ini_name not in self._parser._inidict:
+IE_TRACE:             12:46:21.995748 line      1964         level = self.getini(ini_name)
+IE_TRACE:                 Starting var:.. self = <_pytest.config.Config object at 0x71e5ce27c6b0>
+IE_TRACE:                 Starting var:.. name = 'verbosity_assertions'
+IE_TRACE:                 12:46:21.995771 call      1627     def getini(self, name: str) -> Any:
+IE_TRACE:                 12:46:21.995796 line      1657         canonical_name = self._parser._ini_aliases.get(name, name)
+IE_TRACE:                 New var:....... canonical_name = 'verbosity_assertions'
+IE_TRACE:                 12:46:21.995817 line      1658         try:
+IE_TRACE:                 12:46:21.995840 line      1659             return self._inicache[canonical_name]
+IE_TRACE:                 12:46:21.995861 return    1659             return self._inicache[canonical_name]
+IE_TRACE:                 Return value:.. 'auto'
+IE_TRACE:             New var:....... level = 'auto'
+IE_TRACE:             12:46:21.995885 line      1965         if level == Config._VERBOSITY_INI_DEFAULT:
+IE_TRACE:             12:46:21.995911 line      1966             return global_level
+IE_TRACE:             12:46:21.995933 return    1966             return global_level
+IE_TRACE:             Return value:.. 0
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py
+IE_TRACE:         New var:....... verbosity = 0
+IE_TRACE:         12:46:21.995959 line       448     if verbosity >= 2:
+IE_TRACE:         12:46:21.995984 line       450     if verbosity >= 1:
+IE_TRACE:         12:46:21.996003 line       452     return DEFAULT_REPR_MAX_SIZE
+IE_TRACE:         12:46:21.996022 return     452     return DEFAULT_REPR_MAX_SIZE
+IE_TRACE:         Return value:.. 240
+IE_TRACE:     New var:....... maxsize = 240
+IE_TRACE:     12:46:21.996045 line       437     if not maxsize:
+IE_TRACE:     12:46:21.996067 line       439     return saferepr(obj, maxsize=maxsize).replace("\n", "\\n")
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:         Starting var:.. obj = 'a'
+IE_TRACE:         Starting var:.. maxsize = 240
+IE_TRACE:         Starting var:.. use_ascii = False
+IE_TRACE:         12:46:21.996086 call        99 def saferepr(
+IE_TRACE:         12:46:21.996117 line       111     return SafeRepr(maxsize, use_ascii).repr(obj)
+IE_TRACE:             Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cc1ef590>
+IE_TRACE:             Starting var:.. maxsize = 240
+IE_TRACE:             Starting var:.. use_ascii = False
+IE_TRACE:             Starting var:.. __class__ = <class '_pytest._io.saferepr.SafeRepr'>
+IE_TRACE:             12:46:21.996138 call        42     def __init__(self, maxsize: int | None, use_ascii: bool = False) -> None:
+IE_TRACE:             12:46:21.996170 line        49         super().__init__()
+IE_TRACE:                 Source path:... /usr/lib/python3.12/reprlib.py
+IE_TRACE:                 Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cc1ef590>
+IE_TRACE:                 Starting var:.. maxlevel = 6
+IE_TRACE:                 Starting var:.. maxtuple = 6
+IE_TRACE:                 Starting var:.. maxlist = 6
+IE_TRACE:                 Starting var:.. maxarray = 5
+IE_TRACE:                 Starting var:.. maxdict = 4
+IE_TRACE:                 Starting var:.. maxset = 6
+IE_TRACE:                 Starting var:.. maxfrozenset = 6
+IE_TRACE:                 Starting var:.. maxdeque = 6
+IE_TRACE:                 Starting var:.. maxstring = 30
+IE_TRACE:                 Starting var:.. maxlong = 40
+IE_TRACE:                 Starting var:.. maxother = 30
+IE_TRACE:                 Starting var:.. fillvalue = '...'
+IE_TRACE:                 Starting var:.. indent = None
+IE_TRACE:                 12:46:21.996193 call        39     def __init__(
+IE_TRACE:                 12:46:21.996262 line        44         self.maxlevel = maxlevel
+IE_TRACE:                 12:46:21.996292 line        45         self.maxtuple = maxtuple
+IE_TRACE:                 12:46:21.996321 line        46         self.maxlist = maxlist
+IE_TRACE:                 12:46:21.996350 line        47         self.maxarray = maxarray
+IE_TRACE:                 12:46:21.996379 line        48         self.maxdict = maxdict
+IE_TRACE:                 12:46:21.996408 line        49         self.maxset = maxset
+IE_TRACE:                 12:46:21.996437 line        50         self.maxfrozenset = maxfrozenset
+IE_TRACE:                 12:46:21.996466 line        51         self.maxdeque = maxdeque
+IE_TRACE:                 12:46:21.996495 line        52         self.maxstring = maxstring
+IE_TRACE:                 12:46:21.996524 line        53         self.maxlong = maxlong
+IE_TRACE:                 12:46:21.996553 line        54         self.maxother = maxother
+IE_TRACE:                 12:46:21.996582 line        55         self.fillvalue = fillvalue
+IE_TRACE:                 12:46:21.996610 line        56         self.indent = indent
+IE_TRACE:                 12:46:21.996639 return      56         self.indent = indent
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:             12:46:21.996672 line        53         self.maxstring = maxsize if maxsize is not None else 1_000_000_000
+IE_TRACE:             12:46:21.996696 line        54         self.maxsize = maxsize
+IE_TRACE:             12:46:21.996717 line        55         self.use_ascii = use_ascii
+IE_TRACE:             12:46:21.996738 return      55         self.use_ascii = use_ascii
+IE_TRACE:             Return value:.. None
+IE_TRACE:             Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cc1ef590>
+IE_TRACE:             Starting var:.. x = 'a'
+IE_TRACE:             Starting var:.. __class__ = <class '_pytest._io.saferepr.SafeRepr'>
+IE_TRACE:             12:46:21.996764 call        57     def repr(self, x: object) -> str:
+IE_TRACE:             12:46:21.996793 line        58         try:
+IE_TRACE:             12:46:21.996814 line        59             if self.use_ascii:
+IE_TRACE:             12:46:21.996835 line        62                 s = super().repr(x)
+IE_TRACE:                 Source path:... /usr/lib/python3.12/reprlib.py
+IE_TRACE:                 Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cc1ef590>
+IE_TRACE:                 Starting var:.. x = 'a'
+IE_TRACE:                 12:46:21.996856 call        58     def repr(self, x):
+IE_TRACE:                 12:46:21.996883 line        59         return self.repr1(x, self.maxlevel)
+IE_TRACE:                     Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cc1ef590>
+IE_TRACE:                     Starting var:.. x = 'a'
+IE_TRACE:                     Starting var:.. level = 6
+IE_TRACE:                     12:46:21.996904 call        61     def repr1(self, x, level):
+IE_TRACE:                     12:46:21.996933 line        62         typename = type(x).__name__
+IE_TRACE:                     New var:....... typename = '_Alpha'
+IE_TRACE:                     12:46:21.996954 line        63         if ' ' in typename:
+IE_TRACE:                     12:46:21.996979 line        66         if hasattr(self, 'repr_' + typename):
+IE_TRACE:                     12:46:21.997001 line        69             return self.repr_instance(x, level)
+IE_TRACE:                         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:                         Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cc1ef590>
+IE_TRACE:                         Starting var:.. x = 'a'
+IE_TRACE:                         Starting var:.. level = 6
+IE_TRACE:                         12:46:21.997023 call        71     def repr_instance(self, x: object, level: int) -> str:
+IE_TRACE:                         12:46:21.997056 line        72         try:
+IE_TRACE:                         12:46:21.997077 line        73             s = repr(x)
+IE_TRACE:                             Source path:... /path/to/BugsInPy/workspace/ansible/lib/ansible/utils/version.py
+IE_TRACE:                             Starting var:.. self = 'a'
+IE_TRACE:                             12:46:21.997099 call        51     def __repr__(self):
+IE_TRACE:                             12:46:21.997124 line        52         return repr(self.specifier)
+IE_TRACE:                             12:46:21.997144 return      52         return repr(self.specifier)
+IE_TRACE:                             Return value:.. "'a'"
+IE_TRACE:                         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:                         New var:....... s = "'a'"
+IE_TRACE:                         12:46:21.997171 line        78         if self.maxsize is not None:
+IE_TRACE:                         12:46:21.997200 line        79             s = _ellipsize(s, self.maxsize)
+IE_TRACE:                             Starting var:.. s = "'a'"
+IE_TRACE:                             Starting var:.. maxsize = 240
+IE_TRACE:                             12:46:21.997223 call        28 def _ellipsize(s: str, maxsize: int) -> str:
+IE_TRACE:                             12:46:21.997249 line        29     if len(s) > maxsize:
+IE_TRACE:                             12:46:21.997269 line        33     return s
+IE_TRACE:                             12:46:21.997290 return      33     return s
+IE_TRACE:                             Return value:.. "'a'"
+IE_TRACE:                         12:46:21.997314 line        80         return s
+IE_TRACE:                         12:46:21.997336 return      80         return s
+IE_TRACE:                         Return value:.. "'a'"
+IE_TRACE:                     Source path:... /usr/lib/python3.12/reprlib.py
+IE_TRACE:                     12:46:21.997362 return      69             return self.repr_instance(x, level)
+IE_TRACE:                     Return value:.. "'a'"
+IE_TRACE:                 12:46:21.997390 return      59         return self.repr1(x, self.maxlevel)
+IE_TRACE:                 Return value:.. "'a'"
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:             New var:....... s = "'a'"
+IE_TRACE:             12:46:21.997413 line        67         if self.maxsize is not None:
+IE_TRACE:             12:46:21.997440 line        68             s = _ellipsize(s, self.maxsize)
+IE_TRACE:                 Starting var:.. s = "'a'"
+IE_TRACE:                 Starting var:.. maxsize = 240
+IE_TRACE:                 12:46:21.997462 call        28 def _ellipsize(s: str, maxsize: int) -> str:
+IE_TRACE:                 12:46:21.997487 line        29     if len(s) > maxsize:
+IE_TRACE:                 12:46:21.997507 line        33     return s
+IE_TRACE:                 12:46:21.997527 return      33     return s
+IE_TRACE:                 Return value:.. "'a'"
+IE_TRACE:             12:46:21.997550 line        69         return s
+IE_TRACE:             12:46:21.997571 return      69         return s
+IE_TRACE:             Return value:.. "'a'"
+IE_TRACE:         12:46:21.997596 return     111     return SafeRepr(maxsize, use_ascii).repr(obj)
+IE_TRACE:         Return value:.. "'a'"
+IE_TRACE:     Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py
+IE_TRACE:     12:46:21.997620 return     439     return saferepr(obj, maxsize=maxsize).replace("\n", "\\n")
+IE_TRACE:     Return value:.. "'a'"
+IE_TRACE:     Starting var:.. obj = <class 'ansible.utils.version._Alpha'>
+IE_TRACE:     12:46:21.997648 call       477 def _should_repr_global_name(obj: object) -> bool:
+IE_TRACE:     12:46:21.997669 line       478     if callable(obj):
+IE_TRACE:     12:46:21.997688 line       480         return isinstance(obj, FixtureFunctionDefinition)
+IE_TRACE:     12:46:21.997706 return     480         return isinstance(obj, FixtureFunctionDefinition)
+IE_TRACE:     Return value:.. False
+IE_TRACE:     Starting var:.. obj = 'a'
+IE_TRACE:     12:46:21.997735 call       422 def _saferepr(obj: object) -> str:
+IE_TRACE:     12:46:21.997756 line       432     if isinstance(obj, types.MethodType):
+IE_TRACE:     12:46:21.997774 line       436     maxsize = _get_maxsize_for_saferepr(util._config)
+IE_TRACE:         Starting var:.. config = <_pytest.config.Config object at 0x71e5ce27c6b0>
+IE_TRACE:         12:46:21.997793 call       442 def _get_maxsize_for_saferepr(config: Config | None) -> int | None:
+IE_TRACE:         12:46:21.997814 line       444     if config is None:
+IE_TRACE:         12:46:21.997833 line       447         verbosity = config.get_verbosity(Config.VERBOSITY_ASSERTIONS)
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/config/__init__.py
+IE_TRACE:             Starting var:.. self = <_pytest.config.Config object at 0x71e5ce27c6b0>
+IE_TRACE:             Starting var:.. verbosity_type = 'assertions'
+IE_TRACE:             12:46:21.997853 call      1916     def get_verbosity(self, verbosity_type: str | None = None) -> int:
+IE_TRACE:             12:46:21.997881 line      1955         global_level = self.getoption("verbose", default=0)
+IE_TRACE:                 Starting var:.. self = <_pytest.config.Config object at 0x71e5ce27c6b0>
+IE_TRACE:                 Starting var:.. name = 'verbose'
+IE_TRACE:                 Starting var:.. default = 0
+IE_TRACE:                 Starting var:.. skip = False
+IE_TRACE:                 12:46:21.997902 call      1874     def getoption(self, name: str, default: Any = notset, skip: bool = False):
+IE_TRACE:                 12:46:21.997934 line      1884         name = self._opt2dest.get(name, name)
+IE_TRACE:                 12:46:21.997957 line      1885         try:
+IE_TRACE:                 12:46:21.997979 line      1886             val = getattr(self.option, name)
+IE_TRACE:                 New var:....... val = 0
+IE_TRACE:                 12:46:21.998001 line      1887             if val is None and skip:
+IE_TRACE:                 12:46:21.998026 line      1889             return val
+IE_TRACE:                 12:46:21.998049 return    1889             return val
+IE_TRACE:                 Return value:.. 0
+IE_TRACE:             New var:....... global_level = 0
+IE_TRACE:             12:46:21.998075 line      1956         assert isinstance(global_level, int)
+IE_TRACE:             12:46:21.998098 line      1957         if verbosity_type is None:
+IE_TRACE:             12:46:21.998119 line      1960         ini_name = Config._verbosity_ini_name(verbosity_type)
+IE_TRACE:                 Starting var:.. verbosity_type = 'assertions'
+IE_TRACE:                 12:46:21.998140 call      1971     def _verbosity_ini_name(verbosity_type: str) -> str:
+IE_TRACE:                 12:46:21.998162 line      1972         return f"verbosity_{verbosity_type}"
+IE_TRACE:                 12:46:21.998181 return    1972         return f"verbosity_{verbosity_type}"
+IE_TRACE:                 Return value:.. 'verbosity_assertions'
+IE_TRACE:             New var:....... ini_name = 'verbosity_assertions'
+IE_TRACE:             12:46:21.998204 line      1961         if ini_name not in self._parser._inidict:
+IE_TRACE:             12:46:21.998229 line      1964         level = self.getini(ini_name)
+IE_TRACE:                 Starting var:.. self = <_pytest.config.Config object at 0x71e5ce27c6b0>
+IE_TRACE:                 Starting var:.. name = 'verbosity_assertions'
+IE_TRACE:                 12:46:21.998251 call      1627     def getini(self, name: str) -> Any:
+IE_TRACE:                 12:46:21.998276 line      1657         canonical_name = self._parser._ini_aliases.get(name, name)
+IE_TRACE:                 New var:....... canonical_name = 'verbosity_assertions'
+IE_TRACE:                 12:46:21.998296 line      1658         try:
+IE_TRACE:                 12:46:21.998320 line      1659             return self._inicache[canonical_name]
+IE_TRACE:                 12:46:21.998341 return    1659             return self._inicache[canonical_name]
+IE_TRACE:                 Return value:.. 'auto'
+IE_TRACE:             New var:....... level = 'auto'
+IE_TRACE:             12:46:21.998365 line      1965         if level == Config._VERBOSITY_INI_DEFAULT:
+IE_TRACE:             12:46:21.998390 line      1966             return global_level
+IE_TRACE:             12:46:21.998412 return    1966             return global_level
+IE_TRACE:             Return value:.. 0
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py
+IE_TRACE:         New var:....... verbosity = 0
+IE_TRACE:         12:46:21.998437 line       448     if verbosity >= 2:
+IE_TRACE:         12:46:21.998463 line       450     if verbosity >= 1:
+IE_TRACE:         12:46:21.998482 line       452     return DEFAULT_REPR_MAX_SIZE
+IE_TRACE:         12:46:21.998501 return     452     return DEFAULT_REPR_MAX_SIZE
+IE_TRACE:         Return value:.. 240
+IE_TRACE:     New var:....... maxsize = 240
+IE_TRACE:     12:46:21.998524 line       437     if not maxsize:
+IE_TRACE:     12:46:21.998545 line       439     return saferepr(obj, maxsize=maxsize).replace("\n", "\\n")
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:         Starting var:.. obj = 'a'
+IE_TRACE:         Starting var:.. maxsize = 240
+IE_TRACE:         Starting var:.. use_ascii = False
+IE_TRACE:         12:46:21.998565 call        99 def saferepr(
+IE_TRACE:         12:46:21.998596 line       111     return SafeRepr(maxsize, use_ascii).repr(obj)
+IE_TRACE:             Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cc1ef590>
+IE_TRACE:             Starting var:.. maxsize = 240
+IE_TRACE:             Starting var:.. use_ascii = False
+IE_TRACE:             Starting var:.. __class__ = <class '_pytest._io.saferepr.SafeRepr'>
+IE_TRACE:             12:46:21.998616 call        42     def __init__(self, maxsize: int | None, use_ascii: bool = False) -> None:
+IE_TRACE:             12:46:21.998648 line        49         super().__init__()
+IE_TRACE:                 Source path:... /usr/lib/python3.12/reprlib.py
+IE_TRACE:                 Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cc1ef590>
+IE_TRACE:                 Starting var:.. maxlevel = 6
+IE_TRACE:                 Starting var:.. maxtuple = 6
+IE_TRACE:                 Starting var:.. maxlist = 6
+IE_TRACE:                 Starting var:.. maxarray = 5
+IE_TRACE:                 Starting var:.. maxdict = 4
+IE_TRACE:                 Starting var:.. maxset = 6
+IE_TRACE:                 Starting var:.. maxfrozenset = 6
+IE_TRACE:                 Starting var:.. maxdeque = 6
+IE_TRACE:                 Starting var:.. maxstring = 30
+IE_TRACE:                 Starting var:.. maxlong = 40
+IE_TRACE:                 Starting var:.. maxother = 30
+IE_TRACE:                 Starting var:.. fillvalue = '...'
+IE_TRACE:                 Starting var:.. indent = None
+IE_TRACE:                 12:46:21.998670 call        39     def __init__(
+IE_TRACE:                 12:46:21.998738 line        44         self.maxlevel = maxlevel
+IE_TRACE:                 12:46:21.998767 line        45         self.maxtuple = maxtuple
+IE_TRACE:                 12:46:21.998797 line        46         self.maxlist = maxlist
+IE_TRACE:                 12:46:21.998826 line        47         self.maxarray = maxarray
+IE_TRACE:                 12:46:21.998854 line        48         self.maxdict = maxdict
+IE_TRACE:                 12:46:21.998884 line        49         self.maxset = maxset
+IE_TRACE:                 12:46:21.998912 line        50         self.maxfrozenset = maxfrozenset
+IE_TRACE:                 12:46:21.998941 line        51         self.maxdeque = maxdeque
+IE_TRACE:                 12:46:21.998970 line        52         self.maxstring = maxstring
+IE_TRACE:                 12:46:21.998999 line        53         self.maxlong = maxlong
+IE_TRACE:                 12:46:21.999027 line        54         self.maxother = maxother
+IE_TRACE:                 12:46:21.999056 line        55         self.fillvalue = fillvalue
+IE_TRACE:                 12:46:21.999085 line        56         self.indent = indent
+IE_TRACE:                 12:46:21.999114 return      56         self.indent = indent
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:             12:46:21.999147 line        53         self.maxstring = maxsize if maxsize is not None else 1_000_000_000
+IE_TRACE:             12:46:21.999171 line        54         self.maxsize = maxsize
+IE_TRACE:             12:46:21.999192 line        55         self.use_ascii = use_ascii
+IE_TRACE:             12:46:21.999216 return      55         self.use_ascii = use_ascii
+IE_TRACE:             Return value:.. None
+IE_TRACE:             Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cc1ef590>
+IE_TRACE:             Starting var:.. x = 'a'
+IE_TRACE:             Starting var:.. __class__ = <class '_pytest._io.saferepr.SafeRepr'>
+IE_TRACE:             12:46:21.999241 call        57     def repr(self, x: object) -> str:
+IE_TRACE:             12:46:21.999270 line        58         try:
+IE_TRACE:             12:46:21.999291 line        59             if self.use_ascii:
+IE_TRACE:             12:46:21.999312 line        62                 s = super().repr(x)
+IE_TRACE:                 Source path:... /usr/lib/python3.12/reprlib.py
+IE_TRACE:                 Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cc1ef590>
+IE_TRACE:                 Starting var:.. x = 'a'
+IE_TRACE:                 12:46:21.999333 call        58     def repr(self, x):
+IE_TRACE:                 12:46:21.999361 line        59         return self.repr1(x, self.maxlevel)
+IE_TRACE:                     Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cc1ef590>
+IE_TRACE:                     Starting var:.. x = 'a'
+IE_TRACE:                     Starting var:.. level = 6
+IE_TRACE:                     12:46:21.999381 call        61     def repr1(self, x, level):
+IE_TRACE:                     12:46:21.999410 line        62         typename = type(x).__name__
+IE_TRACE:                     New var:....... typename = 'str'
+IE_TRACE:                     12:46:21.999431 line        63         if ' ' in typename:
+IE_TRACE:                     12:46:21.999456 line        66         if hasattr(self, 'repr_' + typename):
+IE_TRACE:                     12:46:21.999478 line        67             return getattr(self, 'repr_' + typename)(x, level)
+IE_TRACE:                         Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cc1ef590>
+IE_TRACE:                         Starting var:.. x = 'a'
+IE_TRACE:                         Starting var:.. level = 6
+IE_TRACE:                         12:46:21.999501 call       152     def repr_str(self, x, level):
+IE_TRACE:                         12:46:21.999531 line       153         s = builtins.repr(x[:self.maxstring])
+IE_TRACE:                         New var:....... s = "'a'"
+IE_TRACE:                         12:46:21.999553 line       154         if len(s) > self.maxstring:
+IE_TRACE:                         12:46:21.999579 line       159         return s
+IE_TRACE:                         12:46:21.999602 return     159         return s
+IE_TRACE:                         Return value:.. "'a'"
+IE_TRACE:                     12:46:21.999628 return      67             return getattr(self, 'repr_' + typename)(x, level)
+IE_TRACE:                     Return value:.. "'a'"
+IE_TRACE:                 12:46:21.999654 return      59         return self.repr1(x, self.maxlevel)
+IE_TRACE:                 Return value:.. "'a'"
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:             New var:....... s = "'a'"
+IE_TRACE:             12:46:21.999677 line        67         if self.maxsize is not None:
+IE_TRACE:             12:46:21.999704 line        68             s = _ellipsize(s, self.maxsize)
+IE_TRACE:                 Starting var:.. s = "'a'"
+IE_TRACE:                 Starting var:.. maxsize = 240
+IE_TRACE:                 12:46:21.999726 call        28 def _ellipsize(s: str, maxsize: int) -> str:
+IE_TRACE:                 12:46:21.999751 line        29     if len(s) > maxsize:
+IE_TRACE:                 12:46:21.999771 line        33     return s
+IE_TRACE:                 12:46:21.999791 return      33     return s
+IE_TRACE:                 Return value:.. "'a'"
+IE_TRACE:             12:46:21.999814 line        69         return s
+IE_TRACE:             12:46:21.999836 return      69         return s
+IE_TRACE:             Return value:.. "'a'"
+IE_TRACE:         12:46:21.999862 return     111     return SafeRepr(maxsize, use_ascii).repr(obj)
+IE_TRACE:         Return value:.. "'a'"
+IE_TRACE:     Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py
+IE_TRACE:     12:46:21.999886 return     439     return saferepr(obj, maxsize=maxsize).replace("\n", "\\n")
+IE_TRACE:     Return value:.. "'a'"
+IE_TRACE:     Starting var:.. obj = 'a'
+IE_TRACE:     12:46:21.999912 call       422 def _saferepr(obj: object) -> str:
+IE_TRACE:     12:46:21.999934 line       432     if isinstance(obj, types.MethodType):
+IE_TRACE:     12:46:21.999953 line       436     maxsize = _get_maxsize_for_saferepr(util._config)
+IE_TRACE:         Starting var:.. config = <_pytest.config.Config object at 0x71e5ce27c6b0>
+IE_TRACE:         12:46:21.999972 call       442 def _get_maxsize_for_saferepr(config: Config | None) -> int | None:
+IE_TRACE:         12:46:21.999993 line       444     if config is None:
+IE_TRACE:         12:46:22.000012 line       447         verbosity = config.get_verbosity(Config.VERBOSITY_ASSERTIONS)
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/config/__init__.py
+IE_TRACE:             Starting var:.. self = <_pytest.config.Config object at 0x71e5ce27c6b0>
+IE_TRACE:             Starting var:.. verbosity_type = 'assertions'
+IE_TRACE:             12:46:22.000031 call      1916     def get_verbosity(self, verbosity_type: str | None = None) -> int:
+IE_TRACE:             12:46:22.000060 line      1955         global_level = self.getoption("verbose", default=0)
+IE_TRACE:                 Starting var:.. self = <_pytest.config.Config object at 0x71e5ce27c6b0>
+IE_TRACE:                 Starting var:.. name = 'verbose'
+IE_TRACE:                 Starting var:.. default = 0
+IE_TRACE:                 Starting var:.. skip = False
+IE_TRACE:                 12:46:22.000080 call      1874     def getoption(self, name: str, default: Any = notset, skip: bool = False):
+IE_TRACE:                 12:46:22.000113 line      1884         name = self._opt2dest.get(name, name)
+IE_TRACE:                 12:46:22.000135 line      1885         try:
+IE_TRACE:                 12:46:22.000157 line      1886             val = getattr(self.option, name)
+IE_TRACE:                 New var:....... val = 0
+IE_TRACE:                 12:46:22.000179 line      1887             if val is None and skip:
+IE_TRACE:                 12:46:22.000206 line      1889             return val
+IE_TRACE:                 12:46:22.000229 return    1889             return val
+IE_TRACE:                 Return value:.. 0
+IE_TRACE:             New var:....... global_level = 0
+IE_TRACE:             12:46:22.000256 line      1956         assert isinstance(global_level, int)
+IE_TRACE:             12:46:22.000279 line      1957         if verbosity_type is None:
+IE_TRACE:             12:46:22.000300 line      1960         ini_name = Config._verbosity_ini_name(verbosity_type)
+IE_TRACE:                 Starting var:.. verbosity_type = 'assertions'
+IE_TRACE:                 12:46:22.000321 call      1971     def _verbosity_ini_name(verbosity_type: str) -> str:
+IE_TRACE:                 12:46:22.000343 line      1972         return f"verbosity_{verbosity_type}"
+IE_TRACE:                 12:46:22.000362 return    1972         return f"verbosity_{verbosity_type}"
+IE_TRACE:                 Return value:.. 'verbosity_assertions'
+IE_TRACE:             New var:....... ini_name = 'verbosity_assertions'
+IE_TRACE:             12:46:22.000384 line      1961         if ini_name not in self._parser._inidict:
+IE_TRACE:             12:46:22.000408 line      1964         level = self.getini(ini_name)
+IE_TRACE:                 Starting var:.. self = <_pytest.config.Config object at 0x71e5ce27c6b0>
+IE_TRACE:                 Starting var:.. name = 'verbosity_assertions'
+IE_TRACE:                 12:46:22.000430 call      1627     def getini(self, name: str) -> Any:
+IE_TRACE:                 12:46:22.000455 line      1657         canonical_name = self._parser._ini_aliases.get(name, name)
+IE_TRACE:                 New var:....... canonical_name = 'verbosity_assertions'
+IE_TRACE:                 12:46:22.000476 line      1658         try:
+IE_TRACE:                 12:46:22.000499 line      1659             return self._inicache[canonical_name]
+IE_TRACE:                 12:46:22.000520 return    1659             return self._inicache[canonical_name]
+IE_TRACE:                 Return value:.. 'auto'
+IE_TRACE:             New var:....... level = 'auto'
+IE_TRACE:             12:46:22.000544 line      1965         if level == Config._VERBOSITY_INI_DEFAULT:
+IE_TRACE:             12:46:22.000569 line      1966             return global_level
+IE_TRACE:             12:46:22.000591 return    1966             return global_level
+IE_TRACE:             Return value:.. 0
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py
+IE_TRACE:         New var:....... verbosity = 0
+IE_TRACE:         12:46:22.000616 line       448     if verbosity >= 2:
+IE_TRACE:         12:46:22.000641 line       450     if verbosity >= 1:
+IE_TRACE:         12:46:22.000660 line       452     return DEFAULT_REPR_MAX_SIZE
+IE_TRACE:         12:46:22.000679 return     452     return DEFAULT_REPR_MAX_SIZE
+IE_TRACE:         Return value:.. 240
+IE_TRACE:     New var:....... maxsize = 240
+IE_TRACE:     12:46:22.000701 line       437     if not maxsize:
+IE_TRACE:     12:46:22.000723 line       439     return saferepr(obj, maxsize=maxsize).replace("\n", "\\n")
+IE_TRACE:         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:         Starting var:.. obj = 'a'
+IE_TRACE:         Starting var:.. maxsize = 240
+IE_TRACE:         Starting var:.. use_ascii = False
+IE_TRACE:         12:46:22.000742 call        99 def saferepr(
+IE_TRACE:         12:46:22.000773 line       111     return SafeRepr(maxsize, use_ascii).repr(obj)
+IE_TRACE:             Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cc1ef590>
+IE_TRACE:             Starting var:.. maxsize = 240
+IE_TRACE:             Starting var:.. use_ascii = False
+IE_TRACE:             Starting var:.. __class__ = <class '_pytest._io.saferepr.SafeRepr'>
+IE_TRACE:             12:46:22.000793 call        42     def __init__(self, maxsize: int | None, use_ascii: bool = False) -> None:
+IE_TRACE:             12:46:22.000825 line        49         super().__init__()
+IE_TRACE:                 Source path:... /usr/lib/python3.12/reprlib.py
+IE_TRACE:                 Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cc1ef590>
+IE_TRACE:                 Starting var:.. maxlevel = 6
+IE_TRACE:                 Starting var:.. maxtuple = 6
+IE_TRACE:                 Starting var:.. maxlist = 6
+IE_TRACE:                 Starting var:.. maxarray = 5
+IE_TRACE:                 Starting var:.. maxdict = 4
+IE_TRACE:                 Starting var:.. maxset = 6
+IE_TRACE:                 Starting var:.. maxfrozenset = 6
+IE_TRACE:                 Starting var:.. maxdeque = 6
+IE_TRACE:                 Starting var:.. maxstring = 30
+IE_TRACE:                 Starting var:.. maxlong = 40
+IE_TRACE:                 Starting var:.. maxother = 30
+IE_TRACE:                 Starting var:.. fillvalue = '...'
+IE_TRACE:                 Starting var:.. indent = None
+IE_TRACE:                 12:46:22.000846 call        39     def __init__(
+IE_TRACE:                 12:46:22.000913 line        44         self.maxlevel = maxlevel
+IE_TRACE:                 12:46:22.000943 line        45         self.maxtuple = maxtuple
+IE_TRACE:                 12:46:22.000972 line        46         self.maxlist = maxlist
+IE_TRACE:                 12:46:22.001001 line        47         self.maxarray = maxarray
+IE_TRACE:                 12:46:22.001029 line        48         self.maxdict = maxdict
+IE_TRACE:                 12:46:22.001058 line        49         self.maxset = maxset
+IE_TRACE:                 12:46:22.001087 line        50         self.maxfrozenset = maxfrozenset
+IE_TRACE:                 12:46:22.001117 line        51         self.maxdeque = maxdeque
+IE_TRACE:                 12:46:22.001146 line        52         self.maxstring = maxstring
+IE_TRACE:                 12:46:22.001175 line        53         self.maxlong = maxlong
+IE_TRACE:                 12:46:22.001206 line        54         self.maxother = maxother
+IE_TRACE:                 12:46:22.001235 line        55         self.fillvalue = fillvalue
+IE_TRACE:                 12:46:22.001264 line        56         self.indent = indent
+IE_TRACE:                 12:46:22.001293 return      56         self.indent = indent
+IE_TRACE:                 Return value:.. None
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:             12:46:22.001325 line        53         self.maxstring = maxsize if maxsize is not None else 1_000_000_000
+IE_TRACE:             12:46:22.001349 line        54         self.maxsize = maxsize
+IE_TRACE:             12:46:22.001370 line        55         self.use_ascii = use_ascii
+IE_TRACE:             12:46:22.001391 return      55         self.use_ascii = use_ascii
+IE_TRACE:             Return value:.. None
+IE_TRACE:             Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cc1ef590>
+IE_TRACE:             Starting var:.. x = 'a'
+IE_TRACE:             Starting var:.. __class__ = <class '_pytest._io.saferepr.SafeRepr'>
+IE_TRACE:             12:46:22.001416 call        57     def repr(self, x: object) -> str:
+IE_TRACE:             12:46:22.001445 line        58         try:
+IE_TRACE:             12:46:22.001466 line        59             if self.use_ascii:
+IE_TRACE:             12:46:22.001487 line        62                 s = super().repr(x)
+IE_TRACE:                 Source path:... /usr/lib/python3.12/reprlib.py
+IE_TRACE:                 Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cc1ef590>
+IE_TRACE:                 Starting var:.. x = 'a'
+IE_TRACE:                 12:46:22.001508 call        58     def repr(self, x):
+IE_TRACE:                 12:46:22.001536 line        59         return self.repr1(x, self.maxlevel)
+IE_TRACE:                     Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cc1ef590>
+IE_TRACE:                     Starting var:.. x = 'a'
+IE_TRACE:                     Starting var:.. level = 6
+IE_TRACE:                     12:46:22.001556 call        61     def repr1(self, x, level):
+IE_TRACE:                     12:46:22.001585 line        62         typename = type(x).__name__
+IE_TRACE:                     New var:....... typename = '_Alpha'
+IE_TRACE:                     12:46:22.001606 line        63         if ' ' in typename:
+IE_TRACE:                     12:46:22.001631 line        66         if hasattr(self, 'repr_' + typename):
+IE_TRACE:                     12:46:22.001653 line        69             return self.repr_instance(x, level)
+IE_TRACE:                         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:                         Starting var:.. self = <_pytest._io.saferepr.SafeRepr object at 0x71e5cc1ef590>
+IE_TRACE:                         Starting var:.. x = 'a'
+IE_TRACE:                         Starting var:.. level = 6
+IE_TRACE:                         12:46:22.001675 call        71     def repr_instance(self, x: object, level: int) -> str:
+IE_TRACE:                         12:46:22.001707 line        72         try:
+IE_TRACE:                         12:46:22.001729 line        73             s = repr(x)
+IE_TRACE:                             Source path:... /path/to/BugsInPy/workspace/ansible/lib/ansible/utils/version.py
+IE_TRACE:                             Starting var:.. self = 'a'
+IE_TRACE:                             12:46:22.001750 call        51     def __repr__(self):
+IE_TRACE:                             12:46:22.001775 line        52         return repr(self.specifier)
+IE_TRACE:                             12:46:22.001794 return      52         return repr(self.specifier)
+IE_TRACE:                             Return value:.. "'a'"
+IE_TRACE:                         Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:                         New var:....... s = "'a'"
+IE_TRACE:                         12:46:22.001818 line        78         if self.maxsize is not None:
+IE_TRACE:                         12:46:22.001846 line        79             s = _ellipsize(s, self.maxsize)
+IE_TRACE:                             Starting var:.. s = "'a'"
+IE_TRACE:                             Starting var:.. maxsize = 240
+IE_TRACE:                             12:46:22.001868 call        28 def _ellipsize(s: str, maxsize: int) -> str:
+IE_TRACE:                             12:46:22.001894 line        29     if len(s) > maxsize:
+IE_TRACE:                             12:46:22.001915 line        33     return s
+IE_TRACE:                             12:46:22.001935 return      33     return s
+IE_TRACE:                             Return value:.. "'a'"
+IE_TRACE:                         12:46:22.001959 line        80         return s
+IE_TRACE:                         12:46:22.001981 return      80         return s
+IE_TRACE:                         Return value:.. "'a'"
+IE_TRACE:                     Source path:... /usr/lib/python3.12/reprlib.py
+IE_TRACE:                     12:46:22.002007 return      69             return self.repr_instance(x, level)
+IE_TRACE:                     Return value:.. "'a'"
+IE_TRACE:                 12:46:22.002035 return      59         return self.repr1(x, self.maxlevel)
+IE_TRACE:                 Return value:.. "'a'"
+IE_TRACE:             Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/_io/saferepr.py
+IE_TRACE:             New var:....... s = "'a'"
+IE_TRACE:             12:46:22.002058 line        67         if self.maxsize is not None:
+IE_TRACE:             12:46:22.002085 line        68             s = _ellipsize(s, self.maxsize)
+IE_TRACE:                 Starting var:.. s = "'a'"
+IE_TRACE:                 Starting var:.. maxsize = 240
+IE_TRACE:                 12:46:22.002107 call        28 def _ellipsize(s: str, maxsize: int) -> str:
+IE_TRACE:                 12:46:22.002132 line        29     if len(s) > maxsize:
+IE_TRACE:                 12:46:22.002152 line        33     return s
+IE_TRACE:                 12:46:22.002172 return      33     return s
+IE_TRACE:                 Return value:.. "'a'"
+IE_TRACE:             12:46:22.002197 line        69         return s
+IE_TRACE:             12:46:22.002225 return      69         return s
+IE_TRACE:             Return value:.. "'a'"
+IE_TRACE:         12:46:22.002253 return     111     return SafeRepr(maxsize, use_ascii).repr(obj)
+IE_TRACE:         Return value:.. "'a'"
+IE_TRACE:     Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py
+IE_TRACE:     12:46:22.002277 return     439     return saferepr(obj, maxsize=maxsize).replace("\n", "\\n")
+IE_TRACE:     Return value:.. "'a'"
+IE_TRACE:     Source path:... /path/to/.venv/lib/python3.12/site-packages/_pytest/assertion/util.py
+IE_TRACE:     Starting var:.. explanation = "assert not 'a'\n{'a' = _Alpha('a')\n} > 'a'\n{'a' = _Alpha('a')\n}"
+IE_TRACE:     12:46:22.002308 call        54 def format_explanation(explanation: str) -> str:
+IE_TRACE:     12:46:22.002334 line        64     lines = _split_explanation(explanation)
+IE_TRACE:         Starting var:.. explanation = "assert not 'a'\n{'a' = _Alpha('a')\n} > 'a'\n{'a' = _Alpha('a')\n}"
+IE_TRACE:         12:46:22.002357 call        69 def _split_explanation(explanation: str) -> list[str]:
+IE_TRACE:         12:46:22.002379 line        76     raw_lines = (explanation or "").split("\n")
+IE_TRACE:         New var:....... raw_lines = ["assert not 'a'", "{'a' = _Alpha('a')", "} > 'a'", "{'a' = _Alpha('a')", '}']
+IE_TRACE:         12:46:22.002399 line        77     lines = [raw_lines[0]]
+IE_TRACE:         New var:....... lines = ["assert not 'a'"]
+IE_TRACE:         12:46:22.002423 line        78     for values in raw_lines[1:]:
+IE_TRACE:         New var:....... values = "{'a' = _Alpha('a')"
+IE_TRACE:         12:46:22.002449 line        79         if values and values[0] in ["{", "}", "~", ">"]:
+IE_TRACE:         12:46:22.002474 line        80             lines.append(values)
+IE_TRACE:         Modified var:.. lines = ["assert not 'a'", "{'a' = _Alpha('a')"]
+IE_TRACE:         12:46:22.002496 line        78     for values in raw_lines[1:]:
+IE_TRACE:         Modified var:.. values = "} > 'a'"
+IE_TRACE:         12:46:22.002520 line        79         if values and values[0] in ["{", "}", "~", ">"]:
+IE_TRACE:         12:46:22.002544 line        80             lines.append(values)
+IE_TRACE:         Modified var:.. lines = ["assert not 'a'", "{'a' = _Alpha('a')", "} > 'a'"]
+IE_TRACE:         12:46:22.002565 line        78     for values in raw_lines[1:]:
+IE_TRACE:         Modified var:.. values = "{'a' = _Alpha('a')"
+IE_TRACE:         12:46:22.002589 line        79         if values and values[0] in ["{", "}", "~", ">"]:
+IE_TRACE:         12:46:22.002613 line        80             lines.append(values)
+IE_TRACE:         Modified var:.. lines = ["assert not 'a'", "{'a' = _Alpha('a')", "} > 'a'", "{'a' = _Alpha('a')"]
+IE_TRACE:         12:46:22.002634 line        78     for values in raw_lines[1:]:
+IE_TRACE:         Modified var:.. values = '}'
+IE_TRACE:         12:46:22.002657 line        79         if values and values[0] in ["{", "}", "~", ">"]:
+IE_TRACE:         12:46:22.002682 line        80             lines.append(values)
+IE_TRACE:         Modified var:.. lines = ["assert not 'a'", "{'a' = _Alpha('a')", "} > 'a'", "{'a' = _Alpha('a')", '}']
+IE_TRACE:         12:46:22.002703 line        78     for values in raw_lines[1:]:
+IE_TRACE:         12:46:22.002727 line        83     return lines
+IE_TRACE:         12:46:22.002748 return      83     return lines
+IE_TRACE:         Return value:.. ["assert not 'a'", "{'a' = _Alpha('a')", "} > 'a'", "{'a' = _Alpha('a')", '}']
+IE_TRACE:     New var:....... lines = ["assert not 'a'", "{'a' = _Alpha('a')", "} > 'a'", "{'a' = _Alpha('a')", '}']
+IE_TRACE:     12:46:22.002773 line        65     result = _format_lines(lines)
+IE_TRACE:         Starting var:.. lines = ["assert not 'a'", "{'a' = _Alpha('a')", "} > 'a'", "{'a' = _Alpha('a')", '}']
+IE_TRACE:         12:46:22.002803 call        86 def _format_lines(lines: Sequence[str]) -> list[str]:
+IE_TRACE:         12:46:22.002827 line        95     result = list(lines[:1])
+IE_TRACE:         New var:....... result = ["assert not 'a'"]
+IE_TRACE:         12:46:22.002848 line        96     stack = [0]
+IE_TRACE:         New var:....... stack = [0]
+IE_TRACE:         12:46:22.002871 line        97     stackcnt = [0]
+IE_TRACE:         New var:....... stackcnt = [0]
+IE_TRACE:         12:46:22.002895 line        98     for line in lines[1:]:
+IE_TRACE:         New var:....... line = "{'a' = _Alpha('a')"
+IE_TRACE:         12:46:22.002920 line        99         if line.startswith("{"):
+IE_TRACE:         12:46:22.002945 line       100             if stackcnt[-1]:
+IE_TRACE:         12:46:22.002968 line       103                 s = "where "
+IE_TRACE:         New var:....... s = 'where '
+IE_TRACE:         12:46:22.002990 line       104             stack.append(len(result))
+IE_TRACE:         Modified var:.. stack = [0, 1]
+IE_TRACE:         12:46:22.003017 line       105             stackcnt[-1] += 1
+IE_TRACE:         Modified var:.. stackcnt = [1]
+IE_TRACE:         12:46:22.003043 line       106             stackcnt.append(0)
+IE_TRACE:         Modified var:.. stackcnt = [1, 0]
+IE_TRACE:         12:46:22.003069 line       107             result.append(" +" + "  " * (len(stack) - 1) + s + line[1:])
+IE_TRACE:         Modified var:.. result = ["assert not 'a'", " +  where 'a' = _Alpha('a')"]
+IE_TRACE:         12:46:22.003095 line        98     for line in lines[1:]:
+IE_TRACE:         Modified var:.. line = "} > 'a'"
+IE_TRACE:         12:46:22.003121 line        99         if line.startswith("{"):
+IE_TRACE:         12:46:22.003147 line       108         elif line.startswith("}"):
+IE_TRACE:         12:46:22.003172 line       109             stack.pop()
+IE_TRACE:         Modified var:.. stack = [0]
+IE_TRACE:         12:46:22.003196 line       110             stackcnt.pop()
+IE_TRACE:         Modified var:.. stackcnt = [1]
+IE_TRACE:         12:46:22.003223 line       111             result[stack[-1]] += line[1:]
+IE_TRACE:         Modified var:.. result = ["assert not 'a' > 'a'", " +  where 'a' = _Alpha('a')"]
+IE_TRACE:         12:46:22.003249 line        98     for line in lines[1:]:
+IE_TRACE:         Modified var:.. line = "{'a' = _Alpha('a')"
+IE_TRACE:         12:46:22.003275 line        99         if line.startswith("{"):
+IE_TRACE:         12:46:22.003301 line       100             if stackcnt[-1]:
+IE_TRACE:         12:46:22.003324 line       101                 s = "and   "
+IE_TRACE:         Modified var:.. s = 'and   '
+IE_TRACE:         12:46:22.003347 line       104             stack.append(len(result))
+IE_TRACE:         Modified var:.. stack = [0, 2]
+IE_TRACE:         12:46:22.003373 line       105             stackcnt[-1] += 1
+IE_TRACE:         Modified var:.. stackcnt = [2]
+IE_TRACE:         12:46:22.003399 line       106             stackcnt.append(0)
+IE_TRACE:         Modified var:.. stackcnt = [2, 0]
+IE_TRACE:         12:46:22.003425 line       107             result.append(" +" + "  " * (len(stack) - 1) + s + line[1:])
+IE_TRACE:         Modified var:.. result = ["assert not 'a' > 'a'", " +  where 'a' = _Alpha('a')", " +  and   'a' = _Alpha('a')"]
+IE_TRACE:         12:46:22.003451 line        98     for line in lines[1:]:
+IE_TRACE:         Modified var:.. line = '}'
+IE_TRACE:         12:46:22.003477 line        99         if line.startswith("{"):
+IE_TRACE:         12:46:22.003503 line       108         elif line.startswith("}"):
+IE_TRACE:         12:46:22.003527 line       109             stack.pop()
+IE_TRACE:         Modified var:.. stack = [0]
+IE_TRACE:         12:46:22.003551 line       110             stackcnt.pop()
+IE_TRACE:         Modified var:.. stackcnt = [2]
+IE_TRACE:         12:46:22.003576 line       111             result[stack[-1]] += line[1:]
+IE_TRACE:         12:46:22.003602 line        98     for line in lines[1:]:
+IE_TRACE:         12:46:22.003626 line       117     assert len(stack) == 1
+IE_TRACE:         12:46:22.003650 line       118     return result
+IE_TRACE:         12:46:22.003673 return     118     return result
+IE_TRACE:         Return value:.. ["assert not 'a' > 'a'", " +  where 'a' = _Alpha('a')", " +  and   'a' = _Alpha('a')"]
+IE_TRACE:     New var:....... result = ["assert not 'a' > 'a'", " +  where 'a' = _Alpha('a')", " +  and   'a' = _Alpha('a')"]
+IE_TRACE:     12:46:22.003701 line        66     return "\n".join(result)
+IE_TRACE:     12:46:22.003725 return      66     return "\n".join(result)
+IE_TRACE:     Return value:.. "assert not 'a' > 'a'\n +  where 'a' = _Alpha('a')\n +  and   'a' = _Alpha('a')"
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py
+IE_TRACE: Modified var:.. @py_assert1 = 'a'
+IE_TRACE: Modified var:.. @py_assert3 = 'a'
+IE_TRACE: Modified var:.. @py_assert7 = 'a'
+IE_TRACE: Modified var:.. @py_assert9 = 'a'
+IE_TRACE: Modified var:.. @py_assert5 = True
+IE_TRACE: New var:....... @py_format11 = "'a'\n{'a' = _Alpha('a')\n} > 'a'\n{'a' = _Alpha('a')\n}"
+IE_TRACE: Modified var:.. @py_assert13 = False
+IE_TRACE: New var:....... @py_format14 = "assert not 'a'\n{'a' = _Alpha('a')\n} > 'a'\n{'a' = _Alpha('a')\n}"
+IE_TRACE: 12:46:22.003750 exception  282     assert not _Alpha('a') > _Alpha('a')  # pylint: disable=unneeded-not
+IE_TRACE: Exception:..... AssertionError: assert not 'a' > 'a'
+ +  where 'a' = _Alpha('a')
+ +  and   'a' = _Alpha('a')
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.026175
+=============================== warnings summary ===============================
+../../../../../../usr/lib/python3.12/importlib/__init__.py:90
+  /usr/lib/python3.12/importlib/__init__.py:90: DeprecationWarning: The Tix Tk extension is unmaintained, and the tkinter.tix wrapper module is deprecated in favor of tkinter.ttk
+    return _bootstrap._gcd_import(name[level:], package, level)
+
+test/units/utils/test_version.py:168
+  /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py:168: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    (LooseVersion('1'), SemanticVersion('1.0.0')),
+
+test/units/utils/test_version.py:169
+  /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py:169: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    (LooseVersion('1-alpha'), SemanticVersion('1.0.0-alpha')),
+
+test/units/utils/test_version.py:170
+  /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py:170: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    (LooseVersion('1.0.0-alpha+build'), SemanticVersion('1.0.0-alpha+build')),
+
+test/units/utils/test_version.py:174
+  /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py:174: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    LooseVersion('1.a.3'),
+
+test/units/utils/test_version.py:175
+  /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py:175: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    LooseVersion(),
+
+test/units/utils/test_version.py:177
+  /path/to/BugsInPy/workspace/ansible/test/units/utils/test_version.py:177: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    StrictVersion('1.2.3'),
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED test/units/utils/test_version.py::test_alpha - AssertionError: assert ...
+======================== 1 failed, 7 warnings in 0.14s =========================
+
+
+Exit code: 1

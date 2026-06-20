@@ -1,0 +1,28 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_generate_context_decodes_non_ascii_chars [label="test_generate_context_decodes_non_ascii_chars
+Verify `generate_context` correctly decodes non-ascii c…
+test_generate_context.py:114" fillcolor=white shape=box style=filled]
+	expected_context [label="expected_context
+{'non_ascii': OrderedDict({'full_name': 'éèà'})}" shape=ellipse]
+	generate_context [label="generate_context
+Generate the context for a Cookiecutter project templat…
+generate.py:70" fillcolor=white shape=box style=filled]
+	context [label="context
+OrderedDict()" shape=ellipse]
+	ERROR__FileNotFoundError [label="FileNotFoundError
+[Errno 2] No such file or directory: 'tests/test-generate-context/non_ascii.json'" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_generate_context_decodes_non_ascii_chars
+	}
+	{
+		rank=same
+		generate_context
+	}
+	test_generate_context_decodes_non_ascii_chars -> expected_context [label=writes color=black]
+	test_generate_context_decodes_non_ascii_chars -> generate_context [label="calls [#1]" color=blue penwidth=1.1]
+	test_generate_context_decodes_non_ascii_chars -> ERROR__FileNotFoundError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	generate_context -> context [label=writes color=black]
+	generate_context -> ERROR__FileNotFoundError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+}

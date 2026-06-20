@@ -1,0 +1,98 @@
+Cleared: /path/to/results/youtube-dl/bug16
+Running: python -m unittest -q test.test_utils.TestUtil.test_dfxp2srt
+Workdir: /path/to/BugsInPy/workspace/youtube-dl
+PYTHONPATH: /path/to/BugsInPy/workspace/youtube-dl
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/megaphone.py:21: SyntaxWarning: invalid escape sequence '\.'
+  'thumbnail': 're:^https://.*\.png.*$',
+/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/extractor/pandatv.py:39: SyntaxWarning: "is not" with 'int' literal. Did you mean "!="?
+  if error_code is not 0:
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: Starting var:.. self = <test.test_utils.TestUtil testMethod=test_dfxp2srt>
+IE_TRACE: 15:04:49.599943 call      1057     def test_dfxp2srt(self):
+IE_TRACE: 15:04:49.600348 line      1058         dfxp_data = '''<?xml version="1.0" encoding="UTF-8"?>
+IE_TRACE: 15:04:49.600385 line      1070             </tt>'''.encode('utf-8')
+IE_TRACE: 15:04:49.600412 line      1058         dfxp_data = '''<?xml version="1.0" encoding="UTF-8"?>
+IE_TRACE: New var:....... dfxp_data = bytes(len=726)
+IE_TRACE: 15:04:49.600430 line      1071         srt_data = '''1
+IE_TRACE: New var:....... srt_data = '1\n00:00:00,000 --> 00:00:01,000\nThe following line contains Chinese characters and special symbols\n\n2\n00:00:01,000 --> 00:00:02,000\n第二行\n♪♪\n\n3\n00:00:02,000 --> 00:00:03,000\nThird\nLine\n\n'
+IE_TRACE: 15:04:49.600460 line      1086         self.assertEqual(dfxp2srt(dfxp_data), srt_data)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py
+IE_TRACE:     Starting var:.. dfxp_data = bytes(len=726)
+IE_TRACE:     15:04:49.600533 call      2574 def dfxp2srt(dfxp_data):
+IE_TRACE:     15:04:49.600961 line      2576         ('http://www.w3.org/ns/ttml', [
+IE_TRACE:     15:04:49.600992 line      2581         ('http://www.w3.org/ns/ttml#styling', [
+IE_TRACE:     15:04:49.601017 line      2582             'http://www.w3.org/ns/ttml#style',
+IE_TRACE:     15:04:49.601041 line      2581         ('http://www.w3.org/ns/ttml#styling', [
+IE_TRACE:     15:04:49.601066 line      2575     LEGACY_NAMESPACES = (
+IE_TRACE:     New var:....... LEGACY_NAMESPACES = (('http://www.w3.org/ns/ttml', ['http://www.w3.org/2004/11/ttaf1', 'http://www.w3.org/2006/04/ttaf1', 'http://www.w3.org/2006/10/ttaf1']), ('http://www.w3.org/ns/ttml#styling', ['http://www.w3.org/ns/ttml#style']))
+IE_TRACE:     15:04:49.601092 line      2586     SUPPORTED_STYLING = [
+IE_TRACE:     New var:....... SUPPORTED_STYLING = ['color', 'fontFamily', 'fontSize', 'fontStyle', 'fontWeight', 'textDecoration']
+IE_TRACE:     15:04:49.601131 line      2595     _x = functools.partial(xpath_with_ns, ns_map={
+IE_TRACE:     15:04:49.601170 line      2596         'ttml': 'http://www.w3.org/ns/ttml',
+IE_TRACE:     15:04:49.601200 line      2597         'tts': 'http://www.w3.org/ns/ttml#styling',
+IE_TRACE:     15:04:49.601227 line      2595     _x = functools.partial(xpath_with_ns, ns_map={
+IE_TRACE:     New var:....... _x = functools.partial(<function xpath_with_ns at 0x7ba15d9d6700>, ns_map={'ttml': 'http://www.w3.org/ns/ttml', 'tts': 'http://www.w3.org/ns/ttml#styling'})
+IE_TRACE:     15:04:49.601255 line      2600     styles = {}
+IE_TRACE:     New var:....... styles = {}
+IE_TRACE:     15:04:49.601297 line      2601     default_style = {}
+IE_TRACE:     New var:....... default_style = {}
+IE_TRACE:     15:04:49.601339 line      2603     class TTMLPElementParser(object):
+IE_TRACE:         15:04:49.601387 call      2603     class TTMLPElementParser(object):
+IE_TRACE:         15:04:49.601409 line      2603     class TTMLPElementParser(object):
+IE_TRACE:         New var:....... __module__ = 'youtube_dl.utils'
+IE_TRACE:         New var:....... __qualname__ = 'dfxp2srt.<locals>.TTMLPElementParser'
+IE_TRACE:         15:04:49.601429 line      2604         _out = ''
+IE_TRACE:         New var:....... _out = ''
+IE_TRACE:         15:04:49.601461 line      2605         _unclosed_elements = []
+IE_TRACE:         New var:....... _unclosed_elements = []
+IE_TRACE:         15:04:49.601490 line      2606         _applied_styles = []
+IE_TRACE:         New var:....... _applied_styles = []
+IE_TRACE:         15:04:49.601521 line      2608         def start(self, tag, attrib):
+IE_TRACE:         New var:....... start = <function dfxp2srt.<locals>.TTMLPElementParser.start at 0x7ba15d032700>
+IE_TRACE:         15:04:49.601552 line      2653         def end(self, tag):
+IE_TRACE:         New var:....... end = <function dfxp2srt.<locals>.TTMLPElementParser.end at 0x7ba15d0327a0>
+IE_TRACE:         15:04:49.601591 line      2661         def data(self, data):
+IE_TRACE:         New var:....... data = <function dfxp2srt.<locals>.TTMLPElementParser.data at 0x7ba15d032840>
+IE_TRACE:         15:04:49.601624 line      2664         def close(self):
+IE_TRACE:         New var:....... close = <function dfxp2srt.<locals>.TTMLPElementParser.close at 0x7ba15d0328e0>
+IE_TRACE:         15:04:49.601659 return    2664         def close(self):
+IE_TRACE:         Return value:.. None
+IE_TRACE:     New var:....... TTMLPElementParser = <class 'youtube_dl.utils.dfxp2srt.<locals>.TTMLPElementParser'>
+IE_TRACE:     15:04:49.601718 line      2667     def parse_node(node):
+IE_TRACE:     New var:....... parse_node = <function dfxp2srt.<locals>.parse_node at 0x7ba15d032660>
+IE_TRACE:     15:04:49.601763 line      2673     for k, v in LEGACY_NAMESPACES:
+IE_TRACE:     New var:....... k = 'http://www.w3.org/ns/ttml'
+IE_TRACE:     New var:....... v = ['http://www.w3.org/2004/11/ttaf1', 'http://www.w3.org/2006/04/ttaf1', 'http://www.w3.org/2006/10/ttaf1']
+IE_TRACE:     15:04:49.601807 line      2674         for ns in v:
+IE_TRACE:     New var:....... ns = 'http://www.w3.org/2004/11/ttaf1'
+IE_TRACE:     15:04:49.601855 line      2675             dfxp_data = dfxp_data.replace(ns, k)
+IE_TRACE:     15:04:49.601903 exception 2675             dfxp_data = dfxp_data.replace(ns, k)
+IE_TRACE:     Exception:..... TypeError: a bytes-like object is required, not 'str'
+IE_TRACE:     Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py
+IE_TRACE: 15:04:49.602071 exception 1086         self.assertEqual(dfxp2srt(dfxp_data), srt_data)
+IE_TRACE: Exception:..... TypeError: a bytes-like object is required, not 'str'
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.002388
+======================================================================
+ERROR: test_dfxp2srt (test.test_utils.TestUtil.test_dfxp2srt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/youtube-dl/test/test_utils.py", line 1086, in test_dfxp2srt
+    self.assertEqual(dfxp2srt(dfxp_data), srt_data)
+                     ^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/youtube-dl/youtube_dl/utils.py", line 2675, in dfxp2srt
+    dfxp_data = dfxp_data.replace(ns, k)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: a bytes-like object is required, not 'str'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.003s
+
+FAILED (errors=1)
+
+
+Exit code: 1

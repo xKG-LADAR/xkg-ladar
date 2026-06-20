@@ -1,0 +1,56 @@
+Cleared: /path/to/results/tornado/bug9
+Running: python -m unittest -q tornado.test.httputil_test.TestUrlConcat.test_url_concat_none_params
+Workdir: /path/to/BugsInPy/workspace/tornado
+PYTHONPATH: /path/to/BugsInPy/workspace/tornado::
+/path/to/BugsInPy/workspace/tornado/tornado/util.py:245: SyntaxWarning: invalid escape sequence '\d'
+  """Unescape a string escaped by `re.escape`.
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/httputil_test.py
+IE_TRACE: Starting var:.. self = <tornado.test.httputil_test.TestUrlConcat testMethod=test_url_concat_none_params>
+IE_TRACE: 19:14:24.497869 call        72     def test_url_concat_none_params(self):
+IE_TRACE: 19:14:24.498184 line        73         url = url_concat(
+IE_TRACE: 19:14:24.498227 line        74             "https://localhost/path?r=1&t=2",
+IE_TRACE: 19:14:24.498254 line        75             None,
+IE_TRACE: 19:14:24.498273 line        73         url = url_concat(
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/httputil.py
+IE_TRACE:     Starting var:.. url = 'https://localhost/path?r=1&t=2'
+IE_TRACE:     Starting var:.. args = None
+IE_TRACE:     19:14:24.498310 call       592 def url_concat(url, args):
+IE_TRACE:     19:14:24.498475 line       606     parsed_url = urlparse(url)
+IE_TRACE:     Source path:... /path/to/BugsInPy/workspace/tornado/tornado/httputil.py
+IE_TRACE:     New var:....... parsed_url = ParseResult(scheme='https', netloc='localhost', path='/path', params='', query='r=1&t=2', fragment='')
+IE_TRACE:     19:14:24.501818 line       607     if isinstance(args, dict):
+IE_TRACE:     19:14:24.501851 line       610     elif isinstance(args, list) or isinstance(args, tuple):
+IE_TRACE:     19:14:24.501873 line       614         err = "'args' parameter should be dict, list or tuple. Not {0}".format(
+IE_TRACE:     19:14:24.501892 line       615             type(args))
+IE_TRACE:     19:14:24.501911 line       614         err = "'args' parameter should be dict, list or tuple. Not {0}".format(
+IE_TRACE:     New var:....... err = "'args' parameter should be dict, list or tuple. Not <class 'NoneType'>"
+IE_TRACE:     19:14:24.501937 line       616         raise TypeError(err)
+IE_TRACE:     19:14:24.501965 exception  616         raise TypeError(err)
+IE_TRACE:     Exception:..... TypeError: 'args' parameter should be dict, list or tuple. Not <class 'NoneType'>
+IE_TRACE:     Call ended by exception
+IE_TRACE: Source path:... /path/to/BugsInPy/workspace/tornado/tornado/test/httputil_test.py
+IE_TRACE: 19:14:24.502099 exception   73         url = url_concat(
+IE_TRACE: Exception:..... TypeError: 'args' parameter should be dict, list or tuple. Not <class 'NoneType'>
+IE_TRACE: Call ended by exception
+IE_TRACE: Elapsed time: 00:00:00.004491
+======================================================================
+ERROR: test_url_concat_none_params (tornado.test.httputil_test.TestUrlConcat.test_url_concat_none_params)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/path/to/.venv/lib/python3.12/site-packages/pysnooper/tracer.py", line 320, in simple_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/test/httputil_test.py", line 73, in test_url_concat_none_params
+    url = url_concat(
+          ^^^^^^^^^^^
+  File "/path/to/BugsInPy/workspace/tornado/tornado/httputil.py", line 616, in url_concat
+    raise TypeError(err)
+TypeError: 'args' parameter should be dict, list or tuple. Not <class 'NoneType'>
+
+----------------------------------------------------------------------
+Ran 1 test in 0.005s
+
+FAILED (errors=1)
+
+
+Exit code: 1

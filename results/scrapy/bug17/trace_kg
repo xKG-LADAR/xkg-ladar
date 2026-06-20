@@ -1,0 +1,72 @@
+digraph {
+	graph [nodesep=0.5 rankdir=TB ranksep=1.0 splines=spline]
+	test_response_status_message [label="test_response_status_message
+test_utils_response.py:86" fillcolor=white shape=box style=filled]
+	response_status_message [label="response_status_message
+Return status code plus status text descriptive message
+response.py:48" fillcolor=white shape=box style=filled]
+	__getattribute__ [label=__getattribute__ fillcolor=white shape=box style=filled]
+	__init__ [label="__init__
+extensions.py:5" fillcolor=white shape=box style=filled]
+	state [label="state
+(3 writes, 3 distinct)
+<twisted.python.deprecate._InternalState object at 0x7e940fc73980>
+<twisted.python.deprecate._InternalState object at 0x7e940fcb1640>
+<twisted.python.deprecate._InternalState object at 0x7e940fcb1940>" shape=ellipse]
+	deprecatedAttribute [label="deprecatedAttribute
+(3 writes)
+None" shape=ellipse]
+	value [label="value
+(3 writes)
+dict(len=45)" shape=ellipse]
+	__setattr__ [label="__setattr__
+item.py:73" fillcolor=white shape=box style=filled]
+	to_native_str [label="to_native_str
+Return str representation of `text`
+python.py:125" fillcolor=white shape=box style=filled]
+	to_unicode [label="to_unicode
+Return the unicode representation of a bytes object `te…
+python.py:99" fillcolor=white shape=box style=filled]
+	encoding [label="encoding
+(2 writes)
+'utf-8'" shape=ellipse]
+	ERROR__TypeError [label="TypeError
+to_unicode must receive a bytes, str or unicode object, got NoneType" fillcolor=red fontcolor=white shape=doubleoctagon style=filled]
+	{
+		rank=same
+		test_response_status_message
+	}
+	{
+		rank=same
+		response_status_message
+	}
+	{
+		rank=same
+		__getattribute__
+		to_native_str
+	}
+	{
+		rank=same
+		__init__
+		__setattr__
+		to_unicode
+	}
+	test_response_status_message -> response_status_message [label="calls×3 [#1]" color=blue penwidth=1.3]
+	test_response_status_message -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	response_status_message -> __getattribute__ [label="calls×3 [#2]" color=blue penwidth=1.3]
+	response_status_message -> to_native_str [label="calls×3 [#8]" color=blue penwidth=1.3]
+	response_status_message -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	__getattribute__ -> __init__ [label="calls×3 [#3]" color=blue penwidth=1.3]
+	__getattribute__ -> state [label="writes×3" color=black]
+	__getattribute__ -> __getattribute__ [label="calls×9 [#4]" color=blue penwidth=1.9]
+	__getattribute__ -> deprecatedAttribute [label="writes×3" color=black]
+	__getattribute__ -> value [label="writes×3" color=black]
+	__getattribute__ -> __setattr__ [label="calls×3 [#7]" color=blue penwidth=1.3]
+	value -> __setattr__ [label="passed to" color=green style=dashed]
+	to_native_str -> to_unicode [label="calls×3 [#9]" color=blue penwidth=1.3]
+	to_native_str -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	to_unicode -> encoding [label="writes×2" color=black]
+	to_unicode -> ERROR__TypeError [label="raises (caught)" color=gray penwidth=1 style=dashed]
+	encoding -> to_native_str [label="passed to" color=green style=dashed]
+	encoding -> to_unicode [label="passed to" color=green style=dashed]
+}
