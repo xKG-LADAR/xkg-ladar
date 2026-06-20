@@ -7,10 +7,10 @@ A pipeline that transforms execution traces into structured knowledge graphs (xK
 ## Overview
 
 The pipeline runs four steps per bug:
-1. **Trace** (`run_trace.py`) — Instruments the failing test with PySnooper to capture an execution trace
-2. **Condense** (`trace_condense.py`) — Filters and compresses the raw trace
-3. **Knowledge Graph** (`build_trace_kg.py`) — Builds a KG of variable/control-flow relationships from the condensed trace
-4. **Diagnose & Fix** (`debug_agent.py`) — Feeds the KG into Claude (Anthropic API) to diagnose the root cause and generate a patch
+1. **Trace** (`run_trace.py`) - Instruments the failing test with PySnooper to capture an execution trace
+2. **Condense** (`trace_condense.py`) - Filters and compresses the raw trace
+3. **Knowledge Graph** (`build_trace_kg.py`) - Builds a KG of variable/control-flow relationships from the condensed trace
+4. **Diagnose & Fix** (`debug_agent.py`) - Feeds the KG into Claude (Anthropic API) to diagnose the root cause and generate a patch
 
 Results on 86 fully-traced bugs are in the `results/` directory.
 
@@ -46,7 +46,7 @@ cp .env.example .env
 # Edit .env and fill in your Anthropic API key
 ```
 
-The only required key is `CLAUDE_API_KEY` — used by `debug_agent.py` (step 4) to call Claude for diagnosis and fix generation.
+The only required key is `CLAUDE_API_KEY` - used by `debug_agent.py` (step 4) to call Claude for diagnosis and fix generation.
 
 ### 4. Verify setup
 
@@ -104,17 +104,17 @@ Pre-computed results for 86 fully-traced bugs are in `results/`. Each bug direct
 | `trace_kg.pdf` | Knowledge graph visualization |
 
 Top-level summary files:
-- `results/combined_evaluation.json` — per-bug evaluation data for all 142 attempted bugs
-- `results/batch_summary.txt` — human-readable batch run log
+- `results/combined_evaluation.json` - per-bug evaluation data for all 142 attempted bugs
+- `results/batch_summary.txt` - human-readable batch run log
 
 ## File Reference
 
 | File | Purpose |
 |---|---|
 | `run_pipeline.py` | Main end-to-end pipeline orchestrator |
-| `helpers/run_trace.py` | Step 1 — PySnooper trace instrumentation |
-| `helpers/trace_condense.py` | Step 2 — Trace condensation / filtering |
-| `helpers/build_trace_kg.py` | Step 3 — Knowledge graph construction |
-| `helpers/debug_agent.py` | Step 4 — Claude-based diagnosis and fix generation |
+| `helpers/run_trace.py` | Step 1 - PySnooper trace instrumentation |
+| `helpers/trace_condense.py` | Step 2 - Trace condensation / filtering |
+| `helpers/build_trace_kg.py` | Step 3 - Knowledge graph construction |
+| `helpers/debug_agent.py` | Step 4 - Claude-based diagnosis and fix generation |
 | `helpers/run_claude_code.py` | Claude Code CLI baseline (separate evaluation) |
 | `.env.example` | API key template |
